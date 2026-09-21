@@ -1,0 +1,734 @@
+{
+  "rows": [
+    {
+      "component": 1,
+      "read": "a",
+      "candidate": "graph",
+      "worst_absolute_error": 308127.6506206278,
+      "teacher_max_absolute": 1237123.1754482514,
+      "relative_to_teacher_max": 0.2490678832437059,
+      "extrema": {
+        "minimum": {
+          "value": -308127.6506206278,
+          "multiplier": 217.06843947771077,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.735889812469628e-15,
+            "relative_dual_gap": 3.778152385624989e-16,
+            "shift_min_eigenvalue": 21.207684224790967,
+            "radius_excess": 7.105427357601002e-15,
+            "complementarity": 8.749776375823682e-16
+          }
+        },
+        "maximum": {
+          "value": 213798.54634173604,
+          "multiplier": 187.40311406825063,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.053749808880059e-15,
+            "relative_dual_gap": 2.7497725559195724e-14,
+            "shift_min_eigenvalue": 1.3164475142793322,
+            "radius_excess": 0.0,
+            "complementarity": 2.6061305537578964e-14
+          }
+        }
+      }
+    },
+    {
+      "component": 1,
+      "read": "a",
+      "candidate": "covariance_baseline",
+      "worst_absolute_error": 319094.6879034609,
+      "teacher_max_absolute": 1237123.1754482514,
+      "relative_to_teacher_max": 0.2579328350128451,
+      "extrema": {
+        "minimum": {
+          "value": -319094.6879034609,
+          "multiplier": 227.8870122585779,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.65271365799249e-15,
+            "relative_dual_gap": 7.296600428657409e-16,
+            "shift_min_eigenvalue": 25.755063366892273,
+            "radius_excess": 0.0,
+            "complementarity": 6.675650155845053e-16
+          }
+        },
+        "maximum": {
+          "value": 229777.46880036837,
+          "multiplier": 198.50604131354393,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.2818137305682442e-15,
+            "relative_dual_gap": 2.558551011530088e-14,
+            "shift_min_eigenvalue": 0.7363804441139905,
+            "radius_excess": 0.0,
+            "complementarity": 2.5004385075475372e-14
+          }
+        }
+      }
+    },
+    {
+      "component": 1,
+      "read": "a",
+      "candidate": "isotropic_baseline",
+      "worst_absolute_error": 242071.655771847,
+      "teacher_max_absolute": 1237123.1754482514,
+      "relative_to_teacher_max": 0.19567304256840576,
+      "extrema": {
+        "minimum": {
+          "value": -242071.655771847,
+          "multiplier": 168.19387421214014,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.904607795125662e-15,
+            "relative_dual_gap": 3.6068448861477746e-16,
+            "shift_min_eigenvalue": 13.709272831330594,
+            "radius_excess": 0.0,
+            "complementarity": 2.076481533011288e-16
+          }
+        },
+        "maximum": {
+          "value": 193758.2142920273,
+          "multiplier": 162.53794739872862,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.8016724628562276e-15,
+            "relative_dual_gap": 8.411589214590202e-15,
+            "shift_min_eigenvalue": 2.6669058999419235,
+            "radius_excess": 0.0,
+            "complementarity": 8.427950189182145e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 1,
+      "read": "b",
+      "candidate": "graph",
+      "worst_absolute_error": 409589.5960589199,
+      "teacher_max_absolute": 1837525.761293794,
+      "relative_to_teacher_max": 0.22290277757549892,
+      "extrema": {
+        "minimum": {
+          "value": -352039.20129805966,
+          "multiplier": 296.17878646308765,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.688476077886447e-15,
+            "relative_dual_gap": 4.960327773058262e-15,
+            "shift_min_eigenvalue": 0.992307821275574,
+            "radius_excess": 0.0,
+            "complementarity": 4.908888684749967e-15
+          }
+        },
+        "maximum": {
+          "value": 409589.5960589199,
+          "multiplier": 322.3723845853908,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.856158927766743e-15,
+            "relative_dual_gap": 1.1368972546869888e-15,
+            "shift_min_eigenvalue": 12.750381250252929,
+            "radius_excess": 0.0,
+            "complementarity": 1.4385062675583768e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 1,
+      "read": "b",
+      "candidate": "covariance_baseline",
+      "worst_absolute_error": 432715.8307415385,
+      "teacher_max_absolute": 1837525.761293794,
+      "relative_to_teacher_max": 0.23548830707922436,
+      "extrema": {
+        "minimum": {
+          "value": -397809.2468458295,
+          "multiplier": 329.63209949426385,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.622841646727578e-15,
+            "relative_dual_gap": 7.316026635251352e-16,
+            "shift_min_eigenvalue": 7.6207101351161555,
+            "radius_excess": 0.0,
+            "complementarity": 3.8796367310792834e-16
+          }
+        },
+        "maximum": {
+          "value": 432715.8307415385,
+          "multiplier": 340.51812155205454,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.707977179663365e-15,
+            "relative_dual_gap": 1.076136471618665e-15,
+            "shift_min_eigenvalue": 5.123469933269803,
+            "radius_excess": 0.0,
+            "complementarity": 1.4027162855177605e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 1,
+      "read": "b",
+      "candidate": "isotropic_baseline",
+      "worst_absolute_error": 326727.0030628532,
+      "teacher_max_absolute": 1837525.761293794,
+      "relative_to_teacher_max": 0.17780812108604457,
+      "extrema": {
+        "minimum": {
+          "value": -326727.0030628532,
+          "multiplier": 249.2568809241957,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.4187996327536597e-15,
+            "relative_dual_gap": 5.344614344802398e-16,
+            "shift_min_eigenvalue": 2.176478511899944,
+            "radius_excess": 0.0,
+            "complementarity": 3.966318627849716e-16
+          }
+        },
+        "maximum": {
+          "value": 320829.9367029133,
+          "multiplier": 252.92073538496987,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.972564409271438e-15,
+            "relative_dual_gap": 4.172853115790887e-15,
+            "shift_min_eigenvalue": 4.849016863057415,
+            "radius_excess": 0.0,
+            "complementarity": 5.0307749800492906e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 2,
+      "read": "a",
+      "candidate": "graph",
+      "worst_absolute_error": 279133.1600906912,
+      "teacher_max_absolute": 1152864.1205747502,
+      "relative_to_teacher_max": 0.24212147390928587,
+      "extrema": {
+        "minimum": {
+          "value": -279133.1600906912,
+          "multiplier": 228.26703554617592,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.277291191434289e-15,
+            "relative_dual_gap": 2.0435948088956285e-14,
+            "shift_min_eigenvalue": 1.2659883429355716,
+            "radius_excess": 0.0,
+            "complementarity": 2.163363704116119e-14
+          }
+        },
+        "maximum": {
+          "value": 267608.44774623733,
+          "multiplier": 221.7519848712754,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.009852444294779e-15,
+            "relative_dual_gap": 8.047890385883972e-15,
+            "shift_min_eigenvalue": 0.7005671365560318,
+            "radius_excess": 0.0,
+            "complementarity": 8.290788068886772e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 2,
+      "read": "a",
+      "candidate": "covariance_baseline",
+      "worst_absolute_error": 291505.65448615234,
+      "teacher_max_absolute": 1152864.1205747502,
+      "relative_to_teacher_max": 0.25285343631027807,
+      "extrema": {
+        "minimum": {
+          "value": -291505.65448615234,
+          "multiplier": 235.70772532744198,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.930413922593233e-15,
+            "relative_dual_gap": 9.784288369251391e-15,
+            "shift_min_eigenvalue": 3.204038111750691,
+            "radius_excess": 0.0,
+            "complementarity": 1.040483071709336e-14
+          }
+        },
+        "maximum": {
+          "value": 276793.8269723291,
+          "multiplier": 229.54510758599852,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.6176594727977376e-15,
+            "relative_dual_gap": 5.6778970176264934e-15,
+            "shift_min_eigenvalue": 2.345909947853187,
+            "radius_excess": 0.0,
+            "complementarity": 5.845843087397085e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 2,
+      "read": "a",
+      "candidate": "isotropic_baseline",
+      "worst_absolute_error": 246874.465600158,
+      "teacher_max_absolute": 1152864.1205747502,
+      "relative_to_teacher_max": 0.21414012388301312,
+      "extrema": {
+        "minimum": {
+          "value": -246874.465600158,
+          "multiplier": 198.17498762119484,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.292816017000128e-15,
+            "relative_dual_gap": 1.2967810755389255e-15,
+            "shift_min_eigenvalue": 2.8435587401505416,
+            "radius_excess": 0.0,
+            "complementarity": 1.4017238272230654e-15
+          }
+        },
+        "maximum": {
+          "value": 244982.46140585473,
+          "multiplier": 191.75087799914593,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.3446081448460034e-15,
+            "relative_dual_gap": 2.0195940351207843e-15,
+            "shift_min_eigenvalue": 4.228549986869979,
+            "radius_excess": 0.0,
+            "complementarity": 2.131305091161764e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 2,
+      "read": "b",
+      "candidate": "graph",
+      "worst_absolute_error": 381918.8314299164,
+      "teacher_max_absolute": 1884740.4280018555,
+      "relative_to_teacher_max": 0.20263736361553783,
+      "extrema": {
+        "minimum": {
+          "value": -351927.7942502861,
+          "multiplier": 300.6548541864794,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.69630544478091e-15,
+            "relative_dual_gap": 1.0916175656068357e-14,
+            "shift_min_eigenvalue": 2.135665708217914,
+            "radius_excess": 0.0,
+            "complementarity": 1.0535606471598452e-14
+          }
+        },
+        "maximum": {
+          "value": 381918.8314299164,
+          "multiplier": 292.7895266686332,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.4089772039024138e-15,
+            "relative_dual_gap": 6.248746856804529e-15,
+            "shift_min_eigenvalue": 4.514414209844858,
+            "radius_excess": 0.0,
+            "complementarity": 6.7754638524187635e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 2,
+      "read": "b",
+      "candidate": "covariance_baseline",
+      "worst_absolute_error": 420442.19555002573,
+      "teacher_max_absolute": 1884740.4280018555,
+      "relative_to_teacher_max": 0.2230769761731942,
+      "extrema": {
+        "minimum": {
+          "value": -380580.7906491937,
+          "multiplier": 324.00902732511724,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.518842960834897e-15,
+            "relative_dual_gap": 3.8236073879462435e-15,
+            "shift_min_eigenvalue": 3.696153110040086,
+            "radius_excess": 0.0,
+            "complementarity": 3.793359646810239e-15
+          }
+        },
+        "maximum": {
+          "value": 420442.19555002573,
+          "multiplier": 327.3825970180776,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.899025456200489e-15,
+            "relative_dual_gap": 2.0766586297547837e-15,
+            "shift_min_eigenvalue": 9.494569278680729,
+            "radius_excess": 0.0,
+            "complementarity": 2.4207511348136536e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 2,
+      "read": "b",
+      "candidate": "isotropic_baseline",
+      "worst_absolute_error": 325055.1879151917,
+      "teacher_max_absolute": 1884740.4280018555,
+      "relative_to_teacher_max": 0.17246681987917314,
+      "extrema": {
+        "minimum": {
+          "value": -301585.14311078284,
+          "multiplier": 253.61885599709842,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.352208757441179e-15,
+            "relative_dual_gap": 1.9686584531097486e-14,
+            "shift_min_eigenvalue": 0.2981358684108386,
+            "radius_excess": 0.0,
+            "complementarity": 2.01557377982652e-14
+          }
+        },
+        "maximum": {
+          "value": 325055.1879151917,
+          "multiplier": 251.55667043258285,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.6958263429776926e-15,
+            "relative_dual_gap": 1.0744205244677535e-15,
+            "shift_min_eigenvalue": 4.362203865708295,
+            "radius_excess": 2.1316282072803006e-14,
+            "complementarity": 1.1759912145959218e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 3,
+      "read": "a",
+      "candidate": "graph",
+      "worst_absolute_error": 355951.75392331876,
+      "teacher_max_absolute": 1118579.4981384128,
+      "relative_to_teacher_max": 0.31821766313052285,
+      "extrema": {
+        "minimum": {
+          "value": -343977.87671770283,
+          "multiplier": 283.27663851978286,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.2087662881561944e-15,
+            "relative_dual_gap": 2.3859907117033264e-14,
+            "shift_min_eigenvalue": 3.4632188497238303,
+            "radius_excess": 0.0,
+            "complementarity": 2.3783146905273054e-14
+          }
+        },
+        "maximum": {
+          "value": 355951.75392331876,
+          "multiplier": 294.0293764479319,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 4.264987297088599e-15,
+            "relative_dual_gap": 7.35870721870439e-15,
+            "shift_min_eigenvalue": 4.8720129371643,
+            "radius_excess": 0.0,
+            "complementarity": 7.827242275570976e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 3,
+      "read": "a",
+      "candidate": "covariance_baseline",
+      "worst_absolute_error": 340569.9861924831,
+      "teacher_max_absolute": 1118579.4981384128,
+      "relative_to_teacher_max": 0.3044665012717237,
+      "extrema": {
+        "minimum": {
+          "value": -340569.9861924831,
+          "multiplier": 278.6851090180364,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.741002047508178e-15,
+            "relative_dual_gap": 1.5894860629007076e-14,
+            "shift_min_eigenvalue": 2.1805360639958167,
+            "radius_excess": 0.0,
+            "complementarity": 1.730686480212252e-14
+          }
+        },
+        "maximum": {
+          "value": 331260.9088661907,
+          "multiplier": 276.39762892420885,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.57626898433636e-15,
+            "relative_dual_gap": 5.09574815896072e-15,
+            "shift_min_eigenvalue": 1.7079897742154913,
+            "radius_excess": 0.0,
+            "complementarity": 5.327009386732345e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 3,
+      "read": "a",
+      "candidate": "isotropic_baseline",
+      "worst_absolute_error": 299269.313907361,
+      "teacher_max_absolute": 1118579.4981384128,
+      "relative_to_teacher_max": 0.26754407210700504,
+      "extrema": {
+        "minimum": {
+          "value": -297213.67875921266,
+          "multiplier": 242.01528905438605,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 4.5500625336647606e-15,
+            "relative_dual_gap": 1.6450937040123107e-14,
+            "shift_min_eigenvalue": 0.6988960827726203,
+            "radius_excess": 0.0,
+            "complementarity": 1.7368436016607775e-14
+          }
+        },
+        "maximum": {
+          "value": 299269.313907361,
+          "multiplier": 244.88597229494485,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 4.08446929024832e-15,
+            "relative_dual_gap": 3.889985254651643e-16,
+            "shift_min_eigenvalue": 2.8652988827488173,
+            "radius_excess": 1.4210854715202004e-14,
+            "complementarity": 9.985484702293036e-16
+          }
+        }
+      }
+    },
+    {
+      "component": 3,
+      "read": "b",
+      "candidate": "graph",
+      "worst_absolute_error": 647136.8497621556,
+      "teacher_max_absolute": 2680065.388226063,
+      "relative_to_teacher_max": 0.24146308243266254,
+      "extrema": {
+        "minimum": {
+          "value": -433828.53173394484,
+          "multiplier": 381.12424394874125,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.548892358924992e-15,
+            "relative_dual_gap": 4.561849501110237e-15,
+            "shift_min_eigenvalue": 3.38538047224381,
+            "radius_excess": 0.0,
+            "complementarity": 4.344648258133659e-15
+          }
+        },
+        "maximum": {
+          "value": 647136.8497621556,
+          "multiplier": 445.0504576673186,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.716057871541691e-15,
+            "relative_dual_gap": 0.0,
+            "shift_min_eigenvalue": 46.8264001593372,
+            "radius_excess": 7.105427357601002e-15,
+            "complementarity": 4.4116338218840713e-16
+          }
+        }
+      }
+    },
+    {
+      "component": 3,
+      "read": "b",
+      "candidate": "covariance_baseline",
+      "worst_absolute_error": 699340.292279052,
+      "teacher_max_absolute": 2680065.388226063,
+      "relative_to_teacher_max": 0.2609415036481426,
+      "extrema": {
+        "minimum": {
+          "value": -464422.8594328705,
+          "multiplier": 412.8111739435997,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 4.305356607493993e-15,
+            "relative_dual_gap": 6.015999572584066e-15,
+            "shift_min_eigenvalue": 3.032395600349105,
+            "radius_excess": 0.0,
+            "complementarity": 5.2786638883488034e-15
+          }
+        },
+        "maximum": {
+          "value": 699340.292279052,
+          "multiplier": 473.32290334223353,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 4.00360636106175e-15,
+            "relative_dual_gap": 4.993934559993116e-16,
+            "shift_min_eigenvalue": 56.569743228676316,
+            "radius_excess": 2.1316282072803006e-14,
+            "complementarity": 1.3449854047380008e-15
+          }
+        }
+      }
+    },
+    {
+      "component": 3,
+      "read": "b",
+      "candidate": "isotropic_baseline",
+      "worst_absolute_error": 475003.1187105391,
+      "teacher_max_absolute": 2680065.388226063,
+      "relative_to_teacher_max": 0.17723564536794528,
+      "extrema": {
+        "minimum": {
+          "value": -356942.2553749382,
+          "multiplier": 314.22148915249136,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 3.453436150994441e-15,
+            "relative_dual_gap": 1.1415113236348977e-15,
+            "shift_min_eigenvalue": 6.854336959608702,
+            "radius_excess": 0.0,
+            "complementarity": 8.058181802440122e-16
+          }
+        },
+        "maximum": {
+          "value": 475003.1187105391,
+          "multiplier": 326.7607547218204,
+          "case": "secular",
+          "certificate": {
+            "stationarity": 4.2547267282242964e-15,
+            "relative_dual_gap": 2.3282911496625928e-15,
+            "shift_min_eigenvalue": 18.90553928046404,
+            "radius_excess": 0.0,
+            "complementarity": 2.93291254870413e-15
+          }
+        }
+      }
+    }
+  ],
+  "controls": [
+    {
+      "name": "positive_interior",
+      "value": -0.25,
+      "case": "interior",
+      "certificate": {
+        "stationarity": 0.0,
+        "relative_dual_gap": 0.0,
+        "shift_min_eigenvalue": 1.0,
+        "radius_excess": 0.0,
+        "complementarity": 0.0
+      }
+    },
+    {
+      "name": "hard_negative",
+      "value": -18.0,
+      "case": "hard",
+      "certificate": {
+        "stationarity": 0.0,
+        "relative_dual_gap": 0.0,
+        "shift_min_eigenvalue": 0.0,
+        "radius_excess": 0.0,
+        "complementarity": 0.0
+      }
+    },
+    {
+      "name": "linear",
+      "value": -8.0,
+      "case": "secular",
+      "certificate": {
+        "stationarity": 0.0,
+        "relative_dual_gap": 0.0,
+        "shift_min_eigenvalue": 1.25,
+        "radius_excess": 0.0,
+        "complementarity": 0.0
+      }
+    },
+    {
+      "name": "singular_interior",
+      "value": -0.25,
+      "case": "interior",
+      "certificate": {
+        "stationarity": 0.0,
+        "relative_dual_gap": 0.0,
+        "shift_min_eigenvalue": 0.0,
+        "radius_excess": 0.0,
+        "complementarity": 0.0
+      }
+    },
+    {
+      "name": "indefinite_easy",
+      "value": -10.0,
+      "case": "secular",
+      "certificate": {
+        "stationarity": 0.0,
+        "relative_dual_gap": 0.0,
+        "shift_min_eigenvalue": 0.25,
+        "radius_excess": 0.0,
+        "complementarity": 0.0
+      }
+    },
+    {
+      "name": "hard_nonzero_linear",
+      "value": -8.333333333333334,
+      "case": "hard",
+      "certificate": {
+        "stationarity": 2.7755575615628914e-17,
+        "relative_dual_gap": 0.0,
+        "shift_min_eigenvalue": 0.0,
+        "radius_excess": 0.0,
+        "complementarity": 0.0
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "component": 1,
+      "read": "a",
+      "covariance_ratio": 0.9656307745049298,
+      "isotropic_ratio": 1.272877857749024
+    },
+    {
+      "component": 1,
+      "read": "b",
+      "covariance_ratio": 0.9465556075381215,
+      "isotropic_ratio": 1.2536141556078433
+    },
+    {
+      "component": 2,
+      "read": "a",
+      "covariance_ratio": 0.9575565886800014,
+      "isotropic_ratio": 1.130668412434277
+    },
+    {
+      "component": 2,
+      "read": "b",
+      "covariance_ratio": 0.9083741724121843,
+      "isotropic_ratio": 1.1749353513765812
+    },
+    {
+      "component": 3,
+      "read": "a",
+      "covariance_ratio": 1.0451647777386412,
+      "isotropic_ratio": 1.1894027799773144
+    },
+    {
+      "component": 3,
+      "read": "b",
+      "covariance_ratio": 0.9253533035444409,
+      "isotropic_ratio": 1.3623844229042053
+    }
+  ],
+  "predictions": {
+    "pred_a_certificates": true,
+    "pred_b_within_both_baselines": false
+  },
+  "seconds": 5.425832828972489,
+  "scope": "Worst source-read error over ||z||<=sqrt(1152). Contains RMS-normalized inputs; adversarial maximizers need not be reachable by text. Full affine corrections included. Teacher maximum is normalization, not a pointwise relative-error bound. Does not directly bound normalized composed component or endpoint errors."
+}

@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-09-21T15:38:02.963751+00:00",
+  "target": "All six source-read errors including affine corrections; RMS input ball radius sqrt1152.",
+  "algorithm": "Float64 eigendecomposition, secular root, explicit interior/hard-case handling, PSD shift and stationarity/duality certificate.",
+  "pred_a": "Six known-optimum and rotation controls; every native extremum certificate passes1e-8relative.",
+  "pred_b": "Graph worst error <=1.1both resource-matched baselines for every read.",
+  "cost": "CPU2threads,36dense1152dim error eigensolves plus6teacher spectra; no fitting or GPU.",
+  "source": "https://epubs.siam.org/doi/10.1137/16M1058200",
+  "scope": "Global bounded-input source robustness screen, not semantic/OOD text proof. Opposing result motivates worst-direction constraints rather than another average metric."
+}
