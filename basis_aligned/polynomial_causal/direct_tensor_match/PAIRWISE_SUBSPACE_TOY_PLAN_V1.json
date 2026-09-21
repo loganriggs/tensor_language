@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-09-21T12:10:23.885152+00:00",
+  "steps": 1800,
+  "rate": 0.03,
+  "optimizer": "Muon",
+  "seeds": [
+    0,
+    1
+  ],
+  "threshold": 0.01,
+  "required_cases": 4,
+  "pred_a": "Exact oracle reconstruction, dense loss/gradient replay on all5controls.",
+  "pred_b": "At least4of5genericpairwisesharedtargets recoveredwithin1%inoneof2randomstarts.",
+  "null": "Relaxing all-consumer sharing to pairwise dictionaries remains difficult to recover; do not infer native circuit failure.",
+  "native_intent": "Three64dictionaries shared12,13,23 plus224private perpair. Each pair retains352span dimensions; prospective160/224productgraph can retain20%source arithmetic reduction. Dense-core relaxation itself is unpriced."
+}

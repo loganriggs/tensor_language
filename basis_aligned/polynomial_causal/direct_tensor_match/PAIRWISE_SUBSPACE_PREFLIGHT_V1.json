@@ -1,0 +1,51 @@
+{
+  "controls": [
+    {
+      "case": 0,
+      "exact_inherited_span_squared_error": 7.122679259317085e-31,
+      "dense_gradient_replay": 1.528563359472072e-16,
+      "private_width": 2,
+      "shared_pair_width": 1
+    },
+    {
+      "case": 1,
+      "exact_inherited_span_squared_error": 7.693483162114508e-31,
+      "dense_gradient_replay": 1.1080391288311928e-16,
+      "private_width": 3,
+      "shared_pair_width": 2
+    },
+    {
+      "case": 2,
+      "exact_inherited_span_squared_error": 6.114042453449786e-31,
+      "dense_gradient_replay": 1.0034387215602057e-16,
+      "private_width": 2,
+      "shared_pair_width": 3
+    },
+    {
+      "case": 3,
+      "exact_inherited_span_squared_error": 5.392776036253478e-31,
+      "dense_gradient_replay": 1.1935123460953146e-16,
+      "private_width": 3,
+      "shared_pair_width": 1
+    },
+    {
+      "case": 4,
+      "exact_inherited_span_squared_error": 1.0538973311878726e-30,
+      "dense_gradient_replay": 2.6258294285283385e-16,
+      "private_width": 2,
+      "shared_pair_width": 2
+    }
+  ],
+  "prospective_graph_price": {
+    "projection_multiplications": 1056768,
+    "products": 1152,
+    "readout_multiplications": 2304,
+    "source_multiplications": 1060224,
+    "stored_floats": 1070604,
+    "baseline_multiplications": 1330560,
+    "required_maximum": 1064448.0,
+    "saving_fraction": 0.20317460317460323,
+    "scope": "Prospective sparse product topology only; NOT the dense-core relaxation. Literal two dictionary reads per pair, with no stored structural-zero blocks."
+  },
+  "scope": "Five exact inherited-span and dense-gradient controls. Pairwise dictionaries can move independently after an exact inherited initialization. No native fit or adoption."
+}
