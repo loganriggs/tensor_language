@@ -1,0 +1,85 @@
+{
+  "records": [
+    {
+      "lam": 0,
+      "objective": 0.00758952131926505,
+      "dense_replay": 5.741934705483231e-16,
+      "coefficient_error": 0.08711785692267932,
+      "source_gradient_error": 0.2951594413553435,
+      "per_mode_errors": [
+        0.026491197182037362,
+        0.02484261930063141,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.2008985932474816,
+        0.17933050476073686
+      ]
+    },
+    {
+      "lam": 0.1,
+      "objective": 0.014817606182843258,
+      "dense_replay": 3.469446951953614e-16,
+      "coefficient_error": 0.08712671182186274,
+      "source_gradient_error": 0.2950983315974569,
+      "per_mode_errors": [
+        0.026394672806753807,
+        0.02494536278465773,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.20086339181604396,
+        0.17926821790033215
+      ]
+    },
+    {
+      "lam": 1,
+      "objective": 0.04732214306334469,
+      "dense_replay": 6.314393452555578e-16,
+      "coefficient_error": 0.08720769329123366,
+      "source_gradient_error": 0.29502390362099323,
+      "per_mode_errors": [
+        0.02615071797511187,
+        0.02514499840145561,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.20083987038933776,
+        0.17917954706896297
+      ]
+    },
+    {
+      "lam": 10,
+      "objective": 0.07981380415487653,
+      "dense_replay": 3.885780586188048e-16,
+      "coefficient_error": 0.08727517673753227,
+      "source_gradient_error": 0.2950143870482413,
+      "per_mode_errors": [
+        0.025994590821223455,
+        0.025203158636682797,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.20087076881646432,
+        0.17915513260228172
+      ]
+    }
+  ],
+  "parent": {
+    "per_mode_errors": [
+      0.02649119718203811,
+      0.02484261930063104,
+      0.11941807156784633
+    ],
+    "euclidean_jacobian_errors": [
+      0.20089859324748194,
+      0.17933050476073675
+    ]
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_sensitivity": false,
+    "pred_c_values": true
+  },
+  "scope": "Fixed256mixed product directions, exact readout solves under changed source metrics. Private third unchanged. Opened scalar/Jacobian screen, no new native forwards."
+}

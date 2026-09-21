@@ -1,0 +1,22 @@
+{
+  "records": [
+    {
+      "input_rank": 256,
+      "relative_source_gradient_lower_bound": 0.3200268691024368
+    },
+    {
+      "input_rank": 384,
+      "relative_source_gradient_lower_bound": 0.24723188477621919
+    },
+    {
+      "input_rank": 512,
+      "relative_source_gradient_lower_bound": 0.19080155870485477
+    },
+    {
+      "input_rank": 640,
+      "relative_source_gradient_lower_bound": 0.14496239832545252
+    }
+  ],
+  "explicit_unfolding_replay": 2.2667250869827334e-15,
+  "scope": "Necessary right-mode rank bound. Each256mixed-product symmetric matrix lies in common span[L,R] of dimension<=512. Relaxation drops left-mode symmetry/product restrictions, so it need not be attainable. Source-gradient metric only; no native component/causal error bound."
+}

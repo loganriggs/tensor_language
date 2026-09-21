@@ -1,0 +1,41 @@
+{
+  "records": [
+    {
+      "seed": 470,
+      "envelope_gradient_replay": 3.955548596154047e-16,
+      "coefficient_error": 5.933185267496659e-10,
+      "recovered": true
+    },
+    {
+      "seed": 471,
+      "envelope_gradient_replay": 2.150620960321832e-16,
+      "coefficient_error": 2.584757565335795e-10,
+      "recovered": true
+    },
+    {
+      "seed": 472,
+      "envelope_gradient_replay": 2.533883307187393e-16,
+      "coefficient_error": 3.2902914621111233e-06,
+      "recovered": true
+    },
+    {
+      "seed": 473,
+      "envelope_gradient_replay": 2.0362802262148254e-16,
+      "coefficient_error": 0.025495440559812215,
+      "recovered": false
+    },
+    {
+      "seed": 474,
+      "envelope_gradient_replay": 2.3294848557013664e-16,
+      "coefficient_error": 2.822953713663428e-10,
+      "recovered": true
+    }
+  ],
+  "all_gradient_checks_pass": true,
+  "all_fits_recovered": false,
+  "steps": 2000,
+  "learning_rate": 0.02,
+  "restart_seed": null,
+  "ridge": 1e-10,
+  "seconds": 6.221650144085288
+}

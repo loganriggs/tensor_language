@@ -1,0 +1,96 @@
+{
+  "records": [
+    {
+      "component": 1,
+      "metric": "euclidean",
+      "baseline_error": 0.23893990936739737,
+      "graph_error": 0.20089859324748194,
+      "ratio": 0.8407912842160555,
+      "relative_pass": true,
+      "absolute_pass": false
+    },
+    {
+      "component": 1,
+      "metric": "covariance",
+      "baseline_error": 0.057292450177179904,
+      "graph_error": 0.046384444356874686,
+      "ratio": 0.8096083203533513,
+      "relative_pass": true,
+      "absolute_pass": true
+    },
+    {
+      "component": 1,
+      "metric": "sphere_tangent",
+      "baseline_error": 0.24405020106357148,
+      "graph_error": 0.20518091994653734,
+      "ratio": 0.8407324355905396,
+      "relative_pass": true,
+      "absolute_pass": false
+    },
+    {
+      "component": 2,
+      "metric": "euclidean",
+      "baseline_error": 0.19143211848732825,
+      "graph_error": 0.17933050476073675,
+      "ratio": 0.9367837862203225,
+      "relative_pass": true,
+      "absolute_pass": false
+    },
+    {
+      "component": 2,
+      "metric": "covariance",
+      "baseline_error": 0.049396917016643956,
+      "graph_error": 0.04631308787368026,
+      "ratio": 0.9375704127056226,
+      "relative_pass": true,
+      "absolute_pass": true
+    },
+    {
+      "component": 2,
+      "metric": "sphere_tangent",
+      "baseline_error": 0.19865922782015777,
+      "graph_error": 0.18608037892633772,
+      "ratio": 0.9366812756102756,
+      "relative_pass": true,
+      "absolute_pass": false
+    },
+    {
+      "component": 3,
+      "metric": "euclidean",
+      "baseline_error": 0.1940484066374605,
+      "graph_error": 0.1940484066374605,
+      "ratio": 1.0,
+      "relative_pass": true,
+      "absolute_pass": false
+    },
+    {
+      "component": 3,
+      "metric": "covariance",
+      "baseline_error": 0.06492188267430449,
+      "graph_error": 0.06492188267430449,
+      "ratio": 1.0,
+      "relative_pass": true,
+      "absolute_pass": true
+    },
+    {
+      "component": 3,
+      "metric": "sphere_tangent",
+      "baseline_error": 0.199705762346706,
+      "graph_error": 0.199705762346706,
+      "ratio": 1.0,
+      "relative_pass": true,
+      "absolute_pass": false
+    }
+  ],
+  "autograd_replay_errors": [
+    2.013240670494394e-14,
+    8.478015924874199e-15,
+    6.2377693996232815e-15
+  ],
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_relative": true,
+    "pred_c_absolute": false
+  },
+  "scope": "448 previously opened states; h fixed. Covariance metric corresponds to perturbations with covariance root@root.T. Sphere projection removes radial perturbations, using Euclidean tangent geometry. Does not include downstream dependence h(z) or actual causal interventions."
+}
