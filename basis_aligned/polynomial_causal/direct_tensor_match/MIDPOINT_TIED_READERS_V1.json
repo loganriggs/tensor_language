@@ -1,0 +1,199 @@
+{
+  "records": [
+    {
+      "metric": "isotropic",
+      "rank_per_feature": 1,
+      "products": 4,
+      "input_coefficients": 4608,
+      "aggregate_calibration_error": 0.8951417169778244,
+      "individual_calibration_error": [
+        0.27443412626572505,
+        1.0527565437934352,
+        1.5798552758173123,
+        1.3196092828402892
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.8691435757244316,
+        0.9453214781181108,
+        0.9446496743437148,
+        0.8995391510817612
+      ]
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_feature": 2,
+      "products": 8,
+      "input_coefficients": 9216,
+      "aggregate_calibration_error": 0.4688283735846318,
+      "individual_calibration_error": [
+        0.3118127372716433,
+        0.30979103604425345,
+        0.6751612717401169,
+        1.1350410870337346
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.8443567521467709,
+        0.8937190123172047,
+        0.9184559289768406,
+        0.8447135500841289
+      ]
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_feature": 4,
+      "products": 16,
+      "input_coefficients": 18432,
+      "aggregate_calibration_error": 0.3990122614676756,
+      "individual_calibration_error": [
+        0.34978862079317063,
+        0.21141510130418267,
+        0.558019775048055,
+        0.7996375614661376
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.8237906408882146,
+        0.8706592877796554,
+        0.8920358815042818,
+        0.810967801306182
+      ]
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_feature": 8,
+      "products": 32,
+      "input_coefficients": 36864,
+      "aggregate_calibration_error": 0.31792786213879853,
+      "individual_calibration_error": [
+        0.28026660892095334,
+        0.16323007053002675,
+        0.5060394070598425,
+        0.5193449636320188
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.8008315055790252,
+        0.8467303901669404,
+        0.8685673043310506,
+        0.7870983000157121
+      ]
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_feature": 16,
+      "products": 64,
+      "input_coefficients": 73728,
+      "aggregate_calibration_error": 0.28783666342095143,
+      "individual_calibration_error": [
+        0.26903307894215517,
+        0.12199909210772958,
+        0.4449292081403925,
+        0.4594816466951869
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.7729009848200055,
+        0.8150142486738747,
+        0.8400293259866966,
+        0.7588440615089996
+      ]
+    },
+    {
+      "metric": "common_moment",
+      "rank_per_feature": 1,
+      "products": 4,
+      "input_coefficients": 4608,
+      "aggregate_calibration_error": 0.7501824080000973,
+      "individual_calibration_error": [
+        0.1992376599681281,
+        0.9308234668911767,
+        1.1255234068956366,
+        1.441116641622853
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.037901950590863306,
+        0.5086224645932698,
+        0.25352803280458114,
+        0.4728669283188143
+      ]
+    },
+    {
+      "metric": "common_moment",
+      "rank_per_feature": 2,
+      "products": 8,
+      "input_coefficients": 9216,
+      "aggregate_calibration_error": 0.2563026833872485,
+      "individual_calibration_error": [
+        0.11903858338524001,
+        0.14573067601572956,
+        0.5920104890397531,
+        0.2161382348285822
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.029509486250969497,
+        0.08326455192722687,
+        0.1274499995403075,
+        0.04276804114837319
+      ]
+    },
+    {
+      "metric": "common_moment",
+      "rank_per_feature": 4,
+      "products": 16,
+      "input_coefficients": 18432,
+      "aggregate_calibration_error": 0.1042742822007186,
+      "individual_calibration_error": [
+        0.05987599495115739,
+        0.11753473634442828,
+        0.17258404860992346,
+        0.1284762980105757
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.009012475606433439,
+        0.028965402974703305,
+        0.03285476425221379,
+        0.026965729945066796
+      ]
+    },
+    {
+      "metric": "common_moment",
+      "rank_per_feature": 8,
+      "products": 32,
+      "input_coefficients": 36864,
+      "aggregate_calibration_error": 0.05754356051020105,
+      "individual_calibration_error": [
+        0.024795710796955858,
+        0.05164379410285072,
+        0.1229720601824241,
+        0.044264209091314524
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.005045686864901709,
+        0.016442224191325704,
+        0.02205560837298793,
+        0.011879220096302198
+      ]
+    },
+    {
+      "metric": "common_moment",
+      "rank_per_feature": 16,
+      "products": 64,
+      "input_coefficients": 73728,
+      "aggregate_calibration_error": 0.03646590088691996,
+      "individual_calibration_error": [
+        0.01652893137513755,
+        0.035646075651976035,
+        0.07398393392229087,
+        0.03254847966318515
+      ],
+      "weighted_matrix_error_per_feature": [
+        0.0034948638753848466,
+        0.01146290450455343,
+        0.01474675187790705,
+        0.008387737418882747
+      ]
+    }
+  ],
+  "teacher_symmetry_error": 0.0,
+  "archived_teacher_replay": 8.261315466221693e-08,
+  "full_eigendecomposition_replay": 2.087984807814527e-12,
+  "seconds": 2.2988163009285927,
+  "scope": "Signed symmetric bilinear forms in normalized residual-space n,m. Same reader evaluated on both inputs, stored once. Calibration-only common moment; exact native scalar target, noheldfitting. Scalar featuredefinitions unchanged, individual reader semanticidentity unproven."
+}

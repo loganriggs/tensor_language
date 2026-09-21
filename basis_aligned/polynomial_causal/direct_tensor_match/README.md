@@ -8,6 +8,8 @@ The broader midpoint target retains all previous-MLP-polynomial-dependent self/c
 
 [Confirmed program](../explanations/for_logan/research_update_2026-09-20_2356_midpoint_confirmation.md) · [Shared graph](../explanations/for_logan/research_update_2026-09-21_0003_shared_midpoint_graph.md) · [Identity limits](../explanations/for_logan/research_update_2026-09-21_0009_midpoint_identity_limits.md) · [Joint products and moments](../explanations/for_logan/research_update_2026-09-21_0018_joint_products_and_moments.md). Earlier “next” entries below are historical.
 
+The signed tied-reader alternative `MIDPOINT_TIED4_PROGRAM_V1.pt` stores 18,432 input coefficients with 16 products and passes reused-panel swap preservation. It does not halve projection arithmetic. Conditional product rediscovery fails, partly because magnitude truncation changes the positive/negative mode inventory. [Tied-reader report](../explanations/for_logan/research_update_2026-09-21_0027_tied_readers_and_signed_cutoffs.md).
+
 Primary research focus: **20 September 15:10 UTC to 22 September 15:10 UTC**, per user direction. [Scope and questions](FOCUS_2026-09-20_TO_2026-09-22.md). This replaces the prior head/branch omission agenda for this period.
 
 We optimize randomly initialized student computations directly against the folded teacher's weights. Exact coefficient losses include symmetric Frobenius and Gaussian function norms; correlated-Gaussian metrics can incorporate covariance estimated from calibration data. No sampled activation targets are used to train the isotropic decompositions.

@@ -17,7 +17,9 @@ PANEL_PREFIX='SELECTIVE_CONFIRMATION'
 OUTPUT_NAME='MIDPOINT_SWAP_V1.json'
 DONOR_PREFIX='SELECTIVE_CONFIRMATION_DONORS'
 def evaluate_program(e,n,m):
- if 'Pn' in e:
+ if 'directions' in e:
+  left=n@e['directions'];right=m@e['directions']
+ elif 'Pn' in e:
   left=(n@e['Pn'])@e['Tn'];right=(m@e['Pm'])@e['Tm']
  else:left=n@e['A'];right=m@e['B']
  return (left*right)@e['readout']-e['offset']

@@ -31562,3 +31562,15 @@ JointCP8nativecalerror.1269 vsconfirmed.0718; rank16randomfitsstill.00873weighte
 
 ### 2026-09-21T00:18Z — Codex: exact joint moment improves CP8 but preservation fails
 Matched96forwardCP8screen instrumentPASS/jointmetricgainPASS/preservationFAIL. Jointmetric same-tokenjoint errors.0909FW/.1015code vsseparable.1084/.1273 andconfirmed.0645/.0622. SuccessorCPU exactmomentmismatch audit executed: relativejoint-vs-independentmomentdifference.899; residual paired/independentenergyratios1.789separable/.179jointfit. CP8notpromoted; optimizationrank16gap andproductgauge/restartinstability retained. READMEcurrentstateupdated andtimedreport integrates Mmetric evidence.
+
+### 2026-09-21T00:21Z — Codex: symmetric tied-reader structural baseline claimed
+Previous turn progressed viaCPgauge/optimizer evidence andexactjointmoment transfergain withpreservationfailure. Newhypothesis: exactscalarK symmetric, so use signedcommon-reader products(v.n)(v.m), storingvonce. CPUisotropic vs trace-balancedcommon-moment spectralfits ranks1/2/4/8/16perfeature, primaryrank4(16products/18,432inputcoeff). Nativecalibrationonly; includesfullsignedreplay/teacherarchivereplay. Storagehalves relativeuntiedreaders, projectionarithmeticdoesnot. Existingfouroutputdefinitionsfixed; no semanticuniquenessclaim.
+
+### 2026-09-21T00:22Z — Codex: tied spectral baseline replay passes; native screen claimed
+ExactnativeKsymmetry0, fullsignedweightedreplay2.1e-12, archivednativecalreplay8.3e-8. Tied16product commonmomentcalerror.1043 vsisotropic.3990/untiedconfirmed.0718. Claim48forward same-token swap preservation<=1.25baseline/allfeatures<.3cos>.95. Stored18,432directions coefficients usedbothinputs; nohalfcomputeclaim. Rank8perfeaturecal.0575uses32products andremainssecondaryunvalidated.
+
+### 2026-09-21T00:23Z — Codex: tied native swaps pass; conditional product identity running
+Tied48forward swaps allPASS: centeredjoint.0773FW/.0743code, allindividual<=.145. Cost18,432storedreaderdirections/16products but36,864linearmultiplications. SuccessorCPU fourcomplementarysplit common-moment signed-eigenproduct comparison running; fouroutputdefinitionsfixed, signedrankone tensorcosines>.9 everycomponent criterion. Narrow conditional stability, notrepair ofoutputidentityfailure.
+
+### 2026-09-21T00:27Z — Codex: tied product identity fails; signed cutoff diagnosis executed
+Tied spectralnativepreservation passes butconditionalallproductcos>.9FAIL. SuccessorCPU signedcutoff audit: feature3 fullcal4th/5thmagnitude gap.005; eachpartition switches3positive/1negative vs2positive/2negative retainedterms. Notdegenerate signed eigenvalues andnotallinstabilityexplained. Candidate signbalanced orblockretention remainsuntested; failurepreserved. Timedreport andREADME distinguish storagevsarithmetic and operationalvsidentityclaims.
