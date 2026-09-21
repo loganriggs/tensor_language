@@ -1,0 +1,120 @@
+{
+  "records": [
+    {
+      "geometry": "calibration_shaped",
+      "native_error": 0.5866956355657252,
+      "covariance_error": 0.07648242499298974,
+      "widths": [
+        352,
+        352,
+        352
+      ],
+      "compiler": [
+        {
+          "pencil_condition": 772.8406918031411,
+          "eigenbasis_condition": 605.8104342370871,
+          "real_basis_condition": 624.5484697112684,
+          "matrix_replay": [
+            1.594910880827755e-11,
+            1.6808860224068163e-11
+          ]
+        },
+        {
+          "pencil_condition": 47505.197340213286,
+          "eigenbasis_condition": 627.198602242488,
+          "real_basis_condition": 654.6865796640222,
+          "matrix_replay": [
+            3.9057975177487374e-11,
+            5.256808508660884e-11
+          ]
+        },
+        {
+          "pencil_condition": 63600.91025760061,
+          "eigenbasis_condition": 666.043073654338,
+          "real_basis_condition": 749.7748993235032,
+          "matrix_replay": [
+            2.2805475535994246e-11,
+            3.9603089518127974e-11
+          ]
+        }
+      ],
+      "failures": [],
+      "per_mode_errors": [
+        0.021337788219349178,
+        0.021077213244825106,
+        0.10675264332768929
+      ],
+      "euclidean_jacobian_errors": [
+        0.20055212321910826,
+        0.16700251787602,
+        0.17249230267213286
+      ],
+      "activation_products": 1056,
+      "projection_multiplications": 1216512,
+      "source_total_multiplications": 1219680,
+      "coefficient_pass": true,
+      "component_pass": false,
+      "jacobian_pass": true,
+      "original_arithmetic_pass": false
+    },
+    {
+      "geometry": "native_isotropic",
+      "native_error": 0.49286393339247003,
+      "covariance_error": 0.13047436468476578,
+      "widths": [
+        352,
+        352,
+        352
+      ],
+      "compiler": [
+        {
+          "pencil_condition": 14.905567649034976,
+          "eigenbasis_condition": 234.49199639933968,
+          "real_basis_condition": 228.48320136228838,
+          "matrix_replay": [
+            8.204703241385995e-12,
+            8.525569638571327e-12
+          ]
+        },
+        {
+          "pencil_condition": 5145.466996647985,
+          "eigenbasis_condition": 841.6549993867062,
+          "real_basis_condition": 788.0588552370702,
+          "matrix_replay": [
+            9.644333848942264e-11,
+            9.479217459657515e-11
+          ]
+        },
+        {
+          "pencil_condition": 341.6227868554816,
+          "eigenbasis_condition": 102.62930248436442,
+          "real_basis_condition": 113.9506941277129,
+          "matrix_replay": [
+            3.4764450277254347e-12,
+            4.368334533506958e-12
+          ]
+        }
+      ],
+      "failures": [],
+      "per_mode_errors": [
+        0.01889027149271573,
+        0.030598824523575038,
+        0.1184894848374136
+      ],
+      "euclidean_jacobian_errors": [
+        0.19579923309694222,
+        0.17638651411884515,
+        0.17225672492091754
+      ],
+      "activation_products": 1056,
+      "projection_multiplications": 1216512,
+      "source_total_multiplications": 1219680,
+      "coefficient_pass": false,
+      "component_pass": false,
+      "jacobian_pass": false,
+      "original_arithmetic_pass": false
+    }
+  ],
+  "seconds": 6.458979411050677,
+  "scope": "Diagnostic unrestricted core in final inherited input spans, followed by independent pair compilation. Shared across-pair projections are intentionally not retained in this concrete executor; all dense projections are charged. No fitting, new data or adoption. Mean/affine corrections match prior assessment. Same component and dual coefficient requirements; original20% source-saving requirement retained."
+}

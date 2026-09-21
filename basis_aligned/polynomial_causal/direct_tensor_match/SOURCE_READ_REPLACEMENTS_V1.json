@@ -1,0 +1,83 @@
+{
+  "records": [
+    {
+      "geometry": "calibration_shaped",
+      "pair": 0,
+      "errors": {
+        "approximate": 0.022181461647853173,
+        "exact_first": 0.02835830720720578,
+        "exact_second": 0.00874904854884216,
+        "exact_both": 0.0
+      },
+      "interaction_error": 0.00040239946108220275,
+      "interaction_identity_replay": 1.1209289377515738e-16,
+      "cached_truth_replay": 2.8480271712765805e-08
+    },
+    {
+      "geometry": "calibration_shaped",
+      "pair": 1,
+      "errors": {
+        "approximate": 0.022940272892729253,
+        "exact_first": 0.02358681394118967,
+        "exact_second": 0.01055968922574578,
+        "exact_both": 0.0
+      },
+      "interaction_error": 0.0010811768525430723,
+      "interaction_identity_replay": 8.971412542735954e-17,
+      "cached_truth_replay": 5.8889884555977315e-08
+    },
+    {
+      "geometry": "calibration_shaped",
+      "pair": 2,
+      "errors": {
+        "approximate": 0.10672336706611117,
+        "exact_first": 0.10417789983921956,
+        "exact_second": 0.04729864284462337,
+        "exact_both": 0.0
+      },
+      "interaction_error": 0.006260464155393968,
+      "interaction_identity_replay": 1.0090231627748716e-16,
+      "cached_truth_replay": 1.1143722105693476e-07
+    },
+    {
+      "geometry": "native_isotropic",
+      "pair": 0,
+      "errors": {
+        "approximate": 0.01980928843526536,
+        "exact_first": 0.027276871568731965,
+        "exact_second": 0.015268066169115599,
+        "exact_both": 0.0
+      },
+      "interaction_error": 0.0006364043325944946,
+      "interaction_identity_replay": 1.0955612280012184e-16,
+      "cached_truth_replay": 2.8480271712765805e-08
+    },
+    {
+      "geometry": "native_isotropic",
+      "pair": 1,
+      "errors": {
+        "approximate": 0.032027493953687265,
+        "exact_first": 0.02920948071753638,
+        "exact_second": 0.014350456975091673,
+        "exact_both": 0.0
+      },
+      "interaction_error": 0.0011100325968643292,
+      "interaction_identity_replay": 1.2767477109463566e-16,
+      "cached_truth_replay": 5.8889884555977315e-08
+    },
+    {
+      "geometry": "native_isotropic",
+      "pair": 2,
+      "errors": {
+        "approximate": 0.11756292889031865,
+        "exact_first": 0.09668286670951881,
+        "exact_second": 0.06033122067600481,
+        "exact_both": 0.0
+      },
+      "interaction_error": 0.007176102631091414,
+      "interaction_identity_replay": 9.6441767843494e-17,
+      "cached_truth_replay": 1.1143722105693476e-07
+    }
+  ],
+  "scope": "448 previously examined states; h and normalization held native. Exact source-read substitutions diagnose approximation error, not semantic ablations or fresh causal evidence. Error normalized by centered cached truth norm; exact-both uses recomputed native RMS to avoid conflating its small cached-scale drift."
+}
