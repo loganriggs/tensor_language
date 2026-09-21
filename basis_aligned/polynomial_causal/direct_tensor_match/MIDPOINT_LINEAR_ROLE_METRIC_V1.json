@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "metric": "paired",
+      "rank": 256,
+      "joint_error": 0.10355798528098072,
+      "context_linear_error": 0.11824196983905907,
+      "source_linear_error": 0.09363576529295102
+    },
+    {
+      "metric": "separate",
+      "rank": 256,
+      "joint_error": 0.10964219372770945,
+      "context_linear_error": 0.09352395064601103,
+      "source_linear_error": 0.04228351727749804
+    },
+    {
+      "metric": "source",
+      "rank": 256,
+      "joint_error": 0.25792330682099746,
+      "context_linear_error": 0.23150986331362272,
+      "source_linear_error": 0.01844949481046893
+    }
+  ],
+  "scope": "Same256-dimensional shared output basis budget. Calibrated original linear maps only. Paired mean-zero sum, separate mean-zero roles, or source-only objective. Relative errors of each linear target; no held/native confirmation. Centered bilinear interaction unaffected by all variants."
+}

@@ -57,6 +57,7 @@ def main():
     if 'centered_correction_left' in e:
      centered=products-left*e['right_mean']-right*e['left_mean']+e['left_mean']*e['right_mean'];reduced=reduced+(centered@e['centered_correction_left'])@e['centered_correction_writers'].T
     if 'linear_n' in e:reduced=reduced+n@e['linear_n']+m@e['linear_m']
+    if 'linear_left_reader' in e:reduced=reduced+(n@e['linear_left_reader']+m@e['linear_right_reader'])@e['linear_writer'].T
     reduced=reduced+e['full_mean']-mu;preds['product_'+name].append(reduced@invru.T)
   states=torch.cat(states);true=torch.cat(teacher);preds={k:torch.cat(v) for k,v in preds.items()};targets=tokens[:,1:257].reshape(-1).cuda();flat=tokens[:,:256].flatten();mapping=donors[domain]['same_token'];valid=mapping>=0;docs=torch.arange(len(flat))//256;assert torch.all(docs[valid]!=docs[mapping[valid]]) and torch.all(flat[valid]==flat[mapping[valid]])
   for doc in range(len(tokens)):

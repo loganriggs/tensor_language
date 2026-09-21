@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "rank": 64,
+      "weight_coefficients": 1990656,
+      "linear_variation_error": 0.21027895025715107,
+      "context_replay": 0.0,
+      "mean_replay": 1.6478444810455592e-10
+    },
+    {
+      "rank": 128,
+      "weight_coefficients": 2211840,
+      "linear_variation_error": 0.16067691302241907,
+      "context_replay": 0.0,
+      "mean_replay": 1.6446244640714421e-10
+    },
+    {
+      "rank": 256,
+      "weight_coefficients": 2654208,
+      "linear_variation_error": 0.10355798528098015,
+      "context_replay": 0.0,
+      "mean_replay": 1.6445856610218576e-10
+    }
+  ],
+  "scope": "Same adaptive512 centered interaction. Sharedlinear feature projections fit only paired calibration variation; constant corrected to preserve value at calibration input means. Context-only delta is algebraically invariant; source-only and full prediction may degrade. Full literal weights charged."
+}
