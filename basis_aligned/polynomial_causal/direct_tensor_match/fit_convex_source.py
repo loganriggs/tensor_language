@@ -10,7 +10,8 @@ from pairwise_graph_assessment import Assessment
 P=Path(__file__).parent;torch.set_num_threads(2);torch.set_grad_enabled(False);start=time.monotonic()
 VERSION=sys.argv[1] if len(sys.argv)>1 else 'V1'
 assert not (P/f'CONVEX_SOURCE_{VERSION}.json').exists()
-plan=json.loads((P/'CONVEX_SOURCE_PLAN_V1.json').read_text());base=json.loads((P/'SOURCE_SQUARE_PLAN_V1.json').read_text())['baseline'];data=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True);audit=Assessment(data);parents=torch.load(P/'PENCIL_JOINT_REFIT_PROGRAMS_V1.pt',weights_only=True)
+PLAN_NAME=sys.argv[2] if len(sys.argv)>2 else 'CONVEX_SOURCE_PLAN_V1.json'
+plan=json.loads((P/PLAN_NAME).read_text());base=json.loads((P/'SOURCE_SQUARE_PLAN_V1.json').read_text())['baseline'];data=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True);audit=Assessment(data);parents=torch.load(P/'PENCIL_JOINT_REFIT_PROGRAMS_V1.pt',weights_only=True)
 ids=data['indices'];z=data['z'][ids];h=data['h'][ids];s=(h.square().mean(-1)+torch.finfo(torch.float32).eps).sqrt();rows=[]
 def ratios(result):
  return np.square([result['native_error']/(1.1*base['native_error']),result['covariance_error']/(1.1*base['covariance_error'])]+[v/min(.15,1.1*b) for v,b in zip(result['per_mode_errors'],base['per_mode_errors'])]+[v/(1.1*b) for v,b in zip(result['euclidean_jacobian_errors'],base['euclidean_jacobian_errors'])])
@@ -25,7 +26,10 @@ def make_graph(parent,banks,allocation,x):
 for geometry in plan['geometries']:
  parent=parents[geometry+'_inherited'];bundle=expand(parent);A,inv=(audit.S,data['inverse_root']) if geometry=='calibration_shaped' else (audit.I,audit.I);banks=[];pair_data=[]
  for j in range(3):
-  H=decode(bundle[str(j)]);true=audit.Q[2*j:2*j+2];e,U=torch.linalg.eigh(A@(true[1]-H[1])@A);order=e.abs().argsort(descending=True)[:14];V=inv@U[:,order];lam=e[order];banks.append((V,lam));p=bundle[str(j)]
+  H=decode(bundle[str(j)]);true=audit.Q[2*j:2*j+2];e,U=torch.linalg.eigh(A@(true[1]-H[1])@A);order=e.abs().argsort(descending=True)[:14];V=inv@U[:,order];lam=e[order]
+  if 'replacement' in plan and j==plan['replacement']['pair']:
+   edit=plan['replacement'];direction=torch.tensor(edit['metric_direction'],dtype=V.dtype);assert abs(float(direction.norm())-1)<1e-10;V[:,edit['column']]=inv@direction
+  banks.append((V,lam));p=bundle[str(j)]
   lin=torch.stack([p['a_linear'],p['b_linear']]);bias=torch.stack([p['a_bias'],p['b_bias']]);reads=torch.einsum('ni,oij,nj->no',z,H,z)+z@lin.T+bias
   grad=2*torch.einsum('oij,nj->noi',H,z)+lin[None];pair=data['pairs'][j];aa=(h@pair['a']-.5*reads[:,0])/s-pair['alpha'];bb=reads[:,1]/s-pair['beta'];val=aa*bb
   exact=torch.einsum('ni,oij,nj->no',z,true,z);truegrad=2*torch.einsum('oij,nj->noi',true,z);ta=(h@pair['a']-.5*exact[:,0])/s-pair['alpha'];tb=exact[:,1]/s-pair['beta'];J=-.5*(tb/s)[:,None]*truegrad[:,0]+(ta/s)[:,None]*truegrad[:,1];jac=-.5*(bb/s)[:,None]*grad[:,0]+(aa/s)[:,None]*grad[:,1]
