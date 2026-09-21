@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-09-21T09:54:42.652610+00:00",
+  "lambdas": [
+    0,
+    0.1,
+    1
+  ],
+  "primary_lambda": 0.1,
+  "seeds": [
+    0,
+    916
+  ],
+  "cycles": 20,
+  "calibration_sites": 16384,
+  "source_products": 399,
+  "stored_floats": 896198,
+  "scalar_baseline": [
+    0.03058409729022641,
+    0.027558449717507608,
+    0.11941807478056159
+  ],
+  "scope": "Fixed directions of selected empirical-source lambda1 graph. Actual conditional three-component product objective plus coefficient Frobenius constraint. Alternating exact readout solves, no direction change; two starts original and1%perturbed. Opened448diagnostics; native z/h remain.",
+  "hashes": {
+    "EMPIRICAL_SOURCE_DIRECTIONS_V1.json": "6c08c5d8865a9831d8d9a96bb80fde7e9476144fdd234460c61694272eec63c2",
+    "EMPIRICAL_SOURCE_DIRECTIONS_PROGRAMS_V1.pt": "cfd6f43818269aba1b5a2f3d80e014f96e501904c91927c157e5ed22de675154",
+    "EXPANDED_COMPONENT_INPUTS_V1.pt": "a54f1e8989c14a87a0a05b1c15b88a7ac4258aa154ff86ec3733533d67c1c226",
+    "EXPANDED_COVARIANCE_STATES_V1.pt": "d81d3ee4dce0de8583f42a42ec2f6c169b2996719b86a06f34b360d0352b75e4",
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "component_pair_readout.py": "71e3ddabea998444e4f3c14b25c04581fafcd60df89a11cdc43d825b65b5e4db"
+  }
+}
