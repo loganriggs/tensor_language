@@ -1,8 +1,11 @@
-**Latest experiment — [Response-aware feature learning](research_update_2026-09-21_2026_response_learning.md).** Native responses improve in some settings, but absolute fidelity still fails and code baseline damage increases.
+**New follow-up — [What the shared features respond to](research_update_2026-09-21_2112_shared_feature_conditions.md).** Newline and UTF-8 associations, second-panel support, and the current-token confound; no new causal-circuit claim.
 
-**Start here — [Overall review: the two-stage decomposition and arithmetic-circuit plan](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 20:05 UTC. Explains folding and QR, what each stage does, the main results, and what remains unvalidated.
+**Start here — [Overall review: folded weights → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 21:08 UTC. Explains QR, both stages, why narrow Tucker fits failed, weight versus data-informed objectives, and the latest 656-to-384-product result with its remaining intervention failures.
 
-**Latest graph result — [A smaller shared-root program](research_update_2026-09-21_1956_shared_root_program.md).** Exact pair sharing reduces the16-output program to384products; model-level validation remains outstanding.
+**Earlier experiment — [Response-aware feature learning](research_update_2026-09-21_2026_response_learning.md).** Native responses improve in some settings, but absolute fidelity still fails and code baseline damage increases.
+
+
+**Latest graph result — [A smaller shared-root program](research_update_2026-09-21_1956_shared_root_program.md).** Historical graph-compilation result; completed model-level tests are covered in the overall review above.
 
 
 # Latest requested update for Logan
