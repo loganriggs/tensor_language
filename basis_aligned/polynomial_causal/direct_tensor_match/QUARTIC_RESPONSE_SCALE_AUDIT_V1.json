@@ -1,0 +1,113 @@
+{
+  "scope": "Best scalar on complete opened-cell logit response, an optimistic descriptive correction, not a realizable refit through nonlinear endpoints. No independent validation.",
+  "results": [
+    {
+      "domain": "fineweb",
+      "alpha": 0.5,
+      "arm": "narrow26",
+      "original_error": 0.4255325798363119,
+      "oracle_scale": 0.9921559680095604,
+      "oracle_error_floor": 0.42547242696030035,
+      "remaining_squared_error_fraction": 0.9997173019069031
+    },
+    {
+      "domain": "fineweb",
+      "alpha": 0.5,
+      "arm": "paired384",
+      "original_error": 0.4245614220154559,
+      "oracle_scale": 1.04746156115646,
+      "oracle_error_floor": 0.4225706136394872,
+      "remaining_squared_error_fraction": 0.9906437997930665
+    },
+    {
+      "domain": "fineweb",
+      "alpha": 0.5,
+      "arm": "parent656",
+      "original_error": 0.42633275546279825,
+      "oracle_scale": 1.0458802538095064,
+      "oracle_error_floor": 0.42447848990951353,
+      "remaining_squared_error_fraction": 0.9913202393430509
+    },
+    {
+      "domain": "fineweb",
+      "alpha": 1.0,
+      "arm": "narrow26",
+      "original_error": 0.2841031574029576,
+      "oracle_scale": 0.9763383468325074,
+      "oracle_error_floor": 0.2831507615767335,
+      "remaining_squared_error_fraction": 0.9933066602849787
+    },
+    {
+      "domain": "fineweb",
+      "alpha": 1.0,
+      "arm": "paired384",
+      "original_error": 0.2805096970354607,
+      "oracle_scale": 0.9669596389811448,
+      "oracle_error_floor": 0.278583486084901,
+      "remaining_squared_error_fraction": 0.9863135036381103
+    },
+    {
+      "domain": "fineweb",
+      "alpha": 1.0,
+      "arm": "parent656",
+      "original_error": 0.2814108865756007,
+      "oracle_scale": 0.966530841645776,
+      "oracle_error_floor": 0.27943982134198364,
+      "remaining_squared_error_fraction": 0.9860406086978926
+    },
+    {
+      "domain": "stdlib",
+      "alpha": 0.5,
+      "arm": "narrow26",
+      "original_error": 0.36277887118833113,
+      "oracle_scale": 0.9734917700587612,
+      "oracle_error_floor": 0.3618896799542994,
+      "remaining_squared_error_fraction": 0.9951038961972386
+    },
+    {
+      "domain": "stdlib",
+      "alpha": 0.5,
+      "arm": "paired384",
+      "original_error": 0.3919081666882863,
+      "oracle_scale": 1.0645776023953868,
+      "oracle_error_floor": 0.3878994768165366,
+      "remaining_squared_error_fraction": 0.9796473333495838
+    },
+    {
+      "domain": "stdlib",
+      "alpha": 0.5,
+      "arm": "parent656",
+      "original_error": 0.39326697265642413,
+      "oracle_scale": 1.059916339088684,
+      "oracle_error_floor": 0.38980624830123106,
+      "remaining_squared_error_fraction": 0.9824775660423538
+    },
+    {
+      "domain": "stdlib",
+      "alpha": 1.0,
+      "arm": "narrow26",
+      "original_error": 0.31591437451380183,
+      "oracle_scale": 0.9719143886829453,
+      "oracle_error_floor": 0.3147213920899679,
+      "remaining_squared_error_fraction": 0.9924616921569479
+    },
+    {
+      "domain": "stdlib",
+      "alpha": 1.0,
+      "arm": "paired384",
+      "original_error": 0.3594025965954888,
+      "oracle_scale": 1.0365976477930114,
+      "oracle_error_floor": 0.3578874101551478,
+      "remaining_squared_error_fraction": 0.9915860789132469
+    },
+    {
+      "domain": "stdlib",
+      "alpha": 1.0,
+      "arm": "parent656",
+      "original_error": 0.36056529003476073,
+      "oracle_scale": 1.0339963036338027,
+      "oracle_error_floor": 0.35925735781020396,
+      "remaining_squared_error_fraction": 0.9927582602547919
+    }
+  ]
+}
