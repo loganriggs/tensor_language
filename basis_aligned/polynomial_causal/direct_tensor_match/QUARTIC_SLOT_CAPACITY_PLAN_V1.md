@@ -1,0 +1,7 @@
+**Input-mode capacity for the same16-reader native symmetric quartic**
+
+For fixed independentvectors b,c,d, construct exactlinear map M[b,c,d] a=H(a,b,c,d), usingfullysymmetrizednativequartic. Stackmaps over256independentGaussiantriples, seeds970/971 fortwoindependentsketches. G=sum M^T M /256 is unbiasedforinput-unfoldingGram; its eigenvalues giveEXACT best-rankinputspan bounds inTHISFINITEsketchmetric. No concentrationcertificate or exactfullFrobeniusboundisclaimed. Everycandidate g(B^Tx) withrankB<=r hasfirst-slotrowsinspanB. Existing32x4architecture hasr<=256 regardlessoptimization.
+
+Same16frozenvocabularymetricreaders andoutputscaleasexactnativepilot, originalMLP16/17weights. Analyticfirst-slotmapCPUcheckedagainstfullsmallcoefficients andcompletebasisexactGram. Nativecheckoneprobeagainstautograd linearcontraction; FP32/64mapcompare, sampledGramtrace/PSD. Analyze r64/128/256/512/768/1024, necessary10%readers; evaluatecurrentinheritedandlearned256-reader spans andcross-sketchbasis transfer.
+
+Predictions(a)nativeanalytic/autogradmaprelative<1e-8 andtraceeigenidentity<1e-10;(b)best256floor>.10bothsketches;(c)rank256floorsdifferby<.05andrank512floors>.10both. Two-sketchagreementisdiagnosticnotproof. SaveGramstoallowCPUaudit. No fit/noactualmodelreplacement;fullprojectiontensorcoefficientpathonly. Positiveboundwouldruleoutnarrowinputspaninthedeclaredmetric, not all sparsehigh-rankDAGs.
