@@ -1,0 +1,595 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T13:12:40.573422+00:00",
+    "metrics": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "parents": {
+      "calibration_shaped": "calibration_shaped_pairwise_0",
+      "native_isotropic": "native_isotropic_pairwise_26301"
+    },
+    "seeds": [
+      0,
+      26301
+    ],
+    "steps": 1800,
+    "rate": 0.03,
+    "optimizer": "muon",
+    "optimizer_evidence": [
+      {
+        "optimizer": "adam",
+        "best_restart_errors": [
+          3.777139562903739e-15,
+          6.955560142226423e-16,
+          7.467064217795082e-16,
+          2.3000566759574274e-07,
+          7.820318111245267e-16
+        ],
+        "recovered_cases": 5,
+        "geometric_mean_error": 1.1656718793028654e-06
+      },
+      {
+        "optimizer": "muon",
+        "best_restart_errors": [
+          7.335952323485944e-08,
+          1.9769545201348385e-08,
+          1.0957186570057518e-08,
+          4.070945117154193e-08,
+          1.098109782624618e-08
+        ],
+        "recovered_cases": 5,
+        "geometric_mean_error": 3.0639230847517875e-08
+      }
+    ],
+    "primary": "Covariance restart chosen by fitting objective, retaining compilerfailures rather than selecting around them.",
+    "baseline": {
+      "native_error": 0.5525962583461952,
+      "covariance_error": 0.0703133565524768,
+      "per_mode_errors": [
+        0.018692583665713903,
+        0.020499346791718828,
+        0.08805202711597365
+      ],
+      "euclidean_jacobian_errors": [
+        0.187428758387592,
+        0.15902999281611183,
+        0.16001348745745214
+      ],
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "activation_products": 1152,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1330560,
+      "source_additions": 1329148
+    },
+    "stored_floats": 1058124,
+    "source_multiplications": 1047648,
+    "products": 1056,
+    "scope": "Same fixed shared dictionaries, whole-block product graph and fidelity/cost gates. Orthonormal full private bases replace complement-plus-coupling coordinates; warm functions and optimal cores match independently. Native improvement is unproven.",
+    "hashes": {
+      "orthogonal_private_varpro.py": "7ac13c9095868742f1381ee516cb819418935f22daf92f3436aa5310efcba3b6",
+      "export_orthogonal_private.py": "baa1b1efbc62b53edbd748bbc645bf89bf119807b4d697926c3e673e4fe1cc3c",
+      "pairwise_reader_graph.py": "408d43a44a72547ad451bc918792c08f4d12370171f4f2655b037cb4388c7116",
+      "pairwise_graph_assessment.py": "9e592cf80486fa0de84a4de4ee156a37db772ca64635ba7b86c31b3d06bcc854",
+      "quadratic_pair_blocks.py": "45b8fa4b2ee41e260f984f7908f6e0a448ce7cb0a96e0423a0112d716458b259",
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "ALTERNATING_COMPLETION_PROGRAMS_V1.pt": "19d6de3e151ab119e8cee07e048802406c4b7b4acb556127ec53bffee1245d93",
+      "ORTHOGONAL_PRIVATE_TOY_V1.json": "a82905bafafc02f98cb0a310dc8080508c42c8a61d12d44d8cf3ddc179114712",
+      "ORTHOGONAL_PRIVATE_NATIVE_PREFLIGHT_V1.json": "e079c3a9e86a016694caf23d997287277e41c05b720141d0f5e0275411902671"
+    },
+    "warm_objectives": {
+      "calibration_shaped": 0.00639036330866076,
+      "native_isotropic": 0.2516655796450978
+    },
+    "warm_improvement_factor": 0.9801
+  },
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "geometry": "calibration_shaped",
+      "seed": 0,
+      "objective": 0.006310575870076995,
+      "best_step": 1800,
+      "dense_loss_replay": 7.398595625041082e-16,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.006390363308660663
+        },
+        {
+          "step": 300,
+          "loss": 0.0064160723728633184
+        },
+        {
+          "step": 600,
+          "loss": 0.006345770760205186
+        },
+        {
+          "step": 900,
+          "loss": 0.00632319064362058
+        },
+        {
+          "step": 1200,
+          "loss": 0.0063145745854690976
+        },
+        {
+          "step": 1500,
+          "loss": 0.00631118522720279
+        },
+        {
+          "step": 1800,
+          "loss": 0.006310575870076995
+        }
+      ],
+      "instrument": true,
+      "export_replay": 0.0,
+      "compiler": [
+        {
+          "common": {
+            "pencil_condition": 355.6980799500459,
+            "eigenbasis_condition": 341.36602673348403,
+            "real_basis_condition": 367.80619292932573,
+            "matrix_replay": [
+              5.161878838459317e-12,
+              5.150509611294116e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 364.72216423792025,
+            "eigenbasis_condition": 384.9995132937317,
+            "real_basis_condition": 417.3615408482813,
+            "matrix_replay": [
+              1.6500771421726975e-11,
+              1.6524008995056648e-11
+            ]
+          },
+          "shared_overlap_norm": 9.573001820489997
+        },
+        {
+          "common": {
+            "pencil_condition": 17164.431427792435,
+            "eigenbasis_condition": 514.734177398221,
+            "real_basis_condition": 602.2128874044895,
+            "matrix_replay": [
+              2.700330477236123e-11,
+              4.240298698121583e-11
+            ]
+          },
+          "private": {
+            "pencil_condition": 26596.79670245129,
+            "eigenbasis_condition": 428.41392448453297,
+            "real_basis_condition": 439.70798160641317,
+            "matrix_replay": [
+              9.679970523606193e-12,
+              1.5879280382914206e-11
+            ]
+          },
+          "shared_overlap_norm": 9.651806121277877
+        },
+        {
+          "common": {
+            "pencil_condition": 9746.58162684803,
+            "eigenbasis_condition": 295.68073532188663,
+            "real_basis_condition": 317.04854911519027,
+            "matrix_replay": [
+              4.428233510486729e-12,
+              3.647592064268834e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 12066.059237612733,
+            "eigenbasis_condition": 306.8913656396544,
+            "real_basis_condition": 345.6634444065701,
+            "matrix_replay": [
+              2.8365825129842773e-12,
+              3.706321900413488e-12
+            ]
+          },
+          "shared_overlap_norm": 9.65350903340199
+        }
+      ],
+      "native_error": 0.5960557509138558,
+      "covariance_error": 0.07943913311509469,
+      "execution_replay": 5.4817988961854026e-15,
+      "per_mode_errors": [
+        0.0222817928350016,
+        0.02337180170592678,
+        0.10557138808552503
+      ],
+      "euclidean_jacobian_errors": [
+        0.2021656530420549,
+        0.17219337256454273,
+        0.17770740670424656
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "geometry": "calibration_shaped",
+      "seed": 26301,
+      "objective": 0.006329558519510373,
+      "best_step": 1800,
+      "dense_loss_replay": 6.852157730108388e-16,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.11096395181488924
+        },
+        {
+          "step": 300,
+          "loss": 0.006506823440898535
+        },
+        {
+          "step": 600,
+          "loss": 0.006370663684839591
+        },
+        {
+          "step": 900,
+          "loss": 0.006345946955052824
+        },
+        {
+          "step": 1200,
+          "loss": 0.006335234081223273
+        },
+        {
+          "step": 1500,
+          "loss": 0.006330399203262911
+        },
+        {
+          "step": 1800,
+          "loss": 0.006329558519510373
+        }
+      ],
+      "instrument": true,
+      "export_replay": 0.0,
+      "compiler": [
+        {
+          "common": {
+            "pencil_condition": 367.48591625269034,
+            "eigenbasis_condition": 267.6856838183067,
+            "real_basis_condition": 285.8683245730051,
+            "matrix_replay": [
+              9.146331138875434e-12,
+              9.191882140753355e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 408.03794738704755,
+            "eigenbasis_condition": 436.4868276948366,
+            "real_basis_condition": 455.2342250319604,
+            "matrix_replay": [
+              7.191704924640921e-12,
+              7.2547939114704835e-12
+            ]
+          },
+          "shared_overlap_norm": 9.58937811758743
+        },
+        {
+          "common": {
+            "pencil_condition": 10320.777079873025,
+            "eigenbasis_condition": 254.06281024273318,
+            "real_basis_condition": 259.86205169247955,
+            "matrix_replay": [
+              3.055581442295924e-12,
+              4.497223078604462e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 14341.810331104336,
+            "eigenbasis_condition": 781.8996789886703,
+            "real_basis_condition": 720.1389947543289,
+            "matrix_replay": [
+              1.8640745319197227e-11,
+              2.4918501048524363e-11
+            ]
+          },
+          "shared_overlap_norm": 9.662388880107848
+        },
+        {
+          "common": {
+            "pencil_condition": 6672.16485709655,
+            "eigenbasis_condition": 398.73259462893515,
+            "real_basis_condition": 436.94995984605134,
+            "matrix_replay": [
+              1.7017631779357099e-12,
+              1.5271645696502536e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 2542.2002604594486,
+            "eigenbasis_condition": 499.30775213415905,
+            "real_basis_condition": 511.85798435238655,
+            "matrix_replay": [
+              5.113859758383418e-12,
+              4.8724082153862274e-12
+            ]
+          },
+          "shared_overlap_norm": 9.681370264938485
+        }
+      ],
+      "native_error": 0.5967781365518011,
+      "covariance_error": 0.07955852260764436,
+      "execution_replay": 9.374914837530443e-15,
+      "per_mode_errors": [
+        0.022517171690691992,
+        0.023385349172155515,
+        0.10856353981403934
+      ],
+      "euclidean_jacobian_errors": [
+        0.2026711265176652,
+        0.1721831152456963,
+        0.1778397088392236
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    },
+    {
+      "key": "native_isotropic_0",
+      "geometry": "native_isotropic",
+      "seed": 0,
+      "objective": 0.250510612552894,
+      "best_step": 1800,
+      "dense_loss_replay": 1.9984014443252818e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.25166557964509784
+        },
+        {
+          "step": 300,
+          "loss": 0.25070634225617305
+        },
+        {
+          "step": 600,
+          "loss": 0.25060878351274685
+        },
+        {
+          "step": 900,
+          "loss": 0.25055822262074257
+        },
+        {
+          "step": 1200,
+          "loss": 0.2505229472571605
+        },
+        {
+          "step": 1500,
+          "loss": 0.2505133384065088
+        },
+        {
+          "step": 1800,
+          "loss": 0.250510612552894
+        }
+      ],
+      "instrument": true,
+      "export_replay": 1.1102230246251565e-16,
+      "compiler": [
+        {
+          "common": {
+            "pencil_condition": 114.71018153479265,
+            "eigenbasis_condition": 104.93344334345154,
+            "real_basis_condition": 100.81562289456527,
+            "matrix_replay": [
+              2.589377989729359e-12,
+              2.5809021722186537e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 109.13567649699382,
+            "eigenbasis_condition": 943.0417318606967,
+            "real_basis_condition": 706.7331286721696,
+            "matrix_replay": [
+              8.202992050699054e-11,
+              8.123689667831456e-11
+            ]
+          },
+          "shared_overlap_norm": 8.550124086204892
+        },
+        {
+          "common": {
+            "pencil_condition": 393.8109358242122,
+            "eigenbasis_condition": 149.808206414494,
+            "real_basis_condition": 138.38185832355953,
+            "matrix_replay": [
+              1.076709988805336e-12,
+              1.181635103469202e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 248.63839182060943,
+            "eigenbasis_condition": 318.6189807797861,
+            "real_basis_condition": 246.0452346328296,
+            "matrix_replay": [
+              2.0238450835685726e-12,
+              1.9813230699161795e-12
+            ]
+          },
+          "shared_overlap_norm": 8.349740596131587
+        },
+        {
+          "common": {
+            "pencil_condition": 1614.778079366595,
+            "eigenbasis_condition": 218.2908863613848,
+            "real_basis_condition": 234.90975522579194,
+            "matrix_replay": [
+              3.8834058058928875e-12,
+              3.0901674013102327e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 101.79394415701793,
+            "eigenbasis_condition": 125.62997695876994,
+            "real_basis_condition": 140.98554976007856,
+            "matrix_replay": [
+              2.0739487443588617e-13,
+              2.670580277628585e-13
+            ]
+          },
+          "shared_overlap_norm": 8.169872582610651
+        }
+      ],
+      "native_error": 0.5005103520936326,
+      "covariance_error": 0.135992506320744,
+      "execution_replay": 5.84950648437055e-15,
+      "per_mode_errors": [
+        0.019812359903941826,
+        0.03413623368183959,
+        0.12095484458277689
+      ],
+      "euclidean_jacobian_errors": [
+        0.1984716128118234,
+        0.1836346746552408,
+        0.17767748785364879
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    },
+    {
+      "key": "native_isotropic_26301",
+      "geometry": "native_isotropic",
+      "seed": 26301,
+      "objective": 0.2508130214397995,
+      "best_step": 1800,
+      "dense_loss_replay": 1.099120794378905e-14,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.7401318229712995
+        },
+        {
+          "step": 300,
+          "loss": 0.25126979597163457
+        },
+        {
+          "step": 600,
+          "loss": 0.2510257697543744
+        },
+        {
+          "step": 900,
+          "loss": 0.250923434000931
+        },
+        {
+          "step": 1200,
+          "loss": 0.2508520451895482
+        },
+        {
+          "step": 1500,
+          "loss": 0.25082341635204336
+        },
+        {
+          "step": 1800,
+          "loss": 0.2508130214397995
+        }
+      ],
+      "instrument": true,
+      "export_replay": 0.0,
+      "compiler": [
+        {
+          "common": {
+            "pencil_condition": 109.52034718090567,
+            "eigenbasis_condition": 308.2137664826103,
+            "real_basis_condition": 319.7088114972379,
+            "matrix_replay": [
+              2.7171429687344417e-12,
+              2.7177517610288157e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 114.8028904775833,
+            "eigenbasis_condition": 258.3948973245017,
+            "real_basis_condition": 267.4542475405629,
+            "matrix_replay": [
+              4.352839535727904e-12,
+              4.311152150900069e-12
+            ]
+          },
+          "shared_overlap_norm": 8.548439772393888
+        },
+        {
+          "common": {
+            "pencil_condition": 453.1230507373112,
+            "eigenbasis_condition": 163.90414297334615,
+            "real_basis_condition": 172.5376983428692,
+            "matrix_replay": [
+              8.740379265403651e-13,
+              8.927486961443746e-13
+            ]
+          },
+          "private": {
+            "pencil_condition": 290.31363907768434,
+            "eigenbasis_condition": 557.5377882591766,
+            "real_basis_condition": 581.8626948553245,
+            "matrix_replay": [
+              4.9235448324785196e-11,
+              4.905177612612427e-11
+            ]
+          },
+          "shared_overlap_norm": 8.347626428888882
+        },
+        {
+          "common": {
+            "pencil_condition": 13054.459492877368,
+            "eigenbasis_condition": 103.20057945134643,
+            "real_basis_condition": 110.90604219745758,
+            "matrix_replay": [
+              4.154291022310021e-13,
+              4.0658835925907036e-13
+            ]
+          },
+          "private": {
+            "pencil_condition": 861.0543832062259,
+            "eigenbasis_condition": 245.05425190438643,
+            "real_basis_condition": 262.5219249836884,
+            "matrix_replay": [
+              4.257675326452958e-13,
+              4.4556504443868805e-13
+            ]
+          },
+          "shared_overlap_norm": 8.22997260424785
+        }
+      ],
+      "native_error": 0.5008123615085899,
+      "covariance_error": 0.1360179840134003,
+      "execution_replay": 1.1266504935994191e-14,
+      "per_mode_errors": [
+        0.02009079477350515,
+        0.03442151183536936,
+        0.12225453638778325
+      ],
+      "euclidean_jacobian_errors": [
+        0.1986535712812898,
+        0.1838748956767586,
+        0.17822321667723373
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    }
+  ],
+  "primary": "calibration_shaped_0",
+  "predictions": {
+    "pred_e_warm_progress": false,
+    "pred_a_instrument": true,
+    "pred_b_components": false,
+    "pred_c_coefficients": false,
+    "pred_d_arithmetic": true
+  },
+  "seconds": 280.5957806231454,
+  "scope": "Private directions move in full1152space, shared pairwise dictionaries frozen; exact symmetriccores thencompiled1056products. Opened448diagnostics, nativez/h retained; nofresh/OOD/adoptionclaim."
+}

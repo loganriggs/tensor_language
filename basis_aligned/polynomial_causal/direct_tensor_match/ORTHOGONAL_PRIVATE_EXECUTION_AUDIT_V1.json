@@ -1,0 +1,98 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "fp32_component_drift": [
+        9.112768535684413e-07,
+        2.239947545218066e-06,
+        7.87493825823293e-06
+      ],
+      "fp32_source_drift": [
+        1.8182964682772611e-06,
+        1.7951289610010521e-06,
+        3.433089679121752e-06,
+        2.602685876649931e-06,
+        4.781944570803647e-06,
+        4.539277171576794e-06
+      ],
+      "actual_executor_gradient_replay": [
+        1.4309671838172525e-14,
+        1.8778855572708985e-14,
+        1.259327409460303e-14
+      ],
+      "precision_pass": true,
+      "gradient_pass": true
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "fp32_component_drift": [
+        9.836141945674674e-07,
+        1.9529351345560324e-06,
+        1.338648439246662e-05
+      ],
+      "fp32_source_drift": [
+        1.971168725814495e-06,
+        1.967454451781213e-06,
+        4.5675227553485375e-06,
+        2.685503279748616e-06,
+        6.101639202236211e-06,
+        7.703791050605756e-06
+      ],
+      "actual_executor_gradient_replay": [
+        1.641251983991497e-14,
+        1.9173819596506172e-14,
+        3.1721069093430325e-14
+      ],
+      "precision_pass": true,
+      "gradient_pass": true
+    },
+    {
+      "key": "native_isotropic_0",
+      "fp32_component_drift": [
+        1.610188816132566e-06,
+        1.649881770800291e-06,
+        1.3073732521091643e-05
+      ],
+      "fp32_source_drift": [
+        2.4882934719700167e-06,
+        2.4105810984451888e-06,
+        2.034515183787776e-06,
+        1.9078865321924207e-06,
+        4.659366320324051e-06,
+        6.763209229687362e-06
+      ],
+      "actual_executor_gradient_replay": [
+        2.334958877631295e-14,
+        1.2883802740024909e-14,
+        1.575241289764278e-14
+      ],
+      "precision_pass": true,
+      "gradient_pass": true
+    },
+    {
+      "key": "native_isotropic_26301",
+      "fp32_component_drift": [
+        1.0872824987297337e-06,
+        1.4298229972503075e-06,
+        2.575239015931843e-05
+      ],
+      "fp32_source_drift": [
+        1.6910593645597719e-06,
+        1.5964993903564562e-06,
+        2.134331106382884e-06,
+        1.8855345762574197e-06,
+        7.799181381826464e-06,
+        1.36408872309602e-05
+      ],
+      "actual_executor_gradient_replay": [
+        1.5980853378500523e-14,
+        1.3754451579135788e-14,
+        4.8222924911822105e-14
+      ],
+      "precision_pass": true,
+      "gradient_pass": true
+    }
+  ],
+  "unexported_instrument_failures": [],
+  "scope": "448 previously opened states for FP32 stability, first16 for actual graph autodiff versus dense analytic derivatives holding later h fixed. Drift normalized by FP64 variation. Does not validate h response, OOD or semantic identity."
+}
