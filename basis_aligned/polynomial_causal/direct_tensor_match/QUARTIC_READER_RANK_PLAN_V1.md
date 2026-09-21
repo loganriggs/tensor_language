@@ -1,0 +1,9 @@
+**Separate an inadequate learned span from insufficient reader rank.**
+
+Target: complete pure-quartic MLP16→MLP17→QR output, as in the preceding reader-nullspace experiment. Compute G=sum J(x)^T J(x) on16 evenly spaced anchors in each of the two cached panels separately. All1152 inputs andoutputs retained. Isotropic perturbations at these anchors define the metric; this is neither a natural-value error bound nor a full normalized-model statement.
+
+Any differentiable program g(B^T x) with rank(B)<=r has total local squared Jacobian error at least the tail sum of eigenvalues of G. This necessary bound allows arbitrary changes to the whole reader span and arbitrary downstream computation, unlike the prior fixed256-reader augmentation bound. Independent SVD projection controls verify the implementation. Count necessary r for10%,5%,1%relative local derivative error; report128,256,512,1024-rank floors.
+
+Pred_a_integrity: first-anchor FP32/FP64Jacobian<1e-3, spectral projection agrees trace formula<1e-8, eigenvalue sum/Gramtrace error<1e-8. Pred_b_rank: rank256floor>.10 inboth panels. Pred_c_width: rank512floor<=.10 inboth panels. Null: the existing256 rank is sufficient in this relaxed local metric, and the learned directions or nonlinear forms are the limiting feature. Frozen principal reader bases frompanel0 evaluated onpanel1 are diagnostic reuse checks, not freshOODvalidation.
+
+For the32-feature/sum-k-products architecture, r<=64k. Derive the necessary k implied by the local rank bound; do not interpret it as sufficient capacity or prescribe a fit without the outcome. Save full Gram matrices to permit further CPU diagnostics without rerunning weights. No candidate output, no added operations, no adoption. Prior third-order coefficient-rank bounds use a different target and metric; this quartic derivative bound is not a rerun of them.
