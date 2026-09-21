@@ -1,0 +1,139 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_values": false,
+    "pred_c_derivatives": true
+  },
+  "records": [
+    {
+      "rank": 4,
+      "value_errors": [
+        0.10959550976262152,
+        0.14909107773447097
+      ],
+      "derivative_errors": [
+        0.23679854151903088,
+        0.2849460188305043
+      ],
+      "joint_objective": 0.06808582438198552,
+      "prediction_pca_joint_objective": 0.07563704162577364,
+      "prediction_pca_derivative_errors": [
+        0.2570321501856748,
+        0.29403448397918286
+      ],
+      "parent_approximation_errors": [
+        0.08070055783886851,
+        0.07153755506483218
+      ],
+      "spectral_certificate": 1.2412982747658374e-14,
+      "coefficient_replay": 2.4300852446304285e-13,
+      "export_replay": 3.100429718178229e-07,
+      "price": {
+        "products": 256,
+        "additions": 302300,
+        "stored_coefficients": 303744,
+        "quadratic_features": 32,
+        "output_shared_forms": 4
+      },
+      "program_sha256": "18273ceb8941daf5d0aa8e27dc293f95fa8730fd57061ffc1ecf675e8692d2b3"
+    },
+    {
+      "rank": 8,
+      "value_errors": [
+        0.08891166864496393,
+        0.1384022270087972
+      ],
+      "derivative_errors": [
+        0.2177775960060015,
+        0.27664472016264446
+      ],
+      "joint_objective": 0.055333535554948084,
+      "prediction_pca_joint_objective": 0.05733683539129457,
+      "prediction_pca_derivative_errors": [
+        0.22347438268606445,
+        0.2779405487328733
+      ],
+      "parent_approximation_errors": [
+        0.04626292119546863,
+        0.03809675708652475
+      ],
+      "spectral_certificate": 1.3930122360897462e-14,
+      "coefficient_replay": 2.3179657291858954e-13,
+      "export_replay": 3.213661712863114e-07,
+      "price": {
+        "products": 384,
+        "additions": 311000,
+        "stored_coefficients": 312576,
+        "quadratic_features": 32,
+        "output_shared_forms": 8
+      },
+      "program_sha256": "70c014e4d9ab80510c8b373dbeda0154e3e8360a59d243554faff3a96ff21d98"
+    },
+    {
+      "rank": 16,
+      "value_errors": [
+        0.08282608579905619,
+        0.13614917289224923
+      ],
+      "derivative_errors": [
+        0.21286240868103493,
+        0.27527577210079274
+      ],
+      "joint_objective": 0.052171755398373244,
+      "prediction_pca_joint_objective": 0.053155781669105964,
+      "prediction_pca_derivative_errors": [
+        0.21574249169979853,
+        0.27584051841166823
+      ],
+      "parent_approximation_errors": [
+        0.03228323918071163,
+        0.025807494615789947
+      ],
+      "spectral_certificate": 1.459148644608367e-14,
+      "coefficient_replay": 2.2851605925883733e-13,
+      "export_replay": 3.357308162674702e-07,
+      "price": {
+        "products": 640,
+        "additions": 328400,
+        "stored_coefficients": 330240,
+        "quadratic_features": 32,
+        "output_shared_forms": 16
+      },
+      "program_sha256": "651cd4ce30887c66fccc576fc06da884b4b62df270017ce1889948374167a43d"
+    },
+    {
+      "rank": 32,
+      "value_errors": [
+        0.08068946556652526,
+        0.1357049199907247
+      ],
+      "derivative_errors": [
+        0.21060011813531027,
+        0.27538944723851017
+      ],
+      "joint_objective": 0.050864399994016055,
+      "prediction_pca_joint_objective": 0.0516432394264444,
+      "prediction_pca_derivative_errors": [
+        0.2128573873673449,
+        0.27557360630625427
+      ],
+      "parent_approximation_errors": [
+        0.02551594667113358,
+        0.020338599189358014
+      ],
+      "spectral_certificate": 1.458169941091647e-14,
+      "coefficient_replay": 2.2621329088216296e-13,
+      "export_replay": 5.396186529592966e-07,
+      "price": {
+        "products": 1152,
+        "additions": 363200,
+        "stored_coefficients": 365568,
+        "quadratic_features": 32,
+        "output_shared_forms": 32
+      },
+      "program_sha256": "e710ef75a3f893598fb20537713f94e8a23503f419b17aaccd1c7a626ef5c41c"
+    }
+  ],
+  "seconds": 2.0737907057628036,
+  "scope": "Globally optimal fixed-dictionary output-rank writer for calibration jointquadraticobjective includingridge. Doesnotgloballyoptimizefeatures orgraphs. Openedpanels, purequartictarget, nosemanticadoption."
+}

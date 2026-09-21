@@ -1,0 +1,62 @@
+{
+  "records": [
+    {
+      "angle": 0.0,
+      "success": false,
+      "reason": "Pair reconstruction failed: [1.4682072002605592e-10, 1.4410388351150491e-10]"
+    },
+    {
+      "angle": 0.39269908169872414,
+      "success": true,
+      "original_matrix_replay": [
+        3.9093204220699756e-13,
+        6.416865421213551e-13
+      ],
+      "diagnostics": {
+        "pencil_condition": 1861.4213297081044,
+        "eigenbasis_condition": 128.45595027365343,
+        "real_basis_condition": 135.60099309788146,
+        "matrix_replay": [
+          4.929556629897385e-13,
+          5.602670841097419e-13
+        ]
+      }
+    },
+    {
+      "angle": 0.7853981633974483,
+      "success": true,
+      "original_matrix_replay": [
+        1.9149640078604974e-13,
+        1.3920286180033242e-13
+      ],
+      "diagnostics": {
+        "pencil_condition": 2027.2441265922898,
+        "eigenbasis_condition": 128.45595027364553,
+        "real_basis_condition": 135.60099309787103,
+        "matrix_replay": [
+          1.0104198635788653e-13,
+          2.1857552550196924e-13
+        ]
+      }
+    },
+    {
+      "angle": 1.1780972450961724,
+      "success": true,
+      "original_matrix_replay": [
+        1.6579026173299028e-13,
+        1.5946605594369965e-13
+      ],
+      "diagnostics": {
+        "pencil_condition": 1258.4447737911712,
+        "eigenbasis_condition": 128.45595027362793,
+        "real_basis_condition": 135.60099309784903,
+        "matrix_replay": [
+          1.1692931869376812e-13,
+          1.9778874396906603e-13
+        ]
+      }
+    }
+  ],
+  "prediction_equivalent_basis_repairs": true,
+  "scope": "Same two native root quadratic forms; orthogonal output-coordinate rotation, unchanged1e-10matrix replay tolerance. No data fitting or relaxation. Doesnotguarantee all defective/singular pencils work."
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "family": "generic",
+    "replay": 2.778904624671086e-15,
+    "shared_pairs": 2,
+    "price": {
+      "products": 16,
+      "stored_coefficients": 156,
+      "stored_integer_indices": 24,
+      "additions": 131,
+      "fp32_parameter_and_index_bytes": 816
+    }
+  },
+  {
+    "family": "squares",
+    "replay": 1.7632298427830507e-15,
+    "shared_pairs": 2,
+    "price": {
+      "products": 16,
+      "stored_coefficients": 156,
+      "stored_integer_indices": 24,
+      "additions": 133,
+      "fp32_parameter_and_index_bytes": 816
+    }
+  },
+  {
+    "family": "shared_inputs",
+    "replay": 3.2635468284859043e-15,
+    "shared_pairs": 2,
+    "price": {
+      "products": 16,
+      "stored_coefficients": 156,
+      "stored_integer_indices": 24,
+      "additions": 131,
+      "fp32_parameter_and_index_bytes": 816
+    }
+  },
+  {
+    "family": "repeated_eigenvalue",
+    "replay": 6.317459172666835e-16,
+    "shared_pairs": 2,
+    "price": {
+      "products": 16,
+      "stored_coefficients": 156,
+      "stored_integer_indices": 24,
+      "additions": 131,
+      "fp32_parameter_and_index_bytes": 816
+    }
+  },
+  {
+    "family": "singular_base",
+    "replay": 3.7474329987146123e-16,
+    "shared_pairs": 1,
+    "price": {
+      "products": 20,
+      "stored_coefficients": 172,
+      "stored_integer_indices": 12,
+      "additions": 141,
+      "fp32_parameter_and_index_bytes": 784
+    }
+  }
+]

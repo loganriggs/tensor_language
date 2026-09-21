@@ -1,0 +1,402 @@
+{
+  "records": [
+    {
+      "rank": 4,
+      "float32_replay": [
+        4.726757790643922e-07,
+        4.7090955434961e-07
+      ],
+      "float64_replay": [
+        4.689727717058207e-14,
+        4.4939362752926414e-14
+      ],
+      "price": {
+        "products": 192,
+        "stored_coefficients": 301696,
+        "stored_integer_indices": 192,
+        "additions": 300368,
+        "fp32_parameter_and_index_bytes": 1208320
+      },
+      "pairs": [
+        {
+          "first": 0,
+          "status": "shared",
+          "pencil_condition": 244.46080440550378,
+          "eigenbasis_condition": 79.37556228763596,
+          "real_basis_condition": 81.75496403421603,
+          "matrix_replay": [
+            1.0492587377123735e-13,
+            7.622225655807186e-14
+          ]
+        },
+        {
+          "first": 2,
+          "status": "shared",
+          "pencil_condition": 360.3556060146129,
+          "eigenbasis_condition": 73.9735893839037,
+          "real_basis_condition": 80.95867222607737,
+          "matrix_replay": [
+            1.37926418122894e-13,
+            6.676038424578945e-14
+          ]
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "float32_replay": [
+        5.036553252762329e-07,
+        5.083041128785029e-07
+      ],
+      "float64_replay": [
+        4.775158362469566e-14,
+        4.556833506680049e-14
+      ],
+      "price": {
+        "products": 288,
+        "stored_coefficients": 309504,
+        "stored_integer_indices": 288,
+        "additions": 308098,
+        "fp32_parameter_and_index_bytes": 1240320
+      },
+      "pairs": [
+        {
+          "first": 0,
+          "status": "shared",
+          "pencil_condition": 244.46080440550378,
+          "eigenbasis_condition": 79.37556228763596,
+          "real_basis_condition": 81.75496403421603,
+          "matrix_replay": [
+            1.0492587377123735e-13,
+            7.622225655807186e-14
+          ]
+        },
+        {
+          "first": 2,
+          "status": "shared",
+          "pencil_condition": 360.3556060146129,
+          "eigenbasis_condition": 73.9735893839037,
+          "real_basis_condition": 80.95867222607737,
+          "matrix_replay": [
+            1.37926418122894e-13,
+            6.676038424578945e-14
+          ]
+        },
+        {
+          "first": 4,
+          "status": "fallback",
+          "reason": "Pair reconstruction failed: [1.4682072002605592e-10, 1.4410388351150491e-10]"
+        },
+        {
+          "first": 6,
+          "status": "shared",
+          "pencil_condition": 1757.4366269909422,
+          "eigenbasis_condition": 140.9967609958009,
+          "real_basis_condition": 156.85034595128076,
+          "matrix_replay": [
+            2.6491355008404164e-13,
+            1.8330633258278538e-13
+          ]
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "float32_replay": [
+        5.724935556422099e-07,
+        5.895170474253262e-07
+      ],
+      "float64_replay": [
+        5.222146784009325e-14,
+        4.768271739163795e-14
+      ],
+      "price": {
+        "products": 416,
+        "stored_coefficients": 323072,
+        "stored_integer_indices": 672,
+        "additions": 321636,
+        "fp32_parameter_and_index_bytes": 1297664
+      },
+      "pairs": [
+        {
+          "first": 0,
+          "status": "shared",
+          "pencil_condition": 244.46080440550378,
+          "eigenbasis_condition": 79.37556228763596,
+          "real_basis_condition": 81.75496403421603,
+          "matrix_replay": [
+            1.0492587377123735e-13,
+            7.622225655807186e-14
+          ]
+        },
+        {
+          "first": 2,
+          "status": "shared",
+          "pencil_condition": 360.3556060146129,
+          "eigenbasis_condition": 73.9735893839037,
+          "real_basis_condition": 80.95867222607737,
+          "matrix_replay": [
+            1.37926418122894e-13,
+            6.676038424578945e-14
+          ]
+        },
+        {
+          "first": 4,
+          "status": "fallback",
+          "reason": "Pair reconstruction failed: [1.4682072002605592e-10, 1.4410388351150491e-10]"
+        },
+        {
+          "first": 6,
+          "status": "shared",
+          "pencil_condition": 1757.4366269909422,
+          "eigenbasis_condition": 140.9967609958009,
+          "real_basis_condition": 156.85034595128076,
+          "matrix_replay": [
+            2.6491355008404164e-13,
+            1.8330633258278538e-13
+          ]
+        },
+        {
+          "first": 8,
+          "status": "shared",
+          "pencil_condition": 446.5233754335527,
+          "eigenbasis_condition": 193.9938506509562,
+          "real_basis_condition": 203.32150188237867,
+          "matrix_replay": [
+            3.35846113713928e-13,
+            5.192913356427142e-13
+          ]
+        },
+        {
+          "first": 10,
+          "status": "shared",
+          "pencil_condition": 486.7214815325816,
+          "eigenbasis_condition": 158.63734920706966,
+          "real_basis_condition": 168.54918978574173,
+          "matrix_replay": [
+            1.0771708964909748e-13,
+            6.414895818812421e-14
+          ]
+        },
+        {
+          "first": 12,
+          "status": "shared",
+          "pencil_condition": 1474.2463667464194,
+          "eigenbasis_condition": 121.07492784251063,
+          "real_basis_condition": 127.06928351348795,
+          "matrix_replay": [
+            4.1772429144919416e-13,
+            5.221480545163991e-13
+          ]
+        },
+        {
+          "first": 14,
+          "status": "shared",
+          "pencil_condition": 430.5454751511492,
+          "eigenbasis_condition": 77.77589561512117,
+          "real_basis_condition": 80.80549202676099,
+          "matrix_replay": [
+            1.544204020895896e-13,
+            1.2423357197318383e-13
+          ]
+        }
+      ]
+    },
+    {
+      "rank": 32,
+      "float32_replay": [
+        6.919349360590949e-07,
+        6.921177051523891e-07
+      ],
+      "float64_replay": [
+        5.243151501758892e-14,
+        4.78645301426688e-14
+      ],
+      "price": {
+        "products": 672,
+        "stored_coefficients": 350208,
+        "stored_integer_indices": 1440,
+        "additions": 348708,
+        "fp32_parameter_and_index_bytes": 1412352
+      },
+      "pairs": [
+        {
+          "first": 0,
+          "status": "shared",
+          "pencil_condition": 244.46080440550378,
+          "eigenbasis_condition": 79.37556228763596,
+          "real_basis_condition": 81.75496403421603,
+          "matrix_replay": [
+            1.0492587377123735e-13,
+            7.622225655807186e-14
+          ]
+        },
+        {
+          "first": 2,
+          "status": "shared",
+          "pencil_condition": 360.3556060146129,
+          "eigenbasis_condition": 73.9735893839037,
+          "real_basis_condition": 80.95867222607737,
+          "matrix_replay": [
+            1.37926418122894e-13,
+            6.676038424578945e-14
+          ]
+        },
+        {
+          "first": 4,
+          "status": "fallback",
+          "reason": "Pair reconstruction failed: [1.4682072002605592e-10, 1.4410388351150491e-10]"
+        },
+        {
+          "first": 6,
+          "status": "shared",
+          "pencil_condition": 1757.4366269909422,
+          "eigenbasis_condition": 140.9967609958009,
+          "real_basis_condition": 156.85034595128076,
+          "matrix_replay": [
+            2.6491355008404164e-13,
+            1.8330633258278538e-13
+          ]
+        },
+        {
+          "first": 8,
+          "status": "shared",
+          "pencil_condition": 446.5233754335527,
+          "eigenbasis_condition": 193.9938506509562,
+          "real_basis_condition": 203.32150188237867,
+          "matrix_replay": [
+            3.35846113713928e-13,
+            5.192913356427142e-13
+          ]
+        },
+        {
+          "first": 10,
+          "status": "shared",
+          "pencil_condition": 486.7214815325816,
+          "eigenbasis_condition": 158.63734920706966,
+          "real_basis_condition": 168.54918978574173,
+          "matrix_replay": [
+            1.0771708964909748e-13,
+            6.414895818812421e-14
+          ]
+        },
+        {
+          "first": 12,
+          "status": "shared",
+          "pencil_condition": 1474.2463667464194,
+          "eigenbasis_condition": 121.07492784251063,
+          "real_basis_condition": 127.06928351348795,
+          "matrix_replay": [
+            4.1772429144919416e-13,
+            5.221480545163991e-13
+          ]
+        },
+        {
+          "first": 14,
+          "status": "shared",
+          "pencil_condition": 430.5454751511492,
+          "eigenbasis_condition": 77.77589561512117,
+          "real_basis_condition": 80.80549202676099,
+          "matrix_replay": [
+            1.544204020895896e-13,
+            1.2423357197318383e-13
+          ]
+        },
+        {
+          "first": 16,
+          "status": "shared",
+          "pencil_condition": 501.0564862277306,
+          "eigenbasis_condition": 217.58181362689848,
+          "real_basis_condition": 220.5021780082451,
+          "matrix_replay": [
+            2.911835889086342e-13,
+            1.7869689145372088e-13
+          ]
+        },
+        {
+          "first": 18,
+          "status": "shared",
+          "pencil_condition": 965.7665324016006,
+          "eigenbasis_condition": 87.64861175795306,
+          "real_basis_condition": 93.10144555377866,
+          "matrix_replay": [
+            7.13066345429271e-14,
+            6.020856248223291e-14
+          ]
+        },
+        {
+          "first": 20,
+          "status": "shared",
+          "pencil_condition": 755.5611362897379,
+          "eigenbasis_condition": 312.8317458398223,
+          "real_basis_condition": 312.4981786247243,
+          "matrix_replay": [
+            1.1595574645690825e-13,
+            9.450736665758553e-14
+          ]
+        },
+        {
+          "first": 22,
+          "status": "shared",
+          "pencil_condition": 405.43285064624087,
+          "eigenbasis_condition": 362.9283571870408,
+          "real_basis_condition": 291.3109972108079,
+          "matrix_replay": [
+            1.216634080722513e-13,
+            1.9494348978865625e-13
+          ]
+        },
+        {
+          "first": 24,
+          "status": "shared",
+          "pencil_condition": 329.8547819340534,
+          "eigenbasis_condition": 95.0741979705714,
+          "real_basis_condition": 78.81795998668996,
+          "matrix_replay": [
+            3.2818408433697754e-14,
+            2.9249794419530064e-14
+          ]
+        },
+        {
+          "first": 26,
+          "status": "shared",
+          "pencil_condition": 1146.3152412823226,
+          "eigenbasis_condition": 202.91206769854122,
+          "real_basis_condition": 210.67749434302877,
+          "matrix_replay": [
+            3.4520794111161845e-14,
+            4.423342706763506e-14
+          ]
+        },
+        {
+          "first": 28,
+          "status": "shared",
+          "pencil_condition": 443.4744570139364,
+          "eigenbasis_condition": 91.32875113033533,
+          "real_basis_condition": 102.4429340965174,
+          "matrix_replay": [
+            2.780314420400188e-14,
+            3.7519570293133394e-14
+          ]
+        },
+        {
+          "first": 30,
+          "status": "shared",
+          "pencil_condition": 1108.2752191193592,
+          "eigenbasis_condition": 176.01311085720894,
+          "real_basis_condition": 195.39461182812283,
+          "matrix_replay": [
+            8.724417853007925e-14,
+            2.401986568383749e-13
+          ]
+        }
+      ]
+    }
+  ],
+  "predictions": {
+    "replay": true,
+    "price": false
+  },
+  "seconds": 1.482972445897758,
+  "scope": "Exact pair rewrite of fixed outputrank programs; old naturalinputs and common unembeddingGram frame for replay. No freshnativebehavior, semantics oradoption. Singular/illconditioned pencils retain spectralfallback."
+}

@@ -1,3 +1,5 @@
+**Latest graph result — [A smaller shared-root program](research_update_2026-09-21_1956_shared_root_program.md).** Exact pair sharing reduces the16-output program to384products; model-level validation remains outstanding.
+
 **Start here: [Overall review — QR, decomposition, then shared arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 19:07 UTC. Explains the original two-stage plan, separates the three experimental targets, and summarizes successes, failures, and the latest weight-matching comparison.
 
 # Latest requested update for Logan
