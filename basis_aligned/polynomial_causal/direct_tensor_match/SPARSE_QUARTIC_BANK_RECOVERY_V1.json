@@ -1,0 +1,196 @@
+{
+  "rows": [
+    {
+      "family": "independent",
+      "optimizer": "adam",
+      "restart": 0,
+      "planted_error": 1.6953838720952254e-08,
+      "error": 0.08342575203379111,
+      "step": 400,
+      "seconds": 0.6495085959322751
+    },
+    {
+      "family": "independent",
+      "optimizer": "adam",
+      "restart": 1,
+      "planted_error": 1.6953838720952254e-08,
+      "error": 0.056783925668711675,
+      "step": 400,
+      "seconds": 0.6390140275470912
+    },
+    {
+      "family": "independent",
+      "optimizer": "muon",
+      "restart": 0,
+      "planted_error": 1.6953838720952254e-08,
+      "error": 0.03725119842700936,
+      "step": 400,
+      "seconds": 0.6371074803173542
+    },
+    {
+      "family": "independent",
+      "optimizer": "muon",
+      "restart": 1,
+      "planted_error": 1.6953838720952254e-08,
+      "error": 0.037160079757229555,
+      "step": 400,
+      "seconds": 0.6292686760425568
+    },
+    {
+      "family": "shared_inputs",
+      "optimizer": "adam",
+      "restart": 0,
+      "planted_error": 1.6553935118975935e-08,
+      "error": 0.05773571195917572,
+      "step": 400,
+      "seconds": 0.6380544807761908
+    },
+    {
+      "family": "shared_inputs",
+      "optimizer": "adam",
+      "restart": 1,
+      "planted_error": 1.6553935118975935e-08,
+      "error": 0.054432428912825945,
+      "step": 400,
+      "seconds": 0.6300346651114523
+    },
+    {
+      "family": "shared_inputs",
+      "optimizer": "muon",
+      "restart": 0,
+      "planted_error": 1.6553935118975935e-08,
+      "error": 0.03344272726411811,
+      "step": 400,
+      "seconds": 0.6474521039053798
+    },
+    {
+      "family": "shared_inputs",
+      "optimizer": "muon",
+      "restart": 1,
+      "planted_error": 1.6553935118975935e-08,
+      "error": 0.044867639955760014,
+      "step": 400,
+      "seconds": 0.644119858276099
+    },
+    {
+      "family": "shared_outputs",
+      "optimizer": "adam",
+      "restart": 0,
+      "planted_error": 2.52857627586367e-08,
+      "error": 0.01224092196601635,
+      "step": 400,
+      "seconds": 0.641736458055675
+    },
+    {
+      "family": "shared_outputs",
+      "optimizer": "adam",
+      "restart": 1,
+      "planted_error": 2.52857627586367e-08,
+      "error": 0.06821196051792015,
+      "step": 400,
+      "seconds": 0.6372378561645746
+    },
+    {
+      "family": "shared_outputs",
+      "optimizer": "muon",
+      "restart": 0,
+      "planted_error": 2.52857627586367e-08,
+      "error": 0.006801709095490888,
+      "step": 400,
+      "seconds": 0.5950133972801268
+    },
+    {
+      "family": "shared_outputs",
+      "optimizer": "muon",
+      "restart": 1,
+      "planted_error": 2.52857627586367e-08,
+      "error": 0.03828388105907179,
+      "step": 400,
+      "seconds": 0.6347850449383259
+    },
+    {
+      "family": "squares",
+      "optimizer": "adam",
+      "restart": 0,
+      "planted_error": 3.5608415723132416e-08,
+      "error": 0.05626717228272093,
+      "step": 400,
+      "seconds": 0.6422960180789232
+    },
+    {
+      "family": "squares",
+      "optimizer": "adam",
+      "restart": 1,
+      "planted_error": 3.5608415723132416e-08,
+      "error": 0.05573279327973301,
+      "step": 400,
+      "seconds": 0.6416492029093206
+    },
+    {
+      "family": "squares",
+      "optimizer": "muon",
+      "restart": 0,
+      "planted_error": 3.5608415723132416e-08,
+      "error": 0.05050941714633025,
+      "step": 400,
+      "seconds": 0.6192423743195832
+    },
+    {
+      "family": "squares",
+      "optimizer": "muon",
+      "restart": 1,
+      "planted_error": 3.5608415723132416e-08,
+      "error": 0.04731164705389181,
+      "step": 399,
+      "seconds": 0.6120830066502094
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "adam",
+      "restart": 0,
+      "planted_error": 3.42758858008028e-08,
+      "error": 0.001924846959286475,
+      "step": 400,
+      "seconds": 0.6384511119686067
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "adam",
+      "restart": 1,
+      "planted_error": 3.42758858008028e-08,
+      "error": 0.029261442419206064,
+      "step": 400,
+      "seconds": 0.6426317119039595
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "muon",
+      "restart": 0,
+      "planted_error": 3.42758858008028e-08,
+      "error": 0.06888262198784632,
+      "step": 400,
+      "seconds": 0.6221184763126075
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "muon",
+      "restart": 1,
+      "planted_error": 3.42758858008028e-08,
+      "error": 0.021114827299561947,
+      "step": 400,
+      "seconds": 0.6189410537481308
+    }
+  ],
+  "summary": {
+    "adam": {
+      "below1percent": 1,
+      "median_error": 0.05573279410600662
+    },
+    "muon": {
+      "below1percent": 1,
+      "median_error": 0.037251196801662445
+    }
+  },
+  "recovery_gate": false,
+  "scope": "Known representable selected-pair bank,400steps/.1rate/cosine1pct,2starts; different teachers than CP suite, not cross-family optimizer league table."
+}

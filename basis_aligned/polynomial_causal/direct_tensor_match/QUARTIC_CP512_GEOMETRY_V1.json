@@ -1,0 +1,44 @@
+{
+  "version": "V1",
+  "rows": [
+    {
+      "seed": 1001,
+      "reader_spectrum": {
+        "numerical_rank": 1152,
+        "top256_fraction": 0.49579124028795946,
+        "directions_for90percent": 726
+      },
+      "coefficient_weighted_reader_spectrum": {
+        "numerical_rank": 1152,
+        "top256_fraction": 0.5146162433392677,
+        "directions_for90percent": 713
+      },
+      "max_absolute_atom_correlation": 0.00024684017721049326,
+      "atom_pairs_above_099": 0,
+      "coefficient_norm_squared": 1.7333699350980862e-05,
+      "top32_atom_diagonal_energy_fraction": 0.21117624794454104,
+      "scope": "Direction spectra and individual-atom energies are descriptive and gauge-dependent; diagonal atom energy excludes cross-term cancellation. No semantic or target-capacity certificate."
+    },
+    {
+      "seed": 1002,
+      "reader_spectrum": {
+        "numerical_rank": 1152,
+        "top256_fraction": 0.4956298508838513,
+        "directions_for90percent": 726
+      },
+      "coefficient_weighted_reader_spectrum": {
+        "numerical_rank": 1152,
+        "top256_fraction": 0.5133158120941577,
+        "directions_for90percent": 713
+      },
+      "max_absolute_atom_correlation": 0.0002033028839108123,
+      "atom_pairs_above_099": 0,
+      "coefficient_norm_squared": 1.660397798886457e-05,
+      "top32_atom_diagonal_energy_fraction": 0.17674156858066886,
+      "scope": "Direction spectra and individual-atom energies are descriptive and gauge-dependent; diagonal atom energy excludes cross-term cancellation. No semantic or target-capacity certificate."
+    }
+  ],
+  "cross_restart_coefficient_cosine": 0.0005821883573269222,
+  "cross_restart_distance_over_first_norm": 1.398843084708396,
+  "scope": "Exact symmetric quartic coefficient comparisons between saved programs, not error against teacher. FP32 artifacts evaluated in FP64."
+}
