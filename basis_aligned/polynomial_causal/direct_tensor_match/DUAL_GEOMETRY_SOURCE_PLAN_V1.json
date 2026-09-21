@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-09-21T10:06:56.742419+00:00",
+  "widths": [
+    367,
+    560
+  ],
+  "private_squares": 32,
+  "alphas": [
+    0,
+    0.5,
+    1
+  ],
+  "seeds": [
+    0,
+    916
+  ],
+  "steps": 1500,
+  "rate": 0.01,
+  "primary": {
+    "width": 560,
+    "alpha": 0.5
+  },
+  "scalar_baseline": [
+    0.03058409729022641,
+    0.027558449717507608,
+    0.11941807478056159
+  ],
+  "scope": "Native-isotropic versus covariance-shaped coefficient objective, equal pair normalization in each geometry. Seed0 uses parent directions plus random added columns; seed916 fully random native directions. Both metrics reported for every arm. Wider graph costs more and cannot claim dominance versus smaller baselines without matched-cost comparisons. Nativeports remain; opened448notfresh.",
+  "hashes": {
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "EMPIRICAL_SOURCE_DIRECTIONS_V1.json": "6c08c5d8865a9831d8d9a96bb80fde7e9476144fdd234460c61694272eec63c2",
+    "EMPIRICAL_SOURCE_DIRECTIONS_PROGRAMS_V1.pt": "cfd6f43818269aba1b5a2f3d80e014f96e501904c91927c157e5ed22de675154",
+    "dual_geometry_source_metric.py": "dfc5f09a64faca1006eba997c8a1b41aba3db631ea31dec3ae8bef70fefafe31",
+    "shared_private_metric.py": "8ef7fd29a5c4aeb09c3c4670e9db20f3631384b03223a02cf52499b993566623",
+    "global_mixed_source_graph.py": "eae269588366ddd34919ab15c8da315e38be566175823d8cb73415769c2a76b3"
+  }
+}

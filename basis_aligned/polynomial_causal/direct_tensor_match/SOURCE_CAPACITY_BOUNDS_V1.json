@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "shared_mixed_products": 383,
+      "private_squares": 0,
+      "common_input_span_max_width": 766,
+      "individual_output_rank_caps": [
+        766,
+        766,
+        766,
+        766,
+        766,
+        766
+      ],
+      "native_equal_pair_error_lower_bound_individual_ranks": 0.12473602564638628,
+      "native_equal_pair_error_lower_bound_shared_span": 0.278074320920903
+    },
+    {
+      "shared_mixed_products": 367,
+      "private_squares": 32,
+      "common_input_span_max_width": 766,
+      "individual_output_rank_caps": [
+        734,
+        734,
+        734,
+        734,
+        734,
+        766
+      ],
+      "native_equal_pair_error_lower_bound_individual_ranks": 0.13779571506542238,
+      "native_equal_pair_error_lower_bound_shared_span": 0.278074320920903
+    },
+    {
+      "shared_mixed_products": 512,
+      "private_squares": 0,
+      "common_input_span_max_width": 1024,
+      "individual_output_rank_caps": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "native_equal_pair_error_lower_bound_individual_ranks": 0.023208335880575054,
+      "native_equal_pair_error_lower_bound_shared_span": 0.1267137037712876
+    },
+    {
+      "shared_mixed_products": 560,
+      "private_squares": 32,
+      "common_input_span_max_width": 1152,
+      "individual_output_rank_caps": [
+        1120,
+        1120,
+        1120,
+        1120,
+        1120,
+        1152
+      ],
+      "native_equal_pair_error_lower_bound_individual_ranks": 0.0025001880166562254,
+      "native_equal_pair_error_lower_bound_shared_span": 0.0
+    }
+  ],
+  "scope": "Necessary spectral bounds for arbitrary dictionaries at stated topology. Each mixed product has symmetric-matrix rank<=2 and each private square rank<=1. Every output column space lies in the common reader span. Relaxations ignore simultaneous atom sharing constraints and do not prove attainability, general polynomial DAG limits, or behavioral fidelity."
+}

@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
+**Latest mathematical result — [Capacity and two explicit metrics](research_update_2026-09-21_1010_capacity_and_two_metrics.md).** The399-product reader span implies at least27.81%native isotropic coefficient error. A registered two-width comparison tests isotropic and covariance-shaped fitting; no outcome yet.
+
 **Latest result and metric clarification — [Direct component fitting and native coefficient geometry](research_update_2026-09-21_1000_component_loss_and_metric_correction.md).** Direct product fitting still fails. Recent 7–9% coefficient errors used calibration-shaped coordinates; native isotropic error is about 60%, and an exact fixed-dictionary readout cannot repair it.
 
 **Latest completed experiment — [Empirical direction result](research_update_2026-09-21_0951_empirical_direction_result.md).** All six fits completed. The primary improves component three to 14.78% but fails the 13.14% relative requirement; execution and coefficient checks pass.
