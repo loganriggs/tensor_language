@@ -24,6 +24,21 @@ def joint_design(x,y,delta,response,u,v,response_weight=1.):
     a=value_energy.rsqrt();b=(response_weight/response_energy).sqrt()
     return torch.cat([features(x,u,v)*a,response_features(x,delta,u,v)*b]),torch.cat([y*a,response*b])
 
+def ensemble_design(x,y,deltas,responses,u,v,response_weight=1.):
+    """Equal-mass donor families, one globally normalized response energy.
+    deltas[K,N,d], responses[K,N,V]; repeated families leave objective unchanged.
+    """
+    if response_weight<0:raise ValueError('negative response weight')
+    if deltas.ndim!=3 or responses.ndim!=3 or deltas.shape[:2]!=responses.shape[:2] or deltas.shape[1]!=len(x):raise ValueError('expected matching donor family panels')
+    value_energy=y.square().sum();energy=responses.square().sum()
+    if value_energy<=0 or energy<=0:raise ValueError('undefined target energy')
+    scale=(response_weight/energy).sqrt()
+    blocks=[features(x,u,v)/value_energy.sqrt()];targets=[y/value_energy.sqrt()]
+    for delta,response in zip(deltas,responses):
+        blocks.append(response_features(x,delta,u,v)*scale);targets.append(response*scale)
+    return torch.cat(blocks),torch.cat(targets)
+
+
 def fit(x,y,delta,response,initial,response_weight=1.,steps=300,rate=.01,optimizer='adam',design_builder=None):
     import math
     from empirical_quartic_dictionary import readout

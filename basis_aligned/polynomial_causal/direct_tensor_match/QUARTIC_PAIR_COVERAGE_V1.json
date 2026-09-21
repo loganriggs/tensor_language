@@ -1,0 +1,144 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_pairgeneralization": false,
+    "pred_c_stategap": true
+  },
+  "rows": [
+    {
+      "panel": 0,
+      "shift": 997,
+      "program": "half",
+      "error": 0.03923349375408387,
+      "teacher_energy": 4687610.542207221
+    },
+    {
+      "panel": 0,
+      "shift": 997,
+      "program": "value",
+      "error": 0.21769677167557305,
+      "teacher_energy": 4687610.542207221
+    },
+    {
+      "panel": 0,
+      "shift": 997,
+      "program": "path",
+      "error": 0.0423279941436204,
+      "teacher_energy": 4687610.542207221
+    },
+    {
+      "panel": 0,
+      "shift": 613,
+      "program": "half",
+      "error": 0.08978520652804149,
+      "teacher_energy": 4468571.4466476515
+    },
+    {
+      "panel": 0,
+      "shift": 613,
+      "program": "value",
+      "error": 0.21864329983324798,
+      "teacher_energy": 4468571.4466476515
+    },
+    {
+      "panel": 0,
+      "shift": 613,
+      "program": "path",
+      "error": 0.088877060837909,
+      "teacher_energy": 4468571.4466476515
+    },
+    {
+      "panel": 0,
+      "shift": 1379,
+      "program": "half",
+      "error": 0.08821392145498701,
+      "teacher_energy": 4615986.992629593
+    },
+    {
+      "panel": 0,
+      "shift": 1379,
+      "program": "value",
+      "error": 0.21531321582625088,
+      "teacher_energy": 4615986.992629593
+    },
+    {
+      "panel": 0,
+      "shift": 1379,
+      "program": "path",
+      "error": 0.08705505898576722,
+      "teacher_energy": 4615986.992629593
+    },
+    {
+      "panel": 1,
+      "shift": 997,
+      "program": "half",
+      "error": 0.21113083494943888,
+      "teacher_energy": 4855475.899817217
+    },
+    {
+      "panel": 1,
+      "shift": 997,
+      "program": "value",
+      "error": 0.27687685451855754,
+      "teacher_energy": 4855475.899817217
+    },
+    {
+      "panel": 1,
+      "shift": 997,
+      "program": "path",
+      "error": 0.2111269977388066,
+      "teacher_energy": 4855475.899817217
+    },
+    {
+      "panel": 1,
+      "shift": 613,
+      "program": "half",
+      "error": 0.214894331772949,
+      "teacher_energy": 4618054.696341585
+    },
+    {
+      "panel": 1,
+      "shift": 613,
+      "program": "value",
+      "error": 0.283986356570999,
+      "teacher_energy": 4618054.696341585
+    },
+    {
+      "panel": 1,
+      "shift": 613,
+      "program": "path",
+      "error": 0.2167383015747449,
+      "teacher_energy": 4618054.696341585
+    },
+    {
+      "panel": 1,
+      "shift": 1379,
+      "program": "half",
+      "error": 0.20933719890119587,
+      "teacher_energy": 4834559.567137163
+    },
+    {
+      "panel": 1,
+      "shift": 1379,
+      "program": "value",
+      "error": 0.27654346255253387,
+      "teacher_energy": 4834559.567137163
+    },
+    {
+      "panel": 1,
+      "shift": 1379,
+      "program": "path",
+      "error": 0.209847754316594,
+      "teacher_energy": 4834559.567137163
+    }
+  ],
+  "old_response_replay_absolute": 6.620052006578447e-10,
+  "teacher_replay": 0.0,
+  "program_hashes": {
+    "half": "b635fd5656ea398d011c8ac121c315f89a6ce90e5d7c28aceaa3e24ef84a060e",
+    "value": "815b8853a65c9ad417a48a14d10c4c0dd189726e675ab09bee754260eda14bb3",
+    "path": "a536dfb283b411b7674e6a78f7213526aedbab325e5d81335b2c8da3427d2073"
+  },
+  "seconds": 0.7403341392055154,
+  "scope": "Frozen opened-state pair diagnostic, unembedding polynomial numerator metric, no normalized native response/semantic/OOD adoption."
+}
