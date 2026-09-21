@@ -151,3 +151,7 @@ Four fits154.54s; selectededited399program errors2.576/2.518/16.090%, versuscont
 ## 21 September, 09:10 — Fresh compact-group native interventions
 
 Frozen399graph tested32newFineWebdocs+16newcodefiles, all3individual+combined removals andsame-token cross-document swaps. Nativeinstrumentpasses; original72cells4absolute/25relativefail. Combinedabsolute18/18pass(max6.60%), relativeagainstBOTHseparate768andpartial512fails11/18. All-site combinedFineWebnatural2.720%vs2.471%partial;code2.311%vs1.905%. Codecontinuationhybridratio1.885withpairedrecipient95%interval1.471–2.422, donorsfixed. Exactreportedpointsrecomputed; nativeports and allconstituentfailures retained. No adoption. [Report](../../explanations/for_logan/research_update_2026-09-21_0910_fresh_group_and_constituent_interventions.md).
+
+## 21 September, 09:17 — Native value metric geometry
+
+All24matched-panelGaussianquadraticMSEratios.325–.860fail10%agreement; downstreamsensitivityindependence20/24fails,ratios.305–.980. Compactread6combinedsurrogate.238/.383ofactualweightedtrain/openederror. FiveGaussianformulacontrolsandnativeexecutorreplayspass. ActualnextCPUfiveequal-covdistributionmetrics giveq=x1²-x2²MSE4/0/16/6/3.2; empiricalmetricscanhaveOODblindnullspaces. RevisitedpaperMscope; proposeddatafourth-momenttermmustretainpositivecoefficientconstraint andmatrix-freeevaluation. No newcandidatefit/adoption. [Report](../../explanations/for_logan/research_update_2026-09-21_0917_covariance_and_lifted_polynomial_metrics.md).

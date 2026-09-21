@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: from folded weights to smaller arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 08:40 UTC. Explains the two-stage plan, what QR does, why the target narrowed, the actual savings, and the remaining failures. Read this before the chronological experiment updates.
 
+**Latest analysis — [Covariance and lifted polynomial metrics](research_update_2026-09-21_0917_covariance_and_lifted_polynomial_metrics.md).** Matched-Gaussian closure and downstream-sensitivity independence understate measured errors. Five equal-covariance controls motivate higher-moment fitting with a retained global coefficient constraint.
+
 **Latest experiment — [Fresh group and constituent interventions](research_update_2026-09-21_0910_fresh_group_and_constituent_interventions.md).** Compact399graph keeps combined absolute errors low, but fails11of18relative group comparisons and retains individual failures. Both separate768andshared512baselines are included.
 
 **Latest experiment — [Direction refit and component identity](research_update_2026-09-21_0903_direction_refit_and_component_identity.md).** Joint refitting improves the edited graph but fails accuracy. Its private branch is useful but unstable; exact outer-factor rotations preserve the common-writer sum while changing constituent components.

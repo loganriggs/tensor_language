@@ -1,0 +1,82 @@
+{
+  "records": [
+    {
+      "distribution": "gaussian",
+      "input_covariance": "I_8 exactly by construction",
+      "population_fourth_moment_diagonal": 3.0,
+      "population_cross_square_moment": 1.0,
+      "quadratic_feature_dimensions": 36,
+      "metric_rank": 36,
+      "exact_error_for_x1square_minus_x2square": 4.0,
+      "empirical_error": 4.004197660406304,
+      "monte_carlo_standard_errors": 0.11691931607053993,
+      "lifted_metric_relative_replay": 0.02277558540781554,
+      "feature_replay": 0.0,
+      "identity_floor": 0.01,
+      "regularized_min_eigenvalue": 2.009999999999999
+    },
+    {
+      "distribution": "rademacher",
+      "input_covariance": "I_8 exactly by construction",
+      "population_fourth_moment_diagonal": 1.0,
+      "population_cross_square_moment": 1.0,
+      "quadratic_feature_dimensions": 36,
+      "metric_rank": 29,
+      "exact_error_for_x1square_minus_x2square": 0.0,
+      "empirical_error": 0.0,
+      "monte_carlo_standard_errors": 0.0,
+      "lifted_metric_relative_replay": 0.014298020206244724,
+      "feature_replay": 0.0,
+      "identity_floor": 0.01,
+      "regularized_min_eigenvalue": 0.009999999999999957
+    },
+    {
+      "distribution": "coordinate_axes",
+      "input_covariance": "I_8 exactly by construction",
+      "population_fourth_moment_diagonal": 8.0,
+      "population_cross_square_moment": 0.0,
+      "quadratic_feature_dimensions": 36,
+      "metric_rank": 8,
+      "exact_error_for_x1square_minus_x2square": 16.0,
+      "empirical_error": 16.000000000000004,
+      "monte_carlo_standard_errors": 4.053941026468255e-14,
+      "lifted_metric_relative_replay": 0.011258845411497567,
+      "feature_replay": 0.0,
+      "identity_floor": 0.01,
+      "regularized_min_eigenvalue": 0.01
+    },
+    {
+      "distribution": "sparse_independent",
+      "input_covariance": "I_8 exactly by construction",
+      "population_fourth_moment_diagonal": 4.0,
+      "population_cross_square_moment": 1.0,
+      "quadratic_feature_dimensions": 36,
+      "metric_rank": 36,
+      "exact_error_for_x1square_minus_x2square": 6.0,
+      "empirical_error": 6.0256,
+      "monte_carlo_standard_errors": 1.04422540353691,
+      "lifted_metric_relative_replay": 0.025140963880982508,
+      "feature_replay": 0.0,
+      "identity_floor": 0.01,
+      "regularized_min_eigenvalue": 2.01
+    },
+    {
+      "distribution": "uniform_sphere",
+      "input_covariance": "I_8 exactly by construction",
+      "population_fourth_moment_diagonal": 2.4,
+      "population_cross_square_moment": 0.8,
+      "quadratic_feature_dimensions": 36,
+      "metric_rank": 36,
+      "exact_error_for_x1square_minus_x2square": 3.1999999999999997,
+      "empirical_error": 3.206007537643366,
+      "monte_carlo_standard_errors": 0.3257888826250808,
+      "lifted_metric_relative_replay": 0.015424998896994106,
+      "feature_replay": 0.0,
+      "identity_floor": 0.01,
+      "regularized_min_eigenvalue": 1.609999999999996
+    }
+  ],
+  "scope": "Five distribution/metric controls, not five new structural recovery experiments. Same raw-input covariance, different fourth-moment operators. Positive coefficient floor removes toy metric nullspaces, not a guarantee of native/OOD accuracy.",
+  "native_quadratic_feature_dimension": 664128,
+  "empirical_metric_rank_upper_bound_for_current_training_sites": 1536
+}
