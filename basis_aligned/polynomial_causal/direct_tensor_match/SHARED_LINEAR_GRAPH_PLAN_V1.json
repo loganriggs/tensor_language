@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-09-21T10:53:14.522925+00:00",
+  "target": "Same six native quadratic source measurements and three conditional components; no fresh selection.",
+  "parents": {
+    "mixed": 0.5,
+    "isotropic": 1.0,
+    "covariance": 0.0
+  },
+  "ranks": [
+    384,
+    448,
+    512
+  ],
+  "primary": "mixed_448",
+  "edit": "Factor concatenated native left/right/square reader matrix by SVD into shared linear input nodes followed by per-product linear maps. Refit all allowed output coefficients exactly with unchanged parent metric; update affine mean corrections. Rank1152 no-refit control replays original.",
+  "pred_a": "Every factorized/native execution and full-width control replay<1e-8.",
+  "pred_b": "Primary all3values<=.15 and<=1.10 original mixed parent; all3fixed-h earlier-input Jacobian errors<=1.10 parent.",
+  "pred_c": "Primary native-isotropic and covariance-shaped coefficient errors each<=1.10 parent.",
+  "pred_d": "Primary literal total source multiplications<=.80 parent and storedfloats<parent, including both projection stages. Shared nodes counted once; common affine/later-state costs excluded equally.",
+  "null": "The current product graph requires broad reader span; sharing linear intermediates saves nominal arithmetic but loses component or response fidelity.",
+  "controls": "Five planted shared linear dictionaries, actual two-stage vs dense source/component execution, literal multiplication formula. All pass before native fit.",
+  "selection": "No candidate adoption selected from ranks, fresh panels or alternative metrics. Secondary ranks/families descriptive. No new data or forwards.",
+  "preflight_sha256": "a7480dd8eb733e9945e2a01b187be0508b4c5d505f29751bfed8c10fb1091d4c"
+}

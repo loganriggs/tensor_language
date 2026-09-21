@@ -195,3 +195,7 @@ Pairbanks384each1152products1340940floats vswidegraph592/1342028. Nativeisotropi
 ## 21 September, 10:37 — Fresh sixth-panel metric transfer
 
 Native10.66s source1.70e-7/final0passes. All3graphs0absolute failures/72. Primarymixed10covariance-baseline and2isotropic-baseline relativefailures (10either); isotropic15either,covariance13either. MixedhelpsFWthirdnatural7.69vscovgraph11.59%, hurtscode2.59vs1.57%. Paired4000recipientbootstrap primarycodehybridthirdratio1.43[1.30,1.57]vscovbaseline;6primarylowerCIs>1.10. Pointwise/donorfixed caveats. Combineddoesnotrescue; priorcoefficientguardFAIL andnativeportsretained. ActualnextCPUuncertainty auditcompleted afterterminal. [Report](../../explanations/for_logan/research_update_2026-09-21_1037_fresh_metric_transfer.md).
+
+## 21 September 2026, 10:50 UTC — Exact shared coordinate blocks rejected numerically
+
+Five planted nonorthogonal block families recover known sizes and independent center nullities; degenerate pencils rejected. Native six-form simple-pencil screens12.49s: both seeds/both congruent geometries give connected1152component across1e-10…1e-6thresholds. InstrumentPASS, splitFAIL, geometry-consistencyPASS. No exact independent-coordinate candidate; no general arithmetic-DAG impossibility claim. [Plan](../NATIVE_QUADRATIC_CENTER_PLAN_V1.json), [result](../NATIVE_QUADRATIC_CENTER_V1.json), [math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-21_1050.md). Next edit targets overlapping shared linear projections, since products alone did not reduce total arithmetic.

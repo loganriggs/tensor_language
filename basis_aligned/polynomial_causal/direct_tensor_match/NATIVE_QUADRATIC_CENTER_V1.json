@@ -1,0 +1,185 @@
+{
+  "seconds": 12.492731619626284,
+  "records": [
+    {
+      "geometry": "native_isotropic",
+      "seed": 23016,
+      "screen": {
+        "anchor_condition": 17410.145375349348,
+        "eigenbasis_condition": 769.7545935354428,
+        "relative_minimum_eigengap": 8.226349567624281e-06,
+        "eigen_residual": 3.369667155942039e-15,
+        "solve_residual": 1.0141790627786135e-12,
+        "complex_eigenvalues": 1018,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          }
+        ],
+        "primary_components": 1,
+        "primary_sizes": [
+          1152
+        ],
+        "connectivity_bottleneck": 0.007215597507376478,
+        "off_block_transformed_operator_error": 0.0,
+        "scalar_center_supported": true,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    },
+    {
+      "geometry": "native_isotropic",
+      "seed": 23017,
+      "screen": {
+        "anchor_condition": 8963.792870408304,
+        "eigenbasis_condition": 976.5643119405564,
+        "relative_minimum_eigengap": 5.0067935598226246e-05,
+        "eigen_residual": 3.632183991669117e-15,
+        "solve_residual": 7.360815896061369e-13,
+        "complex_eigenvalues": 1042,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          }
+        ],
+        "primary_components": 1,
+        "primary_sizes": [
+          1152
+        ],
+        "connectivity_bottleneck": 0.00585468233145771,
+        "off_block_transformed_operator_error": 0.0,
+        "scalar_center_supported": true,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    },
+    {
+      "geometry": "covariance_shaped",
+      "seed": 23016,
+      "screen": {
+        "anchor_condition": 689321.0369816171,
+        "eigenbasis_condition": 2303.3008366760887,
+        "relative_minimum_eigengap": 8.226349564720285e-06,
+        "eigen_residual": 2.7833169305524056e-15,
+        "solve_residual": 3.1897924193279066e-13,
+        "complex_eigenvalues": 1018,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          }
+        ],
+        "primary_components": 1,
+        "primary_sizes": [
+          1152
+        ],
+        "connectivity_bottleneck": 0.007314400927294647,
+        "off_block_transformed_operator_error": 0.0,
+        "scalar_center_supported": true,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    },
+    {
+      "geometry": "covariance_shaped",
+      "seed": 23017,
+      "screen": {
+        "anchor_condition": 308390.97722101246,
+        "eigenbasis_condition": 2640.28354387619,
+        "relative_minimum_eigengap": 5.006793559506467e-05,
+        "eigen_residual": 3.0128338394915036e-15,
+        "solve_residual": 2.1291298040491636e-13,
+        "complex_eigenvalues": 1042,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 1,
+            "sizes": [
+              1152
+            ]
+          }
+        ],
+        "primary_components": 1,
+        "primary_sizes": [
+          1152
+        ],
+        "connectivity_bottleneck": 0.005861762348552394,
+        "off_block_transformed_operator_error": 0.0,
+        "scalar_center_supported": true,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    }
+  ],
+  "pred_a": "PASS",
+  "pred_b": "FAIL",
+  "pred_c": "PASS",
+  "scope": "Exact independent-coordinate block hypothesis only; fixed target, two congruent input geometries, two fixed pencils. Numerical screen is not an interval certificate or lower bound on approximation by overlapping arithmetic DAGs."
+}

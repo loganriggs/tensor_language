@@ -1,6 +1,6 @@
 # Plain-language explanations
 
-Current overview: [QR, decomposition and arithmetic circuits](for_logan/research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md). Latest follow-up: [stable functions, unstable products](for_logan/research_update_2026-09-21_0748_stable_functions_unstable_products.md).
+Current overview: [QR, decomposition and arithmetic circuits](for_logan/research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md). Latest follow-up: [fresh metric transfer across FineWeb and code](for_logan/research_update_2026-09-21_1037_fresh_metric_transfer.md).
 
 Latest decomposition evidence: [Mean correction and feature stability](for_logan/research_update_2026-09-20_2015_mean_correction_and_feature_stability.md).
 
