@@ -32,6 +32,7 @@ def main():
      for candidate in ['graph','isotropic_graph','covariance_graph']:
       error=cells[candidate][family][cohort]['effect_relative_error'];cov=cells['separate'][family][cohort]['effect_relative_error'];iso=cells['isotropic_baseline'][family][cohort]['effect_relative_error']
       comparisons.append(dict(domain=domain,selection=selection,family=family,cohort=cohort,candidate=candidate,error=error,absolute_pass=error<=limit,covariance_baseline_error=cov,isotropic_baseline_error=iso,covariance_relative_pass=error<=1.1*cov,isotropic_relative_pass=error<=1.1*iso))
- result['all_candidate_comparisons']=comparisons;result['predictions']['pred_d_both_baselines']=all(c['covariance_relative_pass'] and c['isotropic_relative_pass'] for c in comparisons if c['candidate']=='graph')
+ result['all_candidate_comparisons']=comparisons;previous=result['predictions']
+ result['predictions']=dict(pred_a_instrument=previous['pred_a_instrument'],pred_b_absolute=previous['pred_b_absolute'],pred_c_relative=previous['pred_c_relative'],pred_d_both_baselines=all(c['covariance_relative_pass'] and c['isotropic_relative_pass'] for c in comparisons if c['candidate']=='graph'))
  path.write_text(json.dumps(result,indent=2)+'\n');print(result['predictions'],flush=True)
 if __name__=='__main__':main()
