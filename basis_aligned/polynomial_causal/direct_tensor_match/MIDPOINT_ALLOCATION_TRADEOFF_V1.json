@@ -1,0 +1,64 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "removal",
+      "adaptive_error": 0.1790253165916819,
+      "uniform1024_error": 0.17580105079472652,
+      "ratio": 1.0183404239188545
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_token",
+      "adaptive_error": 0.23293064665786287,
+      "uniform1024_error": 0.22801083392874952,
+      "ratio": 1.021577100720796
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "adaptive_error": 0.2567167647082645,
+      "uniform1024_error": 0.2527761792043875,
+      "ratio": 1.0155892280525798
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "adaptive_error": 0.5536553679266077,
+      "uniform1024_error": 0.5456634077724998,
+      "ratio": 1.0146463186650772
+    },
+    {
+      "domain": "code",
+      "family": "removal",
+      "adaptive_error": 0.11399258591796319,
+      "uniform1024_error": 0.10934364604723376,
+      "ratio": 1.0425167811645972
+    },
+    {
+      "domain": "code",
+      "family": "same_token",
+      "adaptive_error": 0.20082290398364436,
+      "uniform1024_error": 0.1940481685489868,
+      "ratio": 1.0349126481600743
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "adaptive_error": 0.2069235411229398,
+      "uniform1024_error": 0.202990932991795,
+      "ratio": 1.0193733191585646
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "adaptive_error": 0.3954953384184284,
+      "uniform1024_error": 0.38804840039180005,
+      "ratio": 1.0191907453274112
+    }
+  ],
+  "products_ratio": 0.5,
+  "weight_ratio": 0.8333333333333334,
+  "maximum_effect_error_ratio": 1.0425167811645972,
+  "scope": "Exploratory comparison of mixed-rank512 versus uniform256x4 with same exact first-order terms. Not preregistered gate, not comparison at equal coefficient storage to old compact512. Reused panels, no fresh confirmation."
+}

@@ -2,6 +2,8 @@
 
 21 September 2026, 02:28 UTC.
 
+**Completed:** see the [uniform and adaptive allocation results](research_update_2026-09-21_0235_adaptive_allocation.md). The following preserves the earlier in-progress record.
+
 The managed centered-decomposition experiment is still running. At the latest process check it had completed256 of512 matrix decompositions. No final native comparison is available yet. The experiment compares256output directions with two products each against512directions with one each, plus corresponding1,024-product variants.
 
 The candidates retain exact native constant and single-input terms around calibration means. These terms cost2,654,208 weight coefficients; they are explicitly included rather than treated as free background.
