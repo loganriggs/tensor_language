@@ -1,0 +1,137 @@
+{
+  "sha256": "0e4ff4b710ed61f6ce42359a7cdd86bbce19cd1f60b0983cba19ba0f39dd6513",
+  "price": {
+    "stored_floats": 1133134,
+    "physical_storage_floats": 1133134,
+    "index_integers": 4484,
+    "projection_multiplications": 1119360,
+    "activation_products": 1121,
+    "source_total_multiplications": 1122723
+  },
+  "fp32_component_drift": [
+    7.690067292805867e-07,
+    2.6223434944732694e-06,
+    8.155928803860292e-06
+  ],
+  "generated_errors": [
+    0.03095540116137273,
+    0.028347001198482987,
+    0.08907407152231728
+  ],
+  "worst_read_error": 517833.03631355346,
+  "baselines": [
+    {
+      "key": "native_isotropic_low0",
+      "stored_floats": 1132066,
+      "source_multiplications": 1121505,
+      "generated_errors": [
+        0.03929577213120661,
+        0.035203963481031386,
+        0.11880166105472043
+      ],
+      "candidate_generated_pass": [
+        true,
+        true,
+        true
+      ],
+      "read3b_worst": 474154.49430434656,
+      "candidate_worst_ratio": 1.0921187978472917,
+      "candidate_worst_pass": true
+    },
+    {
+      "key": "native_isotropic_low1",
+      "stored_floats": 1132066,
+      "source_multiplications": 1121505,
+      "generated_errors": [
+        0.03947529890838413,
+        0.03533023534244315,
+        0.11880166105472043
+      ],
+      "candidate_generated_pass": [
+        true,
+        true,
+        true
+      ],
+      "read3b_worst": 474154.49430434656,
+      "candidate_worst_ratio": 1.0921187978472917,
+      "candidate_worst_pass": true
+    },
+    {
+      "key": "native_isotropic_low2",
+      "stored_floats": 1132066,
+      "source_multiplications": 1121505,
+      "generated_errors": [
+        0.03947529890838413,
+        0.035203963481031386,
+        0.11851400308846416
+      ],
+      "candidate_generated_pass": [
+        true,
+        true,
+        true
+      ],
+      "read3b_worst": 475003.1187105391,
+      "candidate_worst_ratio": 1.0901676555709403,
+      "candidate_worst_pass": true
+    },
+    {
+      "key": "calibration_shaped_low0",
+      "stored_floats": 1132066,
+      "source_multiplications": 1121505,
+      "generated_errors": [
+        0.039329390151714404,
+        0.02954629283423518,
+        0.12067768506152705
+      ],
+      "candidate_generated_pass": [
+        true,
+        true,
+        true
+      ],
+      "read3b_worst": 694855.4019461982,
+      "candidate_worst_ratio": 0.7452385559113041,
+      "candidate_worst_pass": true
+    },
+    {
+      "key": "calibration_shaped_low1",
+      "stored_floats": 1132066,
+      "source_multiplications": 1121505,
+      "generated_errors": [
+        0.038939569460624227,
+        0.02953646788473522,
+        0.12067768506152705
+      ],
+      "candidate_generated_pass": [
+        true,
+        true,
+        true
+      ],
+      "read3b_worst": 694855.4019461982,
+      "candidate_worst_ratio": 0.7452385559113041,
+      "candidate_worst_pass": true
+    },
+    {
+      "key": "calibration_shaped_low2",
+      "stored_floats": 1132066,
+      "source_multiplications": 1121505,
+      "generated_errors": [
+        0.038939569460624227,
+        0.02954629283423518,
+        0.12047535628899227
+      ],
+      "candidate_generated_pass": [
+        true,
+        true,
+        true
+      ],
+      "read3b_worst": 699340.292279052,
+      "candidate_worst_ratio": 0.7404593186330051,
+      "candidate_worst_pass": true
+    }
+  ],
+  "predictions": {
+    "generated_interface": true,
+    "strengthened_worst_read": true
+  },
+  "scope": "Opened448states; six baselines include all placements of widths323/324/324, tied common writer, both coefficient geometries. No text transfer orsemanticidentity claim."
+}

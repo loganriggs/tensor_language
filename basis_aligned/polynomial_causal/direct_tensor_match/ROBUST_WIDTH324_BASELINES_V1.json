@@ -1,0 +1,144 @@
+{
+  "records": [
+    {
+      "key": "native_isotropic_324",
+      "width": 324,
+      "metric": "native_isotropic",
+      "instrument_pass": true,
+      "components": [
+        {
+          "mode": 1,
+          "source_products": 324,
+          "execution_replay": 1.7953096890648433e-12,
+          "component_error": 0.017778165464807705,
+          "native_isotropic_error": 0.47451896412960115,
+          "calibration_shaped_error": 0.15487584909828306,
+          "compiler": {
+            "pencil_condition": 16.49873366709475,
+            "eigenbasis_condition": 161.62278713493956,
+            "real_basis_condition": 165.60971492209555,
+            "matrix_replay": [
+              1.064047206894372e-11,
+              1.028678896559711e-11
+            ]
+          }
+        },
+        {
+          "mode": 2,
+          "source_products": 324,
+          "execution_replay": 4.55455751363445e-12,
+          "component_error": 0.03263113490319934,
+          "native_isotropic_error": 0.5215843741670511,
+          "calibration_shaped_error": 0.1410264962397484,
+          "compiler": {
+            "pencil_condition": 16045.255886266217,
+            "eigenbasis_condition": 106.39056570528095,
+            "real_basis_condition": 114.28849405820492,
+            "matrix_replay": [
+              2.4090946287742322e-11,
+              3.122754036189529e-11
+            ]
+          }
+        },
+        {
+          "mode": 3,
+          "source_products": 324,
+          "execution_replay": 1.0234382247190659e-12,
+          "component_error": 0.13580155929496882,
+          "native_isotropic_error": 0.5429647824333016,
+          "calibration_shaped_error": 0.11426929044889399,
+          "compiler": {
+            "pencil_condition": 1967.4500033059496,
+            "eigenbasis_condition": 150.27603434049925,
+            "real_basis_condition": 170.39742126710826,
+            "matrix_replay": [
+              5.143704736542979e-12,
+              5.632248420688329e-12
+            ]
+          }
+        }
+      ],
+      "source_products": 972,
+      "stored_floats": 1133220,
+      "index_integers": 2916,
+      "per_mode_errors": [
+        0.017778165464807705,
+        0.03263113490319934,
+        0.13580155929496882
+      ],
+      "native_isotropic_equal_pair_error": 0.5138187947959562,
+      "calibration_shaped_error": 0.13775881340863774
+    },
+    {
+      "key": "calibration_shaped_324",
+      "width": 324,
+      "metric": "calibration_shaped",
+      "instrument_pass": true,
+      "components": [
+        {
+          "mode": 1,
+          "source_products": 324,
+          "execution_replay": 7.791166091522918e-12,
+          "component_error": 0.02331943435617724,
+          "native_isotropic_error": 0.5676292668267904,
+          "calibration_shaped_error": 0.08801985008439178,
+          "compiler": {
+            "pencil_condition": 730.6129056868444,
+            "eigenbasis_condition": 721.8731794891243,
+            "real_basis_condition": 763.1533545701424,
+            "matrix_replay": [
+              1.434283296387056e-11,
+              1.533827377711134e-11
+            ]
+          }
+        },
+        {
+          "mode": 2,
+          "source_products": 324,
+          "execution_replay": 5.225335902327577e-12,
+          "component_error": 0.022383002783442452,
+          "native_isotropic_error": 0.6153093518752211,
+          "calibration_shaped_error": 0.08499218633004108,
+          "compiler": {
+            "pencil_condition": 59899.30021928914,
+            "eigenbasis_condition": 689.3565601060362,
+            "real_basis_condition": 722.6075437114973,
+            "matrix_replay": [
+              1.902482308535741e-11,
+              2.206914197093545e-11
+            ]
+          }
+        },
+        {
+          "mode": 3,
+          "source_products": 324,
+          "execution_replay": 9.531389376880385e-13,
+          "component_error": 0.10639245742948282,
+          "native_isotropic_error": 0.622436706826009,
+          "calibration_shaped_error": 0.0689624729699712,
+          "compiler": {
+            "pencil_condition": 41992.10174124717,
+            "eigenbasis_condition": 624.8163218883551,
+            "real_basis_condition": 695.704294433192,
+            "matrix_replay": [
+              2.793108778013846e-12,
+              3.000777236370693e-12
+            ]
+          }
+        }
+      ],
+      "source_products": 972,
+      "stored_floats": 1133220,
+      "index_integers": 2916,
+      "per_mode_errors": [
+        0.02331943435617724,
+        0.022383002783442452,
+        0.10639245742948282
+      ],
+      "native_isotropic_equal_pair_error": 0.6022834429811906,
+      "calibration_shaped_error": 0.08109046064770963
+    }
+  ],
+  "seconds": 4.295629007276148,
+  "scope": "Independent pair-specific mode-Gram subspaces, not optimized global minima. Symmetric-pair compiler provides exact within-subspace product sharing. One residual writer stored once. Widths recorded per arm; compare actual float and arithmetic budgets before dominance claims. Opened448diagnostics, nativez/h stillsupplied; no fresh/adoption claim."
+}
