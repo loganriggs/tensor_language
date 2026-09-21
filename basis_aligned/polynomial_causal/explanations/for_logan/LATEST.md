@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest graph-search update — [Graph edits and native capacity](research_update_2026-09-21_1841_graph_search_and_native_capacity.md).** New sharing/substitution operators pass planted controls; native fidelity still fails. Output-rank bounds distinguish the old approximation from the true native quartic target.
+
 **Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 18:04 UTC. Starts from the two-stage plan, distinguishes local graphs from the full-layer target, and includes the latest learned-direction and mixed-objective results. This is the overall review; the individual reports below are experiment details.
 
 **Latest two-stage experiment — [Learned features and graph refitting](research_update_2026-09-21_1742_learned_features_and_graph_refitting.md).** Five structural controls, four successful graph simplifications, and a full-layer learned-direction candidate that improves fitting but fails native intervention checks.
