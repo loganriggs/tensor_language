@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "relative_errors": {
+    "numerator": 7.020464209684807e-16,
+    "normalized": 3.4088115651477413e-16
+  },
+  "equal_covariance_counterexample": {
+    "variances": [
+      1.0,
+      1.0000000000000002
+    ],
+    "eighth_moments": [
+      1.0,
+      8.000000000000004
+    ]
+  },
+  "scope": "Verifies empirical full moment loss on constrained quartic inputs, including inverse RMS fourth-power weighting. It does not prove empirical moments generalize to new documents."
+}

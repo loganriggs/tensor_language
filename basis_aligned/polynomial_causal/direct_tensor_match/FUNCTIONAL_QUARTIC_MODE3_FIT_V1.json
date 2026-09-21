@@ -1,0 +1,376 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_training": true,
+    "pred_c_validation": false
+  },
+  "initial": {
+    "coefficient_relative_error": 0.8665272282557368,
+    "train_normalized_error": 0.3279945965861159,
+    "validation_normalized_error": 0.39976430752506115,
+    "train_numerator_error": 0.2634214652640235,
+    "validation_numerator_error": 0.3714351157723883
+  },
+  "selected_by_training_objective": {
+    "coefficient_0.0": "coefficient_0.0_lr0.05",
+    "numerator_0.0": "numerator_0.0_lr0.05",
+    "numerator_0.01": "numerator_0.01_lr0.05",
+    "normalized_0.0": "normalized_0.0_lr0.05",
+    "normalized_0.01": "normalized_0.01_lr0.05"
+  },
+  "records": [
+    {
+      "label": "coefficient_0.0_lr0.01",
+      "family": "coefficient_0.0",
+      "learning_rate": 0.01,
+      "training_objective": 0.025263502556475373,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.7508694373085698
+        ],
+        [
+          100,
+          0.027952189734815207
+        ],
+        [
+          200,
+          0.026009434599081654
+        ],
+        [
+          300,
+          0.025420301511805608
+        ],
+        [
+          400,
+          0.025263502556475373
+        ]
+      ],
+      "coefficient_relative_error": 0.1589449670687165,
+      "train_normalized_error": 0.4989336770720899,
+      "validation_normalized_error": 0.6892458637802241,
+      "train_numerator_error": 0.44622152697836365,
+      "validation_numerator_error": 0.5175647797009965,
+      "export_replay": 1.0755638519026496e-14
+    },
+    {
+      "label": "coefficient_0.0_lr0.05",
+      "family": "coefficient_0.0",
+      "learning_rate": 0.05,
+      "training_objective": 0.021579420775045002,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.7508694373085698
+        ],
+        [
+          100,
+          0.02293440693605668
+        ],
+        [
+          200,
+          0.021941459111008355
+        ],
+        [
+          300,
+          0.021654869075145876
+        ],
+        [
+          400,
+          0.021579420775045002
+        ]
+      ],
+      "coefficient_relative_error": 0.14689935593815584,
+      "train_normalized_error": 0.519629686155269,
+      "validation_normalized_error": 0.5317869012603076,
+      "train_numerator_error": 0.4714815396876528,
+      "validation_numerator_error": 0.4655342584172529,
+      "export_replay": 1.3116538851172315e-14
+    },
+    {
+      "label": "numerator_0.0_lr0.01",
+      "family": "numerator_0.0",
+      "learning_rate": 0.01,
+      "training_objective": 1.7652705048250088e-05,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.06939086836184513
+        ],
+        [
+          100,
+          0.0001554192278504533
+        ],
+        [
+          200,
+          3.3300883772634864e-05
+        ],
+        [
+          300,
+          2.032796728539157e-05
+        ],
+        [
+          400,
+          1.7652705048250088e-05
+        ]
+      ],
+      "coefficient_relative_error": 0.8504723308799089,
+      "train_normalized_error": 0.0072385939938148115,
+      "validation_normalized_error": 0.4545509114150041,
+      "train_numerator_error": 0.004201512233499992,
+      "validation_numerator_error": 0.43759138498440764,
+      "export_replay": 1.266310776662312e-14
+    },
+    {
+      "label": "numerator_0.0_lr0.05",
+      "family": "numerator_0.0",
+      "learning_rate": 0.05,
+      "training_objective": 1.1719382454942195e-06,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.06939086836184513
+        ],
+        [
+          100,
+          1.0561210475470683e-05
+        ],
+        [
+          200,
+          2.3784393497729924e-06
+        ],
+        [
+          300,
+          1.3824781283039474e-06
+        ],
+        [
+          400,
+          1.1719382454942195e-06
+        ]
+      ],
+      "coefficient_relative_error": 0.8655879643200156,
+      "train_normalized_error": 0.0016155169017228728,
+      "validation_normalized_error": 0.48868579460100536,
+      "train_numerator_error": 0.001082560966178912,
+      "validation_numerator_error": 0.44452757104763296,
+      "export_replay": 1.0409675957717975e-14
+    },
+    {
+      "label": "numerator_0.01_lr0.01",
+      "family": "numerator_0.01",
+      "learning_rate": 0.01,
+      "training_objective": 0.002019615957711528,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.07689956273493083
+        ],
+        [
+          100,
+          0.005221297200419977
+        ],
+        [
+          200,
+          0.003116613753834566
+        ],
+        [
+          300,
+          0.0022493661099023585
+        ],
+        [
+          400,
+          0.002019615957711528
+        ]
+      ],
+      "coefficient_relative_error": 0.444381286747258,
+      "train_normalized_error": 0.011379018414957733,
+      "validation_normalized_error": 0.4846978932768239,
+      "train_numerator_error": 0.006698408587122787,
+      "validation_numerator_error": 0.36244466809460385,
+      "export_replay": 1.010018481107987e-14
+    },
+    {
+      "label": "numerator_0.01_lr0.05",
+      "family": "numerator_0.01",
+      "learning_rate": 0.05,
+      "training_objective": 0.00029481057834508824,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.07689956273493083
+        ],
+        [
+          100,
+          0.0015652127267348469
+        ],
+        [
+          200,
+          0.00035375340913244006
+        ],
+        [
+          300,
+          0.0002994822539236494
+        ],
+        [
+          400,
+          0.00029481057834508824
+        ]
+      ],
+      "coefficient_relative_error": 0.17133081370937908,
+      "train_normalized_error": 0.0019413297572583013,
+      "validation_normalized_error": 0.6880198719831657,
+      "train_numerator_error": 0.001126099943126115,
+      "validation_numerator_error": 0.4209878145380946,
+      "export_replay": 1.0482781636962916e-14
+    },
+    {
+      "label": "normalized_0.0_lr0.01",
+      "family": "normalized_0.0",
+      "learning_rate": 0.01,
+      "training_objective": 2.0634071438385063e-05,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.10758045538968893
+        ],
+        [
+          100,
+          0.0001918425333436781
+        ],
+        [
+          200,
+          4.230075869601603e-05
+        ],
+        [
+          300,
+          2.4321268169366304e-05
+        ],
+        [
+          400,
+          2.0634071438385063e-05
+        ]
+      ],
+      "coefficient_relative_error": 0.8402895706239703,
+      "train_normalized_error": 0.004542474153848876,
+      "validation_normalized_error": 0.45952690522701894,
+      "train_numerator_error": 0.004565917964948854,
+      "validation_numerator_error": 0.4067130940109519,
+      "export_replay": 1.467740765213057e-14
+    },
+    {
+      "label": "normalized_0.0_lr0.05",
+      "family": "normalized_0.0",
+      "learning_rate": 0.05,
+      "training_objective": 1.080835277924132e-06,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.10758045538968893
+        ],
+        [
+          100,
+          9.995188494397857e-06
+        ],
+        [
+          200,
+          2.216248810609382e-06
+        ],
+        [
+          300,
+          1.2921622292593543e-06
+        ],
+        [
+          400,
+          1.080835277924132e-06
+        ]
+      ],
+      "coefficient_relative_error": 0.8471621985907124,
+      "train_normalized_error": 0.0010396322801472318,
+      "validation_normalized_error": 0.45439795035117586,
+      "train_numerator_error": 0.000908594856324266,
+      "validation_numerator_error": 0.36973001552658696,
+      "export_replay": 1.0729901148040767e-14
+    },
+    {
+      "label": "normalized_0.01_lr0.01",
+      "family": "normalized_0.01",
+      "learning_rate": 0.01,
+      "training_objective": 0.002468516660272952,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.11508914976277462
+        ],
+        [
+          100,
+          0.005524523994548558
+        ],
+        [
+          200,
+          0.003576615578919962
+        ],
+        [
+          300,
+          0.0027100071584628357
+        ],
+        [
+          400,
+          0.002468516660272952
+        ]
+      ],
+      "coefficient_relative_error": 0.4925489542632512,
+      "train_normalized_error": 0.006517049701723078,
+      "validation_normalized_error": 0.47843524324169684,
+      "train_numerator_error": 0.006273502784535996,
+      "validation_numerator_error": 0.38466149280220613,
+      "export_replay": 1.1336676403103141e-14
+    },
+    {
+      "label": "normalized_0.01_lr0.05",
+      "family": "normalized_0.01",
+      "learning_rate": 0.05,
+      "training_objective": 0.0002994938816809651,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.11508914976277462
+        ],
+        [
+          100,
+          0.0015655939186170432
+        ],
+        [
+          200,
+          0.00034410261498696683
+        ],
+        [
+          300,
+          0.0003028642714560485
+        ],
+        [
+          400,
+          0.0002994938816809651
+        ]
+      ],
+      "coefficient_relative_error": 0.17283751842686065,
+      "train_normalized_error": 0.0008751022348338446,
+      "validation_normalized_error": 0.7817726277939814,
+      "train_numerator_error": 0.0008175701190874788,
+      "validation_numerator_error": 0.584313228438418,
+      "export_replay": 9.723763291664002e-15
+    }
+  ],
+  "seconds": 15.40051401592791,
+  "input_sha256": "f12b528a80a4f9e2ee945f2311ffc42a39d14c7dd66da2774d5e0b42fad1617f",
+  "scope": "24 training/8 adaptation-heldout documents from existing calibration. Native mode identity used all32 before split. Fixed rank16 source signs/affine branches. Primary normalized loss +.01 coefficient penalty; rate selection uses training only. No fresh/native intervention confirmation."
+}

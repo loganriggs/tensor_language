@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "dimension": 2,
+      "trial": 0,
+      "value_relative_error": 5.608867318109139e-16,
+      "gradient_relative_error": 5.18500835637582e-16
+    },
+    {
+      "dimension": 2,
+      "trial": 1,
+      "value_relative_error": 2.2404501171164635e-16,
+      "gradient_relative_error": 2.26074468648872e-16
+    },
+    {
+      "dimension": 2,
+      "trial": 2,
+      "value_relative_error": 1.8377224247951576e-16,
+      "gradient_relative_error": 2.799121615909155e-16
+    },
+    {
+      "dimension": 3,
+      "trial": 0,
+      "value_relative_error": 0.0,
+      "gradient_relative_error": 3.597474989800238e-16
+    },
+    {
+      "dimension": 3,
+      "trial": 1,
+      "value_relative_error": 1.1523029799854034e-16,
+      "gradient_relative_error": 4.310419382932424e-16
+    },
+    {
+      "dimension": 3,
+      "trial": 2,
+      "value_relative_error": 1.7990767176153648e-16,
+      "gradient_relative_error": 3.6751096521671247e-16
+    }
+  ],
+  "scope": "Exact five-node-per-axis quadrature for a degree-eight integrand, with final coordinate fixed to one. Verifies values and gradients, including all Hermite degrees."
+}

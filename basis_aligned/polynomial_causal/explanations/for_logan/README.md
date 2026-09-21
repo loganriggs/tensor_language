@@ -1,5 +1,9 @@
 # Requested full reports for Logan
 
+[21 September, 05:34 — Functional moments, overfitting and a fixed-product control](research_update_2026-09-21_0534_functional_moments_and_overfitting.md).
+
+[21 September, 05:24 — Joint coefficient fitting improves its score but worsens the function](research_update_2026-09-21_0524_joint_quartic_metric_failure.md).
+
 [21 September,05:04 — Reuse limits and a verified joint quartic objective](research_update_2026-09-21_0504_reuse_limits_and_joint_fit.md).
 
 [21 September,04:51 — Exact mixed products: stronger original-weight baselines](research_update_2026-09-21_0451_exact_shared_products.md).
@@ -8,7 +12,7 @@
 
 [21 September,04:18 — Upstream extraction: small programs and a retained behavioral failure](research_update_2026-09-21_0418_upstream_extraction.md).
 
-**Overall decomposition review: [QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 04:12 UTC: the original two-stage plan, what was implemented, what the baselines mean, main results and remaining gaps.
+**Overall decomposition review: [QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 05:16 UTC, through the 05:04 results: the original two-stage plan, QR, the three experiment scopes, fair baselines and remaining gaps.
 
 [Exact-RMS upstream closure corrected and fresh-boundary confirmed](research_update_2026-09-18_upstream_exact_preflight.md).
 

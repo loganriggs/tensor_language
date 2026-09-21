@@ -1,0 +1,67 @@
+{
+  "teacher_energy_fractions_by_hermite_degree": [
+    0.0006536088919107915,
+    0.07711264589767293,
+    0.5690869552864526,
+    0.31586726879047766,
+    0.03727952113348589
+  ],
+  "records": [
+    {
+      "program": "initial",
+      "gaussian_numerator_variation_error": 0.09025675109803488,
+      "error_energy_fractions_by_hermite_degree": [
+        8.686870537975848e-05,
+        0.0065219136872514336,
+        0.0015718968703218362,
+        0.9139332986116238,
+        0.0778860221254232
+      ]
+    },
+    {
+      "program": "coefficient_0.0_lr0.05",
+      "gaussian_numerator_variation_error": 0.17189286141710933,
+      "error_energy_fractions_by_hermite_degree": [
+        0.0006535708267510147,
+        0.016607539500804878,
+        0.020927816398175328,
+        0.8658015868932533,
+        0.0960094863810155
+      ]
+    },
+    {
+      "program": "normalized_0.0_lr0.05",
+      "gaussian_numerator_variation_error": 0.1175760159081448,
+      "error_energy_fractions_by_hermite_degree": [
+        0.00011180624006838959,
+        0.03218220016604815,
+        0.02329583943801605,
+        0.8493052041690548,
+        0.09510494998681268
+      ]
+    },
+    {
+      "program": "normalized_0.01_lr0.05",
+      "gaussian_numerator_variation_error": 0.20183582267572908,
+      "error_energy_fractions_by_hermite_degree": [
+        0.003146722725802635,
+        0.04208981418313993,
+        0.0258154576073615,
+        0.8655003663821277,
+        0.06344763910156818
+      ]
+    },
+    {
+      "program": "ridge0.01_seed0",
+      "gaussian_numerator_variation_error": 0.11032986365390386,
+      "error_energy_fractions_by_hermite_degree": [
+        0.0005872036254751858,
+        0.031141495509635637,
+        0.025968255629774138,
+        0.8603666431787557,
+        0.08193640205635941
+      ]
+    }
+  ],
+  "scope": "Exact Gaussian numerator moment metric with final coordinate fixed to one, using training joint covariance and means. Does not average inverse sampled RMS or assert Gaussian inputs match native states."
+}
