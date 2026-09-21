@@ -68,6 +68,16 @@ The next controlled toy test derives each pair's input support from its coeffici
 
 There is a clear limitation: the native quadratic forms are full rank, so their exact supports do not provide this reduction. A successful toy result would motivate approximate subspace discovery; it would not justify pretending we already know the native shared features.
 
+**Follow-up, 13:28 UTC — exact support guidance was insufficient**
+
+The support-guided suite has now finished. Both optimizers recover only two of five cases. Adam has eight valid runs out of ten; Muon has six. The other six runs reach singular shared/private overlap and remain recorded as instrument failures. Neither optimizer qualifies for a native joint fit.
+
+A deterministic replay isolates the first failure at step 1,344. The conditional solve's smallest denominator falls to $9.28\times10^{-11}$, while the planted exact solution has a minimum denominator of 0.181. Thus this singularity is not required to represent the target. The two recovered cases have one-dimensional pairwise intersections that already determine the shared directions; the larger, ambiguous intersections remain difficult.
+
+The next registered test adds an explicit penalty $\rho\sum_o\|C_o\|_F^2$ to the fitting objective, at three fixed strengths. This changes the conditional equation to $(1+\rho)C_o-JC_oJ=\mathrm{rhs}$, making it well-defined even at overlap. Fifteen independent loss/gradient controls and an exact-overlap control pass. The sweep still scores **unpenalized reconstruction error** and retains the original 1% recovery bar. Stability alone will not count as recovery. The penalty controls coefficient amplitude; it does not measure sparse interactions or establish semantic features.
+
+[Completed support-guided results](../../direct_tensor_match/JOINT_SUPPORTS_TOY_V1.json), [singularity reproduction](../../direct_tensor_match/JOINT_SUPPORTS_SINGULARITY_V1.json), [regularized controls](../../direct_tensor_match/REGULARIZED_JOINT_PREFLIGHT_V1.json), [registered penalty comparison](../../direct_tensor_match/REGULARIZED_JOINT_TOY_PLAN_V1.json).
+
 **Evidence**
 
 - [Previous-fit descent audit](../../direct_tensor_match/FREE_PRIVATE_DESCENT_V1.json).
