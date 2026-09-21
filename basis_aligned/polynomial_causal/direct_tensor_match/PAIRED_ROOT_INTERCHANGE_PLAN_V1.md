@@ -1,0 +1,11 @@
+**Conditional quartic input interchange, registered before execution.**
+
+Question: does the wider shared program preserve changes that the cheap forward baseline misses? Null: its extra features provide no response advantage. This can falsify branch-level manipulability, not establish semantic units.
+
+Use frozen files and hashes from PAIRED_ROOT_BRANCH_INPUTS_V1.json. First16documents from each of its two opened domains, context256, scored positions16:255. Donor is next document cyclically in the same domain at identical position; no target-dependent pairing. Set x'=x+alpha*(x_donor-x), alpha .5 and1. Change only the homogeneous purequartic term B17(lambda17 B16(x)); hold recipient RMS17 denominator, residual/cross/bias/attention contributions fixed. x' at .5 is an artificial interpolation and need not be normalized. This is a defined internal-term intervention, not a complete intervention on MLP16 or its descendants.
+
+For each candidate, compute its own baseline final state by replacing the native quartic term with Fhat(x), and its changed state using Fhat(x'). Compare changed-minus-baseline logits against the corresponding native difference. Recompute final normalization and softcap for every endpoint. Retain raw-logit differences consistently with the prior screen. Report CE response, pooled effect error, cosine, and document rows. Prices unchanged: narrow26/48384coeff; parent656/903168; paired384/322048 plus768indices. No fit.
+
+Pred_a_instrument: final state replay<1e-5, native numerator baseline replay<1e-5; zero input edit produces exactly zero effect. Pred_b_response: paired effect relative error<.10 in every domain/strength cell. Pred_c_advantage: paired error<=.9narrow26 and<=1.1parent656 in every cell. Undefined zero reference energy fails. A perfect native evaluator must score zero in the same aggregation. The unchanged intervention arm and native exact arm serve positive controls; report absolute effect RMS to expose small denominators.
+
+Fresh/OOD confirmation and selective semantic interventions remain separate. No success here authorizes adoption. If all candidates fail, demote forward preservation as evidence of manipulability and inspect degree/normalization geometry before more rank fitting.
