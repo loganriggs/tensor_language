@@ -1,6 +1,6 @@
 # The current graph has a native-coordinate capacity limit
 
-21 September 2026, 10:10 UTC. **The 399-product graph cannot achieve the recent 7–9% coefficient errors under the native isotropic metric: a necessary input-span bound puts its error at least at 27.81%.** Those smaller errors use calibration-shaped coordinates. This explains a concrete representational restriction; it does not establish that the trained 59.8% native error is optimal.
+21 September 2026, 10:09 UTC. **The 399-product graph cannot achieve the recent 7–9% coefficient errors under the native isotropic metric: a necessary input-span bound puts its error at least at 27.81%.** Those smaller errors use calibration-shaped coordinates. This explains a concrete representational restriction; it does not establish that the trained 59.8% native error is optimal.
 
 **Where the bound comes from**
 
