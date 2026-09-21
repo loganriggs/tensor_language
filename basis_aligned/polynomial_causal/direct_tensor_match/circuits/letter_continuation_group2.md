@@ -143,3 +143,7 @@ Full output balancing makes all four quadratic groups repeatable across tested s
 ## 21 September, 08:53 — Global sharing and targeted private residual
 
 Global383fits terminal257.62s; primarypartial-balance values2.658/2.602/18.690% fail third. Fullbalance25.60%third and.98959minimumrestartgroupcosfail. Independentexports pass. Exact valueerror terms localize main third miss to secondsource read; exactreadoracle leaves3.31%, notdeployablefreecapacity. Targetedfixedprojectionbudget exchange16mixed->32privatesquares yields399products896198floats, errors3.812/3.437/17.125%; exactconstrainedreadoutrefit4.390/3.526/17.837%fails. No semantic/OODpromotion or nativeportclosure. [Report](../../explanations/for_logan/research_update_2026-09-21_0853_global_sharing_and_targeted_graph_edits.md).
+
+## 21 September, 09:03 — Joint directions and outer component identity
+
+Four fits154.54s; selectededited399program errors2.576/2.518/16.090%, versuscontinuedglobal3832.477/2.443/18.786%. Registeredabsolute/relativebaseline and20%thirdgainfail. Privatecenteredremoval increases16.09->24.88%, othersunchanged; privatequadraticcos.7066betweenstarts failsidentity. Independentexportpasses. Exactcommonwriterouterfactorrotations preservecombinedwrite butchangeindividualcomponents; this is an algebraicgauge, notpermissiontorotateawayregisteredfailure. Combinedopenederrors2.55/2.57/2.71%edited/global/partial cannotreplacefreshinterventions. [Report](../../explanations/for_logan/research_update_2026-09-21_0903_direction_refit_and_component_identity.md).

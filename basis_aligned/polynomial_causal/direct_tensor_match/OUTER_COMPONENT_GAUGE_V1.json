@@ -1,0 +1,153 @@
+{
+  "records": [
+    {
+      "program": "0_seed816",
+      "rotation": "identity",
+      "per_component_errors": [
+        0.02477055651924135,
+        0.024432749736808444,
+        0.18786417840584338
+      ],
+      "combined_variation_error": 0.025655922635093472,
+      "original_component_change": 0.0,
+      "total_replay": 0.0
+    },
+    {
+      "program": "0_seed816",
+      "rotation": "last_two_45deg",
+      "per_component_errors": [
+        0.02477055651924135,
+        0.104946863849009,
+        0.08450289024890278
+      ],
+      "combined_variation_error": 0.02565592263509347,
+      "original_component_change": 0.20552544748519005,
+      "total_replay": 1.0242717455741776e-16
+    },
+    {
+      "program": "0_seed816",
+      "rotation": "orthogonal_seed9021",
+      "per_component_errors": [
+        0.056223889757739724,
+        0.11458040596232921,
+        0.027338383686941962
+      ],
+      "combined_variation_error": 0.02565592263509345,
+      "original_component_change": 1.1770300854415332,
+      "total_replay": 2.377081298890774e-16
+    },
+    {
+      "program": "0_seed816",
+      "rotation": "orthogonal_seed9022",
+      "per_component_errors": [
+        0.02821614718777011,
+        0.02431050705146391,
+        0.11502122591433539
+      ],
+      "combined_variation_error": 0.025655922635093458,
+      "original_component_change": 1.1996265698641257,
+      "total_replay": 2.4895908321052827e-16
+    },
+    {
+      "program": "16_seed816",
+      "rotation": "identity",
+      "per_component_errors": [
+        0.025759177278971663,
+        0.025181313007135803,
+        0.16090408400725262
+      ],
+      "combined_variation_error": 0.02553312467009172,
+      "original_component_change": 0.0,
+      "total_replay": 0.0
+    },
+    {
+      "program": "16_seed816",
+      "rotation": "last_two_45deg",
+      "per_component_errors": [
+        0.025759177278971663,
+        0.09152515253067822,
+        0.06993493676913651
+      ],
+      "combined_variation_error": 0.02553312467009171,
+      "original_component_change": 0.20552544748519005,
+      "total_replay": 1.1002656743645038e-16
+    },
+    {
+      "program": "16_seed816",
+      "rotation": "orthogonal_seed9021",
+      "per_component_errors": [
+        0.057018047745575354,
+        0.10759939603532216,
+        0.027060780190527194
+      ],
+      "combined_variation_error": 0.02553312467009165,
+      "original_component_change": 1.1770300854415332,
+      "total_replay": 2.377081298890774e-16
+    },
+    {
+      "program": "16_seed816",
+      "rotation": "orthogonal_seed9022",
+      "per_component_errors": [
+        0.025144368310532877,
+        0.024974451184769278,
+        0.11583978685038676
+      ],
+      "combined_variation_error": 0.025533124670091674,
+      "original_component_change": 1.1996265698641257,
+      "total_replay": 2.4898876919860637e-16
+    },
+    {
+      "program": "partial_parent",
+      "rotation": "identity",
+      "per_component_errors": [
+        0.026491198090169473,
+        0.024842634287926758,
+        0.11941807541393733
+      ],
+      "combined_variation_error": 0.027096617288118338,
+      "original_component_change": 0.0,
+      "total_replay": 0.0
+    },
+    {
+      "program": "partial_parent",
+      "rotation": "last_two_45deg",
+      "per_component_errors": [
+        0.026491198090169473,
+        0.06868521966533328,
+        0.05664948636469444
+      ],
+      "combined_variation_error": 0.027096617288118297,
+      "original_component_change": 0.20552544748519005,
+      "total_replay": 1.0910053513494897e-16
+    },
+    {
+      "program": "partial_parent",
+      "rotation": "orthogonal_seed9021",
+      "per_component_errors": [
+        0.04685067797219254,
+        0.07762577475309489,
+        0.022680311754813325
+      ],
+      "combined_variation_error": 0.027096617288118283,
+      "original_component_change": 1.1770300854415332,
+      "total_replay": 2.377081298890774e-16
+    },
+    {
+      "program": "partial_parent",
+      "rotation": "orthogonal_seed9022",
+      "per_component_errors": [
+        0.02680509085307474,
+        0.024138306822375975,
+        0.08144144931272691
+      ],
+      "combined_variation_error": 0.027096617288118307,
+      "original_component_change": 1.1996265698641257,
+      "total_replay": 2.937466263973074e-16
+    }
+  ],
+  "predictions": {
+    "pred_a_exact_total": true,
+    "pred_b_nontrivial_components": true
+  },
+  "scope": "Exact algebraic factor gauge for three components with one common writer. Rotated components have different meanings. Original per-component gates remain binding and failed; total preservation neither identifies semantic units nor validates this local approximation OOD. No products removed."
+}

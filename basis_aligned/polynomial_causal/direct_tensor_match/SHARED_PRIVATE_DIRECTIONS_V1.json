@@ -1,0 +1,264 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T08:56:28.480268+00:00",
+    "removed": [
+      0,
+      16
+    ],
+    "seeds": [
+      816,
+      1816
+    ],
+    "rate": 0.01,
+    "steps": 2000,
+    "perturbation": 0.01,
+    "scalar_baseline": [
+      0.03058409729022641,
+      0.027558449717507608,
+      0.11941807478056159
+    ],
+    "scope": "Same extra direction-optimization budget for unedited global383 and edited399 graph; output metric fixed halfbalance. Native ports retained, zero forwards, opened448 diagnostics.",
+    "hashes": {
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "GLOBAL_PRIVATE_RESIDUAL_PROGRAMS_V1.pt": "d776e4fef0ef228c209832c5d32ada15651d25bb38ffb2cb22d12cc3035535d4",
+      "shared_private_metric.py": "8ef7fd29a5c4aeb09c3c4670e9db20f3631384b03223a02cf52499b993566623",
+      "global_mixed_source_graph.py": "eae269588366ddd34919ab15c8da315e38be566175823d8cb73415769c2a76b3"
+    }
+  },
+  "records": [
+    {
+      "key": "0_seed816",
+      "removed": 0,
+      "seed": 816,
+      "objective": 0.012881681870960837,
+      "best_step": 2000,
+      "dense_replay": 1.8735013540549517e-16,
+      "execution_replay": 0.0,
+      "original_coefficient_error": 0.08582811490520807,
+      "original_core_cosines": [
+        0.8963948519884046,
+        0.9493186336870747,
+        0.9762730174889563,
+        0.9948465584686934,
+        0.9963854336862088,
+        0.9972432168474701
+      ],
+      "source_products": 383,
+      "stored_floats": 896262,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.013471567636436976
+        },
+        {
+          "step": 400,
+          "objective": 0.014525420619302176
+        },
+        {
+          "step": 800,
+          "objective": 0.01358727661316994
+        },
+        {
+          "step": 1200,
+          "objective": 0.013068475796077172
+        },
+        {
+          "step": 1600,
+          "objective": 0.012904209072019945
+        },
+        {
+          "step": 2000,
+          "objective": 0.012881681870960837
+        }
+      ],
+      "per_mode_errors": [
+        0.024770553579196768,
+        0.024432739931478143,
+        0.18786417625202767
+      ],
+      "euclidean_jacobian_errors": [
+        0.20756038463105378,
+        0.17827122295105458,
+        0.20451075659782827
+      ]
+    },
+    {
+      "key": "0_seed1816",
+      "removed": 0,
+      "seed": 1816,
+      "objective": 0.012902606434167074,
+      "best_step": 2000,
+      "dense_replay": 4.0766001685454967e-16,
+      "execution_replay": 0.0,
+      "original_coefficient_error": 0.08594525409783693,
+      "original_core_cosines": [
+        0.8964991084062867,
+        0.9490799568401401,
+        0.9763215430251109,
+        0.994855742986804,
+        0.9963522954913834,
+        0.9972406290281061
+      ],
+      "source_products": 383,
+      "stored_floats": 896262,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.013473394225343993
+        },
+        {
+          "step": 400,
+          "objective": 0.014104410573815507
+        },
+        {
+          "step": 800,
+          "objective": 0.01403024422021526
+        },
+        {
+          "step": 1200,
+          "objective": 0.013125496697759864
+        },
+        {
+          "step": 1600,
+          "objective": 0.012925354444281001
+        },
+        {
+          "step": 2000,
+          "objective": 0.012902606434167074
+        }
+      ],
+      "per_mode_errors": [
+        0.027477194254490606,
+        0.02554663590542416,
+        0.18573768567885204
+      ],
+      "euclidean_jacobian_errors": [
+        0.20786464924771378,
+        0.17855285960840803,
+        0.2041615477894586
+      ]
+    },
+    {
+      "key": "16_seed816",
+      "removed": 16,
+      "seed": 816,
+      "objective": 0.012978095055708128,
+      "best_step": 2000,
+      "dense_replay": 1.6306400674181987e-16,
+      "execution_replay": 2.4316890689505404e-16,
+      "original_coefficient_error": 0.08628930473640428,
+      "original_core_cosines": [
+        0.8989307513867761,
+        0.9488438530341067,
+        0.975840891171331,
+        0.9947639958445538,
+        0.9963230943224202,
+        0.9972371095095621
+      ],
+      "source_products": 399,
+      "stored_floats": 896198,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.039182794509708296
+        },
+        {
+          "step": 400,
+          "objective": 0.015269489499521116
+        },
+        {
+          "step": 800,
+          "objective": 0.014013893253471688
+        },
+        {
+          "step": 1200,
+          "objective": 0.013205860966857719
+        },
+        {
+          "step": 1600,
+          "objective": 0.01300170781012655
+        },
+        {
+          "step": 2000,
+          "objective": 0.012978095055708128
+        }
+      ],
+      "per_mode_errors": [
+        0.02575917412662641,
+        0.025181300289381103,
+        0.16090408335009626
+      ],
+      "euclidean_jacobian_errors": [
+        0.20785459421709304,
+        0.1794112651020524,
+        0.2037816472387393
+      ]
+    },
+    {
+      "key": "16_seed1816",
+      "removed": 16,
+      "seed": 1816,
+      "objective": 0.01298854300733443,
+      "best_step": 2000,
+      "dense_replay": 4.2847669856627135e-16,
+      "execution_replay": 2.139512245755073e-16,
+      "original_coefficient_error": 0.08628207419868449,
+      "original_core_cosines": [
+        0.8981873819866284,
+        0.9486963157212657,
+        0.9758547132020969,
+        0.9947979487159254,
+        0.9963143686175766,
+        0.9972332171594841
+      ],
+      "source_products": 399,
+      "stored_floats": 896198,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.03915704900176853
+        },
+        {
+          "step": 400,
+          "objective": 0.01429672631061163
+        },
+        {
+          "step": 800,
+          "objective": 0.013508126815737764
+        },
+        {
+          "step": 1200,
+          "objective": 0.013288477371440788
+        },
+        {
+          "step": 1600,
+          "objective": 0.013012469049533237
+        },
+        {
+          "step": 2000,
+          "objective": 0.01298854300733443
+        }
+      ],
+      "per_mode_errors": [
+        0.02696323999305704,
+        0.026195730591147243,
+        0.17676445906629937
+      ],
+      "euclidean_jacobian_errors": [
+        0.2083691180702169,
+        0.17957842493996162,
+        0.2055288477545196
+      ]
+    }
+  ],
+  "winners": {
+    "0": "0_seed816",
+    "16": "16_seed816"
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_values": false,
+    "pred_c_relative": false
+  },
+  "seconds": 154.54327987506986
+}

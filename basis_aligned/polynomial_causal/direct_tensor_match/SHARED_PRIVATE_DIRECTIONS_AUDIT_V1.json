@@ -1,0 +1,72 @@
+{
+  "checks": [
+    {
+      "key": "0_seed816",
+      "execution_replay": 1.2786638226598783e-15,
+      "coefficient_replay": 2.842170943040401e-14,
+      "scalar_replay": 2.0816681711721685e-16,
+      "per_mode_errors": [
+        0.024770553579196858,
+        0.024432739931477935,
+        0.18786417625202753
+      ]
+    },
+    {
+      "key": "0_seed1816",
+      "execution_replay": 1.3354937666922698e-15,
+      "coefficient_replay": 3.0531133177191805e-14,
+      "scalar_replay": 8.881784197001252e-16,
+      "per_mode_errors": [
+        0.027477194254490467,
+        0.025546635905423845,
+        0.18573768567885116
+      ]
+    },
+    {
+      "key": "16_seed816",
+      "execution_replay": 1.2465155344344842e-15,
+      "coefficient_replay": 3.697042672001771e-14,
+      "scalar_replay": 2.8796409701215e-16,
+      "per_mode_errors": [
+        0.025759174126626434,
+        0.02518130028938139,
+        0.16090408335009607
+      ],
+      "without_centered_private_errors": [
+        0.025759174126626434,
+        0.02518130028938139,
+        0.2488268482540453
+      ],
+      "third_error_reduction_from_private": 0.3533491884854103,
+      "other_components_max_change": 0.0,
+      "private_coefficient_norm": 0.15075717927905796
+    },
+    {
+      "key": "16_seed1816",
+      "execution_replay": 1.3356900788939318e-15,
+      "coefficient_replay": 2.9976021664879227e-14,
+      "scalar_replay": 1.942890293094024e-16,
+      "per_mode_errors": [
+        0.02696323999305701,
+        0.026195730591147246,
+        0.17676445906629917
+      ],
+      "without_centered_private_errors": [
+        0.02696323999305701,
+        0.026195730591147246,
+        0.23780174924810904
+      ],
+      "third_error_reduction_from_private": 0.256673007556925,
+      "other_components_max_change": 0.0,
+      "private_coefficient_norm": 0.15614282477299835
+    }
+  ],
+  "private_form_cosine_between_restarts": 0.7066065628898193,
+  "private_form_relative_difference": 0.7804008170931023,
+  "predictions": {
+    "pred_a_execution": true,
+    "pred_b_private_use": true,
+    "pred_c_private_identity": false
+  },
+  "scope": "Centered private quadratic removal on opened448sites, others fixed by graph topology; algebraic output selectivity, not semantic selectivity or fresh/OOD identity."
+}

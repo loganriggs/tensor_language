@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: from folded weights to smaller arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 08:40 UTC. Explains the two-stage plan, what QR does, why the target narrowed, the actual savings, and the remaining failures. Read this before the chronological experiment updates.
 
+**Latest experiment — [Direction refit and component identity](research_update_2026-09-21_0903_direction_refit_and_component_identity.md).** Joint refitting improves the edited graph but fails accuracy. Its private branch is useful but unstable; exact outer-factor rotations preserve the common-writer sum while changing constituent components.
+
 **Latest experiment — [Global sharing and targeted graph edits](research_update_2026-09-21_0853_global_sharing_and_targeted_graph_edits.md).** All-six sharing fails component fidelity. A private-square graph edit and exact constrained readout refit also fail at the same storage budget.
 
 **Latest experiment — [Output weighting and group stability](research_update_2026-09-21_0843_output_weighting_and_group_stability.md).** Restart agreement improves, but original-function and component fidelity still fail; all-six sharing is the next comparison.
