@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → QR → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 07:38 UTC. Explains the original two-stage plan, separates broad-layer and selected-feature experiments, and covers graph refitting, fresh baseline comparisons, remaining accuracy failures and unstable internal products.
 
+**Latest — [Random starts recover functions, not product identities](research_update_2026-09-21_0811_random_discovery_and_identity.md).** Eight direct fits recover comparable source approximations at fixed cost; internal atoms remain unstable. Downstream readout correction and a finite product-rotation explanation fail their registered targets.
+
 **Latest response study — [The baseline shares the sensitivity gap](research_update_2026-09-21_0754_response_metrics.md).** Sharing improves derivatives relative to baseline; covariance-shaped and unrestricted perturbations differ. Readout adjustment has negligible effect; completed direction refits improve responses modestly but fail the registered improvement gate.
 
 **Latest evidence — [Smaller programs, unstable internal products](research_update_2026-09-21_0748_stable_functions_unstable_products.md).** Graph refitting saves products; fresh relative comparisons pass but one absolute failure remains. Individual atoms and full dictionaries are unstable; a stable aggregate does not identify internal circuit units.

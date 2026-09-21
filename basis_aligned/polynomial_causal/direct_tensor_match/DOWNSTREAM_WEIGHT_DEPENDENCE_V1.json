@@ -1,0 +1,164 @@
+{
+  "records": [
+    {
+      "candidate": "parent",
+      "component": 1,
+      "panel": "train",
+      "sites": 1536,
+      "independent_to_exact_squared_error_ratio": 0.7958261855401424,
+      "amplitude_effective_sites": [
+        254.60493526641403,
+        264.7803630807537
+      ],
+      "max_chunk_error_energy_share": 0.09489933111830133,
+      "top_one_percent_site_error_energy_share": 0.15122427482279777
+    },
+    {
+      "candidate": "parent",
+      "component": 1,
+      "panel": "opened",
+      "sites": 448,
+      "independent_to_exact_squared_error_ratio": 0.7335847238799355,
+      "amplitude_effective_sites": [
+        77.48979813821146,
+        91.52943729925678
+      ],
+      "max_chunk_error_energy_share": 0.22150279506702958,
+      "top_one_percent_site_error_energy_share": 0.11450868964661513
+    },
+    {
+      "candidate": "parent",
+      "component": 2,
+      "panel": "train",
+      "sites": 1536,
+      "independent_to_exact_squared_error_ratio": 0.9640246475422618,
+      "amplitude_effective_sites": [
+        525.4814394398107,
+        536.3845284001977
+      ],
+      "max_chunk_error_energy_share": 0.0834989734199383,
+      "top_one_percent_site_error_energy_share": 0.10617505357013006
+    },
+    {
+      "candidate": "parent",
+      "component": 2,
+      "panel": "opened",
+      "sites": 448,
+      "independent_to_exact_squared_error_ratio": 0.9415775834295153,
+      "amplitude_effective_sites": [
+        138.51451435402709,
+        139.53774144507497
+      ],
+      "max_chunk_error_energy_share": 0.1764950703584158,
+      "top_one_percent_site_error_energy_share": 0.0901237895905409
+    },
+    {
+      "candidate": "lambda1",
+      "component": 1,
+      "panel": "train",
+      "sites": 1536,
+      "independent_to_exact_squared_error_ratio": 0.8102988419210554,
+      "amplitude_effective_sites": [
+        254.60493526641403,
+        264.7803630807537
+      ],
+      "max_chunk_error_energy_share": 0.0931133858968772,
+      "top_one_percent_site_error_energy_share": 0.1475934191369691
+    },
+    {
+      "candidate": "lambda1",
+      "component": 1,
+      "panel": "opened",
+      "sites": 448,
+      "independent_to_exact_squared_error_ratio": 0.7556976770836853,
+      "amplitude_effective_sites": [
+        77.48979813821146,
+        91.52943729925678
+      ],
+      "max_chunk_error_energy_share": 0.21707239075203294,
+      "top_one_percent_site_error_energy_share": 0.10972041272807072
+    },
+    {
+      "candidate": "lambda1",
+      "component": 2,
+      "panel": "train",
+      "sites": 1536,
+      "independent_to_exact_squared_error_ratio": 0.9663353945403526,
+      "amplitude_effective_sites": [
+        525.4814394398107,
+        536.3845284001977
+      ],
+      "max_chunk_error_energy_share": 0.08249559630072881,
+      "top_one_percent_site_error_energy_share": 0.10246604232735412
+    },
+    {
+      "candidate": "lambda1",
+      "component": 2,
+      "panel": "opened",
+      "sites": 448,
+      "independent_to_exact_squared_error_ratio": 0.9512621946317963,
+      "amplitude_effective_sites": [
+        138.51451435402709,
+        139.53774144507497
+      ],
+      "max_chunk_error_energy_share": 0.17781764038412382,
+      "top_one_percent_site_error_energy_share": 0.08833824017675959
+    },
+    {
+      "candidate": "lambda10",
+      "component": 1,
+      "panel": "train",
+      "sites": 1536,
+      "independent_to_exact_squared_error_ratio": 0.8129128901399127,
+      "amplitude_effective_sites": [
+        254.60493526641403,
+        264.7803630807537
+      ],
+      "max_chunk_error_energy_share": 0.09259431642461541,
+      "top_one_percent_site_error_energy_share": 0.14711138144423097
+    },
+    {
+      "candidate": "lambda10",
+      "component": 1,
+      "panel": "opened",
+      "sites": 448,
+      "independent_to_exact_squared_error_ratio": 0.7602220341299013,
+      "amplitude_effective_sites": [
+        77.48979813821146,
+        91.52943729925678
+      ],
+      "max_chunk_error_energy_share": 0.21701334190724827,
+      "top_one_percent_site_error_energy_share": 0.1089642502301979
+    },
+    {
+      "candidate": "lambda10",
+      "component": 2,
+      "panel": "train",
+      "sites": 1536,
+      "independent_to_exact_squared_error_ratio": 0.9669185581989596,
+      "amplitude_effective_sites": [
+        525.4814394398107,
+        536.3845284001977
+      ],
+      "max_chunk_error_energy_share": 0.08264803223564243,
+      "top_one_percent_site_error_energy_share": 0.10176194671642626
+    },
+    {
+      "candidate": "lambda10",
+      "component": 2,
+      "panel": "opened",
+      "sites": 448,
+      "independent_to_exact_squared_error_ratio": 0.9529128562371891,
+      "amplitude_effective_sites": [
+        138.51451435402709,
+        139.53774144507497
+      ],
+      "max_chunk_error_energy_share": 0.17802167343860276,
+      "top_one_percent_site_error_energy_share": 0.08774402027735043
+    }
+  ],
+  "predictions": {
+    "pred_a_independence": false
+  },
+  "scope": "Correlation diagnostic on cached chunks; no document independence. ESS applies to squared amplitude weights only, not a general confidence interval. Includes signed crossmoment in independence surrogate; exact metric positive. No fitting or fresh native evidence."
+}

@@ -1,0 +1,103 @@
+{
+  "records": [
+    {
+      "method": "nearest_output",
+      "median_pair_output_abs_cosine": 0.9992890357971191,
+      "relative_function_change": 0.13506174358447695,
+      "median_matched_atom_abs_cosine": 0.49992534045519216,
+      "per_mode_errors": [
+        0.027704103699477577,
+        0.04244679847994753,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.2120435335123515,
+        0.2363143820938849
+      ]
+    },
+    {
+      "method": "random_pairs",
+      "median_pair_output_abs_cosine": 0.7749084830284119,
+      "relative_function_change": 0.7586861573264676,
+      "median_matched_atom_abs_cosine": 0.49953751660688384,
+      "per_mode_errors": [
+        0.05937621755170863,
+        0.18632315043092307,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.5142894428898827,
+        0.6706199088382623
+      ]
+    }
+  ],
+  "largest_pair_changes": [
+    {
+      "i": 6,
+      "j": 11,
+      "output_abs_cosine": 0.6208253235275386,
+      "individual_squared_change_over_function_energy": 0.007242761940293104
+    },
+    {
+      "i": 14,
+      "j": 45,
+      "output_abs_cosine": 0.46367885871059966,
+      "individual_squared_change_over_function_energy": 0.00547973748983042
+    },
+    {
+      "i": 0,
+      "j": 209,
+      "output_abs_cosine": 0.9888540435435611,
+      "individual_squared_change_over_function_energy": 0.0013778065470255955
+    },
+    {
+      "i": 121,
+      "j": 231,
+      "output_abs_cosine": 0.9419929486725587,
+      "individual_squared_change_over_function_energy": 0.0011783195454212372
+    },
+    {
+      "i": 3,
+      "j": 175,
+      "output_abs_cosine": 0.9833943574577589,
+      "individual_squared_change_over_function_energy": 0.000818499796563629
+    },
+    {
+      "i": 147,
+      "j": 205,
+      "output_abs_cosine": 0.9786532265970936,
+      "individual_squared_change_over_function_energy": 0.0008106633934341151
+    },
+    {
+      "i": 99,
+      "j": 148,
+      "output_abs_cosine": 0.9825060257561553,
+      "individual_squared_change_over_function_energy": 0.00020084799032036037
+    },
+    {
+      "i": 35,
+      "j": 204,
+      "output_abs_cosine": 0.9795393820299817,
+      "individual_squared_change_over_function_energy": 0.00019750664252575863
+    },
+    {
+      "i": 24,
+      "j": 192,
+      "output_abs_cosine": 0.989373482153628,
+      "individual_squared_change_over_function_energy": 0.00010158161010603399
+    },
+    {
+      "i": 2,
+      "j": 55,
+      "output_abs_cosine": 0.9983699244949907,
+      "individual_squared_change_over_function_energy": 9.60335028306975e-05
+    }
+  ],
+  "sum_individual_pair_squared_change": 0.019001726353558613,
+  "equal_output_exact_replay": 2.427489526447643e-16,
+  "predictions": {
+    "pred_a_exact_control": true,
+    "pred_b_approximate_freedom": false
+  },
+  "scope": "Finite rotation at unchanged256shared products and unchanged nominal coefficient storage. Global polynomial change measured in existing covariance coefficient metric. Does not prove exact nonuniqueness of the trained tensor, semantic equivalence or causal adoption."
+}

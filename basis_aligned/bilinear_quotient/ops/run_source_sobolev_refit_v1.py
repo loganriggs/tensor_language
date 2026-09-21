@@ -13,14 +13,15 @@ Perlambda winnerselectedbyitsweightobjective only. No model forwards.
 import os,sys,json,time,math,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
-def main():
- plan=json.loads((P/'SOURCE_SOBOLEV_REFIT_PLAN_V1.json').read_text())
+def main(plan_name="SOURCE_SOBOLEV_REFIT_PLAN_V1.json", result_name="SOURCE_SOBOLEV_REFIT_V1.json", programs_name="SOURCE_SOBOLEV_REFIT_PROGRAMS_V1.pt"):
+ plan=json.loads((P/plan_name).read_text())
+ if 'executor_sha256' in plan:assert hashlib.sha256(Path(__file__).read_bytes()).hexdigest()==plan['executor_sha256']
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(plan));return
  import torch
  sys.path.insert(0,str(P));from source_sobolev import SourceSobolev
  from shared_quadratic_products import materialize_mixed
  from source_graph_metrics import export,score
- torch.set_num_threads(2);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();output=P/'SOURCE_SOBOLEV_REFIT_V1.json';assert not output.exists()
+ torch.set_num_threads(2);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();output=P/result_name;assert not output.exists()
  for name,digest in plan['hashes'].items():assert hashlib.sha256((P/name).read_bytes()).hexdigest()==digest
  data=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True)
  parent=torch.load(P/'PROFILED_PARTIAL_GRAPH_PROGRAMS_V1.pt',weights_only=True)[plan['parent']]
@@ -28,8 +29,11 @@ def main():
  T=data['teacher'][:4].cuda();H=(data['inverse_root']@data['inverse_root']).cuda();records=[];programs={}
  for lam in plan['lambdas']:
   metric=SourceSobolev(T,H,lam)
-  for rate in plan['rates']:
-   L=initL.cuda().clone();R=initR.cuda().clone();L/=L.norm(dim=0);R/=R.norm(dim=0);L.requires_grad_();R.requires_grad_();opt=torch.optim.Adam([L,R],lr=rate);best=float('inf');history=[]
+  for rate,seed in [(rate,seed) for rate in plan['rates'] for seed in plan.get('seeds',[None])]:
+   L=initL.cuda().clone();R=initR.cuda().clone()
+   if seed is not None:
+    g=torch.Generator(device='cpu').manual_seed(seed);L=torch.randn(initL.shape,dtype=initL.dtype,generator=g).cuda();R=torch.randn(initR.shape,dtype=initR.dtype,generator=g).cuda()
+   L/=L.norm(dim=0);R/=R.norm(dim=0);L.requires_grad_();R.requires_grad_();opt=torch.optim.Adam([L,R],lr=rate);best=float('inf');history=[]
    for step in range(plan['steps']+1):
     opt.zero_grad();loss,W=metric.loss(L,R);value=float(loss.detach());assert math.isfinite(value)
     if value<best:best=value;state=(L.detach().clone(),R.detach().clone(),W.detach().clone());beststep=step
@@ -43,9 +47,9 @@ def main():
     program=export(l.cpu(),r.cpu(),w.cpu(),data,parent);scores=score(program,data)
     floats=program['residual_writer'].numel()+sum(v.numel() for sub in ['shared_mixed','private_pair'] for v in program[sub].values() if v.is_floating_point())
     assert floats==897804
-    key=f'{lam}_{rate}';programs[key]=program;records.append(dict(key=key,lam=lam,rate=rate,objective=best,best_step=beststep,dense_replay=replay,coefficient_error=coef,source_gradient_error=grad,stored_float_scalars=floats,source_products=512,history=history,**scores))
+    key=f'{lam}_{rate}'+(f'_seed{seed}' if seed is not None else '');programs[key]=program;records.append(dict(key=key,lam=lam,rate=rate,seed=seed,objective=best,best_step=beststep,dense_replay=replay,coefficient_error=coef,source_gradient_error=grad,stored_float_scalars=floats,source_products=512,history=history,**scores))
  winners={str(lam):min((r for r in records if r['lam']==lam),key=lambda r:r['objective'])['key'] for lam in plan['lambdas']}
  selected=next(r for r in records if r['key']==winners['1']);baseline=plan['scalar_baseline'];parenterrors=plan['parent_jacobian']
  out=dict(plan=plan,records=records,winners=winners,predictions=dict(pred_a_instrument=max(r['dense_replay'] for r in records)<1e-8,pred_b_sensitivity=all(a<=.9*b for a,b in zip(selected['euclidean_jacobian_errors'],parenterrors)),pred_c_values=all(a<=.15 and a<=1.1*b for a,b in zip(selected['per_mode_errors'],baseline))),seconds=time.perf_counter()-start)
- torch.save(programs,P/'SOURCE_SOBOLEV_REFIT_PROGRAMS_V1.pt');output.write_text(json.dumps(out,indent=2)+'\n');print(out['predictions'],flush=True)
+ torch.save(programs,P/programs_name);output.write_text(json.dumps(out,indent=2)+'\n');print(out['predictions'],flush=True)
 if __name__=='__main__':main()

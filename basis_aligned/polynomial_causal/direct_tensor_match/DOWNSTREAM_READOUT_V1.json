@@ -1,0 +1,99 @@
+{
+  "records": [
+    {
+      "lam": 0,
+      "train_linearized_relative_errors": [
+        0.24384484578825227,
+        0.29044142349655133
+      ],
+      "normal_equation_residual": 8.467954755084188e-16,
+      "per_mode_errors": [
+        0.02649119718203738,
+        0.0248426193006315,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.20089859324748166,
+        0.17933050476073678
+      ]
+    },
+    {
+      "lam": 0.1,
+      "train_linearized_relative_errors": [
+        0.24364945678172906,
+        0.29022027453813765
+      ],
+      "normal_equation_residual": 1.647526907209435e-15,
+      "per_mode_errors": [
+        0.026353223232564445,
+        0.025007736288689478,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.2008558541317688,
+        0.17922797613989547
+      ]
+    },
+    {
+      "lam": 1,
+      "train_linearized_relative_errors": [
+        0.2435052698512224,
+        0.29010496597321145
+      ],
+      "normal_equation_residual": 2.7416745176244324e-15,
+      "per_mode_errors": [
+        0.026226057247899687,
+        0.02514630088461184,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.20083894875712757,
+        0.17917228458034334
+      ]
+    },
+    {
+      "lam": 10,
+      "train_linearized_relative_errors": [
+        0.24347160503911014,
+        0.29006949455559833
+      ],
+      "normal_equation_residual": 2.5482674729857825e-15,
+      "per_mode_errors": [
+        0.026207737651891213,
+        0.02513437768930305,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.20080385986353902,
+        0.17916624504120598
+      ]
+    }
+  ],
+  "parent": {
+    "per_mode_errors": [
+      0.02649119718203811,
+      0.02484261930063104,
+      0.11941807156784633
+    ],
+    "euclidean_jacobian_errors": [
+      0.20089859324748194,
+      0.17933050476073675
+    ]
+  },
+  "design_replay": [
+    {
+      "gram": 1.7965099257168687e-14,
+      "rhs": 1.7499496578900786e-14
+    },
+    {
+      "gram": 3.654396999066231e-14,
+      "rhs": 2.7154122536723544e-14
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_sensitivity": false,
+    "pred_c_values": true
+  },
+  "scope": "Exact conditional readout solve for a linearized gradient surrogate with native amplitudes frozen on1536training sites. Not direct full Jacobian fitting. Same256shared product directions and private3;448opened sites evaluate. Historical chunks do not establish document independence."
+}
