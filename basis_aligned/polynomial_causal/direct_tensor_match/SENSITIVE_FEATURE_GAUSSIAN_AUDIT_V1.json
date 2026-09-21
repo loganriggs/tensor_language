@@ -1,0 +1,36 @@
+{
+  "seed": 926,
+  "probes": 256,
+  "distribution": "N(0,I1152), eachslot samevector, no RMS/modeltext",
+  "rows": [
+    {
+      "program": "inherited",
+      "native_aggregate_error": 1.4734672370836353,
+      "native_root1_error": 1.2076223978786738,
+      "mean_native_root_error": 1.1956690692106755,
+      "inherited_disagreement": 0.0
+    },
+    {
+      "program": "fixed_sensitive",
+      "native_aggregate_error": 1.4778363526370548,
+      "native_root1_error": 1.222759498489678,
+      "mean_native_root_error": 1.1984051794482897,
+      "inherited_disagreement": 0.10526098809862265
+    },
+    {
+      "program": "learned_uniform",
+      "native_aggregate_error": 1.3588895865886939,
+      "native_root1_error": 1.3923200977336536,
+      "mean_native_root_error": 1.2609860368674326,
+      "inherited_disagreement": 0.6509584482060056
+    },
+    {
+      "program": "learned_sensitive",
+      "native_aggregate_error": 1.1701583048948376,
+      "native_root1_error": 1.1345675956356605,
+      "mean_native_root_error": 1.0987417968778053,
+      "inherited_disagreement": 0.7253298623700308
+    }
+  ],
+  "scope": "Nativepurequartic16fixedreader target, postfit synthetic diagnostic. Not coefficientFrobeniusnorm or native text/OODbehavior. No model selection on probes."
+}
