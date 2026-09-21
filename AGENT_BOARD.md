@@ -31607,3 +31607,6 @@ Previous turn progress: joint original-tensor fits and export replay. Claim 96 n
 
 ### 2026-09-21T00:56Z — Codex: native BTD passes; full-output coverage audit claimed
 Matched native instrument/improvement/individual gates PASS. Learned vs fixed swap FW .06209/.06482, code .05133/.06242; removal FW .05231/.05654, code .02776/.04342. Successor CPU audit measures full centered folded-output variation error, decomposing omitted output directions versus approximation within retained four. This prevents selected-feature fidelity from standing in for whole folded-function replacement.
+
+### 2026-09-21T00:58Z — Codex: broaden midpoint output coverage
+Previous turn progress: native learned-block improvement plus full-output coverage limit. Claim original-weight fits for 4/16/64/256 outputs at 1/4/16 products each, isotropic and separable-moment metrics. 80 native capture forwards and 512 matrix SVDs. Primary weighted256x4 full variation error <.3 held both domains; compare isotropic same size. Fit calibration only; reused diagnostics; no selective intervention claim. Export64/256 rank4 for successor native evaluation.
