@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# BQGATE: EXPERIMENT pred_a_instrument pred_b_excess_alignment
+# BQGATE: EXPERIMENT pred_a_instrument pred_b_excess_alignment pred_c_cpu_gpu_replay
 """Architecture-preserving source-channel permutation control.
 pred_a native source replay and declared coefficient-Gram invariants<1e-10relative;
        GPU native overlap agrees with saved CPU statistic<1e-10absolute.
@@ -39,6 +39,6 @@ def main():
  for kind in plan['nulls']:
   for geometry in plan['metrics']:
    values=[r['statistic'] for r in rows if r['kind']==kind and r['geometry']==geometry];v=torch.tensor(values,dtype=torch.float64);actual=native[geometry]['statistic'];summaries.append(dict(kind=kind,geometry=geometry,native=actual,null_mean=float(v.mean()),null_std=float(v.std()),null_min=float(v.min()),null_max=float(v.max()),native_minus_null_mean=actual-float(v.mean()),exceeds_all=actual>float(v.max()),monte_carlo_upper_tail=(1+sum(x>=actual for x in values))/(1+len(values))))
- pred=dict(pred_a_instrument=True,pred_b_excess_alignment=all(s['exceeds_all'] for s in summaries))
+ pred=dict(pred_a_instrument=True,pred_b_excess_alignment=all(s['exceeds_all'] for s in summaries),pred_c_cpu_gpu_replay=all(abs(native[g]['statistic']-cpu[g])<1e-10 for g in plan['metrics']))
  (P/'PAIR_SUPPORT_ARCHITECTURE_V1.json').write_text(json.dumps(dict(plan=plan,native=native,records=rows,invariant_checks=checks,native_form_replay=replay,summaries=summaries,predictions=pred,seconds=time.monotonic()-start),indent=2)+'\n');print(json.dumps(summaries),flush=True);print(pred,flush=True)
 if __name__=='__main__':main()
