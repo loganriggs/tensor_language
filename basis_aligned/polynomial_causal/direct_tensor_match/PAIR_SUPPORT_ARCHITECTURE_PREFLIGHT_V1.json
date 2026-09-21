@@ -1,0 +1,32 @@
+{
+  "checkpoint": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin",
+  "factor_shapes": {
+    "L": [
+      4608,
+      1152
+    ],
+    "R": [
+      4608,
+      1152
+    ],
+    "C": [
+      6,
+      4608
+    ],
+    "root": [
+      1152,
+      1152
+    ]
+  },
+  "native_coefficient_replays": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "sha256": "e09067dab2c4126c3642bb42c5b39b75e678138216e78076765a380343571f6e",
+  "seconds": 1.041941436007619,
+  "scope": "Same six folded MLP16 source forms. lam is the h17 residual coefficient already present in cached targets. Native L/R held fixed; only six channel-coefficient rows are randomized in planned nulls."
+}

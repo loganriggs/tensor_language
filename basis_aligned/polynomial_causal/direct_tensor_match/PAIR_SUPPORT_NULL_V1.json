@@ -1,0 +1,348 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T14:03:03.141287+00:00",
+    "metrics": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "pair_width": 352,
+    "edge_width": 64,
+    "null_samples": 32,
+    "seed_base": 49000,
+    "statistic": "Mean across the three consumer pairs of the mean squared top64 principal cosines between their independently derived352-dimensional input supports.",
+    "null": "Independently Haar-rotate each pair input space in1152 dimensions. This preserves each pair spectrum and individual support width but removes relative orientation. Generate equivalent independent Stiefel frames; no model fit or text forward.",
+    "pred_a": "A common orthogonal change of coordinates preserves the native statistic to1e-10.",
+    "pred_b": "Native statistic exceeds every one of32 null statistics in each geometry.",
+    "scope": "Descriptive cross-pair input compatibility. Does not preserve upstream architecture correlations, identify semantic features, establish causal reuse, or improve a native circuit."
+  },
+  "records": [
+    {
+      "geometry": "calibration_shaped",
+      "native_statistic": 0.9713120837810071,
+      "edge_values": [
+        0.9667024801428702,
+        0.964218937216292,
+        0.9830148339838589
+      ],
+      "common_rotation_replay": 2.220446049250313e-16,
+      "null_mean": 0.7113481080772549,
+      "null_std": 0.0011345501341778787,
+      "null_min": 0.7086421648965198,
+      "null_max": 0.7138263082280405,
+      "exceeds_all_nulls": true,
+      "monte_carlo_upper_tail": 0.030303030303030304
+    },
+    {
+      "geometry": "native_isotropic",
+      "native_statistic": 0.8836007761392565,
+      "edge_values": [
+        0.8793059312849612,
+        0.8607128198177394,
+        0.9107835773150691
+      ],
+      "common_rotation_replay": 2.220446049250313e-16,
+      "null_mean": 0.7113481080772549,
+      "null_std": 0.0011345501341778787,
+      "null_min": 0.7086421648965198,
+      "null_max": 0.7138263082280405,
+      "exceeds_all_nulls": true,
+      "monte_carlo_upper_tail": 0.030303030303030304
+    }
+  ],
+  "null_samples": [
+    {
+      "seed": 49000,
+      "statistic": 0.7138263082280405,
+      "edge_values": [
+        0.7131992034453345,
+        0.7129341224436552,
+        0.715345598795132
+      ]
+    },
+    {
+      "seed": 49001,
+      "statistic": 0.7103776530394145,
+      "edge_values": [
+        0.7109780859729863,
+        0.711219832766146,
+        0.708935040379111
+      ]
+    },
+    {
+      "seed": 49002,
+      "statistic": 0.7119735380117191,
+      "edge_values": [
+        0.7118521058810668,
+        0.7108401198178327,
+        0.713228388336258
+      ]
+    },
+    {
+      "seed": 49003,
+      "statistic": 0.7111360868059414,
+      "edge_values": [
+        0.7106542834215415,
+        0.7116366404783208,
+        0.7111173365179624
+      ]
+    },
+    {
+      "seed": 49004,
+      "statistic": 0.7105384781492775,
+      "edge_values": [
+        0.7097082148778735,
+        0.7085058907301496,
+        0.7134013288398091
+      ]
+    },
+    {
+      "seed": 49005,
+      "statistic": 0.7109888753913204,
+      "edge_values": [
+        0.7101305143224264,
+        0.7118260423187691,
+        0.7110100695327657
+      ]
+    },
+    {
+      "seed": 49006,
+      "statistic": 0.7133591487146549,
+      "edge_values": [
+        0.7142668887169539,
+        0.7136893748038058,
+        0.7121211826232051
+      ]
+    },
+    {
+      "seed": 49007,
+      "statistic": 0.7114247264461447,
+      "edge_values": [
+        0.7120168146877777,
+        0.7115945050369787,
+        0.7106628596136777
+      ]
+    },
+    {
+      "seed": 49008,
+      "statistic": 0.7119178095894698,
+      "edge_values": [
+        0.7099513689082868,
+        0.7121208358549853,
+        0.7136812240051371
+      ]
+    },
+    {
+      "seed": 49009,
+      "statistic": 0.7109453657000394,
+      "edge_values": [
+        0.7097967887956349,
+        0.7115625756179977,
+        0.7114767326864857
+      ]
+    },
+    {
+      "seed": 49010,
+      "statistic": 0.710583824468134,
+      "edge_values": [
+        0.7087071876446192,
+        0.7126688981066474,
+        0.7103753876531355
+      ]
+    },
+    {
+      "seed": 49011,
+      "statistic": 0.7095700592529997,
+      "edge_values": [
+        0.7085066002488597,
+        0.7104169731685024,
+        0.7097866043416368
+      ]
+    },
+    {
+      "seed": 49012,
+      "statistic": 0.7118802780121953,
+      "edge_values": [
+        0.7107252365217248,
+        0.7145087094094992,
+        0.7104068881053618
+      ]
+    },
+    {
+      "seed": 49013,
+      "statistic": 0.71124756741277,
+      "edge_values": [
+        0.7088796609731416,
+        0.7134137995171164,
+        0.7114492417480518
+      ]
+    },
+    {
+      "seed": 49014,
+      "statistic": 0.7121650276354475,
+      "edge_values": [
+        0.7110725437054305,
+        0.7120661095787242,
+        0.7133564296221879
+      ]
+    },
+    {
+      "seed": 49015,
+      "statistic": 0.7117533653243454,
+      "edge_values": [
+        0.7125467484415735,
+        0.7110271093625309,
+        0.7116862381689317
+      ]
+    },
+    {
+      "seed": 49016,
+      "statistic": 0.7114828874752007,
+      "edge_values": [
+        0.711061436456401,
+        0.7117956114403482,
+        0.7115916145288533
+      ]
+    },
+    {
+      "seed": 49017,
+      "statistic": 0.7121055160455866,
+      "edge_values": [
+        0.7091788860670439,
+        0.7139048625732081,
+        0.7132327994965076
+      ]
+    },
+    {
+      "seed": 49018,
+      "statistic": 0.7086421648965198,
+      "edge_values": [
+        0.7094409265817072,
+        0.706073537595058,
+        0.7104120305127941
+      ]
+    },
+    {
+      "seed": 49019,
+      "statistic": 0.711683110289748,
+      "edge_values": [
+        0.7131132025840006,
+        0.7105735504544268,
+        0.7113625778308166
+      ]
+    },
+    {
+      "seed": 49020,
+      "statistic": 0.7107990730493269,
+      "edge_values": [
+        0.7110799568260026,
+        0.7109010723678828,
+        0.7104161899540955
+      ]
+    },
+    {
+      "seed": 49021,
+      "statistic": 0.7116240180291448,
+      "edge_values": [
+        0.7098300227693334,
+        0.7122856727852966,
+        0.7127563585328041
+      ]
+    },
+    {
+      "seed": 49022,
+      "statistic": 0.7111859559865557,
+      "edge_values": [
+        0.7124886778937175,
+        0.7113091211279678,
+        0.7097600689379817
+      ]
+    },
+    {
+      "seed": 49023,
+      "statistic": 0.710126645891845,
+      "edge_values": [
+        0.7092463816059702,
+        0.7124557768275637,
+        0.7086777792420011
+      ]
+    },
+    {
+      "seed": 49024,
+      "statistic": 0.7124620157972629,
+      "edge_values": [
+        0.7129102530415313,
+        0.7135096095088865,
+        0.7109661848413706
+      ]
+    },
+    {
+      "seed": 49025,
+      "statistic": 0.7137093390953186,
+      "edge_values": [
+        0.7143372726917315,
+        0.7122251610501331,
+        0.7145655835440914
+      ]
+    },
+    {
+      "seed": 49026,
+      "statistic": 0.7098092395198852,
+      "edge_values": [
+        0.7080741858566242,
+        0.7096640150393319,
+        0.7116895176636995
+      ]
+    },
+    {
+      "seed": 49027,
+      "statistic": 0.7108916402090887,
+      "edge_values": [
+        0.7114724243079475,
+        0.7124825345592704,
+        0.7087199617600483
+      ]
+    },
+    {
+      "seed": 49028,
+      "statistic": 0.7104489318295508,
+      "edge_values": [
+        0.7111273532244726,
+        0.7092786870259522,
+        0.7109407552382276
+      ]
+    },
+    {
+      "seed": 49029,
+      "statistic": 0.7103676783174472,
+      "edge_values": [
+        0.711749860119754,
+        0.7086669331874762,
+        0.7106862416451112
+      ]
+    },
+    {
+      "seed": 49030,
+      "statistic": 0.7122842850795337,
+      "edge_values": [
+        0.7135776128684278,
+        0.7123173869428426,
+        0.7109578554273308
+      ]
+    },
+    {
+      "seed": 49031,
+      "statistic": 0.7118288447782289,
+      "edge_values": [
+        0.712229976236512,
+        0.7138398118437094,
+        0.7094167462544658
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a": true,
+    "pred_b": true
+  },
+  "seconds": 3.9061973728239536,
+  "scope": "Input supports derived independently from pair mode-Gram spectra. Same null frames used in both geometries because width and ambient dimension match. Not architecture-preserving, semantic or causal evidence."
+}
