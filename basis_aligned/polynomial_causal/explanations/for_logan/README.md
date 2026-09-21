@@ -1,6 +1,8 @@
 # Requested full reports for Logan
 
-**Start here — [Overall review: folding → QR → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 07:38 UTC. Explains the original two-stage plan, separates broad-layer and selected-feature experiments, and covers graph refitting, fresh baseline comparisons, remaining accuracy failures and unstable internal products.
+**Start here — [Overall review: from folded weights to smaller arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 08:40 UTC. Explains the two-stage plan, what QR does, why the target narrowed, the actual savings, and the remaining failures. Read this before the chronological experiment updates.
+
+**Latest experiment — [Output weighting and group stability](research_update_2026-09-21_0843_output_weighting_and_group_stability.md).** Restart agreement improves, but original-function and component fidelity still fail; all-six sharing is the next comparison.
 
 **Latest — [Product freedom and weak contrasts](research_update_2026-09-21_0821_product_freedom_and_weak_contrasts.md).** Selective rotations change important products with1.86%tensor change; deleting them fails. Larger quadratic groups are more stable, but a low-energy fourth contrast remains inaccurate.
 

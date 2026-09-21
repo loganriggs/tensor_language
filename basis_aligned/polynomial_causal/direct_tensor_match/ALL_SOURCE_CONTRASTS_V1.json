@@ -1,0 +1,111 @@
+{
+  "joint": {
+    "eigenvalues": [
+      1.52872921347919,
+      0.9422760769956678,
+      0.4991979553664558,
+      0.02471442125140969,
+      0.0041627113406731515,
+      0.0009196215665744745
+    ],
+    "energy_fractions": [
+      0.5095764044930683,
+      0.31409202566522565,
+      0.16639931845548686,
+      0.008238140417136643,
+      0.001387570446891064,
+      0.0003065405221914945
+    ],
+    "teacher_anchored_feature_cosines": [
+      0.998310946411317,
+      0.9971177240400297,
+      0.9943596824296156,
+      0.9364414966706689,
+      0.8506013241318052,
+      0.5291651313002896
+    ],
+    "relative_feature_errors": [
+      0.05809916114350826,
+      0.07587007997594525,
+      0.10606493038971776,
+      0.35107270301688964,
+      0.5290461636877278,
+      1.129543058378138
+    ]
+  },
+  "per_pair": [
+    {
+      "eigenvalues": [
+        0.9789426242975439,
+        0.021057375702452863
+      ],
+      "energy_fractions": [
+        0.9789426242975471,
+        0.021057375702452932
+      ],
+      "teacher_anchored_feature_cosines": [
+        0.9970384253948386,
+        0.972897459693394
+      ],
+      "relative_feature_errors": [
+        0.07690499519644307,
+        0.23123696270740848
+      ]
+    },
+    {
+      "eigenvalues": [
+        0.868413206443108,
+        0.13158679355689057
+      ],
+      "energy_fractions": [
+        0.8684132064431092,
+        0.13158679355689074
+      ],
+      "teacher_anchored_feature_cosines": [
+        0.99696115663839,
+        0.9885605869563298
+      ],
+      "relative_feature_errors": [
+        0.07790027056583117,
+        0.15082428821829896
+      ]
+    },
+    {
+      "eigenvalues": [
+        0.9713641875671196,
+        0.028635812432876384
+      ],
+      "energy_fractions": [
+        0.9713641875671235,
+        0.0286358124328765
+      ],
+      "teacher_anchored_feature_cosines": [
+        0.9980371434366795,
+        0.9535950259074433
+      ],
+      "relative_feature_errors": [
+        0.06262475804945929,
+        0.3010922226903086
+      ]
+    }
+  ],
+  "weak_joint_contrast_removal": [
+    {
+      "centered_remainder_only": false,
+      "component_errors": [
+        0.010310690193561352,
+        0.06817720142504324,
+        0.08771900326377402
+      ]
+    },
+    {
+      "centered_remainder_only": true,
+      "component_errors": [
+        0.0013249903672284972,
+        0.007384829618317246,
+        0.010906889712616876
+      ]
+    }
+  ],
+  "scope": "All six original source quadratics and parentshared/private approximations. Teacher-anchored directions; exploratory opened-state removal, not fresh/causal adoption. Fitting firstfour cannotrepairprivate3."
+}

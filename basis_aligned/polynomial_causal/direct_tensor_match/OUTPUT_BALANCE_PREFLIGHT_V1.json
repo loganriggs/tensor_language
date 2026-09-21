@@ -1,0 +1,55 @@
+{
+  "toys": [
+    {
+      "seed": 0,
+      "power": 0,
+      "dense_replay": 2.220446049250313e-16,
+      "envelope_gradient_error": 1.3877787807814457e-17,
+      "untransformed_readout_error": 7.279644391609963e-16
+    },
+    {
+      "seed": 1,
+      "power": 0.25,
+      "dense_replay": 0.0,
+      "envelope_gradient_error": 4.7704895589362195e-18,
+      "untransformed_readout_error": 1.3412479967140297e-15
+    },
+    {
+      "seed": 2,
+      "power": 0.5,
+      "dense_replay": 2.220446049250313e-16,
+      "envelope_gradient_error": 1.0408340855860843e-17,
+      "untransformed_readout_error": 9.51458484483155e-16
+    },
+    {
+      "seed": 3,
+      "power": 0.75,
+      "dense_replay": 1.1102230246251565e-16,
+      "envelope_gradient_error": 6.938893903907228e-18,
+      "untransformed_readout_error": 6.130711326616181e-16
+    },
+    {
+      "seed": 4,
+      "power": 1,
+      "dense_replay": 0.0,
+      "envelope_gradient_error": 1.3877787807814457e-17,
+      "untransformed_readout_error": 1.7963188334857225e-15
+    }
+  ],
+  "native": [
+    {
+      "power": 0.5,
+      "initial_loss": 0.999592108488301,
+      "dense_replay": 0.0,
+      "untransformed_readout_error": 2.8846092882115394e-15
+    },
+    {
+      "power": 1,
+      "initial_loss": 0.9996153895345244,
+      "dense_replay": 2.220446049250313e-16,
+      "untransformed_readout_error": 2.6800008698785316e-15
+    }
+  ],
+  "all_pass": true,
+  "scope": "Loss, gradient and coordinate-transform verification. These are not five new optimizer-recovery runs; native target output Gram is full rank. Fixed-direction optimal readouts are invariant after undoing invertible output weighting, so new effects must come from direction optimization."
+}

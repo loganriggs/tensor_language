@@ -26,7 +26,14 @@ def main(plan_name="SOURCE_SOBOLEV_REFIT_PLAN_V1.json", result_name="SOURCE_SOBO
  data=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True)
  parent=torch.load(P/'PROFILED_PARTIAL_GRAPH_PROGRAMS_V1.pt',weights_only=True)[plan['parent']]
  root=torch.linalg.inv(data['inverse_root']);s=parent['shared_mixed'];initL=root@s['left_reader'];initR=root@s['right_reader']
- T=data['teacher'][:4].cuda();H=(data['inverse_root']@data['inverse_root']).cuda();records=[];programs={}
+ T=data['teacher'][:4].cuda();originalT=T;H=(data['inverse_root']@data['inverse_root']).cuda();records=[];programs={}
+ power=plan.get('output_whitening_power',0);flat=T.flatten(1);e,U=torch.linalg.eigh(flat@flat.T);U=U.flip(1);e=e.flip(0)
+ output_inverse=torch.eye(4,device=T.device,dtype=T.dtype)
+ if power:
+  assert float(e.min()/e.max())>1e-12
+  output_map=(U*e.pow(-power/2))@U.T;output_inverse=(U*e.pow(power/2))@U.T
+  T=torch.einsum('ab,bij->aij',output_map,T)
+ original_core=torch.einsum('oa,oij->aij',U,originalT)
  for lam in plan['lambdas']:
   metric=SourceSobolev(T,H,lam)
   for rate,seed in [(rate,seed) for rate in plan['rates'] for seed in plan.get('seeds',[None])]:
@@ -37,19 +44,23 @@ def main(plan_name="SOURCE_SOBOLEV_REFIT_PLAN_V1.json", result_name="SOURCE_SOBO
    for step in range(plan['steps']+1):
     opt.zero_grad();loss,W=metric.loss(L,R);value=float(loss.detach());assert math.isfinite(value)
     if value<best:best=value;state=(L.detach().clone(),R.detach().clone(),W.detach().clone());beststep=step
-    if step%400==0:history.append(dict(step=step,objective=value));print(lam,rate,step,value,flush=True)
+    if step%400==0:history.append(dict(step=step,objective=value));print(lam,rate,seed,step,value,flush=True)
     if step==plan['steps']:break
     opt.param_groups[0]['lr']=rate*.5*(1+math.cos(math.pi*step/plan['steps']));loss.backward();opt.step()
     with torch.no_grad():L.div_(L.norm(dim=0));R.div_(R.norm(dim=0))
    with torch.no_grad():
     l,r,w=state;hat=materialize_mixed(l,r,w);replay=abs(float(metric.explicit(hat,w))-best)
     E=hat-T;coef=float(E.norm()/T.norm());grad=float(((E*(H@E)).sum()/(T*(H@T)).sum()).sqrt())
-    program=export(l.cpu(),r.cpu(),w.cpu(),data,parent);scores=score(program,data)
+    native_w=output_inverse@w;native_hat=torch.einsum('ab,bij->aij',output_inverse,hat)
+    native_coef=float((native_hat-originalT).norm()/originalT.norm());native_core=torch.einsum('oa,oij->aij',U,native_hat)
+    core_cos=((original_core*native_core).sum((-1,-2))/(original_core.norm(dim=(-1,-2))*native_core.norm(dim=(-1,-2)))).tolist()
+    program=export(l.cpu(),r.cpu(),native_w.cpu(),data,parent);scores=score(program,data)
     floats=program['residual_writer'].numel()+sum(v.numel() for sub in ['shared_mixed','private_pair'] for v in program[sub].values() if v.is_floating_point())
     assert floats==897804
-    key=f'{lam}_{rate}'+(f'_seed{seed}' if seed is not None else '');programs[key]=program;records.append(dict(key=key,lam=lam,rate=rate,seed=seed,objective=best,best_step=beststep,dense_replay=replay,coefficient_error=coef,source_gradient_error=grad,stored_float_scalars=floats,source_products=512,history=history,**scores))
+    key=f'{lam}_{rate}'+(f'_seed{seed}' if seed is not None else '');programs[key]=program;records.append(dict(key=key,lam=lam,rate=rate,seed=seed,objective=best,best_step=beststep,dense_replay=replay,coefficient_error=coef,original_coefficient_error=native_coef,original_core_cosines=core_cos,output_whitening_power=power,source_gradient_error=grad,stored_float_scalars=floats,source_products=512,history=history,**scores))
  winners={str(lam):min((r for r in records if r['lam']==lam),key=lambda r:r['objective'])['key'] for lam in plan['lambdas']}
- selected=next(r for r in records if r['key']==winners['1']);baseline=plan['scalar_baseline'];parenterrors=plan['parent_jacobian']
+ selected=next(r for r in records if r['key']==winners[str(plan.get('primary_lambda',1))]);baseline=plan['scalar_baseline'];parenterrors=plan['parent_jacobian']
  out=dict(plan=plan,records=records,winners=winners,predictions=dict(pred_a_instrument=max(r['dense_replay'] for r in records)<1e-8,pred_b_sensitivity=all(a<=.9*b for a,b in zip(selected['euclidean_jacobian_errors'],parenterrors)),pred_c_values=all(a<=.15 and a<=1.1*b for a,b in zip(selected['per_mode_errors'],baseline))),seconds=time.perf_counter()-start)
+ if power:out['predictions']['pred_d_group_fidelity']=min(selected['original_core_cosines'])>=.99
  torch.save(programs,P/programs_name);output.write_text(json.dumps(out,indent=2)+'\n');print(out['predictions'],flush=True)
 if __name__=='__main__':main()

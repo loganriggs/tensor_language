@@ -1,0 +1,38 @@
+{
+  "lambdas": [
+    0
+  ],
+  "rates": [
+    0.02,
+    0.05
+  ],
+  "steps": 2000,
+  "parent": "0.02_pruned",
+  "parent_jacobian": [
+    0.20089859324748152,
+    0.17933050476073656
+  ],
+  "scalar_baseline": [
+    0.03058409729022641,
+    0.027558449717507608,
+    0.11941807478056159
+  ],
+  "hashes": {
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "PROFILED_PARTIAL_GRAPH_PROGRAMS_V1.pt": "4b91b40a4946f3394912a537755bed9240427dcc7e39f88c3581afa831f6c62a",
+    "source_sobolev.py": "e1e88d3a6b836051c8fe450de5be62da230f585f623ae1feead2b4d35a3eb1ba",
+    "source_graph_metrics.py": "7aa78f6576ec16a0510c2ced7335df71ac3ad70653cfb676c38487fd6de8ee24"
+  },
+  "native_forwards": 0,
+  "primary_lambda": 0,
+  "source_products": 512,
+  "stored_floats": 897804,
+  "scope": "Change only output-contrast weighting and undo output map before execution. Same random directions, rates,seeds,steps and capacity as prior coefficient-only random fits. Fullbalance is primary; partialbalance is a control. Native ports remain.",
+  "seeds": [
+    816,
+    1816
+  ],
+  "initialization": "Independent standard-normal mixed left/right directions, column-normalized in whitened space; analytic readout; original private3 retained.",
+  "executor_sha256": "7d894e74925e3ee894d35439218970b05aff4146c34b4bcc715154ce88ce4738",
+  "output_whitening_power": 1
+}

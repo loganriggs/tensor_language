@@ -1,0 +1,276 @@
+{
+  "plan": {
+    "lambdas": [
+      0
+    ],
+    "rates": [
+      0.02,
+      0.05
+    ],
+    "steps": 2000,
+    "parent": "0.02_pruned",
+    "parent_jacobian": [
+      0.20089859324748152,
+      0.17933050476073656
+    ],
+    "scalar_baseline": [
+      0.03058409729022641,
+      0.027558449717507608,
+      0.11941807478056159
+    ],
+    "hashes": {
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "PROFILED_PARTIAL_GRAPH_PROGRAMS_V1.pt": "4b91b40a4946f3394912a537755bed9240427dcc7e39f88c3581afa831f6c62a",
+      "source_sobolev.py": "e1e88d3a6b836051c8fe450de5be62da230f585f623ae1feead2b4d35a3eb1ba",
+      "source_graph_metrics.py": "7aa78f6576ec16a0510c2ced7335df71ac3ad70653cfb676c38487fd6de8ee24"
+    },
+    "native_forwards": 0,
+    "primary_lambda": 0,
+    "source_products": 512,
+    "stored_floats": 897804,
+    "scope": "Change only output-contrast weighting and undo output map before execution. Same random directions, rates,seeds,steps and capacity as prior coefficient-only random fits. Fullbalance is primary; partialbalance is a control. Native ports remain.",
+    "seeds": [
+      816,
+      1816
+    ],
+    "initialization": "Independent standard-normal mixed left/right directions, column-normalized in whitened space; analytic readout; original private3 retained.",
+    "executor_sha256": "7d894e74925e3ee894d35439218970b05aff4146c34b4bcc715154ce88ce4738",
+    "output_whitening_power": 0.5
+  },
+  "records": [
+    {
+      "key": "0_0.02_seed816",
+      "lam": 0,
+      "rate": 0.02,
+      "seed": 816,
+      "objective": 0.012528432066509883,
+      "best_step": 2000,
+      "dense_replay": 1.1622647289044608e-16,
+      "coefficient_error": 0.11193047726133942,
+      "original_coefficient_error": 0.09562617057059204,
+      "original_core_cosines": [
+        0.9960774775946024,
+        0.995452046292011,
+        0.9911163955464081,
+        0.9428826272170212
+      ],
+      "output_whitening_power": 0.5,
+      "source_gradient_error": 0.3597542156812844,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.999592108488301
+        },
+        {
+          "step": 400,
+          "objective": 0.014162515401880108
+        },
+        {
+          "step": 800,
+          "objective": 0.015623632103027271
+        },
+        {
+          "step": 1200,
+          "objective": 0.012782565467554678
+        },
+        {
+          "step": 1600,
+          "objective": 0.012560934243307554
+        },
+        {
+          "step": 2000,
+          "objective": 0.012528432066509883
+        }
+      ],
+      "per_mode_errors": [
+        0.03049533433381924,
+        0.02623127017667539,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.22033935322190012,
+        0.19370680281747057
+      ]
+    },
+    {
+      "key": "0_0.02_seed1816",
+      "lam": 0,
+      "rate": 0.02,
+      "seed": 1816,
+      "objective": 0.01253274616726864,
+      "best_step": 2000,
+      "dense_replay": 2.445960101127298e-16,
+      "coefficient_error": 0.11194974698148151,
+      "original_coefficient_error": 0.09560072977004694,
+      "original_core_cosines": [
+        0.9960804243256932,
+        0.99545512207938,
+        0.9911162846415257,
+        0.9426961404075361
+      ],
+      "output_whitening_power": 0.5,
+      "source_gradient_error": 0.3597850539314525,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.9996331792432821
+        },
+        {
+          "step": 400,
+          "objective": 0.015161158987857873
+        },
+        {
+          "step": 800,
+          "objective": 0.013514324310011327
+        },
+        {
+          "step": 1200,
+          "objective": 0.012810150527168735
+        },
+        {
+          "step": 1600,
+          "objective": 0.012564506674342063
+        },
+        {
+          "step": 2000,
+          "objective": 0.01253274616726864
+        }
+      ],
+      "per_mode_errors": [
+        0.028947883169204436,
+        0.027027171191065253,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.22052994064015552,
+        0.19409255867651623
+      ]
+    },
+    {
+      "key": "0_0.05_seed816",
+      "lam": 0,
+      "rate": 0.05,
+      "seed": 816,
+      "objective": 0.012513816801036136,
+      "best_step": 2000,
+      "dense_replay": 1.3704315460216776e-16,
+      "coefficient_error": 0.11186517123655455,
+      "original_coefficient_error": 0.09576775070595797,
+      "original_core_cosines": [
+        0.9960466382729163,
+        0.9954626465239165,
+        0.991105959421378,
+        0.9436703153805845
+      ],
+      "output_whitening_power": 0.5,
+      "source_gradient_error": 0.35960827773269133,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.999592108488301
+        },
+        {
+          "step": 400,
+          "objective": 0.01876138955591525
+        },
+        {
+          "step": 800,
+          "objective": 0.014284899619498944
+        },
+        {
+          "step": 1200,
+          "objective": 0.013160318004215653
+        },
+        {
+          "step": 1600,
+          "objective": 0.012607392309028015
+        },
+        {
+          "step": 2000,
+          "objective": 0.012513816801036136
+        }
+      ],
+      "per_mode_errors": [
+        0.02876864074326984,
+        0.02677629074926865,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.2202329099480278,
+        0.1928289710490789
+      ]
+    },
+    {
+      "key": "0_0.05_seed1816",
+      "lam": 0,
+      "rate": 0.05,
+      "seed": 1816,
+      "objective": 0.012522525359910507,
+      "best_step": 2000,
+      "dense_replay": 6.643990912991171e-16,
+      "coefficient_error": 0.11190408886172075,
+      "original_coefficient_error": 0.09582364856745419,
+      "original_core_cosines": [
+        0.9960440483694849,
+        0.9954428066774068,
+        0.9911526356307374,
+        0.9435260020547653
+      ],
+      "output_whitening_power": 0.5,
+      "source_gradient_error": 0.3597136800195817,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.9996331792432821
+        },
+        {
+          "step": 400,
+          "objective": 0.01805105718655859
+        },
+        {
+          "step": 800,
+          "objective": 0.014596516632103701
+        },
+        {
+          "step": 1200,
+          "objective": 0.01405177164727367
+        },
+        {
+          "step": 1600,
+          "objective": 0.012598071703121123
+        },
+        {
+          "step": 2000,
+          "objective": 0.012522525359910507
+        }
+      ],
+      "per_mode_errors": [
+        0.030901649328378786,
+        0.027304326719283244,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.21887984272207234,
+        0.19316792397597596
+      ]
+    }
+  ],
+  "winners": {
+    "0": "0_0.05_seed816"
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_sensitivity": false,
+    "pred_c_values": true,
+    "pred_d_group_fidelity": false
+  },
+  "seconds": 101.1039752799552
+}

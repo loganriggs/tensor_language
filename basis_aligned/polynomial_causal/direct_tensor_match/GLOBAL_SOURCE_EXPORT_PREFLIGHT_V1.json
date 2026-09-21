@@ -1,0 +1,28 @@
+{
+  "historical_checks": [
+    {
+      "key": "0.01_spectral",
+      "scalar_metric_replay": 7.941254875909465e-09
+    },
+    {
+      "key": "0.01_spectral_1pct_perturbed",
+      "scalar_metric_replay": 7.499541859051773e-09
+    },
+    {
+      "key": "0.05_spectral",
+      "scalar_metric_replay": 6.3402050762273454e-09
+    },
+    {
+      "key": "0.05_spectral_1pct_perturbed",
+      "scalar_metric_replay": 7.181374727521783e-09
+    }
+  ],
+  "new383_dense_replay": 6.982677370081745e-17,
+  "source_products": 383,
+  "stored_floats": 896262,
+  "scalar_shape": [
+    32,
+    3
+  ],
+  "scope": "Exporter/executor preflight only; new random383program is not trained or promoted. Reuses historical global384program format; all3components present, no privatebranch."
+}
