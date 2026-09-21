@@ -1,0 +1,48 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:32:49.221913+00:00",
+    "positions": 5600,
+    "steps": 1000,
+    "tolerance": 1e-08,
+    "ridge": 1e-10,
+    "mask": "Largest groupnormalizedindividualterm weights from primarypairwise densecores; frozenbefore coefficientrefit.",
+    "pred_a": "Five independent dense Kronecker solves matchCG; native normalresidual<=1e-8 for convergence claim.",
+    "pred_b": "Reconstructionerror<=originalcovarianceguard. Keepzero coefficients asfeasiblecontrol.",
+    "scope": "Fixedmask coefficientrefit only, not yet executablegraph. Dense projections avoided byreusingactualgraphactivations; prospective budget1064448source mults."
+  },
+  "primary": "calibration_shaped_pairwise_0",
+  "records": [
+    {
+      "pair": 1,
+      "products": 2188,
+      "cross_squared_error": 0.001618313116980741,
+      "zero_coefficient_squared_error": 0.0020409721964165708,
+      "iterations": 350,
+      "relative_normal_residual": 9.66315165948968e-09,
+      "converged": true
+    },
+    {
+      "pair": 2,
+      "products": 2123,
+      "cross_squared_error": 0.0024791644367381798,
+      "zero_coefficient_squared_error": 0.002765976869482289,
+      "iterations": 331,
+      "relative_normal_residual": 9.530763568525523e-09,
+      "converged": true
+    },
+    {
+      "pair": 3,
+      "products": 1289,
+      "cross_squared_error": 0.002173380774773851,
+      "zero_coefficient_squared_error": 0.0027048460770057853,
+      "iterations": 421,
+      "relative_normal_residual": 9.48715946077382e-09,
+      "converged": true
+    }
+  ],
+  "coefficient_error": 0.10959760886865426,
+  "coefficient_guard": 0.07734469220772448,
+  "coefficient_pass": false,
+  "seconds": 1.419068736024201,
+  "scope": "Fixed5600crosspositions using existing activations, coefficients refitted. This is a dense-form diagnostic; shared-core update/recompilation, actual execution, component fidelity and native behavior remain untested. Nonconverged solves are not certified optima."
+}

@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-09-21T12:33:37.760372+00:00",
+  "positions": 5600,
+  "steps": 1000,
+  "tolerance": 1e-08,
+  "ridge": 1e-10,
+  "mask": "Largest normalized atom correlations with the cross residual. Each score is single-atom squared-error reduction; fixed5600positions then sameCGsolve.",
+  "pred_a": "Five independent dense Kronecker solves matchCG; native normalresidual<=1e-8 for convergence claim.",
+  "pred_b": "Reconstructionerror<=originalcovarianceguard. Keepzero coefficients asfeasiblecontrol.",
+  "scope": "Fixedmask coefficientrefit only, not yet executablegraph. Dense projections avoided byreusingactualgraphactivations; prospective budget1064448source mults.",
+  "mask_kind": "residual_correlation",
+  "motivation": "Magnitude mask refit convergesbut10.96%errorfails. Coefficient magnitude in ill-conditioned basis can prioritize cancellations; test residual alignment directly. No changes to target, budget, solver or threshold."
+}
