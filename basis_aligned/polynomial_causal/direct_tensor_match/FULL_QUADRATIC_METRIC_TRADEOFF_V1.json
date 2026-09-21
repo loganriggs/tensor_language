@@ -1,0 +1,68 @@
+{
+  "components": {
+    "pruned": {
+      "covariance": 0.011669281219129649,
+      "isotropic": 0.15514044427457546,
+      "response": 0.005545100831687385
+    },
+    "response_refit": {
+      "covariance": 0.012466328805852791,
+      "isotropic": 0.16191480597075683,
+      "response": 0.0012470613129564846
+    },
+    "learned": {
+      "covariance": 0.01116274020734501,
+      "isotropic": 0.3041869123407348,
+      "response": 0.00035378404273511146
+    }
+  },
+  "rows": [
+    {
+      "isotropic_weight": 0,
+      "scores": {
+        "pruned": 0.01721438205081703,
+        "response_refit": 0.013713390118809276,
+        "learned": 0.011516524250080122
+      },
+      "best": "learned"
+    },
+    {
+      "isotropic_weight": 0.01,
+      "scores": {
+        "pruned": 0.018765786493562787,
+        "response_refit": 0.015332538178516843,
+        "learned": 0.01455839337348747
+      },
+      "best": "learned"
+    },
+    {
+      "isotropic_weight": 0.02,
+      "scores": {
+        "pruned": 0.02031719093630854,
+        "response_refit": 0.016951686238224413,
+        "learned": 0.01760026249689482
+      },
+      "best": "response_refit"
+    },
+    {
+      "isotropic_weight": 0.1,
+      "scores": {
+        "pruned": 0.03272842647827458,
+        "response_refit": 0.029904870715884962,
+        "learned": 0.041935215484153604
+      },
+      "best": "response_refit"
+    },
+    {
+      "isotropic_weight": 1.0,
+      "scores": {
+        "pruned": 0.1723548263253925,
+        "response_refit": 0.17562819608956612,
+        "learned": 0.3157034365908149
+      },
+      "best": "pruned"
+    }
+  ],
+  "learned_vs_fixed_response_crossover_weight": 0.015441297136743122,
+  "scope": "Post-result algebraic comparison of frozen programs, not an optimization or heldout selection rule. Shows relative normalized-loss weighting sufficient to reverse their training ranking; no claim that choosing a weight repairs native behavior."
+}
