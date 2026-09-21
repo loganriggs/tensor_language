@@ -1,0 +1,135 @@
+{
+  "records": [
+    {
+      "panel": "first",
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_absolute": true,
+        "pred_c_relative": false,
+        "pred_d_both_baselines": false
+      },
+      "relative_failures": [
+        {
+          "baseline": "isotropic",
+          "domain": "fineweb",
+          "selection": "mode2",
+          "family": "natural",
+          "cohort": "continuation",
+          "error": 0.07951231962521181
+        },
+        {
+          "baseline": "isotropic",
+          "domain": "fineweb",
+          "selection": "mode3",
+          "family": "hybrid",
+          "cohort": "continuation",
+          "error": 0.13861578963264037
+        },
+        {
+          "baseline": "covariance",
+          "domain": "stdlib",
+          "selection": "mode1",
+          "family": "natural",
+          "cohort": "spaced_word",
+          "error": 0.02334280348458527
+        },
+        {
+          "baseline": "covariance",
+          "domain": "stdlib",
+          "selection": "mode3",
+          "family": "natural",
+          "cohort": "spaced_word",
+          "error": 0.02194969505382172
+        },
+        {
+          "baseline": "covariance",
+          "domain": "stdlib",
+          "selection": "combined",
+          "family": "natural",
+          "cohort": "spaced_word",
+          "error": 0.031522917552690724
+        }
+      ]
+    },
+    {
+      "panel": "replication",
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_absolute": true,
+        "pred_c_relative": false,
+        "pred_d_both_baselines": false
+      },
+      "relative_failures": [
+        {
+          "baseline": "isotropic",
+          "domain": "fineweb",
+          "selection": "mode1",
+          "family": "natural",
+          "cohort": "continuation",
+          "error": 0.0185076152176696
+        },
+        {
+          "baseline": "covariance",
+          "domain": "stdlib",
+          "selection": "mode3",
+          "family": "natural",
+          "cohort": "spaced_word",
+          "error": 0.03343715429333317
+        },
+        {
+          "baseline": "covariance",
+          "domain": "stdlib",
+          "selection": "mode3",
+          "family": "hybrid",
+          "cohort": "spaced_word",
+          "error": 0.03333043414607944
+        },
+        {
+          "baseline": "isotropic",
+          "domain": "stdlib",
+          "selection": "mode3",
+          "family": "hybrid",
+          "cohort": "spaced_word",
+          "error": 0.03333043414607944
+        },
+        {
+          "baseline": "covariance",
+          "domain": "stdlib",
+          "selection": "combined",
+          "family": "hybrid",
+          "cohort": "spaced_word",
+          "error": 0.03396822476874496
+        }
+      ]
+    },
+    {
+      "panel": "pooled",
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_absolute": true,
+        "pred_c_relative": false,
+        "pred_d_both_baselines": false
+      },
+      "relative_failures": [
+        {
+          "baseline": "covariance",
+          "domain": "stdlib",
+          "selection": "mode3",
+          "family": "natural",
+          "cohort": "spaced_word",
+          "error": 0.027609616091900286
+        },
+        {
+          "baseline": "covariance",
+          "domain": "stdlib",
+          "selection": "mode3",
+          "family": "hybrid",
+          "cohort": "spaced_word",
+          "error": 0.029737563888414368
+        }
+      ]
+    }
+  ],
+  "unchanged_candidate_hashes_verified": true,
+  "scope": "One registered unchanged replication. Pooled pointfailures remain; neither panel verdict overwritten. No more panels selected to obtain a pass. Next diagnosis separates source-scalar error from native normalization/logit-effect weighting on these now-opened panels."
+}

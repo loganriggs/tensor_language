@@ -1,7 +1,7 @@
 """Audit all fresh comparison cells and paired recipient uncertainty for three frozen graphs."""
 from pathlib import Path
-import json,numpy as np
-P=Path(__file__).parent;d=json.loads((P/'FRONTIER_FRESH_NATIVE_V1.json').read_text());rng=np.random.default_rng(10340);rows=[]
+import json,sys,numpy as np
+P=Path(__file__).parent;version=sys.argv[1] if len(sys.argv)>1 else 'V1';d=json.loads((P/f'FRONTIER_FRESH_NATIVE_{version}.json').read_text());rng=np.random.default_rng(10340);rows=[]
 candidates=['graph'];baselines=['separate','isotropic_baseline'];names=candidates+baselines
 for cell in d['cells']:
  domain=cell['domain'];docs=d['plan']['recipient_documents'][domain];index={doc:i for i,doc in enumerate(docs)};arrays={name:np.zeros((len(docs),2)) for name in names}
@@ -21,4 +21,4 @@ assert (counts['graph']['absolute_failures']==0)==d['predictions']['pred_b_absol
 assert (counts['graph']['covariance_baseline_failures']==0)==d['predictions']['pred_c_relative']
 assert (counts['graph']['either_baseline_failures']==0)==d['predictions']['pred_d_both_baselines']
 out=dict(all_point_summaries_replay=True,predictions=d['predictions'],counts=counts,records=rows,scope='4000paired recipient-document/file bootstrap resamples, fixed donor map and frozen fits. Pointwise95%intervals without multiplicity correction; no uncertainty over training, donor choice or pretraining overlap. Openedfit passes reconstruction at15.7%source saving; fresh relativebaseline failures remain. No arm selection or refitting after fresh outcomes.')
-(P/'FRONTIER_FRESH_AUDIT_V1.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(counts,indent=2))
+(P/f'FRONTIER_FRESH_AUDIT_{version}.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(counts,indent=2))
