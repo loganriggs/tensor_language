@@ -1,0 +1,42 @@
+[
+  {
+    "family": "independent",
+    "gram_error": 1.1519615586869252e-15,
+    "cross_error": 1.0690026869126279e-15,
+    "loss_error": 1.0062655849628732e-16,
+    "profile_gradient_error": 3.3035829468924863e-16,
+    "dense_gradient_error": 4.809638183117718e-16
+  },
+  {
+    "family": "shared_inputs",
+    "gram_error": 1.238146803929862e-15,
+    "cross_error": 1.3380751474195856e-15,
+    "loss_error": 1.3429840488905892e-16,
+    "profile_gradient_error": 2.914408156895877e-11,
+    "dense_gradient_error": 8.121651994033914e-16
+  },
+  {
+    "family": "shared_outputs",
+    "gram_error": 7.635559150016953e-16,
+    "cross_error": 6.298592369254819e-16,
+    "loss_error": 2.143205650070537e-16,
+    "profile_gradient_error": 8.315220050349403e-16,
+    "dense_gradient_error": 8.619580674743453e-16
+  },
+  {
+    "family": "squares",
+    "gram_error": 1.6356056808471358e-15,
+    "cross_error": 8.424614506773695e-16,
+    "loss_error": 1.4195600991753736e-16,
+    "profile_gradient_error": 9.756209009376133e-16,
+    "dense_gradient_error": 5.219193874570362e-16
+  },
+  {
+    "family": "cancellation",
+    "gram_error": 9.551589900778212e-16,
+    "cross_error": 4.0463975197673338e-16,
+    "loss_error": 1.4857642359061358e-16,
+    "profile_gradient_error": 1.358654726590324e-11,
+    "dense_gradient_error": 4.8071659289075315e-16
+  }
+]

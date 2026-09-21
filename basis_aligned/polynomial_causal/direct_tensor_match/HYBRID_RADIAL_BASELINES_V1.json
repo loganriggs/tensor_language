@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "name": "full_radial",
+      "results": [
+        {
+          "aggregate_error": 0.8411466918623107,
+          "root1_error": 0.9851416443767266,
+          "mean_root_error": 0.8281003910626131
+        },
+        {
+          "aggregate_error": 0.8473912528277464,
+          "root1_error": 0.9912317139984947,
+          "mean_root_error": 0.8397499830038297
+        }
+      ],
+      "variable_products": 1153,
+      "learned_or_stored_coefficients": 16,
+      "output_writer_common": true
+    },
+    {
+      "name": "projected_radial32",
+      "results": [
+        {
+          "aggregate_error": 0.8762374739000063,
+          "root1_error": 0.9886796078721481,
+          "mean_root_error": 0.8676784801935531
+        },
+        {
+          "aggregate_error": 0.8740002212286316,
+          "root1_error": 0.9911466179499536,
+          "mean_root_error": 0.8700434803101305
+        }
+      ],
+      "variable_products": 33,
+      "learned_or_stored_coefficients": 36880,
+      "output_writer_common": true
+    }
+  ],
+  "seeds": [
+    938,
+    939,
+    940
+  ],
+  "scope": "Native purequartic16reader targets; radialcoefffitonGaussiantrain, evalfresh. Fullradial1153products exceeds384budget; projected33productcontrol hasfixedrandom32dimdictionary. Common1152x16writerexcludedfrombothcoeffprices explicitly. No text/nativebehavior/semanticclaim."
+}
