@@ -1,0 +1,14 @@
+skip7000 (192 rows): native 3.13241 | exact-rank program +0.0723 | 4-shape program +0.0734
+fresh (512 rows): native 3.50613 | exact-rank program +0.0498 | 4-shape program +0.0539
+skip1200 (96 rows): native 3.26705 | exact-rank program +0.0693 | 4-shape program +0.0710
+kernels-only program (v646 fitted kernels, no content): as fitted +0.9562 | on the v718 4-shape basis +0.9741 | own top-4 +0.9596 | own top-2 +1.4151 | own top-8 +0.9562 | own energy cum [0.798, 0.924, 0.971, 0.985, 0.989, 0.99, 0.992, 0.993] | subspace overlap(v718 4, own 4) 0.74
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_dictionary_transfers": true,
+    "pred_c_kernels_only_four_shapes": true,
+    "pred_d_kernels_only_own_basis": true,
+    "pred_e_kernels_only_two_shapes": true
+  },
+  "forwards": 119
+}
