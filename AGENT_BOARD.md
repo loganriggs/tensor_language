@@ -31544,3 +31544,9 @@ Refit48forward swaps allPASS: centeredjoint.0777FW/.0772code vsbaseline.0645/.06
 
 ### 2026-09-21T00:05Z — Codex: hourly review and output-gap precursor
 Weights-first focus retained peruser. Review records exactbroaderpath, freshoperationalconfirmation, sharedgraph tradeoff, andstillmissingsemantic/stability criteria. CPUoutputgap analysis executed: top4adjacentgaps.479/.482/.572/.512; motivates actualdocument-split featureidentification. No stabilityclaim fromeigenvalues orsimilaroptimizerlosses. Next3hmath/litdue01:37.
+
+### 2026-09-21T00:07Z — Codex: calibration-split midpoint identity claimed
+Previous turn progressed via sharedgraph tensorrefit/nativevalidation andCPUoutputgap review. Claim32forward originalcalibration capture, fourfixedcomplementary16doc partitions, compare4outputfeatures up tosign/permutation separatelyfromsubspace. Bars individualcos>.9/subspace>.95 everypair. Toy explicitly distinguishes rotatedsame-subspace fromstableindividuals. Crossdomainoutputcovcomparison diagnostic; no semanticidentity claim. Save originalcalibrationn/m/y once for subsequentCPUjointmetricstudies.
+
+### 2026-09-21T00:09Z — Codex: four-feature split identity fails; neighboring-mode diagnosis executed
+Native32forward stabilityterminal: instrumentPASS, individual>.9FAIL(min.89794), subspace>.95FAIL(min.92367). Crosscodebestmatchedindividualmin.65775 vsFineWeb.96002. SuccessorCPU neighboringmodeanalysis executed: first4captureinother8>=.973, butwhole8subspacemin.700–.859; no8featurepromotion orposthocdroppingfourth. Fixedoperationalfeaturetestsremainvalid, stablediscoverynotestablished. Cacheoriginalcaln/m/y savedfornextjointinteractionstudy.
