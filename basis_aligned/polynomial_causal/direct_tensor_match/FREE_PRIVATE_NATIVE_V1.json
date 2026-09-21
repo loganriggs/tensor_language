@@ -1,0 +1,506 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:53:46.442443+00:00",
+    "metrics": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "parents": {
+      "calibration_shaped": "calibration_shaped_pairwise_0",
+      "native_isotropic": "native_isotropic_pairwise_26301"
+    },
+    "seeds": [
+      0,
+      26301
+    ],
+    "steps": 1800,
+    "rate": 0.03,
+    "optimizer": "muon",
+    "optimizer_evidence": [
+      {
+        "optimizer": "adam",
+        "best_restart_errors": [
+          6.91442526469133e-07,
+          0.02105147340492244,
+          0.008625967527656892,
+          0.04329958574393206,
+          0.010460703423594217
+        ],
+        "recovered_cases": 2,
+        "geometric_mean_error": 0.006337695462073893
+      },
+      {
+        "optimizer": "muon",
+        "best_restart_errors": [
+          1.5391953642249302e-07,
+          0.019669521515247784,
+          0.002466812235475943,
+          1.534737469465698e-07,
+          0.001552903016973881
+        ],
+        "recovered_cases": 4,
+        "geometric_mean_error": 0.0011577981656423052
+      }
+    ],
+    "primary": "Covariance restart chosen by fitting objective, retaining compilerfailures rather than selecting around them.",
+    "baseline": {
+      "native_error": 0.5525962583461952,
+      "covariance_error": 0.0703133565524768,
+      "per_mode_errors": [
+        0.018692583665713903,
+        0.020499346791718828,
+        0.08805202711597365
+      ],
+      "euclidean_jacobian_errors": [
+        0.187428758387592,
+        0.15902999281611183,
+        0.16001348745745214
+      ],
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "activation_products": 1152,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1330560,
+      "source_additions": 1329148
+    },
+    "stored_floats": 1058124,
+    "source_multiplications": 1047648,
+    "products": 1056,
+    "scope": "Same fixedshared dictionaries andsamegraphcost; onlyprivate directionsreleasedoutside priorpairspans. Exact symmetriccores solvedwithenvelopegradient. Gradualwarm andfullyrandom comparison; no datarecalibration.",
+    "hashes": {
+      "free_private_varpro.py": "7e43b30dcefde0183df619fd0328b61027ea2687eb8cfe437611b7aa0d71918a",
+      "common_private_als.py": "1c95f3e9ff082c2a2d82b01866d38ace49d47fb53cde344d231d63114ad3b5d6",
+      "pairwise_reader_graph.py": "408d43a44a72547ad451bc918792c08f4d12370171f4f2655b037cb4388c7116",
+      "pairwise_graph_assessment.py": "9e592cf80486fa0de84a4de4ee156a37db772ca64635ba7b86c31b3d06bcc854",
+      "export_free_private.py": "1b5607c216c6eef58c3f0b6040d2f72645fae0b334b471b5be5a653542fd3cff",
+      "quadratic_pair_blocks.py": "45b8fa4b2ee41e260f984f7908f6e0a448ce7cb0a96e0423a0112d716458b259",
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "ALTERNATING_COMPLETION_PROGRAMS_V1.pt": "19d6de3e151ab119e8cee07e048802406c4b7b4acb556127ec53bffee1245d93",
+      "FREE_PRIVATE_TOY_V1.json": "dbe5da2082a24af228d3e26bdf7818b0f8f03ebd558701876315ed020fa2b5f6",
+      "FREE_PRIVATE_NATIVE_PREFLIGHT_V1.json": "fc655b5c3851f3834db5f37be9591b203152b959e6baa6b8db9155ed43149612"
+    }
+  },
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "geometry": "calibration_shaped",
+      "seed": 0,
+      "objective": 0.00639036330866076,
+      "best_step": 0,
+      "dense_loss_replay": 1.0148132334464322e-16,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.00639036330866076
+        },
+        {
+          "step": 300,
+          "loss": 0.007614054839226993
+        },
+        {
+          "step": 600,
+          "loss": 0.007082381898179659
+        },
+        {
+          "step": 900,
+          "loss": 0.006772204658626412
+        },
+        {
+          "step": 1200,
+          "loss": 0.006698992563835039
+        },
+        {
+          "step": 1500,
+          "loss": 0.006418040405817967
+        },
+        {
+          "step": 1800,
+          "loss": 0.006395748033284363
+        }
+      ],
+      "instrument": true,
+      "export_replay": 0.0,
+      "compiler": [
+        {
+          "common": {
+            "pencil_condition": 137.09231315667208,
+            "eigenbasis_condition": 136.81286163570738,
+            "real_basis_condition": 146.38322488846768,
+            "matrix_replay": [
+              1.0590347406569577e-12,
+              1.120924226923506e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 28.917657360463792,
+            "eigenbasis_condition": 168.20383462832268,
+            "real_basis_condition": 181.25719720524293,
+            "matrix_replay": [
+              6.67830938361418e-12,
+              7.182575966731545e-12
+            ]
+          },
+          "coupling_norm": 70.21561506912751
+        },
+        {
+          "common": {
+            "pencil_condition": 2751.987644282288,
+            "eigenbasis_condition": 308.87053914460375,
+            "real_basis_condition": 324.20798358361384,
+            "matrix_replay": [
+              4.1789730262428466e-12,
+              4.9905988283709245e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 6035.659921604016,
+            "eigenbasis_condition": 512.7354230868498,
+            "real_basis_condition": 520.7287792055516,
+            "matrix_replay": [
+              1.0864650095092578e-11,
+              1.0890526847273283e-11
+            ]
+          },
+          "coupling_norm": 69.12016863265019
+        },
+        {
+          "common": {
+            "pencil_condition": 2575.7493373604175,
+            "eigenbasis_condition": 636.0498282603575,
+            "real_basis_condition": 683.1713552382735,
+            "matrix_replay": [
+              1.792368712879026e-11,
+              1.1842624336318647e-11
+            ]
+          },
+          "private": {
+            "pencil_condition": 750.7087526863145,
+            "eigenbasis_condition": 196.0133420453057,
+            "real_basis_condition": 226.66115523678937,
+            "matrix_replay": [
+              7.480196358399403e-13,
+              9.021245112621022e-13
+            ]
+          },
+          "coupling_norm": 74.59874331679453
+        }
+      ],
+      "native_error": 0.5973311092103225,
+      "covariance_error": 0.07993974798972575,
+      "execution_replay": 3.452478036285328e-15,
+      "per_mode_errors": [
+        0.022279497305512253,
+        0.02361122560778183,
+        0.10930612235893046
+      ],
+      "euclidean_jacobian_errors": [
+        0.2022183929781173,
+        0.17284037040761652,
+        0.1787277497656111
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "geometry": "calibration_shaped",
+      "seed": 26301,
+      "objective": 0.007434318120766022,
+      "best_step": 1546,
+      "dense_loss_replay": 9.974659986866641e-17,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.10596323870731418
+        },
+        {
+          "step": 300,
+          "loss": 0.01019427928003753
+        },
+        {
+          "step": 600,
+          "loss": 0.008861194728565086
+        },
+        {
+          "step": 900,
+          "loss": 0.009530153482687787
+        },
+        {
+          "step": 1200,
+          "loss": 0.00784614459303555
+        },
+        {
+          "step": 1500,
+          "loss": 0.007586592355852383
+        },
+        {
+          "step": 1800,
+          "loss": 0.007684128778821325
+        }
+      ],
+      "instrument": true,
+      "export_replay": 1.3877787807814457e-17,
+      "compiler": [
+        {
+          "common": {
+            "pencil_condition": 387.1966235122306,
+            "eigenbasis_condition": 222.21864974400964,
+            "real_basis_condition": 228.23603793370808,
+            "matrix_replay": [
+              4.941705365958511e-12,
+              5.1914403983183375e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 443.35015831895265,
+            "eigenbasis_condition": 580.010761909839,
+            "real_basis_condition": 630.6765279983915,
+            "matrix_replay": [
+              4.993954884557939e-11,
+              5.2013922722598506e-11
+            ]
+          },
+          "coupling_norm": 115.67272668075324
+        },
+        {
+          "common": {
+            "pencil_condition": 1749.2858443764585,
+            "eigenbasis_condition": 604.4263354543094,
+            "real_basis_condition": 663.6524281719188,
+            "matrix_replay": [
+              2.3433361272671964e-11,
+              4.349077861607727e-11
+            ]
+          },
+          "private": {
+            "pencil_condition": 16800.413245931584,
+            "eigenbasis_condition": 433.0697148810899,
+            "real_basis_condition": 455.506789750367,
+            "matrix_replay": [
+              1.2182585438918114e-11,
+              1.2210605898555373e-11
+            ]
+          },
+          "coupling_norm": 153.65556693096502
+        },
+        {
+          "common": {
+            "pencil_condition": 762.0227275988324,
+            "eigenbasis_condition": 249.23933491664454,
+            "real_basis_condition": 282.87605283326747,
+            "matrix_replay": [
+              1.2301857290312144e-12,
+              1.0457492542550646e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 5802.7859127335805,
+            "eigenbasis_condition": 241.36772499051494,
+            "real_basis_condition": 261.2300223722759,
+            "matrix_replay": [
+              2.3705341545965354e-11,
+              2.557384914497756e-11
+            ]
+          },
+          "coupling_norm": 147.21394558357406
+        }
+      ],
+      "native_error": 0.6265568449073305,
+      "covariance_error": 0.08622249196564737,
+      "execution_replay": 4.8684922338900435e-15,
+      "per_mode_errors": [
+        0.02512593096170731,
+        0.025564529313430256,
+        0.12751898805095122
+      ],
+      "euclidean_jacobian_errors": [
+        0.21212105640002374,
+        0.1814342817548067,
+        0.1873674728680881
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    },
+    {
+      "key": "native_isotropic_0",
+      "geometry": "native_isotropic",
+      "seed": 0,
+      "objective": 0.2516655796450978,
+      "best_step": 0,
+      "dense_loss_replay": 0.0,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.2516655796450978
+        },
+        {
+          "step": 300,
+          "loss": 0.2694441967448313
+        },
+        {
+          "step": 600,
+          "loss": 0.2601348991781134
+        },
+        {
+          "step": 900,
+          "loss": 0.25816421847167287
+        },
+        {
+          "step": 1200,
+          "loss": 0.2536508103993945
+        },
+        {
+          "step": 1500,
+          "loss": 0.25303596685355345
+        },
+        {
+          "step": 1800,
+          "loss": 0.25224366598930303
+        }
+      ],
+      "instrument": true,
+      "export_replay": 0.0,
+      "compiler": [
+        {
+          "common": {
+            "pencil_condition": 23.13736059948645,
+            "eigenbasis_condition": 119.8952882136465,
+            "real_basis_condition": 129.93761678187542,
+            "matrix_replay": [
+              2.6044224041742273e-12,
+              2.6572097754496115e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 24.751861784704936,
+            "eigenbasis_condition": 162.0736558906714,
+            "real_basis_condition": 171.90306071921083,
+            "matrix_replay": [
+              8.519516297274886e-12,
+              8.45814994688287e-12
+            ]
+          },
+          "coupling_norm": 48.441283632856866
+        },
+        {
+          "common": {
+            "pencil_condition": 152.2748740155682,
+            "eigenbasis_condition": 194.04873177508543,
+            "real_basis_condition": 205.72333653033232,
+            "matrix_replay": [
+              1.576809667075965e-12,
+              1.518051971334641e-12
+            ]
+          },
+          "private": {
+            "pencil_condition": 29.560632259067102,
+            "eigenbasis_condition": 146.95358719101264,
+            "real_basis_condition": 152.24928919846022,
+            "matrix_replay": [
+              1.9154659224712234e-12,
+              2.0089750504701792e-12
+            ]
+          },
+          "coupling_norm": 41.62676854052921
+        },
+        {
+          "common": {
+            "pencil_condition": 499.36668381261325,
+            "eigenbasis_condition": 70.09824068950404,
+            "real_basis_condition": 77.99126784317654,
+            "matrix_replay": [
+              7.176733734052455e-13,
+              6.93797462747593e-13
+            ]
+          },
+          "private": {
+            "pencil_condition": 28.20999588602481,
+            "eigenbasis_condition": 122.21557138956821,
+            "real_basis_condition": 140.82234928285925,
+            "matrix_replay": [
+              3.673704617424628e-13,
+              4.72445647440345e-13
+            ]
+          },
+          "coupling_norm": 43.30744644646256
+        }
+      ],
+      "native_error": 0.5016628146923965,
+      "covariance_error": 0.13615973513362117,
+      "execution_replay": 3.505815301328562e-15,
+      "per_mode_errors": [
+        0.019770940414639865,
+        0.034147215844002606,
+        0.12251068636634156
+      ],
+      "euclidean_jacobian_errors": [
+        0.19844426405262505,
+        0.1836281011481349,
+        0.17872681807026683
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    },
+    {
+      "key": "native_isotropic_26301",
+      "geometry": "native_isotropic",
+      "seed": 26301,
+      "objective": 0.2569419588799131,
+      "best_step": 1320,
+      "dense_loss_replay": 0.0,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.7313029406814819
+        },
+        {
+          "step": 300,
+          "loss": 0.2766442852941816
+        },
+        {
+          "step": 600,
+          "loss": 0.26531441682370627
+        },
+        {
+          "step": 900,
+          "loss": 0.26836897420755446
+        },
+        {
+          "step": 1200,
+          "loss": 0.260044906749177
+        },
+        {
+          "step": 1500,
+          "loss": 0.2607858120021001
+        },
+        {
+          "step": 1800,
+          "loss": 0.2578175980679083
+        }
+      ],
+      "instrument": false,
+      "compiler_failure": "Pair reconstruction failed: [2.5961544853241277e-10, 2.6826124391427367e-10]"
+    }
+  ],
+  "primary": "calibration_shaped_0",
+  "predictions": {
+    "pred_a_instrument": false,
+    "pred_b_components": false,
+    "pred_c_coefficients": false,
+    "pred_d_arithmetic": true
+  },
+  "seconds": 307.92027410911396,
+  "scope": "Private directions move in full1152space, shared pairwise dictionaries frozen; exact symmetriccores thencompiled1056products. Opened448diagnostics, nativez/h retained; nofresh/OOD/adoptionclaim."
+}

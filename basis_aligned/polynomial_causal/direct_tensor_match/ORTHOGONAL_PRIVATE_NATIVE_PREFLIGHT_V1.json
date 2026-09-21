@@ -1,0 +1,75 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_pairwise_0",
+      "loss": 0.006390363308660311,
+      "loss_replay": 5.516420653606247e-16,
+      "matrix_replay": [
+        1.7101296537356228e-14,
+        1.5707197137534074e-14,
+        2.1690364530040054e-14
+      ],
+      "min_core_denominator": [
+        0.0035004051354372567,
+        0.004711908084134464,
+        0.003614061421449488
+      ],
+      "gradient_norm": 0.00048217744872350445,
+      "finite_difference_relative": 3.2078812105573457e-07,
+      "descent": [
+        {
+          "step": 0.0001,
+          "loss": 0.006390315377321469
+        },
+        {
+          "step": 0.001,
+          "loss": 0.00638990982333439
+        },
+        {
+          "step": 0.01,
+          "loss": 0.00638846225213376
+        },
+        {
+          "step": 0.1,
+          "loss": 0.006675312338440616
+        }
+      ]
+    },
+    {
+      "key": "native_isotropic_pairwise_26301",
+      "loss": 0.251665579645097,
+      "loss_replay": 8.326672684688674e-16,
+      "matrix_replay": [
+        2.7628832867357198e-14,
+        2.4752928563281442e-14,
+        1.8913991809628627e-14
+      ],
+      "min_core_denominator": [
+        0.008588287406761319,
+        0.01022458331868703,
+        0.008564394720261936
+      ],
+      "gradient_norm": 0.007176843697781988,
+      "finite_difference_relative": 6.506562987912125e-08,
+      "descent": [
+        {
+          "step": 0.0001,
+          "loss": 0.251664862821696
+        },
+        {
+          "step": 0.001,
+          "loss": 0.2516584889497428
+        },
+        {
+          "step": 0.01,
+          "loss": 0.2516024701872346
+        },
+        {
+          "step": 0.1,
+          "loss": 0.2517874370193207
+        }
+      ]
+    }
+  ],
+  "scope": "Same native warm functions and core optima in equivalent full-private orthonormal coordinates. No fitting or adoption claim."
+}

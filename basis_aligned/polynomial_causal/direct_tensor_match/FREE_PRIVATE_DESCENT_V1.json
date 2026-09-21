@@ -1,0 +1,79 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_pairwise_0",
+      "initial_loss": 0.006390363308660209,
+      "gradient_norm": 7.427728999764931e-05,
+      "gradient_norms_by_parameter": [
+        2.3122843650911748e-05,
+        4.6837814335707167e-07,
+        5.431034004928976e-05,
+        1.0674806141741673e-06,
+        4.506635214414105e-05,
+        7.084391959556671e-07
+      ],
+      "finite_difference_relative_discrepancy": 1.4505705802693578e-08,
+      "descent_tests": [
+        {
+          "step": 0.0001,
+          "loss": 0.006390355886730111
+        },
+        {
+          "step": 0.001,
+          "loss": 0.006390289611262978
+        },
+        {
+          "step": 0.01,
+          "loss": 0.006389678525966003
+        },
+        {
+          "step": 0.1,
+          "loss": 0.0063887343608604276
+        },
+        {
+          "step": 1.0,
+          "loss": 0.007515958864267452
+        }
+      ],
+      "has_verified_descent": true
+    },
+    {
+      "key": "native_isotropic_pairwise_26301",
+      "initial_loss": 0.25166557964509784,
+      "gradient_norm": 0.0017063980095592707,
+      "gradient_norms_by_parameter": [
+        0.0001595193898028742,
+        1.4977765476918788e-06,
+        0.0008610270335541091,
+        2.3934129037615577e-06,
+        0.0014645674239623253,
+        3.803643281030337e-06
+      ],
+      "finite_difference_relative_discrepancy": 1.3016523052838635e-09,
+      "descent_tests": [
+        {
+          "step": 0.0001,
+          "loss": 0.25166540901537876
+        },
+        {
+          "step": 0.001,
+          "loss": 0.2516638742552831
+        },
+        {
+          "step": 0.01,
+          "loss": 0.25164861649597564
+        },
+        {
+          "step": 0.1,
+          "loss": 0.25150503384002615
+        },
+        {
+          "step": 1.0,
+          "loss": 0.27186575667989166
+        }
+      ],
+      "has_verified_descent": true
+    }
+  ],
+  "scope": "One normalized negative-gradient direction per native warmstart, five bounded lengths. Demonstrates localdescent orstationarity; not a newfit, bestglobalstep orrelaxedthreshold."
+}

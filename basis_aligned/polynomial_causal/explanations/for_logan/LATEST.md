@@ -1,8 +1,8 @@
 # Latest requested update for Logan
 
-**Start here — [From folded weights to a simpler circuit: the overall research review](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 11:53 UTC. Explains QR, the two-stage decomposition and graph plan, why the experiments narrowed to selected components, and what the latest results do and do not establish.
+**Start here — [Folding → tensor decomposition → a simpler arithmetic circuit](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Overall review rewritten 21 September 2026, 13:07 UTC. Reconnects QR and the two-stage proposal to the broad and local results, explains the scope change, and distinguishes better tensor fits from a successful cheap circuit. Includes the completed private-direction fit.
 
-**Latest algebraic result — [Private forms and input-span limits](research_update_2026-09-21_1256_private_forms_and_input_span_limits.md).** Alternating exact fits improve covariance error to7.994%but still fail. A rank bound excludes the frozen pair spans; a spectral release fails. Gradual private-direction fitting passes toy/preflight gates and is running.
+**Latest algebraic result — [Private forms and input-span limits](research_update_2026-09-21_1256_private_forms_and_input_span_limits.md).** Alternating exact fits improve covariance error to7.994%but still fail. A rank bound excludes the frozen pair spans; a spectral release fails. The subsequent private-direction fit has completed without improving its warm start; see the overall review.
 
 **Latest two-stage result — [Stage-one gain and graph-conversion gap](research_update_2026-09-21_1237_stage_one_gain_and_graph_conversion_gap.md).** Pairwise reuse passes coefficient limits but misses component fidelity. Its cheap compiled graph loses accuracy; dense and sparse cross-correction tests retain failures. Alternating exact-fit controls pass for the next refinement.
 
