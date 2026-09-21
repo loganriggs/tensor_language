@@ -1,0 +1,177 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_capacity": false,
+    "pred_c_writer_gap": false
+  },
+  "records": [
+    {
+      "domain": "fineweb",
+      "arm": "narrow26",
+      "alpha": 0.5,
+      "baseline_error": 0.28765713047502306,
+      "oracle": {
+        "error": 0.26158869992612716,
+        "rank": 10,
+        "smallest_relative_singular": 0.047935286162971324,
+        "orthogonality": 1.0599086988968257e-15
+      }
+    },
+    {
+      "domain": "fineweb",
+      "arm": "narrow26",
+      "alpha": 1.0,
+      "baseline_error": 0.2176421899984924,
+      "oracle": {
+        "error": 0.19129636832841498,
+        "rank": 10,
+        "smallest_relative_singular": 0.036926557694584944,
+        "orthogonality": 1.005836554515553e-15
+      }
+    },
+    {
+      "domain": "fineweb",
+      "arm": "parent656",
+      "alpha": 0.5,
+      "baseline_error": 0.28279775286689973,
+      "oracle": {
+        "error": 0.16577684985295593,
+        "rank": 528,
+        "smallest_relative_singular": 0.0033065430886455353,
+        "orthogonality": 5.0396407899519906e-15
+      }
+    },
+    {
+      "domain": "fineweb",
+      "arm": "parent656",
+      "alpha": 1.0,
+      "baseline_error": 0.222289816136016,
+      "oracle": {
+        "error": 0.128354798309626,
+        "rank": 528,
+        "smallest_relative_singular": 0.002535161406346589,
+        "orthogonality": 2.9809791042026584e-15
+      }
+    },
+    {
+      "domain": "stdlib",
+      "arm": "narrow26",
+      "alpha": 0.5,
+      "baseline_error": 0.3023827279521954,
+      "oracle": {
+        "error": 0.22682567491684605,
+        "rank": 10,
+        "smallest_relative_singular": 0.01993918629787642,
+        "orthogonality": 1.050554787403886e-15
+      }
+    },
+    {
+      "domain": "stdlib",
+      "arm": "narrow26",
+      "alpha": 1.0,
+      "baseline_error": 0.2740640873399132,
+      "oracle": {
+        "error": 0.1933459412336218,
+        "rank": 10,
+        "smallest_relative_singular": 0.015215750171067627,
+        "orthogonality": 1.20874900646347e-15
+      }
+    },
+    {
+      "domain": "stdlib",
+      "arm": "parent656",
+      "alpha": 0.5,
+      "baseline_error": 0.32856147532237,
+      "oracle": {
+        "error": 0.13609877154831218,
+        "rank": 528,
+        "smallest_relative_singular": 0.0007826276537312364,
+        "orthogonality": 6.5591491183305576e-15
+      }
+    },
+    {
+      "domain": "stdlib",
+      "arm": "parent656",
+      "alpha": 1.0,
+      "baseline_error": 0.30701767095398924,
+      "oracle": {
+        "error": 0.10487264706032541,
+        "rank": 528,
+        "smallest_relative_singular": 0.0005408292006505389,
+        "orthogonality": 4.784904841641498e-15
+      }
+    }
+  ],
+  "pooled": [
+    {
+      "domain": "fineweb",
+      "arm": "narrow26",
+      "oracle": {
+        "error": 0.21138089305995356,
+        "rank": 10,
+        "smallest_relative_singular": 0.03947178724291739,
+        "orthogonality": 1.0603778121501819e-15
+      },
+      "individual_errors": [
+        0.26633455179368376,
+        0.19232118408160717
+      ]
+    },
+    {
+      "domain": "fineweb",
+      "arm": "parent656",
+      "oracle": {
+        "error": 0.14563938223327247,
+        "rank": 528,
+        "smallest_relative_singular": 0.0027977824766809204,
+        "orthogonality": 4.0856709377533516e-15
+      },
+      "individual_errors": [
+        0.17792416153677812,
+        0.13471854540263178
+      ]
+    },
+    {
+      "domain": "stdlib",
+      "arm": "narrow26",
+      "oracle": {
+        "error": 0.20362275866862775,
+        "rank": 10,
+        "smallest_relative_singular": 0.016559462285320348,
+        "orthogonality": 1.0506789227229105e-15
+      },
+      "individual_errors": [
+        0.23282114984570074,
+        0.1948850009437574
+      ]
+    },
+    {
+      "domain": "stdlib",
+      "arm": "parent656",
+      "oracle": {
+        "error": 0.11981490544564805,
+        "rank": 528,
+        "smallest_relative_singular": 0.0006130264776452505,
+        "orthogonality": 4.392031408399523e-15
+      },
+      "individual_errors": [
+        0.1476298893712212,
+        0.11100884015841243
+      ]
+    }
+  ],
+  "maximum_frame_replay": 4.569331211518924e-15,
+  "controls": {
+    "known_floor": 0.31362589820867987,
+    "measured_floor": 0.3136258982086799,
+    "basis_change_floor": 0.3136258982086798,
+    "exact_span_error": 7.717383522971979e-16
+  },
+  "sha256": {
+    "tokens": "979dfb0e56627bb186fd922e4d6bfbee55d8893757cd25d130a53e114dd09279",
+    "narrow26": "b70f05565908da485c51a0559e6a36c65ae7d2b3ffbcf4d63c17e31cd2e2c412",
+    "parent656": "9ed26f982e83c17a73c22888505716c399031b6a7a97a99abd475902d04e62f3"
+  },
+  "seconds": 3.4104517130181193,
+  "scope": "Oracle projection of purequartic finite differences in unembedding Euclidean metric; opened targets; not nonlinear native-logit capacity or OOD."
+}
