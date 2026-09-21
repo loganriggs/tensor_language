@@ -1,0 +1,138 @@
+{
+  "cross_output_pairs": 130247,
+  "threshold": 0.5,
+  "pairs_not_ruled_out": 0,
+  "best_lower_bound_vs_deletion": 0.5163145734458902,
+  "bound_svd_relative_replay_error": 1.8439102208324142e-16,
+  "stronger_fits": [
+    {
+      "pair": [
+        53,
+        69
+      ],
+      "lower": 0.5163145734458902,
+      "achieved_upper": 0.5374286361826194
+    },
+    {
+      "pair": [
+        5,
+        8
+      ],
+      "lower": 0.5366376518006248,
+      "achieved_upper": 0.5686025076546984
+    },
+    {
+      "pair": [
+        1,
+        28
+      ],
+      "lower": 0.5402004302335506,
+      "achieved_upper": 0.5454412754863774
+    },
+    {
+      "pair": [
+        9,
+        33
+      ],
+      "lower": 0.559685191846066,
+      "achieved_upper": 0.5682607199517145
+    },
+    {
+      "pair": [
+        10,
+        28
+      ],
+      "lower": 0.5689845722518397,
+      "achieved_upper": 0.6180187133790044
+    },
+    {
+      "pair": [
+        34,
+        46
+      ],
+      "lower": 0.572272200250305,
+      "achieved_upper": 0.5832828432945494
+    },
+    {
+      "pair": [
+        1,
+        12
+      ],
+      "lower": 0.5751417955286293,
+      "achieved_upper": 0.6131919015474571
+    },
+    {
+      "pair": [
+        25,
+        33
+      ],
+      "lower": 0.6069843928426764,
+      "achieved_upper": 0.6478587159747049
+    },
+    {
+      "pair": [
+        1,
+        5
+      ],
+      "lower": 0.6095503893786345,
+      "achieved_upper": 0.6253610923913797
+    },
+    {
+      "pair": [
+        52,
+        60
+      ],
+      "lower": 0.6186161099726447,
+      "achieved_upper": 0.6637779991198085
+    },
+    {
+      "pair": [
+        169,
+        198
+      ],
+      "lower": 0.6253768481607628,
+      "achieved_upper": 0.6702232082632968
+    },
+    {
+      "pair": [
+        33,
+        45
+      ],
+      "lower": 0.634431837206606,
+      "achieved_upper": 0.6680683044261541
+    },
+    {
+      "pair": [
+        117,
+        144
+      ],
+      "lower": 0.640823003523299,
+      "achieved_upper": 0.6992608818923584
+    },
+    {
+      "pair": [
+        54,
+        93
+      ],
+      "lower": 0.6415806126521764,
+      "achieved_upper": 0.6926254630905682
+    },
+    {
+      "pair": [
+        12,
+        17
+      ],
+      "lower": 0.6448406765266222,
+      "achieved_upper": 0.6769727928566447
+    },
+    {
+      "pair": [
+        145,
+        153
+      ],
+      "lower": 0.6456789848039435,
+      "achieved_upper": 0.677242217058717
+    }
+  ],
+  "conclusion": "If pairs_not_ruled_out is zero, no pair-to-one rank-one edit can meet the registered threshold in this fixed separable metric, including pairs omitted by the initial cosine screen. This is not a lower bound for multi-product edits, changed upstream features, native behavior, or an arbitrary DAG."
+}

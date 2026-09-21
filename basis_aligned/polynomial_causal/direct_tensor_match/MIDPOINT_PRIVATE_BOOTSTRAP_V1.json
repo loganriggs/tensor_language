@@ -1,0 +1,154 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "replacement",
+      "private_ce": 0.00643891441480567,
+      "private_ce_interval": [
+        0.003828473790975598,
+        0.009113323882532614
+      ],
+      "ce_difference": -0.0019474138040095567,
+      "ce_difference_interval": [
+        -0.0033629351990142214,
+        -0.0005131295655155564
+      ]
+    },
+    {
+      "domain": "fineweb",
+      "family": "removal",
+      "private_error": 0.2062109458501571,
+      "private_error_interval": [
+        0.19812498242455165,
+        0.21407499185918089
+      ],
+      "error_ratio": 0.9313632911139845,
+      "error_ratio_interval": [
+        0.9268649045961401,
+        0.936302659694011
+      ],
+      "worst_document_error": 0.24285093605200408
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_token",
+      "private_error": 0.2610642725779772,
+      "private_error_interval": [
+        0.25262847907622393,
+        0.26920032875231953
+      ],
+      "error_ratio": 0.9253946904053418,
+      "error_ratio_interval": [
+        0.918756030988472,
+        0.9331558936396674
+      ],
+      "worst_document_error": 0.32026831107034953
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "private_error": 0.22671456968494627,
+      "private_error_interval": [
+        0.21452063514846603,
+        0.23914832173664066
+      ],
+      "error_ratio": 0.9748811877069913,
+      "error_ratio_interval": [
+        0.9694854148484978,
+        0.9799776066556588
+      ],
+      "worst_document_error": 0.3131330079800913
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "private_error": 0.5213388474133532,
+      "private_error_interval": [
+        0.4908679809808989,
+        0.5545113147016362
+      ],
+      "error_ratio": 0.9932490417907093,
+      "error_ratio_interval": [
+        0.9899298188986804,
+        0.99652000774548
+      ],
+      "worst_document_error": 0.6701215444330755
+    },
+    {
+      "domain": "code",
+      "family": "replacement",
+      "private_ce": 0.018942740101677676,
+      "private_ce_interval": [
+        0.010882361629628577,
+        0.026856250548735253
+      ],
+      "ce_difference": -0.0002332313839967052,
+      "ce_difference_interval": [
+        -0.0059766780957579615,
+        0.005815787191192309
+      ]
+    },
+    {
+      "domain": "code",
+      "family": "removal",
+      "private_error": 0.1318905322505224,
+      "private_error_interval": [
+        0.12661371855966014,
+        0.13772129929153484
+      ],
+      "error_ratio": 0.8969474074037208,
+      "error_ratio_interval": [
+        0.8895246190764523,
+        0.9049791949262811
+      ],
+      "worst_document_error": 0.15526183228844903
+    },
+    {
+      "domain": "code",
+      "family": "same_token",
+      "private_error": 0.21360322778937046,
+      "private_error_interval": [
+        0.20788082580337464,
+        0.2190397914294466
+      ],
+      "error_ratio": 0.9044448093877696,
+      "error_ratio_interval": [
+        0.8986742401939111,
+        0.9100595461997034
+      ],
+      "worst_document_error": 0.23201448015667075
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "private_error": 0.19177252031099082,
+      "private_error_interval": [
+        0.18185383054922072,
+        0.20180028664977137
+      ],
+      "error_ratio": 0.9434949538804949,
+      "error_ratio_interval": [
+        0.9367418696780798,
+        0.9500295993240241
+      ],
+      "worst_document_error": 0.22636772764881344
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "private_error": 0.3844797718098427,
+      "private_error_interval": [
+        0.3684636958027206,
+        0.4027480231097275
+      ],
+      "error_ratio": 0.9703063524106662,
+      "error_ratio_interval": [
+        0.9636377308401027,
+        0.9772736897622346
+      ],
+      "worst_document_error": 0.46476291649261936
+    }
+  ],
+  "bootstrap_draws": 10000,
+  "scope": "Paired documentbootstrap on newlyevaluated frozenpanel. Records in deterministic documentloop order; token/site and referenceenergy agreement asserted. Descriptive95%intervals, not familywise bounds or proof of population representativeness. Donor reuse couples documents; intervals condition on the constructed donor mapping and do not model that dependence. Doesnot change preregisteredpoint-estimate gates."
+}

@@ -290,3 +290,5 @@ ROOT_PRODUCT_REFACTOR_V1 passes root4 bars; FUSED_ROOT_PROGRAM_V1 gives19632coef
 ROOT_IDENTITY_REPLICATION_V1: functionbar passes, all3identitybars fail. ROOT_CANONICAL_FEATURE_AUDIT_V1 posthoc output-shared featuremin.98355/outputmin.99959. CANONICAL_ROOT_FEATURES_V1 exports exact interpretation, not new deployedgraph. Cross-bank replication registered separately.
 
 CROSS_BANK_CANONICAL_V1 all-feature bars fail; bounded CROSS_BANK_OPTIMIZATION_CONTROL_V1 recovers worstfourthmode.977 without changing selectedmodel. CANONICAL_VOCABULARY_V1 common-shift barfails; CANONICAL_CONTRAST_VIEW_V1 separates22.75%commonenergy. Next contrast-error diagnostic registered; softcap caveat explicit.
+
+Cross-output shared-product edit (Sept21 03:13): [report](../explanations/for_logan/research_update_2026-09-21_0313_shared_product_merge.md). Zero of2048 screened pairs met half-deletion squared-error criterion. All130247 pair unfolding lower bounds exceed.5 (best.51631), best fit.53743; no graph edits adopted. Rejects this local threshold on frozen private512, not arbitrary DAGs. Fresh private confirmation bootstrap now available; context-only gap remains.

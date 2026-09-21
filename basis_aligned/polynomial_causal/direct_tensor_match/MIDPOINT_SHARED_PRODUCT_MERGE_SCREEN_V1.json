@@ -1,0 +1,20 @@
+{
+  "controls": {
+    "exact_shared_error": 0.0,
+    "orthogonal_error": 1.0,
+    "explicit_replay": true
+  },
+  "candidate_pairs": 2048,
+  "selected_disjoint_merges": 0,
+  "selected": [],
+  "best_error_vs_deletion": 0.5374286361826194,
+  "summed_local_error_energy": 0.0,
+  "joint_residual_energy": 0.0,
+  "graph_relative_error": 0.0,
+  "predictions": {
+    "pred_a_controls": true,
+    "pred_b_sixteen_reusable_pairs": false,
+    "pred_c_combined_error_accounting": "not exercised: zero edits selected"
+  },
+  "scope": "Approximate pair rank-one fits; top2048 cross-output pairs by input tensor cosine, eight ALS starts. No exhaustive/global optimum, no native evaluation. Combined coefficient error includes cross-edit terms. Linear and constant branches unchanged."
+}

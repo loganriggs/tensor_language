@@ -180,7 +180,7 @@ Both programs in the following comparison were frozen before constructing a new 
 
 A whole-contribution swap interchanges the contribution between matched-token contexts. A source-only test changes $m$ while holding midpoint input $n$ fixed. A context-only test isolates the interaction with $n-\bar n$, where $\bar n$ is the calibration mean. Holding $n$ fixed is an interface test, not holding every original residual source fixed.
 
-The newer graph passed the registered checks and improved all eight domain-by-intervention point estimates, including removal errors omitted from the table. **The large context-only errors remain a failure of fidelity despite that improvement.** The latest comparison has not yet received an uncertainty analysis. Local code is related evaluation material, not broad external OOD evidence.
+The newer graph passed the registered checks and improved all eight domain-by-intervention point estimates, including removal errors omitted from the table. **The large context-only errors remain a failure of fidelity despite that improvement.** A subsequent paired bootstrap supports the within-panel intervention improvement; the small code replacement-loss improvement is uncertain. See the [follow-up analysis](research_update_2026-09-21_0313_shared_product_merge.md). Local code is related evaluation material, not broad external OOD evidence.
 
 ## 7. What this changes about the research direction
 
