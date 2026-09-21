@@ -1,0 +1,183 @@
+{
+  "controls": [
+    {
+      "n": 5,
+      "features": 3,
+      "cartesian": false,
+      "replay": 3.7775221973457884e-16
+    },
+    {
+      "n": 5,
+      "features": 3,
+      "cartesian": true,
+      "replay": 1.9150315086351952e-16
+    },
+    {
+      "n": 7,
+      "features": 4,
+      "cartesian": false,
+      "replay": 1.459537768620175e-16
+    },
+    {
+      "n": 7,
+      "features": 4,
+      "cartesian": true,
+      "replay": 0.0
+    }
+  ],
+  "records": [
+    {
+      "objective": "paired",
+      "success": true,
+      "iterations": 44,
+      "message": "Optimization terminated successfully",
+      "max_constraint_violation": 1.0880185641326534e-14,
+      "scores": {
+        "paired": {
+          "before": 0.08871488328278768,
+          "after": 0.07334635530661968
+        },
+        "cartesian": {
+          "before": 0.03285474253944599,
+          "after": 0.03132312561376275
+        }
+      },
+      "assessment": {
+        "native_error": 0.5839387805193146,
+        "covariance_error": 0.07697083779679688,
+        "execution_replay": 6.5689569474851334e-15,
+        "per_mode_errors": [
+          0.017265054066342614,
+          0.021743127473094263,
+          0.08164189631253724
+        ],
+        "euclidean_jacobian_errors": [
+          0.1955497573736475,
+          0.1662689472159042,
+          0.17601483620319758
+        ],
+        "stored_floats": 1131980,
+        "physical_storage_floats": 1131980,
+        "index_integers": 4480,
+        "projection_multiplications": 1118208,
+        "activation_products": 1120,
+        "source_total_multiplications": 1121568
+      },
+      "export_replay": 3.664254137401856e-15,
+      "delta_weights": [
+        259.747718744672,
+        185.55183040983607,
+        167.99871234501242,
+        -148.1290262496265,
+        298.8792403941414,
+        232.66889061024438,
+        496.41795964140425,
+        10.60021596852728,
+        -127.13972443368496,
+        140.54419986555152,
+        -7.76371316262859,
+        436.3886247466309,
+        269.70423067287226,
+        -8.028236687126753,
+        543.6589268701015,
+        205.86021103849487,
+        -278.9274872220134,
+        249.52521040955415,
+        457.4891115174631,
+        -343.8624537482891,
+        278.2197456649765,
+        212.52510735821207,
+        318.80007153894354,
+        192.03315904450815,
+        1.7081561364148907,
+        186.16521919167013,
+        58.063051749012,
+        29.704640316570803,
+        500.9856519943339,
+        200.47415371141534,
+        -388.2096526130985,
+        430.8306584141136
+      ]
+    },
+    {
+      "objective": "cartesian",
+      "success": true,
+      "iterations": 1,
+      "message": "Optimization terminated successfully",
+      "max_constraint_violation": 0.0,
+      "scores": {
+        "paired": {
+          "before": 0.08871488328278768,
+          "after": 0.08871488328278768
+        },
+        "cartesian": {
+          "before": 0.03285474253944599,
+          "after": 0.03285474253944599
+        }
+      },
+      "assessment": {
+        "native_error": 0.5773745176920195,
+        "covariance_error": 0.07628029808554847,
+        "execution_replay": 6.572567787099457e-15,
+        "per_mode_errors": [
+          0.017265054066342614,
+          0.021743127473094263,
+          0.08346263208999469
+        ],
+        "euclidean_jacobian_errors": [
+          0.1955497573736475,
+          0.1662689472159042,
+          0.16871934176277945
+        ],
+        "stored_floats": 1131980,
+        "physical_storage_floats": 1131980,
+        "index_integers": 4480,
+        "projection_multiplications": 1118208,
+        "activation_products": 1120,
+        "source_total_multiplications": 1121568
+      },
+      "export_replay": 0.0,
+      "delta_weights": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_cartesian_gain": false,
+    "pred_c_objective_distinction": false
+  },
+  "seconds": 15.942042842973024,
+  "scope": "Original448calibration states only. Cartesian risk is all200704normalizer-clamped source/context pairings. Only32existing coefficients change; not fresh native donor behavior or circuitidentification."
+}
