@@ -179,6 +179,8 @@ A follow-up included the complete Gaussian functional moments. It improved the a
 
 Why can those results coexist? Coefficient Frobenius error, covariance-shaped coefficient error, and expected functional error weight discrepancies differently. Quadratic functional loss involves fourth-order input moments; quartic loss involves eighth-order moments. Covariance alone needs extra distributional assumptions to determine them. Better optimization of one metric need not improve another.
 
+The next capacity checks separate output fitting from missing input information. Even an oracle output fit on the second panel cannot reduce the fixed wide dictionary below **7.58%**. Its input readers also miss substantial isotropic local sensitivity. But that conclusion depends on geometry: optimal 256-reader derivative-error floors are **19.13% / 15.45%** under isotropic perturbations, versus **3.76% / 2.92%** under centered activation covariance. Uncentered weighting gives still smaller floors because about **96%** of its derivative energy comes from the mean direction. These are local derivative bounds, not natural prediction errors or identified circuits. [Capacity checks and the covariance correction](../../direct_tensor_match/QUARTIC_READER_RANK_INTERPRETATION_V1.md).
+
 **6. Where the original plan stands**
 
 | Piece | Status |

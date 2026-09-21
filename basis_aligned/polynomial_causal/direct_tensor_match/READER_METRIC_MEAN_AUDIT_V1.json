@@ -1,0 +1,184 @@
+{
+  "records": [
+    {
+      "metric": "centered_floor01",
+      "analysis": {
+        "panels": [
+          {
+            "panel": 0,
+            "floors": {
+              "128": 0.054545533174517866,
+              "256": 0.037606634298240245,
+              "512": 0.01996765305408168
+            },
+            "necessary_reader_counts": {
+              "0.1": 25,
+              "0.05": 155,
+              "0.01": 769
+            },
+            "trace": 110357.09428876768
+          },
+          {
+            "panel": 1,
+            "floors": {
+              "128": 0.042520643340061295,
+              "256": 0.02917355016101642,
+              "512": 0.015405733696750037
+            },
+            "necessary_reader_counts": {
+              "0.1": 14,
+              "0.05": 88,
+              "0.01": 679
+            },
+            "trace": 231579.31724194897
+          }
+        ],
+        "basis_transfer": [
+          {
+            "source_panel": 0,
+            "target_panel": 1,
+            "frozen_basis_errors": {
+              "128": 0.07617146685849094,
+              "256": 0.0557393210133668,
+              "512": 0.03191052604689146
+            }
+          },
+          {
+            "source_panel": 1,
+            "target_panel": 0,
+            "frozen_basis_errors": {
+              "128": 0.08771950224763322,
+              "256": 0.06426463476501552,
+              "512": 0.03694074688263315
+            }
+          }
+        ]
+      }
+    },
+    {
+      "metric": "centered_floor10",
+      "analysis": {
+        "panels": [
+          {
+            "panel": 0,
+            "floors": {
+              "128": 0.0554409490603166,
+              "256": 0.03873808651645561,
+              "512": 0.021668656621376795
+            },
+            "necessary_reader_counts": {
+              "0.1": 25,
+              "0.05": 161,
+              "0.01": 855
+            },
+            "trace": 110471.45120315673
+          },
+          {
+            "panel": 1,
+            "floors": {
+              "128": 0.04322697857116076,
+              "256": 0.030054681828242898,
+              "512": 0.016718171854445716
+            },
+            "necessary_reader_counts": {
+              "0.1": 14,
+              "0.05": 91,
+              "0.01": 746
+            },
+            "trace": 231784.70858588774
+          }
+        ],
+        "basis_transfer": [
+          {
+            "source_panel": 0,
+            "target_panel": 1,
+            "frozen_basis_errors": {
+              "128": 0.07741206658991033,
+              "256": 0.0573631979676197,
+              "512": 0.03464331589098778
+            }
+          },
+          {
+            "source_panel": 1,
+            "target_panel": 0,
+            "frozen_basis_errors": {
+              "128": 0.08915246691292218,
+              "256": 0.06615079565787826,
+              "512": 0.04004328520343963
+            }
+          }
+        ]
+      }
+    },
+    {
+      "metric": "second_floor01",
+      "analysis": {
+        "panels": [
+          {
+            "panel": 0,
+            "floors": {
+              "128": 0.010438370626703553,
+              "256": 0.007200010486334809,
+              "512": 0.0038349640537883624
+            },
+            "necessary_reader_counts": {
+              "0.1": 2,
+              "0.05": 3,
+              "0.01": 141
+            },
+            "trace": 964319.0772487904
+          },
+          {
+            "panel": 1,
+            "floors": {
+              "128": 0.008727826010274518,
+              "256": 0.005990875385704631,
+              "512": 0.003173992815218714
+            },
+            "necessary_reader_counts": {
+              "0.1": 2,
+              "0.05": 3,
+              "0.01": 94
+            },
+            "trace": 1758700.1386755942
+          }
+        ],
+        "basis_transfer": [
+          {
+            "source_panel": 0,
+            "target_panel": 1,
+            "frozen_basis_errors": {
+              "128": 0.015629331612019456,
+              "256": 0.011442292405145172,
+              "512": 0.006569225636373124
+            }
+          },
+          {
+            "source_panel": 1,
+            "target_panel": 0,
+            "frozen_basis_errors": {
+              "128": 0.016777812156426014,
+              "256": 0.012295828485619942,
+              "512": 0.007088737786636293
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "mean_energy_fractions": [
+    {
+      "mean_fraction_of_raw_second_moment_energy": 0.9635472639944859,
+      "centered_fraction": 0.036452718401131394,
+      "decomposition_relative_discrepancy": 1.760438281659384e-08
+    },
+    {
+      "mean_fraction_of_raw_second_moment_energy": 0.9580570884459082,
+      "centered_fraction": 0.041942894497828585,
+      "decomposition_relative_discrepancy": 1.7056263213663123e-08
+    }
+  ],
+  "prediction_mean_explains_over_half_both": true,
+  "seconds": 1.1731147971004248,
+  "scope": "Same calibration moments for both anchor panels. Centered vs uncentered perturbation laws, not a Gaussian nonlinear closure. Raw covariance normalization may use finite-sample correction; decomposition discrepancy reported."
+}

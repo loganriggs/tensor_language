@@ -1,0 +1,106 @@
+{
+  "panels": [
+    {
+      "panel": 0,
+      "floors": {
+        "128": 0.010438370626703553,
+        "256": 0.007200010486334809,
+        "512": 0.0038349640537883624,
+        "1024": 0.0007281100398878107
+      },
+      "necessary_reader_counts": {
+        "0.1": 2,
+        "0.05": 3,
+        "0.01": 141
+      },
+      "trace": 964319.0772487904
+    },
+    {
+      "panel": 1,
+      "floors": {
+        "128": 0.008727826010274518,
+        "256": 0.005990875385704631,
+        "512": 0.003173992815218714,
+        "1024": 0.0005997941235196564
+      },
+      "necessary_reader_counts": {
+        "0.1": 2,
+        "0.05": 3,
+        "0.01": 94
+      },
+      "trace": 1758700.1386755942
+    }
+  ],
+  "basis_transfer": [
+    {
+      "source_panel": 0,
+      "target_panel": 1,
+      "frozen_basis_errors": {
+        "128": 0.015629331612019456,
+        "256": 0.011442292405145172,
+        "512": 0.006569225636373124,
+        "1024": 0.0014334964510225455
+      }
+    },
+    {
+      "source_panel": 1,
+      "target_panel": 0,
+      "frozen_basis_errors": {
+        "128": 0.016777812156426014,
+        "256": 0.012295828485619942,
+        "512": 0.007088737786636293,
+        "1024": 0.0015358028156780106
+      }
+    }
+  ],
+  "pooled_weighted": {
+    "panel": 0,
+    "floors": {
+      "128": 0.010203850977502659,
+      "256": 0.006991159364855951,
+      "512": 0.003738021064442024,
+      "1024": 0.0007239158162434416
+    },
+    "necessary_reader_counts": {
+      "0.1": 2,
+      "0.05": 3,
+      "0.01": 134
+    },
+    "trace": 2723019.2159243855
+  },
+  "pooled_isotropic": {
+    "panel": 0,
+    "floors": {
+      "128": 0.21852106565910423,
+      "256": 0.18135450224422578,
+      "512": 0.1305981408660082,
+      "1024": 0.042995402788792055
+    },
+    "necessary_reader_counts": {
+      "0.1": 693,
+      "0.05": 988,
+      "0.01": 1143
+    },
+    "trace": 35538.75975461225
+  },
+  "learned_reader_weighted_errors": [
+    0.021369967865224104,
+    0.01993615715060358
+  ],
+  "control_error": 2.577665020416681e-16,
+  "prediction_weighted256_below10percent_both": true,
+  "seconds": 0.7270797430537641,
+  "scope": "Fixed saved second-moment geometry applied to exact local Jacobian Grams. Two opened16-anchor panels. Weightedrank necessary, not sufficient; no natural-value, OOD or selectiveintervention claim.",
+  "necessary_products_per_feature_at32features": {
+    "isotropic_pooled": {
+      "0.1": 11,
+      "0.05": 16,
+      "0.01": 18
+    },
+    "weighted_pooled": {
+      "0.1": 1,
+      "0.05": 1,
+      "0.01": 3
+    }
+  }
+}
