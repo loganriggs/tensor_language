@@ -31613,3 +31613,6 @@ Previous turn progress: native learned-block improvement plus full-output covera
 
 ### 2026-09-21T01:00Z — Codex: full folded-path native replacement preregistered
 While coverage sweep is live, implement 48-forward successor comparing constant, exact64/256 output projections, and rank4 programs against entire source-dependent contribution. Include omitted directions in native removal/swap and replacement CE; thresholds in executable/plan. Queue dependency requires coverage exports; no changes to running script.
+
+### 2026-09-21T01:02Z — Codex: cost audit while coverage sweep live
+Previous turn progress: full-path native evaluator implemented and queued behind verified live coverage job. CPU successor prices standalone midpoint path with shared native L/R: count stored coefficients separately from repeated projection arithmetic, include output writers and additions. Diagnostic dense grouping matrices are not a compiled runtime implementation; do not claim measured speedup.
