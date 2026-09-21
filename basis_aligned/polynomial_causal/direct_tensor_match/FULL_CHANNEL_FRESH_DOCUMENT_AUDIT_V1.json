@@ -1,0 +1,21 @@
+{
+  "rows": [
+    {
+      "domain": "fineweb",
+      "documents": 32,
+      "affine_worse_effect_documents": 0,
+      "affine_worse_ce_documents": 12,
+      "worst_affine_effect_relative_error": 0.21818293237426814,
+      "worst_affine_ce_added": 0.015293520364801255
+    },
+    {
+      "domain": "stdlib",
+      "documents": 16,
+      "affine_worse_effect_documents": 0,
+      "affine_worse_ce_documents": 8,
+      "worst_affine_effect_relative_error": 0.025837422856492587,
+      "worst_affine_ce_added": 0.015664072715088913
+    }
+  ],
+  "scope": "Posthoc per-document audit of frozen evaluation, no retuning or modified aggregate acceptance rule."
+}
