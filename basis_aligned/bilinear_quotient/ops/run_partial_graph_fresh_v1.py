@@ -12,6 +12,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
 COMPONENT_EXECUTOR=None
 EXTRA_GRAPH_FILE=None
+ADDITIONAL_GRAPH_FILES={}
+ADDITIONAL_BASELINE_FILES={}
 GRAPH_FILE='PARTIAL_GRAPH_FROZEN_V1.pt'
 BASELINE_FILE='MULTIMODE_PAIR_BASELINES_V1.pt'
 PLAN_FILE='PARTIAL_GRAPH_FRESH_PLAN_V1.json'
@@ -28,12 +30,18 @@ def main():
  from source_interface import residual_write as separate_write
  graph=torch.load(P/GRAPH_FILE,weights_only=True);baselines=torch.load(P/BASELINE_FILE,weights_only=True)
  extra_graph=torch.load(P/EXTRA_GRAPH_FILE,weights_only=True) if EXTRA_GRAPH_FILE else None
- candidate_names=['native','separate','graph']+(['partial'] if extra_graph is not None else [])
+ extra_graphs={name:torch.load(P/file,weights_only=True) for name,file in ADDITIONAL_GRAPH_FILES.items()}
+ extra_baselines={name:torch.load(P/file,weights_only=True) for name,file in ADDITIONAL_BASELINE_FILES.items()}
+ candidate_names=['native','separate','graph']+(['partial'] if extra_graph is not None else [])+list(extra_graphs)+list(extra_baselines)
+ assert len(candidate_names)==len(set(candidate_names))
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):
   torch.set_num_threads(2);z=torch.zeros(2,3,1152,dtype=torch.float64);h=torch.ones_like(z)
   assert component_scalars(z,h,graph).shape==(2,3,3)
   if extra_graph is not None:assert partial_components(z,h,extra_graph).shape==(2,3,3)
   for b in baselines.values():assert separate_write(z,h,b).shape==(2,3,1152)
+  for g in extra_graphs.values():assert component_scalars(z,h,g).shape==(2,3,3)
+  for bundle in extra_baselines.values():
+   for b in bundle.values():assert separate_write(z,h,b).shape==(2,3,1152)
   plan=json.loads((P/PLAN_FILE).read_text());print(json.dumps(dict(captures=48,context=256,selections=4,source_products=plan['source_products']['graph'],stored_floats=plan['stored_float_coefficients']['graph'],shape_smoke='PASS')));return
  import torch.nn.functional as F
  import tiktoken
@@ -43,6 +51,7 @@ def main():
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/OUTPUT_FILE;assert not out.exists()
  plan=json.loads((P/PLAN_FILE).read_text())
  for name,digest in plan['file_sha256'].items():assert hashlib.sha256((P/name).read_bytes()).hexdigest()==digest
+ extra_graphs=move(extra_graphs,torch);extra_baselines=move(extra_baselines,torch)
  graph=move(graph,torch);baselines=move(baselines,torch);extra_graph=move(extra_graph,torch);writer=graph['residual_writer'];fold=torch.load(P/'PARTIAL_GRAPH_ORIGINAL_FORMS_V1.pt',weights_only=True);Qs=fold['matrices'].cuda();A=fold['A'].cuda();B=fold['B'].cuda();alpha=fold['alpha'].cuda();beta=fold['beta'].cuda()
  tokens=torch.load(P/TOKEN_FILE,weights_only=True);donors=torch.load(P/DONOR_FILE,weights_only=True)
  model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];enc=tiktoken.get_encoding('gpt2');checks=[];qchecks=[];records=[]
@@ -66,6 +75,8 @@ def main():
    ids=valid[offset:offset+96];ds=mapping[ids];gi=ids.cuda();gd=ds.cuda();h=cache['h'][gi];m=cache['m'][gi];md=cache['m'][gd];hybrid=h-m+md;states=[cache['final'][gi],hybrid+b17.mlp(F.rms_norm(hybrid,(1152,)))];targets=rows[:,17:257].flatten()[ids].cuda();bl=[logits(x) for x in states];ces=[F.cross_entropy(x,targets,reduction='none') for x in bl]
    zs=[cache['z'][gi].double(),cache['z'][gd].double()];hs=[h.double(),hybrid.double()]
    writes=dict(native=[native_components(h,m),native_components(hybrid,md)],separate=[torch.stack([separate_write(z,hh,baselines[str(j)]) for j in range(3)],1) for z,hh in zip(zs,hs)],graph=[component_scalars(z,hh,graph)[:,:,None]*writer for z,hh in zip(zs,hs)])
+   for name,g in extra_graphs.items():writes[name]=[component_scalars(z,hh,g)[:,:,None]*writer for z,hh in zip(zs,hs)]
+   for name,bundle in extra_baselines.items():writes[name]=[torch.stack([separate_write(z,hh,bundle[str(j)]) for j in range(3)],1) for z,hh in zip(zs,hs)]
    if extra_graph is not None:writes['partial']=[partial_components(z,hh,extra_graph)[:,:,None]*writer for z,hh in zip(zs,hs)]
    for selection,components in selections.items():
     for name,ww in writes.items():

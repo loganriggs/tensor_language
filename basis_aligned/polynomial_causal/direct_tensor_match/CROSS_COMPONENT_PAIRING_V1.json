@@ -1,0 +1,611 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T10:24:35.461450+00:00",
+    "width": 384,
+    "primary_metric": "calibration_shaped",
+    "metrics": [
+      "native_isotropic",
+      "calibration_shaped"
+    ],
+    "targets": 6,
+    "matchings": 15,
+    "scope": "Discrete re-pairing of fixed source outputs. Use original pair energy normalization, held fixed across matchings. Minimize full coefficient error across15perfectmatchings; compile only selected pair banks. Primary requires>=10%coefficient-error improvement andall3components<=15%/1.10samewidth originalpair baseline. No coordinate rotation or fresh claims."
+  },
+  "records": [
+    {
+      "metric": "native_isotropic",
+      "all_matchings": [
+        {
+          "pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "squared_error": 0.21565261358797602
+        },
+        {
+          "pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "squared_error": 0.26607926110002544
+        },
+        {
+          "pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "squared_error": 0.22154488408555822
+        },
+        {
+          "pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "squared_error": 0.2959978191663283
+        },
+        {
+          "pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "squared_error": 0.3021141886396646
+        },
+        {
+          "pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "squared_error": 0.3010227208403398
+        },
+        {
+          "pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "squared_error": 0.280875377983731
+        },
+        {
+          "pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "squared_error": 0.26514289543563896
+        },
+        {
+          "pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "squared_error": 0.3085858046507814
+        },
+        {
+          "pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "squared_error": 0.31261482777992666
+        },
+        {
+          "pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "squared_error": 0.2907659757584983
+        },
+        {
+          "pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "squared_error": 0.2898986069349276
+        },
+        {
+          "pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "squared_error": 0.2792105981555505
+        },
+        {
+          "pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "squared_error": 0.3018961231485893
+        },
+        {
+          "pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "squared_error": 0.2575858451098762
+        }
+      ],
+      "selected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "original_error": 0.46438412288532865,
+      "selected_error": 0.46438412288532865,
+      "relative_error_gain": 0.0,
+      "compiler_failure": null,
+      "execution_replay": 3.7392967061630825e-13,
+      "source_products": 1152,
+      "stored_floats": 1340940,
+      "index_integers": 3462,
+      "per_mode_errors": [
+        0.016188265376246732,
+        0.03055398453221502,
+        0.11255538727639591
+      ],
+      "native_isotropic_equal_pair_error": 0.46438412288532915,
+      "calibration_shaped_error": 0.1226178733811697,
+      "ratios_to_original_pair_baseline": [
+        0.9999999999938967,
+        1.000000000002756,
+        1.000000000001001
+      ]
+    },
+    {
+      "metric": "calibration_shaped",
+      "all_matchings": [
+        {
+          "pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "squared_error": 0.004943968109675789
+        },
+        {
+          "pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "squared_error": 0.005698211408240931
+        },
+        {
+          "pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "squared_error": 0.005038454428223667
+        },
+        {
+          "pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "squared_error": 0.007356142788375838
+        },
+        {
+          "pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "squared_error": 0.006791482710453508
+        },
+        {
+          "pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "squared_error": 0.007020978852374534
+        },
+        {
+          "pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "squared_error": 0.00700202070020813
+        },
+        {
+          "pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "squared_error": 0.006441940108041185
+        },
+        {
+          "pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "squared_error": 0.0073311932299794744
+        },
+        {
+          "pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "squared_error": 0.007193318823453717
+        },
+        {
+          "pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "squared_error": 0.007197898309209102
+        },
+        {
+          "pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "squared_error": 0.00676824805465992
+        },
+        {
+          "pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "squared_error": 0.006838205487522083
+        },
+        {
+          "pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "squared_error": 0.007502541953294732
+        },
+        {
+          "pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "squared_error": 0.00618363857680726
+        }
+      ],
+      "selected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "original_error": 0.07031335655247721,
+      "selected_error": 0.07031335655247721,
+      "relative_error_gain": 0.0,
+      "compiler_failure": null,
+      "execution_replay": 2.268759104963629e-12,
+      "source_products": 1152,
+      "stored_floats": 1340940,
+      "index_integers": 3462,
+      "per_mode_errors": [
+        0.018692583665685207,
+        0.02049934679148664,
+        0.08805202711424094
+      ],
+      "native_isotropic_equal_pair_error": 0.5525962583462017,
+      "calibration_shaped_error": 0.07031335655247527,
+      "ratios_to_original_pair_baseline": [
+        0.9999999999984643,
+        0.9999999999886671,
+        0.9999999999803213
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_coefficient_gain": false,
+    "pred_c_components": true
+  },
+  "seconds": 8.832509188912809,
+  "scope": "Same six target forms and three component definitions. Exact matching over15 candidates formed from pair-specific spectral subspaces, not optimal over all possible subspaces/graphs. No evaluation-based matching choice. Opened448notfresh; nativeports retained."
+}

@@ -187,3 +187,7 @@ Nativecoefficient fixedproductoptimum59.43%; arbitrarydensecore incurrentspan45.
 ## 21 September, 10:20 — Matched wider baselines and arithmetic price
 
 Pairbanks384each1152products1340940floats vswidegraph592/1342028. Nativeisotropic componenterrors1.62/3.06/11.26%, calibration-shaped1.87/2.05/8.81%; oldcov256baseline replays<1e-7. Allcompiledexecutorspass. Denseprojectionworkidentical1327104mults; source totalbaseline1330560 vsgraph1331088, so feweractivationproducts notruntimeclaim. GPUfitstilllive; retainoriginalpredictions andadditionalmatchedstoragecomparisons. [Report](../../explanations/for_logan/research_update_2026-09-21_1020_cost_matched_pair_baselines.md).
+
+## 21 September, 10:33 — Dual geometry terminal, fresh metric transfer prepared
+
+12fits992.7s audited<1.4e-15. Primarywide.5 seed916 native32.75/cov6.91%, components1.34/1.54/10.27%; instrument/values/nativegainPASS, covarianceguardFAIL(+33%). Wideisotropic9.81%third vsmatchedisobaseline11.26%, covbaseline8.81% stillbetter. All15pairregroupings selectoriginalbothmetrics, coefficientgainFAIL. Freeze3widewinners+2matchedpairbaselines before sixth32FW/16codepanel,4818/3212same-tokencross-docdonors; all3+sum native removals/swaps registered,mixedprimary<=1.10both. Priorfailure/nativeports remain. [Report](../../explanations/for_logan/research_update_2026-09-21_1033_two_geometry_fit_results.md).

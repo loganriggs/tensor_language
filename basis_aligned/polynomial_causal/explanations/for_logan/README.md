@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
+**Latest completed study — [Two-geometry fit results](research_update_2026-09-21_1033_two_geometry_fit_results.md).** Wider mixed fit reaches10.27%third-component error, but fails covariance guard and trails the matched covariance baseline. All wider candidates frozen for fresh behavioral comparison; cross-component re-pairing gave no gain.
+
 **Latest baselines — [Matched storage and full arithmetic](research_update_2026-09-21_1020_cost_matched_pair_baselines.md).** Wider independent pair programs reach8.81%third-component diagnostic error. Shared graphs use fewer nonlinear products, but this does not establish lower total arithmetic.
 
 **Latest controls — [Reader span versus sparse core](research_update_2026-09-21_1015_span_and_sparse_core_controls.md).** Dense-core relaxations isolate two representation limits. Fixed-basis pair sparsity fails despite correct reuse accounting; the width/metric fit remains live.

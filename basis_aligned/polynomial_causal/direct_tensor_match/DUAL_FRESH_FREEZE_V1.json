@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-09-21T10:28:43.378062+00:00",
+  "candidates": {
+    "mixed": {
+      "key": "560_0.5_seed916",
+      "file": "DUAL_FRESH_MIXED_V1.pt",
+      "sha256": "fb0a08a7a88540664bc626f69bc62068a04c019b361690917798ea642c5aa0db"
+    },
+    "covariance": {
+      "key": "560_0_seed0",
+      "file": "DUAL_FRESH_COVARIANCE_V1.pt",
+      "sha256": "d32d9d60020309fce5bf6cc6c34b7069bce2091d64a54f98194b7f8abb489716"
+    },
+    "isotropic": {
+      "key": "560_1_seed0",
+      "file": "DUAL_FRESH_ISOTROPIC_V1.pt",
+      "sha256": "520359952378700d0bcc016e33a3f2b98bac633ab6bbe5763f7ddbfb96be37ba"
+    },
+    "baseline_calibration_shaped": {
+      "key": "calibration_shaped_384",
+      "file": "DUAL_FRESH_BASELINE_CALIBRATION_SHAPED_V1.pt",
+      "sha256": "e5e5ceec72b6d3b4ed5e1f3c0eded3e63350d31cd27b08796a01a3d85f6317d5"
+    },
+    "baseline_native_isotropic": {
+      "key": "native_isotropic_384",
+      "file": "DUAL_FRESH_BASELINE_NATIVE_ISOTROPIC_V1.pt",
+      "sha256": "b4b8f1d24b59f5bb8241ccfdcf89efbff717aa3678c24ff8ae116154e912b14c"
+    }
+  },
+  "scope": "All three wider objective-selected graphs and both matched-storage pair baselines frozen before new panel collection. Mixed is primary. Earlier covariance guard failure remains recorded; fresh study is a separate test of behavioral metric transfer, not a retroactive pass."
+}

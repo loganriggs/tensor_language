@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-09-21T10:24:35.461450+00:00",
+  "width": 384,
+  "primary_metric": "calibration_shaped",
+  "metrics": [
+    "native_isotropic",
+    "calibration_shaped"
+  ],
+  "targets": 6,
+  "matchings": 15,
+  "scope": "Discrete re-pairing of fixed source outputs. Use original pair energy normalization, held fixed across matchings. Minimize full coefficient error across15perfectmatchings; compile only selected pair banks. Primary requires>=10%coefficient-error improvement andall3components<=15%/1.10samewidth originalpair baseline. No coordinate rotation or fresh claims."
+}
