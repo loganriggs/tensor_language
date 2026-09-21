@@ -50,6 +50,12 @@ The planned fixed-span cross-product fit should not be launched as a solution to
 
 This remains stage-one guidance for a possible stage-two graph. The eventual program must pay for its dense linear maps and cores, preserve individual components, survive fresh interventions and expose reusable, stable computations. None of those requirements is waived by this projection test.
 
+**Follow-up: movable-subspace recovery, 12:03 UTC**
+
+The relaxed optimizer eliminates each dense quadratic core exactly and learns only the common and private input directions. Five oracle, dense-loss, gradient and finite-difference controls pass. With 600 Muon steps it recovered three of five planted mixed-topology targets; with the earlier 1,800-step budget it recovered **all five from both random starts**, with relative errors below 0.000002. This contrasts with the sparse mixed-topology fit, which retained only three recovered targets even at 3,600 steps. It supports separating direction discovery from product topology, without proving native success.
+
+Both full-native-shape preflights pass. Four native relaxation fits are registered: covariance-shaped and native-isotropic objectives, each from an inherited and a random start, 1,800 Muon steps at rate 0.03. They retain the original coefficient guards and have no graph-cost or circuit-adoption claim. No native result is available at this report revision. [Toy evidence](../../direct_tensor_match/SHARED_SUBSPACE_TOY_V2.json), [native plan](../../direct_tensor_match/SHARED_SUBSPACE_NATIVE_PLAN_V1.json).
+
 **Evidence and execution details**
 
 - [Learned-span projection results](../../direct_tensor_match/JOINT_READER_SPAN_V1.json) and [implementation](../../direct_tensor_match/audit_joint_reader_span.py).

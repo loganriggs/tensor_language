@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-09-21T12:02:46.609566+00:00",
+  "metrics": [
+    "calibration_shaped",
+    "native_isotropic"
+  ],
+  "parents": {
+    "calibration_shaped": "calibration_shaped_0",
+    "native_isotropic": "native_isotropic_26301"
+  },
+  "seeds": [
+    0,
+    26301
+  ],
+  "steps": 1800,
+  "optimizer": "Muon",
+  "rate": 0.03,
+  "covariance_guard": 0.07734469220772448,
+  "native_guard": 0.6078558841808147,
+  "primary": "Covariance-shaped restart selected by fitting objective only.",
+  "scope": "Dense-core capacity diagnostic. Shared128/private224 inputs. All6unchangednativeforms, no sparsity, graph-cost or behavioral claim.",
+  "toy_evidence": "V1 600steps3of5; V2 1800steps5of5andbothstartsalltargets within1%.",
+  "null": "Movable common/private spans still miss original coefficient guards under this optimization. Not a global impossibility certificate.",
+  "price": "Unrestricted core for each two-form pair contains352*353symmetric coefficients; no arithmetic-saving gate or adopted implementation.",
+  "hashes": {
+    "shared_subspace_loss.py": "46b0bebd74c0bd091ceb12ce1b38bdfd3067c67b82aa648a5c66a84188aeee98",
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "JOINT_OVERLAP_PROGRAMS_V1.pt": "d2fc0f5ea6b707a43368be75b283b244bcdfe3de4ea12d10d9f284a520f099a5",
+    "SHARED_SUBSPACE_TOY_V2.json": "df1a7a0a9565722d3842ed85e7467946539405f3c2fc0baf2ae133f99f24df3b",
+    "SHARED_SUBSPACE_NATIVE_PREFLIGHT_V1.json": "2e36f959fc85ec0332cac170d0a3db0ac8b336cfc52ee0a9136ab07c7685c84e"
+  }
+}

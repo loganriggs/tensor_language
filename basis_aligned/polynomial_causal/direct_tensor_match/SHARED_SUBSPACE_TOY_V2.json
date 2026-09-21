@@ -1,0 +1,83 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:59:46.902339+00:00",
+    "optimizer": "Muon",
+    "rate": 0.03,
+    "steps": 1800,
+    "seeds": [
+      0,
+      1
+    ],
+    "cases": 5,
+    "threshold": 0.01,
+    "required_cases": 4,
+    "question": "Can optimizing shared/private subspaces with exactly eliminated dense cores recover the same five planted targets that sparse mixed topology struggled to recover?",
+    "pred_a": "Five oracle/dense/gradient/finite-difference controls pass.",
+    "pred_b": "At least4of5targets reach1%explicit coefficient error in one of two fully random starts.",
+    "scope": "Relaxed decomposition diagnostic, not a priced circuit. Native use needs both input geometries and original guards; no native launch before recovery.",
+    "reason": "V1 recovers3of5 at600steps. This fixed extension matches the earlier whole-block graph1800step schedule; no learning-rate sweep, gate change or new targets."
+  },
+  "records": [
+    {
+      "case": 0,
+      "seed": 0,
+      "error": 5.636447153887484e-07
+    },
+    {
+      "case": 0,
+      "seed": 1,
+      "error": 1.624996509480546e-07
+    },
+    {
+      "case": 1,
+      "seed": 0,
+      "error": 1.3435473860553225e-07
+    },
+    {
+      "case": 1,
+      "seed": 1,
+      "error": 2.022619701081484e-07
+    },
+    {
+      "case": 2,
+      "seed": 0,
+      "error": 1.0177477159038646e-06
+    },
+    {
+      "case": 2,
+      "seed": 1,
+      "error": 4.395168158785748e-07
+    },
+    {
+      "case": 3,
+      "seed": 0,
+      "error": 1.7513118201691306e-07
+    },
+    {
+      "case": 3,
+      "seed": 1,
+      "error": 5.612557690991077e-07
+    },
+    {
+      "case": 4,
+      "seed": 0,
+      "error": 1.195099138612996e-07
+    },
+    {
+      "case": 4,
+      "seed": 1,
+      "error": 1.6637805907529063e-07
+    }
+  ],
+  "best_restart_errors": [
+    1.624996509480546e-07,
+    1.3435473860553225e-07,
+    4.395168158785748e-07,
+    1.7513118201691306e-07,
+    1.195099138612996e-07
+  ],
+  "recovered_cases": 5,
+  "recovery_pass": true,
+  "seconds": 11.779614775907248,
+  "scope": "Random shared/private subspace learning with dense quadratic cores eliminated exactly. No product topology, native fit, sparsity or circuit claim."
+}
