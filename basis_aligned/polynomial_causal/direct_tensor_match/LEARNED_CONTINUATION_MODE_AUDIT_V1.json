@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "program": "pruned",
+      "covariance_observer_error": 0.021861737795796202,
+      "leading_mode_cosine": 0.9999456272927015,
+      "leading_mode_relative_error": 0.01043037523756265,
+      "leading_to_second_singular_ratio": 3.4257816196406012,
+      "leading_energy_fraction": 0.9012400607090588
+    },
+    {
+      "program": "response_refit",
+      "covariance_observer_error": 0.020330802306954335,
+      "leading_mode_cosine": 0.999953099285038,
+      "leading_mode_relative_error": 0.009968750920900554,
+      "leading_to_second_singular_ratio": 3.445061229547862,
+      "leading_energy_fraction": 0.9019233492977631
+    },
+    {
+      "program": "learned",
+      "covariance_observer_error": 0.03682257019650529,
+      "leading_mode_cosine": 0.9996915382812308,
+      "leading_mode_relative_error": 0.027803063109345442,
+      "leading_to_second_singular_ratio": 3.3863303313678665,
+      "leading_energy_fraction": 0.8982230423727422
+    }
+  ],
+  "native_leading_to_second_singular_ratio": 3.4344615591195335,
+  "seconds": 2.1291623869910836,
+  "scope": "Post-result mode-identity diagnostic in the same original observer and covariance geometry. A large leading singular gap limits a mode-order-switch explanation; close mode cosine is not native causal equivalence or unique semantics."
+}
