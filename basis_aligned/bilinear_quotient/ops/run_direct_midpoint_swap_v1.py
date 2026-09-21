@@ -12,9 +12,15 @@ no recipient denominator reapplied. Mean cancels. Background and writers fixed.
 import os,json,sys,time,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
+PROGRAM_FILE='MIDPOINT_EXTRACTED_PROGRAM_V1.pt'
 PANEL_PREFIX='SELECTIVE_CONFIRMATION'
 OUTPUT_NAME='MIDPOINT_SWAP_V1.json'
 DONOR_PREFIX='SELECTIVE_CONFIRMATION_DONORS'
+def evaluate_program(e,n,m):
+ if 'Pn' in e:
+  left=(n@e['Pn'])@e['Tn'];right=(m@e['Pm'])@e['Tm']
+ else:left=n@e['A'];right=m@e['B']
+ return (left*right)@e['readout']-e['offset']
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(dict(forwards=48,features=4,products=16,donor_families=['aligned','same_token'])));return
  import torch
@@ -24,12 +30,12 @@ def main():
  from native_feature_capture import capture
  from logit_effect_partition import partition
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/OUTPUT_NAME;assert not out.exists()
- model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.double(),mode='reduced');e=torch.load(P/'MIDPOINT_EXTRACTED_PROGRAM_V1.pt',weights_only=True);e={k:v.cuda().double() for k,v in e.items()};writer=torch.linalg.solve(ru,e['reduced_writers']);L=b17.mlp.Left.weight.double();R=b17.mlp.Right.weight.double();C=e['scalar_readers'].T@ru@b17.mlp.Down.weight.double();records=[];checks=[];coverage=[];donors=torch.load(P/f'{DONOR_PREFIX}_V1.pt',weights_only=True);meta=json.loads((P/f'{DONOR_PREFIX}_V1.json').read_text())
+ model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.double(),mode='reduced');e=torch.load(P/PROGRAM_FILE,weights_only=True);e=e.get('program',e);e={k:v.cuda().double() for k,v in e.items()};writer=torch.linalg.solve(ru,e['reduced_writers']);L=b17.mlp.Left.weight.double();R=b17.mlp.Right.weight.double();C=e['scalar_readers'].T@ru@b17.mlp.Down.weight.double();records=[];checks=[];coverage=[];donors=torch.load(P/f'{DONOR_PREFIX}_V1.pt',weights_only=True);meta=json.loads((P/f'{DONOR_PREFIX}_V1.json').read_text())
  logits=lambda x:30*torch.tanh(model.lm_head(F.rms_norm(x,(1152,)))/30)
  for domain in ['fineweb','code']:
   tokens=torch.load(P/f'{PANEL_PREFIX}_{domain.upper()}_V1.pt',weights_only=True);manifest=next(r for r in meta['records'] if r['domain']==domain);assert hashlib.sha256(tokens.numpy().tobytes()).hexdigest()==manifest['token_sha256'];coverage.append(manifest['same_token_coverage']);states=[];aa=[];bb=[]
   for row in tokens:
-   c=capture(model,row[None,:256].cuda());h=c['h17'].double().flatten(0,1);m=(b17.lambdas[0]*(c['m16']-b16.mlp.Down_bias)).double().flatten(0,1);s=(h.square().mean(-1,keepdim=True)+torch.finfo(torch.float32).eps).sqrt();n=(h-m/2)/s;m=m/s;aa.append(((n@L.T)*(m@R.T)+(m@L.T)*(n@R.T))@C.T-e['offset']);bb.append(((n@e['A'])*(m@e['B']))@e['readout']-e['offset']);states.append(c['final'].flatten(0,1))
+   c=capture(model,row[None,:256].cuda());h=c['h17'].double().flatten(0,1);m=(b17.lambdas[0]*(c['m16']-b16.mlp.Down_bias)).double().flatten(0,1);s=(h.square().mean(-1,keepdim=True)+torch.finfo(torch.float32).eps).sqrt();n=(h-m/2)/s;m=m/s;aa.append(((n@L.T)*(m@R.T)+(m@L.T)*(n@R.T))@C.T-e['offset']);bb.append(evaluate_program(e,n,m));states.append(c['final'].flatten(0,1))
   states=torch.cat(states);a=torch.cat(aa);b=torch.cat(bb);flat=tokens[:,:256].reshape(-1);doc=torch.arange(len(tokens)).repeat_interleave(256);targets=tokens[:,1:257].reshape(-1).cuda();checks.append(float(((a-a)@writer.T).abs().max()))
   for family in ['aligned','same_token']:
    mapping=donors[domain][family];valid=mapping>=0;assert torch.all(doc[valid]!=doc[mapping[valid]])

@@ -1,0 +1,30 @@
+{
+  "confirmed": {
+    "input_coefficients": 36864,
+    "linear_coefficient_multiplications": 36864,
+    "linear_additions": 36832,
+    "input_linear_nodes": 32,
+    "variable_products": 16,
+    "scalar_sum_additions": 12,
+    "scalar_mean_subtractions": 4,
+    "scalar_means": 4,
+    "writer_coefficients": 4608,
+    "scope": "Scalar graph on provided normalized midpoint/source inputs. Dense residual writer extra; upstream model, source projection and normalization excluded and still required."
+  },
+  "shared_refit": {
+    "input_coefficients": 18688,
+    "linear_coefficient_multiplications": 18688,
+    "linear_additions": 18640,
+    "input_linear_nodes": 48,
+    "variable_products": 16,
+    "scalar_sum_additions": 12,
+    "scalar_mean_subtractions": 4,
+    "scalar_means": 4,
+    "writer_coefficients": 4608,
+    "scope": "Scalar graph on provided normalized midpoint/source inputs. Dense residual writer extra; upstream model, source projection and normalization excluded and still required."
+  },
+  "input_coefficient_ratio": 0.5069444444444444,
+  "input_addition_ratio": 0.5060816681146829,
+  "extra_input_linear_nodes": 16,
+  "explicit_graph_replay": 1.4878848469064992e-16
+}

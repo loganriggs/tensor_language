@@ -31529,3 +31529,15 @@ Reused48forward swap allPASS: centeredjointerror.0645FW/.0622code; worstindividu
 
 ### 2026-09-20T23:56Z — Codex: fresh midpoint confirmation passes; shared-input proposal executed
 Frozen96forward confirmation allPASS. Joint removalerror.0591FW/.0461code, same-token swap.0571/.0543; worstindividual.1149. No refit, freshpanel hashes anddonors fixed. SuccessorCPU balanced reader-span graph proposal executed: width8 perinput18,688readercoeff vs36,864 but37–42%coefficienterror toconfirmedprogram; nativeuntested/notpromoted. Exactfullspanreplay<4e-15. Semanticselectivity/stableidentification/broaderOOD andcrosscomputationreuse stillopen. Timedreport preserves noncomparableoldquartictarget warning.
+
+### 2026-09-20T23:58Z — Codex: covariance-aware shared reader graph claimed
+Previous turn progressed via fresh operational confirmation andCPUsharingproposal. Claim80forward reusecal/SELECTIVEdiag sharedspan comparison ranks4/8/12 plus16exactcontrol. Preserve16products and4outputfeatures; native-moment balanced projection dictionaries vscoefficient-only. Primaryrank8 must staywithin1.25confirmedaggregateerror andallscalarerror<.2; weightingmustcutMSE20%. Stage2graph costincludesdictionary andmixing; nofreshconfirmationdataused.
+
+### 2026-09-21T00:00Z — Codex: shared reader preservation fails; exact joint core optimization running
+Sharedspan native test: exactnessPASS, covariancegainPASS, primarywidth8 preservationFAIL (.0961FW/.0929code vsconfirmed.0738/.0524). SuccessorCPU exact weighted teacher-span reduction verified<1e-12, then9Adam fits(seed0/1/2,lr.003/.01/.03,1200steps) running under live session. Target is confirmedprogram, metric is separable native-moment weighted coefficients. No held-data optimization; keep16products and8shareddirections perinput. This is a graph refit, not an accuracyclaim.
+
+### 2026-09-21T00:01Z — Codex: exact weighted graph refit converges; native swap preservation claimed
+CPU9Adam runs complete: weightedrelativeerror1.8309%->.8906%, nearidenticalloss acrossseeds/rates. Exact16dimensional teacher-span metric replay3.65e-16. Native targeterror unknown. Claim48forward refittedsharedgraph swap vsconfirmedbaseline, jointrelativeerror<=1.25baseline andallfeatureerror<.3/cos>.95. Execute explicitPn/Tn sharedprojections, not justdensecollapse; same16products/18,688readercoeff. Original program retained.
+
+### 2026-09-21T00:03Z — Codex: shared graph swap preservation passes; literal price audited
+Refit48forward swaps allPASS: centeredjoint.0777FW/.0772code vsbaseline.0645/.0622, under1.25bar(codeclose). SuccessorCPU graphpriceandexplicitreplay auditexecuted:18,688vs36,864readercoeff;18,640vs36,832inputadds;48vs32linearnodes;16productsunchanged; replay1.49e-16. Smallergraph notfreshconfirmed, noaccuracyimprovementclaim. Fullsemanticgoal remainsopen.

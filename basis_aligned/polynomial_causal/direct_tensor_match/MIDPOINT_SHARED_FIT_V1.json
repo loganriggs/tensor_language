@@ -1,0 +1,320 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_rank8": false,
+    "pred_c_weighting": true
+  },
+  "results": {
+    "calibration": {
+      "confirmed": {
+        "relative_error": [
+          0.0419634364123164,
+          0.06165627499851849,
+          0.1442423642089569,
+          0.06390863642694687
+        ],
+        "aggregate_relative_error": 0.07180493331993891,
+        "squared_error": 924020796786.552,
+        "difference_from_confirmed": 0.0
+      },
+      "isotropic_4": {
+        "relative_error": [
+          2.4425571698581963,
+          0.7625887663456741,
+          0.5681249908017875,
+          0.9835558873054048
+        ],
+        "aggregate_relative_error": 1.8419211812810299,
+        "squared_error": 608016358043321.8,
+        "difference_from_confirmed": 1.8340683019719184
+      },
+      "isotropic_8": {
+        "relative_error": [
+          0.6793718645191286,
+          0.23534823972067545,
+          0.7668777090981729,
+          0.7313016114319909
+        ],
+        "aggregate_relative_error": 0.6106537369901843,
+        "squared_error": 66828731514436.76,
+        "difference_from_confirmed": 0.6090677618186652
+      },
+      "isotropic_12": {
+        "relative_error": [
+          0.2612219869725898,
+          0.18182802494814615,
+          0.2751833235168046,
+          0.37204120858519857
+        ],
+        "aggregate_relative_error": 0.25285189990032747,
+        "squared_error": 11457915679451.047,
+        "difference_from_confirmed": 0.247906529008651
+      },
+      "isotropic_16": {
+        "relative_error": [
+          0.04196343641231266,
+          0.061656274998508225,
+          0.14424236420895475,
+          0.06390863642694555
+        ],
+        "aggregate_relative_error": 0.07180493331993468,
+        "squared_error": 924020796786.4431,
+        "difference_from_confirmed": 1.2864877395444632e-14
+      },
+      "native_moment_4": {
+        "relative_error": [
+          0.16518537031703115,
+          0.1488762989822362,
+          0.2814228804976991,
+          0.3042399802878017
+        ],
+        "aggregate_relative_error": 0.19284763889990478,
+        "squared_error": 6665025747739.377,
+        "difference_from_confirmed": 0.16711152630340745
+      },
+      "native_moment_8": {
+        "relative_error": [
+          0.06679473861247817,
+          0.08669855720502818,
+          0.19307431680531256,
+          0.13824054798024613
+        ],
+        "aggregate_relative_error": 0.10406838980877439,
+        "squared_error": 1940934365158.3325,
+        "difference_from_confirmed": 0.0670983656913287
+      },
+      "native_moment_12": {
+        "relative_error": [
+          0.051219304586771666,
+          0.06595828972666967,
+          0.15244986361027332,
+          0.08925743271846487
+        ],
+        "aggregate_relative_error": 0.07961370254648042,
+        "squared_error": 1135922816920.6074,
+        "difference_from_confirmed": 0.02991091448534192
+      },
+      "native_moment_16": {
+        "relative_error": [
+          0.04196343641236249,
+          0.061656274998500744,
+          0.14424236420898343,
+          0.06390863642693964
+        ],
+        "aggregate_relative_error": 0.07180493331995604,
+        "squared_error": 924020796786.9926,
+        "difference_from_confirmed": 8.496811839841584e-14
+      }
+    },
+    "fineweb": {
+      "confirmed": {
+        "relative_error": [
+          0.04017610693028077,
+          0.07128426748271216,
+          0.15376829380487844,
+          0.06330973838068955
+        ],
+        "aggregate_relative_error": 0.07376228099893947,
+        "squared_error": 4119801716782.4175,
+        "difference_from_confirmed": 0.0
+      },
+      "isotropic_4": {
+        "relative_error": [
+          2.2092931961237112,
+          0.7741727742961678,
+          0.5147409202263274,
+          0.8725380890362364
+        ],
+        "aggregate_relative_error": 1.7039436765567353,
+        "squared_error": 2198457670914257.0,
+        "difference_from_confirmed": 1.6965934949765364
+      },
+      "isotropic_8": {
+        "relative_error": [
+          0.6251270001174746,
+          0.2374812028962641,
+          0.8577618297720201,
+          0.6557924627576611
+        ],
+        "aggregate_relative_error": 0.5913920525883396,
+        "squared_error": 264824771198298.5,
+        "difference_from_confirmed": 0.5952533984357634
+      },
+      "isotropic_12": {
+        "relative_error": [
+          0.23746687261613997,
+          0.1856858956412434,
+          0.27969926495256725,
+          0.3123551478485185
+        ],
+        "aggregate_relative_error": 0.23724495626617312,
+        "squared_error": 42618838962195.02,
+        "difference_from_confirmed": 0.23641685852605582
+      },
+      "isotropic_16": {
+        "relative_error": [
+          0.04017610693027697,
+          0.07128426748270199,
+          0.1537682938048761,
+          0.06330973838068832
+        ],
+        "aggregate_relative_error": 0.07376228099893509,
+        "squared_error": 4119801716781.929,
+        "difference_from_confirmed": 1.1718679008981998e-14
+      },
+      "native_moment_4": {
+        "relative_error": [
+          0.1465159153273688,
+          0.13587722461139173,
+          0.24522445808359716,
+          0.2539737088836456
+        ],
+        "aggregate_relative_error": 0.16886419904038213,
+        "squared_error": 21591499602352.914,
+        "difference_from_confirmed": 0.1503444830495144
+      },
+      "native_moment_8": {
+        "relative_error": [
+          0.059411902235932304,
+          0.09069921530135869,
+          0.18434248015395485,
+          0.115260054828491
+        ],
+        "aggregate_relative_error": 0.09613438388139081,
+        "squared_error": 6997858109563.75,
+        "difference_from_confirmed": 0.06314543099538474
+      },
+      "native_moment_12": {
+        "relative_error": [
+          0.051894381288671784,
+          0.08417658528036476,
+          0.15400539192024107,
+          0.08126286738724536
+        ],
+        "aggregate_relative_error": 0.08209594444580612,
+        "squared_error": 5103299357789.135,
+        "difference_from_confirmed": 0.03541778596411285
+      },
+      "native_moment_16": {
+        "relative_error": [
+          0.04017610693032709,
+          0.07128426748269615,
+          0.15376829380491425,
+          0.06330973838068377
+        ],
+        "aggregate_relative_error": 0.0737622809989582,
+        "squared_error": 4119801716784.51,
+        "difference_from_confirmed": 7.961190481586341e-14
+      }
+    },
+    "code": {
+      "confirmed": {
+        "relative_error": [
+          0.048749828673034165,
+          0.04549659609783018,
+          0.0672463455706079,
+          0.03476825180559187
+        ],
+        "aggregate_relative_error": 0.05237055868225795,
+        "squared_error": 3701943901848.384,
+        "difference_from_confirmed": 0.0
+      },
+      "isotropic_4": {
+        "relative_error": [
+          1.6248043653392248,
+          0.28310558193220053,
+          0.48483110609932417,
+          0.7295452994364909
+        ],
+        "aggregate_relative_error": 1.0882148613853457,
+        "squared_error": 1598397253720083.0,
+        "difference_from_confirmed": 1.0606547917796094
+      },
+      "isotropic_8": {
+        "relative_error": [
+          0.2846517793966372,
+          0.10733208502240285,
+          0.2512411636251877,
+          0.202069212073303
+        ],
+        "aggregate_relative_error": 0.23585626964824818,
+        "squared_error": 75084496042925.12,
+        "difference_from_confirmed": 0.23172686072411516
+      },
+      "isotropic_12": {
+        "relative_error": [
+          0.11928452674664664,
+          0.060158767777483454,
+          0.0798530363794118,
+          0.17435500073227037
+        ],
+        "aggregate_relative_error": 0.10640218270071973,
+        "squared_error": 15281166000094.434,
+        "difference_from_confirmed": 0.09919726714575308
+      },
+      "isotropic_16": {
+        "relative_error": [
+          0.04874982867302909,
+          0.0454965960978258,
+          0.0672463455706104,
+          0.03476825180559128
+        ],
+        "aggregate_relative_error": 0.05237055868225597,
+        "squared_error": 3701943901848.1035,
+        "difference_from_confirmed": 8.778397467398343e-15
+      },
+      "native_moment_4": {
+        "relative_error": [
+          0.16665507011998662,
+          0.08447719546719955,
+          0.14194994850657414,
+          0.15782561401059697
+        ],
+        "aggregate_relative_error": 0.14341477027386762,
+        "squared_error": 27761516271641.555,
+        "difference_from_confirmed": 0.1387980898014117
+      },
+      "native_moment_8": {
+        "relative_error": [
+          0.06684001820208148,
+          0.061754287988666404,
+          0.12348378766107734,
+          0.13799189006264118
+        ],
+        "aggregate_relative_error": 0.09290566295553628,
+        "squared_error": 11650372003535.41,
+        "difference_from_confirmed": 0.07902006588976938
+      },
+      "native_moment_12": {
+        "relative_error": [
+          0.051928958912770454,
+          0.04408689458760226,
+          0.09589448133760718,
+          0.05999359379931557
+        ],
+        "aggregate_relative_error": 0.06562378201224066,
+        "squared_error": 5812700296790.131,
+        "difference_from_confirmed": 0.03171859344515559
+      },
+      "native_moment_16": {
+        "relative_error": [
+          0.04874982867311174,
+          0.045496596097822396,
+          0.0672463455706481,
+          0.03476825180558915
+        ],
+        "aggregate_relative_error": 0.05237055868229831,
+        "squared_error": 3701943901854.0894,
+        "difference_from_confirmed": 6.869230998721685e-14
+      }
+    }
+  },
+  "replay_max": 8.496811839841584e-14,
+  "token_hashes": {
+    "calibration": "4779918d92859011804f998ca7ec53f08dadbf2346e977d82fd66354b4804e5c",
+    "fineweb": "65234b2fd77834ea065566fc2d255c5fad520420c481c77ce6de795cf2521dac",
+    "code": "871bb3dbb640b0b6aed0d1eea7a3538c74d5317f99324bd229ba8934ffb776a0"
+  },
+  "seconds": 3.7294907418545336,
+  "scope": "Shared linear input dictionaries, fixed16products and4outputfeatures. Calibration moments only. Reused diagnostic native pairs; no native intervention claim yet."
+}
