@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-09-21T13:58:26.082336+00:00",
+  "metrics": [
+    "calibration_shaped",
+    "native_isotropic"
+  ],
+  "parent": "inherited arm of controlled joint refit in each geometry",
+  "additional_private_directions": 14,
+  "increments": 2,
+  "source_cost_per_direction": 1155,
+  "stored_float_cost_per_direction": 1154,
+  "source_ceiling": 1064448.0,
+  "baseline": {
+    "native_error": 0.5525962583461952,
+    "covariance_error": 0.0703133565524768,
+    "per_mode_errors": [
+      0.018692583665713903,
+      0.020499346791718828,
+      0.08805202711597365
+    ],
+    "euclidean_jacobian_errors": [
+      0.187428758387592,
+      0.15902999281611183,
+      0.16001348745745214
+    ],
+    "stored_floats": 1340940,
+    "index_integers": 3456,
+    "activation_products": 1152,
+    "projection_multiplications": 1327104,
+    "source_total_multiplications": 1330560,
+    "source_additions": 1329148
+  },
+  "proposal": "For each pair, take fourteen leading residual-mode directions orthogonal to its current shared/private span. Precompute exact conditional-core error at increments of two. Choose the lowest aggregate coefficient error over all allocations totaling at most fourteen. Shared spaces and existing directions fixed; no further optimizer.",
+  "pred_a": "Dense/implicit loss and exported coefficient replay<1e-8; physical storage and arithmetic match independent formulas.",
+  "pred_b": "Primary covariance graph meets all original dual coefficient, individual component and derivative limits.",
+  "pred_c": "Both candidates retain >=20%source-multiplication savings versus original baseline.",
+  "null": "Uniform private width is not the main obstacle; the legal residual-direction allocation still fails fidelity.",
+  "scope": "Actual error-cost allocation within original budget, not relaxed limits or unconstrained rank increase. Fixed candidate bank is heuristic; no global optimum or new-data claim."
+}
