@@ -1,39 +1,33 @@
-# Folding → tensor decomposition → a simpler arithmetic circuit
+**From folded weights to a smaller program: overall research review**
 
-Overall review rewritten **21 September 2026, 13:07 UTC**. The original filename is retained so existing links still work. This replaces the earlier experiment-by-experiment account with the trajectory since the two-stage proposal.
+Rewritten 21 September 2026, 14:15 UTC. This replaces the “full coverage and shared baselines” account, retaining its filename so existing links work. It summarizes the direction and completed results rather than listing every experiment.
 
-**Your recollection is right. The proposal was to fold the weights together, use QR to reduce the output coordinates exactly, discover useful features with a tensor decomposition, and then simplify those features into a shared arithmetic program. We have implemented and tested parts of that pipeline. We have not completed a general Tucker/HT-to-circuit search or found a faithful, cheaper replacement for the full folded section.**
+**Your recollection is correct: the intended method has two stages.** First, fit a structured tensor to discover useful intermediate computations. Second, turn those computations into an arithmetic graph, simplify it, and refit it. QR prepares the output coordinates before either stage.
 
-The most important development is that the experiments narrowed. Broad folded fits were still inaccurate, so we moved to a smaller diagnostic problem: **six quadratic measurements feeding three selected components**. Most recent reports are about that problem. There we have evidence that better feature sharing helps the tensor fit, but turning the fit into a sufficiently cheap and accurate program remains unresolved.
-
-**The original plan, in one picture**
+We have made progress on both stages, particularly on controlled examples. **We have not yet produced a faithful, cheaper replacement for the full folded section, or completed a general Tucker/HT-to-arbitrary-circuit search.** Most recent experiments address a smaller diagnostic problem. That scope change was too easy to miss in the previous report.
 
 ```mermaid
 flowchart TD
-    A[Trained model weights] --> B[Fold selected operations into one target function]
-    B --> C[QR: express outputs in fewer coordinates without approximation]
-    C --> D[Stage 1: fit a structured tensor and discover candidate features]
-    D --> E[Stage 2: turn candidates into a graph; share, simplify and refit]
-    E --> F[Compare error, storage and arithmetic against strong baselines]
-    F --> G[Freeze candidates and test behavior inside the model]
-    E -->|If fidelity is lost, revise features or connectivity| D
+    A[Trained weights] --> B[Fold a specified model section into one function]
+    B --> C[Exact QR output reduction]
+    C --> D[Stage 1: discover features with a structured decomposition]
+    D --> E[Stage 2: build a graph, share computations, simplify and refit]
+    E --> F[Compare reconstruction error and complete computation cost]
+    F --> G[Freeze candidates and test model behavior on fresh data]
+    E -->|Revise features when needed| D
 ```
 
-A **feature** here is a computed scalar, such as a linear projection or a sum of products. A **dictionary** is a collection of such features. A **shared feature** is computed once and consumed in several places; a **private feature** is available to just one component. None of these terms implies that the feature has a single human-readable meaning.
+**What we are decomposing, and where QR fits**
 
-**What folding and QR actually do**
-
-One bilinear MLP followed by the linear unembedding computes
+For one bilinear MLP, the contribution read through the unembedding is
 
 $$
 F(x)=UD\big[(Lx)\odot(Rx)\big].
 $$
 
-The input $x$ has 1,152 coordinates. The matrices $L$ and $R$ each produce 4,608 scalar projections. The symbol $\odot$ multiplies corresponding projections. The matrix $D$ writes those products into the residual stream; $U$ maps the residual stream to 50,304 vocabulary outputs.
+Here $x$ is the 1,152-dimensional input, $L$ and $R$ produce 4,608 projections each, $\odot$ multiplies corresponding projections, $D$ writes the products back into the residual stream, and $U$ maps that stream to 50,304 vocabulary coordinates. **Folding** means contracting these weights to study their combined computation.
 
-Folding contracts these maps so we study the **combined function**, rather than independently compressing $U$, $D$, $L$ and $R$.
-
-You proposed QR on $UD$. The implementation factors $U$ first, then folds the remaining factor into $D$:
+Your suggested QR of $UD$ reduces the output coordinates without approximating the function. The implementation takes an equivalent route: factor $U$ first, then multiply its remaining factor into $D$:
 
 $$
 U=Q R_U,\qquad Q^\top Q=I,\qquad C=R_U D,
@@ -43,29 +37,31 @@ $$
 \widetilde F(x)=C\big[(Lx)\odot(Rx)\big],\qquad F(x)=Q\widetilde F(x).
 $$
 
-This lets us fit **1,152 output coordinates instead of 50,304**, with exact Euclidean error preservation:
+We optimize in **1,152 output coordinates instead of 50,304**. Because $Q$ has orthonormal columns,
 
 $$
 \|F(x)-Q\widehat{\widetilde F}(x)\|_2
 =\|\widetilde F(x)-\widehat{\widetilde F}(x)\|_2.
 $$
 
-QR is a preparation step. It does not eliminate any products or establish a simpler circuit. RMSNorm, attention normalization and the final logit softcap remain explicit operations; the error equality above concerns the linear output map.
+This is an exact change of output coordinates, not a discovered circuit or a reduction in product count. The equality applies before nonlinear output operations. RMSNorm, attention normalization and the final logit softcap remain explicit.
 
-**Stage 1: find useful intermediate computations**
-
-The folded single-layer function has a joint coefficient tensor:
+The folded quadratic function defines the **joint order-three tensor**
 
 $$
 \widetilde F_v(x)=\sum_{i,j}T_{vij}x_i x_j,
 \qquad
 T_{vij}=\frac12\sum_k C_{vk}
-\left(L_{ki}R_{kj}+L_{kj}R_{ki}\right).
+\big(L_{ki}R_{kj}+L_{kj}R_{ki}\big).
 $$
 
-“Order three” means **three indices: output, input, input**. The function is quadratic, not cubic. The tensor is implicit: we can calculate losses by contracting its factors without allocating every entry.
+“Order three” counts the indices—one output and two inputs. The polynomial has degree two. We can match this tensor through contractions of its factors without storing all its entries.
 
-A Tucker decomposition approximates it by
+Substituting another bilinear computation into $x$ produces degree-four terms and an order-five tensor. Residual paths also produce lower-degree terms. This is the deeper folded target; it is substantially harder than the single-layer quadratic case.
+
+**Stage 1: discover candidate features**
+
+The Tucker proposal is
 
 $$
 s=P^\top x,\qquad
@@ -73,128 +69,112 @@ h_g=\sum_{p,q}G_{gpq}s_p s_q,\qquad
 \widehat{\widetilde F}=Wh.
 $$
 
-| Object | What it means |
+| Term | Meaning |
 |---|---|
-| $P$ | Learned input directions; its columns define the scalar features $s_p$. |
-| $G$ | Interaction coefficients. $G_{gpq}$ weights product $s_p s_q$ inside feature $h_g$. |
-| $W$ | Output directions; column $g$ describes the output effect of $h_g$. |
-| Width/rank | How many directions the chosen representation permits. Smaller widths cost less but restrict what it can fit. |
+| Input feature $s_p$ | A learned scalar projection of the input. |
+| Computed feature $h_g$ | A weighted sum of products of input features. |
+| Core $G$ | The coefficients specifying which products make each computed feature. |
+| Output direction $W_{:,g}$ | The output effect of one computed feature. |
+| Rank or width | The number of directions/channels allowed in the representation. |
 
-Two pure bilinear layers produce a quartic function with an **order-five tensor**: one output index and four input indices. Residual paths add lower-degree terms. Hierarchical Tucker (HT) represents this through a tree of smaller bilinear computations—linear features combine into quadratic features, which combine into quartic outputs. Its tree groups tensor slots; it need not partition the input coordinates.
+**Hierarchical Tucker (HT)** arranges smaller bilinear computations in a tree: linear features become quadratic features, which can become quartic features. Its tree groups tensor slots; each leaf can still inspect the full input vector. Sparsity must be added explicitly, and low rank does not guarantee interpretable features.
 
-Tucker and HT supply candidate computations. Low rank alone does not select sparse, interpretable features or the cheapest program. Repeated inputs also matter: different coefficient tensors can represent the same polynomial when every input slot receives the same $x$.
+These are proposals for organizing computation. The experiments also use **output-sharing block decompositions**, in which several products contribute to one output direction. That family supplied useful broad fits; the work has not been a completed standard HT pipeline.
 
-**Stage 2: simplify the computation, allowing reuse**
+**Stage 2: simplify and share the computation**
 
-Suppose a decomposition gives
+An **arithmetic circuit**, represented as a directed acyclic graph (DAG), is a program of linear combinations and products. A **shared** intermediate is computed once and used by multiple consumers; a **private** intermediate serves one consumer.
+
+For example,
 
 $$
-y=u(ab+ac)+v(db+dc).
+y=u(ab+ac)+v(db+dc)
 $$
 
-We can rewrite this as
+can be evaluated as
 
 $$
 t=b+c,\qquad p=at,\qquad q=dt,\qquad y=up+vq.
 $$
 
-There are now two scalar products instead of four, and $t$ is computed once. Tucker could discover this particular linear basis change. The intended graph stage also permits sharing of *computed quadratic or higher-degree features*, across branches and depths.
-
-An **arithmetic circuit**, or computation **DAG**, is that program of linear combinations and products. The intended search alternates structural edits with coefficient refitting. It charges each reused node once, while also charging for dense projections and output maps. Fewer product nodes alone do not establish lower total arithmetic.
-
-We have implemented specific shared-product graphs, algebraic rewrites, pruning and joint refitting. **We have not implemented the full general search over arbitrary DAGs initialized by Tucker or HT.** The useful broad initial fit was an output-sharing block decomposition: several products contribute to each output direction. It was not the endpoint of a complete HT pipeline.
-
-**How the research moved from the proposal to today's experiments**
-
-| Step | What we tried | What we learned |
-|---|---|---|
-| Broad folded target | Fit a selected contribution involving the last two MLPs, then simplify its products. | Products fell from 1,024 to 512, but the result was still inaccurate and storage barely fell. |
-| Smaller diagnostic target | Reconstruct six quadratic reads feeding three selected components. | We could test sharing, optimizers and exact algebra much more directly. This changed the scope of the experiments. |
-| Shared versus private features | Reuse some computations while leaving others component-specific. | Sharing helped the first two components; forcing too much sharing damaged the third. |
-| Stronger baselines | Compare with programs that already share work, including similar-storage alternatives. | Early gains in product count did not consistently survive full cost and behavioral comparisons. |
-| Better feature layouts | Let features be shared by pairs of components, rather than requiring one dictionary shared by all three. | Tensor fitting improved. The dense representation remained too expensive. |
-| Compile and refit the cheap graph | Convert those forms into reusable products and improve their coefficients jointly. | Much of the lost accuracy was recovered, but the graph still failed the fidelity requirements. |
-
-For the broad target, simplification changed native logit-effect error from **28.21% to 26.11% on FineWeb** and **23.62% to 21.36% on code**. Storage changed only from **2.672M to 2.654M coefficients**. Halving the products was useful, but did not deliver a faithful reconstruction or a large storage reduction.
-
-The later local problem has this interface:
-
 ```mermaid
 flowchart LR
-    Z[Supplied earlier native state z] --> P[Shared and private input features]
-    P --> R[Six quadratic reads: two per component]
-    R --> C[Three selected component calculations]
-    H[Supplied later native state h] --> C
-    N[Explicit normalization] --> C
-    C --> O[Selected residual contribution]
+    B[b] --> T[Shared sum t]
+    C[c] --> T
+    T --> P[Product a times t]
+    A[a] --> P
+    T --> Q[Product d times t]
+    D[d] --> Q
+    P --> Y[Output linear combination]
+    Q --> Y
 ```
 
-Each read has the form $q_j(z)=z^\top Q_j z$. These are selected scalar measurements, **not the entire MLP output**. The program still receives intermediate states from the original model. It is therefore a conditional reconstruction, not an extracted circuit that starts from tokens.
+That uses two products instead of four. The broader graph proposal also allows reuse of quadratic and higher-degree features, across branches and depths. After editing the graph, jointly refitting its coefficients can recover lost accuracy.
 
-**The clearest recent result: better tensor fit, then a circuit-conversion gap**
+We have implemented particular shared-product graphs, algebraic conversions, pruning and refitting. **General graph search—with arbitrary node insertion, merging, regrouping and reuse—is still incomplete.** Counting sparse tensor entries is not a substitute: a dense rank-one quadratic form may be cheap, and a shared product should be charged only once. Dense projections, additions and stored coefficients also have costs.
 
-Allowing pairwise feature sharing improved covariance-shaped coefficient error from **7.918% to 7.577%** in a matched continuation comparison. In the separate weight-only objective, error improved from **51.117% to 49.082%**. Changing who shares features helped under both objectives.
+**What happened when we tried this on the model**
 
-Here is what then happened to the primary covariance-shaped candidate. These rows concern the same local target; lower error is better.
+The research narrowed in response to imperfect broad fits:
 
-| Representation | Covariance-shaped coefficient error | Component 3 value error | Source multiplications |
+| Phase | Actual target and result | What it established |
+|---|---|---|
+| Broad folding and simplification | A selected last-two-MLP contribution: products fell from 1,024 to 512. FineWeb logit-effect error improved from 28.21% to 26.11%; code error from 23.62% to 21.36%. | Product simplification was possible, but reconstruction remained poor. Storage barely changed: 2.672M to 2.654M coefficients. |
+| Local diagnostic | Six quadratic measurements, grouped into three selected components. | A smaller setting for studying shared features, numerical fitting and executable cost. It is not the full MLP or full folded tensor. |
+| More flexible sharing | Features could be shared by pairs of components instead of by all three. | Better tensor fits, but the initial dense computation exceeded the cost budget. |
+| Compile and refit a cheaper graph | Convert the forms to explicit reusable products, then optimize directions and coefficients. | Much of the conversion error was recovered. The cheaper graph still failed fidelity requirements. |
+| Algebraic feature proposals | Derive candidate groups from pairs of quadratic forms, then refit. | Successful controlled examples; the native-model comparison still favored the earlier initialization. |
+
+The local target computes reads $q_j(z)=z^\top Q_jz$. These feed three downstream component calculations with explicit normalization. It receives intermediate states from the original model; **it is not an extracted token-to-output program**.
+
+**The main native result, with the comparison spelled out**
+
+The following rows refer to that same local target. “Covariance-shaped coefficient error” measures tensor reconstruction in an activation-informed geometry. “Component 3 error” measures one downstream scalar calculation on examined states. Neither is language-model accuracy.
+
+| Representation | Covariance-shaped coefficient error | Component 3 value error | Multiplications in the selected source computation |
 |---|---:|---:|---:|
 | Original pair-program baseline | 7.031% | 8.81% | 1,330,560 |
-| Dense pairwise-shared tensor fit | **7.577%** | 10.55% | 1,548,240 |
-| First cheap graph conversion | 11.150% | 14.21% | **1,047,648** |
-| Cheap graph after alternating exact updates | **7.994%** | **10.93%** | **1,047,648** |
+| Dense pairwise-shared fit | 7.577% | 10.55% | 1,548,240 |
+| First cheap graph conversion | 11.150% | 14.21% | 1,047,648 |
+| Latest controlled refit, inherited initialization | **7.893%** | **10.67%** | **1,047,648** |
 | Required limits | At most 7.734% | At most 9.69% | At most 1,064,448 |
 
-The dense fit meets the coefficient limit but exceeds the arithmetic budget and misses component fidelity. The refined graph saves **21.26% of source multiplications**, but still misses fidelity. It also misses the value limits for components 1 and 2. These are operation counts for the selected source computation, not measured whole-model speedups.
+The latest graph saves **21.26% of these source multiplications**, but fails reconstruction requirements. The dense fit is more accurate in coefficient space but too expensive. This is the central remaining gap between fitting a tensor and obtaining an acceptable simpler program. The table shows representative limits; acceptance also checks other components, original-coordinate error and derivatives.
 
-The subsequent fit let private input directions move outside the previously chosen subspaces. **It did not improve on the warm-start solution:** both warm fits selected step zero as their best checkpoint. Random starts did not beat them; one also failed the compiler's numerical reconstruction check. This is a failed optimization attempt, not proof that moving directions cannot help. These latest measurements use previously examined states, not a new behavioral test set.
+The algebraically proposed initialization, given the same native refitting budget, finished at **8.194%** covariance-shaped error, worse than **7.893%** from the inherited graph. Both compiled successfully. A good toy initialization has therefore not yet become a better native circuit. [Completed native comparison](../../direct_tensor_match/PENCIL_JOINT_REFIT_V1.json).
 
-A separate numerical lower bound gives a more specific negative conclusion: within the frozen pair input spaces, this private-branch structure cannot reach the coefficient requirement. Its lower bound is **7.798%**, above the **7.734%** limit. Allowing private directions anywhere lowers the bound to **7.174%**, which leaves success possible but does not establish attainability. Neither bound rules out other graph structures.
+These latest graph results use already examined states. Earlier candidates received fresh FineWeb/code comparisons, but none passed every relative baseline comparison. The latest graph has no new fresh/OOD validation establishing success.
 
-**Did weight matching and the paper's metric idea help?**
+**What the controlled examples taught us**
 
-Yes. Direct tensor matching made the folded function an optimization target, allowed exact conditional coefficient solves, and exposed errors hidden by individual-matrix compression. Jointly learning directions reduced one earlier fixed-direction graph's covariance error from **37.47% to 8.22%**. That is real progress, even though the resulting graph still lost important baseline comparisons.
+Optimizer failure and representation failure are different. When shared input spaces were supplied, an improved parameterization let both Adam and Muon recover all five planted cases using the better of two starts. Asking them to discover the shared spaces as well initially recovered none. The target functions had not become unrepresentable; the search had become harder.
 
-We have used two main error geometries:
+Algebraic proposals followed by graph refitting made the two-stage idea work on those controlled problems. With sixteen candidates retained per search width, all five cases passed coefficient recovery at zero noise and at 1% injected noise. At 1% noise, only four passed the internal shared-subspace identity requirement. Four candidates per width gave worse recovery than sixteen.
 
-| Metric | What it emphasizes |
-|---|---|
-| Weight-only coefficient error | Tensor coefficients in the original input coordinates. |
-| Covariance-shaped coefficient error | A reweighted tensor geometry informed by calibration activations. |
+**These recent five cases are instances of one planted sharing family, not five distinct architectural baselines.** They support this mechanism, not general recovery of arbitrary circuits. They also show that accurate outputs do not uniquely identify the internal features. [Toy results and controls](research_update_2026-09-21_1345_algebraic_proposals_and_refitting.md).
 
-They are not interchangeable. A small error in one can coexist with a large error in the other. A mixed objective has also been tested. Covariance information helped some behavioral comparisons, but no tested geometry was best for every component and domain.
+**Did direct weight matching help? Why did Tucker/HT not simply solve it?**
 
-The paper's $M$ should be understood in the appropriate lifted feature space. For quadratic outputs, expected squared functional error depends on fourth-order input moments; raw input covariance alone does not specify it without further assumptions. Our covariance-shaped loss should not be described as exact expected text-distribution error.
+Direct weight matching helped substantially: it provided joint objectives and exact conditional coefficient solves. In an earlier local experiment, learning feature directions reduced covariance-shaped coefficient error from **37.47% to 8.22%**. That is an improvement in fitting, not a validated final circuit.
 
-**Why “Tucker/HT failed because we assumed too little rank” is incomplete**
+We have explored both original-coordinate coefficient error and covariance-shaped error. The latter uses activation information and can prioritize relevant directions, but neither reliably predicts every downstream behavior. One quartic experiment improved coefficient error from **80.86% to 13.97%** while native-function error worsened from **37.71% to 48.97%**.
 
-There are three different failure modes, and we have seen evidence of each:
+The paper's moment matrix belongs in the appropriate lifted feature space. For quadratic functions, expected squared output error depends on fourth-order input moments. Our covariance-shaped loss should therefore not be called exact expected error on text merely because it uses input covariance.
 
-| Failure mode | Evidence and implication |
-|---|---|
-| Insufficient representation | Some fixed layouts have error lower bounds above their requirements. More optimizer steps cannot rescue those layouts. |
-| Optimization failure | Random fitting sometimes misses planted toy programs that the representation can express exactly. Optimizer, initialization and parameterization matter. |
-| Wrong metric for model behavior | A quartic fit reduced coefficient error from 80.86% to 13.97% while native-function error worsened from 37.71% to 48.97%. |
+The evidence points to three separate obstacles:
 
-Muon beat Adam in several toy comparisons, but not universally across representations. For the latest private-direction parameterization, the better of two restarts recovered **four of five** planted targets with Muon and **two of five** with Adam under the tested schedule. That did not translate into improvement on the native warm start. We cannot label every native miss a rank limit or every toy success a validated native optimizer.
+- **Restricted structure:** some frozen feature spaces have error lower bounds above the required limit. More optimizer steps cannot fix those particular layouts.
+- **Difficult optimization:** parameterization, initialization, regularization and search width change whether known toy structure is recovered. Some failed runs were numerical or implementation failures and were retained as such.
+- **Mismatch between coefficient error and behavior:** a better tensor score can still yield worse downstream outputs, especially through normalization and composition.
 
-Positive results also need checks. For example, an apparent storage saving required packing tensor views that retained unused backing memory. Shared-branch identity changed substantially across starts even when the total functions nearly agreed. Useful sharing does not yet establish a uniquely identified or monosemantic feature.
+Consequently, “we assumed too little Tucker rank” is not a sufficient account. Nor do these results rule out Tucker, HT or more general shared circuits.
 
-**What the baselines and “full coverage” wording meant**
+**What “full coverage” and “shared baselines” meant**
 
-“Full coverage” meant accounting for the entire **chosen target**, including residual error outside a fitted subspace. It did not mean that we had decomposed the full model. “Shared baselines” meant comparison programs that already reuse computations, so our method must improve on something stronger than an unnecessarily duplicated implementation.
+“Full coverage” referred to accounting for error across the entire **chosen reconstruction target**, including outside the fitted subspace. It did not mean that we had decomposed the full model or completed the proposed pipeline.
 
-On the latest fresh behavioral panel for earlier, wider graphs—32 FineWeb documents and 16 code files—all three fitting geometries passed the aggregate absolute limits, but **none passed every relative comparison against the baselines**. The newer local candidates above have not superseded that result with fresh validation.
+“Shared baselines” are comparison programs that already reuse computations. Beating a deliberately duplicated implementation would overstate the gain. We compare against stronger programs and track reconstruction, stored coefficients and arithmetic separately; some comparisons match storage rather than every cost simultaneously.
 
-The research direction remains the same: use decompositions to propose useful computations, then optimize a program that can reuse them. The evidence now says that **the graph stage must be allowed to revise feature directions and sharing patterns**, and that conversion into a cheap program needs its own fidelity test. The unresolved deliverable is a program that wins on total cost while retaining behavior; stable semantics and extraction from tokens are further requirements.
+The remaining milestone is concrete: **a compiled shared program that meets fidelity requirements while reducing total cost against a strong baseline, followed by fresh behavioral validation.** Stable feature identity, semantic interpretation and selective manipulation still need separate evidence. A sum of conditions sharing an output direction need not be one human-readable concept.
 
-**Links to the supporting detail**
-
-- [Earlier detailed review](research_update_2026-09-21_0738_decomposition_detailed_review.md): broad folding results and historical experiments.
-- [Cost-matched baselines](research_update_2026-09-21_1020_cost_matched_pair_baselines.md) and [fresh behavioral comparisons](research_update_2026-09-21_1037_fresh_metric_transfer.md).
-- [Joint fitting and feature identity](research_update_2026-09-21_1132_joint_graph_fit_and_identity.md).
-- [Pairwise sharing and the conversion gap](research_update_2026-09-21_1237_stage_one_gain_and_graph_conversion_gap.md).
-- [Alternating refinement and scoped rank bounds](research_update_2026-09-21_1256_private_forms_and_input_span_limits.md).
-- [Completed private-direction fit](../../direct_tensor_match/FREE_PRIVATE_NATIVE_V1.json): subsequent to the running-status statement in the 12:56 report.
-
-All percentages above are reconstruction errors, not language-model accuracy. Coefficient, component-value and logit-effect errors measure different objects; comparisons are meaningful within their stated target and metric.
+Supporting detail: [historical broad results](research_update_2026-09-21_0738_decomposition_detailed_review.md), [cost comparisons](research_update_2026-09-21_1020_cost_matched_pair_baselines.md), [conversion gap](research_update_2026-09-21_1237_stage_one_gain_and_graph_conversion_gap.md), [parameterization and feature discovery](research_update_2026-09-21_1320_parameterization_and_shared_feature_discovery.md), and [algebraic proposals with completed native follow-up](research_update_2026-09-21_1345_algebraic_proposals_and_refitting.md).

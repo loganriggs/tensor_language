@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Start here — [Folding → tensor decomposition → a simpler arithmetic circuit](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Overall review rewritten 21 September 2026, 13:07 UTC. Reconnects QR and the two-stage proposal to the broad and local results, explains the scope change, and distinguishes better tensor fits from a successful cheap circuit. Includes the completed private-direction fit.
+**Start here — [Overall review: folded weights → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 14:15 UTC. Explains the original two-stage plan, the exact QR step, the move to a smaller diagnostic target, and what the completed results do and do not establish.
 
 **Latest two-stage result — [Algebraic proposals and local graph refitting](research_update_2026-09-21_1345_algebraic_proposals_and_refitting.md).** Exact planted sharing is recovered algebraically. A bounded sixteen-candidate search plus refitting passes noisy toy gates; internal-feature ambiguity remains. Native refitting favors the inherited solution and still fails fidelity; see the follow-up in the report.
 
