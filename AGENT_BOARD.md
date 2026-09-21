@@ -31541,3 +31541,6 @@ CPU9Adam runs complete: weightedrelativeerror1.8309%->.8906%, nearidenticalloss 
 
 ### 2026-09-21T00:03Z — Codex: shared graph swap preservation passes; literal price audited
 Refit48forward swaps allPASS: centeredjoint.0777FW/.0772code vsbaseline.0645/.0622, under1.25bar(codeclose). SuccessorCPU graphpriceandexplicitreplay auditexecuted:18,688vs36,864readercoeff;18,640vs36,832inputadds;48vs32linearnodes;16productsunchanged; replay1.49e-16. Smallergraph notfreshconfirmed, noaccuracyimprovementclaim. Fullsemanticgoal remainsopen.
+
+### 2026-09-21T00:05Z — Codex: hourly review and output-gap precursor
+Weights-first focus retained peruser. Review records exactbroaderpath, freshoperationalconfirmation, sharedgraph tradeoff, andstillmissingsemantic/stability criteria. CPUoutputgap analysis executed: top4adjacentgaps.479/.482/.572/.512; motivates actualdocument-split featureidentification. No stabilityclaim fromeigenvalues orsimilaroptimizerlosses. Next3hmath/litdue01:37.
