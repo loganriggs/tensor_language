@@ -1,0 +1,7 @@
+**Fit output sharing directly under the parent joint objective.**
+
+Fix U,V from the learned32x4 dictionary, lambda1 and the same calibration value/centered-derivative statistics as QUARTIC_JOINT_READOUT_PLAN_V1. Impose output rank4/8/16/32, primary8. Solve the reduced-rank regression exactly after including the fixedRMS-coordinate ridge in the feature Gram. The output subspace comes only from calibration joint statistics. Compile its root quadratic forms into signed squares over the shared q features, retaining identical cost formulas to the previous block screen.
+
+Opposing outcomes: direct rank-constrained fitting could improve the joint objective but worsen the value-only gate. Do not silently select a newlambda orrank. Integrity requires spectralobjectivecertificate<1e-6, projectedroot/exportreplay<1e-5, exactprices. Primary nativevalue errors<=1.1times parent7.74449%/13.60910%onbothpanels. Primary centeredderivativeerror<=1.1timesparent20.69694%/27.73355%onbothpanels. Report parent-approximationerrors and comparisons to same-rank prediction-PCA blocks; lowerjointobjective is an algorithm check, not independentvalidation.
+
+Five independent augmented-design low-rank projection controls pass below1.5e-13, including cancellation and full-output-rank recovery of the previous unconstrained solver. Output-rank sharing is one structural circuit hypothesis, not evidence that grouped conditions are monosemantic. Savednativebranch machinery must remain explicit about RMS denominators/background before a later model-level claim.

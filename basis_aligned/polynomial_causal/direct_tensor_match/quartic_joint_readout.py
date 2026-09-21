@@ -41,3 +41,26 @@ if __name__=='__main__':
     import json
     from pathlib import Path
     torch.set_num_threads(2);rows=controls();Path(__file__).with_name('QUARTIC_JOINT_READOUT_CONTROLS_V1.json').write_text(json.dumps(rows,indent=2)+'\n');print(json.dumps(rows))
+
+
+def solve_rank(phi,y,derivative_gram,derivative_cross,derivative_energy,weight,rank,ridge_fraction=1e-6):
+    """Globally optimal output-rank constrained writer for the fixed joint metric.
+
+    This optimizes a fixed feature dictionary, not arbitrary arithmetic circuits.
+    The ridge is included in the Cholesky whitening, so the rank solution and
+    unconstrained baseline minimize exactly the same quadratic objective.
+    """
+    s=phi.square().mean(0).sqrt().clamp_min(1e-12);z=phi/s;ve=y.square().sum()
+    G=z.T@z/ve+weight*derivative_gram/s[:,None]/s[None,:]/derivative_energy
+    X=y.T@z/ve+weight*derivative_cross/s/derivative_energy
+    G=G+len(phi)*ridge_fraction/ve*torch.eye(len(s),device=phi.device,dtype=phi.dtype)
+    L=torch.linalg.cholesky((G+G.T)/2)
+    Z=torch.linalg.solve_triangular(L,X.T,upper=False).T
+    left,singular,_=torch.linalg.svd(Z,full_matrices=False)
+    if not 1<=rank<=len(singular):raise ValueError('invalid output rank')
+    basis=left[:,:rank];full=torch.cholesky_solve(X.T,L).T
+    c=basis@(basis.T@full)
+    objective=((c@G)*c).sum()-2*(c*X).sum()
+    optimum=-singular[:rank].square().sum()
+    certificate=float(abs(objective-optimum)/optimum.abs().clamp_min(1e-30))
+    return c/s,basis,dict(spectral_objective_relative_error=certificate)

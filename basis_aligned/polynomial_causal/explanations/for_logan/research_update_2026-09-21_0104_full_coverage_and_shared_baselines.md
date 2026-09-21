@@ -181,6 +181,8 @@ Why can those results coexist? Coefficient Frobenius error, covariance-shaped co
 
 The next capacity checks separate output fitting from missing input information. Even an oracle output fit on the second panel cannot reduce the fixed wide dictionary below **7.58%**. Its input readers also miss substantial isotropic local sensitivity. But that conclusion depends on geometry: optimal 256-reader derivative-error floors are **19.13% / 15.45%** under isotropic perturbations, versus **3.76% / 2.92%** under centered activation covariance. Uncentered weighting gives still smaller floors because about **96%** of its derivative energy comes from the mean direction. These are local derivative bounds, not natural prediction errors or identified circuits. [Capacity checks and the covariance correction](../../direct_tensor_match/QUARTIC_READER_RANK_INTERPRETATION_V1.md).
 
+A recent **stage-two graph test** does produce a substantial cost reduction. Keeping 32 learned quadratic features, we group their root computation into eight shared output directions and diagonalize each root quadratic form. This reduces **656 → 384 products** and **903,168 → 312,576 stored coefficients**. Native quartic errors become **8.60% / 13.70%**, versus the joint-fit parent's **7.74% / 13.61%**. The primary narrowly fails its calibration-fidelity limit, so this is a useful smaller approximation, not an adopted circuit. The next solver fits output sharing directly under the joint objective rather than truncating the parent's predictions. [Graph result and cost accounting](../../direct_tensor_match/SHARED_ROOT_BLOCK_INTERPRETATION_V1.md).
+
 **6. Where the original plan stands**
 
 | Piece | Status |
