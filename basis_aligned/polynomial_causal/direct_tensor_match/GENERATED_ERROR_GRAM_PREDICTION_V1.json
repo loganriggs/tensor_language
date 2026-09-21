@@ -1,0 +1,96 @@
+{
+  "rows": [
+    {
+      "family": "natural",
+      "cohort": "all",
+      "energy": {
+        "graph": 20972357.08360991,
+        "separate": 18650614.28278568
+      },
+      "ratio": 1.0604179036379418,
+      "original_ratio": 0.9384649891009373
+    },
+    {
+      "family": "natural",
+      "cohort": "continuation",
+      "energy": {
+        "graph": 655559.4858809325,
+        "separate": 657985.6594151593
+      },
+      "ratio": 0.998154660269534,
+      "original_ratio": 0.9280353658105137
+    },
+    {
+      "family": "natural",
+      "cohort": "spaced_word",
+      "energy": {
+        "graph": 504328.81003843417,
+        "separate": 501449.3764059379
+      },
+      "ratio": 1.0028670011436578,
+      "original_ratio": 1.141236459016915
+    },
+    {
+      "family": "hybrid",
+      "cohort": "all",
+      "energy": {
+        "graph": 22012693.763734076,
+        "separate": 19642260.69438621
+      },
+      "ratio": 1.058621866879314,
+      "original_ratio": 0.9365556883393938
+    },
+    {
+      "family": "hybrid",
+      "cohort": "continuation",
+      "energy": {
+        "graph": 771746.8910255425,
+        "separate": 775514.0451130235
+      },
+      "ratio": 0.9975682322524041,
+      "original_ratio": 0.9192625236889252
+    },
+    {
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "energy": {
+        "graph": 605269.8854546715,
+        "separate": 568822.1471323255
+      },
+      "ratio": 1.031540502045869,
+      "original_ratio": 1.1139928538852213
+    },
+    {
+      "family": "change",
+      "cohort": "all",
+      "energy": {
+        "graph": 17599053.01970587,
+        "separate": 20153072.43984567
+      },
+      "ratio": 0.9344886196805157,
+      "original_ratio": 0.935205215025885
+    },
+    {
+      "family": "change",
+      "cohort": "continuation",
+      "energy": {
+        "graph": 1001607.1090931565,
+        "separate": 1110403.1236699426
+      },
+      "ratio": 0.9497479433348945,
+      "original_ratio": 0.9168308049646142
+    },
+    {
+      "family": "change",
+      "cohort": "spaced_word",
+      "energy": {
+        "graph": 780754.762641817,
+        "separate": 975871.6217689967
+      },
+      "ratio": 0.8944601086977237,
+      "original_ratio": 0.942654683425524
+    }
+  ],
+  "derivation": "Boundary error terms (t1,t2,t3) become (-t1,t2,-t3) when the first source read also generates its residual contribution. This predicts exact-carry mode3 energies on pooled opened code sites, before adding the small native RMS16 reconstruction discrepancy.",
+  "scope": "Reanalysis, not independent fresh evidence. New native executor must replay this prediction; allcomponents and otherdomains still need checks."
+}

@@ -1,0 +1,45 @@
+{
+  "rows": [
+    {
+      "candidate": "graph",
+      "boundary_error": [
+        0.01726505467080299,
+        0.02174313655432548,
+        0.08346263369000159
+      ],
+      "generated_error": [
+        0.03095540116137273,
+        0.028347001198482987,
+        0.08871488328278819
+      ]
+    },
+    {
+      "candidate": "separate",
+      "boundary_error": [
+        0.02357251541587565,
+        0.022508263351117507,
+        0.10598704402171615
+      ],
+      "generated_error": [
+        0.039329390151714404,
+        0.02953646788473522,
+        0.12047535628899227
+      ]
+    },
+    {
+      "candidate": "isotropic",
+      "boundary_error": [
+        0.01768799838292954,
+        0.032597705742166555,
+        0.13575217275026127
+      ],
+      "generated_error": [
+        0.03929577213120661,
+        0.03533023534244315,
+        0.11851400308846416
+      ]
+    }
+  ],
+  "n": 448,
+  "scope": "No fitting. Uses exact quadratic forms and recomputed RMS17 for internally consistent truth. The generated interface holds supplied carry projections fixed; it is not the total derivative through native attention or RMS producers."
+}
