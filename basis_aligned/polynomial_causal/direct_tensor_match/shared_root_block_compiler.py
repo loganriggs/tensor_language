@@ -12,13 +12,25 @@ def compile_root(U,V,C,output_metric,x,rank):
     folded=output_metric@C;prediction=features(x,U,V)@folded.T
     _,_,vh=torch.linalg.svd(prediction,full_matrices=False)
     if not 1<=rank<=min(prediction.shape):raise ValueError('invalid output rank')
-    basis=vh[:rank].T;root=basis.T@folded
+    return compile_basis(U,V,C,output_metric,vh[:rank].T)
+
+
+def compile_basis(U,V,C,output_metric,basis):
+    m=U.shape[0];rank=basis.shape[1];i,j=torch.triu_indices(m,m,device=U.device)
+    root=basis.T@(output_metric@C)
     forms=root.new_zeros(rank,m,m)
     forms[:,i,j]=root/torch.where(i==j,1.,2.)
     forms[:,j,i]=forms[:,i,j]
     eigen,vectors=torch.linalg.eigh(forms)
     writer=torch.linalg.solve(output_metric,basis)
     return dict(U=U,V=V,root_eigenvalues=eigen,root_eigenvectors=vectors,writer=writer)
+
+
+def expand_root_writer(program):
+    E=program['root_eigenvectors'];values=program['root_eigenvalues'];forms=(E*values[:,None,:])@E.transpose(-1,-2)
+    i,j=torch.triu_indices(forms.shape[1],forms.shape[2],device=forms.device)
+    coefficients=forms[:,i,j]*torch.where(i==j,1.,2.)
+    return program['writer']@coefficients
 
 
 def evaluate(program,x):
