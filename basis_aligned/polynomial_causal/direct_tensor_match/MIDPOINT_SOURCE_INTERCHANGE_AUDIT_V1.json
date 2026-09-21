@@ -1,0 +1,152 @@
+{
+  "numerator": "covariance_16",
+  "denominator": "isotropic_0",
+  "intervals": {
+    "fineweb": {
+      "hybrid": {
+        "all": {
+          "effect_error_95": [
+            0.0746342582619072,
+            0.0935013639038202
+          ],
+          "error_ratio_95": [
+            0.30945285265626016,
+            0.4798805527524899
+          ],
+          "valid_draws": 10000
+        },
+        "continuation": {
+          "effect_error_95": [
+            0.09400357139631041,
+            0.1403822363843678
+          ],
+          "error_ratio_95": [
+            1.1568939408689407,
+            1.648537338937156
+          ],
+          "valid_draws": 10000
+        },
+        "spaced_word": {
+          "effect_error_95": [
+            0.06169089230095233,
+            0.0677454386249495
+          ],
+          "error_ratio_95": [
+            0.47638002979954747,
+            0.6020057454271793
+          ],
+          "valid_draws": 10000
+        }
+      },
+      "change": {
+        "all": {
+          "effect_error_95": [
+            0.1039711107701218,
+            0.14252333225344205
+          ],
+          "error_ratio_95": [
+            0.2939078308341789,
+            0.441115535134854
+          ],
+          "valid_draws": 10000
+        },
+        "continuation": {
+          "effect_error_95": [
+            0.09114016044234234,
+            0.14080866840216882
+          ],
+          "error_ratio_95": [
+            0.6843742753496809,
+            1.0399310364783025
+          ],
+          "valid_draws": 10000
+        },
+        "spaced_word": {
+          "effect_error_95": [
+            0.12267070921895118,
+            0.1483686357607167
+          ],
+          "error_ratio_95": [
+            0.6147676690802343,
+            0.6796739082518526
+          ],
+          "valid_draws": 10000
+        }
+      }
+    },
+    "stdlib": {
+      "hybrid": {
+        "all": {
+          "effect_error_95": [
+            0.047913990340377154,
+            0.058043195238853096
+          ],
+          "error_ratio_95": [
+            0.4389020425576148,
+            0.562640516323527
+          ],
+          "valid_draws": 10000
+        },
+        "continuation": {
+          "effect_error_95": [
+            0.061502098741786575,
+            0.07756797967434906
+          ],
+          "error_ratio_95": [
+            0.7807472388769277,
+            1.3104482059999294
+          ],
+          "valid_draws": 10000
+        },
+        "spaced_word": {
+          "effect_error_95": [
+            0.03731132713061187,
+            0.11765642858155138
+          ],
+          "error_ratio_95": [
+            0.9049599130434015,
+            1.723071157533306
+          ],
+          "valid_draws": 10000
+        }
+      },
+      "change": {
+        "all": {
+          "effect_error_95": [
+            0.07314594143398334,
+            0.0891649513134041
+          ],
+          "error_ratio_95": [
+            0.40386198485055924,
+            0.491385885864113
+          ],
+          "valid_draws": 10000
+        },
+        "continuation": {
+          "effect_error_95": [
+            0.053956495687631285,
+            0.08360385868766315
+          ],
+          "error_ratio_95": [
+            0.40361529880280467,
+            0.6190188376462091
+          ],
+          "valid_draws": 10000
+        },
+        "spaced_word": {
+          "effect_error_95": [
+            0.04970525157720841,
+            0.10139255718236198
+          ],
+          "error_ratio_95": [
+            0.5427363254676824,
+            0.861720015740316
+          ],
+          "valid_draws": 10000
+        }
+      }
+    }
+  },
+  "controls": {},
+  "scope": "10000 paired recipient-document bootstrap draws, conditional on fixed deterministic donors. Donors repeat and may serve different recipients; these intervals do not capture uncertainty from donor selection. No simultaneous coverage."
+}

@@ -1,0 +1,35 @@
+{
+  "name": "continuation_source_shared16",
+  "status": "candidate; balanced-donor relative-fidelity checks failed",
+  "stored_scalars": 23588,
+  "dtype": "float64",
+  "artifact_bytes": 192956,
+  "sha256": "8f42566e083ed4e29f1188867355f92d6d734fa7e2db6f1187b733364042a5e8",
+  "executor": "../../source_interface.py:residual_write",
+  "inputs": {
+    "z": "Native normalized MLP16 input, width1152",
+    "h": "Native pre-normalization lastMLP input, width1152"
+  },
+  "output": "Residual-space write of approximate native leading continuation feature",
+  "operations": {
+    "shared_input_features": 16,
+    "source_squares": 32,
+    "final_variable_products": 1,
+    "inner_coefficients": 512,
+    "normalization": "s(h)=sqrt(mean(h^2)+float32eps), explicit and shared"
+  },
+  "evidence": [
+    "../../MIDPOINT_SHARED_SOURCE_NATIVE_V1.json",
+    "../../MIDPOINT_SHARED_SOURCE_NATIVE_AUDIT_V1.json",
+    "../../MIDPOINT_BALANCED_SOURCE_NATIVE_V1.json",
+    "../../MIDPOINT_BALANCED_SOURCE_NATIVE_AUDIT_V1.json"
+  ],
+  "limits": [
+    "Balanced-donor code spaced-word relative-fidelity checks fail for hybrid and change effects",
+    "Native z/h producers remain required",
+    "Original rank1 feature itself omits native projected interaction remainder",
+    "Prior ordinary-state continuation CE tolerance failed for unshared source approximation; no repair claim for shared version",
+    "Code panel reused; repeated donors; internal feature reuse is not independent-task reuse",
+    "No semantic identity for individual shared input directions"
+  ]
+}

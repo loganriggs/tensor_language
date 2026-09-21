@@ -1,0 +1,57 @@
+{
+  "results": {
+    "frozen_rank16": [
+      {
+        "shared_rank": 8,
+        "relative_error_lower_bound": 0.17237412226447563,
+        "construction_relative_error": 0.17739439228685516,
+        "construction_over_lower_bound": 1.0291242673577006
+      },
+      {
+        "shared_rank": 16,
+        "relative_error_lower_bound": 0.045195146081622554,
+        "construction_relative_error": 0.062296815158619186,
+        "construction_over_lower_bound": 1.3783961455973828
+      },
+      {
+        "shared_rank": 24,
+        "relative_error_lower_bound": 0.015912499290202973,
+        "construction_relative_error": 0.022445394333768787,
+        "construction_over_lower_bound": 1.4105511600926195
+      },
+      {
+        "shared_rank": 32,
+        "relative_error_lower_bound": 5.3773742706315e-08,
+        "construction_relative_error": 1.377780482605027e-14,
+        "construction_over_lower_bound": null
+      }
+    ],
+    "original_quadratic": [
+      {
+        "shared_rank": 8,
+        "relative_error_lower_bound": 0.2978125646895098,
+        "construction_relative_error": 0.3004882116774361,
+        "construction_over_lower_bound": 1.008984332110755
+      },
+      {
+        "shared_rank": 16,
+        "relative_error_lower_bound": 0.24963125290594446,
+        "construction_relative_error": 0.2533648144218234,
+        "construction_over_lower_bound": 1.0149563064416685
+      },
+      {
+        "shared_rank": 24,
+        "relative_error_lower_bound": 0.22320568680995867,
+        "construction_relative_error": 0.2260214186840889,
+        "construction_over_lower_bound": 1.0126149647635438
+      },
+      {
+        "shared_rank": 32,
+        "relative_error_lower_bound": 0.20471168420456737,
+        "construction_relative_error": 0.2087234231000111,
+        "construction_over_lower_bound": 1.0195970196377986
+      }
+    ]
+  },
+  "scope": "Covariance-weighted coefficient norm of centered source quadratic residuals; linear and constant terms separate. Global lower bound within common-k-dimensional-input dictionaries, not all low-arithmetic-cost DAGs. Does not certify empirical fourth-moment or native-effect fidelity."
+}

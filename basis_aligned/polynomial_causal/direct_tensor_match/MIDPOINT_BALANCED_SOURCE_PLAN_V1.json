@@ -1,0 +1,67 @@
+{
+  "program_sha256": "4960262458724cc485844fa7fbbe77021eb57a84060bbbf6b1168d93e4702440",
+  "donor_sha256": "51e6a9401852a82886af373c6d25e650f2a895e80aa25f1e3f78b38996dbf3f0",
+  "tokens_sha256": {
+    "fineweb": "1df044b8b419949d66b3b32b793fc399ecb5ba064c8d5d4e9869f63f655cf532",
+    "stdlib": "184e0e064b9bcd88c6fabdf5dce32f719da9215e1f1209702cfac6494bc3bfda"
+  },
+  "recipient_documents": {
+    "fineweb": [
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191
+    ],
+    "stdlib": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "valid_pairs": {
+    "fineweb": 2529,
+    "stdlib": 3153
+  },
+  "full_dictionary_synthetic_replay": 1.4631531985220168e-13,
+  "scope": "Donor-family sensitivity on reused shared-source panel; programs unchanged. Same absolute and relative gates. No fresh-data claim.",
+  "donor_rule": "Within each current-token stratum, greedily choose least-used donor in another document, ties nearest sequence position then flat index; recipient order fixed. No outcomes used.",
+  "donor_concentration": {
+    "fineweb": {
+      "pairs": 2529,
+      "distinct_donors": 2392,
+      "max_site_fraction": 0.001977066043764353,
+      "max_document_fraction": 0.0771055743098259
+    },
+    "stdlib": {
+      "pairs": 3153,
+      "distinct_donors": 2975,
+      "max_site_fraction": 0.0028544242959469557,
+      "max_document_fraction": 0.06850618124008179
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "numerator": "shared16",
+  "denominator": "covariance_16",
+  "intervals": {
+    "fineweb": {
+      "hybrid": {
+        "all": {
+          "effect_error_95": [
+            0.0757251965894234,
+            0.09216240220448131
+          ],
+          "error_ratio_95": [
+            0.9443254493699474,
+            0.9728392648315924
+          ],
+          "valid_draws": 10000
+        },
+        "continuation": {
+          "effect_error_95": [
+            0.09072026179193168,
+            0.12598749183020252
+          ],
+          "error_ratio_95": [
+            0.9073116617313707,
+            0.9503167186202145
+          ],
+          "valid_draws": 10000
+        },
+        "spaced_word": {
+          "effect_error_95": [
+            0.07300388610576812,
+            0.08732959651998132
+          ],
+          "error_ratio_95": [
+            0.9785259306645226,
+            1.0171283460183882
+          ],
+          "valid_draws": 10000
+        }
+      },
+      "change": {
+        "all": {
+          "effect_error_95": [
+            0.0993339700471686,
+            0.11838610424688702
+          ],
+          "error_ratio_95": [
+            0.9590712548207094,
+            0.9961120503516695
+          ],
+          "valid_draws": 10000
+        },
+        "continuation": {
+          "effect_error_95": [
+            0.09079323943759852,
+            0.12892226547836977
+          ],
+          "error_ratio_95": [
+            0.9328355214581225,
+            0.9846436995695375
+          ],
+          "valid_draws": 10000
+        },
+        "spaced_word": {
+          "effect_error_95": [
+            0.1442797526352109,
+            0.16392482390064186
+          ],
+          "error_ratio_95": [
+            0.981776069668314,
+            0.9974680693915048
+          ],
+          "valid_draws": 10000
+        }
+      }
+    },
+    "stdlib": {
+      "hybrid": {
+        "all": {
+          "effect_error_95": [
+            0.04241327390597418,
+            0.0509086159491669
+          ],
+          "error_ratio_95": [
+            0.8633688995082408,
+            0.8964761582508096
+          ],
+          "valid_draws": 10000
+        },
+        "continuation": {
+          "effect_error_95": [
+            0.05768579161684382,
+            0.07247470838504969
+          ],
+          "error_ratio_95": [
+            0.9148549208842843,
+            0.9709919558395359
+          ],
+          "valid_draws": 10000
+        },
+        "spaced_word": {
+          "effect_error_95": [
+            0.039449511673733416,
+            0.11921215990738297
+          ],
+          "error_ratio_95": [
+            0.9884101993255838,
+            1.0988411867139711
+          ],
+          "valid_draws": 10000
+        }
+      },
+      "change": {
+        "all": {
+          "effect_error_95": [
+            0.06996811742561215,
+            0.09013838777430054
+          ],
+          "error_ratio_95": [
+            0.9523285507170709,
+            1.0192415319397963
+          ],
+          "valid_draws": 10000
+        },
+        "continuation": {
+          "effect_error_95": [
+            0.053797012652890684,
+            0.08004097112006073
+          ],
+          "error_ratio_95": [
+            0.9099161062168132,
+            1.0443141152811422
+          ],
+          "valid_draws": 10000
+        },
+        "spaced_word": {
+          "effect_error_95": [
+            0.05410463245944942,
+            0.1071384779339739
+          ],
+          "error_ratio_95": [
+            1.0424128620495257,
+            1.1053541773017443
+          ],
+          "valid_draws": 10000
+        }
+      }
+    }
+  },
+  "controls": {
+    "full32_max_summary_replay": 0.0,
+    "reused_code_baseline_replay": 0.0
+  },
+  "scope": "10000 paired recipient-document bootstrap draws, conditional on fixed deterministic donors. Donors repeat and may serve different recipients; these intervals do not capture uncertainty from donor selection. No simultaneous coverage."
+}
