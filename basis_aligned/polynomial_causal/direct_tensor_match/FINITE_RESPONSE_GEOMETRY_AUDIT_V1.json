@@ -1,0 +1,80 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_transfer_gap": true,
+    "pred_c_ordering": true
+  },
+  "records": [
+    {
+      "domain": "fineweb",
+      "cohort": "continuation",
+      "sites": 110,
+      "programs": {
+        "fixed": {
+          "centered_response_error": 0.12228382810829656,
+          "mlp_response_error": 0.1470731311112229,
+          "full_residual_response_error": 0.11068469917980071
+        },
+        "learned": {
+          "centered_response_error": 0.11960510156666863,
+          "mlp_response_error": 0.1438513747599329,
+          "full_residual_response_error": 0.10826006097512776
+        }
+      }
+    },
+    {
+      "domain": "fineweb",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "programs": {
+        "fixed": {
+          "centered_response_error": 0.15472393129152243,
+          "mlp_response_error": 0.08912970171920627,
+          "full_residual_response_error": 0.07404973076222168
+        },
+        "learned": {
+          "centered_response_error": 0.1503498676639113,
+          "mlp_response_error": 0.08660999463074523,
+          "full_residual_response_error": 0.07195633621583339
+        }
+      }
+    },
+    {
+      "domain": "stdlib",
+      "cohort": "continuation",
+      "sites": 174,
+      "programs": {
+        "fixed": {
+          "centered_response_error": 0.07789303102542895,
+          "mlp_response_error": 0.06531143136772909,
+          "full_residual_response_error": 0.09516916789399613
+        },
+        "learned": {
+          "centered_response_error": 0.07453472862297987,
+          "mlp_response_error": 0.06249557564890324,
+          "full_residual_response_error": 0.09106601718885604
+        }
+      }
+    },
+    {
+      "domain": "stdlib",
+      "cohort": "spaced_word",
+      "sites": 160,
+      "programs": {
+        "fixed": {
+          "centered_response_error": 0.10440057170560008,
+          "mlp_response_error": 0.05715748182380935,
+          "full_residual_response_error": 0.06673965191530766
+        },
+        "learned": {
+          "centered_response_error": 0.10242406322961964,
+          "mlp_response_error": 0.0560753781011494,
+          "full_residual_response_error": 0.06547613883736622
+        }
+      }
+    }
+  ],
+  "maximum_replay": 0.0,
+  "seconds": 2.3774939733557403,
+  "scope": "Exact exported-program response errors in original uncentered-vocabulary QR metric before finalRMS/softcap. Centered quadratic denominator matches training definition; other denominators expose metric dependence. Opened same-cohort native donor panel, not additional independent validation or causal attribution of the gap."
+}

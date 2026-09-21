@@ -1,0 +1,51 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_pair_overfit": true,
+    "pred_c_learning": true
+  },
+  "records": [
+    {
+      "donor_shift": 257,
+      "errors": {
+        "FINITE_FIXED": 0.04545614737176513,
+        "FINITE_LEARNED": 0.03264007148673954,
+        "MIXED": 0.06457024853186
+      }
+    },
+    {
+      "donor_shift": 64,
+      "errors": {
+        "FINITE_FIXED": 0.05650086548961594,
+        "FINITE_LEARNED": 0.05223553583470548,
+        "MIXED": 0.06301431981070274
+      }
+    },
+    {
+      "donor_shift": 509,
+      "errors": {
+        "FINITE_FIXED": 0.05627564970106251,
+        "FINITE_LEARNED": 0.05217393174919064,
+        "MIXED": 0.06276917232848808
+      }
+    },
+    {
+      "donor_shift": 1021,
+      "errors": {
+        "FINITE_FIXED": 0.056688449645209305,
+        "FINITE_LEARNED": 0.05254340909624471,
+        "MIXED": 0.06349407744503507
+      }
+    },
+    {
+      "donor_shift": 1537,
+      "errors": {
+        "FINITE_FIXED": 0.05641781197241024,
+        "FINITE_LEARNED": 0.052218202701964776,
+        "MIXED": 0.06242724649014252
+      }
+    }
+  ],
+  "seconds": 16.999778953846544,
+  "scope": "Same historical2048states, unfitted donor recombinations only; not independent documents, OOD or semantically matched donors. Direct exported affine-corrected differences; centered teacher quadratic denominator and QR output metric. No new fitting."
+}
