@@ -1,0 +1,91 @@
+{
+  "toy": {
+    "dense_writer_replay": 3.6938178791504075e-16,
+    "normal_equation_error": 3.1564856957371216e-16,
+    "greedy_steps_match_exhaustive": true
+  },
+  "records": [
+    {
+      "policy": "joint_greedy",
+      "products": 128,
+      "coefficient_error_to_shared_graph": 0.05664057953017423,
+      "full_calibration_variation_error": 0.28118925364556124,
+      "weight_coefficients": 802816,
+      "output_factored": false,
+      "normal_equation_error": 3.011354106573508e-15,
+      "retained_rank": 128
+    },
+    {
+      "policy": "joint_greedy",
+      "products": 256,
+      "coefficient_error_to_shared_graph": 0.034108254340866256,
+      "full_calibration_variation_error": 0.23183638545126348,
+      "weight_coefficients": 1015808,
+      "output_factored": false,
+      "normal_equation_error": 1.7150761989383624e-15,
+      "retained_rank": 256
+    },
+    {
+      "policy": "joint_greedy",
+      "products": 512,
+      "coefficient_error_to_shared_graph": 0.013206588486853504,
+      "full_calibration_variation_error": 0.20004987860743756,
+      "weight_coefficients": 1291264,
+      "output_factored": true,
+      "normal_equation_error": 2.73850611805271e-15,
+      "retained_rank": 512
+    },
+    {
+      "policy": "joint_greedy",
+      "products": 768,
+      "coefficient_error_to_shared_graph": 0.006214872637197696,
+      "full_calibration_variation_error": 0.19478833021237008,
+      "weight_coefficients": 1489920,
+      "output_factored": true,
+      "normal_equation_error": 2.891139285294162e-15,
+      "retained_rank": 768
+    },
+    {
+      "policy": "individual_energy",
+      "products": 128,
+      "coefficient_error_to_shared_graph": 0.05771962593411719,
+      "full_calibration_variation_error": 0.2815625102594209,
+      "weight_coefficients": 802816,
+      "output_factored": false,
+      "normal_equation_error": 2.2249563706759438e-15,
+      "retained_rank": 128
+    },
+    {
+      "policy": "individual_energy",
+      "products": 256,
+      "coefficient_error_to_shared_graph": 0.03504225984026218,
+      "full_calibration_variation_error": 0.2332741641134713,
+      "weight_coefficients": 1015808,
+      "output_factored": false,
+      "normal_equation_error": 1.791475732255084e-15,
+      "retained_rank": 256
+    },
+    {
+      "policy": "individual_energy",
+      "products": 512,
+      "coefficient_error_to_shared_graph": 0.013814424117066107,
+      "full_calibration_variation_error": 0.20150466564072136,
+      "weight_coefficients": 1291264,
+      "output_factored": true,
+      "normal_equation_error": 2.1685171617905093e-15,
+      "retained_rank": 512
+    },
+    {
+      "policy": "individual_energy",
+      "products": 768,
+      "coefficient_error_to_shared_graph": 0.006369436033206325,
+      "full_calibration_variation_error": 0.1950155335795886,
+      "weight_coefficients": 1489920,
+      "output_factored": true,
+      "normal_equation_error": 4.183021028471351e-15,
+      "retained_rank": 768
+    }
+  ],
+  "seconds": 2.0112784791272134,
+  "scope": "Greedy deletion/reselection of existing learnedproducts followedby exact conditional output refit under separableweighted coefficientmetric. Frozen sharedinputgraph is teacher, originalnativefullcalibration error separatelyreported. Exactcompactoutputframe priced; meansrecentered calibrationonly. Noheldfit or nativeclaims."
+}

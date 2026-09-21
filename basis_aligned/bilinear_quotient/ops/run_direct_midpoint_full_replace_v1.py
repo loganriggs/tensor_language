@@ -43,6 +43,7 @@ def main():
     phi=products-e['product_mean']
     if 'group_writers' in e:
      groups=e['group_writers'].shape[1];reduced=phi.reshape(len(phi),groups,-1).sum(-1)@e['group_writers'].T+(phi@e['correction_left'])@e['correction_writers'].T
+    elif 'output_basis' in e:reduced=(phi@e['output_core'].T)@e['output_basis'].T
     else:reduced=phi@e['reduced_writers'].T
     reduced=reduced+e['full_mean']-mu;preds['product_'+name].append(reduced@invru.T)
   states=torch.cat(states);true=torch.cat(teacher);preds={k:torch.cat(v) for k,v in preds.items()};targets=tokens[:,1:257].reshape(-1).cuda();flat=tokens[:,:256].flatten();mapping=donors[domain]['same_token'];valid=mapping>=0;docs=torch.arange(len(flat))//256;assert torch.all(docs[valid]!=docs[mapping[valid]]) and torch.all(flat[valid]==flat[mapping[valid]])

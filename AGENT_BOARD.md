@@ -31665,3 +31665,12 @@ Native256inputrank instrument/preservation/CEPASS: swapFW .31284/code .27170, co
 
 ### 2026-09-21T01:29Z — Codex: user-requested overall report rewrite
 Replaced0104 incremental log with standalone review organized by original QR/folding -> Tucker/HT-style candidate decomposition -> arithmeticgraph edits proposal. Explicitly distinguish currentblockterm initializer from fullHT, QR fromlossy output truncation, selected4features from fulltarget, implementededits from generalDAGsearch. Includeslatestsharedinput nativeevidence and missingcircuitcriteria. User clarification changes reporting, notresearchobjective.
+
+### 2026-09-21T01:32Z — Codex: joint graph product deletion CPU
+Previous turn completed userrequested overallrewrite and retained sharedinputnative/cost evidence. Nowoutput-aware greedy selection in exactseparableweighted productGram,128/256/512/768 retained products, sameconditionalwriterrefit for individualenergycontrol. Brute-forcegreedy/densewriter toy checks. Price outputfactorization (264dim exactframe) aswell asfixed256inputbasis; fullnativecalibration metric separate from frozenapproxteacher coefficienterror.
+
+### 2026-09-21T01:35Z — Codex: three-hour math/literature review complete
+Ahead of01:37due, reviewed fixed-productGram/conditionaloutput refit, singularmetric caveat, approximate-teacher vsoriginalnative target, mean and pairedinput distinctions. Primaryliterature: OBS, Cohen-Sharir-Shashua tensoranalysis, Tensat. Sourcesandapplicabilitylimits in THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-21_0135.md. Nextscheduledreview04:35UTC. Nativeproductpruning jobqueued/live; no theorem transfer or semanticidentification claim.
+
+### 2026-09-21T01:36Z — Codex: 512product native PASS; cumulativecheck executed
+Native512product allregisteredchecksPASS: swapsFW .31660/code .27565, CE .01098/.02758; weights1,291,264. SuccessorCPU end-to-end errorratios tooriginalcorrected1024productgraph(beforeinputsharing) computed; all512product removals/swaps within5% aswell, notjust chainedrungbars. AbsoluteFW30% criterion remainsmissed onreusedpanel. 256product variant cheaper butworse; notpromoted.
