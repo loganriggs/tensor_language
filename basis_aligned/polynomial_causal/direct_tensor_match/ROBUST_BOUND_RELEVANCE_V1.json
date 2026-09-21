@@ -1,0 +1,30 @@
+{
+  "rows": [
+    {
+      "candidate": "old",
+      "global_bound_norm_over_actual": 3732.529671151846,
+      "pointwise_read_triangle_bound_norm_over_actual": 1.244549915112468,
+      "bound_norm_over_target_variation": 311.5267566804086,
+      "actual_component_error": 0.08346263369000159
+    },
+    {
+      "candidate": "new",
+      "global_bound_norm_over_actual": 3003.9691185809047,
+      "pointwise_read_triangle_bound_norm_over_actual": 1.2550069892327156,
+      "bound_norm_over_target_variation": 250.69390518803607,
+      "actual_component_error": 0.0834542218285072
+    }
+  ],
+  "new_feature": {
+    "calibration_variance": 1.5556778826778703,
+    "empirical_projection_variance": 1.229656147193907,
+    "isotropic_unit_direction_variance": 0.9999999999999999,
+    "calibration_feature_rms_over_ball_max": 0.0007926773089525116,
+    "new_weight": -55.671639270809564,
+    "added_feature_rms": 135.31647994772453,
+    "other_edit_rms": 0.19742618564635941,
+    "total_edit_rms": 135.3573732630521,
+    "added_other_uncentered_cosine": 0.2064339757218529
+  },
+  "scope": "Original448states only. Bounds are fixed-native-context component bounds, not totalmodel/OOD bounds. Covariance and feature exposure describe relevance, not semantic identity or lack of reachable adversarial examples."
+}
