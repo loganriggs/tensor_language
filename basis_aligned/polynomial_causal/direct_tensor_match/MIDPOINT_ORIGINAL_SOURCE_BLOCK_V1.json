@@ -1,0 +1,39 @@
+{
+  "status": "COMPILED",
+  "attempts": [
+    {
+      "method": "raw_pencil",
+      "status": "REJECTED",
+      "reason": "Pair reconstruction failed: [1.1989115768505958e-09, 1.3117902425325298e-09]"
+    },
+    {
+      "method": "signed_whitening",
+      "status": "PASS"
+    }
+  ],
+  "predictions": {
+    "pred_a_exact": true,
+    "pred_b_products": true,
+    "pred_c_price": true
+  },
+  "diagnostics": {
+    "pencil_condition": 1.0000000000007707,
+    "eigenbasis_condition": 441.89289301613286,
+    "real_basis_condition": 473.6430695660588,
+    "matrix_replay": [
+      1.518128090780264e-11,
+      1.6746227684740767e-11
+    ],
+    "whitening_condition": 137.52732511388191
+  },
+  "calibration_source_replay": 1.6195066285010558e-12,
+  "source_products": 1152,
+  "native_source_products": 4608,
+  "stored_float_scalars": 1331714,
+  "stored_integer_indices": 3456,
+  "native_two_source_scalar_program_weights": 10628354,
+  "real_blocks": 88,
+  "complex_blocks": 532,
+  "seconds": 3.831290070898831,
+  "scope": "OriginalQa/Qb weight forms, no fit or covariance approximation. Source-only native comparison uses L16/R16 shared4608products plus2channel readers, h-reader/writer and2centers. Zero affine fields omitted explicitly. Native z/h producers and normalization remain outside cost; not wholemodel saving."
+}

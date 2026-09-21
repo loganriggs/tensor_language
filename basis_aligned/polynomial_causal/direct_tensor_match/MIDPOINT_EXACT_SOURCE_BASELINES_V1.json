@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "name": "native_channel_products",
+      "source_products": 4608,
+      "float_scalars": 10628354,
+      "integer_indices": 0
+    },
+    {
+      "name": "independent_spectral_forms",
+      "source_products": 2304,
+      "float_scalars": 2658818,
+      "integer_indices": 0
+    },
+    {
+      "name": "shared_mixed_product_blocks",
+      "source_products": 1152,
+      "float_scalars": 1331714,
+      "integer_indices": 3456
+    }
+  ],
+  "independent_spectral_matrix_replay": [
+    5.055703782056467e-15,
+    4.97245364067073e-15
+  ],
+  "shared_float_reduction_vs_native": 0.8747017647323376,
+  "shared_float_reduction_vs_spectral": 0.49913307341833857,
+  "scope": "Same two original homogeneous source quadratic reads, same native h-reader/residual-writer and2centers. Native source channels use folded2scalar output readers, not full Down matrix. Explicit RMS adds1152variable squares and nonlinear operations to every program; source_products counts source branch only, excluding that common cost and final product. No native z/h producer or wholemodel latency saving claimed."
+}

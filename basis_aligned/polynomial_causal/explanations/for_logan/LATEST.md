@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+[21 September,04:51 — Exact mixed products: stronger original-weight baselines](research_update_2026-09-21_0451_exact_shared_products.md).
+
 [21 September,04:31 — Shared quadratic input features: smaller program, donor-robustness failure](research_update_2026-09-21_0431_shared_source_circuit.md).
 
 [21 September,04:18 — Upstream extraction: small programs and a retained behavioral failure](research_update_2026-09-21_0418_upstream_extraction.md).

@@ -1,0 +1,11 @@
+"""Compare exact source programs at the same native-z/h -> residual-write interface."""
+from pathlib import Path
+import torch,json
+p=Path(__file__).resolve().parent;torch.set_num_threads(2);torch.set_grad_enabled(False);fold=torch.load(p/'MIDPOINT_CONTINUATION_SOURCE_FOLD_V1.pt',weights_only=True);d=fold['a']['matrix'].shape[0];width=4608
+ck='/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin';state=torch.load(ck,weights_only=True,mmap=True,map_location='cpu');L=state['transformer.h.16.mlp.Left.weight'];R=state['transformer.h.16.mlp.Right.weight'];assert L.shape==R.shape==(width,d)
+eigen_replay=[]
+for k in ['a','b']:
+ e=fold[k];reconstructed=(e['eigenvectors']*e['eigenvalues'])@e['eigenvectors'].T;eigen_replay.append(float((reconstructed-e['matrix']).norm()/e['matrix'].norm()))
+assert max(eigen_replay)<1e-10
+block=json.loads((p/'MIDPOINT_ORIGINAL_SOURCE_BLOCK_V1.json').read_text());overhead=2*d+2;rows=[dict(name='native_channel_products',source_products=width,float_scalars=L.numel()+R.numel()+2*width+overhead,integer_indices=0),dict(name='independent_spectral_forms',source_products=2*d,float_scalars=2*d*d+2*d+overhead,integer_indices=0),dict(name='shared_mixed_product_blocks',source_products=block['source_products'],float_scalars=block['stored_float_scalars'],integer_indices=block['stored_integer_indices'])];assert rows[0]['float_scalars']==10628354
+result=dict(rows=rows,independent_spectral_matrix_replay=eigen_replay,shared_float_reduction_vs_native=1-rows[2]['float_scalars']/rows[0]['float_scalars'],shared_float_reduction_vs_spectral=1-rows[2]['float_scalars']/rows[1]['float_scalars'],scope='Same two original homogeneous source quadratic reads, same native h-reader/residual-writer and2centers. Native source channels use folded2scalar output readers, not full Down matrix. Explicit RMS adds1152variable squares and nonlinear operations to every program; source_products counts source branch only, excluding that common cost and final product. No native z/h producer or wholemodel latency saving claimed.');(p/'MIDPOINT_EXACT_SOURCE_BASELINES_V1.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))

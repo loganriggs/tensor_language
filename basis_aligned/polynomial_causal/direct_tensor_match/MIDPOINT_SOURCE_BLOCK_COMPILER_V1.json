@@ -1,0 +1,185 @@
+{
+  "predictions": {
+    "pred_a_controls": true,
+    "pred_b_exact": true,
+    "pred_c_product_saving": true
+  },
+  "toys": [
+    {
+      "name": "positive_definite",
+      "status": "PASS",
+      "replay": 6.106736540736168e-16,
+      "products": 6
+    },
+    {
+      "name": "indefinite_real",
+      "status": "PASS",
+      "replay": 4.762450602220498e-16,
+      "products": 6
+    },
+    {
+      "name": "complex_pair",
+      "status": "PASS",
+      "replay": 1.646736287715828e-16,
+      "products": 2
+    },
+    {
+      "name": "repeated_real",
+      "status": "PASS",
+      "replay": 7.925708432452997e-16,
+      "products": 6
+    },
+    {
+      "name": "defective_pencil",
+      "status": "EXPECTED_REJECTION",
+      "reason": "Defective or ill-conditioned eigenbasis"
+    }
+  ],
+  "records": [
+    {
+      "shared_rank": 16,
+      "pencil_condition": 84.74463078994273,
+      "eigenbasis_condition": 18.547241097472256,
+      "real_basis_condition": 20.043922061452143,
+      "matrix_replay": [
+        9.962893100570691e-14,
+        9.051292892030388e-14
+      ],
+      "calibration_scalar_replay": 2.6784639291873686e-14,
+      "source_products": 16,
+      "previous_source_products": 32,
+      "stored_float_scalars": 23076,
+      "stored_integer_indices": 48,
+      "blocks": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ]
+      ]
+    },
+    {
+      "shared_rank": 24,
+      "pencil_condition": 403.141689860257,
+      "eigenbasis_condition": 205.8002829820591,
+      "real_basis_condition": 104.60918107003891,
+      "matrix_replay": [
+        9.882308308880946e-15,
+        7.168537529124365e-15
+      ],
+      "calibration_scalar_replay": 6.1502046589556716e-15,
+      "source_products": 24,
+      "previous_source_products": 32,
+      "stored_float_scalars": 32308,
+      "stored_integer_indices": 72,
+      "blocks": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ]
+      ]
+    }
+  ],
+  "scope": "Exact numerical rewrite of existing approximations; all prior fidelity failures preserved. Shared products reused across both source forms. Native z,h inputs and RMS remain."
+}
