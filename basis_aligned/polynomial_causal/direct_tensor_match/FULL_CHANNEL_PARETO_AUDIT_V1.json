@@ -1,0 +1,23 @@
+{
+  "costs": {
+    "activation_covariance_affine": 14067072,
+    "activation_covariance_raw": 12738816,
+    "folded_euclidean_affine": 14067072,
+    "folded_euclidean_raw": 12738816
+  },
+  "dominance_pairs": [
+    [
+      "activation_covariance_affine",
+      "folded_euclidean_affine"
+    ],
+    [
+      "activation_covariance_raw",
+      "folded_euclidean_affine"
+    ],
+    [
+      "activation_covariance_raw",
+      "folded_euclidean_raw"
+    ]
+  ],
+  "scope": "Observed componentwise dominance across four opened panel/domain cells, comparing effecterror and CEadded with reducedfactorcoefficient cost. Not uncertainty-adjusted or measured runtime. Freeze both nondominated covariance alternatives for independent testing; no retuning."
+}
