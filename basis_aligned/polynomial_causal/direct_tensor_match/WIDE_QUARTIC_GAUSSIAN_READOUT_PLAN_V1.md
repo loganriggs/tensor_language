@@ -1,0 +1,9 @@
+Exact Gaussian functional fitting of the same learned32-feature native quartic dictionary.
+
+Target: pure MLP16→MLP17→QR-reduced unembedding, all native channels, no residual/bias orinterveningnorm; cachedscale andpanels unchanged. Dictionary fromWIDE_NATIVE_QUARTIC_32_INHERITED_LONG_V1, fixed inbotharms. Laws: zero-meanisotropic andzero-meansavedsecond_floor01covariance. Inputsecondmoment is not automatically covariance of a zero-mean natural law; latter is explicitGaussianapproximation. Bothdictionaries data-informed; no data-free discoveryclaim.
+
+For fullysymmetric quarticH,K, E(Hx^4)(Kx^4)=24<H,K>+72<TrH,TrK>+9Tr²HTr²K. Asharedquadraticrootqi qj has Hermite2matrix trQi Qj+trQj Qi+2(QiQj+QjQi), andmean trQi trQj+2trQiQj. Compressleafspan byQR, computeexactrootGram andteacherprojectedHermite2, thenexactteacher cross. This changesobjective, notfeaturecapacity. Matched1e-6normalizedGram ridge, physicalexport, noheldoutselection.
+
+Pred_a_integrity: firstroot FP32vsFP64cross<1e-3, solve<1e-8,export<1e-4, Gaussianregularizedobjective no worse than empiricalwriter by1e-6relative tolerance. Pred_b_metric: weightedGaussiansecondpanelerror<.2143877281 (previousweightedcoefficientfit). Pred_c_transfer: weightedGaussiansecondpanel<=.8*.1504982857 andcal<=.05. Null: Gaussianmomentcompletion improves its ownobjective without beating empiricalfunctionalfit. Do notattribute remaininggap uniquely to featurecapacity orinputlaw.
+
+Priceunchanged656products903168coefficients. Newteachertracecontraction uses16channelbatches and256-dimensionalleafspan, never nativeorder5tensor. Exactquadraturecontrols5structures and32featureshapePASS. NativeFP32cross audited againstFP64single-rootreference. FreshGaussianprobes areunnecessaryforfitting; oldnaturalpanels diagnostic, OOD andselectiveinterventionsunclaimed. A positivefit wouldneedfrozen freshbehavior andgraphcostimprovements beforecircuitadoption.

@@ -1,0 +1,35 @@
+{
+  "records": [
+    {
+      "family": "independent",
+      "gram_error": 7.496185475729173e-16,
+      "mean_error": 3.3696984399773734e-16,
+      "minimum_relative_eigenvalue": -4.5649848267516735e-17
+    },
+    {
+      "family": "shared_input",
+      "gram_error": 1.1803349156795483e-15,
+      "mean_error": 4.819468741644991e-16,
+      "minimum_relative_eigenvalue": -1.3631848169591294e-16
+    },
+    {
+      "family": "shared_output",
+      "gram_error": 5.389704409897132e-16,
+      "mean_error": 4.227989787941246e-16,
+      "minimum_relative_eigenvalue": -2.4904745030345495e-17
+    },
+    {
+      "family": "squares",
+      "gram_error": 1.0570581609357214e-15,
+      "mean_error": 4.432019188520573e-17,
+      "minimum_relative_eigenvalue": -2.7811418672690226e-17
+    },
+    {
+      "family": "cancellation",
+      "gram_error": 4.919418029101632e-16,
+      "mean_error": 7.016807921736085e-16,
+      "minimum_relative_eigenvalue": -1.4327205006506247e-16
+    }
+  ],
+  "scope": "Five explicit bank structures; exact degree8 Gaussian quadrature under nonidentity covariance. Gram correctness, not optimizer or semantic recovery."
+}

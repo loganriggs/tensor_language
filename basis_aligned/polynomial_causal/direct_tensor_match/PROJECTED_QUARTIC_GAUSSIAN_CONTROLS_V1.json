@@ -1,0 +1,39 @@
+{
+  "records": [
+    {
+      "seed": 0,
+      "cross_error": 5.552337787162043e-16,
+      "writer_error": 5.3883003803803764e-15,
+      "batch_error": 3.1555227727889984e-20
+    },
+    {
+      "seed": 1,
+      "cross_error": 8.73484472614208e-16,
+      "writer_error": 2.2101859414993332e-14,
+      "batch_error": 4.709703579419465e-20
+    },
+    {
+      "seed": 2,
+      "cross_error": 1.566440271083727e-15,
+      "writer_error": 7.514904204066598e-15,
+      "batch_error": 4.900180679393139e-20
+    },
+    {
+      "seed": 3,
+      "cross_error": 4.2306806087552033e-16,
+      "writer_error": 1.1942953569201266e-13,
+      "batch_error": 4.346214376754917e-20
+    },
+    {
+      "seed": 4,
+      "cross_error": 7.874513487214326e-16,
+      "writer_error": 2.492382093351589e-10,
+      "batch_error": 2.091034161975028e-19
+    }
+  ],
+  "wide_shape": [
+    3,
+    528
+  ],
+  "scope": "Exact Gaussian teacher-to-bank cross and readout controls against independent degree8 quadrature; native-format teacher, covariance transforms and partial batches."
+}

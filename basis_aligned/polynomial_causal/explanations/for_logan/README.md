@@ -1,3 +1,5 @@
+**Start here: [Overall review — QR, decomposition, then shared arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 19:07 UTC. Explains the original two-stage plan, separates the three experimental targets, and summarizes successes, failures, and the latest weight-matching comparison.
+
 # Requested full reports for Logan
 
 **Latest graph-search update — [Graph edits and native capacity](research_update_2026-09-21_1841_graph_search_and_native_capacity.md).** New sharing/substitution operators pass planted controls; native fidelity still fails. Output-rank bounds distinguish the old approximation from the true native quartic target.
