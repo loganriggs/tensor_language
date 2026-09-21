@@ -2,6 +2,8 @@
 
 **Start here — [From folded weights to a simpler circuit: the overall research review](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 11:53 UTC. Explains QR, the two-stage decomposition and graph plan, why the experiments narrowed to selected components, and what the latest results do and do not establish.
 
+**Latest algebraic result — [Private forms and input-span limits](research_update_2026-09-21_1256_private_forms_and_input_span_limits.md).** Alternating exact fits improve covariance error to7.994%but still fail. A rank bound excludes the frozen pair spans; a spectral release fails. Gradual private-direction fitting passes toy/preflight gates and is running.
+
 **Latest two-stage result — [Stage-one gain and graph-conversion gap](research_update_2026-09-21_1237_stage_one_gain_and_graph_conversion_gap.md).** Pairwise reuse passes coefficient limits but misses component fidelity. Its cheap compiled graph loses accuracy; dense and sparse cross-correction tests retain failures. Alternating exact-fit controls pass for the next refinement.
 
 **Latest native result — [Movable subspaces and pairwise reuse](research_update_2026-09-21_1213_movable_subspaces_and_pairwise_reuse.md).** Dense-core relaxation improves the third component to11.14%but fails fidelity and cost. Pairwise dictionaries pass toy recovery; a matched-budget native comparison is registered.
