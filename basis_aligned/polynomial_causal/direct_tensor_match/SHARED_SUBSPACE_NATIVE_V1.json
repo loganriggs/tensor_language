@@ -1,0 +1,208 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:02:46.609566+00:00",
+    "metrics": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "parents": {
+      "calibration_shaped": "calibration_shaped_0",
+      "native_isotropic": "native_isotropic_26301"
+    },
+    "seeds": [
+      0,
+      26301
+    ],
+    "steps": 1800,
+    "optimizer": "Muon",
+    "rate": 0.03,
+    "covariance_guard": 0.07734469220772448,
+    "native_guard": 0.6078558841808147,
+    "primary": "Covariance-shaped restart selected by fitting objective only.",
+    "scope": "Dense-core capacity diagnostic. Shared128/private224 inputs. All6unchangednativeforms, no sparsity, graph-cost or behavioral claim.",
+    "toy_evidence": "V1 600steps3of5; V2 1800steps5of5andbothstartsalltargets within1%.",
+    "null": "Movable common/private spans still miss original coefficient guards under this optimization. Not a global impossibility certificate.",
+    "price": "Unrestricted core for each two-form pair contains352*353symmetric coefficients; no arithmetic-saving gate or adopted implementation.",
+    "hashes": {
+      "shared_subspace_loss.py": "46b0bebd74c0bd091ceb12ce1b38bdfd3067c67b82aa648a5c66a84188aeee98",
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "JOINT_OVERLAP_PROGRAMS_V1.pt": "d2fc0f5ea6b707a43368be75b283b244bcdfe3de4ea12d10d9f284a520f099a5",
+      "SHARED_SUBSPACE_TOY_V2.json": "df1a7a0a9565722d3842ed85e7467946539405f3c2fc0baf2ae133f99f24df3b",
+      "SHARED_SUBSPACE_NATIVE_PREFLIGHT_V1.json": "2e36f959fc85ec0332cac170d0a3db0ac8b336cfc52ee0a9136ab07c7685c84e"
+    }
+  },
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "geometry": "calibration_shaped",
+      "seed": 0,
+      "best_step": 1800,
+      "objective": 0.0062705264515671155,
+      "native_error": 0.6018647243324685,
+      "covariance_error": 0.07918665576703726,
+      "dense_loss_replay": 1.3877787807814457e-16,
+      "projection_orthogonality": 1.5914277548761505e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.006525319217844864
+        },
+        {
+          "step": 300,
+          "loss": 0.006288746332505868
+        },
+        {
+          "step": 600,
+          "loss": 0.006276245749257817
+        },
+        {
+          "step": 900,
+          "loss": 0.006273095223812844
+        },
+        {
+          "step": 1200,
+          "loss": 0.006271197310148653
+        },
+        {
+          "step": 1500,
+          "loss": 0.006270606872788871
+        },
+        {
+          "step": 1800,
+          "loss": 0.0062705264515671155
+        }
+      ]
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "geometry": "calibration_shaped",
+      "seed": 26301,
+      "best_step": 1800,
+      "objective": 0.0062769642762784406,
+      "native_error": 0.6020806974522145,
+      "covariance_error": 0.07922729502058193,
+      "dense_loss_replay": 1.1622647289044608e-16,
+      "projection_orthogonality": 1.6673381849341078e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9125068453635811
+        },
+        {
+          "step": 300,
+          "loss": 0.006604876154744624
+        },
+        {
+          "step": 600,
+          "loss": 0.0063628857685339435
+        },
+        {
+          "step": 900,
+          "loss": 0.006296494577391157
+        },
+        {
+          "step": 1200,
+          "loss": 0.00628142315119636
+        },
+        {
+          "step": 1500,
+          "loss": 0.006277435987135593
+        },
+        {
+          "step": 1800,
+          "loss": 0.0062769642762784406
+        }
+      ]
+    },
+    {
+      "key": "native_isotropic_0",
+      "geometry": "native_isotropic",
+      "seed": 0,
+      "best_step": 1800,
+      "objective": 0.2613598563007064,
+      "native_error": 0.5112336611577003,
+      "covariance_error": 0.13360433978496272,
+      "dense_loss_replay": 5.551115123125783e-17,
+      "projection_orthogonality": 1.3888552593050162e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.2651243440283577
+        },
+        {
+          "step": 300,
+          "loss": 0.2616407645624767
+        },
+        {
+          "step": 600,
+          "loss": 0.26146268430334163
+        },
+        {
+          "step": 900,
+          "loss": 0.2614010914908711
+        },
+        {
+          "step": 1200,
+          "loss": 0.26137104111080467
+        },
+        {
+          "step": 1500,
+          "loss": 0.2613614091248146
+        },
+        {
+          "step": 1800,
+          "loss": 0.2613598563007064
+        }
+      ]
+    },
+    {
+      "key": "native_isotropic_26301",
+      "geometry": "native_isotropic",
+      "seed": 26301,
+      "best_step": 1800,
+      "objective": 0.26133070868550323,
+      "native_error": 0.51120515322667,
+      "covariance_error": 0.13373236857005905,
+      "dense_loss_replay": 0.0,
+      "projection_orthogonality": 1.4063165668990122e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.905451261557039
+        },
+        {
+          "step": 300,
+          "loss": 0.26243913006519826
+        },
+        {
+          "step": 600,
+          "loss": 0.261511563997197
+        },
+        {
+          "step": 900,
+          "loss": 0.26139721061193755
+        },
+        {
+          "step": 1200,
+          "loss": 0.26134485196527757
+        },
+        {
+          "step": 1500,
+          "loss": 0.26133243326354283
+        },
+        {
+          "step": 1800,
+          "loss": 0.26133070868550323
+        }
+      ]
+    }
+  ],
+  "primary": "calibration_shaped_0",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_primary_covariance": false,
+    "pred_c_primary_native": true
+  },
+  "seconds": 262.7817562390119,
+  "scope": "Unpriced dense-core relaxation of shared128/private224 supports. Selected6forms only; not a sparse graph or native behavior test."
+}

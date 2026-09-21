@@ -1,0 +1,121 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:10:23.885152+00:00",
+    "steps": 1800,
+    "rate": 0.03,
+    "optimizer": "Muon",
+    "seeds": [
+      0,
+      1
+    ],
+    "threshold": 0.01,
+    "required_cases": 4,
+    "pred_a": "Exact oracle reconstruction, dense loss/gradient replay on all5controls.",
+    "pred_b": "At least4of5genericpairwisesharedtargets recoveredwithin1%inoneof2randomstarts.",
+    "null": "Relaxing all-consumer sharing to pairwise dictionaries remains difficult to recover; do not infer native circuit failure.",
+    "native_intent": "Three64dictionaries shared12,13,23 plus224private perpair. Each pair retains352span dimensions; prospective160/224productgraph can retain20%source arithmetic reduction. Dense-core relaxation itself is unpriced."
+  },
+  "records": [
+    {
+      "case": 0,
+      "seed": 0,
+      "pair_shared_width": 1,
+      "private_width": 2,
+      "input_width": 7,
+      "error": 0.0012481320340194868,
+      "oracle_squared_error": 4.406350774654004e-31
+    },
+    {
+      "case": 0,
+      "seed": 1,
+      "pair_shared_width": 1,
+      "private_width": 2,
+      "input_width": 7,
+      "error": 0.002627779165886398,
+      "oracle_squared_error": 4.406350774654004e-31
+    },
+    {
+      "case": 1,
+      "seed": 0,
+      "pair_shared_width": 2,
+      "private_width": 3,
+      "input_width": 10,
+      "error": 3.721342786984868e-07,
+      "oracle_squared_error": 5.104363558219121e-31
+    },
+    {
+      "case": 1,
+      "seed": 1,
+      "pair_shared_width": 2,
+      "private_width": 3,
+      "input_width": 10,
+      "error": 3.1745552184441836e-07,
+      "oracle_squared_error": 5.104363558219121e-31
+    },
+    {
+      "case": 2,
+      "seed": 0,
+      "pair_shared_width": 3,
+      "private_width": 2,
+      "input_width": 11,
+      "error": 8.851849608345206e-07,
+      "oracle_squared_error": 6.54902895946835e-31
+    },
+    {
+      "case": 2,
+      "seed": 1,
+      "pair_shared_width": 3,
+      "private_width": 2,
+      "input_width": 11,
+      "error": 0.000124534417710508,
+      "oracle_squared_error": 6.54902895946835e-31
+    },
+    {
+      "case": 3,
+      "seed": 0,
+      "pair_shared_width": 1,
+      "private_width": 3,
+      "input_width": 8,
+      "error": 1.088832481531995e-06,
+      "oracle_squared_error": 1.6556958662334019e-31
+    },
+    {
+      "case": 3,
+      "seed": 1,
+      "pair_shared_width": 1,
+      "private_width": 3,
+      "input_width": 8,
+      "error": 5.134645336998525e-07,
+      "oracle_squared_error": 1.6556958662334019e-31
+    },
+    {
+      "case": 4,
+      "seed": 0,
+      "pair_shared_width": 2,
+      "private_width": 2,
+      "input_width": 9,
+      "error": 1.2141855991460015e-06,
+      "oracle_squared_error": 3.9435334553240316e-31
+    },
+    {
+      "case": 4,
+      "seed": 1,
+      "pair_shared_width": 2,
+      "private_width": 2,
+      "input_width": 9,
+      "error": 7.333255864732696e-07,
+      "oracle_squared_error": 3.9435334553240316e-31
+    }
+  ],
+  "best_restart_errors": [
+    0.0012481320340194868,
+    3.1745552184441836e-07,
+    8.851849608345206e-07,
+    5.134645336998525e-07,
+    7.333255864732696e-07
+  ],
+  "recovered_cases": 5,
+  "recovery_pass": true,
+  "seconds": 13.717714194208384,
+  "scope": "Five generic dense-core planted pairwise-sharing structures; random starts. Establishes optimizer behavior only, not sparse circuit extraction or native success."
+}

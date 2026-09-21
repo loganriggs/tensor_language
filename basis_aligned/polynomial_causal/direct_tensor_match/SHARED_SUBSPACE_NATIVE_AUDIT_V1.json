@@ -1,0 +1,109 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "span_ranks": [
+        352,
+        352,
+        352
+      ],
+      "native_error": 0.6018647243324685,
+      "covariance_error": 0.07918665576703728,
+      "independent_metric_replay": 1.3877787807814457e-17,
+      "per_mode_errors": [
+        0.023467191456090695,
+        0.021035243924106432,
+        0.1114206461235883
+      ],
+      "euclidean_jacobian_errors": [
+        0.2050458375495591,
+        0.1704038005153452,
+        0.17791966298169418
+      ]
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "span_ranks": [
+        352,
+        352,
+        352
+      ],
+      "native_error": 0.6020806974522145,
+      "covariance_error": 0.07922729502058193,
+      "independent_metric_replay": 0.0,
+      "per_mode_errors": [
+        0.022050022299508566,
+        0.021709686613595083,
+        0.10503338453756109
+      ],
+      "euclidean_jacobian_errors": [
+        0.20490598827017797,
+        0.17065604902170242,
+        0.1784430574758965
+      ]
+    },
+    {
+      "key": "native_isotropic_0",
+      "span_ranks": [
+        352,
+        352,
+        352
+      ],
+      "native_error": 0.5112336611577004,
+      "covariance_error": 0.13360433978496267,
+      "independent_metric_replay": 1.1102230246251565e-16,
+      "per_mode_errors": [
+        0.018800865763727647,
+        0.030865765472146305,
+        0.13614507394022937
+      ],
+      "euclidean_jacobian_errors": [
+        0.20118474526527344,
+        0.1786692413145024,
+        0.18148813744812722
+      ]
+    },
+    {
+      "key": "native_isotropic_26301",
+      "span_ranks": [
+        352,
+        352,
+        352
+      ],
+      "native_error": 0.51120515322667,
+      "covariance_error": 0.1337323685700591,
+      "independent_metric_replay": 5.551115123125783e-17,
+      "per_mode_errors": [
+        0.01889147574594899,
+        0.030710295603628195,
+        0.1293184514614444
+      ],
+      "euclidean_jacobian_errors": [
+        0.20222797483218286,
+        0.1779951282303447,
+        0.181468102452202
+      ]
+    }
+  ],
+  "primary": "calibration_shaped_0",
+  "truth_replay_recomputed_rms": 2.7297782862259235e-08,
+  "truth_replay_original_cached_scale": 1.0561212467463811e-15,
+  "truth_replay_correction": "Initial audit assumed cached truth used recomputed RMS. Its producer uses saved scale; replay is checked with that scale. Candidate metrics retain recomputed RMS as in all prior comparisons.",
+  "dense_core_price": {
+    "shared_width": 128,
+    "private_width": 224,
+    "source_projection_multiplications": 921600,
+    "distinct_nonlinear_products": 169872,
+    "source_readout_multiplications": 372768,
+    "source_total_multiplications": 1464240,
+    "stored_floats": 1305900,
+    "scope": "Dense symmetric cores, common-common products computed once; full coefficients generic. Source arithmetic excludes fixed affine and downstream component work, as in original comparisons. Not an exported/adopted graph."
+  },
+  "diagnostic_comparisons": {
+    "primary_component_guard": false,
+    "primary_jacobian_guard": false,
+    "dense_core_arithmetic_guard": false
+  },
+  "seconds": 9.044279591180384,
+  "scope": "Opened448states; coefficient metrics independently reconstructed via SVD. Components and fixed-h z derivatives retain native states/normalization. No fresh model intervention or stable circuit claim."
+}
