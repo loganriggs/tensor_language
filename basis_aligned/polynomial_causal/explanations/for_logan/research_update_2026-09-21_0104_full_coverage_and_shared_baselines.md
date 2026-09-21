@@ -185,3 +185,5 @@ The rank8 correction passed its registered instrument, dense-correction preserva
 The mean-only control leaves swaps exactly unchanged, as algebra requires; its code CE increase is0.03688 versus0.02982 with the correction. Thus part of the replacement benefit comes from mean adjustment, and the learned correction supplies additional improvement.
 
 The actual structured graph computes each of1,024 products once, routes them to256 original group sums and8 shared correction features, then writes both to the output. A CPU replay of this graph against its flat matrix export passed below1e-12 on128 original calibration positions. Means and coefficients are counted separately. This is a concrete reuse-capable graph, but it is not yet a general discrete graph search or a set of identified semantic circuits.
+
+Latest follow-up: [01:21 frozen graph confirmation](research_update_2026-09-21_0121_frozen_graph_confirmation.md).

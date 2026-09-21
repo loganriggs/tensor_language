@@ -1,0 +1,20 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "aligned_pairs": 7680,
+      "same_token_pairs": 5312,
+      "same_token_coverage": 0.6916666626930237,
+      "token_sha256": "4f0e9ad7f67f06783a269b8685b59ff8e683b2fb7ed9072cbf970f8d22e0dc13"
+    },
+    {
+      "domain": "code",
+      "aligned_pairs": 3840,
+      "same_token_pairs": 3087,
+      "same_token_coverage": 0.803906261920929,
+      "token_sha256": "b305b607ebf865f605a5688adf143998ecdc0823509aad92064118df204d9f49"
+    }
+  ],
+  "selection": "Recipient positions16:256. Aligned:next document at same position. Same-token:closest-position occurrence in another document, ties by flattened index. No activation/output selection.",
+  "scope": "Unused in this decomposition study at selection time. Related local source files, not broad code representativeness; pretrained overlap unknown."
+}

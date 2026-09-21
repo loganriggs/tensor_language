@@ -1,0 +1,8 @@
+from pathlib import Path
+import torch,json
+p=Path(__file__).resolve().parent;torch.set_num_threads(2);torch.set_grad_enabled(False)
+e=torch.load(p/'MIDPOINT_OUTPUT_CORRECTION_GRAPHS_V1.pt',weights_only=True)['rank8'];rows=torch.load(p/'MIDPOINT_CALIBRATION_ROWS_V1.pt',weights_only=True);n=rows['n'].flatten(0,1).double();m=rows['m'].flatten(0,1).double();phi=(n@e['A'].double())*(m@e['B'].double())-e['product_mean'];left=e['correction_left'];writer=e['correction_writers'];S=torch.load(p/'MIDPOINT_CENTERED_V1.pt',weights_only=True)['metric_sqrt'].double();z=phi@left;target=z@writer.T@S;norm=target.norm();score=left.abs()*phi.square().mean(0).sqrt()[:,None];records=[]
+for keep in [8,16,32,64,128,256,512,1024]:
+ mask=torch.zeros_like(left);ids=score.argsort(dim=0,descending=True)[:keep];mask.scatter_(0,ids,1);sparse=left*mask;zs=phi@sparse;mix=torch.linalg.lstsq(zs,z).solution;pred=zs@mix@writer.T@S;before=zs@writer.T@S;records.append(dict(inputs_per_feature=keep,correction_nonzero_coefficients=keep*8+1152*8,correction_relative_error=float((pred-target).norm()/norm),without_refit_error=float((before-target).norm()/norm),full_program_weight_coefficients=2654208+keep*8+1152*8))
+assert records[-1]['correction_relative_error']<1e-10
+out=p/'MIDPOINT_SPARSE_CORRECTION_V1.json';assert not out.exists();out.write_text(json.dumps(dict(records=records,scope='Originalcalibration only. Scale-aware magnitude pruning of eight sharedcorrection linearfeatures, then exact8x8 refit to frozen densecorrection. Error relative tocorrection, notfullmodel. Noheldselection or semanticclaim.'),indent=2)+'\n');print(out.read_text())

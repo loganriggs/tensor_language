@@ -10,6 +10,8 @@ import os,json,sys,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
 OUTPUT_NAME='MIDPOINT_FULL_REPLACE_V1.json'
+PANEL_PREFIX='SELECTIVE_CONFIRMATION'
+DONOR_PREFIX='SELECTIVE_CONFIRMATION_DONORS'
 EXTRA_CHANNEL_FILE=None
 EXTRA_PRODUCT_FILE=None
 def main():
@@ -21,14 +23,14 @@ def main():
  from native_feature_capture import capture
  from logit_effect_partition import partition
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/OUTPUT_NAME;assert not out.exists()
- model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.double(),mode='reduced');invru=torch.linalg.inv(ru);L=b17.mlp.Left.weight.double();R=b17.mlp.Right.weight.double();C=ru@b17.mlp.Down.weight.double();mu=torch.load(P/'MIDPOINT_NATIVE_V1.pt',weights_only=True)['stats']['calibration']['native']['mean'].cuda();programs={w:{k:v.cuda().double() for k,v in torch.load(P/f'MIDPOINT_COVERAGE_{w}_R4_V1.pt',weights_only=True).items()} for w in [64,256]};donors=torch.load(P/'SELECTIVE_CONFIRMATION_DONORS_V1.pt',weights_only=True);records=[];checks=[]
+ model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.double(),mode='reduced');invru=torch.linalg.inv(ru);L=b17.mlp.Left.weight.double();R=b17.mlp.Right.weight.double();C=ru@b17.mlp.Down.weight.double();mu=torch.load(P/'MIDPOINT_NATIVE_V1.pt',weights_only=True)['stats']['calibration']['native']['mean'].cuda();programs={w:{k:v.cuda().double() for k,v in torch.load(P/f'MIDPOINT_COVERAGE_{w}_R4_V1.pt',weights_only=True).items()} for w in [64,256]};donors=torch.load(P/f'{DONOR_PREFIX}_V1.pt',weights_only=True);records=[];checks=[]
  extra={} if EXTRA_CHANNEL_FILE is None else {name:{k:v.cuda().double() for k,v in e.items()} for name,e in torch.load(P/EXTRA_CHANNEL_FILE,weights_only=True).items()}
  for e in extra.values():
   ids=e['indices'].long();checks.extend([float((e['L']-L[ids]).abs().max()),float((e['R']-R[ids]).abs().max())])
  product_extra={} if EXTRA_PRODUCT_FILE is None else {name:{k:v.cuda().double() for k,v in e.items()} for name,e in torch.load(P/EXTRA_PRODUCT_FILE,weights_only=True).items()}
  logits=lambda x:30*torch.tanh(model.lm_head(F.rms_norm(x,(1152,)))/30)
  for domain in ['fineweb','code']:
-  tokens=torch.load(P/f'SELECTIVE_CONFIRMATION_{domain.upper()}_V1.pt',weights_only=True);states=[];teacher=[];preds={k:[] for k in ['constant','projected64','projected256','program64','program256']+['channel_'+name for name in extra]+['product_'+name for name in product_extra]}
+  tokens=torch.load(P/f'{PANEL_PREFIX}_{domain.upper()}_V1.pt',weights_only=True);states=[];teacher=[];preds={k:[] for k in ['constant','projected64','projected256','program64','program256']+['channel_'+name for name in extra]+['product_'+name for name in product_extra]}
   for row in tokens:
    c=capture(model,row[None,:256].cuda());h=c['h17'].double().flatten(0,1);m=(b17.lambdas[0]*(c['m16']-b16.mlp.Down_bias)).double().flatten(0,1);s=(h.square().mean(-1,keepdim=True)+torch.finfo(torch.float32).eps).sqrt();n=(h-m/2)/s;m=m/s;y=((n@L.T)*(m@R.T)+(m@L.T)*(n@R.T))@C.T-mu;teacher.append(y@invru.T);states.append(c['final'].flatten(0,1));preds['constant'].append(torch.zeros_like(y))
    for w,e in programs.items():

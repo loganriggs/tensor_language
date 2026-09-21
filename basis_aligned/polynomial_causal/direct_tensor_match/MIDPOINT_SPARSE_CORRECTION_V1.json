@@ -1,0 +1,61 @@
+{
+  "records": [
+    {
+      "inputs_per_feature": 8,
+      "correction_nonzero_coefficients": 9280,
+      "correction_relative_error": 0.4857116444985588,
+      "without_refit_error": 0.9171635850277207,
+      "full_program_weight_coefficients": 2663488
+    },
+    {
+      "inputs_per_feature": 16,
+      "correction_nonzero_coefficients": 9344,
+      "correction_relative_error": 0.42930358586522815,
+      "without_refit_error": 0.8623650143056175,
+      "full_program_weight_coefficients": 2663552
+    },
+    {
+      "inputs_per_feature": 32,
+      "correction_nonzero_coefficients": 9472,
+      "correction_relative_error": 0.3400299749062013,
+      "without_refit_error": 0.7774440270179988,
+      "full_program_weight_coefficients": 2663680
+    },
+    {
+      "inputs_per_feature": 64,
+      "correction_nonzero_coefficients": 9728,
+      "correction_relative_error": 0.2530001578896389,
+      "without_refit_error": 0.6467151218927721,
+      "full_program_weight_coefficients": 2663936
+    },
+    {
+      "inputs_per_feature": 128,
+      "correction_nonzero_coefficients": 10240,
+      "correction_relative_error": 0.18438658549389128,
+      "without_refit_error": 0.4923120248011936,
+      "full_program_weight_coefficients": 2664448
+    },
+    {
+      "inputs_per_feature": 256,
+      "correction_nonzero_coefficients": 11264,
+      "correction_relative_error": 0.1118249327351923,
+      "without_refit_error": 0.28823624020953825,
+      "full_program_weight_coefficients": 2665472
+    },
+    {
+      "inputs_per_feature": 512,
+      "correction_nonzero_coefficients": 13312,
+      "correction_relative_error": 0.04437734157194031,
+      "without_refit_error": 0.08357749565354994,
+      "full_program_weight_coefficients": 2667520
+    },
+    {
+      "inputs_per_feature": 1024,
+      "correction_nonzero_coefficients": 17408,
+      "correction_relative_error": 9.19403298132499e-16,
+      "without_refit_error": 0.0,
+      "full_program_weight_coefficients": 2671616
+    }
+  ],
+  "scope": "Originalcalibration only. Scale-aware magnitude pruning of eight sharedcorrection linearfeatures, then exact8x8 refit to frozen densecorrection. Error relative tocorrection, notfullmodel. Noheldselection or semanticclaim."
+}
