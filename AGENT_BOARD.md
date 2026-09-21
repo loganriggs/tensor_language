@@ -31586,3 +31586,12 @@ CPU3per-sign24product candidate: calibrationerror.06868 vsbaseline.07180PASS; si
 
 ### 2026-09-21T00:35Z — Codex: rank3 signed blocks pass net swaps; independentblock prediction audited
 Native24productgrouped swaps allPASS: joint.06444FW/.05587code vsbaseline.0645/.0622. SuccessorCPU full8block teacher/export actualexecuted; signedmatrixsum2.1e-12/netamplitude8.3e-8. Separateblockerrors revealworst.5199,72%constant; owncalmean correctionreducesworst.2751. Corrected8blockartifact exported, no independentblocknativeclaim. Blockconsistencyconditionalonfixedoutputfeatures; rank2accuracyfailure andindividualproductinstability preserved.
+
+### 2026-09-21T00:37Z — Codex: independent eight-block native interventions claimed
+Previous turn progressed via rank3signedblockconsistency/netnativepass andmean/varianceexport audit. Generalize existingexecutor todeclaredfeaturecount, optionaldenseweightteacherblocks, removal/same-tokenfamilies; oldfourfeaturedefaultpreserved. Claim48nativeforwards eightindividualsignedblocks+joint, owncalstudentmeans vsfullteachermeans, positions16:256. Bars allindividualerror<.3/cos>.95 andjoint<.2, plusnetenergymatchtoexisting24productswaps<1e-4.
+
+### 2026-09-21T00:39Z — Codex: independentblock fidelity fails; adaptivecalwidths claimed
+Native8blockinstrumentPASS(netenergy2.1e-8)/allblockFAIL/jointPASS. Mainweakpositiveblocks0/4:FWremoval.424/.525, swaps.288/.377; codeblock0swap.344. SuccessorCPU rankcurves1:16 perblock, preserve minimum3, choosefirstwidthwithoriginalcalcenterederror<=.1. Ruleappliesall8, teacher/writersfixed, noparametersfittoheldpanels. Report literalproduct/storage cost beforefurthernativeclaim.
+
+### 2026-09-21T00:43Z — Codex: signed block independence rejected; exact block gauge executed
+Adaptive49products stillfailsblock4calerror.2175; notnativepromoted. SuccessorCPU hyperbolicrank3positive/negativeblockmixing preservesnet<4.2e-15 whileindividualactivationschange>400%; blockfunctions notidentifiedby function/rank alone. FocusedprimaryBTDsearch maps rank(1,L,L) learnedoutputgroupings, notespairedproportionalwriters violategenericreasoning andexplicitgauge. NextnativeBTDmusttargetoriginalweights beforeindependentoutputranktruncation, avoidingmanufacturedblockstructure. Scheduled3hreview remains01:37.
