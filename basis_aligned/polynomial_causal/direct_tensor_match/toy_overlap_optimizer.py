@@ -7,7 +7,7 @@ P=Path(__file__).parent;torch.set_num_threads(2)
 def main(version="V1"):
  plan=json.loads((P/f'TOY_OVERLAP_OPTIMIZER_PLAN_{version}.json').read_text());rows=[];states={};start=time.perf_counter()
  for case in range(5):
-  targets,templates,truth=fixture(case);metric=OverlapMetric(targets,templates)
+  targets,templates,truth=fixture(case,mixed=plan.get('mixed_slots',False));metric=OverlapMetric(targets,templates)
   for optimizer in plan['optimizers']:
    for rate in plan['rates']:
     for seed in plan['seeds']:

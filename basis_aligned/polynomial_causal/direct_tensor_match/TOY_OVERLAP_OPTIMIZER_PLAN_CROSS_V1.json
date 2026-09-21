@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-09-21T11:34:44.564803+00:00",
+  "optimizers": [
+    "muon"
+  ],
+  "rates": [
+    0.03
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "steps": 1800,
+  "selection": "Minimize geometric mean final-best root regularized coefficient error across all five fixtures and both starts; no native outcomes used.",
+  "recovery_gate": "Selected setting recovers at least4of5planted targets within1%coefficient error in at leastone of two fully random starts. Otherwise diagnose or extend toy optimization before native queue.",
+  "native_intent": "Same native128shared/160selectedslot budget, now with direct shared-private products. Compare warm remapped and fully random starts under both coordinate metrics. Original gates unchanged.",
+  "gradient_controls": "Five dense loss and envelope-gradient checks pass; exact planted parameter objective<1e-7. No feature semantic recovery asserted.",
+  "reason": "Topology control for explicit shared/private quadratic products. Reuse selectedMuon.03,1800steps,2randomstarts; original4of5recoverygate retained. Not a new optimizer/rate sweep.",
+  "mixed_slots": true
+}
