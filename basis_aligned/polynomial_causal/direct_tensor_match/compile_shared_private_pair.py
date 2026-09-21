@@ -8,7 +8,12 @@ Only cross blocks change. This is not the unrestricted best low-rank fit.
 import torch
 from quadratic_pair_blocks import compile_pair
 
-def compile_common_private(targets,shared,private,refine_steps=0):
+def compile_common_private(targets,shared,private,refine_steps=0,private_strategy='given'):
+ private_choice=None
+ if private_strategy=='spectral':
+  from spectral_private_basis import choose
+  private,private_choice=choose(targets,shared,private.shape[1])
+ elif private_strategy!='given':raise ValueError(private_strategy)
  P,R=torch.linalg.qr(shared,mode='reduced')
  V=torch.linalg.qr(private-P@(P.T@private),mode='reduced').Q
  U=torch.cat([P,V],1);T=U.T@targets@U;r=P.shape[1]
@@ -31,4 +36,4 @@ def compile_common_private(targets,shared,private,refine_steps=0):
  cross_error=2*(B-E@C).square().sum();private_error=(C-C0).square().sum()
  measured=(constructed-projection).square().sum()
  assert abs(float(measured-cross_error-private_error))<1e-8*max(1,float(targets.square().sum()))
- return dict(shared_map=mapping,private_reader=reader,product_indices=indices,product_weights=weights,shared_indices=torch.arange(r),private_indices=torch.arange(r,U.shape[1])),constructed,dict(shared_width=r,private_width=V.shape[1],least_squares_rank=int(solution.rank),cross_squared_error=float(cross_error),private_squared_error=float(private_error),refinement=refinement,coupling_norm=float(E.norm()),coupling_spectral_norm=float(torch.linalg.matrix_norm(E,ord=2)),private_norm_ratio=float(C.norm()/C0.norm()),shared_core_norm_ratio=float(common.norm()/T.norm()),projection_squared_error=float((targets-projection).square().sum()),constructed_relative_error=float((targets-constructed).norm()/targets.norm()),common_compiler=cs['diagnostics'],private_compiler=cp['diagnostics'])
+ return dict(shared_map=mapping,private_reader=reader,product_indices=indices,product_weights=weights,shared_indices=torch.arange(r),private_indices=torch.arange(r,U.shape[1])),constructed,dict(private_strategy=private_strategy,private_choice=private_choice,shared_width=r,private_width=V.shape[1],least_squares_rank=int(solution.rank),cross_squared_error=float(cross_error),private_squared_error=float(private_error),refinement=refinement,coupling_norm=float(E.norm()),coupling_spectral_norm=float(torch.linalg.matrix_norm(E,ord=2)),private_norm_ratio=float(C.norm()/C0.norm()),shared_core_norm_ratio=float(common.norm()/T.norm()),projection_squared_error=float((targets-projection).square().sum()),constructed_relative_error=float((targets-constructed).norm()/targets.norm()),common_compiler=cs['diagnostics'],private_compiler=cp['diagnostics'])

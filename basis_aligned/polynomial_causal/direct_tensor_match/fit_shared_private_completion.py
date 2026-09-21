@@ -28,7 +28,7 @@ for key in plan['parents']:
  params=states[key];A,inv=(S,d['inverse_root']) if key.startswith('calibration') else (I,I);writer=d['residual_writer'].clone();program=dict(input_bases={str(j):(inv@params[j]).clone() for j in range(3)},pairs={});diagnostics=[]
  try:
   for j,(a,b) in enumerate(GROUPS):
-   block,H,diag=compile_common_private(A@Q[2*j:2*j+2]@A,torch.cat([params[a],params[b]],1),params[3+j],refine_steps=plan.get('refine_steps',0));block['private_reader']=inv@block['private_reader'];pair=d['pairs'][j];block.update(h_reader=pair['a'].clone(),alpha=pair['alpha'].clone(),beta=pair['beta'].clone(),residual_writer=writer);program['pairs'][str(j)]=block;diagnostics.append(diag)
+   block,H,diag=compile_common_private(A@Q[2*j:2*j+2]@A,torch.cat([params[a],params[b]],1),params[3+j],refine_steps=plan.get('refine_steps',0),private_strategy=plan.get('private_strategy','given'));block['private_reader']=inv@block['private_reader'];pair=d['pairs'][j];block.update(h_reader=pair['a'].clone(),alpha=pair['alpha'].clone(),beta=pair['beta'].clone(),residual_writer=writer);program['pairs'][str(j)]=block;diagnostics.append(diag)
   program=correct(program);before=assess(program)
   metric=PairwiseOverlapMetric(A@Q@A,[program['pairs'][str(j)] for j in range(3)],ridge=1e-12);coeff=parameters_from_program(program,A);loss,W,_=metric.loss(coeff)
   for j in range(3):program['pairs'][str(j)]['product_weights']=W[j]

@@ -1,0 +1,66 @@
+{
+  "primary": "calibration_shaped_pairwise_0",
+  "records": [
+    {
+      "scope": "fixed_pair_span",
+      "pair": 1,
+      "private_width": 224,
+      "ambient_complement_width": 224,
+      "relative_squared_error_lower_bound": 0.006812267798546992,
+      "outside_span_squared_error": 0.006700088145932024,
+      "rank_tail_squared_error": 0.0001121796526149681
+    },
+    {
+      "scope": "fixed_pair_span",
+      "pair": 2,
+      "private_width": 224,
+      "ambient_complement_width": 224,
+      "relative_squared_error_lower_bound": 0.006706816869533437,
+      "outside_span_squared_error": 0.006281772644556222,
+      "rank_tail_squared_error": 0.00042504422497721467
+    },
+    {
+      "scope": "fixed_pair_span",
+      "pair": 3,
+      "private_width": 224,
+      "ambient_complement_width": 224,
+      "relative_squared_error_lower_bound": 0.004725007384326722,
+      "outside_span_squared_error": 0.004240471833213008,
+      "rank_tail_squared_error": 0.00048453555111371415
+    },
+    {
+      "scope": "free_private_directions",
+      "pair": 1,
+      "private_width": 224,
+      "ambient_complement_width": 1024,
+      "relative_squared_error_lower_bound": 0.006207851725072325,
+      "outside_span_squared_error": 1.0353541722199641e-29,
+      "rank_tail_squared_error": 0.006207851725072325
+    },
+    {
+      "scope": "free_private_directions",
+      "pair": 2,
+      "private_width": 224,
+      "ambient_complement_width": 1024,
+      "relative_squared_error_lower_bound": 0.005500568970766167,
+      "outside_span_squared_error": 1.061917163061827e-29,
+      "rank_tail_squared_error": 0.005500568970766167
+    },
+    {
+      "scope": "free_private_directions",
+      "pair": 3,
+      "private_width": 224,
+      "ambient_complement_width": 1024,
+      "relative_squared_error_lower_bound": 0.003731459408354069,
+      "outside_span_squared_error": 8.825971155566133e-30,
+      "rank_tail_squared_error": 0.003731459408354069
+    }
+  ],
+  "equal_pair_root_bounds": {
+    "fixed_pair_span": 0.0779831008454335,
+    "free_private_directions": 0.07173999373708866
+  },
+  "covariance_guard": 0.07734469220772448,
+  "seconds": 1.8235498829744756,
+  "scope": "Fixed learned shared128space perpair; common quadratic branch arbitrary, private224features arbitrary with two symmetric cores. Fullcomplementbound permits private directions anywhere in1152inputs. Bounds do not constrain changed sharedspaces, directshared-private products, or generalDAGs. Floating-point spectral calculation, not an interval certificate."
+}
