@@ -1,0 +1,16 @@
+{
+  "toy": {
+    "ranks": [
+      1,
+      2,
+      1,
+      0
+    ],
+    "adaptive_retained_energy": 26.0,
+    "uniform_four_outputs_rank1": 20.0,
+    "first_two_outputs_rank2": 25.0,
+    "exhaustive_optimum": 26.0,
+    "tie_prefix_checks": 13
+  },
+  "scope": "Exact only for orthogonal output modes, fixed per-output matrix SVDs, same separable metric, and fixed number of variable products. Does not optimize output basis, factor reuse, coefficient storage, native intervention error, or semantic identity. Active-output count changes writer cost."
+}

@@ -48,6 +48,7 @@ def main():
     phi=(n@e['L'].T)*(m@e['R'].T)+(n@e['R'].T)*(m@e['L'].T)-e['channel_mean'];reduced=phi@e['reduced_writers'].T+e['full_mean']-mu;preds['channel_'+name].append(reduced@invru.T)
    for name,e in product_extra.items():
     left=((n@e['Pn'])@e['Tn']) if 'Pn' in e else n@e['A'];right=((m@e['Pm'])@e['Tm']) if 'Pm' in e else m@e['B'];products=left*right
+    if 'base_left_mean' in e:products=(left-e['base_left_mean'])*(right-e['base_right_mean'])
     phi=products-e['product_mean']
     if 'group_writers' in e:
      groups=e['group_writers'].shape[1];reduced=phi.reshape(len(phi),groups,-1).sum(-1)@e['group_writers'].T+(phi@e['correction_left'])@e['correction_writers'].T
@@ -55,6 +56,7 @@ def main():
     else:reduced=phi@e['reduced_writers'].T
     if 'centered_correction_left' in e:
      centered=products-left*e['right_mean']-right*e['left_mean']+e['left_mean']*e['right_mean'];reduced=reduced+(centered@e['centered_correction_left'])@e['centered_correction_writers'].T
+    if 'linear_n' in e:reduced=reduced+n@e['linear_n']+m@e['linear_m']
     reduced=reduced+e['full_mean']-mu;preds['product_'+name].append(reduced@invru.T)
   states=torch.cat(states);true=torch.cat(teacher);preds={k:torch.cat(v) for k,v in preds.items()};targets=tokens[:,1:257].reshape(-1).cuda();flat=tokens[:,:256].flatten();mapping=donors[domain]['same_token'];valid=mapping>=0;docs=torch.arange(len(flat))//256;assert torch.all(docs[valid]!=docs[mapping[valid]]) and torch.all(flat[valid]==flat[mapping[valid]])
   for doc in range(len(tokens)):
