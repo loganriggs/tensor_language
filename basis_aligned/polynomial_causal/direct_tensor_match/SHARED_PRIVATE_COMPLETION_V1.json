@@ -1,0 +1,426 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:25:12.546670+00:00",
+    "parents": [
+      "calibration_shaped_pairwise_0",
+      "calibration_shaped_pairwise_26301",
+      "native_isotropic_pairwise_0",
+      "native_isotropic_pairwise_26301"
+    ],
+    "primary": "calibration_shaped_pairwise_0",
+    "baseline": {
+      "native_error": 0.5525962583461952,
+      "covariance_error": 0.0703133565524768,
+      "per_mode_errors": [
+        0.018692583665713903,
+        0.020499346791718828,
+        0.08805202711597365
+      ],
+      "euclidean_jacobian_errors": [
+        0.187428758387592,
+        0.15902999281611183,
+        0.16001348745745214
+      ],
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "activation_products": 1152,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1330560,
+      "source_additions": 1329148
+    },
+    "method": "In each shared/private orthonormal split, regress oneE for both cross blocks B_o~E C_o, preservebothdiagonalblocks exactly, compilecommon128andprivate224quadraticpairs, then refitproductreadouts inoriginalgeometry.",
+    "pred_a": "15plantedpairs exactand allnativecompilers/executorspass.",
+    "pred_b": "Original3componentvalue/Jacobianguards.",
+    "pred_c": "Originalnative/covariancecoefficientguards.",
+    "pred_d": "Sourcearithmetic<=.80originalbaseline; explicit1056products/1058124floats/1047648mults.",
+    "null": "A common cross map cannot preserve the targetpair interactions sufficiently; retain residual andfailures.",
+    "scope": "Stage2deterministicgraphconstruction, not anotheroptimizerretry. Mixed-slottoyrecovery2of5fails; no native mixedgradientfit authorizedbythatgate."
+  },
+  "records": [
+    {
+      "key": "calibration_shaped_pairwise_0",
+      "instrument": true,
+      "before_readout_refit": {
+        "native_error": 0.6396517210780601,
+        "covariance_error": 0.11511981881560862,
+        "execution_replay": 2.487149061799874e-15,
+        "per_mode_errors": [
+          0.02742812611385983,
+          0.030138959119883173,
+          0.14132259559584015
+        ],
+        "euclidean_jacobian_errors": [
+          0.24020643340620398,
+          0.21271642461033255,
+          0.2275605210552469
+        ],
+        "stored_floats": 1058124,
+        "physical_storage_floats": 1058124,
+        "index_integers": 4224,
+        "projection_multiplications": 1044480,
+        "activation_products": 1056,
+        "source_total_multiplications": 1047648
+      },
+      "completion": [
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 475159.94895678933,
+          "projection_squared_error": 519950.4999001077,
+          "constructed_relative_error": 0.11323870687702879,
+          "common_compiler": {
+            "pencil_condition": 7730.947427378526,
+            "eigenbasis_condition": 257.0635471611889,
+            "real_basis_condition": 271.04520567198807,
+            "matrix_replay": [
+              5.830867178042301e-12,
+              6.081755499358734e-12
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 716.0171805188678,
+            "eigenbasis_condition": 167.2872339988204,
+            "real_basis_condition": 183.4531677851711,
+            "matrix_replay": [
+              8.244015683911925e-12,
+              9.040455877030224e-12
+            ]
+          }
+        },
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 905866.0129181547,
+          "projection_squared_error": 685766.6818507614,
+          "constructed_relative_error": 0.12074644198899989,
+          "common_compiler": {
+            "pencil_condition": 17203.69363215858,
+            "eigenbasis_condition": 460.1133222596311,
+            "real_basis_condition": 362.8751596998828,
+            "matrix_replay": [
+              4.5781785698375303e-11,
+              5.89840667346503e-11
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 4912.583935173679,
+            "eigenbasis_condition": 249.80183772672285,
+            "real_basis_condition": 262.17023353758333,
+            "matrix_replay": [
+              1.504229273558811e-11,
+              1.6459857916107106e-11
+            ]
+          }
+        },
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 2195970.635349699,
+          "projection_squared_error": 1147563.959976043,
+          "constructed_relative_error": 0.11115309291347021,
+          "common_compiler": {
+            "pencil_condition": 16511.131866091444,
+            "eigenbasis_condition": 238.95318144312546,
+            "real_basis_condition": 260.91922621871544,
+            "matrix_replay": [
+              2.381223225025812e-12,
+              2.405024809095119e-12
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 240.33562147246457,
+            "eigenbasis_condition": 171.66690700048323,
+            "real_basis_condition": 195.24304747442855,
+            "matrix_replay": [
+              1.536725097788777e-12,
+              1.88706163821513e-12
+            ]
+          }
+        }
+      ],
+      "native_error": 0.6339929936732371,
+      "covariance_error": 0.11150230707273867,
+      "execution_replay": 2.3567245262282065e-15,
+      "per_mode_errors": [
+        0.027584634065217144,
+        0.02917056038757014,
+        0.14211908508361415
+      ],
+      "euclidean_jacobian_errors": [
+        0.2276009617313937,
+        0.2080936546016103,
+        0.22421453018376925
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    },
+    {
+      "key": "calibration_shaped_pairwise_26301",
+      "instrument": false,
+      "failure": "Pair reconstruction failed: [3.50106386167189e-10, 3.753420151835547e-10]"
+    },
+    {
+      "key": "native_isotropic_pairwise_0",
+      "instrument": true,
+      "before_readout_refit": {
+        "native_error": 0.541208931816305,
+        "covariance_error": 0.15763010777034087,
+        "execution_replay": 2.0270539991797927e-15,
+        "per_mode_errors": [
+          0.023904083268486507,
+          0.04050419874886962,
+          0.15088934037194687
+        ],
+        "euclidean_jacobian_errors": [
+          0.23262349236632707,
+          0.21124880437048735,
+          0.20542540550606156
+        ],
+        "stored_floats": 1058124,
+        "physical_storage_floats": 1058124,
+        "index_integers": 4224,
+        "projection_multiplications": 1044480,
+        "activation_products": 1056,
+        "source_total_multiplications": 1047648
+      },
+      "completion": [
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 1995486.2747477624,
+          "projection_squared_error": 16855577.506201986,
+          "constructed_relative_error": 0.48292789044134204,
+          "common_compiler": {
+            "pencil_condition": 87.21860784359524,
+            "eigenbasis_condition": 59.735846721508246,
+            "real_basis_condition": 62.62913310028767,
+            "matrix_replay": [
+              9.279925323573174e-13,
+              9.177238485341976e-13
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 4958.392917004024,
+            "eigenbasis_condition": 151.4824094494701,
+            "real_basis_condition": 156.76537182380858,
+            "matrix_replay": [
+              5.75151589430606e-11,
+              5.659364682144866e-11
+            ]
+          }
+        },
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 4191820.121627421,
+          "projection_squared_error": 18822111.32228151,
+          "constructed_relative_error": 0.5503703498583584,
+          "common_compiler": {
+            "pencil_condition": 2492.38750650218,
+            "eigenbasis_condition": 69.83829450616547,
+            "real_basis_condition": 71.8454508782071,
+            "matrix_replay": [
+              2.753452930087461e-12,
+              3.5462614368511833e-12
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 103.33696246421896,
+            "eigenbasis_condition": 96.01073048164228,
+            "real_basis_condition": 102.93929794439298,
+            "matrix_replay": [
+              2.2459103566075873e-12,
+              2.234796304675805e-12
+            ]
+          }
+        },
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 8929779.470814278,
+          "projection_squared_error": 31244445.78621319,
+          "constructed_relative_error": 0.585315687696742,
+          "common_compiler": {
+            "pencil_condition": 284.1074302472076,
+            "eigenbasis_condition": 122.78041740236637,
+            "real_basis_condition": 138.93812369484735,
+            "matrix_replay": [
+              3.7527604299506974e-13,
+              4.973700572710912e-13
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 116.63392911843614,
+            "eigenbasis_condition": 82.9228522133587,
+            "real_basis_condition": 94.04791365333998,
+            "matrix_replay": [
+              8.543491849949812e-13,
+              1.2673205311654414e-12
+            ]
+          }
+        }
+      ],
+      "native_error": 0.5326639538904867,
+      "covariance_error": 0.16584910683418488,
+      "execution_replay": 2.0399506953440974e-15,
+      "per_mode_errors": [
+        0.02962106506711639,
+        0.04540558626839232,
+        0.15023747248288183
+      ],
+      "euclidean_jacobian_errors": [
+        0.22310598278734234,
+        0.20851626128691753,
+        0.20373990293136546
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    },
+    {
+      "key": "native_isotropic_pairwise_26301",
+      "instrument": true,
+      "before_readout_refit": {
+        "native_error": 0.5417539298387648,
+        "covariance_error": 0.15764709763148663,
+        "execution_replay": 2.5993547342250036e-15,
+        "per_mode_errors": [
+          0.02601678684707602,
+          0.036084231076832,
+          0.142648364722397
+        ],
+        "euclidean_jacobian_errors": [
+          0.23469786799662773,
+          0.21208562628235292,
+          0.20489609697451283
+        ],
+        "stored_floats": 1058124,
+        "physical_storage_floats": 1058124,
+        "index_integers": 4224,
+        "projection_multiplications": 1044480,
+        "activation_products": 1056,
+        "source_total_multiplications": 1047648
+      },
+      "completion": [
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 2126861.6642188616,
+          "projection_squared_error": 16849734.34318624,
+          "constructed_relative_error": 0.48453316916949396,
+          "common_compiler": {
+            "pencil_condition": 632.2054439235599,
+            "eigenbasis_condition": 166.40291850444808,
+            "real_basis_condition": 175.6012093460012,
+            "matrix_replay": [
+              7.104531512388056e-12,
+              7.171120309330261e-12
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 263.0748821925601,
+            "eigenbasis_condition": 111.75371292920241,
+            "real_basis_condition": 118.03965518524565,
+            "matrix_replay": [
+              4.059878450991529e-12,
+              4.0671258345121145e-12
+            ]
+          }
+        },
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 4242159.285544697,
+          "projection_squared_error": 18818028.526196785,
+          "constructed_relative_error": 0.5509231748719554,
+          "common_compiler": {
+            "pencil_condition": 317.3081172018771,
+            "eigenbasis_condition": 166.77202368743448,
+            "real_basis_condition": 177.01678513851357,
+            "matrix_replay": [
+              3.791451930119547e-12,
+              4.593101094874279e-12
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 923.0610804942113,
+            "eigenbasis_condition": 273.03790624894884,
+            "real_basis_condition": 229.58811631265138,
+            "matrix_replay": [
+              1.0494207649904144e-11,
+              9.994256416822993e-12
+            ]
+          }
+        },
+        {
+          "shared_width": 128,
+          "private_width": 224,
+          "least_squares_rank": 224,
+          "cross_squared_error": 8877246.046378,
+          "projection_squared_error": 31251101.823046476,
+          "constructed_relative_error": 0.5849813884653268,
+          "common_compiler": {
+            "pencil_condition": 415.6253958525433,
+            "eigenbasis_condition": 52.93477859171927,
+            "real_basis_condition": 58.81443440444902,
+            "matrix_replay": [
+              2.9262712696615207e-13,
+              3.419655544332288e-13
+            ]
+          },
+          "private_compiler": {
+            "pencil_condition": 472.5338590393723,
+            "eigenbasis_condition": 123.52442518034073,
+            "real_basis_condition": 137.1432046093187,
+            "matrix_replay": [
+              3.2099874672213097e-12,
+              3.026180816783913e-12
+            ]
+          }
+        }
+      ],
+      "native_error": 0.5333793440301973,
+      "covariance_error": 0.16524862836345625,
+      "execution_replay": 2.56839354067085e-15,
+      "per_mode_errors": [
+        0.03169092291947342,
+        0.041029057744470875,
+        0.1481222110859391
+      ],
+      "euclidean_jacobian_errors": [
+        0.2245836739558152,
+        0.2097667667279148,
+        0.20379050656055536
+      ],
+      "stored_floats": 1058124,
+      "physical_storage_floats": 1058124,
+      "index_integers": 4224,
+      "projection_multiplications": 1044480,
+      "activation_products": 1056,
+      "source_total_multiplications": 1047648
+    }
+  ],
+  "predictions": {
+    "instrument": false,
+    "components": false,
+    "coefficients": false,
+    "arithmetic": true
+  },
+  "seconds": 17.09314763965085,
+  "scope": "Actual compiled1056product graphs with pairwise sharedlinear dictionaries. Common/private cross approximation is explicit; fixed-product output coefficients refitted. Opened448only, suppliedz/h remain."
+}

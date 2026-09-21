@@ -2,6 +2,8 @@
 
 **Start here — [From folded weights to a simpler circuit: the overall research review](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 11:53 UTC. Explains QR, the two-stage decomposition and graph plan, why the experiments narrowed to selected components, and what the latest results do and do not establish.
 
+**Latest two-stage result — [Stage-one gain and graph-conversion gap](research_update_2026-09-21_1237_stage_one_gain_and_graph_conversion_gap.md).** Pairwise reuse passes coefficient limits but misses component fidelity. Its cheap compiled graph loses accuracy; dense and sparse cross-correction tests retain failures. Alternating exact-fit controls pass for the next refinement.
+
 **Latest native result — [Movable subspaces and pairwise reuse](research_update_2026-09-21_1213_movable_subspaces_and_pairwise_reuse.md).** Dense-core relaxation improves the third component to11.14%but fails fidelity and cost. Pairwise dictionaries pass toy recovery; a matched-budget native comparison is registered.
 
 **Latest input-space diagnostic — [Input subspaces before graph search](research_update_2026-09-21_1158_input_subspaces_before_graph_search.md).** Unrestricted cores in the learned spans still miss the coefficient requirement; tested private-span replacements do not fix it. Support-guided toys recover four of five, but native supports must improve.

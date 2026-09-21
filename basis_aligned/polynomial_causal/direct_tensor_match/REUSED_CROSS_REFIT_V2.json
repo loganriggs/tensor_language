@@ -1,0 +1,50 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:33:37.760372+00:00",
+    "positions": 5600,
+    "steps": 1000,
+    "tolerance": 1e-08,
+    "ridge": 1e-10,
+    "mask": "Largest normalized atom correlations with the cross residual. Each score is single-atom squared-error reduction; fixed5600positions then sameCGsolve.",
+    "pred_a": "Five independent dense Kronecker solves matchCG; native normalresidual<=1e-8 for convergence claim.",
+    "pred_b": "Reconstructionerror<=originalcovarianceguard. Keepzero coefficients asfeasiblecontrol.",
+    "scope": "Fixedmask coefficientrefit only, not yet executablegraph. Dense projections avoided byreusingactualgraphactivations; prospective budget1064448source mults.",
+    "mask_kind": "residual_correlation",
+    "motivation": "Magnitude mask refit convergesbut10.96%errorfails. Coefficient magnitude in ill-conditioned basis can prioritize cancellations; test residual alignment directly. No changes to target, budget, solver or threshold."
+  },
+  "primary": "calibration_shaped_pairwise_0",
+  "records": [
+    {
+      "pair": 1,
+      "products": 2264,
+      "cross_squared_error": 0.0014320164339752552,
+      "zero_coefficient_squared_error": 0.0020409721964165708,
+      "iterations": 287,
+      "relative_normal_residual": 9.27054113512586e-09,
+      "converged": true
+    },
+    {
+      "pair": 2,
+      "products": 2204,
+      "cross_squared_error": 0.002279701313818101,
+      "zero_coefficient_squared_error": 0.002765976869482289,
+      "iterations": 241,
+      "relative_normal_residual": 9.824826995237119e-09,
+      "converged": true
+    },
+    {
+      "pair": 3,
+      "products": 1132,
+      "cross_squared_error": 0.001998323728277051,
+      "zero_coefficient_squared_error": 0.0027048460770057853,
+      "iterations": 452,
+      "relative_normal_residual": 8.552808359221209e-09,
+      "converged": true
+    }
+  ],
+  "coefficient_error": 0.10700849974326414,
+  "coefficient_guard": 0.07734469220772448,
+  "coefficient_pass": false,
+  "seconds": 1.3557320917025208,
+  "scope": "Fixed5600crosspositions using existing activations, coefficients refitted. This is a dense-form diagnostic; shared-core update/recompilation, actual execution, component fidelity and native behavior remain untested. Nonconverged solves are not certified optima."
+}

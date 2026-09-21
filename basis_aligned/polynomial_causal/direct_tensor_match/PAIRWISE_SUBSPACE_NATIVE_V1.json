@@ -1,0 +1,312 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:12:40.418849+00:00",
+    "metrics": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "parents": {
+      "calibration_shaped": "calibration_shaped_0",
+      "native_isotropic": "native_isotropic_26301"
+    },
+    "arms": [
+      "common inherited continuation",
+      "pairwise exact inherited initialization",
+      "pairwise full random26301"
+    ],
+    "steps": 1800,
+    "optimizer": "Muon",
+    "rate": 0.03,
+    "covariance_guard": 0.07734469220772448,
+    "native_guard": 0.6078558841808147,
+    "primary": "Pairwise covariance restart with lowest fitting objective.",
+    "matched_comparison": "Compare warm pairwise and common continuation after identical1800extra steps; at least1%root error improvement in both fitting geometries.",
+    "toy_evidence": "Five generic pairwise targets, both random starts allwithin1%, worst.263%;1800Muon.03.",
+    "scope": "Unpriced dense-core diagnostic. Common128/private224 versus shared12/13/23width64each,private224each. Same352local span, relaxed sharing incidence. Prospective sparse product architecture retains20.317%source arithmetic saving but has not been fitted.",
+    "hashes": {
+      "shared_subspace_loss.py": "46b0bebd74c0bd091ceb12ce1b38bdfd3067c67b82aa648a5c66a84188aeee98",
+      "pairwise_subspace_loss.py": "1fa3c839cfb111f8e5c4f7a1232cd5a21a61603fd54f4724e304216a22f15200",
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "SHARED_SUBSPACE_NATIVE_STATES_V1.pt": "edf73a29f76b2d5a0c521f999ada8dad916485e7b81fd8fecc9b33248c8a6649",
+      "PAIRWISE_SUBSPACE_TOY_V1.json": "596a8efd119ab259a302e5409a4a605f1fd3f35999ae6e7b3ed5f7c5b77a125c",
+      "PAIRWISE_SUBSPACE_NATIVE_PREFLIGHT_V1.json": "96cd8021ada7b3066154cd3e196e3714b6ca0324c1c1a2647193cf4119b9285d"
+    }
+  },
+  "records": [
+    {
+      "key": "calibration_shaped_common_0",
+      "geometry": "calibration_shaped",
+      "topology": "common",
+      "seed": 0,
+      "best_step": 1800,
+      "objective": 0.00627011404798831,
+      "native_error": 0.6018456269532907,
+      "covariance_error": 0.07918405172753232,
+      "dense_loss_replay": 2.0296264668928643e-16,
+      "projection_orthogonality": 1.5320221367396539e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.0062705264515671155
+        },
+        {
+          "step": 300,
+          "loss": 0.006274493678364153
+        },
+        {
+          "step": 600,
+          "loss": 0.006274230225295977
+        },
+        {
+          "step": 900,
+          "loss": 0.006271104808428518
+        },
+        {
+          "step": 1200,
+          "loss": 0.006270367885877833
+        },
+        {
+          "step": 1500,
+          "loss": 0.006270141761452426
+        },
+        {
+          "step": 1800,
+          "loss": 0.00627011404798831
+        }
+      ]
+    },
+    {
+      "key": "calibration_shaped_pairwise_0",
+      "geometry": "calibration_shaped",
+      "topology": "pairwise",
+      "seed": 0,
+      "best_step": 1800,
+      "objective": 0.005740777541233847,
+      "native_error": 0.5823636995522509,
+      "covariance_error": 0.07576791894485259,
+      "dense_loss_replay": 9.454242944073599e-17,
+      "projection_orthogonality": 1.681203252531464e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.0062705264515670045
+        },
+        {
+          "step": 300,
+          "loss": 0.005802692409598076
+        },
+        {
+          "step": 600,
+          "loss": 0.005758795719759161
+        },
+        {
+          "step": 900,
+          "loss": 0.0057470812104672975
+        },
+        {
+          "step": 1200,
+          "loss": 0.005742485148151344
+        },
+        {
+          "step": 1500,
+          "loss": 0.005740989185834285
+        },
+        {
+          "step": 1800,
+          "loss": 0.005740777541233847
+        }
+      ]
+    },
+    {
+      "key": "calibration_shaped_pairwise_26301",
+      "geometry": "calibration_shaped",
+      "topology": "pairwise",
+      "seed": 26301,
+      "best_step": 1800,
+      "objective": 0.005747825950620363,
+      "native_error": 0.5826884467749831,
+      "covariance_error": 0.075814417828144,
+      "dense_loss_replay": 3.729655473350135e-17,
+      "projection_orthogonality": 1.6552917755911836e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9075319767150187
+        },
+        {
+          "step": 300,
+          "loss": 0.0061285625641721575
+        },
+        {
+          "step": 600,
+          "loss": 0.005837397300209379
+        },
+        {
+          "step": 900,
+          "loss": 0.005772642198013137
+        },
+        {
+          "step": 1200,
+          "loss": 0.005754178564574238
+        },
+        {
+          "step": 1500,
+          "loss": 0.005748591996784458
+        },
+        {
+          "step": 1800,
+          "loss": 0.005747825950620363
+        }
+      ]
+    },
+    {
+      "key": "native_isotropic_common_0",
+      "geometry": "native_isotropic",
+      "topology": "common",
+      "seed": 0,
+      "best_step": 1800,
+      "objective": 0.2612990492522128,
+      "native_error": 0.5111741868015373,
+      "covariance_error": 0.13360334416460443,
+      "dense_loss_replay": 5.551115123125783e-17,
+      "projection_orthogonality": 1.4052602108687584e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.26133070868550323
+        },
+        {
+          "step": 300,
+          "loss": 0.2613392917435479
+        },
+        {
+          "step": 600,
+          "loss": 0.2613181783925051
+        },
+        {
+          "step": 900,
+          "loss": 0.261309804527722
+        },
+        {
+          "step": 1200,
+          "loss": 0.2613027464319795
+        },
+        {
+          "step": 1500,
+          "loss": 0.26129944629466384
+        },
+        {
+          "step": 1800,
+          "loss": 0.2612990492522128
+        }
+      ]
+    },
+    {
+      "key": "native_isotropic_pairwise_0",
+      "geometry": "native_isotropic",
+      "topology": "pairwise",
+      "seed": 0,
+      "best_step": 1800,
+      "objective": 0.24090358813343107,
+      "native_error": 0.4908193029348286,
+      "covariance_error": 0.12937803661479488,
+      "dense_loss_replay": 0.0,
+      "projection_orthogonality": 1.4120127081933365e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.26133070868550323
+        },
+        {
+          "step": 300,
+          "loss": 0.24306883502473722
+        },
+        {
+          "step": 600,
+          "loss": 0.241397921151766
+        },
+        {
+          "step": 900,
+          "loss": 0.2410528555239062
+        },
+        {
+          "step": 1200,
+          "loss": 0.2409427872202832
+        },
+        {
+          "step": 1500,
+          "loss": 0.24090863117451414
+        },
+        {
+          "step": 1800,
+          "loss": 0.24090358813343107
+        }
+      ]
+    },
+    {
+      "key": "native_isotropic_pairwise_26301",
+      "geometry": "native_isotropic",
+      "topology": "pairwise",
+      "seed": 26301,
+      "best_step": 1800,
+      "objective": 0.24088049934001232,
+      "native_error": 0.49079578170560134,
+      "covariance_error": 0.12953074523177752,
+      "dense_loss_replay": 5.551115123125783e-17,
+      "projection_orthogonality": 1.3956900803809518e-15,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9056185871116895
+        },
+        {
+          "step": 300,
+          "loss": 0.2423400042593305
+        },
+        {
+          "step": 600,
+          "loss": 0.2410925214695904
+        },
+        {
+          "step": 900,
+          "loss": 0.24094606812808927
+        },
+        {
+          "step": 1200,
+          "loss": 0.24090062392838685
+        },
+        {
+          "step": 1500,
+          "loss": 0.2408832843593528
+        },
+        {
+          "step": 1800,
+          "loss": 0.24088049934001232
+        }
+      ]
+    }
+  ],
+  "primary": "calibration_shaped_pairwise_0",
+  "matched_warm_comparisons": [
+    {
+      "geometry": "calibration_shaped",
+      "common": 0.07918405172753232,
+      "pairwise": 0.07576791894485259,
+      "passes": true
+    },
+    {
+      "geometry": "native_isotropic",
+      "common": 0.5111741868015373,
+      "pairwise": 0.4908193029348286,
+      "passes": true
+    }
+  ],
+  "predictions": {
+    "pred_d_matched_warm_improvement": true,
+    "pred_a_instrument": true,
+    "pred_b_primary_covariance": true,
+    "pred_c_primary_native": true
+  },
+  "seconds": 397.1220549168065,
+  "scope": "Unpriced dense-core comparison: common128/private224 versus three pairwise64/private224 supports. Equal extra fitting steps for warm controls. Selected6forms only; not a sparse graph or native behavior test."
+}
