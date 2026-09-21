@@ -1,0 +1,50 @@
+[
+  {
+    "domain": "fineweb",
+    "condition": "newline",
+    "n": 106,
+    "weight_effective_n": 12.792725277322628,
+    "highest_sensitivity_decile_reference_share": 0.17900992137714625,
+    "highest_sensitivity_decile_error_share": 0.8886190698742568,
+    "weighted_error": 0.2488661265716056,
+    "in_sample_affine_error": 0.12548121532414983,
+    "oracle_slope": 0.8889443674968924,
+    "oracle_intercept_in_target_rms": -0.08766478946199166
+  },
+  {
+    "domain": "fineweb",
+    "condition": "other",
+    "n": 3718,
+    "weight_effective_n": 218.41115874076485,
+    "highest_sensitivity_decile_reference_share": 0.632649556358144,
+    "highest_sensitivity_decile_error_share": 0.5541429390133576,
+    "weighted_error": 0.2423739285584641,
+    "in_sample_affine_error": 0.24101653944417895,
+    "oracle_slope": 0.990984272742809,
+    "oracle_intercept_in_target_rms": -0.014357983555370445
+  },
+  {
+    "domain": "stdlib",
+    "condition": "newline",
+    "n": 210,
+    "weight_effective_n": 19.22751152062564,
+    "highest_sensitivity_decile_reference_share": 0.12348444122194284,
+    "highest_sensitivity_decile_error_share": 0.09892603190014984,
+    "weighted_error": 0.2581784746725532,
+    "in_sample_affine_error": 0.13562381068329638,
+    "oracle_slope": 0.838914699453317,
+    "oracle_intercept_in_target_rms": 0.021053606428847068
+  },
+  {
+    "domain": "stdlib",
+    "condition": "other",
+    "n": 3614,
+    "weight_effective_n": 420.5914566040658,
+    "highest_sensitivity_decile_reference_share": 0.44329125506602773,
+    "highest_sensitivity_decile_error_share": 0.284787387349764,
+    "weighted_error": 0.11714656407193098,
+    "in_sample_affine_error": 0.09627040082697376,
+    "oracle_slope": 1.073314265399704,
+    "oracle_intercept_in_target_rms": 0.03981141021833349
+  }
+]
