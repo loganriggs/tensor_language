@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-09-21T11:41:33.591549+00:00",
+  "source": "TOY_OVERLAP_OPTIMIZER_STATES_CROSS_V2.pt",
+  "cases": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "optimizer": "LBFGS after3600stepMuon.03",
+  "lr": 1.0,
+  "max_iter": 200,
+  "max_eval": 300,
+  "history_size": 30,
+  "line_search": "strong_wolfe",
+  "prediction": "At least4of5known targets reach<=1%rootregularizedcoefficienterror in one of two existing starts. All saved candidates checked with explicitdense loss. Otherwise the native mixed-wiring comparison stays unlaunched.",
+  "rationale": "BothAdam andMuon long-budget mixed-wiring recovery fail3of5 despite correctloss/gradients/exactplantedcapacity. Test curvature-aware refinement before attributing misses to structure or spending native GPU compute. No new randomstarts or toy targetchanges."
+}
