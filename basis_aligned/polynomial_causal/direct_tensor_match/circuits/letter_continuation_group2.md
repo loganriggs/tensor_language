@@ -147,3 +147,7 @@ Global383fits terminal257.62s; primarypartial-balance values2.658/2.602/18.690% 
 ## 21 September, 09:03 — Joint directions and outer component identity
 
 Four fits154.54s; selectededited399program errors2.576/2.518/16.090%, versuscontinuedglobal3832.477/2.443/18.786%. Registeredabsolute/relativebaseline and20%thirdgainfail. Privatecenteredremoval increases16.09->24.88%, othersunchanged; privatequadraticcos.7066betweenstarts failsidentity. Independentexportpasses. Exactcommonwriterouterfactorrotations preservecombinedwrite butchangeindividualcomponents; this is an algebraicgauge, notpermissiontorotateawayregisteredfailure. Combinedopenederrors2.55/2.57/2.71%edited/global/partial cannotreplacefreshinterventions. [Report](../../explanations/for_logan/research_update_2026-09-21_0903_direction_refit_and_component_identity.md).
+
+## 21 September, 09:10 — Fresh compact-group native interventions
+
+Frozen399graph tested32newFineWebdocs+16newcodefiles, all3individual+combined removals andsame-token cross-document swaps. Nativeinstrumentpasses; original72cells4absolute/25relativefail. Combinedabsolute18/18pass(max6.60%), relativeagainstBOTHseparate768andpartial512fails11/18. All-site combinedFineWebnatural2.720%vs2.471%partial;code2.311%vs1.905%. Codecontinuationhybridratio1.885withpairedrecipient95%interval1.471–2.422, donorsfixed. Exactreportedpointsrecomputed; nativeports and allconstituentfailures retained. No adoption. [Report](../../explanations/for_logan/research_update_2026-09-21_0910_fresh_group_and_constituent_interventions.md).
