@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-09-21T10:48:32.398630+00:00",
+  "target": "Six unchanged native quadratic source reads from MLP16 feeding three later components. Native z and later h remain supplied.",
+  "question": "Can an invertible linear input change expose disjoint source-coordinate blocks shared by all six forms?",
+  "method": "Simple regular pencil A=sum a_o T_o, B=sum b_o T_o; diagonalize A^-1 B, transform every A^-1 T_o, and find connected components of their off-diagonal coupling graph. A connected graph forces scalar center under the checked simple-spectrum assumption.",
+  "prior_art": "Earlier pair pencil test only obstructed real simultaneous squares for two low-dimensional cores. This tests multi-form block congruence on all six full1152 forms.",
+  "seeds": [
+    23016,
+    23017
+  ],
+  "geometries": [
+    "native_isotropic",
+    "covariance_shaped"
+  ],
+  "threshold": 1e-08,
+  "threshold_sensitivity": [
+    1e-10,
+    1e-06
+  ],
+  "pred_a": "All four pencils simple and adequately conditioned; residuals <1e-10, normalized minimum eigengap>1e-10, anchor/eigenbasis conditions<1e8. Otherwise INCONCLUSIVE, not negative structure result.",
+  "pred_b": "Nontrivial source split: >1 graph component in all four screens at threshold1e-8. Opposing null: connected graph/scalar center, so no exact congruence direct sum in this numerical screen.",
+  "pred_c": "Same component sizes under invertible covariance coordinate change for each fixed pencil seed. Mismatch invalidates structural interpretation until diagnosed.",
+  "controls": "Five planted nonorthogonal congruences recover known block sizes and independent dense-center nullities. Degenerate pencil explicitly rejected. Already passed before native execution.",
+  "cost": "O(o*d^3) dense solves/eigen/transforms, O(o*d^2) memory, CPU2threads. No new calibration or behavioral selection. A successful exact split proposes smaller independent source programs; full products/storage and native intervention still required.",
+  "limits": "Numerical, not interval-certified. Disconnected complex blocks require real conjugate assembly; no real compiler claimed. A negative result does not rule out overlapping features, approximate circuits, or general DAG reuse.",
+  "preflight_sha256": "c0e37768eb655d9d7f99eed2559c5e8dd13e446cbeafcfbaa12345b40a80d8fa"
+}

@@ -1,0 +1,334 @@
+{
+  "five_nonorthogonal_structural_controls": [
+    {
+      "seed": 0,
+      "planted_block_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "dense_center_nullity": 12,
+      "screen": {
+        "anchor_condition": 100.00000000000033,
+        "eigenbasis_condition": 8.612868232497918,
+        "relative_minimum_eigengap": 0.027028669615988748,
+        "eigen_residual": 1.3507191527484996e-15,
+        "solve_residual": 3.279018379929244e-16,
+        "complex_eigenvalues": 0,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 12,
+            "sizes": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 12,
+            "sizes": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 12,
+            "sizes": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "primary_components": 12,
+        "primary_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "connectivity_bottleneck": 2.131142882678123e-15,
+        "off_block_transformed_operator_error": 9.618721002003687e-15,
+        "scalar_center_supported": false,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    },
+    {
+      "seed": 1,
+      "planted_block_sizes": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "dense_center_nullity": 4,
+      "screen": {
+        "anchor_condition": 99.99999999999991,
+        "eigenbasis_condition": 9.278733527521611,
+        "relative_minimum_eigengap": 0.0036511512161211735,
+        "eigen_residual": 9.175522708977757e-16,
+        "solve_residual": 4.457985337816766e-16,
+        "complex_eigenvalues": 0,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 4,
+            "sizes": [
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 4,
+            "sizes": [
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 4,
+            "sizes": [
+              3,
+              3,
+              3,
+              3
+            ]
+          }
+        ],
+        "primary_components": 4,
+        "primary_sizes": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "connectivity_bottleneck": 2.8913724615792307e-15,
+        "off_block_transformed_operator_error": 8.17868277066135e-14,
+        "scalar_center_supported": false,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    },
+    {
+      "seed": 2,
+      "planted_block_sizes": [
+        4,
+        8
+      ],
+      "dense_center_nullity": 2,
+      "screen": {
+        "anchor_condition": 99.99999999999945,
+        "eigenbasis_condition": 9.349468552263726,
+        "relative_minimum_eigengap": 0.010211852353736388,
+        "eigen_residual": 1.0380693117429655e-15,
+        "solve_residual": 4.85629843596826e-16,
+        "complex_eigenvalues": 0,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 2,
+            "sizes": [
+              4,
+              8
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 2,
+            "sizes": [
+              4,
+              8
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 2,
+            "sizes": [
+              4,
+              8
+            ]
+          }
+        ],
+        "primary_components": 2,
+        "primary_sizes": [
+          4,
+          8
+        ],
+        "connectivity_bottleneck": 1.3591022887957985e-14,
+        "off_block_transformed_operator_error": 1.830387218582087e-14,
+        "scalar_center_supported": false,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    },
+    {
+      "seed": 3,
+      "planted_block_sizes": [
+        12
+      ],
+      "dense_center_nullity": 1,
+      "screen": {
+        "anchor_condition": 100.00000000000006,
+        "eigenbasis_condition": 8.5570542815896,
+        "relative_minimum_eigengap": 0.05263804223299437,
+        "eigen_residual": 1.798746650089173e-15,
+        "solve_residual": 3.375897306401015e-16,
+        "complex_eigenvalues": 0,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 1,
+            "sizes": [
+              12
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 1,
+            "sizes": [
+              12
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 1,
+            "sizes": [
+              12
+            ]
+          }
+        ],
+        "primary_components": 1,
+        "primary_sizes": [
+          12
+        ],
+        "connectivity_bottleneck": 0.18819401100456742,
+        "off_block_transformed_operator_error": 0.0,
+        "scalar_center_supported": true,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    },
+    {
+      "seed": 4,
+      "planted_block_sizes": [
+        2,
+        3,
+        7
+      ],
+      "dense_center_nullity": 3,
+      "screen": {
+        "anchor_condition": 100.0000000000001,
+        "eigenbasis_condition": 7.788006641786318,
+        "relative_minimum_eigengap": 0.028099792150793102,
+        "eigen_residual": 1.1018388898422593e-15,
+        "solve_residual": 2.1553005333867117e-16,
+        "complex_eigenvalues": 0,
+        "instrument": "PASS",
+        "connectivity": [
+          {
+            "threshold": 1e-10,
+            "count": 3,
+            "sizes": [
+              2,
+              3,
+              7
+            ]
+          },
+          {
+            "threshold": 1e-08,
+            "count": 3,
+            "sizes": [
+              2,
+              3,
+              7
+            ]
+          },
+          {
+            "threshold": 1e-06,
+            "count": 3,
+            "sizes": [
+              2,
+              3,
+              7
+            ]
+          }
+        ],
+        "primary_components": 3,
+        "primary_sizes": [
+          2,
+          3,
+          7
+        ],
+        "connectivity_bottleneck": 3.72237074630675e-15,
+        "off_block_transformed_operator_error": 9.156162928185806e-15,
+        "scalar_center_supported": false,
+        "scope": "Numerical necessary-condition screen. Connected simple-pencil commutation graph forces scalar center in exact arithmetic. Disconnected complex blocks are not automatically real congruence blocks; no real compiler is claimed."
+      }
+    }
+  ],
+  "degenerate_pencil_control": {
+    "anchor_condition": 1.0,
+    "eigenbasis_condition": 1.0,
+    "relative_minimum_eigengap": 0.0,
+    "eigen_residual": 0.0,
+    "solve_residual": 0.0,
+    "complex_eigenvalues": 0,
+    "instrument": "INCONCLUSIVE",
+    "reason": "simple, adequately conditioned pencil not established"
+  }
+}
