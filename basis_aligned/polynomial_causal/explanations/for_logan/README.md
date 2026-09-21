@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
+**Latest diagnostic — [Later-input response](research_update_2026-09-21_0946_later_input_response.md).** The compact graph retains a third-component response gap at its supplied later state. The empirical direction fit is running; no final outcome yet.
+
 **Latest experiment — [Expanded moment calibration](research_update_2026-09-21_0934_expanded_moment_calibration.md).** More calibration improves fixed-direction transfer, but the relative component gate still fails. Full-batch direction refitting is preregistered, with no outcome yet.
 
 **Latest experiment — [Empirical polynomial metric readout](research_update_2026-09-21_0926_empirical_polynomial_metric_readout.md).** Exact coefficient-plus-data-moment fitting improves training much more than transfer. The primary retains coefficient fidelity but fails component and transfer-improvement gates.

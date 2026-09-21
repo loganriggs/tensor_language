@@ -163,3 +163,7 @@ TenCPUfits22.27s,399products896198floats unchanged. Source anddownstreamlineariz
 ## 21 September, 09:34 — Expanded source moments
 
 Fixed399directions, empiricalsourcepool1536->16384states atsameobjective: primarylambda1 opened2.144/2.475/14.908%, absolute15%passesbutrelative1.10separatefails. Coefficient8.819%passes10%guard; lambda10third14.426%coef9.435%alsofailsrelative. Morecoverage mitigatesoverfit; nofreshclaim. Fullbatchvarpro source-objective directionrefit registered0/1/10,2seeds,1000steps,.005Adam; explicitloss/gradient/envelope/nativewidthchecks pass. [Report](../../explanations/for_logan/research_update_2026-09-21_0934_expanded_moment_calibration.md).
+
+## 21 September, 09:46 — Later-input conditional response
+
+Analytic derivative through explicit RMS denominator verified against five autodiff controls below 1.7e-16. On opened448 states, partial512 later-h derivative errors are 3.30/6.47/12.79%, compact399 3.20/7.04/18.51%. Complements earlier-z derivatives, but actual upstream chain remains unclosed. Descriptive diagnostic, no new gates or fresh claim. Six-arm empirical-source direction fit remains live; no final selection. [Report](../../explanations/for_logan/research_update_2026-09-21_0946_later_input_response.md).

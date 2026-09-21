@@ -1,0 +1,38 @@
+{
+  "autograd_checks": [
+    1.6413720153211296e-16,
+    1.5462430267371316e-16,
+    1.4635842553428976e-16,
+    1.6934545396991081e-16,
+    1.17526187713305e-16
+  ],
+  "rows": [
+    {
+      "name": "partial512",
+      "component_errors": [
+        0.026491198090169473,
+        0.024842634287926758,
+        0.11941807541393733
+      ],
+      "later_input_jacobian_errors": [
+        0.033044761617822195,
+        0.06474104102597937,
+        0.12786130548180952
+      ]
+    },
+    {
+      "name": "compact399",
+      "component_errors": [
+        0.025759177278971663,
+        0.025181313007135803,
+        0.16090408400725262
+      ],
+      "later_input_jacobian_errors": [
+        0.032045216428612855,
+        0.07039775292519099,
+        0.18509288186913414
+      ]
+    }
+  ],
+  "scope": "Descriptive conditional later-input derivatives on opened448 states. Complements earlier-input fixed-h derivatives; neither is the composed upstream Jacobian, fresh validation, or an adoption gate."
+}
