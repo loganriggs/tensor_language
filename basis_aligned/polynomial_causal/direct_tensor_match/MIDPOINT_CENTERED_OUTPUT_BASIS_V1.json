@@ -1,0 +1,145 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_context": true,
+    "pred_c_source": true
+  },
+  "checks": [
+    2.6521066227532507e-16,
+    2.886579864025407e-15,
+    3.3306690738754696e-15,
+    3.774758283725532e-15
+  ],
+  "spectra": [
+    {
+      "metric": "centered",
+      "width": 256,
+      "fit_metric_projection_error": 0.2746130554634632
+    },
+    {
+      "metric": "centered",
+      "width": 512,
+      "fit_metric_projection_error": 0.1943961299902547
+    },
+    {
+      "metric": "isotropic",
+      "width": 256,
+      "fit_metric_projection_error": 0.7301208086083949
+    }
+  ],
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "basis": "paired256",
+      "linear_error": 0.22953366847864032,
+      "native_error": 0.21396641320649792
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "basis": "centered256",
+      "linear_error": 0.20568696872821285,
+      "native_error": 0.19425876706421763
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "basis": "centered512",
+      "linear_error": 0.14778000884310638,
+      "native_error": 0.14009939603869098
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "basis": "isotropic256",
+      "linear_error": 0.5132883476923689,
+      "native_error": 0.6157718191855989
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "basis": "paired256",
+      "linear_error": 0.44475407939445427,
+      "native_error": 0.4299666981126832
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "basis": "centered256",
+      "linear_error": 0.4023723420212896,
+      "native_error": 0.3932877027360105
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "basis": "centered512",
+      "linear_error": 0.29155229272226774,
+      "native_error": 0.28589201567125255
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "basis": "isotropic256",
+      "linear_error": 0.5578003901758912,
+      "native_error": 0.6929411995464448
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "basis": "paired256",
+      "linear_error": 0.17894537491345183,
+      "native_error": 0.17607875016737515
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "basis": "centered256",
+      "linear_error": 0.1588630009506949,
+      "native_error": 0.15905744360177748
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "basis": "centered512",
+      "linear_error": 0.11239825664264368,
+      "native_error": 0.11312568688000169
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "basis": "isotropic256",
+      "linear_error": 0.4362187987856674,
+      "native_error": 0.48599298632524845
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "basis": "paired256",
+      "linear_error": 0.3132981965611672,
+      "native_error": 0.3034660350932062
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "basis": "centered256",
+      "linear_error": 0.273897287288018,
+      "native_error": 0.26972821204793684
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "basis": "centered512",
+      "linear_error": 0.19656590562157203,
+      "native_error": 0.19451318485764563
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "basis": "isotropic256",
+      "linear_error": 0.5095697301995222,
+      "native_error": 0.6299047430838025
+    }
+  ],
+  "scope": "Output subspaces from exact original weights with centered calibration marginal covariances or identity. Paired256 original calibration-output basis control. Native oracle projections use teacher effects, not compressed executable computations. Reused panels; no held fitting."
+}

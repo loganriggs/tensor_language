@@ -1,0 +1,77 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "basis": "paired256",
+      "projection_floor": 0.44475407939445427,
+      "target_total_error": 0.3,
+      "possible_in_span": false,
+      "max_inside_error_over_full_target": null,
+      "max_inside_error_over_projected_target": null
+    },
+    {
+      "domain": "fineweb",
+      "basis": "centered256",
+      "projection_floor": 0.4023723420212896,
+      "target_total_error": 0.3,
+      "possible_in_span": false,
+      "max_inside_error_over_full_target": null,
+      "max_inside_error_over_projected_target": null
+    },
+    {
+      "domain": "fineweb",
+      "basis": "centered512",
+      "projection_floor": 0.29155229272226774,
+      "target_total_error": 0.3,
+      "possible_in_span": true,
+      "max_inside_error_over_full_target": 0.07069130504092498,
+      "max_inside_error_over_projected_target": 0.07390198478213111
+    },
+    {
+      "domain": "fineweb",
+      "basis": "isotropic256",
+      "projection_floor": 0.5578003901758912,
+      "target_total_error": 0.3,
+      "possible_in_span": false,
+      "max_inside_error_over_full_target": null,
+      "max_inside_error_over_projected_target": null
+    },
+    {
+      "domain": "code",
+      "basis": "paired256",
+      "projection_floor": 0.3132981965611672,
+      "target_total_error": 0.3,
+      "possible_in_span": false,
+      "max_inside_error_over_full_target": null,
+      "max_inside_error_over_projected_target": null
+    },
+    {
+      "domain": "code",
+      "basis": "centered256",
+      "projection_floor": 0.273897287288018,
+      "target_total_error": 0.3,
+      "possible_in_span": true,
+      "max_inside_error_over_full_target": 0.12239393782481604,
+      "max_inside_error_over_projected_target": 0.12726051361391758
+    },
+    {
+      "domain": "code",
+      "basis": "centered512",
+      "projection_floor": 0.19656590562157203,
+      "target_total_error": 0.3,
+      "possible_in_span": true,
+      "max_inside_error_over_full_target": 0.22663151755034258,
+      "max_inside_error_over_projected_target": 0.2311409352043246
+    },
+    {
+      "domain": "code",
+      "basis": "isotropic256",
+      "projection_floor": 0.5095697301995222,
+      "target_total_error": 0.3,
+      "possible_in_span": false,
+      "max_inside_error_over_full_target": null,
+      "max_inside_error_over_projected_target": null
+    }
+  ],
+  "scope": "Planning bound from exact orthogonal projection in linear vocabulary-centered metric on reused diagnostics.30% is an explicit planning target, not a newly passed gate. No bound on post-nonlinearity error or alternative output spaces."
+}
