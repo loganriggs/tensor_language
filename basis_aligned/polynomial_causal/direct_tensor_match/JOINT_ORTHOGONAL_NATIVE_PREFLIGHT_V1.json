@@ -1,0 +1,121 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_pairwise_0",
+      "export_scores": {
+        "native_error": 0.5973311092103251,
+        "covariance_error": 0.07993974798972575,
+        "execution_replay": 3.278375573903026e-15,
+        "per_mode_errors": [
+          0.02227949730566439,
+          0.02361122560749374,
+          0.10930612236274376
+        ],
+        "euclidean_jacobian_errors": [
+          0.20221839297797178,
+          0.1728403704076024,
+          0.17872774976552194
+        ],
+        "stored_floats": 1058124,
+        "physical_storage_floats": 1058124,
+        "index_integers": 4224,
+        "projection_multiplications": 1044480,
+        "activation_products": 1056,
+        "source_total_multiplications": 1047648
+      },
+      "loss": 0.006390363308660755,
+      "loss_replay": 1.0755285551056204e-16,
+      "matrix_replay": [
+        1.711540911692051e-14,
+        1.569951151350729e-14,
+        1.3838901879763933e-14
+      ],
+      "min_core_denominator": [
+        0.003500405135437701,
+        0.00471190808413513,
+        0.00361406142144971
+      ],
+      "gradient_norm": 0.0008915875589492369,
+      "shared_gradient_norm": 0.0007499555208245842,
+      "private_gradient_norm": 0.00048217744872379264,
+      "finite_difference_relative": 2.1300322008658585e-07,
+      "descent": [
+        {
+          "step": 0.0001,
+          "loss": 0.0063902748995965
+        },
+        {
+          "step": 0.001,
+          "loss": 0.006389546660810615
+        },
+        {
+          "step": 0.01,
+          "loss": 0.006388890994302732
+        },
+        {
+          "step": 0.1,
+          "loss": 0.006898298405585183
+        }
+      ]
+    },
+    {
+      "key": "native_isotropic_pairwise_26301",
+      "export_scores": {
+        "native_error": 0.5016628146923965,
+        "covariance_error": 0.13615973513356816,
+        "execution_replay": 3.594628366341628e-15,
+        "per_mode_errors": [
+          0.019770940414569123,
+          0.03414721584396635,
+          0.12251068636652578
+        ],
+        "euclidean_jacobian_errors": [
+          0.19844426405270243,
+          0.18362810114815797,
+          0.1787268180702663
+        ],
+        "stored_floats": 1058124,
+        "physical_storage_floats": 1058124,
+        "index_integers": 4224,
+        "projection_multiplications": 1044480,
+        "activation_products": 1056,
+        "source_total_multiplications": 1047648
+      },
+      "loss": 0.2516655796450977,
+      "loss_replay": 5.551115123125783e-17,
+      "matrix_replay": [
+        2.799145641518597e-14,
+        2.5331498127140055e-14,
+        2.0037669110710136e-14
+      ],
+      "min_core_denominator": [
+        0.008588287406760653,
+        0.010224583318686808,
+        0.008564394720262158
+      ],
+      "gradient_norm": 0.014269150497540654,
+      "shared_gradient_norm": 0.012332946544077468,
+      "private_gradient_norm": 0.00717684369778194,
+      "finite_difference_relative": 3.289035243211383e-08,
+      "descent": [
+        {
+          "step": 0.0001,
+          "loss": 0.2516641579131936
+        },
+        {
+          "step": 0.001,
+          "loss": 0.2516518292822629
+        },
+        {
+          "step": 0.01,
+          "loss": 0.2515748443254193
+        },
+        {
+          "step": 0.1,
+          "loss": 0.2539664376748892
+        }
+      ]
+    }
+  ],
+  "scope": "Same native warm functions and core optima with shared dictionaries also variable. No fitting or adoption claim."
+}

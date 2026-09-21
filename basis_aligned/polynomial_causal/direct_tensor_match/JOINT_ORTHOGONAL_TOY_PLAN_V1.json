@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-09-21T13:16:50.157467+00:00",
+  "steps": 1800,
+  "rate": 0.03,
+  "optimizers": [
+    "adam",
+    "muon"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "threshold": 0.01,
+  "required_cases": 4,
+  "selection": "Lowest geometricmeanerror overall10runs peroptimizer; require4of5within1%usingbestof2starts.",
+  "pred_a": "Five oracle/dense/envelope/through-solve controls and both native warm-equivalence checks pass.",
+  "pred_b": "Selectedoptimizer recovers>=4of5plantedtargetswithin1%.",
+  "scope": "Learn all three pairwise shared dictionaries and three private bases. Five planted instances of the same family at varying dimensions, not five distinct circuit architectures. No oracle directions supplied to fitting; exact conditional cores. Same optimizer budget and gates."
+}

@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "case": 0,
+      "oracle_error": 1.4677458385777173e-30,
+      "loss_replay": 2.498001805406602e-16,
+      "gradient_replay": 9.883297978507162e-17,
+      "finite_difference": 4.3188254361670175e-10
+    },
+    {
+      "case": 1,
+      "oracle_error": 5.271354232471669e-31,
+      "loss_replay": 7.979727989493313e-17,
+      "gradient_replay": 1.4392359530764126e-16,
+      "finite_difference": 1.7489004168480538e-10
+    },
+    {
+      "case": 2,
+      "oracle_error": 4.80298433351205e-31,
+      "loss_replay": 9.71445146547012e-17,
+      "gradient_replay": 5.145059918977164e-17,
+      "finite_difference": 6.040722956568434e-11
+    },
+    {
+      "case": 3,
+      "oracle_error": 3.718274888730783e-31,
+      "loss_replay": 1.0061396160665481e-16,
+      "gradient_replay": 1.198996245313965e-16,
+      "finite_difference": 1.705624148862217e-10
+    },
+    {
+      "case": 4,
+      "oracle_error": 4.140601994051336e-31,
+      "loss_replay": 5.204170427930421e-18,
+      "gradient_replay": 8.521201578673148e-17,
+      "finite_difference": 3.90683770057354e-11
+    }
+  ],
+  "scope": "Both shared and private directions variable; exact core envelope differentiated through shared projectors. Five unchanged fixtures."
+}

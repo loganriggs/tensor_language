@@ -1,0 +1,80 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "fp32_component_drift": [
+        7.113189247661157e-07,
+        1.6293756175994469e-06,
+        4.001226290150768e-06
+      ],
+      "fp32_source_drift": [
+        9.831889387097622e-07,
+        1.0000071781987956e-06,
+        2.0215925485867778e-06,
+        1.877102323481783e-06,
+        1.9965630712535907e-06,
+        2.0335816410349e-06
+      ],
+      "actual_executor_gradient_replay": [
+        8.756183189276745e-15,
+        1.1879519490439162e-14,
+        7.631638260846681e-15
+      ],
+      "precision_pass": true,
+      "gradient_pass": true
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "fp32_component_drift": [
+        1.0195617484654864e-06,
+        2.3780181572054483e-06,
+        5.184293226766312e-06
+      ],
+      "fp32_source_drift": [
+        1.8786143987856703e-06,
+        2.019160919375611e-06,
+        4.355505150660658e-06,
+        3.181341785205351e-06,
+        3.0719311281299027e-06,
+        2.6177464371569943e-06
+      ],
+      "actual_executor_gradient_replay": [
+        1.4356711482667063e-14,
+        1.9326009782261138e-14,
+        1.0368361499767746e-14
+      ],
+      "precision_pass": true,
+      "gradient_pass": true
+    },
+    {
+      "key": "native_isotropic_0",
+      "fp32_component_drift": [
+        8.620350018831269e-07,
+        1.2843137579973525e-06,
+        5.8801109436532846e-06
+      ],
+      "fp32_source_drift": [
+        1.364623171187895e-06,
+        1.3299981059509575e-06,
+        2.24935670021379e-06,
+        1.8886528506234544e-06,
+        2.1511822974655538e-06,
+        3.00880911323714e-06
+      ],
+      "actual_executor_gradient_replay": [
+        1.1500759406439065e-14,
+        1.102380597411675e-14,
+        8.838133362722004e-15
+      ],
+      "precision_pass": true,
+      "gradient_pass": true
+    }
+  ],
+  "unexported_instrument_failures": [
+    {
+      "key": "native_isotropic_26301",
+      "failure": "Pair reconstruction failed: [2.5961544853241277e-10, 2.6826124391427367e-10]"
+    }
+  ],
+  "scope": "448 previously opened states for FP32 stability, first16 for actual graph autodiff versus dense analytic derivatives holding later h fixed. Drift normalized by FP64 variation. Does not validate h response, OOD or semantic identity."
+}
