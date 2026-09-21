@@ -147,3 +147,18 @@ The instrument passed and replacement CE stayed below the registered 0.05 thresh
 For context, the calibration-mean replacement adds 0.13849 nats/token on FineWeb and 0.87762 on code. The broader learned program substantially improves on that baseline, but low CE does not establish faithful interventions, stable identities, or composition.
 
 A successor CPU check replayed the actual exported256-output program through the grouped evaluator on original calibration positions and passed below1e-12 relative error. This validates the exact rewrite, not measured speed. The next outstanding comparison is held-out/native evaluation of the shared-channel baseline at the same product budget.
+
+## 01:11 UTC addendum: shared-channel baseline and regularization
+
+The equal-product native comparison has finished. The shared native-channel baseline does not outperform the learned256-output program, despite its better calibration reconstruction.
+
+| Full same-token swap error | Learned256-output program | Shared channels | Shared channels + ridge |
+|---|---:|---:|---:|
+| FineWeb | 31.15% | 40.64% | 38.63% |
+| Code | 26.71% | 35.29% | 33.05% |
+
+Code replacement CE increases are0.04257,0.07990 and0.06768 nats/token respectively. Both channel versions fail the0.05 code threshold. Instrument checks pass. Regularization helps but does not reverse the comparison.
+
+Ridge0.1 was selected using complementary16-document halves of the original calibration panel: mean conditional validation error fell from42.41% to34.67%. Channel selection used the full calibration panel, so this is conditional output-fit validation rather than an independent validation of channel selection. No held native outcomes selected the penalty.
+
+The successor experiment exposes all1,024 learned products individually and refits their output writes, allowing them to escape the original256 output groups. This instantiates the proposed graph edit of splitting an output-shared feature. It increases output-weight storage and does not yet save products. Initial conditional calibration validation warns of severe overfitting: unregularized average error295.6%, reduced to42.9% with ridge0.1. Native testing is pending. A useful next control is regularizing around the original weight-derived writers rather than around zero, preserving their prior structure while fitting residual errors.

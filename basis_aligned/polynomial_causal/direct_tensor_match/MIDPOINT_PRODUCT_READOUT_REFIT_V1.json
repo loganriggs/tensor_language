@@ -1,0 +1,74 @@
+{
+  "records": [
+    {
+      "split": 0,
+      "ridge": 0.0,
+      "validation_error": 4.832830353492127
+    },
+    {
+      "split": 0,
+      "ridge": 0.0001,
+      "validation_error": 0.8921175532233341
+    },
+    {
+      "split": 0,
+      "ridge": 0.001,
+      "validation_error": 0.5681937869425411
+    },
+    {
+      "split": 0,
+      "ridge": 0.01,
+      "validation_error": 0.4289768334134451
+    },
+    {
+      "split": 0,
+      "ridge": 0.1,
+      "validation_error": 0.4146150172924447
+    },
+    {
+      "split": 0,
+      "ridge": 1.0,
+      "validation_error": 0.4887457217663719
+    },
+    {
+      "split": 1,
+      "ridge": 0.0,
+      "validation_error": 1.0794762809270304
+    },
+    {
+      "split": 1,
+      "ridge": 0.0001,
+      "validation_error": 0.8512129706929217
+    },
+    {
+      "split": 1,
+      "ridge": 0.001,
+      "validation_error": 0.5890006653045674
+    },
+    {
+      "split": 1,
+      "ridge": 0.01,
+      "validation_error": 0.4537867677128801
+    },
+    {
+      "split": 1,
+      "ridge": 0.1,
+      "validation_error": 0.44304331533748414
+    },
+    {
+      "split": 1,
+      "ridge": 1.0,
+      "validation_error": 0.5166785617262688
+    }
+  ],
+  "mean_validation_error": {
+    "0.0": 2.9561533172095786,
+    "0.0001": 0.8716652619581279,
+    "0.001": 0.5785972261235542,
+    "0.01": 0.4413818005631626,
+    "0.1": 0.4288291663149644,
+    "1.0": 0.5027121417463203
+  },
+  "chosen_ridge": 0.1,
+  "scope": "Conditional output-refit validation on complementary originalcalibration16document halves. Product directions were fixed by originalweightfit with fullcalibration marginal metric; these are not independent direction-validation data. Rates chosen without native diagnostic outcomes. Wholefullcalibration refit exported; native evidence pending."
+}

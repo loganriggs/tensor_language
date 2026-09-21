@@ -1,0 +1,74 @@
+{
+  "records": [
+    {
+      "split": 0,
+      "ridge": 0.0,
+      "validation_error": 0.4102205944349879
+    },
+    {
+      "split": 0,
+      "ridge": 0.0001,
+      "validation_error": 0.40857483576708503
+    },
+    {
+      "split": 0,
+      "ridge": 0.001,
+      "validation_error": 0.39941867400292336
+    },
+    {
+      "split": 0,
+      "ridge": 0.01,
+      "validation_error": 0.372085368434092
+    },
+    {
+      "split": 0,
+      "ridge": 0.1,
+      "validation_error": 0.33988546086505295
+    },
+    {
+      "split": 0,
+      "ridge": 1.0,
+      "validation_error": 0.3629357719302333
+    },
+    {
+      "split": 1,
+      "ridge": 0.0,
+      "validation_error": 0.4380025183905008
+    },
+    {
+      "split": 1,
+      "ridge": 0.0001,
+      "validation_error": 0.4356297026113598
+    },
+    {
+      "split": 1,
+      "ridge": 0.001,
+      "validation_error": 0.4237363642523661
+    },
+    {
+      "split": 1,
+      "ridge": 0.01,
+      "validation_error": 0.39012364779894493
+    },
+    {
+      "split": 1,
+      "ridge": 0.1,
+      "validation_error": 0.3534308146546389
+    },
+    {
+      "split": 1,
+      "ridge": 1.0,
+      "validation_error": 0.37851927871787594
+    }
+  ],
+  "mean_validation_error": {
+    "0.0": 0.42411155641274434,
+    "0.0001": 0.42210226918922245,
+    "0.001": 0.41157751912764473,
+    "0.01": 0.38110450811651847,
+    "0.1": 0.3466581377598459,
+    "1.0": 0.3707275253240546
+  },
+  "chosen_ridge": 0.1,
+  "scope": "Conditional output-refit validation on complementary originalcalibration16document halves. Reader/channel selection was fixed using fullcalibration; these are not independent dictionary-validation data. Rates chosen without native diagnostic outcomes. Wholefullcalibration refit exported; native evidence pending."
+}

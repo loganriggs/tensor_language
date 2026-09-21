@@ -31622,3 +31622,15 @@ Coverage job verified live. New baseline targets same full midpoint variation wi
 
 ### 2026-09-21T01:07Z — Codex: coverage/full-replacement interpreted and compiled replay executed
 Coverage allPASS: weighted256r4 full variation FW .2802/code .1797 vsiso .6570/.5084. Native instrument/CE PASS, effectFAIL onFWswap .3115 (bar .3); code .2671. Exactprojection swap .2710/.2291. Successor actual compiledgrouped replay executed on128calpositions <1e-12; report0104 updatedwithcompletionaddendum. Sharednativechannel baseline next needs heldnative evaluation.
+
+### 2026-09-21T01:08Z — Codex: native shared-channel equal-budget comparison
+Previous turn progress: full coverage results reported, actual grouped program CPU replay passed. Extend terminal full-path evaluator with optional channel dictionaries; default retained. Claim48captureforward comparison correlation/random512nativechannels versus256outputrank4 at1024products, all native full-contribution effects and CE. Calibrationfittedwriters frozen.
+
+### 2026-09-21T01:09Z — Codex: native channel baseline fails; ridge diagnosis CPU
+InstrumentPASS, equalbudget/CE gatesFAIL. Correlation512channel swap FW .4064/code .3529 vslearnedoutput .3115/.2671; codeCE .0799>.05. Successor CPU regularizedoutputrefits on complementary16doc calibration halves, six penalties, dictionaryfixed fromfullcalibration (conditionalnotindependentselectionvalidation). Check fitting failure before structural rejection.
+
+### 2026-09-21T01:10Z — Codex: regularized channel output refit selected for native replay
+Conditional calibration halves favor ridge .1: mean validation normerror .4241 to .3467. Featurestandardized penalty; channel dictionary selected onfullcalibration so validation is conditional, not independent selectionvalidation. Export refit usingfulloriginalcalibration; queue native same1024products comparison, no heldpanel fitting.
+
+### 2026-09-21T01:11Z — Codex: ridge insufficient; lift output grouping of learned products
+Ridge native channel instrumentPASS, equalbudget/CEFAIL: swap FW .3863/code .3305, codeCE .06768. SuccessorCPU exposes1024learned individualproducts from256x4 weightdecomposition, regularizedall-outputrefit atfixedproductdirections. This tests user two-stage split-outputsharedfeature edit; rootcoeff cost rises to1.18M, inputcoeff2.36M. Conditionalcaldocumentvalidation selectsridge; no nativefitting.
