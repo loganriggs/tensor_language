@@ -1,0 +1,7 @@
+**Pair versus input-state generalization, frozen-program diagnostic.**
+
+The wider response dictionary fits oldpanel0 well but transfers poorly to panel1. Test untrained donor combinations among the SAME inputs before collecting more inputs or expanding the architecture. Purequartic alpha.5responses in unembedding QRmetric, no native nonlinear endpoint claim. Compare shifts997(training),613and1379(untrained), internally within each2048-row panel. All are permutations with no selfpairs and coprime2048. Inputs/panels historicallyopened, not untouchedOOD. Nofit orprogramselection.
+
+Programs: QUARTIC_RESPONSE_FEATURES_32_WEIGHT_1(primaryhalf), WEIGHT_0(valuecontrol), QUARTIC_PATH_FIT_V1(pathsecondary). Price656products903168coefficients each. Pred_a_integrity: primaryshift997cal/evalresponses replayprevious .039233493810430585/.21113083561144408 within1e-5absolute; cachedteacherreplay<1e-4. Pred_b_pairgeneralization: halfprimarypanel0errorsoneachuntrainedshift<=1.5trainedshift0error. Pred_c_stategap: halfprimarypanel1error>=2panel0errorforeachuntrainedshift. Allfinite;zeroenergyfails.
+
+If pairgeneralizationfails strongly, resamplingdonors canchange thefittingconstraintwithoutcollectingmoreinputs. Ifpairgeneralizationholdsbutstategapremains, prioritizeinputcoverage/capacity ratherthanmorealpha/donorsweeps. Bothcancontribute; reportcontinuouserrorsandallprograms. Thediagnosticdoesnotidentifysemanticvariables.
