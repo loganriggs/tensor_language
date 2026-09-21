@@ -1,0 +1,235 @@
+{
+  "rows": [
+    {
+      "family": "independent",
+      "optimizer": "adam",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 4.430177390668563e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.14271229940850338
+    },
+    {
+      "family": "independent",
+      "optimizer": "adam",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 4.430177390668563e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.20330268018827044
+    },
+    {
+      "family": "independent",
+      "optimizer": "muon",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 4.430177390668563e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.31282846950133525
+    },
+    {
+      "family": "independent",
+      "optimizer": "muon",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 4.430177390668563e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.4543268673640224
+    },
+    {
+      "family": "shared_inputs",
+      "optimizer": "adam",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 6.178376481253403e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.05799397490297029
+    },
+    {
+      "family": "shared_inputs",
+      "optimizer": "adam",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 6.178376481253403e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.15576054741281803
+    },
+    {
+      "family": "shared_inputs",
+      "optimizer": "muon",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 6.178376481253403e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.11066022688282788
+    },
+    {
+      "family": "shared_inputs",
+      "optimizer": "muon",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 6.178376481253403e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.22908339519863466
+    },
+    {
+      "family": "shared_outputs",
+      "optimizer": "adam",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 7.046009163952742e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.08971269482417558
+    },
+    {
+      "family": "shared_outputs",
+      "optimizer": "adam",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 7.046009163952742e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.03254987089183283
+    },
+    {
+      "family": "shared_outputs",
+      "optimizer": "muon",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 7.046009163952742e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.2243584311908613
+    },
+    {
+      "family": "shared_outputs",
+      "optimizer": "muon",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 7.046009163952742e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.030937479260106378
+    },
+    {
+      "family": "squares",
+      "optimizer": "adam",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 2.688438851379122e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.04072962121265325
+    },
+    {
+      "family": "squares",
+      "optimizer": "adam",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 2.688438851379122e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.04753613642137175
+    },
+    {
+      "family": "squares",
+      "optimizer": "muon",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 2.688438851379122e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.042991931078462234
+    },
+    {
+      "family": "squares",
+      "optimizer": "muon",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 2.688438851379122e-08,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.08643895156248126
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "adam",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 5.416536703333632e-09,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.008643253659256247
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "adam",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 5.416536703333632e-09,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.014530637984336143
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "muon",
+      "restart": 0,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 5.416536703333632e-09,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.0031325660219180154
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "muon",
+      "restart": 1,
+      "steps": 1000,
+      "rate": 0.01,
+      "schedule": "cosine1pct",
+      "planted_error": 5.416536703333632e-09,
+      "selected_step": 1000,
+      "exact_coefficient_error": 0.0013480341408834168
+    }
+  ],
+  "summary": {
+    "adam": {
+      "below1percent": 1,
+      "median_error": 0.04753613471984863
+    },
+    "muon": {
+      "below1percent": 2,
+      "median_error": 0.08643895387649536
+    }
+  },
+  "scope": "Bounded1000step2restart optimizer control with cosine1pct, exactobjective. Compared to V1 both duration andschedulechange; not isolatedtimeeffect. Native25stepAdam alreadyqueued, no retrospectiveoptimizerselection."
+}
