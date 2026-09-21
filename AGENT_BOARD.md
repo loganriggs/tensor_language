@@ -31755,3 +31755,9 @@ Previous turn progress: uniformrank failures and mixedadaptive512 tradeoff. Nowh
 
 ### 2026-09-21T02:41Z — Codex: linear-sharing native miss and role-metric diagnostic
 Managedrun terminalexit0; instrument/contextinvariancePASS(replay0), rank256sourcepreservationFAIL(FW+5.17%,code+7.28%), CEbarPASS.512products and2,654,208weights vs4,423,680exactlinear; retainfailure. SuccessorCPU samewidth paired/separate/source-only linearobjective screen executed: separate sourceerror.04228 vs paired.09364, joint.10964 vs.10356; source-only damagesjoint.25792. Nextnative test separate-role objective, notmoreuniformrank sweep. Calibrationonlyresult, noadoption or circuitidentity claim. Report0241.
+
+### 2026-09-21T02:44Z — Codex: role-aware shared-linear native comparison claim
+Previous turn progress: pairedcompression misses sourcepreservation, CPUseparateroles improves sourceprojection. Fixedadaptive512interaction, exact/paired256/separate128/256/source256 sharedlinearcomparisons. Primaryseparate256 sourceerror<=1.05exactbothdomains andCE<.05; baseline/contextinvariance<1e-8. Constantatcalmeans preserved, allweightspriced. Same48diagnosticdocs,noheldfit. CPUcontextdelta equality beforemanagedrun. Source-onlyobjective istradeoffcontrol, notassumedwinner.
+
+### 2026-09-21T02:44Z — Codex: role-aware source gate passes but broader preservation fails
+Managedjob terminalexit0; allregisteredsource/CE/instrumentchecksPASS, replay0. Separate256source FW.26127/code.21352 versusexact.25672/.20692 (+1.77%/+3.19%). SuccessorCPU all-family audit executed: fullswapratios1.2907/1.2672, removal1.2835/1.3141 FAILbroadpreservation. Contextunchangedalgebraically at.55366/.39550. Do notpromote narrowerpass asfullgoal. Nextdiscriminatingdiagnostic input-position coverage (64poscal vs256poseval), notanotherunqualifiedrankfit. Report0244preservesbothoutcomes. Goalactive.

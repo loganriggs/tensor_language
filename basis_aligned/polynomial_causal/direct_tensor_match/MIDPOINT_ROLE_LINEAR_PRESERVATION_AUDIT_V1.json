@@ -1,0 +1,70 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "removal",
+      "baseline_error": 0.1790253165916819,
+      "candidate_error": 0.22977335357335268,
+      "ratio": 1.2834684945560864,
+      "within_five_percent": false
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_token",
+      "baseline_error": 0.23293064665786287,
+      "candidate_error": 0.3006377852148438,
+      "ratio": 1.290675098053678,
+      "within_five_percent": false
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "baseline_error": 0.2567167647082645,
+      "candidate_error": 0.26126993082558014,
+      "ratio": 1.0177361463809733,
+      "within_five_percent": true
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "baseline_error": 0.5536553679266077,
+      "candidate_error": 0.5536553679266077,
+      "ratio": 1.0,
+      "within_five_percent": true
+    },
+    {
+      "domain": "code",
+      "family": "removal",
+      "baseline_error": 0.11399258591796319,
+      "candidate_error": 0.14979500229872286,
+      "ratio": 1.314076710274171,
+      "within_five_percent": false
+    },
+    {
+      "domain": "code",
+      "family": "same_token",
+      "baseline_error": 0.20082290398364436,
+      "candidate_error": 0.25448786294668096,
+      "ratio": 1.267225291032577,
+      "within_five_percent": false
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "baseline_error": 0.2069235411229398,
+      "candidate_error": 0.2135160255044919,
+      "ratio": 1.0318595184761277,
+      "within_five_percent": true
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "baseline_error": 0.3954953384184284,
+      "candidate_error": 0.3954953384184284,
+      "ratio": 1.0,
+      "within_five_percent": true
+    }
+  ],
+  "all_families_preserved": false,
+  "scope": "Successor audit of all existing intervention families; not a retroactive change to registered source gate. Same reused panels. Explicitly distinguishes source-only preservation from full-function preservation."
+}
