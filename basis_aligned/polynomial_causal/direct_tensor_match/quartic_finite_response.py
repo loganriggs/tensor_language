@@ -24,17 +24,18 @@ def joint_design(x,y,delta,response,u,v,response_weight=1.):
     a=value_energy.rsqrt();b=(response_weight/response_energy).sqrt()
     return torch.cat([features(x,u,v)*a,response_features(x,delta,u,v)*b]),torch.cat([y*a,response*b])
 
-def fit(x,y,delta,response,initial,response_weight=1.,steps=300,rate=.01,optimizer='adam'):
+def fit(x,y,delta,response,initial,response_weight=1.,steps=300,rate=.01,optimizer='adam',design_builder=None):
     import math
     from empirical_quartic_dictionary import readout
     from shared_quadratic_bank import normalize_bank
+    build=joint_design if design_builder is None else design_builder
     shape=initial[0].shape
     parameters=[torch.nn.Parameter(z.flatten(0,1).clone()) for z in initial]
     opt=torch.optim.Adam(parameters,lr=rate) if optimizer=='adam' else torch.optim.Muon(parameters,lr=rate,weight_decay=0.,adjust_lr_fn='match_rms_adamw')
     best=None;history=[]
     for step in range(steps+1):
         u,v=normalize_bank(*(z.reshape(shape) for z in parameters))
-        design,target=joint_design(x,y,delta,response,u,v,response_weight)
+        design,target=build(x,y,delta,response,u,v,response_weight)
         with torch.no_grad():c,_,ridge=readout(design,target)
         scales=design.square().mean(0).sqrt().clamp_min(1e-12)
         residual=design/scales@c-target
