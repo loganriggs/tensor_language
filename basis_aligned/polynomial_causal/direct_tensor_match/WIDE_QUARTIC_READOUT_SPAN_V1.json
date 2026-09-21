@@ -1,0 +1,132 @@
+{
+  "controls": {
+    "known_floor": 0.31362589820867987,
+    "measured_floor": 0.3136258982086799,
+    "basis_change_floor": 0.3136258982086798,
+    "exact_span_error": 7.717383522971979e-16
+  },
+  "records": [
+    {
+      "width": 4,
+      "initial": "INHERITED",
+      "calibration_readout_errors": [
+        0.06153244084324043,
+        0.1293456994241894
+      ],
+      "individual_panel_oracles": [
+        {
+          "error": 0.06153243909098647,
+          "rank": 10,
+          "smallest_relative_singular": 0.02539531422047511
+        },
+        {
+          "error": 0.1219556669451714,
+          "rank": 10,
+          "smallest_relative_singular": 0.019086309518851673
+        }
+      ],
+      "pooled_oracle": {
+        "error": 0.09974264527485607,
+        "rank": 10,
+        "smallest_relative_singular": 0.023678351953638405
+      },
+      "pooled_panel_errors": [
+        0.065232507437404,
+        0.12402327038754243
+      ]
+    },
+    {
+      "width": 4,
+      "initial": "RANDOM",
+      "calibration_readout_errors": [
+        0.06639663529065838,
+        0.14919148866464585
+      ],
+      "individual_panel_oracles": [
+        {
+          "error": 0.06639663521023481,
+          "rank": 10,
+          "smallest_relative_singular": 0.05390506946689978
+        },
+        {
+          "error": 0.14204125049042218,
+          "rank": 10,
+          "smallest_relative_singular": 0.03837327277317759
+        }
+      ],
+      "pooled_oracle": {
+        "error": 0.11420195545914538,
+        "rank": 10,
+        "smallest_relative_singular": 0.04829268525093671
+      },
+      "pooled_panel_errors": [
+        0.07024594543773326,
+        0.1441500199559559
+      ]
+    },
+    {
+      "width": 32,
+      "initial": "INHERITED",
+      "calibration_readout_errors": [
+        0.02158625648253255,
+        0.15049828668269402
+      ],
+      "individual_panel_oracles": [
+        {
+          "error": 0.021586225527090427,
+          "rank": 528,
+          "smallest_relative_singular": 0.0011948611461605157
+        },
+        {
+          "error": 0.07575457774487417,
+          "rank": 528,
+          "smallest_relative_singular": 0.0008602617775957061
+        }
+      ],
+      "pooled_oracle": {
+        "error": 0.07518558248032114,
+        "rank": 528,
+        "smallest_relative_singular": 0.001368651585819746
+      },
+      "pooled_panel_errors": [
+        0.052736710348685524,
+        0.09161533051657214
+      ]
+    },
+    {
+      "width": 32,
+      "initial": "RANDOM",
+      "calibration_readout_errors": [
+        0.024866111820268863,
+        0.19891882960313706
+      ],
+      "individual_panel_oracles": [
+        {
+          "error": 0.0248660639283378,
+          "rank": 528,
+          "smallest_relative_singular": 0.0012295226778967076
+        },
+        {
+          "error": 0.09438409185387016,
+          "rank": 528,
+          "smallest_relative_singular": 0.000999948349887993
+        }
+      ],
+      "pooled_oracle": {
+        "error": 0.09625867509601437,
+        "rank": 528,
+        "smallest_relative_singular": 0.0014650713291502453
+      },
+      "pooled_panel_errors": [
+        0.0706440109784622,
+        0.11552293428322284
+      ]
+    }
+  ],
+  "predictions": {
+    "second_panel_oracle_below_half_transferred_error": false,
+    "one_pooled_writer_below_5percent_both": false
+  },
+  "seconds": 1.5787100703455508,
+  "scope": "Fixed learned feature directions. Separate/pooled in-sample readout lower bounds on two previously opened panels; rank tolerance1e-10. No new OOD data, no feature refit, no circuit adoption."
+}
