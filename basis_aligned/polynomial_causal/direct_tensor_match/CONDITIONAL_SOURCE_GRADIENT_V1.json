@@ -1,0 +1,38 @@
+{
+  "records": [
+    {
+      "pair": 0,
+      "gradient_frobenius": 0.0008001962783218725,
+      "signed_square_derivative": -0.00010896256991722918,
+      "finite_difference": -0.00010896239466262614,
+      "relative_discrepancy": 1.7525460303900037e-10
+    },
+    {
+      "pair": 1,
+      "gradient_frobenius": 0.0005981318853161877,
+      "signed_square_derivative": -4.4762570298742844e-05,
+      "finite_difference": -4.4762527018349374e-05,
+      "relative_discrepancy": 4.328039346997072e-11
+    },
+    {
+      "pair": 2,
+      "gradient_frobenius": 0.018468433107315066,
+      "signed_square_derivative": -0.011668808584698181,
+      "finite_difference": -0.011668809585252404,
+      "relative_discrepancy": 1.000554222807537e-09
+    }
+  ],
+  "ratio_replay": 4.6407322429331543e-14,
+  "dual_weights": [
+    0.0,
+    0.9095797840205788,
+    0.00035459817242654946,
+    0.0,
+    0.09006561780699461,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "seconds": 14.567308503203094,
+  "scope": "Gradient of the active convex-combination objective in covariance coordinates at the completed primary fit. A negative weighted derivative does not guarantee decrease of the maximum constraint. No graph edit, saved candidate, cost or fresh validation claim."
+}
