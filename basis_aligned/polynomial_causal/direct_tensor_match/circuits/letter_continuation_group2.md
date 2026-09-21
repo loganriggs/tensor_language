@@ -191,3 +191,7 @@ Pairbanks384each1152products1340940floats vswidegraph592/1342028. Nativeisotropi
 ## 21 September, 10:33 — Dual geometry terminal, fresh metric transfer prepared
 
 12fits992.7s audited<1.4e-15. Primarywide.5 seed916 native32.75/cov6.91%, components1.34/1.54/10.27%; instrument/values/nativegainPASS, covarianceguardFAIL(+33%). Wideisotropic9.81%third vsmatchedisobaseline11.26%, covbaseline8.81% stillbetter. All15pairregroupings selectoriginalbothmetrics, coefficientgainFAIL. Freeze3widewinners+2matchedpairbaselines before sixth32FW/16codepanel,4818/3212same-tokencross-docdonors; all3+sum native removals/swaps registered,mixedprimary<=1.10both. Priorfailure/nativeports remain. [Report](../../explanations/for_logan/research_update_2026-09-21_1033_two_geometry_fit_results.md).
+
+## 21 September, 10:37 — Fresh sixth-panel metric transfer
+
+Native10.66s source1.70e-7/final0passes. All3graphs0absolute failures/72. Primarymixed10covariance-baseline and2isotropic-baseline relativefailures (10either); isotropic15either,covariance13either. MixedhelpsFWthirdnatural7.69vscovgraph11.59%, hurtscode2.59vs1.57%. Paired4000recipientbootstrap primarycodehybridthirdratio1.43[1.30,1.57]vscovbaseline;6primarylowerCIs>1.10. Pointwise/donorfixed caveats. Combineddoesnotrescue; priorcoefficientguardFAIL andnativeportsretained. ActualnextCPUuncertainty auditcompleted afterterminal. [Report](../../explanations/for_logan/research_update_2026-09-21_1037_fresh_metric_transfer.md).

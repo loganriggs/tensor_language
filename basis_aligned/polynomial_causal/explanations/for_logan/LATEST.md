@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
+**Latest fresh result — [Metric transfer across FineWeb and code](research_update_2026-09-21_1037_fresh_metric_transfer.md).** All three wider graphs pass absolute limits; none passes all matched-baseline comparisons. The primary has10relative failures, with several supported by paired uncertainty intervals.
+
 **Latest completed study — [Two-geometry fit results](research_update_2026-09-21_1033_two_geometry_fit_results.md).** Wider mixed fit reaches10.27%third-component error, but fails covariance guard and trails the matched covariance baseline. All wider candidates frozen for fresh behavioral comparison; cross-component re-pairing gave no gain.
 
 **Latest baselines — [Matched storage and full arithmetic](research_update_2026-09-21_1020_cost_matched_pair_baselines.md).** Wider independent pair programs reach8.81%third-component diagnostic error. Shared graphs use fewer nonlinear products, but this does not establish lower total arithmetic.
