@@ -1,3 +1,5 @@
+**Latest requested update — [What the new fits taught us](research_update_2026-09-21_2309_what_the_new_fits_taught_us.md).** Larger CP and shared-hierarchy results, exact weight matching, the mean/covariance improvement, and remaining component failures.
+
 **Latest overall follow-up — [What changed after the two-stage proposal](research_update_2026-09-21_2213_what_changed_after_shared_graph.md).** Exact weight fitting, feature-removal failures, optimizer controls, and the new capacity bound; distinguishes completed results from the proposed larger baseline.
 
 **New follow-up — [What the shared features respond to](research_update_2026-09-21_2112_shared_feature_conditions.md).** Newline and UTF-8 associations, second-panel support, and the current-token confound; no new causal-circuit claim.

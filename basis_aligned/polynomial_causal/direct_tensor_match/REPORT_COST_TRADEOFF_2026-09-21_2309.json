@@ -1,0 +1,47 @@
+{
+  "scope": "Descriptive comparison of completed runs; unequal training budgets, opened evaluation panels; no statistical superiority claim.",
+  "rows": [
+    {
+      "model": "flat CP",
+      "seed": 1001,
+      "products": 1536,
+      "coefficients": 2385920,
+      "sampled_coefficient_error": 0.977757097190383,
+      "gaussian_error": 0.98976125324,
+      "text_value_error": 0.4087471885128414,
+      "dominated_on_all_five_measures": false
+    },
+    {
+      "model": "flat CP",
+      "seed": 1002,
+      "products": 1536,
+      "coefficients": 2385920,
+      "sampled_coefficient_error": 0.9789923492934907,
+      "gaussian_error": 0.988778444047592,
+      "text_value_error": 0.39027014822827594,
+      "dominated_on_all_five_measures": false
+    },
+    {
+      "model": "shared hierarchy",
+      "seed": 1101,
+      "products": 1088,
+      "coefficients": 1353728,
+      "sampled_coefficient_error": 0.9691606879772264,
+      "gaussian_error": 0.9150055928225233,
+      "text_value_error": 0.6565650336806335,
+      "dominated_on_all_five_measures": false
+    },
+    {
+      "model": "shared hierarchy",
+      "seed": 1102,
+      "products": 1088,
+      "coefficients": 1353728,
+      "sampled_coefficient_error": 0.9721536502269716,
+      "gaussian_error": 0.9155482658163999,
+      "text_value_error": 0.6382051411428102,
+      "dominated_on_all_five_measures": false
+    }
+  ],
+  "hierarchy_product_reduction_vs_cp": 0.29166666666666663,
+  "hierarchy_coefficient_reduction_vs_cp": 0.432618025751073
+}
