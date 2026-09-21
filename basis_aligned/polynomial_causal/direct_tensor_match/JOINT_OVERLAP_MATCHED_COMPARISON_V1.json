@@ -1,0 +1,63 @@
+{
+  "records": [
+    {
+      "geometry": "calibration_shaped",
+      "graph": "calibration_shaped_0",
+      "graph_floats": 996876,
+      "baseline_floats": 994740,
+      "graph_multiplications": 986496,
+      "baseline_multiplications": 984060,
+      "graph_products": 1152,
+      "baseline_products": 852,
+      "graph_values": [
+        0.024139624382321156,
+        0.02443400884806772,
+        0.13526652886686305
+      ],
+      "baseline_values": [
+        0.028077921233535225,
+        0.024983858834658246,
+        0.1134064654308305
+      ],
+      "value_error_ratios": [
+        0.8597368794342826,
+        0.9779917910107722,
+        1.1927585288280196
+      ],
+      "graph_native_error": 0.6133909605688465,
+      "baseline_native_error": 0.6368093153909996,
+      "graph_covariance_error": 0.08223715301695697,
+      "baseline_covariance_error": 0.0893749944017104
+    },
+    {
+      "geometry": "native_isotropic",
+      "graph": "native_isotropic_26301",
+      "graph_floats": 996876,
+      "baseline_floats": 994740,
+      "graph_multiplications": 986496,
+      "baseline_multiplications": 984060,
+      "graph_products": 1152,
+      "baseline_products": 852,
+      "graph_values": [
+        0.022689371281103262,
+        0.031870646798130106,
+        0.1493354926040742
+      ],
+      "baseline_values": [
+        0.020385996139053137,
+        0.035429194169377495,
+        0.14583075398416426
+      ],
+      "value_error_ratios": [
+        1.1129881084220155,
+        0.8995588961398635,
+        1.0240329184630734
+      ],
+      "graph_native_error": 0.519038258375934,
+      "baseline_native_error": 0.5487469573417455,
+      "graph_covariance_error": 0.1377226540659424,
+      "baseline_covariance_error": 0.14924445578971804
+    }
+  ],
+  "scope": "Additional comparison at near-equal literal storage and source arithmetic. Does not replace original primary gates or select a new primary. Independent pair baseline uses mode-Gram subspaces, not optimized global best subspaces."
+}

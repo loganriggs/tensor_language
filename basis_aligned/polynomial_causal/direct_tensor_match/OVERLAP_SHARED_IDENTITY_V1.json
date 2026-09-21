@@ -1,0 +1,97 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "shared_private_coefficient_replay": 2.001808006447038e-15,
+      "centered_shared_removal_component_errors": [
+        0.07383529244859365,
+        0.1278400321746254,
+        0.9808289095641277
+      ]
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "shared_private_coefficient_replay": 2.0221069095855343e-15,
+      "centered_shared_removal_component_errors": [
+        0.12685802986778066,
+        0.27338897359536335,
+        1.2651883503659194
+      ]
+    },
+    {
+      "key": "native_isotropic_0",
+      "shared_private_coefficient_replay": 2.449798633835414e-15,
+      "centered_shared_removal_component_errors": [
+        0.1697016141396138,
+        0.20836553318469683,
+        1.3441275596955566
+      ]
+    },
+    {
+      "key": "native_isotropic_26301",
+      "shared_private_coefficient_replay": 2.4416986200405337e-15,
+      "centered_shared_removal_component_errors": [
+        0.1687301764312548,
+        0.19811172123610035,
+        1.618184855301531
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "total_source_coefficient_cosine": 0.9991358270833104,
+      "total_source_relative_difference": 0.04157311208369251,
+      "geometry": "calibration_shaped",
+      "shared_branch_equal_pair_coefficient_cosine": 0.3272812802679116,
+      "shared_branch_relative_difference": 1.531169962615994,
+      "pair_shared_branch_cosines": [
+        0.2922859082743185,
+        0.431637516717169,
+        0.25447512010470547
+      ],
+      "input_span_principal_cosine_min": 0.0004107238228994505,
+      "input_span_principal_cosine_median": 0.9431601125315767,
+      "input_span_cosines_at_least_point9": 77,
+      "dimensions": 128
+    },
+    {
+      "total_source_coefficient_cosine": 0.9722085548945059,
+      "total_source_relative_difference": 0.2357617631969338,
+      "geometry": "native_isotropic",
+      "shared_branch_equal_pair_coefficient_cosine": 0.45923151795108846,
+      "shared_branch_relative_difference": 1.0277376696767289,
+      "pair_shared_branch_cosines": [
+        0.305385523757192,
+        0.3181663610733137,
+        0.550275834903673
+      ],
+      "input_span_principal_cosine_min": 0.00621163405033843,
+      "input_span_principal_cosine_median": 0.9664632976177179,
+      "input_span_cosines_at_least_point9": 90,
+      "dimensions": 128
+    }
+  ],
+  "gauge_controls": [
+    {
+      "seed": 0,
+      "execution_replay": 7.954169694800695e-16
+    },
+    {
+      "seed": 1,
+      "execution_replay": 7.535081422145101e-16
+    },
+    {
+      "seed": 2,
+      "execution_replay": 1.006775525399961e-15
+    },
+    {
+      "seed": 3,
+      "execution_replay": 1.088009094050482e-15
+    },
+    {
+      "seed": 4,
+      "execution_replay": 1.0943158438951882e-15
+    }
+  ],
+  "scope": "Two fitted restarts per geometry; compare whole shared quadratic branch and shared input subspace, not individual basis vectors. Centered shared-source removal measures conditional scalar utility on opened448, not fresh selectivity, standalone extraction or native logit effects. No stability/adoption threshold selected after observing results."
+}

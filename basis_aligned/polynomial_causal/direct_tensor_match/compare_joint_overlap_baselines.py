@@ -1,0 +1,9 @@
+from pathlib import Path
+import json,torch
+from pack_reader_graph_artifacts import counts
+P=Path(__file__).parent;torch.set_num_threads(2)
+result=json.loads((P/'JOINT_OVERLAP_V1.json').read_text());baseline=json.loads((P/'LOCAL_COST_MATCHED_PAIR_BASELINES_V1.json').read_text());programs=torch.load(P/'LOCAL_COST_MATCHED_PAIR_BASELINES_V1.pt',weights_only=True);rows=[]
+for metric,key in result['winners'].items():
+ r=next(x for x in result['records'] if x['key']==key);b=next(x for x in baseline['records'] if x['metric']==metric);bundle=programs[b['key']];mults=sum(p['shared_reader'].numel()+p['product_weights'].numel()+len(p['product_weights']) for p in bundle.values());storage=counts(bundle);assert storage['backing_storage_floats']==storage['logical_float_coefficients']==994740 and mults==984060
+ rows.append(dict(geometry=metric,graph=key,graph_floats=r['stored_floats'],baseline_floats=storage['backing_storage_floats'],graph_multiplications=r['source_total_multiplications'],baseline_multiplications=mults,graph_products=r['activation_products'],baseline_products=b['source_products'],graph_values=r['per_mode_errors'],baseline_values=b['per_mode_errors'],value_error_ratios=[a/c for a,c in zip(r['per_mode_errors'],b['per_mode_errors'])],graph_native_error=r['native_error'],baseline_native_error=b['native_isotropic_equal_pair_error'],graph_covariance_error=r['covariance_error'],baseline_covariance_error=b['calibration_shaped_error']))
+(P/'JOINT_OVERLAP_MATCHED_COMPARISON_V1.json').write_text(json.dumps(dict(records=rows,scope='Additional comparison at near-equal literal storage and source arithmetic. Does not replace original primary gates or select a new primary. Independent pair baseline uses mode-Gram subspaces, not optimized global best subspaces.'),indent=2)+'\n');print(json.dumps(rows,indent=2))

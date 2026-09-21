@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: from folded weights to a simpler arithmetic program](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 10:42 UTC. Explains the original QR → decomposition → graph plan, distinguishes the broad and local targets, and summarizes completed evidence through the 10:37 fresh tests.
 
+**Latest joint fit — [Optimizer recovery, native fitting and shared-feature identity](research_update_2026-09-21_1132_joint_graph_fit_and_identity.md).** Muon recovers all five planted graphs after a longer schedule. Native joint fitting improves greatly but fails fidelity; shared-branch identity differs across starts despite similar overall functions.
+
 **Latest graph edit — [Overlapping dictionaries with private paths](research_update_2026-09-21_1109_overlapping_local_reader_graph.md).** About26%source arithmetic saving, but component fidelity fails. A dense-core diagnostic isolates both subspace and product restrictions; unused tensor backing storage was corrected without changing any values.
 
 **Latest structural result — [Shared linear graphs and their limits](research_update_2026-09-21_1056_shared_linear_graph_and_limits.md).** Exact independent-coordinate blocks are absent in the numerical screen. Sharing a dense linear input layer saves22%of source arithmetic but fails fidelity; a capacity-versus-cost bound rules out its registered target.

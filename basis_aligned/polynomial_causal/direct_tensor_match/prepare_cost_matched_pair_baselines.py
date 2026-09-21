@@ -6,11 +6,11 @@ import json,time,torch
 from quadratic_pair_blocks import compile_pair,products
 from source_interface import residual_write
 P=Path(__file__).parent;torch.set_num_threads(2);torch.set_grad_enabled(False)
-def main():
+def main(widths=(256,384),tag='COST_MATCHED_PAIR_BASELINES_V1'):
  start=time.perf_counter();d=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True);S=torch.linalg.inv(d['inverse_root']);I=torch.eye(1152,dtype=S.dtype);ids=d['indices'];z=d['z'][ids];h=d['h'][ids];rms=(h.square().mean(-1)+torch.finfo(torch.float32).eps).sqrt();programs={};rows=[]
  for metric in ['native_isotropic','calibration_shaped']:
   transform=I if metric=='native_isotropic' else S;inverse=I if metric=='native_isotropic' else d['inverse_root']
-  for width in [256,384]:
+  for width in widths:
    bundle={};records=[];writer=d['residual_writer'].clone();instrument=True
    for j,pair in enumerate(d['pairs']):
     Q=pair['Qs'];T=[transform@q@transform for q in Q];_,basis=torch.linalg.eigh(sum(t@t for t in T));basis=basis[:,-width:];cores=[basis.T@t@basis for t in T];native_basis=inverse@basis;hats=[native_basis@c@native_basis.T for c in cores]
@@ -35,6 +35,6 @@ def main():
      expected=[.03058409729022641,.027558449717507608,.11941807478056159];assert max(abs(a-b) for a,b in zip(row['per_mode_errors'],expected))<1e-7
     programs[key]=bundle
    rows.append(row);print(json.dumps(row),flush=True)
- out=dict(records=rows,seconds=time.perf_counter()-start,scope='Independent pair-specific mode-Gram subspaces, not optimized global minima. Symmetric-pair compiler provides exact within-subspace product sharing. One residual writer stored once. Width384 costs1340940floats vswidegraph1342028; products1152vs592. Opened448diagnostics, nativez/h stillsupplied; no fresh/adoption claim.')
- torch.save(programs,P/'COST_MATCHED_PAIR_BASELINES_V1.pt');(P/'COST_MATCHED_PAIR_BASELINES_V1.json').write_text(json.dumps(out,indent=2)+'\n')
+ out=dict(records=rows,seconds=time.perf_counter()-start,scope='Independent pair-specific mode-Gram subspaces, not optimized global minima. Symmetric-pair compiler provides exact within-subspace product sharing. One residual writer stored once. Widths recorded per arm; compare actual float and arithmetic budgets before dominance claims. Opened448diagnostics, nativez/h stillsupplied; no fresh/adoption claim.')
+ torch.save(programs,P/f'{tag}.pt');(P/f'{tag}.json').write_text(json.dumps(out,indent=2)+'\n')
 if __name__=='__main__':main()

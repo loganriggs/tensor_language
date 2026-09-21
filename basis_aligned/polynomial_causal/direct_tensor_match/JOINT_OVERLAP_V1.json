@@ -1,0 +1,318 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:18:59.903976+00:00",
+    "optimizer": "muon",
+    "rate": 0.03,
+    "steps": 1800,
+    "metrics": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "seeds": [
+      0,
+      26301
+    ],
+    "starts": {
+      "0": "Inherited shared/private128/160program, with exact basis-column gauge normalization.",
+      "26301": "All shared basis/maps/private readers independently random; same topology."
+    },
+    "primary": "calibration_shaped; choose restart by coefficient fitting objective only",
+    "baseline": {
+      "native_error": 0.5525962583461952,
+      "covariance_error": 0.0703133565524768,
+      "per_mode_errors": [
+        0.018692583665713903,
+        0.020499346791718828,
+        0.08805202711597365
+      ],
+      "euclidean_jacobian_errors": [
+        0.187428758387592,
+        0.15902999281611183,
+        0.16001348745745214
+      ],
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "activation_products": 1152,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1330560,
+      "source_additions": 1329148
+    },
+    "stored_floats": 996876,
+    "source_multiplications": 986496,
+    "source_products": 1152,
+    "optimizer_evidence": {
+      "optimizer": "muon",
+      "rate": 0.03,
+      "geometric_mean_error": 0.00018380154140748743,
+      "best_restart_errors": [
+        0.004596931756420157,
+        0.0012897460665931852,
+        1.6151039516989326e-05,
+        1.2146536621851862e-05,
+        1.1575823954464875e-05
+      ],
+      "recovered_cases": 5
+    },
+    "preflight": "Five independent dense/envelope-gradient checks plus both full native-width losses, gradients, exports and costs pass. V1toy recovery fails2of5; V2 passes5of5Muon vs3of5Adam.",
+    "pred_a": "All native dense/export errors<1e-8, finite gradients and exactphysical storage/cost.",
+    "pred_b": "Primary all3values<=.15 and<=1.10 originalcovpairbaseline, all3fixed-h zJacobianerrors<=1.10baseline.",
+    "pred_c": "Primary native and covariance coefficient errors<=1.10 originalcovpairbaseline.",
+    "pred_d": "Primary source totalmultiplications<=.80 originalcovpairbaseline andfewerfloatingcoefficients.",
+    "null": "Joint optimization cannot rescue fidelity in this tied overlapping-reader graph at the registered cost. No fresh or semantic claim.",
+    "hashes": {
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "LOCAL_SHARED_READER_PROGRAMS_V1.pt": "26d8df78e9651ec82e0a024f1030a7155d19d77f44c2d45218ca9b4232351fc5",
+      "TOY_OVERLAP_OPTIMIZER_V2.json": "1f0e53341f25b3d81c592dfb708066994fd71855fdd97d481108a782b485a7b4",
+      "OVERLAP_VARPRO_PREFLIGHT_V1.json": "49a9106bc37767af09518fb5dbade9ce71d99ba4b4de28b120f93aa7dee28c39",
+      "OVERLAP_NATIVE_PREFLIGHT_V1.json": "30cc69de987cfec3ec1d4e3c8120913429a3db024299258b40fd781d7cc5a433",
+      "overlap_varpro.py": "bb756350f3f16b1bb9b562aa6837b1cb1ccd2831bf4891bedd12b63d66aaa7c8",
+      "overlap_export.py": "9efbf25e3c7b01d29e6a5e2d07ff4a0092e456675f05b968f363691d0946d21c",
+      "local_shared_reader_graph.py": "977e2f7ba66cd07b83c50c226ecc9ec4679c96648b62bcc220330a4ef01df957",
+      "fit_local_shared_reader_graph.py": "15274738511de36d7913c7b36a8e1375a55688c0dc70454e16bb360d4fc2f44d",
+      "global_mixed_source_graph.py": "eae269588366ddd34919ab15c8da315e38be566175823d8cb73415769c2a76b3",
+      "shared_private_metric.py": "8ef7fd29a5c4aeb09c3c4670e9db20f3631384b03223a02cf52499b993566623",
+      "pack_reader_graph_artifacts.py": "644cd5d2b3b2988b69236d91e44fd9d6f8cdcbb3809420f0a4c83fe0570987a2"
+    }
+  },
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "geometry": "calibration_shaped",
+      "seed": 0,
+      "objective": 0.006762949726445014,
+      "best_step": 1800,
+      "dense_loss_replay": 1.0148132334464322e-16,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.14039911216911918
+        },
+        {
+          "step": 300,
+          "objective": 0.007282900694051353
+        },
+        {
+          "step": 600,
+          "objective": 0.0069649931027459715
+        },
+        {
+          "step": 900,
+          "objective": 0.006860316163656677
+        },
+        {
+          "step": 1200,
+          "objective": 0.006800481062665842
+        },
+        {
+          "step": 1500,
+          "objective": 0.006769726284450753
+        },
+        {
+          "step": 1800,
+          "objective": 0.006762949726445014
+        }
+      ],
+      "native_error": 0.6133909605688465,
+      "covariance_error": 0.08223715301695697,
+      "execution_replay": 1.4199478527432067e-15,
+      "per_mode_errors": [
+        0.024139624382321156,
+        0.02443400884806772,
+        0.13526652886686305
+      ],
+      "euclidean_jacobian_errors": [
+        0.20984333061741278,
+        0.17443206221910718,
+        0.1842047523639365
+      ],
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 984956
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "geometry": "calibration_shaped",
+      "seed": 26301,
+      "objective": 0.006788640434759241,
+      "best_step": 1800,
+      "dense_loss_replay": 1.2923689896027213e-16,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.9993476463061943
+        },
+        {
+          "step": 300,
+          "objective": 0.007697496127809862
+        },
+        {
+          "step": 600,
+          "objective": 0.0071171934002640285
+        },
+        {
+          "step": 900,
+          "objective": 0.00692657422878451
+        },
+        {
+          "step": 1200,
+          "objective": 0.006839367422568446
+        },
+        {
+          "step": 1500,
+          "objective": 0.006797369689374055
+        },
+        {
+          "step": 1800,
+          "objective": 0.006788640434759241
+        }
+      ],
+      "native_error": 0.6129302259579067,
+      "covariance_error": 0.08239320493165532,
+      "execution_replay": 1.346917708696064e-15,
+      "per_mode_errors": [
+        0.02592016529597976,
+        0.025342621267905825,
+        0.1362350833251461
+      ],
+      "euclidean_jacobian_errors": [
+        0.21108083683854056,
+        0.17438958216854306,
+        0.18477901962484253
+      ],
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 984956
+    },
+    {
+      "key": "native_isotropic_0",
+      "geometry": "native_isotropic",
+      "seed": 0,
+      "objective": 0.2694196059216992,
+      "best_step": 1800,
+      "dense_loss_replay": 6.661338147750939e-16,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.8143681755567942
+        },
+        {
+          "step": 300,
+          "objective": 0.27411618587804076
+        },
+        {
+          "step": 600,
+          "objective": 0.2709283627553432
+        },
+        {
+          "step": 900,
+          "objective": 0.27011051189972035
+        },
+        {
+          "step": 1200,
+          "objective": 0.2696876613366779
+        },
+        {
+          "step": 1500,
+          "objective": 0.26946549545494397
+        },
+        {
+          "step": 1800,
+          "objective": 0.2694196059216992
+        }
+      ],
+      "native_error": 0.5190564556175348,
+      "covariance_error": 0.137240530003929,
+      "execution_replay": 1.5856243979138793e-15,
+      "per_mode_errors": [
+        0.019839682453589285,
+        0.03208397999083837,
+        0.14553023672892457
+      ],
+      "euclidean_jacobian_errors": [
+        0.2044462361950247,
+        0.1830711721978017,
+        0.18386587042006225
+      ],
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 984960
+    },
+    {
+      "key": "native_isotropic_26301",
+      "geometry": "native_isotropic",
+      "seed": 26301,
+      "objective": 0.2694007152660363,
+      "best_step": 1800,
+      "dense_loss_replay": 5.551115123125783e-16,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.998958654676936
+        },
+        {
+          "step": 300,
+          "objective": 0.2737635282116575
+        },
+        {
+          "step": 600,
+          "objective": 0.27095214219304087
+        },
+        {
+          "step": 900,
+          "objective": 0.2701269867765803
+        },
+        {
+          "step": 1200,
+          "objective": 0.2696813334650702
+        },
+        {
+          "step": 1500,
+          "objective": 0.2694501014965142
+        },
+        {
+          "step": 1800,
+          "objective": 0.2694007152660363
+        }
+      ],
+      "native_error": 0.519038258375934,
+      "covariance_error": 0.1377226540659424,
+      "execution_replay": 1.409862237180561e-15,
+      "per_mode_errors": [
+        0.022689371281103262,
+        0.031870646798130106,
+        0.1493354926040742
+      ],
+      "euclidean_jacobian_errors": [
+        0.20457154019222362,
+        0.182470633740442,
+        0.1835730781825281
+      ],
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 984960
+    }
+  ],
+  "winners": {
+    "calibration_shaped": "calibration_shaped_0",
+    "native_isotropic": "native_isotropic_26301"
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_components": false,
+    "pred_c_metrics": false,
+    "pred_d_arithmetic": true
+  },
+  "seconds": 238.91993640642613
+}

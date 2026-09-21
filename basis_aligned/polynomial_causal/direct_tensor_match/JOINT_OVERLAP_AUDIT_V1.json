@@ -1,0 +1,63 @@
+{
+  "rows": [
+    {
+      "key": "calibration_shaped_0",
+      "maximum_metric_and_component_replay": 1.1560883751766693e-15,
+      "autodiff_derivative_replay": 5.727943523667684e-15,
+      "packed_float_storage": 996876,
+      "per_mode_errors": [
+        0.02413962438232102,
+        0.024434008848067932,
+        0.13526652886686355
+      ],
+      "native_error": 0.6133909605688465,
+      "covariance_error": 0.08223715301695697
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "maximum_metric_and_component_replay": 1.1394127055445416e-15,
+      "autodiff_derivative_replay": 5.132369190678053e-15,
+      "packed_float_storage": 996876,
+      "per_mode_errors": [
+        0.025920165295979725,
+        0.025342621267906224,
+        0.13623508332514628
+      ],
+      "native_error": 0.6129302259579067,
+      "covariance_error": 0.08239320493165532
+    },
+    {
+      "key": "native_isotropic_0",
+      "maximum_metric_and_component_replay": 1.2301173458558763e-15,
+      "autodiff_derivative_replay": 4.771571552790564e-15,
+      "packed_float_storage": 996876,
+      "per_mode_errors": [
+        0.0198396824535893,
+        0.032083979990838375,
+        0.14553023672892473
+      ],
+      "native_error": 0.5190564556175348,
+      "covariance_error": 0.137240530003929
+    },
+    {
+      "key": "native_isotropic_26301",
+      "maximum_metric_and_component_replay": 1.157113127316931e-15,
+      "autodiff_derivative_replay": 6.2380476267119284e-15,
+      "packed_float_storage": 996876,
+      "per_mode_errors": [
+        0.0226893712811031,
+        0.03187064679813063,
+        0.14933549260407444
+      ],
+      "native_error": 0.519038258375934,
+      "covariance_error": 0.1377226540659424
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_components": false,
+    "pred_c_metrics": false,
+    "pred_d_arithmetic": true
+  },
+  "scope": "Independent product-index quadratic decode, native component and analytic/autodiff response checks, both coefficient norms and packed storage. No new data; opened448notfresh; not a circuit-adoption audit."
+}
