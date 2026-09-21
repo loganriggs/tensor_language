@@ -31595,3 +31595,9 @@ Native8blockinstrumentPASS(netenergy2.1e-8)/allblockFAIL/jointPASS. Mainweakposi
 
 ### 2026-09-21T00:43Z — Codex: signed block independence rejected; exact block gauge executed
 Adaptive49products stillfailsblock4calerror.2175; notnativepromoted. SuccessorCPU hyperbolicrank3positive/negativeblockmixing preservesnet<4.2e-15 whileindividualactivationschange>400%; blockfunctions notidentifiedby function/rank alone. FocusedprimaryBTDsearch maps rank(1,L,L) learnedoutputgroupings, notespairedproportionalwriters violategenericreasoning andexplicitgauge. NextnativeBTDmusttargetoriginalweights beforeindependentoutputranktruncation, avoidingmanufacturedblockstructure. Scheduled3hreview remains01:37.
+
+### 2026-09-21T00:46Z — Codex: learned output-sharing blocks on originaltensor claimed
+Previous turn progressed via independentblockrejection/adaptivecostnull/exacthyperbolicgauge. CPU5plantedBTD structures(three rank2blocks),3seeds*2rates*1000Adamsteps, exactteacherreplay andcompleteblockmatching notinternalfactoridentity. Native targetwillbe originalfourreadout K beforeper-output truncation; commoninputbasisprojectionerror separatelypriced. JointoutputW learned vsfixedoutputgrouping atsame16products.
+
+### 2026-09-21T00:51Z — Codex: joint BTD results and successor export audit
+Joint original four-readout tensor fit improves weighted error .00994 to .00898 and calibration error .07198 to .06237 at 16 products. Random block identity remains unstable; no native promotion. Successor CPU dense export and output-coordinate replay performed: 4.95e-15 and 1.89e-16. Report 0051 records scope, planted controls, and pending matched native interventions.

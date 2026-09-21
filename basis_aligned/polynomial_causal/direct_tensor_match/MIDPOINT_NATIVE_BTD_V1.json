@@ -1,0 +1,88 @@
+{
+  "output_modes": 4,
+  "input_modes": 32,
+  "blocks": 4,
+  "rank_per_block": 4,
+  "projection_error": 0.00499626838819724,
+  "projection_pythagorean_error": 2.6645352591003757e-14,
+  "fixed_core_error": 0.008590215743154841,
+  "best_core_error": 0.00746437426517797,
+  "fixed_full_weighted_error": 0.009937530091569249,
+  "best_full_weighted_error": 0.008982181303979018,
+  "best": {
+    "initialization": "fixed",
+    "seed": 0,
+    "lr": 0.003,
+    "error": 0.00746437426517797
+  },
+  "output_direction_condition": 2.2627684552609844,
+  "reader_writer_duality": 3.108444871412316e-15,
+  "calibration_fixed": 0.07198406107996512,
+  "calibration_mixed": 0.06236881076982006,
+  "random_restart_block_cosines": [
+    [
+      0.6693338229823946,
+      0.9497656139567382,
+      0.5604346256792954,
+      0.5946159436470432
+    ],
+    [
+      0.6951708590229361,
+      0.6121739762383726,
+      0.14653588081928398,
+      0.5692803884694961
+    ]
+  ],
+  "fits": [
+    {
+      "initialization": "random",
+      "seed": 0,
+      "lr": 0.003,
+      "error": 0.01635175091486911
+    },
+    {
+      "initialization": "random",
+      "seed": 0,
+      "lr": 0.01,
+      "error": 0.008557458984218244
+    },
+    {
+      "initialization": "random",
+      "seed": 1,
+      "lr": 0.003,
+      "error": 0.011490660085888697
+    },
+    {
+      "initialization": "random",
+      "seed": 1,
+      "lr": 0.01,
+      "error": 0.0087972723466818
+    },
+    {
+      "initialization": "random",
+      "seed": 2,
+      "lr": 0.003,
+      "error": 0.013849401880424567
+    },
+    {
+      "initialization": "random",
+      "seed": 2,
+      "lr": 0.01,
+      "error": 0.008793091561597521
+    },
+    {
+      "initialization": "fixed",
+      "seed": 0,
+      "lr": 0.003,
+      "error": 0.00746437426517797
+    },
+    {
+      "initialization": "fixed",
+      "seed": 0,
+      "lr": 0.01,
+      "error": 0.00792071007646524
+    }
+  ],
+  "seconds": 5.574157404946163,
+  "scope": "Originalweightderived four-readout tensor beforeindependentoutputrank truncation. Common32inputprojectionerror explicit. Learned4outputgroupings vsfixed4 at16products. Noheldfitting. Stability/circuitidentification unproven."
+}
