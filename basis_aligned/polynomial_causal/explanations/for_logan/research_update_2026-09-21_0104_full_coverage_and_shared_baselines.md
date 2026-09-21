@@ -4,7 +4,7 @@ Rewritten 21 September 2026, 20:05 UTC, covering results through 19:56 UTC. The 
 
 **Yes—we are still following the two-stage plan you remember.** Fold a section of the model into one function, use a decomposition to find useful intermediate features, then simplify their computation into a graph that shares work. QR reduces the output coordinates before fitting.
 
-We have made progress on both stages, but have not completed the general search procedure or found a validated, interpretable replacement circuit. The clearest recent success is a concrete quartic program reduced from **656 to 384 products**, with far fewer stored coefficients. That graph preserves its fitted parent very accurately; the parent itself still approximates the original model computation imperfectly. Model-level validation of this latest graph remains outstanding.
+We have made progress on both stages, but have not completed the general search procedure or found a validated, interpretable replacement circuit. The clearest recent success is a concrete quartic program reduced from **656 to 384 products**, with far fewer stored coefficients. That graph preserves its fitted parent very accurately; the parent itself still approximates the original model computation imperfectly. The subsequent native screen passes average CE/KL limits but fails to beat the much cheaper baseline (see the dated follow-up below).
 
 **The plan, in one picture**
 
@@ -194,3 +194,7 @@ For clarity, the old title’s **“full coverage”** meant accounting for the 
 **Evidence and metric guide**
 
 The links above lead to the experiment interpretations, numerical artifacts, controls and implementation. This is a synthesis of existing experiments, not a new run. The latest quartic comparisons use already opened panels; they are diagnostic evidence, not independent final OOD confirmation. Full-layer logit-effect errors, quartic polynomial errors, coefficient Frobenius errors and derivative errors have different targets and denominators and should not be ranked against one another.
+
+**Follow-up: native screen completed at 20:08 UTC**
+
+The 384-product graph now has an initial model-level result. Numerical replay and average CE/KL limits pass, but the registered baseline comparison fails. Its FineWeb/code branch-effect errors are **33.64% / 27.20%**, close to its 656-product parent's **33.71% / 27.21%**. The 26-product baseline achieves **32.88% / 22.89%**. A document-level audit finds the code disadvantage survives removing any one document. These are opened-panel diagnostics, not final OOD or selective-intervention validation. The compiler made its parent cheaper; this test does not establish that the larger dictionary is preferable to the cheap baseline. [Native results and interpretation](../../direct_tensor_match/PAIRED_ROOT_BRANCH_INTERPRETATION_V1.md).

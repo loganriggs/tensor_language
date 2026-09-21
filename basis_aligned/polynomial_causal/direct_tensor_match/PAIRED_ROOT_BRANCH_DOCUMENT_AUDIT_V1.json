@@ -1,0 +1,107 @@
+{
+  "scope": "Post-hoc document bootstrap on opened panels. Descriptive, no independent OOD or adjusted hypothesis-test claim.",
+  "seed": 2609212008,
+  "resamples": 10000,
+  "results": [
+    {
+      "domain": "fineweb",
+      "reference": "narrow26",
+      "documents": 32,
+      "effect_error_ratio": 1.0232237555796004,
+      "bootstrap95_effect_ratio": [
+        0.932221712663152,
+        1.1112973066535246
+      ],
+      "leave_one_out_effect_ratio_range": [
+        0.9914600331359399,
+        1.0459896648644773
+      ],
+      "documents_paired_lower_error": 15,
+      "mean_ce_difference": 0.0028872210532426834,
+      "bootstrap95_ce_difference": [
+        0.0007262262515723705,
+        0.005235030548647046
+      ],
+      "mean_kl_difference": 0.0014879468217259273,
+      "bootstrap95_kl_difference": [
+        0.0006624734776778495,
+        0.0023401823942549526
+      ]
+    },
+    {
+      "domain": "fineweb",
+      "reference": "parent656",
+      "documents": 32,
+      "effect_error_ratio": 0.9979705736488858,
+      "bootstrap95_effect_ratio": [
+        0.9970621825920488,
+        0.998788894457641
+      ],
+      "leave_one_out_effect_ratio_range": [
+        0.9977192163092922,
+        0.9981246882595198
+      ],
+      "documents_paired_lower_error": 26,
+      "mean_ce_difference": -9.467825293540955e-06,
+      "bootstrap95_ce_difference": [
+        -0.0004225289914757013,
+        0.0004115168936550615
+      ],
+      "mean_kl_difference": -1.848187093855813e-05,
+      "bootstrap95_kl_difference": [
+        -0.0001056997347404831,
+        6.541997554450061e-05
+      ]
+    },
+    {
+      "domain": "stdlib",
+      "reference": "narrow26",
+      "documents": 16,
+      "effect_error_ratio": 1.1885584195140406,
+      "bootstrap95_effect_ratio": [
+        1.1014238605328028,
+        1.2817678653450144
+      ],
+      "leave_one_out_effect_ratio_range": [
+        1.1619909401771622,
+        1.2226724432686475
+      ],
+      "documents_paired_lower_error": 1,
+      "mean_ce_difference": -0.0017005950212478638,
+      "bootstrap95_ce_difference": [
+        -0.010757430270314217,
+        0.006052963808178901
+      ],
+      "mean_kl_difference": 0.0003397599793970585,
+      "bootstrap95_kl_difference": [
+        -0.0007725439296336845,
+        0.001432492723688483
+      ]
+    },
+    {
+      "domain": "stdlib",
+      "reference": "parent656",
+      "documents": 16,
+      "effect_error_ratio": 0.9998701568737791,
+      "bootstrap95_effect_ratio": [
+        0.999218063327666,
+        1.0004197050526642
+      ],
+      "leave_one_out_effect_ratio_range": [
+        0.9997828642691668,
+        1.000157588660042
+      ],
+      "documents_paired_lower_error": 9,
+      "mean_ce_difference": 0.0016715526580810547,
+      "bootstrap95_ce_difference": [
+        0.00015543214976787573,
+        0.0031442996114492403
+      ],
+      "mean_kl_difference": 0.000824045273475349,
+      "bootstrap95_kl_difference": [
+        0.0006191565858898685,
+        0.0010348410898586736
+      ]
+    }
+  ]
+}
