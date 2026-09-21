@@ -1,0 +1,103 @@
+{
+  "primary": [
+    {
+      "domain": "fineweb",
+      "kind": "full",
+      "cohort": "continuation",
+      "aggregate_error": 0.1477128745902904,
+      "worst_document_error": 0.19761785606863141,
+      "documents_above_10pct": 29,
+      "documents": 29
+    },
+    {
+      "domain": "fineweb",
+      "kind": "full",
+      "cohort": "spaced_word",
+      "aggregate_error": 0.12267631667742379,
+      "worst_document_error": 0.1868956608184944,
+      "documents_above_10pct": 5,
+      "documents": 32
+    },
+    {
+      "domain": "fineweb",
+      "kind": "mode",
+      "cohort": "continuation",
+      "aggregate_error": 0.054228778178945954,
+      "worst_document_error": 0.11195994664418564,
+      "documents_above_10pct": 2,
+      "documents": 29
+    },
+    {
+      "domain": "fineweb",
+      "kind": "mode",
+      "cohort": "spaced_word",
+      "aggregate_error": 0.08005177025280764,
+      "worst_document_error": 0.11295838072499573,
+      "documents_above_10pct": 2,
+      "documents": 32
+    },
+    {
+      "domain": "stdlib",
+      "kind": "full",
+      "cohort": "continuation",
+      "aggregate_error": 0.1378348956151751,
+      "worst_document_error": 0.1620383854706004,
+      "documents_above_10pct": 16,
+      "documents": 16
+    },
+    {
+      "domain": "stdlib",
+      "kind": "full",
+      "cohort": "spaced_word",
+      "aggregate_error": 0.1049091421191576,
+      "worst_document_error": 0.16551639332319984,
+      "documents_above_10pct": 1,
+      "documents": 16
+    },
+    {
+      "domain": "stdlib",
+      "kind": "mode",
+      "cohort": "continuation",
+      "aggregate_error": 0.030984680953448508,
+      "worst_document_error": 0.04155600000830453,
+      "documents_above_10pct": 0,
+      "documents": 16
+    },
+    {
+      "domain": "stdlib",
+      "kind": "mode",
+      "cohort": "spaced_word",
+      "aggregate_error": 0.04797509471307135,
+      "worst_document_error": 0.06362451338394778,
+      "documents_above_10pct": 0,
+      "documents": 16
+    }
+  ],
+  "normalizer_ranges": [
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "minimum_rms_ratio": 0.748583197593689,
+      "maximum_rms_ratio": 1.5202813148498535
+    },
+    {
+      "domain": "fineweb",
+      "family": "opposite_cohort",
+      "minimum_rms_ratio": 0.7827475666999817,
+      "maximum_rms_ratio": 1.3356417417526245
+    },
+    {
+      "domain": "stdlib",
+      "family": "same_cohort",
+      "minimum_rms_ratio": 0.9122397303581238,
+      "maximum_rms_ratio": 1.1667736768722534
+    },
+    {
+      "domain": "stdlib",
+      "family": "opposite_cohort",
+      "minimum_rms_ratio": 0.8247784972190857,
+      "maximum_rms_ratio": 1.0712372064590454
+    }
+  ],
+  "scope": "Descriptive paired path intervention audit. Donor-recipient dependencies inherited; no iid uncertainty. RMS ratios quantify shifts but do not identify the cause of the reconstruction gap."
+}
