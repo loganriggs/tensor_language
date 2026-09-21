@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-09-21T12:32:49.221913+00:00",
+  "positions": 5600,
+  "steps": 1000,
+  "tolerance": 1e-08,
+  "ridge": 1e-10,
+  "mask": "Largest groupnormalizedindividualterm weights from primarypairwise densecores; frozenbefore coefficientrefit.",
+  "pred_a": "Five independent dense Kronecker solves matchCG; native normalresidual<=1e-8 for convergence claim.",
+  "pred_b": "Reconstructionerror<=originalcovarianceguard. Keepzero coefficients asfeasiblecontrol.",
+  "scope": "Fixedmask coefficientrefit only, not yet executablegraph. Dense projections avoided byreusingactualgraphactivations; prospective budget1064448source mults."
+}

@@ -1,0 +1,30 @@
+{
+  "primary": "calibration_shaped_pairwise_0",
+  "positions": 5600,
+  "total_positions": 86016,
+  "outside_span_error": 0.07576791894485259,
+  "individual_term_threshold_error": 0.5279607527833177,
+  "prospective_source_multiplications": 1064448,
+  "maximum_source_multiplications": 1064448.0,
+  "pairs": [
+    {
+      "pair": 1,
+      "selected_product_positions": 2188,
+      "cross_squared_error": 0.1015826152679715,
+      "full_coordinate_replay": 3.2033686166105477e-14
+    },
+    {
+      "pair": 2,
+      "selected_product_positions": 2123,
+      "cross_squared_error": 0.1101565455372375,
+      "full_coordinate_replay": 2.6401203815691388e-14
+    },
+    {
+      "pair": 3,
+      "selected_product_positions": 1289,
+      "cross_squared_error": 0.06126261813308471,
+      "full_coordinate_replay": 2.2088209464832812e-14
+    }
+  ],
+  "scope": "Prospective products reuse existingshared128andprivate224activations: no newdense projections. Each retainedpairposition costs1product+2readoutmults. Sharedquadraticcore must be updated to cancel induced shared-shared terms and recompiled; not yet executed. Individualtermthreshold is a heuristic, not optimal sparseerror. Dense-atom199vs34bound does not apply to this cheaper family. Next action is fixed-support coefficient refit or sparsity optimization, with full reconstruction checks."
+}

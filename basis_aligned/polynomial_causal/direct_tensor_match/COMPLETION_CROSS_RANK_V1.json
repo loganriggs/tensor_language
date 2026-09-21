@@ -1,0 +1,29 @@
+{
+  "primary": "calibration_shaped_pairwise_0",
+  "pairs": [
+    {
+      "pair": 1,
+      "cross_unfolding_rank": 128,
+      "normalized_cross_squared_error": 0.002040972196416571
+    },
+    {
+      "pair": 2,
+      "cross_unfolding_rank": 128,
+      "normalized_cross_squared_error": 0.0027659768694822907
+    },
+    {
+      "pair": 3,
+      "cross_unfolding_rank": 128,
+      "normalized_cross_squared_error": 0.002704846077005784
+    }
+  ],
+  "outside_span_error": 0.07576791894485259,
+  "initial_completion_error": 0.11511981881560794,
+  "coefficient_guard": 0.07734469220772448,
+  "optimistic_required_cross_atoms": 199,
+  "dense_atom_multiplications": 483,
+  "available_extra_multiplications": 16800.0,
+  "maximum_dense_cross_atoms": 34,
+  "error_lower_bound_at_dense_budget": 0.09247127183818771,
+  "scope": "Only additive cross corrections to this fixed common/private completion, with bothdiagonalblocks retained. Each bilinear cross atom contributes rank<=1 to shared-input unfolding. Per-pair SVD allocation is optimistic because output/right factors may require moreproducts. Cost assumes dense128left and352right maps from existing activations plusproductand2readouts. Not a bound on sparse maps, refitting old atoms, other groupings or arbitraryDAGs."
+}
