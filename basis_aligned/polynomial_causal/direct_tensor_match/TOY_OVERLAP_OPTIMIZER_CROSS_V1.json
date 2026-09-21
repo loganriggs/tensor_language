@@ -1,0 +1,158 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:34:44.564803+00:00",
+    "optimizers": [
+      "muon"
+    ],
+    "rates": [
+      0.03
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "steps": 1800,
+    "selection": "Minimize geometric mean final-best root regularized coefficient error across all five fixtures and both starts; no native outcomes used.",
+    "recovery_gate": "Selected setting recovers at least4of5planted targets within1%coefficient error in at leastone of two fully random starts. Otherwise diagnose or extend toy optimization before native queue.",
+    "native_intent": "Same native128shared/160selectedslot budget, now with direct shared-private products. Compare warm remapped and fully random starts under both coordinate metrics. Original gates unchanged.",
+    "gradient_controls": "Five dense loss and envelope-gradient checks pass; exact planted parameter objective<1e-7. No feature semantic recovery asserted.",
+    "reason": "Topology control for explicit shared/private quadratic products. Reuse selectedMuon.03,1800steps,2randomstarts; original4of5recoverygate retained. Not a new optimizer/rate sweep.",
+    "mixed_slots": true
+  },
+  "records": [
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.5020725512160235,
+      "best_objective": 0.001343280523272261,
+      "regularized_root_error": 0.03665079157770349,
+      "best_step": 1800
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8425143717039754,
+      "best_objective": 1.883489216443953e-08,
+      "regularized_root_error": 0.0001372402716568265,
+      "best_step": 1800
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.8316356838406045,
+      "best_objective": 0.0012181708857904963,
+      "regularized_root_error": 0.034902304877908796,
+      "best_step": 1800
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.660247813737958,
+      "best_objective": 0.0010488390770817535,
+      "regularized_root_error": 0.032385785108311846,
+      "best_step": 1800
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.8997614728716798,
+      "best_objective": 0.0007037341694533517,
+      "regularized_root_error": 0.026527988417016313,
+      "best_step": 1800
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8737900561171532,
+      "best_objective": 0.00044893904002067203,
+      "regularized_root_error": 0.021188181611942823,
+      "best_step": 1800
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.8415599638328657,
+      "best_objective": 3.259195876144834e-10,
+      "regularized_root_error": 1.8053243132869047e-05,
+      "best_step": 1800
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8035412824422725,
+      "best_objective": 1.0051597702324482e-09,
+      "regularized_root_error": 3.170425476544825e-05,
+      "best_step": 1800
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9011280187671321,
+      "best_objective": 2.2652874239377968e-07,
+      "regularized_root_error": 0.0004759503570686545,
+      "best_step": 1800
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8199025113283118,
+      "best_objective": 2.7029678495438247e-10,
+      "regularized_root_error": 1.644070512339366e-05,
+      "best_step": 1800
+    }
+  ],
+  "summaries": [
+    {
+      "optimizer": "muon",
+      "rate": 0.03,
+      "geometric_mean_error": 0.0013048861900142393,
+      "best_restart_errors": [
+        0.0001372402716568265,
+        0.032385785108311846,
+        0.021188181611942823,
+        1.8053243132869047e-05,
+        1.644070512339366e-05
+      ],
+      "recovered_cases": 3
+    }
+  ],
+  "winner": {
+    "optimizer": "muon",
+    "rate": 0.03,
+    "geometric_mean_error": 0.0013048861900142393,
+    "best_restart_errors": [
+      0.0001372402716568265,
+      0.032385785108311846,
+      0.021188181611942823,
+      1.8053243132869047e-05,
+      1.644070512339366e-05
+    ],
+    "recovered_cases": 3
+  },
+  "seconds": 31.492159924004227,
+  "predictions": {
+    "instrument": true,
+    "optimization_recovery": false
+  },
+  "scope": "Selection uses five planted graph fixtures and two fully random starts per setting. This is optimizer evidence for this topology, not a universal Adam/Muon ranking or native success guarantee."
+}
