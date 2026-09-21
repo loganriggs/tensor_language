@@ -27,8 +27,10 @@ for geometry in plan['geometries']:
  parent=parents[geometry+'_inherited'];bundle=expand(parent);A,inv=(audit.S,data['inverse_root']) if geometry=='calibration_shaped' else (audit.I,audit.I);banks=[];pair_data=[]
  for j in range(3):
   H=decode(bundle[str(j)]);true=audit.Q[2*j:2*j+2];e,U=torch.linalg.eigh(A@(true[1]-H[1])@A);order=e.abs().argsort(descending=True)[:14];V=inv@U[:,order];lam=e[order]
-  if 'replacement' in plan and j==plan['replacement']['pair']:
-   edit=plan['replacement'];direction=torch.tensor(edit['metric_direction'],dtype=V.dtype);assert abs(float(direction.norm())-1)<1e-10;V[:,edit['column']]=inv@direction
+  edits=plan.get('replacements',[plan['replacement']] if 'replacement' in plan else [])
+  for edit in edits:
+   if j==edit['pair']:
+    direction=torch.tensor(edit['metric_direction'],dtype=V.dtype);assert abs(float(direction.norm())-1)<1e-10;V[:,edit['column']]=inv@direction
   banks.append((V,lam));p=bundle[str(j)]
   lin=torch.stack([p['a_linear'],p['b_linear']]);bias=torch.stack([p['a_bias'],p['b_bias']]);reads=torch.einsum('ni,oij,nj->no',z,H,z)+z@lin.T+bias
   grad=2*torch.einsum('oij,nj->noi',H,z)+lin[None];pair=data['pairs'][j];aa=(h@pair['a']-.5*reads[:,0])/s-pair['alpha'];bb=reads[:,1]/s-pair['beta'];val=aa*bb
