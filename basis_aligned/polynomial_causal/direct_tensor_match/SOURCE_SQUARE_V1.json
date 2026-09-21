@@ -1,0 +1,167 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T14:25:22.041755+00:00",
+    "geometries": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "maximum_added": 14,
+    "source_ceiling": 1064448.0,
+    "baseline": {
+      "native_error": 0.5525962583461952,
+      "covariance_error": 0.0703133565524768,
+      "per_mode_errors": [
+        0.018692583665713903,
+        0.020499346791718828,
+        0.08805202711597365
+      ],
+      "euclidean_jacobian_errors": [
+        0.187428758387592,
+        0.15902999281611183,
+        0.16001348745745214
+      ],
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "activation_products": 1152,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1330560,
+      "source_additions": 1329148
+    },
+    "proposal": "Append signed-square corrections to only second source reads, from leading absolute eigenvalues of source residual in each fitting geometry. Existing graph and directions fixed. Profile0..14 per pair and enumerate all allocations with total<=14.",
+    "selection": "Primary: minimize fitting-geometry coefficient error. Exploratory comparison: minimize maximum ratio across dual coefficient, component and Jacobian bars, using opened states. Ties use fewer corrections.",
+    "predictions": {
+      "instrument": "Source execution and profile/assessment replay<1e-8; exact physical price matches1155 per square.",
+      "fidelity": "Primary covariance candidate meets all existing coefficient/component/Jacobian bars.",
+      "cost": "Both geometries and selectors remain within original20%source-saving ceiling."
+    },
+    "scope": "Source-asymmetric residual hypothesis, not extra private-core capacity or fresh validation. No optimizer, no threshold changes. State-dependent selector explicitly exploratory."
+  },
+  "records": [
+    {
+      "geometry": "calibration_shaped",
+      "selection": "coefficient",
+      "allocation": [
+        13,
+        1,
+        0
+      ],
+      "worst_fidelity_ratio": 1.1018626696654752,
+      "fidelity_pass": false,
+      "native_error": 0.5904653731236207,
+      "covariance_error": 0.07816871204683659,
+      "execution_replay": 6.638225859340354e-15,
+      "per_mode_errors": [
+        0.01801254476861442,
+        0.022714981961513652,
+        0.10672336583420886
+      ],
+      "euclidean_jacobian_errors": [
+        0.19690113174073853,
+        0.17053310502470526,
+        0.1769313028483027
+      ],
+      "stored_floats": 1074280,
+      "physical_storage_floats": 1074280,
+      "index_integers": 4280,
+      "projection_multiplications": 1060608,
+      "activation_products": 1070,
+      "source_total_multiplications": 1063818
+    },
+    {
+      "geometry": "calibration_shaped",
+      "selection": "opened_fidelity",
+      "allocation": [
+        2,
+        0,
+        12
+      ],
+      "worst_fidelity_ratio": 1.0403865739828717,
+      "fidelity_pass": false,
+      "native_error": 0.58997923497353,
+      "covariance_error": 0.07842157565956748,
+      "execution_replay": 6.624832571918425e-15,
+      "per_mode_errors": [
+        0.020882411956207072,
+        0.022940263643796102,
+        0.1007689615057778
+      ],
+      "euclidean_jacobian_errors": [
+        0.20116617030862874,
+        0.1707179538229084,
+        0.17385372855536918
+      ],
+      "stored_floats": 1074280,
+      "physical_storage_floats": 1074280,
+      "index_integers": 4280,
+      "projection_multiplications": 1060608,
+      "activation_products": 1070,
+      "source_total_multiplications": 1063818
+    },
+    {
+      "geometry": "native_isotropic",
+      "selection": "coefficient",
+      "allocation": [
+        4,
+        4,
+        6
+      ],
+      "worst_fidelity_ratio": 1.7158969637827624,
+      "fidelity_pass": false,
+      "native_error": 0.4944474755526927,
+      "covariance_error": 0.13271552252394672,
+      "execution_replay": 3.738090401127067e-15,
+      "per_mode_errors": [
+        0.0193142667354902,
+        0.030390544268055052,
+        0.11563633418030053
+      ],
+      "euclidean_jacobian_errors": [
+        0.19655527583883492,
+        0.17873693776088953,
+        0.17321924267764546
+      ],
+      "stored_floats": 1074280,
+      "physical_storage_floats": 1074280,
+      "index_integers": 4280,
+      "projection_multiplications": 1060608,
+      "activation_products": 1070,
+      "source_total_multiplications": 1063818
+    },
+    {
+      "geometry": "native_isotropic",
+      "selection": "opened_fidelity",
+      "allocation": [
+        11,
+        3,
+        0
+      ],
+      "worst_fidelity_ratio": 1.7130633822181547,
+      "fidelity_pass": false,
+      "native_error": 0.49452565338360677,
+      "covariance_error": 0.13249636002998666,
+      "execution_replay": 3.715337382127642e-15,
+      "per_mode_errors": [
+        0.01952797867323058,
+        0.030598806410912057,
+        0.11756293871451468
+      ],
+      "euclidean_jacobian_errors": [
+        0.19433322154089744,
+        0.1789797233439861,
+        0.1746810404411507
+      ],
+      "stored_floats": 1074280,
+      "physical_storage_floats": 1074280,
+      "index_integers": 4280,
+      "projection_multiplications": 1060608,
+      "activation_products": 1070,
+      "source_total_multiplications": 1063818
+    }
+  ],
+  "predictions": {
+    "instrument": true,
+    "fidelity": false,
+    "cost": true
+  },
+  "seconds": 52.17317797802389
+}
