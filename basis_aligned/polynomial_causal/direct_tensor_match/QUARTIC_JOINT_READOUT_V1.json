@@ -1,0 +1,87 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_values": false,
+    "pred_c_derivatives": true
+  },
+  "records": [
+    {
+      "weight": 0.0,
+      "value_errors": [
+        0.02158625648253383,
+        0.15049828668271545
+      ],
+      "derivative_errors": [
+        0.4785609835666145,
+        0.35602119260227433
+      ],
+      "normal_residual": 1.37739848034752e-15,
+      "export_replay": 5.905208600671572e-07,
+      "stored_coefficients": 903168,
+      "program_sha256": "4703d75b04f55323ac6d43bfc7aa8ed9e2cfcea20b51242185a5dba9b38a6d57"
+    },
+    {
+      "weight": 0.01,
+      "value_errors": [
+        0.02894243805300155,
+        0.1372087909951925
+      ],
+      "derivative_errors": [
+        0.3270124775026775,
+        0.31285151891943574
+      ],
+      "normal_residual": 1.4325264894653358e-15,
+      "export_replay": 5.394209038326774e-07,
+      "stored_coefficients": 903168,
+      "program_sha256": "2eb7c099364da10840f68b842b7115826cd40962f2c245f16fc82a58a18377cf"
+    },
+    {
+      "weight": 0.1,
+      "value_errors": [
+        0.04934855385151304,
+        0.13020096228004588
+      ],
+      "derivative_errors": [
+        0.23476234417187605,
+        0.2817305296004705
+      ],
+      "normal_residual": 1.3097207168936472e-15,
+      "export_replay": 6.109099168348175e-07,
+      "stored_coefficients": 903168,
+      "program_sha256": "2e869f4db77df855e3142e197ea2adf2350eb7c904c7f677ee0bb05d9e424fe2"
+    },
+    {
+      "weight": 1.0,
+      "value_errors": [
+        0.07744491680638577,
+        0.13609101747415428
+      ],
+      "derivative_errors": [
+        0.20696935401728697,
+        0.2773355445821703
+      ],
+      "normal_residual": 1.347686346357103e-15,
+      "export_replay": 4.992893886295359e-07,
+      "stored_coefficients": 903168,
+      "program_sha256": "9ed26f982e83c17a73c22888505716c399031b6a7a97a99abd475902d04e62f3"
+    },
+    {
+      "weight": 10.0,
+      "value_errors": [
+        0.10838153743630255,
+        0.14919280888255407
+      ],
+      "derivative_errors": [
+        0.20169537245347252,
+        0.29665134794809017
+      ],
+      "normal_residual": 1.4293477869085768e-15,
+      "export_replay": 5.350465564745937e-07,
+      "stored_coefficients": 903168,
+      "program_sha256": "029ff6c7c941c27cb519f77a980b2e70a8e087498e40348950251f6932b9debd"
+    }
+  ],
+  "baseline_replay_absolute_error": 1.728456267002798e-11,
+  "seconds": 1.01103002903983,
+  "scope": "Fixed learned dictionary, calibrationvalues and16calibrationcenteredderivativeanchors. Secondaryweights notselection; bothpanelsalreadyopened. No featurechange, freshOOD, semantic ornativeinterventionadoption."
+}

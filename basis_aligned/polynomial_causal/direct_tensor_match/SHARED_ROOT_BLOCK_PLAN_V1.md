@@ -1,0 +1,7 @@
+**Stage-two output-sharing block candidate for the broad quartic program.**
+
+Parent is the preregistered primarylambda1joint-readout program, not the best secondary after evaluation. Keep its32 learned quadratic features q. In the QR output frame, take a calibration-prediction output subspace of ranks4/8/16/32; primaryrank8. Contract the parent root writer into that subspace. For each retained output direction, symmetrize its q_iq_j coefficients and diagonalize the32x32 quadratic form. Execute sharedq once, then learnedlinearcombinations ofq, squares, weighted sums, and shared output vectors. This is an explicit two-level graph.
+
+For rankr, products=128+32r. Stored dense coefficients=294912+(1024+32+1152)r. Rank8therefore costs384products312576coefficients; rank16costs640products330240coefficients. Parentcost656products903168coefficients. Count the output writer once and preserve the physical residual frame. Inputunembedding remains a shared external operation. Negative eigenvalues are legal signed weights, not clipping. Full-rank toy replay validates off-diagonal half weights.
+
+Primarypredictions: compilerreplay ofprojectedroot<1e-5relative, priceformulareplayed; parent approximationerror<=5%onbothopenedpanels; nativepurequarticvalueerror<=1.1timesparent onbothpanels. Reportranktradeoffwithoutselectingaprimaryposthoc. Bothparentapproximation andtruetargeterror mustbeincluded; shrinking an inaccurateparentalone isnotnativefidelity. Native derivative comparison shouldfollow onlyifvalue/costscreenpasses. No semantic,OODorfullmodeladoptionclaim.
