@@ -1,0 +1,102 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_path": false,
+    "pred_c_preserve": true
+  },
+  "results": {
+    "path": [
+      {
+        "value_error": 0.02371162116048074,
+        "integrated_response_error": 0.03726969451983425,
+        "point_response_errors": [
+          0.04232799429028159,
+          0.0324737875477887
+        ]
+      },
+      {
+        "value_error": 0.12054132766750217,
+        "integrated_response_error": 0.18878967725892884,
+        "point_response_errors": [
+          0.21112700171238488,
+          0.16800042399888604
+        ]
+      }
+    ],
+    "half": [
+      {
+        "value_error": 0.025687398060967825,
+        "integrated_response_error": 0.0397122550974702,
+        "point_response_errors": [
+          0.03923349375408387,
+          0.0367722435853451
+        ]
+      },
+      {
+        "value_error": 0.11853405815820663,
+        "integrated_response_error": 0.18905230749144233,
+        "point_response_errors": [
+          0.21113083494943888,
+          0.16827934731086308
+        ]
+      }
+    ],
+    "value": [
+      {
+        "value_error": 0.02011121150879975,
+        "integrated_response_error": 0.14905099174561795,
+        "point_response_errors": [
+          0.21769677167557305,
+          0.030208511344548744
+        ]
+      },
+      {
+        "value_error": 0.13018605369143238,
+        "integrated_response_error": 0.23479412336397162,
+        "point_response_errors": [
+          0.27687685451855754,
+          0.19190855136218185
+        ]
+      }
+    ]
+  },
+  "training": {
+    "objective": 0.0019530378322710853,
+    "selected_step": 300,
+    "history": [
+      {
+        "step": 0,
+        "objective": 0.010568584253841657
+      },
+      {
+        "step": 50,
+        "objective": 0.00258814517231539
+      },
+      {
+        "step": 100,
+        "objective": 0.002220435131610817
+      },
+      {
+        "step": 150,
+        "objective": 0.0020643151749195165
+      },
+      {
+        "step": 200,
+        "objective": 0.001989223415015452
+      },
+      {
+        "step": 250,
+        "objective": 0.0019593729286408075
+      },
+      {
+        "step": 300,
+        "objective": 0.0019530378322710853
+      }
+    ]
+  },
+  "target_replay": 0.0,
+  "export_replay": 4.857615901261736e-07,
+  "program_sha256": "a536dfb283b411b7674e6a78f7213526aedbab325e5d81335b2c8da3427d2073",
+  "seconds": 22.51235236087814,
+  "scope": "One matched inherited feature fit with exact polynomial path-integrated metric;openedpanel0fit/panel1evaluation,internaldonors. No native endpoint or semanticadoption."
+}
