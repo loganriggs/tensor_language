@@ -1,0 +1,48 @@
+{
+  "records": [
+    {
+      "candidate": "isotropic_0",
+      "scalar_replay": 8.053812330172714e-16,
+      "source_replay": 1.065127323011075e-15,
+      "writer_replay": 8.853267204499688e-16,
+      "stored_scalars": 4612,
+      "source_squares": 0,
+      "final_variable_products": 1
+    },
+    {
+      "candidate": "isotropic_16",
+      "scalar_replay": 1.4269848607931228e-15,
+      "source_replay": 1.8277797983118127e-15,
+      "writer_replay": 8.853267204499688e-16,
+      "stored_scalars": 41508,
+      "source_squares": 32,
+      "final_variable_products": 1
+    },
+    {
+      "candidate": "covariance_16",
+      "scalar_replay": 2.4335349931320375e-15,
+      "source_replay": 3.5649406061081474e-15,
+      "writer_replay": 8.853267204499688e-16,
+      "stored_scalars": 41508,
+      "source_squares": 32,
+      "final_variable_products": 1
+    },
+    {
+      "candidate": "covariance_64",
+      "scalar_replay": 2.359029738413735e-15,
+      "source_replay": 3.481778931724189e-15,
+      "writer_replay": 8.853267204499688e-16,
+      "stored_scalars": 152196,
+      "source_squares": 128,
+      "final_variable_products": 1
+    }
+  ],
+  "artifact_bytes": 1933441,
+  "scope": "Exact representation-only compilation of frozen approximations. Inputs native normalized MLP16 z and lastMLP h; s(h)=sqrt(mean(h^2)+float32eps) explicit, output residual write. No full QR/calibration arrays required. Both inputs still native, h includes upstream contributions. No wholemodel savings or new behavioral claim.",
+  "standalone_executor_synthetic_replay": {
+    "isotropic_0": 4.7964672021204275e-15,
+    "isotropic_16": 1.555214742963225e-14,
+    "covariance_16": 4.3151648690718434e-14,
+    "covariance_64": 2.1807742717055747e-14
+  }
+}

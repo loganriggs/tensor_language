@@ -1,5 +1,9 @@
 # Requested full reports for Logan
 
+[21 September,04:18 — Upstream extraction: small programs and a retained behavioral failure](research_update_2026-09-21_0418_upstream_extraction.md).
+
+**Overall decomposition review: [QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 04:12 UTC: the original two-stage plan, what was implemented, what the baselines mean, main results and remaining gaps.
+
 [Exact-RMS upstream closure corrected and fresh-boundary confirmed](research_update_2026-09-18_upstream_exact_preflight.md).
 
 [The remaining upstream port is explicit](research_update_2026-09-18_upstream_port_gap.md).

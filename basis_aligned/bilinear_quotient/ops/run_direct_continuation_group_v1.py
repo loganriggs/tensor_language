@@ -13,9 +13,14 @@ No fitting or regrouping, original native background, final normalization explic
 import os,sys,json,hashlib,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
+PLAN_NAME='MIDPOINT_CONTINUATION_GROUP_PLAN_V1.json'
+TOKEN_NAME='MIDPOINT_CONTINUATION_GROUP_TOKENS_V1.pt'
+OUTPUT_NAME='MIDPOINT_CONTINUATION_GROUP_NATIVE_V1.json'
+FORWARDS=32
+SCOPE='Frozen hypothesis from reused discovery panel, new FineWeb rows for confirmation.'
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):
-  print(json.dumps(dict(forwards=32,arms=['real','sham'],context=256,fit=False)));return
+  print(json.dumps(dict(forwards=FORWARDS,arms=['real','sham'],context=256,fit=False)));return
  import torch
  import torch.nn.functional as F
  import tiktoken
@@ -23,9 +28,9 @@ def main():
  sys.path.insert(0,str(P));from native_feature_capture import capture
  from token_boundary_conditions import annotate,vocabulary_masks
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False
- out=P/'MIDPOINT_CONTINUATION_GROUP_NATIVE_V1.json';assert not out.exists();start=time.perf_counter();enc=tiktoken.get_encoding('gpt2')
- plan=json.loads((P/'MIDPOINT_CONTINUATION_GROUP_PLAN_V1.json').read_text());artifact=P/'MIDPOINT_STABLE_GROUP_REMOVAL_PROGRAMS_V1.pt';assert hashlib.sha256(artifact.read_bytes()).hexdigest()==plan['program_sha256']
- tokens=torch.load(P/'MIDPOINT_CONTINUATION_GROUP_TOKENS_V1.pt',weights_only=True);assert hashlib.sha256(tokens.numpy().tobytes()).hexdigest()==plan['token_sha256']
+ out=P/OUTPUT_NAME;assert not out.exists();start=time.perf_counter();enc=tiktoken.get_encoding('gpt2')
+ plan=json.loads((P/PLAN_NAME).read_text());artifact=P/'MIDPOINT_STABLE_GROUP_REMOVAL_PROGRAMS_V1.pt';assert hashlib.sha256(artifact.read_bytes()).hexdigest()==plan['program_sha256']
+ tokens=torch.load(P/TOKEN_NAME,weights_only=True);assert hashlib.sha256(tokens.numpy().tobytes()).hexdigest()==plan['token_sha256']
  e={k:v.cuda().double() for k,v in torch.load(artifact,weights_only=True)['half0'].items()};S=torch.load(P/'MIDPOINT_CENTERED_V1.pt',weights_only=True)['metric_sqrt'].cuda().double()
  writers=dict(real=e['W'][:,2],sham=e['W'][:,3]*(S@e['W'][:,2]).norm()/(S@e['W'][:,3]).norm())
  model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.double(),mode='reduced');invru=torch.linalg.inv(ru)
@@ -54,6 +59,6 @@ def main():
  secondary['coverage_sufficient']=min(secondary['matched_continuation_sites'],secondary['matched_spaced_sites'])>=16
  secondary['beyond_token_gate']=contrast>.01 if secondary['coverage_sufficient'] else None
  real=summary['real'];sham=summary['sham'];pred=dict(pred_a_instrument=min(real['continuation']['sites'],real['spaced_word']['sites'])>=32 and all(torch.isfinite(torch.tensor(v['ce_added'])) for v in records),pred_b_selectivity=real['continuation']['ce_added']>.05 and abs(real['spaced_word']['ce_added'])<.02,pred_c_writer=real['continuation']['mean_logodds_decrease']-sham['continuation']['mean_logodds_decrease']>.02)
- result=dict(predictions=pred,summary=summary,same_token_secondary=secondary,records=records,program_sha256=plan['program_sha256'],token_sha256=plan['token_sha256'],seconds=time.perf_counter()-start,scope='Frozen hypothesis from reused discovery panel, new FineWeb rows for confirmation. Continuation/space classes use realized next token and prefix eligibility; selective average effects, not randomized manipulation of an independent continuation variable. Same-token contrast controls current identity, not all context/difficulty confounds. No fit or semantic monosemanticity claim.')
+ result=dict(predictions=pred,summary=summary,same_token_secondary=secondary,records=records,program_sha256=plan['program_sha256'],token_sha256=plan['token_sha256'],seconds=time.perf_counter()-start,scope=SCOPE+' Continuation/space classes use realized next token and prefix eligibility; selective average effects, not randomized manipulation of an independent continuation variable. Same-token contrast controls current identity, not all context/difficulty confounds. No fit or semantic monosemanticity claim.')
  out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k!='records'},indent=2),flush=True)
 if __name__=='__main__':main()

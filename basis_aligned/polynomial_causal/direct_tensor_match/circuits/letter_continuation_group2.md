@@ -61,3 +61,10 @@ Evidence: `MIDPOINT_STABLE_GROUP_REMOVAL_NATIVE_V1.json`, `MIDPOINT_STABLE_GROUP
 Two upstream scalar reads now have exact quadratic forms through MLP16. Isotropic90%coefficient-energy ranks480/485 prevent calling this a small standalone upstream extraction. Native normalization and last-MLP input remain external.
 
 Metric limit: the frozen product has99.35% isotropic coefficient error, versus31.47% covariance-weighted error. Isotropic-optimal rank1 still has95.51% isotropic error and98.99% covariance error. The dominant-component statement is explicitly conditional on the calibration input metric, not a globally simple polynomial tensor.
+
+
+## 21 September,04:18 — Source extraction and stdlib transfer
+
+Frozen stdlib point-estimate behavioral checks pass; same-current-token code coverage is insufficient. Upstream source forms now have frozen constant/linear and rank16/64 quadratic approximations, tested against native leading-feature removal on newFW144:176 and reused16stdlib snippets. Covariance16 effect-error<=15% allcohorts passes; CE agreement<=.02 fails on FW continuations (.10038 native versus .07486). Linear-only source control also passes the effect bar and has better FW continuation fidelity. Thus global quadratic fit is not a sufficient task-fidelity criterion.
+
+Compact executable z,h interface exports store4612scalars(linear) or41508(rank16), retaining explicit native RMS. Exact export replay <5e-14. Native producers of z,h are still required; composition/reuse and complete upstream extraction remain open. See [report](../../explanations/for_logan/research_update_2026-09-21_0418_upstream_extraction.md), [results](../MIDPOINT_SOURCE_NATIVE_V1.json), [bootstrap](../MIDPOINT_SOURCE_NATIVE_AUDIT_V1.json), and [executable prices](../MIDPOINT_SOURCE_INTERFACE_V1.json).

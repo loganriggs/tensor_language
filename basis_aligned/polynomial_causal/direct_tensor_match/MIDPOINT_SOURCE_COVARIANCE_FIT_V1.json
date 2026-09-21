@@ -1,0 +1,169 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_small_extraction": true,
+    "pred_c_metric_help": true
+  },
+  "records": [
+    {
+      "metric": "isotropic",
+      "rank_per_source": 0,
+      "source_variation_errors": [
+        0.2920785398462938,
+        0.2319032605352012
+      ],
+      "product_relative_error": 0.17602008930655413,
+      "product_variation_error": 0.20741336818381406,
+      "source_weight_coefficients": 2304,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 2
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_source": 1,
+      "source_variation_errors": [
+        0.17735351754167886,
+        0.14501441118869277
+      ],
+      "product_relative_error": 0.1184472881015252,
+      "product_variation_error": 0.13957242650064472,
+      "source_weight_coefficients": 4610,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 4
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_source": 4,
+      "source_variation_errors": [
+        0.14487522401098168,
+        0.13780563119162395
+      ],
+      "product_relative_error": 0.1278825299239266,
+      "product_variation_error": 0.15069044884526916,
+      "source_weight_coefficients": 11528,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 10
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_source": 16,
+      "source_variation_errors": [
+        0.11377241819482335,
+        0.10392210521542297
+      ],
+      "product_relative_error": 0.10888396644530234,
+      "product_variation_error": 0.12830348121401977,
+      "source_weight_coefficients": 39200,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 34
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_source": 64,
+      "source_variation_errors": [
+        0.0811348500070125,
+        0.07440137261900653
+      ],
+      "product_relative_error": 0.07270927907745015,
+      "product_variation_error": 0.0856770186351071,
+      "source_weight_coefficients": 149888,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 130
+    },
+    {
+      "metric": "isotropic",
+      "rank_per_source": 256,
+      "source_variation_errors": [
+        0.035766413734838125,
+        0.03552551155508367
+      ],
+      "product_relative_error": 0.033030164596463164,
+      "product_variation_error": 0.03892111245715123,
+      "source_weight_coefficients": 592640,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 514
+    },
+    {
+      "metric": "covariance",
+      "rank_per_source": 0,
+      "source_variation_errors": [
+        0.2920785398462938,
+        0.2319032605352012
+      ],
+      "product_relative_error": 0.17602008930655413,
+      "product_variation_error": 0.20741336818381406,
+      "source_weight_coefficients": 2304,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 2
+    },
+    {
+      "metric": "covariance",
+      "rank_per_source": 1,
+      "source_variation_errors": [
+        0.2883424961112521,
+        0.23802913798009756
+      ],
+      "product_relative_error": 0.19540504657767785,
+      "product_variation_error": 0.23025564315108038,
+      "source_weight_coefficients": 4610,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 4
+    },
+    {
+      "metric": "covariance",
+      "rank_per_source": 4,
+      "source_variation_errors": [
+        0.13734948992269058,
+        0.12580669845044692
+      ],
+      "product_relative_error": 0.14452277656929993,
+      "product_variation_error": 0.17029849255052698,
+      "source_weight_coefficients": 11528,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 10
+    },
+    {
+      "metric": "covariance",
+      "rank_per_source": 16,
+      "source_variation_errors": [
+        0.08048911202376482,
+        0.07550779698269743
+      ],
+      "product_relative_error": 0.07391032051998052,
+      "product_variation_error": 0.0870922664736065,
+      "source_weight_coefficients": 39200,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 34
+    },
+    {
+      "metric": "covariance",
+      "rank_per_source": 64,
+      "source_variation_errors": [
+        0.042241765928917485,
+        0.043296806155915586
+      ],
+      "product_relative_error": 0.04190189137423368,
+      "product_variation_error": 0.04937511654176,
+      "source_weight_coefficients": 149888,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 130
+    },
+    {
+      "metric": "covariance",
+      "rank_per_source": 256,
+      "source_variation_errors": [
+        0.011311569470896746,
+        0.011438194254359409
+      ],
+      "product_relative_error": 0.00853368932911349,
+      "product_variation_error": 0.010055677472717857,
+      "source_weight_coefficients": 592640,
+      "source_shared_mean_entries": 1152,
+      "source_other_constants": 514
+    }
+  ],
+  "exact_expansion_replay": 1.0457732732161045e-15,
+  "covariance_discarded_trace_fraction": 0.0,
+  "seconds": 1.2427615660708398,
+  "scope": "Original upstream quadratic weights. Exact mean and linear terms retained; mean-corrected quadratic truncation. Weighted coefficient norm corresponds to centered Gaussian quadratic variance up to factor2, not a claim of Gaussian native inputs. Empirical calibration errors measured without target regression; no fresh/native behavior validation. h_reader and recipient scale remain native input ports; source-only price excludes final writer and h read."
+}

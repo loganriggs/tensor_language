@@ -1,5 +1,9 @@
 # Latest requested update for Logan
 
+[21 September,04:18 — Upstream extraction: small programs and a retained behavioral failure](research_update_2026-09-21_0418_upstream_extraction.md).
+
+**Overall decomposition review: [QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 04:12 UTC: the original two-stage plan, what was implemented, what the baselines mean, main results and remaining gaps.
+
 **Latest Claude attention-simplification update: [20 September — Simplifying all of attention: every head valued by mean ablation, and what a program recovers relative to that](research_update_2026-09-20_attention_simplified.md).** All 162 heads priced by mean ablation; the pattern side as a fitted program at +0.060 CE (recovery 0.985) with head values preserved (Spearman 0.82) at 3.7x fewer numbers; the write side found wide (rank 32 for all heads +0.275); the manipulability failure localized to one head's program and repaired by rank.
 
 **Latest Claude embedding-forward lane update: [20 September — Folding from the embedding forward: what the first three blocks are made of](research_update_2026-09-20_embedding_forward.md).** Exact single-token and bigram folds name the structure (separable previous-token channel, positional kernels, two running-mean heads); installed programs are priced in fresh CE (twelve heads of blocks 0-1 at +0.036; the 19 positional heads of blocks 0-2 at +0.050 with 9.8k fitted numbers); token-metric compression is falsified under CE; single edits nominate, joint edits certify.
