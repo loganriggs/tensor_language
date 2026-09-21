@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-09-21T11:59:46.902339+00:00",
+  "optimizer": "Muon",
+  "rate": 0.03,
+  "steps": 600,
+  "seeds": [
+    0,
+    1
+  ],
+  "cases": 5,
+  "threshold": 0.01,
+  "required_cases": 4,
+  "question": "Can optimizing shared/private subspaces with exactly eliminated dense cores recover the same five planted targets that sparse mixed topology struggled to recover?",
+  "pred_a": "Five oracle/dense/gradient/finite-difference controls pass.",
+  "pred_b": "At least4of5targets reach1%explicit coefficient error in one of two fully random starts.",
+  "scope": "Relaxed decomposition diagnostic, not a priced circuit. Native use needs both input geometries and original guards; no native launch before recovery."
+}

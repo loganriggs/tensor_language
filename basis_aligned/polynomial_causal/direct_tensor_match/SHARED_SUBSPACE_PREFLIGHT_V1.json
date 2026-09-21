@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "case": 0,
+      "oracle_squared_error": 2.1675331380258385e-31,
+      "loss_replay": 1.6653345369377348e-16,
+      "gradient_replay": 5.019646369005253e-16,
+      "directional_derivative_discrepancy": 3.799753567346187e-10
+    },
+    {
+      "case": 1,
+      "oracle_squared_error": 8.808420200494545e-31,
+      "loss_replay": 1.3877787807814457e-16,
+      "gradient_replay": 9.732004675341104e-16,
+      "directional_derivative_discrepancy": 3.296626860382901e-11
+    },
+    {
+      "case": 2,
+      "oracle_squared_error": 1.5575258992974355e-30,
+      "loss_replay": 0.0,
+      "gradient_replay": 9.500653207545623e-17,
+      "directional_derivative_discrepancy": 1.4381135171603887e-10
+    },
+    {
+      "case": 3,
+      "oracle_squared_error": 4.7742411345842965e-31,
+      "loss_replay": 0.0,
+      "gradient_replay": 9.584124859450859e-17,
+      "directional_derivative_discrepancy": 5.3600068827819314e-11
+    },
+    {
+      "case": 4,
+      "oracle_squared_error": 4.789626375477006e-31,
+      "loss_replay": 2.220446049250313e-16,
+      "gradient_replay": 6.4364622978922e-17,
+      "directional_derivative_discrepancy": 4.5461695172277494e-11
+    }
+  ],
+  "scope": "Five unchanged planted mixed-product targets; exact dense-core elimination and differentiable QR checked. No optimizer recovery or native success claim."
+}
