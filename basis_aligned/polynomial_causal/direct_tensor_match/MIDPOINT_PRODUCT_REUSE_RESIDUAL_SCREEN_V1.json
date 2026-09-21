@@ -1,0 +1,118 @@
+{
+  "predictions": {
+    "pred_a_source": false,
+    "pred_b_modes": false,
+    "pred_c_vs_direct": false
+  },
+  "records": [
+    {
+      "family": "direct",
+      "private_rank_per_new_reader": 0,
+      "new_source_variation_errors": [
+        0.4095174563620957,
+        0.3505265284362504,
+        0.7105217426970502,
+        0.7919620643806191
+      ],
+      "mode_variation_errors": [
+        0.0,
+        0.37576688359444926,
+        1.2912281727599284
+      ],
+      "combined_variation_error": 0.14493267769010243,
+      "source_products": 1152,
+      "stored_float_scalars": 1338634
+    },
+    {
+      "family": "direct",
+      "private_rank_per_new_reader": 4,
+      "new_source_variation_errors": [
+        0.15878843129169262,
+        0.13722946056346952,
+        0.20684109718123161,
+        0.29288950390436835
+      ],
+      "mode_variation_errors": [
+        0.0,
+        0.10982702347410678,
+        0.5597824791131463
+      ],
+      "combined_variation_error": 0.0502507305937775,
+      "source_products": 1168,
+      "stored_float_scalars": 1357082
+    },
+    {
+      "family": "direct",
+      "private_rank_per_new_reader": 16,
+      "new_source_variation_errors": [
+        0.10027391782613218,
+        0.077531191716104,
+        0.14233211245674524,
+        0.20415974255345237
+      ],
+      "mode_variation_errors": [
+        0.0,
+        0.0672075627304329,
+        0.3771067718710561
+      ],
+      "combined_variation_error": 0.0329275087902181,
+      "source_products": 1216,
+      "stored_float_scalars": 1412426
+    },
+    {
+      "family": "reuse_residual",
+      "private_rank_per_new_reader": 0,
+      "new_source_variation_errors": [
+        0.2084972269461705,
+        0.16456103421771656,
+        0.2278331192685622,
+        0.23608975063443474
+      ],
+      "mode_variation_errors": [
+        0.0,
+        0.1422894681865131,
+        0.43957298535087475
+      ],
+      "combined_variation_error": 0.04984897449349768,
+      "source_products": 1152,
+      "stored_float_scalars": 1343242
+    },
+    {
+      "family": "reuse_residual",
+      "private_rank_per_new_reader": 4,
+      "new_source_variation_errors": [
+        0.15629299738437352,
+        0.11817203417338686,
+        0.18236770447461828,
+        0.19210462060705338
+      ],
+      "mode_variation_errors": [
+        0.0,
+        0.09939152705671062,
+        0.3714925336538869
+      ],
+      "combined_variation_error": 0.037083496776129786,
+      "source_products": 1168,
+      "stored_float_scalars": 1361690
+    },
+    {
+      "family": "reuse_residual",
+      "private_rank_per_new_reader": 16,
+      "new_source_variation_errors": [
+        0.10860825568333866,
+        0.08468507391778064,
+        0.14810059409555507,
+        0.13434087654085217
+      ],
+      "mode_variation_errors": [
+        0.0,
+        0.06825868650675014,
+        0.2800617505577209
+      ],
+      "combined_variation_error": 0.02750020427767989,
+      "source_products": 1216,
+      "stored_float_scalars": 1417034
+    }
+  ],
+  "scope": "Calibration-only comparison using original weights and covariance. Leadingmode originalsourcepair retained exactly. Directprivate forms versus residualprivate forms at sameadditionalrank; reuse charges extra4608outputweights. Empirical scalar errors, not native causal confirmation."
+}

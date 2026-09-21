@@ -80,3 +80,8 @@ Math checkpoint: common-input dictionary spectral bounds are restricted coeffici
 ## 21 September,04:51 — Exact original-source mixed-product baseline
 
 The full original two source quadratic forms now have an exact numerical block-product implementation:1152source products,1331714floats+3456indices, versus native4608products/10628354floats and independent fullspectral2304products/2658818floats. Signed whitening repaired a rejected raw-pencil attempt without loosening1e-10matrix tolerance. Native balanced-donor replay maxeffecterror1.08e-5/CE9.97e-8 passes. Inputs nativez/h and RMS remain; no wholemodel speedup or newsemanticclaim. Shared16/24 approximations also compileexactly to16/24sourceproducts andretainpreviousfailure. See [report](../../explanations/for_logan/research_update_2026-09-21_0451_exact_shared_products.md).
+
+
+## 21 September,05:04 — Reuse beyond the original pair is insufficient
+
+Fixed exact1152product dictionary fails additionalnative-mode2/3reader gates despiteoptimal linearcoefficients/no Gram directionsdiscarded. Covariance sourcevariation16–24%; mode2/3errors14.23%/43.96% despitecombined4.98%. Private residualrank16 lowersmode3to28.01% butmisses15%bar. No nativepromotion. Exactquartic numerator coefficient objective verifiedagainstexplicit24-permutationtensors/gradients;40toyfits recover5/5structures, Adam.05 9/10individualfits versusMuon.05 5/10 at400steps. Trained jointfitnotyetrun. See [report](../../explanations/for_logan/research_update_2026-09-21_0504_reuse_limits_and_joint_fit.md).

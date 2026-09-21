@@ -1,0 +1,27 @@
+{
+  "predictions": {
+    "pred_a_dense": true,
+    "pred_b_gradients": true,
+    "pred_c_numerator": true
+  },
+  "checks": [
+    {
+      "dimension": 2,
+      "value_relative_error": 2.463759015584478e-16,
+      "gradient_relative_error": 3.9413762708070077e-16
+    },
+    {
+      "dimension": 3,
+      "value_relative_error": 2.403470140690265e-16,
+      "gradient_relative_error": 4.4034426462229285e-16
+    },
+    {
+      "dimension": 5,
+      "value_relative_error": 0.0,
+      "gradient_relative_error": 4.2591416963035555e-16
+    }
+  ],
+  "numerator_replay": 2.216730436935244e-16,
+  "repeated_input_identity": "PASS",
+  "scope": "Exact coefficient metric primitive and gradients verified on small dense tensors, not a trained-model fit. Numerator uses independent augmented t/s/u coordinates; u=1 and RMS constraints required on execution. Functional data metric is different."
+}

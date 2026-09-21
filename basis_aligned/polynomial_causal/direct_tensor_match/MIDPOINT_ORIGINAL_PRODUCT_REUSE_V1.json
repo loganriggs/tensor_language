@@ -1,0 +1,141 @@
+{
+  "predictions": {
+    "pred_a_original_pair": true,
+    "pred_b_reuse": false,
+    "pred_c_rank3": true
+  },
+  "records": [
+    {
+      "metric": "isotropic",
+      "reader": "A1",
+      "coefficient_relative_error": 3.3078696245762367e-12,
+      "native_source_variation_error": 2.2509535688821815e-13,
+      "linear_only_variation_error": 0.29207853984629395
+    },
+    {
+      "metric": "isotropic",
+      "reader": "B1",
+      "coefficient_relative_error": 3.3031422136013305e-12,
+      "native_source_variation_error": 2.2656490897848302e-13,
+      "linear_only_variation_error": 0.23190326053520133
+    },
+    {
+      "metric": "isotropic",
+      "reader": "A2",
+      "coefficient_relative_error": 0.9241439097808036,
+      "native_source_variation_error": 0.38400857470246963,
+      "linear_only_variation_error": 0.4095174563620957
+    },
+    {
+      "metric": "isotropic",
+      "reader": "B2",
+      "coefficient_relative_error": 0.9218590811702448,
+      "native_source_variation_error": 0.3813931427119142,
+      "linear_only_variation_error": 0.3505265284362504
+    },
+    {
+      "metric": "isotropic",
+      "reader": "A3",
+      "coefficient_relative_error": 0.899000129232042,
+      "native_source_variation_error": 0.6098976128265815,
+      "linear_only_variation_error": 0.7105217426970502
+    },
+    {
+      "metric": "isotropic",
+      "reader": "B3",
+      "coefficient_relative_error": 0.8546097855643722,
+      "native_source_variation_error": 0.5071029943903619,
+      "linear_only_variation_error": 0.7919620643806191
+    },
+    {
+      "metric": "covariance",
+      "reader": "A1",
+      "coefficient_relative_error": 1.106370402640735e-12,
+      "native_source_variation_error": 1.8102361655958e-13,
+      "linear_only_variation_error": 0.29207853984629395
+    },
+    {
+      "metric": "covariance",
+      "reader": "B1",
+      "coefficient_relative_error": 1.1120822125643734e-12,
+      "native_source_variation_error": 1.812122733386553e-13,
+      "linear_only_variation_error": 0.23190326053520133
+    },
+    {
+      "metric": "covariance",
+      "reader": "A2",
+      "coefficient_relative_error": 0.5222172590454935,
+      "native_source_variation_error": 0.2084972269461705,
+      "linear_only_variation_error": 0.4095174563620957
+    },
+    {
+      "metric": "covariance",
+      "reader": "B2",
+      "coefficient_relative_error": 0.3839769240225824,
+      "native_source_variation_error": 0.16456103421771656,
+      "linear_only_variation_error": 0.3505265284362504
+    },
+    {
+      "metric": "covariance",
+      "reader": "A3",
+      "coefficient_relative_error": 0.29680529164265174,
+      "native_source_variation_error": 0.2278331192685622,
+      "linear_only_variation_error": 0.7105217426970502
+    },
+    {
+      "metric": "covariance",
+      "reader": "B3",
+      "coefficient_relative_error": 0.28093362266808514,
+      "native_source_variation_error": 0.23608975063443474,
+      "linear_only_variation_error": 0.7919620643806191
+    }
+  ],
+  "metric_summaries": {
+    "isotropic": {
+      "mode_reference_variation_norms": [
+        129731.69591324584,
+        35166.45418433883,
+        10362.784537060206
+      ],
+      "mode_error_norms": [
+        2.385590696789967e-08,
+        13356.246844554777,
+        8598.238125031197
+      ],
+      "normal_equation_relative_residual": 3.8754574780577546e-13,
+      "per_mode_variation_errors": [
+        1.838864958942076e-13,
+        0.3798007832846253,
+        0.8297227539838835
+      ],
+      "gram_smallest_eigenvalue": 0.003671221312904654,
+      "gram_condition": 1092.2884602566105,
+      "discarded_directions": 0,
+      "rank3_product_variation_error": 0.12270976934357905
+    },
+    "covariance": {
+      "mode_reference_variation_norms": [
+        129731.69591324584,
+        35166.45418433883,
+        10362.784537060206
+      ],
+      "mode_error_norms": [
+        1.8163363459136722e-08,
+        5003.81606389495,
+        4555.200135503437
+      ],
+      "normal_equation_relative_residual": 8.857312272226524e-15,
+      "per_mode_variation_errors": [
+        1.4000713804961683e-13,
+        0.1422894681865131,
+        0.43957298535087475
+      ],
+      "gram_smallest_eigenvalue": 0.004301571444851716,
+      "gram_condition": 5650.653811452561,
+      "discarded_directions": 0,
+      "rank3_product_variation_error": 0.04984897449349421
+    }
+  },
+  "seconds": 4.622772035188973,
+  "scope": "Fixed exact native-leading-pair product dictionary. Additional original mode2/3source forms projected by linear least squares under isotropic/covariance coefficient metrics; exact centered affine branches retained. Native source and rank3scalar errors only calibration probes. No fresh/nativebehavior or semanticreuse claim."
+}

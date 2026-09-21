@@ -1,0 +1,46 @@
+{
+  "records": [
+    {
+      "structure": "independent_psd",
+      "dense_relative_coefficient_error": 1.6073337723814862e-08,
+      "source_matrix_errors": [
+        7.952658191330157e-09,
+        1.4414061610977268e-08
+      ]
+    },
+    {
+      "structure": "signed",
+      "dense_relative_coefficient_error": 2.2500991932662547e-08,
+      "source_matrix_errors": [
+        9.173333861702376e-09,
+        2.0660199887225456e-08
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "dense_relative_coefficient_error": 2.792398610296213e-07,
+      "source_matrix_errors": [
+        5.076916567113367e-07,
+        3.84585775648364e-07
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "dense_relative_coefficient_error": 4.092360691210223e-05,
+      "source_matrix_errors": [
+        0.00011606217191076976,
+        8.55667987732101e-05
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "dense_relative_coefficient_error": 2.077845647510822e-07,
+      "source_matrix_errors": [
+        2.4028151666120485e-07,
+        1.5257517643221527e-07
+      ]
+    }
+  ],
+  "recovered_structures": 5,
+  "scope": "Independent explicit symmetric coefficient tensors for bestsavedtoyfits. Implicit subtraction can report zero near machine precision; use these noncancelling residual norms. Best-of-sweep toy recovery is not a universal optimizer comparison."
+}

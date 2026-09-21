@@ -1,0 +1,512 @@
+{
+  "predictions": {
+    "pred_a_recovery": true
+  },
+  "summary": {
+    "independent_psd": {
+      "adam": 0.0,
+      "muon": 0.0007985759707861223
+    },
+    "signed": {
+      "adam": 0.0,
+      "muon": 0.0013920794067163525
+    },
+    "shared_subspace": {
+      "adam": 2.786230155425967e-07,
+      "muon": 0.0006573103912919829
+    },
+    "opposite_forms": {
+      "adam": 4.092361213173244e-05,
+      "muon": 0.0007342707182937849
+    },
+    "separated_scale": {
+      "adam": 2.07486419079203e-07,
+      "muon": 0.29305804159345406
+    }
+  },
+  "records": [
+    {
+      "structure": "independent_psd",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.011147557225899789,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.0025843461758972316,
+        0.010291748734735042
+      ]
+    },
+    {
+      "structure": "independent_psd",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.014412961782080114,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.017914899113390496,
+        0.013505823490935836
+      ]
+    },
+    {
+      "structure": "independent_psd",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 0.0,
+      "best_step": 345,
+      "source_matrix_errors": [
+        7.952658191330157e-09,
+        1.4414061610977268e-08
+      ]
+    },
+    {
+      "structure": "independent_psd",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 0.0,
+      "best_step": 357,
+      "source_matrix_errors": [
+        1.4033212358704868e-08,
+        1.3549021654627012e-08
+      ]
+    },
+    {
+      "structure": "independent_psd",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.7212307955659442,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.7403779055536652,
+        0.5372470180496813
+      ]
+    },
+    {
+      "structure": "independent_psd",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.6570001226816482,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.9042524632028897,
+        0.30033091182429955
+      ]
+    },
+    {
+      "structure": "independent_psd",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 0.0007985759707861223,
+      "best_step": 389,
+      "source_matrix_errors": [
+        0.0009085997663569385,
+        0.00046174876959545464
+      ]
+    },
+    {
+      "structure": "independent_psd",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 0.000897538283323943,
+      "best_step": 385,
+      "source_matrix_errors": [
+        0.0013350547284192989,
+        0.001108075111831012
+      ]
+    },
+    {
+      "structure": "signed",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.12049800485602243,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.06833307746781722,
+        0.1075942789491914
+      ]
+    },
+    {
+      "structure": "signed",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.12014929198542768,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.15109127727346394,
+        0.06662849008990357
+      ]
+    },
+    {
+      "structure": "signed",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 0.0,
+      "best_step": 355,
+      "source_matrix_errors": [
+        9.173333861702376e-09,
+        2.0660199887225456e-08
+      ]
+    },
+    {
+      "structure": "signed",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 1.4707255227763757e-07,
+      "best_step": 396,
+      "source_matrix_errors": [
+        4.6709333332261765e-08,
+        1.4357378018410826e-07
+      ]
+    },
+    {
+      "structure": "signed",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.9953250967030451,
+      "best_step": 400,
+      "source_matrix_errors": [
+        1.0719500791644077,
+        1.0120907913940451
+      ]
+    },
+    {
+      "structure": "signed",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 1.0506518644699843,
+      "best_step": 400,
+      "source_matrix_errors": [
+        1.0179431073206173,
+        1.1458896379022632
+      ]
+    },
+    {
+      "structure": "signed",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 0.12346075416981389,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.16485436680437507,
+        0.019591601451975676
+      ]
+    },
+    {
+      "structure": "signed",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 0.0013920794067163525,
+      "best_step": 395,
+      "source_matrix_errors": [
+        0.0014952476713291523,
+        0.00028078078022362334
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.100680535457233,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.23078135017750376,
+        0.15137096735117908
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.05281855723663374,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.09806397854132994,
+        0.07169677846864074
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 3.935950215959598e-06,
+      "best_step": 400,
+      "source_matrix_errors": [
+        7.419030130845892e-06,
+        6.644841475842428e-06
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 2.786230155425967e-07,
+      "best_step": 400,
+      "source_matrix_errors": [
+        5.076916567113367e-07,
+        3.84585775648364e-07
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.9956299399080895,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.9869081317147355,
+        1.0079151107082878
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.6534986868092106,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.6575871815140684,
+        0.5453687520102193
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 0.13532527605320754,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.23677436723580628,
+        0.21152867534649464
+      ]
+    },
+    {
+      "structure": "shared_subspace",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 0.0006573103912919829,
+      "best_step": 387,
+      "source_matrix_errors": [
+        0.0011065311221066297,
+        0.0009289421794919728
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.04676083228184213,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.12423013901284409,
+        0.10176953726948644
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.07579823707395543,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.16920220747701345,
+        0.13284485963035603
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 4.092361213173244e-05,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.00011606217191076976,
+        8.55667987732101e-05
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 0.0003729924881845364,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.001058694061256226,
+        0.0007735072616842627
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.9544430505435783,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.8343858321981618,
+        0.9159772594098158
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.5122546191266194,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.5898214136408948,
+        0.6328563656302507
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 0.0007342707182937849,
+      "best_step": 394,
+      "source_matrix_errors": [
+        0.0008698713772930572,
+        0.0011344230233449764
+      ]
+    },
+    {
+      "structure": "opposite_forms",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 0.0009298020185450524,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.0010508781655383566,
+        0.0017372017470736725
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.29669392244754234,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.4552174640361828,
+        0.8156451352657771
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "optimizer": "adam",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.5228637949539612,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.9930508960938309,
+        6.446773732286598
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 2.07486419079203e-07,
+      "best_step": 400,
+      "source_matrix_errors": [
+        2.4028151666120485e-07,
+        1.5257517643221527e-07
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "optimizer": "adam",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 0.5172866948144285,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.9941244882372937,
+        5.631282675589706
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 0,
+      "relative_coefficient_error": 0.9111945328314425,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.9658649476887571,
+        3.549752276591016
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "optimizer": "muon",
+      "learning_rate": 0.01,
+      "seed": 1,
+      "relative_coefficient_error": 0.7405038154394881,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.9895856204246908,
+        7.96666208228824
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 0,
+      "relative_coefficient_error": 0.29305804159345406,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.4506667874885304,
+        0.7800610119892003
+      ]
+    },
+    {
+      "structure": "separated_scale",
+      "optimizer": "muon",
+      "learning_rate": 0.05,
+      "seed": 1,
+      "relative_coefficient_error": 0.5172874201507525,
+      "best_step": 400,
+      "source_matrix_errors": [
+        0.9941219466413058,
+        5.630155972815875
+      ]
+    }
+  ],
+  "recovered_structures": 5,
+  "seconds": 8.790006754919887,
+  "scope": "Known expressive rank2source families; exact symmetrized quartic numerator coefficient objective with fixed t/s/u terms.400step budget,2starts; failure does not prove impossibility or universal optimizerinferiority. No normalization denominator/data/nativebehavior fit."
+}
