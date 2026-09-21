@@ -1,0 +1,398 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_preserve": false,
+    "pred_c_jointmetric": true
+  },
+  "results": {
+    "separable": {
+      "fineweb": {
+        "aligned": {
+          "0": {
+            "centered_effect_relative_error": 0.08066929757243893,
+            "centered_effect_cosine": 0.9967883071819789,
+            "sites": 7680,
+            "native_centered_effect_energy": 185537227.76692727,
+            "centered_effect_error_energy": 1207390.109406597,
+            "native_ce_added": 0.11681075324304402,
+            "predicted_ce_added": 0.118766073952429
+          },
+          "1": {
+            "centered_effect_relative_error": 0.09394843001592737,
+            "centered_effect_cosine": 0.9955817064570192,
+            "sites": 7680,
+            "native_centered_effect_energy": 86763122.90198064,
+            "centered_effect_error_energy": 765798.0026064027,
+            "native_ce_added": 0.042571452431729995,
+            "predicted_ce_added": 0.042153794318437576
+          },
+          "2": {
+            "centered_effect_relative_error": 0.15667334007283495,
+            "centered_effect_cosine": 0.9876825503076321,
+            "sites": 7680,
+            "native_centered_effect_energy": 45674149.09272002,
+            "centered_effect_error_energy": 1121142.1216607376,
+            "native_ce_added": 0.008252868876297725,
+            "predicted_ce_added": 0.007815326924628607
+          },
+          "3": {
+            "centered_effect_relative_error": 0.14270334675341112,
+            "centered_effect_cosine": 0.9897665315965204,
+            "sites": 7680,
+            "native_centered_effect_energy": 30056773.231248997,
+            "centered_effect_error_energy": 612083.4992392389,
+            "native_ce_added": 0.007801986252161441,
+            "predicted_ce_added": 0.0070845318277861224
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.08713417141107639,
+            "centered_effect_cosine": 0.9961965884831937,
+            "sites": 7680,
+            "native_centered_effect_energy": 290716125.2730121,
+            "centered_effect_error_energy": 2207222.593592276,
+            "native_ce_added": 0.19836300611495972,
+            "predicted_ce_added": 0.19620219920761883
+          }
+        },
+        "same_token": {
+          "0": {
+            "centered_effect_relative_error": 0.07581900946176716,
+            "centered_effect_cosine": 0.9971584710262971,
+            "sites": 5629,
+            "native_centered_effect_energy": 61828003.86677137,
+            "centered_effect_error_energy": 355419.6525478891,
+            "native_ce_added": 0.05103020096669424,
+            "predicted_ce_added": 0.05185179918427265
+          },
+          "1": {
+            "centered_effect_relative_error": 0.1729377003126646,
+            "centered_effect_cosine": 0.9850836147244403,
+            "sites": 5629,
+            "native_centered_effect_energy": 12251248.697977224,
+            "centered_effect_error_energy": 366403.5856906122,
+            "native_ce_added": 0.008311809729015794,
+            "predicted_ce_added": 0.00848251132570094
+          },
+          "2": {
+            "centered_effect_relative_error": 0.1591786363575384,
+            "centered_effect_cosine": 0.9877008330451105,
+            "sites": 5629,
+            "native_centered_effect_energy": 13246425.093234539,
+            "centered_effect_error_energy": 335635.7767030892,
+            "native_ce_added": 0.0033202264784292766,
+            "predicted_ce_added": 0.0029084105297639672
+          },
+          "3": {
+            "centered_effect_relative_error": 0.1995944770308105,
+            "centered_effect_cosine": 0.9800450293524366,
+            "sites": 5629,
+            "native_centered_effect_energy": 6758543.309052331,
+            "centered_effect_error_energy": 269246.5459769279,
+            "native_ce_added": 0.0023615787960380983,
+            "predicted_ce_added": 0.0022135789173715684
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.1083794888875806,
+            "centered_effect_cosine": 0.9941159064835046,
+            "sites": 5629,
+            "native_centered_effect_energy": 88941988.73932132,
+            "centered_effect_error_energy": 1044722.7045677754,
+            "native_ce_added": 0.0700251207699204,
+            "predicted_ce_added": 0.07013156719662635
+          }
+        }
+      },
+      "code": {
+        "aligned": {
+          "0": {
+            "centered_effect_relative_error": 0.13099933378326803,
+            "centered_effect_cosine": 0.9914159388110106,
+            "sites": 3840,
+            "native_centered_effect_energy": 98383915.47386423,
+            "centered_effect_error_energy": 1688349.2006978625,
+            "native_ce_added": 0.32622287422418594,
+            "predicted_ce_added": 0.3278582375496626
+          },
+          "1": {
+            "centered_effect_relative_error": 0.1473920190886679,
+            "centered_effect_cosine": 0.9890803264073659,
+            "sites": 3840,
+            "native_centered_effect_energy": 32909520.8524502,
+            "centered_effect_error_energy": 714939.8347514124,
+            "native_ce_added": 0.024292611371492967,
+            "predicted_ce_added": 0.026319405355025083
+          },
+          "2": {
+            "centered_effect_relative_error": 0.12532573548026726,
+            "centered_effect_cosine": 0.993962787605118,
+            "sites": 3840,
+            "native_centered_effect_energy": 41725581.79028819,
+            "centered_effect_error_energy": 655364.5183137951,
+            "native_ce_added": 0.04976786451516091,
+            "predicted_ce_added": 0.0408648474549409
+          },
+          "3": {
+            "centered_effect_relative_error": 0.14023955195750482,
+            "centered_effect_cosine": 0.9908258193045854,
+            "sites": 3840,
+            "native_centered_effect_energy": 41299009.24033106,
+            "centered_effect_error_energy": 812233.0634417587,
+            "native_ce_added": 0.061859766792622395,
+            "predicted_ce_added": 0.06227599558769725
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.12284620459749739,
+            "centered_effect_cosine": 0.9924548683428429,
+            "sites": 3840,
+            "native_centered_effect_energy": 182576121.62096804,
+            "centered_effect_error_energy": 2755290.937925779,
+            "native_ce_added": 0.5256259497255087,
+            "predicted_ce_added": 0.5174289420247078
+          }
+        },
+        "same_token": {
+          "0": {
+            "centered_effect_relative_error": 0.09801953100877267,
+            "centered_effect_cosine": 0.9952670011843663,
+            "sites": 3232,
+            "native_centered_effect_energy": 31598846.20546225,
+            "centered_effect_error_energy": 303596.2938500842,
+            "native_ce_added": 0.08407634593300593,
+            "predicted_ce_added": 0.08157643789525194
+          },
+          "1": {
+            "centered_effect_relative_error": 0.17424526674546104,
+            "centered_effect_cosine": 0.9847961697977701,
+            "sites": 3232,
+            "native_centered_effect_energy": 6335470.147988702,
+            "centered_effect_error_energy": 192353.82560580038,
+            "native_ce_added": 0.00630360505853994,
+            "predicted_ce_added": 0.0059079937691602046
+          },
+          "2": {
+            "centered_effect_relative_error": 0.1311522190792613,
+            "centered_effect_cosine": 0.995451851288505,
+            "sites": 3232,
+            "native_centered_effect_energy": 15742295.031634923,
+            "centered_effect_error_energy": 270781.7145427212,
+            "native_ce_added": 0.01745887530338259,
+            "predicted_ce_added": 0.013224524491869317
+          },
+          "3": {
+            "centered_effect_relative_error": 0.176819893488743,
+            "centered_effect_cosine": 0.985000175844969,
+            "sites": 3232,
+            "native_centered_effect_energy": 6677096.259183276,
+            "centered_effect_error_energy": 208761.24896452503,
+            "native_ce_added": 0.022834211406511217,
+            "predicted_ce_added": 0.020299521984630736
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.127286227084852,
+            "centered_effect_cosine": 0.9924324717250055,
+            "sites": 3232,
+            "native_centered_effect_energy": 56838511.323549144,
+            "centered_effect_error_energy": 920885.260922706,
+            "native_ce_added": 0.15914135322776982,
+            "predicted_ce_added": 0.14741494711073538
+          }
+        }
+      }
+    },
+    "joint": {
+      "fineweb": {
+        "aligned": {
+          "0": {
+            "centered_effect_relative_error": 0.05947164487133313,
+            "centered_effect_cosine": 0.9982308828002446,
+            "sites": 7680,
+            "native_centered_effect_energy": 185537227.76692727,
+            "centered_effect_error_energy": 656222.2688723337,
+            "native_ce_added": 0.11681075324304402,
+            "predicted_ce_added": 0.11703735881019384
+          },
+          "1": {
+            "centered_effect_relative_error": 0.06551205616337058,
+            "centered_effect_cosine": 0.9978644917237184,
+            "sites": 7680,
+            "native_centered_effect_energy": 86763122.90198064,
+            "centered_effect_error_energy": 372372.53062167205,
+            "native_ce_added": 0.042571452431729995,
+            "predicted_ce_added": 0.04304994714038912
+          },
+          "2": {
+            "centered_effect_relative_error": 0.1236479742898014,
+            "centered_effect_cosine": 0.9923821677679646,
+            "sites": 7680,
+            "native_centered_effect_energy": 45674149.09272002,
+            "centered_effect_error_energy": 698303.9147426873,
+            "native_ce_added": 0.008252868876297725,
+            "predicted_ce_added": 0.007524818750425766
+          },
+          "3": {
+            "centered_effect_relative_error": 0.09677658732672983,
+            "centered_effect_cosine": 0.9953421849246624,
+            "sites": 7680,
+            "native_centered_effect_energy": 30056773.231248997,
+            "centered_effect_error_energy": 281502.95713608514,
+            "native_ce_added": 0.007801986252161441,
+            "predicted_ce_added": 0.007887996439876588
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.06664164045953316,
+            "centered_effect_cosine": 0.997779602141389,
+            "sites": 7680,
+            "native_centered_effect_energy": 290716125.2730121,
+            "centered_effect_error_energy": 1291101.7803630226,
+            "native_ce_added": 0.19836300611495972,
+            "predicted_ce_added": 0.19863687246106565
+          }
+        },
+        "same_token": {
+          "0": {
+            "centered_effect_relative_error": 0.0654881329887377,
+            "centered_effect_cosine": 0.9978705749896127,
+            "sites": 5629,
+            "native_centered_effect_energy": 61828003.86677137,
+            "centered_effect_error_energy": 265161.4858124177,
+            "native_ce_added": 0.05103020096669424,
+            "predicted_ce_added": 0.051539226316744825
+          },
+          "1": {
+            "centered_effect_relative_error": 0.13640144081092123,
+            "centered_effect_cosine": 0.9908835294170066,
+            "sites": 5629,
+            "native_centered_effect_energy": 12251248.697977224,
+            "centered_effect_error_energy": 227938.80739409244,
+            "native_ce_added": 0.008311809729015794,
+            "predicted_ce_added": 0.008538566908043747
+          },
+          "2": {
+            "centered_effect_relative_error": 0.13533358810180443,
+            "centered_effect_cosine": 0.9913015122123351,
+            "sites": 5629,
+            "native_centered_effect_energy": 13246425.093234539,
+            "centered_effect_error_energy": 242610.66084660488,
+            "native_ce_added": 0.0033202264784292766,
+            "predicted_ce_added": 0.002960611462579863
+          },
+          "3": {
+            "centered_effect_relative_error": 0.14161790849914688,
+            "centered_effect_cosine": 0.9900137292807146,
+            "sites": 5629,
+            "native_centered_effect_energy": 6758543.309052331,
+            "centered_effect_error_energy": 135546.85751427233,
+            "native_ce_added": 0.0023615787960380983,
+            "predicted_ce_added": 0.0023766541905457287
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.09088319825063809,
+            "centered_effect_cosine": 0.9958732245768761,
+            "sites": 5629,
+            "native_centered_effect_energy": 88941988.73932132,
+            "centered_effect_error_energy": 734639.1006171034,
+            "native_ce_added": 0.0700251207699204,
+            "predicted_ce_added": 0.07036830801837746
+          }
+        }
+      },
+      "code": {
+        "aligned": {
+          "0": {
+            "centered_effect_relative_error": 0.07317836258519363,
+            "centered_effect_cosine": 0.9973781272343831,
+            "sites": 3840,
+            "native_centered_effect_energy": 98383915.47386423,
+            "centered_effect_error_energy": 526853.0248563497,
+            "native_ce_added": 0.32622287422418594,
+            "predicted_ce_added": 0.31944553554058075
+          },
+          "1": {
+            "centered_effect_relative_error": 0.10532426105477113,
+            "centered_effect_cosine": 0.9949462833001418,
+            "sites": 3840,
+            "native_centered_effect_energy": 32909520.8524502,
+            "centered_effect_error_energy": 365071.8956256186,
+            "native_ce_added": 0.024292611371492967,
+            "predicted_ce_added": 0.027241458476055413
+          },
+          "2": {
+            "centered_effect_relative_error": 0.11157710712742026,
+            "centered_effect_cosine": 0.9946466336450016,
+            "sites": 3840,
+            "native_centered_effect_energy": 41725581.79028819,
+            "centered_effect_error_energy": 519460.5790567853,
+            "native_ce_added": 0.04976786451516091,
+            "predicted_ce_added": 0.04199761835479876
+          },
+          "3": {
+            "centered_effect_relative_error": 0.09231234362813799,
+            "centered_effect_cosine": 0.99580353924642,
+            "sites": 3840,
+            "native_centered_effect_energy": 41299009.24033106,
+            "centered_effect_error_energy": 351932.348040063,
+            "native_ce_added": 0.061859766792622395,
+            "predicted_ce_added": 0.06122673940262757
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.08568815341461088,
+            "centered_effect_cosine": 0.9963573769165506,
+            "sites": 3840,
+            "native_centered_effect_energy": 182576121.62096804,
+            "centered_effect_error_energy": 1340557.8034274296,
+            "native_ce_added": 0.5256259497255087,
+            "predicted_ce_added": 0.5137318149209023
+          }
+        },
+        "same_token": {
+          "0": {
+            "centered_effect_relative_error": 0.07750102597989687,
+            "centered_effect_cosine": 0.997166802278585,
+            "sites": 3232,
+            "native_centered_effect_energy": 31598846.20546225,
+            "centered_effect_error_energy": 189795.5951208702,
+            "native_ce_added": 0.08407634593300593,
+            "predicted_ce_added": 0.08029181019612386
+          },
+          "1": {
+            "centered_effect_relative_error": 0.13671412047098602,
+            "centered_effect_cosine": 0.9906399140132746,
+            "sites": 3232,
+            "native_centered_effect_energy": 6335470.147988702,
+            "centered_effect_error_energy": 118414.69333240962,
+            "native_ce_added": 0.00630360505853994,
+            "predicted_ce_added": 0.006412305616736781
+          },
+          "2": {
+            "centered_effect_relative_error": 0.11625004749640386,
+            "centered_effect_cosine": 0.9959398295893069,
+            "sites": 3232,
+            "native_centered_effect_energy": 15742295.031634923,
+            "centered_effect_error_energy": 212742.53279179792,
+            "native_ce_added": 0.01745887530338259,
+            "predicted_ce_added": 0.013988938488578828
+          },
+          "3": {
+            "centered_effect_relative_error": 0.12285057512339721,
+            "centered_effect_cosine": 0.9926965624190455,
+            "sites": 3232,
+            "native_centered_effect_energy": 6677096.259183276,
+            "centered_effect_error_energy": 100772.49821600193,
+            "native_ce_added": 0.022834211406511217,
+            "predicted_ce_added": 0.021120837871241728
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.1015180110458843,
+            "centered_effect_cosine": 0.9952801079629744,
+            "sites": 3232,
+            "native_centered_effect_energy": 56838511.323549144,
+            "centered_effect_error_energy": 585772.3870915158,
+            "native_ce_added": 0.15914135322776982,
+            "predicted_ce_added": 0.1490060412417175
+          }
+        }
+      }
+    }
+  },
+  "scope": "Matched8product programs; exactjointmoment vsseparable moment weightmatching. Samefixedfour outputfeatures andwriters. Reuseddiagnostics, no semanticidentity orfreshconfirmation."
+}

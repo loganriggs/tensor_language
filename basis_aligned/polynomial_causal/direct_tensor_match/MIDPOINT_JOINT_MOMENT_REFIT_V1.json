@@ -1,0 +1,53 @@
+{
+  "initial_joint_error": 0.027548285713133502,
+  "best_joint_error": 0.012910865341873494,
+  "calibration_error_to_native": 0.08486381060491197,
+  "calibration_error_to_confirmed": 0.041535223250040915,
+  "weighted_coefficient_error": 0.028993990649088107,
+  "metric_replay": 1.4286344420543362e-16,
+  "gradient_replay": 2.0091591302821407e-15,
+  "best": {
+    "seed": 2,
+    "lr": 0.003
+  },
+  "fits": [
+    {
+      "seed": 0,
+      "lr": 0.003,
+      "steps": 1200,
+      "relative_joint_error": 0.013018679027678923
+    },
+    {
+      "seed": 0,
+      "lr": 0.01,
+      "steps": 1200,
+      "relative_joint_error": 0.013126673885866039
+    },
+    {
+      "seed": 1,
+      "lr": 0.003,
+      "steps": 1200,
+      "relative_joint_error": 0.01301846033151982
+    },
+    {
+      "seed": 1,
+      "lr": 0.01,
+      "steps": 1200,
+      "relative_joint_error": 0.01316315766378154
+    },
+    {
+      "seed": 2,
+      "lr": 0.003,
+      "steps": 1200,
+      "relative_joint_error": 0.012910865341873494
+    },
+    {
+      "seed": 2,
+      "lr": 0.01,
+      "steps": 1200,
+      "relative_joint_error": 0.013113188151402343
+    }
+  ],
+  "seconds": 2.9669269442092627,
+  "scope": "Exact empirical joint lifted moment on originalcalibration inputs. Weight-derived confirmedprogram target, rank8products. No heldfitting, no native swap claim; objective denominator is target rawsecondmoment, not centeredvariation."
+}

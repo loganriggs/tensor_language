@@ -31550,3 +31550,15 @@ Previous turn progressed via sharedgraph tensorrefit/nativevalidation andCPUoutp
 
 ### 2026-09-21T00:09Z — Codex: four-feature split identity fails; neighboring-mode diagnosis executed
 Native32forward stabilityterminal: instrumentPASS, individual>.9FAIL(min.89794), subspace>.95FAIL(min.92367). Crosscodebestmatchedindividualmin.65775 vsFineWeb.96002. SuccessorCPU neighboringmodeanalysis executed: first4captureinother8>=.973, butwhole8subspacemin.700–.859; no8featurepromotion orposthocdroppingfourth. Fixedoperationalfeaturetestsremainvalid, stablediscoverynotestablished. Cacheoriginalcaln/m/y savedfornextjointinteractionstudy.
+
+### 2026-09-21T00:12Z — Codex: joint product discovery optimizer toys claimed
+Previous turn progressed via failedsplitidentity andneighboringmodeaudit. Nexttests jointlyfactor fourweightedbilinearforms toallowproductreuseacrossoutputs. CPU5plantedstructures, Adam/Muon equal2rates*2seeds*600steps chooseoptimizerbefore nativecompactfits. Deliberateoutputsharedcase hasnonunique internalproducts; distinguishfunctionfitfromcomponentidentifiability. Nativeconfirmed16productteacher isbaseline, not fullbroaderteachercompressionclaim.
+
+### 2026-09-21T00:15Z — Codex: Adam wins bounded toys; product identity has exact gauge
+Fiveplantedstructures equalbudget toy meanbesterrorAdam6.4e-13 vsMuon.00295, selectsAdam onlyforcurrentsettings. Executedexactwithin-feature orthogonalproductmixing: scalarreplay<2.4e-15 butmatchedproductcorrelationsaslowas.098. Thusbaseline productidentitynotunique. CPUexploratoryjointCP rank4/8/12/16,3seeds*2rates*1200steps running withrank16exactteachercontrol; comparefunctionfit andsignedcomponenttensorrestartalignment separately. Noheldselection.
+
+### 2026-09-21T00:15Z — Codex: CP product sweep ambiguous; exactjointmoment refit launched native
+JointCP8nativecalerror.1269 vsconfirmed.0718; rank16randomfitsstill.00873weightederror despiteexactzerooracle, sooptimizationfailure notexpressivityclaim. Restartcomponentcosinesweak(rank8mean~.45). SuccessorCPU exactliftedmoment256x256 loss/gradient replay1.4e-16/2e-15; sixAdamwarmfits reduceCP8calnativeerror to.0849, coefficienterrorworsens.0196->.0290. Claim96forward matchedCP8separable/joint swaps; joint mustpreservebaselinewithin1.25andcutseparablejointMSE20%. Noheldfitting.
+
+### 2026-09-21T00:18Z — Codex: exact joint moment improves CP8 but preservation fails
+Matched96forwardCP8screen instrumentPASS/jointmetricgainPASS/preservationFAIL. Jointmetric same-tokenjoint errors.0909FW/.1015code vsseparable.1084/.1273 andconfirmed.0645/.0622. SuccessorCPU exactmomentmismatch audit executed: relativejoint-vs-independentmomentdifference.899; residual paired/independentenergyratios1.789separable/.179jointfit. CP8notpromoted; optimizationrank16gap andproductgauge/restartinstability retained. READMEcurrentstateupdated andtimedreport integrates Mmetric evidence.

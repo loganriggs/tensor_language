@@ -1,0 +1,371 @@
+{
+  "records": [
+    {
+      "case": "orthogonal",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.034351937172747496,
+      "cancellation_ratio": 1.4134135311302019
+    },
+    {
+      "case": "orthogonal",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.004348960875562842,
+      "cancellation_ratio": 1.4142046459987059
+    },
+    {
+      "case": "orthogonal",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 1.6481205963900997e-11,
+      "cancellation_ratio": 1.4142135623702627
+    },
+    {
+      "case": "orthogonal",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 7.350478206946769e-13,
+      "cancellation_ratio": 1.4142135623731609
+    },
+    {
+      "case": "orthogonal",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.0036773667781595937,
+      "cancellation_ratio": 1.4104695072051572
+    },
+    {
+      "case": "orthogonal",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.003535804735226906,
+      "cancellation_ratio": 1.4166432004004446
+    },
+    {
+      "case": "orthogonal",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.006858615848673797,
+      "cancellation_ratio": 1.409332552190332
+    },
+    {
+      "case": "orthogonal",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.006298238221820608,
+      "cancellation_ratio": 1.4080594458334141
+    },
+    {
+      "case": "dense_rank3",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 4.143412941816885e-15,
+      "cancellation_ratio": 1.699458702713773
+    },
+    {
+      "case": "dense_rank3",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.011937771661740908,
+      "cancellation_ratio": 1.693480776860446
+    },
+    {
+      "case": "dense_rank3",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 3.738312563921175e-15,
+      "cancellation_ratio": 1.6994587027137738
+    },
+    {
+      "case": "dense_rank3",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 7.856793862173196e-07,
+      "cancellation_ratio": 1.699459281775322
+    },
+    {
+      "case": "dense_rank3",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.0030650721967699548,
+      "cancellation_ratio": 1.70094272108091
+    },
+    {
+      "case": "dense_rank3",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.004963269016117039,
+      "cancellation_ratio": 1.695732375674398
+    },
+    {
+      "case": "dense_rank3",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.011440773119908694,
+      "cancellation_ratio": 1.6894002262827046
+    },
+    {
+      "case": "dense_rank3",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.011948137896408065,
+      "cancellation_ratio": 1.7009265401035099
+    },
+    {
+      "case": "output_shared",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.003691043923161573,
+      "cancellation_ratio": 1.84542364982162
+    },
+    {
+      "case": "output_shared",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.0576721905869282,
+      "cancellation_ratio": 1.857024585064323
+    },
+    {
+      "case": "output_shared",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 1.0861138146752696e-12,
+      "cancellation_ratio": 1.7777042765959188
+    },
+    {
+      "case": "output_shared",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 4.414540999568636e-10,
+      "cancellation_ratio": 1.7078755814964053
+    },
+    {
+      "case": "output_shared",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.004669033788685029,
+      "cancellation_ratio": 1.7719301295915015
+    },
+    {
+      "case": "output_shared",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.23180070854053397,
+      "cancellation_ratio": 1.4008507472752467
+    },
+    {
+      "case": "output_shared",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.00957727436633902,
+      "cancellation_ratio": 1.6665944915979538
+    },
+    {
+      "case": "output_shared",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.011029828583995484,
+      "cancellation_ratio": 1.5978119800320705
+    },
+    {
+      "case": "signed_cancellation",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.002928548368352612,
+      "cancellation_ratio": 1.4522950711038103
+    },
+    {
+      "case": "signed_cancellation",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.013263787958613629,
+      "cancellation_ratio": 1.506535912175825
+    },
+    {
+      "case": "signed_cancellation",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 3.3258080066409693e-13,
+      "cancellation_ratio": 1.4238951520401484
+    },
+    {
+      "case": "signed_cancellation",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 4.478445665927226e-12,
+      "cancellation_ratio": 1.4525244717967485
+    },
+    {
+      "case": "signed_cancellation",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.003394689190764769,
+      "cancellation_ratio": 1.3687679420122896
+    },
+    {
+      "case": "signed_cancellation",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.003465627823371211,
+      "cancellation_ratio": 1.369989607185301
+    },
+    {
+      "case": "signed_cancellation",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.0112401404254926,
+      "cancellation_ratio": 1.373808789990779
+    },
+    {
+      "case": "signed_cancellation",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.0070018264426665745,
+      "cancellation_ratio": 1.3678496464825263
+    },
+    {
+      "case": "dense_rank1",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.5779955661977125,
+      "cancellation_ratio": 0.7351531015712307
+    },
+    {
+      "case": "dense_rank1",
+      "optimizer": "adam",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.0024563980581260325,
+      "cancellation_ratio": 1.0001344340063372
+    },
+    {
+      "case": "dense_rank1",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 3.3745951074964477e-10,
+      "cancellation_ratio": 1.0000000000495048
+    },
+    {
+      "case": "dense_rank1",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 1.0595654761924492e-12,
+      "cancellation_ratio": 0.9999999999994972
+    },
+    {
+      "case": "dense_rank1",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 0,
+      "steps": 600,
+      "error": 8.309602710642583e-05,
+      "cancellation_ratio": 0.9999291286110213
+    },
+    {
+      "case": "dense_rank1",
+      "optimizer": "muon",
+      "lr": 0.003,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.0017755168787560323,
+      "cancellation_ratio": 0.9985295995690961
+    },
+    {
+      "case": "dense_rank1",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "steps": 600,
+      "error": 0.0046264668021404505,
+      "cancellation_ratio": 0.9984489089624371
+    },
+    {
+      "case": "dense_rank1",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "steps": 600,
+      "error": 0.00019093451328951443,
+      "cancellation_ratio": 1.000079208990579
+    }
+  ],
+  "mean_best_case_error": {
+    "adam": 6.434092449580827e-13,
+    "muon": 0.0029495391877106167
+  },
+  "selected_optimizer": "adam",
+  "seconds": 7.341967388987541,
+  "scope": "Five planted compact tensor structures; equal2rates*2seeds*600steps. Optimizer choice basedonlyontoys. Output-sharing example is deliberately non-identifiable; no component-recoveryclaim."
+}

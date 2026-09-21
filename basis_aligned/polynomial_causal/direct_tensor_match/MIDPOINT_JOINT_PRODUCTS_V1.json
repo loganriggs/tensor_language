@@ -1,0 +1,296 @@
+{
+  "optimizer": "adam",
+  "oracle_rank16_error": 1.3837152585773597e-16,
+  "results": [
+    {
+      "rank": 4,
+      "best_seed": 1,
+      "best_lr": 0.01,
+      "weighted_error": 0.05048641200185088,
+      "native_calibration_error": 0.2730798388612722,
+      "confirmed_calibration_error": 0.07180493443762649,
+      "reader_coefficients": 9216,
+      "output_mix_coefficients": 16,
+      "cancellation_ratio": 3.221517661403155
+    },
+    {
+      "rank": 8,
+      "best_seed": 2,
+      "best_lr": 0.01,
+      "weighted_error": 0.01957911761489496,
+      "native_calibration_error": 0.1268643447532961,
+      "confirmed_calibration_error": 0.07180493443762649,
+      "reader_coefficients": 18432,
+      "output_mix_coefficients": 32,
+      "cancellation_ratio": 2.353391821887893
+    },
+    {
+      "rank": 12,
+      "best_seed": 1,
+      "best_lr": 0.01,
+      "weighted_error": 0.010306879233094585,
+      "native_calibration_error": 0.10050764864761857,
+      "confirmed_calibration_error": 0.07180493443762649,
+      "reader_coefficients": 27648,
+      "output_mix_coefficients": 48,
+      "cancellation_ratio": 2.3715676152243246
+    },
+    {
+      "rank": 16,
+      "best_seed": 2,
+      "best_lr": 0.01,
+      "weighted_error": 0.008727495430278369,
+      "native_calibration_error": 0.08821449265088847,
+      "confirmed_calibration_error": 0.07180493443762649,
+      "reader_coefficients": 36864,
+      "output_mix_coefficients": 64,
+      "cancellation_ratio": 2.345031695362698
+    }
+  ],
+  "restart_alignment": {
+    "4": [
+      {
+        "seeds": [
+          0,
+          1
+        ],
+        "minimum_component_tensor_cosine": 0.9931022422088124,
+        "mean_component_tensor_cosine": 0.994727689203272
+      },
+      {
+        "seeds": [
+          0,
+          2
+        ],
+        "minimum_component_tensor_cosine": 0.8502700560210028,
+        "mean_component_tensor_cosine": 0.9205536973815571
+      }
+    ],
+    "8": [
+      {
+        "seeds": [
+          0,
+          1
+        ],
+        "minimum_component_tensor_cosine": 0.027552893227767293,
+        "mean_component_tensor_cosine": 0.45053081153031527
+      },
+      {
+        "seeds": [
+          0,
+          2
+        ],
+        "minimum_component_tensor_cosine": -0.006818071322605025,
+        "mean_component_tensor_cosine": 0.46045131812874285
+      }
+    ],
+    "12": [
+      {
+        "seeds": [
+          0,
+          1
+        ],
+        "minimum_component_tensor_cosine": 0.047241525764188365,
+        "mean_component_tensor_cosine": 0.28513536375684234
+      },
+      {
+        "seeds": [
+          0,
+          2
+        ],
+        "minimum_component_tensor_cosine": 0.007679690000316537,
+        "mean_component_tensor_cosine": 0.3103448275596526
+      }
+    ],
+    "16": [
+      {
+        "seeds": [
+          0,
+          1
+        ],
+        "minimum_component_tensor_cosine": -0.008299484991936178,
+        "mean_component_tensor_cosine": 0.35367866662949243
+      },
+      {
+        "seeds": [
+          0,
+          2
+        ],
+        "minimum_component_tensor_cosine": -0.009839533626135067,
+        "mean_component_tensor_cosine": 0.35103733908688517
+      }
+    ]
+  },
+  "fits": [
+    {
+      "rank": 4,
+      "seed": 0,
+      "lr": 0.003,
+      "weighted_error": 0.10242544481682181,
+      "cancellation_ratio": 2.1238488030023532
+    },
+    {
+      "rank": 4,
+      "seed": 0,
+      "lr": 0.01,
+      "weighted_error": 0.0526521948575715,
+      "cancellation_ratio": 3.3516682874026844
+    },
+    {
+      "rank": 4,
+      "seed": 1,
+      "lr": 0.003,
+      "weighted_error": 0.08656380726520752,
+      "cancellation_ratio": 2.1774872867959427
+    },
+    {
+      "rank": 4,
+      "seed": 1,
+      "lr": 0.01,
+      "weighted_error": 0.05048641200185088,
+      "cancellation_ratio": 3.221517661403155
+    },
+    {
+      "rank": 4,
+      "seed": 2,
+      "lr": 0.003,
+      "weighted_error": 0.09686653939219703,
+      "cancellation_ratio": 2.1446286384664632
+    },
+    {
+      "rank": 4,
+      "seed": 2,
+      "lr": 0.01,
+      "weighted_error": 0.0546427308869351,
+      "cancellation_ratio": 3.489062490030499
+    },
+    {
+      "rank": 8,
+      "seed": 0,
+      "lr": 0.003,
+      "weighted_error": 0.022944509429930884,
+      "cancellation_ratio": 2.1678844219414786
+    },
+    {
+      "rank": 8,
+      "seed": 0,
+      "lr": 0.01,
+      "weighted_error": 0.020674094140460245,
+      "cancellation_ratio": 2.246197060058257
+    },
+    {
+      "rank": 8,
+      "seed": 1,
+      "lr": 0.003,
+      "weighted_error": 0.04437834866509759,
+      "cancellation_ratio": 2.1440500344324307
+    },
+    {
+      "rank": 8,
+      "seed": 1,
+      "lr": 0.01,
+      "weighted_error": 0.019725765470412923,
+      "cancellation_ratio": 2.5292970150557283
+    },
+    {
+      "rank": 8,
+      "seed": 2,
+      "lr": 0.003,
+      "weighted_error": 0.035685008573652914,
+      "cancellation_ratio": 2.42224116875443
+    },
+    {
+      "rank": 8,
+      "seed": 2,
+      "lr": 0.01,
+      "weighted_error": 0.01957911761489496,
+      "cancellation_ratio": 2.353391821887893
+    },
+    {
+      "rank": 12,
+      "seed": 0,
+      "lr": 0.003,
+      "weighted_error": 0.02669233008063289,
+      "cancellation_ratio": 2.7166010914804977
+    },
+    {
+      "rank": 12,
+      "seed": 0,
+      "lr": 0.01,
+      "weighted_error": 0.012848003895581111,
+      "cancellation_ratio": 2.660057427239491
+    },
+    {
+      "rank": 12,
+      "seed": 1,
+      "lr": 0.003,
+      "weighted_error": 0.024049598337893125,
+      "cancellation_ratio": 2.716273921881608
+    },
+    {
+      "rank": 12,
+      "seed": 1,
+      "lr": 0.01,
+      "weighted_error": 0.010306879233094585,
+      "cancellation_ratio": 2.3715676152243246
+    },
+    {
+      "rank": 12,
+      "seed": 2,
+      "lr": 0.003,
+      "weighted_error": 0.02401159390290577,
+      "cancellation_ratio": 2.559233377941631
+    },
+    {
+      "rank": 12,
+      "seed": 2,
+      "lr": 0.01,
+      "weighted_error": 0.011272437453711702,
+      "cancellation_ratio": 2.270429612588378
+    },
+    {
+      "rank": 16,
+      "seed": 0,
+      "lr": 0.003,
+      "weighted_error": 0.02156649435108071,
+      "cancellation_ratio": 2.762875310894661
+    },
+    {
+      "rank": 16,
+      "seed": 0,
+      "lr": 0.01,
+      "weighted_error": 0.009075095923140507,
+      "cancellation_ratio": 2.268062500898781
+    },
+    {
+      "rank": 16,
+      "seed": 1,
+      "lr": 0.003,
+      "weighted_error": 0.016922896720839683,
+      "cancellation_ratio": 2.674737531695123
+    },
+    {
+      "rank": 16,
+      "seed": 1,
+      "lr": 0.01,
+      "weighted_error": 0.008902181867774127,
+      "cancellation_ratio": 2.275121890162564
+    },
+    {
+      "rank": 16,
+      "seed": 2,
+      "lr": 0.003,
+      "weighted_error": 0.01903305362370327,
+      "cancellation_ratio": 2.6004661906085733
+    },
+    {
+      "rank": 16,
+      "seed": 2,
+      "lr": 0.01,
+      "weighted_error": 0.008727495430278369,
+      "cancellation_ratio": 2.345031695362698
+    }
+  ],
+  "seconds": 8.319359787041321,
+  "scope": "Joint CP products approximate confirmed4feature program in exact16dimensional weighted teacher span. Native calibration error measured only, no heldselection. Restart alignment compares signed rank-one tensor terms, invariant to internal factor rescaling. No semanticuniqueness claim."
+}

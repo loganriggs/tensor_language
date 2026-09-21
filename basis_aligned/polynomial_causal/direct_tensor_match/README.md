@@ -1,10 +1,12 @@
 # Direct weight-tensor decomposition study
 
-## Current direction — 20 September 23:30 UTC
+## Current direction — 21 September 00:18 UTC
 
-The retained ten-product scalar program has executable native removal/swap and joint-response interfaces, but semantic selectivity and robust code swaps remain unproven. Empirical readout refinements are explicitly data-informed; the original isotropic studies below remain weights-only. Larger reader additions and paired-readout penalties failed their transfer/control criteria.
+The broader midpoint target retains all previous-MLP-polynomial-dependent self/cross terms at the last MLP. The 16-product program `MIDPOINT_EXTRACTED_PROGRAM_V1.pt` passed new-document removal and same-token swap confirmation. It remains an operational feature program: upstream state/normalization are explicit, semantic selectivity is untested, and four-feature discovery failed split-stability criteria.
 
-The new source-block census finds that last-MLP residual–previous-MLP cross effects exceed the isolated quartic self term. Next target: the complete previous-polynomial-dependent contribution, represented as an implicit mixed third-order midpoint/channel-product tensor. Its algebra and matching gradients are checked; native compression is not yet tested. [Current timed report](../explanations/for_logan/research_update_2026-09-20_2330_broader_source_tensor.md). Earlier “next” entries below are historical.
+`MIDPOINT_JOINT_CORE_REFIT_V1.pt` shares input dictionaries, reducing reader coefficients from 36,864 to 18,688 at higher native swap error; it lacks fresh confirmation. Joint eight-product CP fits and exact paired-input moment refitting improve a smaller candidate's transfer but fail the registered preservation threshold. Product identities are nonunique in an exact baseline control and unstable across CP restarts. Keep these failures separate from successful function matching.
+
+[Confirmed program](../explanations/for_logan/research_update_2026-09-20_2356_midpoint_confirmation.md) · [Shared graph](../explanations/for_logan/research_update_2026-09-21_0003_shared_midpoint_graph.md) · [Identity limits](../explanations/for_logan/research_update_2026-09-21_0009_midpoint_identity_limits.md) · [Joint products and moments](../explanations/for_logan/research_update_2026-09-21_0018_joint_products_and_moments.md). Earlier “next” entries below are historical.
 
 Primary research focus: **20 September 15:10 UTC to 22 September 15:10 UTC**, per user direction. [Scope and questions](FOCUS_2026-09-20_TO_2026-09-22.md). This replaces the prior head/branch omission agenda for this period.
 
