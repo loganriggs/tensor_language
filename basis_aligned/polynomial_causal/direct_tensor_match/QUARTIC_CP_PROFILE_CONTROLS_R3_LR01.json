@@ -1,0 +1,286 @@
+{
+  "controls": [
+    {
+      "family": "independent",
+      "gram_error": 9.099712519204022e-16,
+      "loss_error": 2.8499682991743927e-16,
+      "dense_gradient_error": 1.0013706194995544e-15,
+      "full_solve_gradient_error": 2.002724495032336e-16,
+      "planted_error": 9.209005545382307e-08
+    },
+    {
+      "family": "shared_inputs",
+      "gram_error": 5.121926120405288e-16,
+      "loss_error": 7.904810586953858e-17,
+      "dense_gradient_error": 1.0457968614155992e-15,
+      "full_solve_gradient_error": 1.1046596623450247e-17,
+      "planted_error": 4.1148826872870626e-08
+    },
+    {
+      "family": "shared_outputs",
+      "gram_error": 4.612362675378486e-16,
+      "loss_error": 1.122692926369465e-17,
+      "dense_gradient_error": 7.924654147468082e-16,
+      "full_solve_gradient_error": 4.2085893541320647e-16,
+      "planted_error": 9.644029356236706e-08
+    },
+    {
+      "family": "squares",
+      "gram_error": 1.2168101624786387e-15,
+      "loss_error": 6.277520464126514e-17,
+      "dense_gradient_error": 1.1144960436037444e-15,
+      "full_solve_gradient_error": 3.921002242276334e-16,
+      "planted_error": 8.584642734833872e-09
+    },
+    {
+      "family": "cancellation",
+      "gram_error": 1.1983989717669744e-15,
+      "loss_error": 1.2135649132718812e-16,
+      "dense_gradient_error": 9.429925328105914e-16,
+      "full_solve_gradient_error": 3.170987782700995e-16,
+      "planted_error": 3.9031879791547795e-08
+    }
+  ],
+  "rows": [
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "independent",
+      "optimizer": "adam",
+      "restart": 0,
+      "initial_error": 0.986028631035156,
+      "error": 0.0063827949666192246,
+      "selected_step": 400,
+      "seconds": 0.7497352887876332
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "independent",
+      "optimizer": "adam",
+      "restart": 1,
+      "initial_error": 0.8981505387542859,
+      "error": 0.10832730870194857,
+      "selected_step": 400,
+      "seconds": 0.7418178077787161
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "independent",
+      "optimizer": "muon",
+      "restart": 0,
+      "initial_error": 0.986028631035156,
+      "error": 0.056657567977693654,
+      "selected_step": 400,
+      "seconds": 0.7655776781029999
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "independent",
+      "optimizer": "muon",
+      "restart": 1,
+      "initial_error": 0.8981505387542859,
+      "error": 0.0001896493175280942,
+      "selected_step": 398,
+      "seconds": 0.7328753569163382
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "shared_inputs",
+      "optimizer": "adam",
+      "restart": 0,
+      "initial_error": 0.9926272620347133,
+      "error": 0.03510732267946644,
+      "selected_step": 400,
+      "seconds": 0.738874729257077
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "shared_inputs",
+      "optimizer": "adam",
+      "restart": 1,
+      "initial_error": 0.9936126311947194,
+      "error": 0.020113958671641743,
+      "selected_step": 400,
+      "seconds": 0.7383663980290294
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "shared_inputs",
+      "optimizer": "muon",
+      "restart": 0,
+      "initial_error": 0.9926272620347133,
+      "error": 0.04161113575531673,
+      "selected_step": 400,
+      "seconds": 0.7728438870981336
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "shared_inputs",
+      "optimizer": "muon",
+      "restart": 1,
+      "initial_error": 0.9936126311947194,
+      "error": 0.0018897926389731942,
+      "selected_step": 400,
+      "seconds": 0.7428688672371209
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "shared_outputs",
+      "optimizer": "adam",
+      "restart": 0,
+      "initial_error": 0.842981994063442,
+      "error": 0.02193113759256714,
+      "selected_step": 400,
+      "seconds": 0.7360976450145245
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "shared_outputs",
+      "optimizer": "adam",
+      "restart": 1,
+      "initial_error": 0.9899329259937205,
+      "error": 0.014064455585507996,
+      "selected_step": 400,
+      "seconds": 0.7413808410055935
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "shared_outputs",
+      "optimizer": "muon",
+      "restart": 0,
+      "initial_error": 0.842981994063442,
+      "error": 0.04008666440290556,
+      "selected_step": 400,
+      "seconds": 0.7217543642036617
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "shared_outputs",
+      "optimizer": "muon",
+      "restart": 1,
+      "initial_error": 0.9899329259937205,
+      "error": 0.0075705107850775975,
+      "selected_step": 399,
+      "seconds": 0.7303858157247305
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "squares",
+      "optimizer": "adam",
+      "restart": 0,
+      "initial_error": 0.995209508253982,
+      "error": 0.005237016013215442,
+      "selected_step": 400,
+      "seconds": 0.7508654789999127
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "squares",
+      "optimizer": "adam",
+      "restart": 1,
+      "initial_error": 0.9911027859761765,
+      "error": 0.011027241723173696,
+      "selected_step": 400,
+      "seconds": 0.7428291621617973
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "squares",
+      "optimizer": "muon",
+      "restart": 0,
+      "initial_error": 0.995209508253982,
+      "error": 0.002782536353735448,
+      "selected_step": 400,
+      "seconds": 0.724768646992743
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "squares",
+      "optimizer": "muon",
+      "restart": 1,
+      "initial_error": 0.9911027859761765,
+      "error": 0.0017583344206701622,
+      "selected_step": 400,
+      "seconds": 0.7279896019026637
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "cancellation",
+      "optimizer": "adam",
+      "restart": 0,
+      "initial_error": 0.9983313521980148,
+      "error": 0.004414649307704842,
+      "selected_step": 400,
+      "seconds": 0.7394904247485101
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "cancellation",
+      "optimizer": "adam",
+      "restart": 1,
+      "initial_error": 0.9791951910983224,
+      "error": 0.002600218479037614,
+      "selected_step": 400,
+      "seconds": 0.7459847740828991
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "cancellation",
+      "optimizer": "muon",
+      "restart": 0,
+      "initial_error": 0.9983313521980148,
+      "error": 0.0013960926139004225,
+      "selected_step": 400,
+      "seconds": 0.7088370313867927
+    },
+    {
+      "rank": 3,
+      "rate": 0.1,
+      "family": "cancellation",
+      "optimizer": "muon",
+      "restart": 1,
+      "initial_error": 0.9791951910983224,
+      "error": 0.000124461572475514,
+      "selected_step": 398,
+      "seconds": 0.7034820788539946
+    }
+  ],
+  "summary": {
+    "adam": {
+      "below1percent": 4,
+      "median_error": 0.011027242057025433,
+      "median_initial": 0.9899329543113708,
+      "seconds": 7.425442549865693
+    },
+    "muon": {
+      "below1percent": 7,
+      "median_error": 0.001889792620204389,
+      "median_initial": 0.9899329543113708,
+      "seconds": 7.331383328419179
+    }
+  },
+  "predictions": {
+    "a": true,
+    "b": false,
+    "c": true
+  },
+  "scope": "CPU five-family CP rank3 exact coefficient recovery; 400 scheduled steps, two starts, one rate; no native fit or general optimizer superiority."
+}

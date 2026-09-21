@@ -1,0 +1,11 @@
+Native exact quartic CP512 pilot — 2026-09-21
+
+Target: same pure MLP16→17 quartic, 16 frozen vocabulary-metric readers used by EXACT_ROOT_FEATURE_NATIVE_V1. Teacher scaled by19054614563.464127. No sampled inputs in fitting; exact fully symmetric coefficient self/cross contractions. Fixed writers are data-informed; four factor matrices start randomly from seeds1001/1002. This is not all-vocabulary or full-model equality.
+
+Structure: 512 products of four learned linear forms, 1536 scalar variable multiplications,2385920 float coefficients including fixed1152x16 writer. This avoids the old256-input-span bound; CP structure can still be limiting. Original projected two-bilinear direct computation:9216 products26634240 coefficients. No equal-budget superiority claim.
+
+Optimizer selected from completed five-family CPU sweep: rank6/rate.1 Muon10/10below1%, Adam8/10; rank3/rate.03 Muon4/10 Adam0/10. Nativepilot uses Muon(match_rms_adamw),25steps, two starts, rate .1*sqrt(4/1152), cosinefloor1%, unit row factors, exact profiled readout ridge1e-6. Normalize objective by initial absolute explained score because teacher total norm unavailable. This differs from toy teacher-energy scaling, and toy reliability does not imply native convergence. Native rate is a dimensional heuristic, not a tuned optimum.
+
+Predictions: a) all gradients/objectives finite, max readout normal residual<1e-8 and FP32/64 exported functional discrepancy<1e-4; b) both starts increase explained regularized score by at least2x and reduce independent sampled coefficient error from initial; c) at least one start beats earlier exact shared-root pilot on BOTH same Gaussian1024seed939 error(.96355) and sampled coefficient4096seed951 error(.98475). Also report openedtext2048 error; no preservation or adoption assumed. Zero predictor100% and old data-fit text8.13% remain context, not an adequate sole baseline. Frozen saved artifacts per start. No exact globalrelativeFrobenius certificate.
+
+Native cross and gradients checked against independent dense two-layer expansion on five small teachers (<5e-15). CPU dryrun exercises rank512 readout solve, factor gradients, export and all metric labels on small native teacher. Full target memory/runtime measured; no retry on observation timeout. Future native manipulation tests only if fidelity warrants, with all failures retained.
