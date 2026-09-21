@@ -1,0 +1,104 @@
+{
+  "records": [
+    {
+      "family": "polarization",
+      "before": {
+        "products": 6,
+        "additions": 3,
+        "stored_coefficients": 1,
+        "edges": 18,
+        "nodes": 13
+      },
+      "after": {
+        "products": 3,
+        "additions": 0,
+        "stored_coefficients": 1,
+        "edges": 7,
+        "nodes": 8
+      },
+      "edits": 1,
+      "exact_identity": true
+    },
+    {
+      "family": "quartic_cancellation",
+      "before": {
+        "products": 7,
+        "additions": 3,
+        "stored_coefficients": 1,
+        "edges": 21,
+        "nodes": 15
+      },
+      "after": {
+        "products": 5,
+        "additions": 0,
+        "stored_coefficients": 1,
+        "edges": 11,
+        "nodes": 10
+      },
+      "edits": 1,
+      "exact_identity": true
+    },
+    {
+      "family": "regrouped_quartic",
+      "before": {
+        "products": 8,
+        "additions": 0,
+        "stored_coefficients": 0,
+        "edges": 16,
+        "nodes": 12
+      },
+      "after": {
+        "products": 5,
+        "additions": 0,
+        "stored_coefficients": 0,
+        "edges": 10,
+        "nodes": 9
+      },
+      "edits": 1,
+      "exact_identity": true
+    },
+    {
+      "family": "affine_square",
+      "before": {
+        "products": 4,
+        "additions": 3,
+        "stored_coefficients": 1,
+        "edges": 14,
+        "nodes": 11
+      },
+      "after": {
+        "products": 2,
+        "additions": 0,
+        "stored_coefficients": 1,
+        "edges": 5,
+        "nodes": 6
+      },
+      "edits": 1,
+      "exact_identity": true
+    },
+    {
+      "family": "signed_quadratic",
+      "before": {
+        "products": 5,
+        "additions": 3,
+        "stored_coefficients": 0,
+        "edges": 16,
+        "nodes": 12
+      },
+      "after": {
+        "products": 3,
+        "additions": 2,
+        "stored_coefficients": 0,
+        "edges": 10,
+        "nodes": 9
+      },
+      "edits": 1,
+      "exact_identity": true
+    }
+  ],
+  "near_equality_rejected": true,
+  "opaque_boundary_identity": true,
+  "acyclic_and_degree_controls": true,
+  "seconds": 0.004147447180002928,
+  "scope": "Exact rational frozen-function rewrites with global reachable cost. Five planted structures, including quartic regrouping and cancellation. Not globally optimal arithmetic synthesis; parameter tying after a rewrite changes subsequent fitting freedom."
+}
