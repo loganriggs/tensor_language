@@ -1,0 +1,169 @@
+{
+  "rows": [
+    {
+      "case": "radial_square",
+      "planted_rank": 1,
+      "canonical_rank": 15,
+      "canonical_replay": 4.1594539578833255e-17,
+      "fits": [
+        {
+          "seed": 0,
+          "coefficient_error": 7.924166535484735e-11,
+          "steps": 37,
+          "function_error": 7.924165288157986e-11
+        },
+        {
+          "seed": 1,
+          "coefficient_error": 8.338081589412778e-11,
+          "steps": 37,
+          "function_error": 8.33807059946903e-11
+        },
+        {
+          "seed": 2,
+          "coefficient_error": 8.245150729591451e-11,
+          "steps": 37,
+          "function_error": 8.245166998388057e-11
+        },
+        {
+          "seed": 3,
+          "coefficient_error": 8.418745487331445e-11,
+          "steps": 37,
+          "function_error": 8.418746362568516e-11
+        }
+      ]
+    },
+    {
+      "case": "rotated_dense_square",
+      "planted_rank": 1,
+      "canonical_rank": 15,
+      "canonical_replay": 9.844554337612114e-17,
+      "fits": [
+        {
+          "seed": 0,
+          "coefficient_error": 6.962889744744289e-11,
+          "steps": 50,
+          "function_error": 6.929050231843886e-11
+        },
+        {
+          "seed": 1,
+          "coefficient_error": 7.414210246493377e-11,
+          "steps": 52,
+          "function_error": 7.319430864935263e-11
+        },
+        {
+          "seed": 2,
+          "coefficient_error": 7.164099297502545e-11,
+          "steps": 52,
+          "function_error": 6.298181834314054e-11
+        },
+        {
+          "seed": 3,
+          "coefficient_error": 7.423149719531125e-11,
+          "steps": 52,
+          "function_error": 7.03618394895281e-11
+        }
+      ]
+    },
+    {
+      "case": "signed_two_squares",
+      "planted_rank": 2,
+      "canonical_rank": 15,
+      "canonical_replay": 1.4572083528530984e-16,
+      "fits": [
+        {
+          "seed": 0,
+          "coefficient_error": 9.604252656956672e-11,
+          "steps": 250,
+          "function_error": 5.0571383450915296e-11
+        },
+        {
+          "seed": 1,
+          "coefficient_error": 9.742234172136579e-11,
+          "steps": 253,
+          "function_error": 5.128662701463561e-11
+        },
+        {
+          "seed": 2,
+          "coefficient_error": 9.753553464230902e-11,
+          "steps": 251,
+          "function_error": 5.1342405558806916e-11
+        },
+        {
+          "seed": 3,
+          "coefficient_error": 9.957227598897777e-11,
+          "steps": 253,
+          "function_error": 5.2428028183832405e-11
+        }
+      ]
+    },
+    {
+      "case": "quadratic_product",
+      "planted_rank": 2,
+      "canonical_rank": 15,
+      "canonical_replay": 9.616138742397029e-17,
+      "fits": [
+        {
+          "seed": 0,
+          "coefficient_error": 9.469437682652062e-11,
+          "steps": 244,
+          "function_error": 8.25310414077004e-11
+        },
+        {
+          "seed": 1,
+          "coefficient_error": 9.235492574880585e-11,
+          "steps": 225,
+          "function_error": 8.04641862515773e-11
+        },
+        {
+          "seed": 2,
+          "coefficient_error": 9.265032118096411e-11,
+          "steps": 204,
+          "function_error": 8.057891560011193e-11
+        },
+        {
+          "seed": 3,
+          "coefficient_error": 9.669073515736196e-11,
+          "steps": 220,
+          "function_error": 8.417051956707101e-11
+        }
+      ]
+    },
+    {
+      "case": "shared_factor_sum",
+      "planted_rank": 2,
+      "canonical_rank": 15,
+      "canonical_replay": 2.0988945474575653e-16,
+      "fits": [
+        {
+          "seed": 0,
+          "coefficient_error": 9.924390341434434e-11,
+          "steps": 120,
+          "function_error": 9.375532139083466e-11
+        },
+        {
+          "seed": 1,
+          "coefficient_error": 8.674864811534064e-11,
+          "steps": 121,
+          "function_error": 8.147651363326152e-11
+        },
+        {
+          "seed": 2,
+          "coefficient_error": 8.853404062495469e-11,
+          "steps": 124,
+          "function_error": 8.408888057671086e-11
+        },
+        {
+          "seed": 3,
+          "coefficient_error": 8.472222954177058e-11,
+          "steps": 122,
+          "function_error": 8.020342696192332e-11
+        }
+      ]
+    }
+  ],
+  "predictions": {
+    "exact_replay": true,
+    "all_families_recovered": true
+  },
+  "scope": "Five known scalar quartic structures, d5, four starts, at most1000iterations. Planted root ranks supplied. Leaf quadratic forms may be dense; low Gram rank does not establish cheap leaf computation or feature semantics."
+}
