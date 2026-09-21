@@ -1,0 +1,158 @@
+{
+  "checks": {
+    "cross_replay": 3.7742020965065535e-16,
+    "gram_replay": 2.3315883483420573e-16,
+    "native_replay": 3.320787991539456e-08
+  },
+  "records": [
+    {
+      "ridge": null,
+      "paired_error": 0.200049878522416,
+      "swaps": [
+        {
+          "shift": 1,
+          "effect_error": 0.19499733617182097,
+          "interaction_error": 0.34426771486635654
+        },
+        {
+          "shift": 7,
+          "effect_error": 0.19771269692770035,
+          "interaction_error": 0.353239454139791
+        },
+        {
+          "shift": 16,
+          "effect_error": 0.20010487747541392,
+          "interaction_error": 0.3576811441794527
+        }
+      ]
+    },
+    {
+      "ridge": 0.0,
+      "paired_error": 0.2036050546435696,
+      "swaps": [
+        {
+          "shift": 1,
+          "effect_error": 0.1804717523982285,
+          "interaction_error": 0.30861054883508315
+        },
+        {
+          "shift": 7,
+          "effect_error": 0.18243724385128784,
+          "interaction_error": 0.3157815612238232
+        },
+        {
+          "shift": 16,
+          "effect_error": 0.184982658677953,
+          "interaction_error": 0.32033872966267235
+        }
+      ]
+    },
+    {
+      "ridge": 0.001,
+      "paired_error": 0.20358696644223018,
+      "swaps": [
+        {
+          "shift": 1,
+          "effect_error": 0.18048745260557814,
+          "interaction_error": 0.308673803373362
+        },
+        {
+          "shift": 7,
+          "effect_error": 0.18245910007896868,
+          "interaction_error": 0.3158540742663855
+        },
+        {
+          "shift": 16,
+          "effect_error": 0.1850038906663422,
+          "interaction_error": 0.3204110556513469
+        }
+      ]
+    },
+    {
+      "ridge": 0.01,
+      "paired_error": 0.20357491264080868,
+      "swaps": [
+        {
+          "shift": 1,
+          "effect_error": 0.1807040808326555,
+          "interaction_error": 0.30925391833433474
+        },
+        {
+          "shift": 7,
+          "effect_error": 0.18270886560430963,
+          "interaction_error": 0.31649243233491586
+        },
+        {
+          "shift": 16,
+          "effect_error": 0.1852445588249201,
+          "interaction_error": 0.3210366570882367
+        }
+      ]
+    },
+    {
+      "ridge": 0.1,
+      "paired_error": 0.2036853422385415,
+      "swaps": [
+        {
+          "shift": 1,
+          "effect_error": 0.18197753263078406,
+          "interaction_error": 0.31228719255200643
+        },
+        {
+          "shift": 7,
+          "effect_error": 0.18412726594218504,
+          "interaction_error": 0.31984843603657137
+        },
+        {
+          "shift": 16,
+          "effect_error": 0.18660677268705778,
+          "interaction_error": 0.32428786435108825
+        }
+      ]
+    },
+    {
+      "ridge": 1.0,
+      "paired_error": 0.2041772670300776,
+      "swaps": [
+        {
+          "shift": 1,
+          "effect_error": 0.18590136331702198,
+          "interaction_error": 0.3213359022486461
+        },
+        {
+          "shift": 7,
+          "effect_error": 0.1883458368745803,
+          "interaction_error": 0.3296022013155445
+        },
+        {
+          "shift": 16,
+          "effect_error": 0.19079394973340902,
+          "interaction_error": 0.33403392336766974
+        }
+      ]
+    },
+    {
+      "ridge": 10.0,
+      "paired_error": 0.2031150028678206,
+      "swaps": [
+        {
+          "shift": 1,
+          "effect_error": 0.19099606820827902,
+          "interaction_error": 0.33323536009148685
+        },
+        {
+          "shift": 7,
+          "effect_error": 0.19370081842718126,
+          "interaction_error": 0.34209295434938275
+        },
+        {
+          "shift": 16,
+          "effect_error": 0.19621991000321096,
+          "interaction_error": 0.3468049284849661
+        }
+      ]
+    }
+  ],
+  "seconds": 20.38225207105279,
+  "scope": "Original-weight teacher; exact independent centered calibration-marginal metric, no approximate teacher. Fixed512 dictionary; update centered interaction only, preserve old mean/single-input terms. Recombination diagnostics reuse prior screened shifts; no independent heldout claim. Ridge acts on column-normalized coefficients. No exported native candidate or simplicity claim: centered correction implementation costs require accounting."
+}
