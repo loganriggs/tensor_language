@@ -1,0 +1,464 @@
+{
+  "rows": [
+    {
+      "family": "natural",
+      "cohort": "all",
+      "total_excess_energy": -2216431.0451615583,
+      "diagonal_excess": [
+        607733.3636503704,
+        -580339.9227292221,
+        317.0128762083891
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": -2238226.1632582974
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": 24945.42403396954
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": -30860.759734607924
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 0.9706223286495916,
+          "exact_second_read_error_ratio": 0.44088738043719067,
+          "product_error_norm_ratio": 0.01039748287878701,
+          "signed_cross_energy_fraction": -0.1365974947521392,
+          "squared_mean_error_fraction": 0.3650365294631663,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 0.9278806268518985,
+          "exact_second_read_error_ratio": 0.372140139285982,
+          "product_error_norm_ratio": 0.00884031993417478,
+          "signed_cross_energy_fraction": 0.0004711077885995789,
+          "squared_mean_error_fraction": 0.33366466366363723,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    },
+    {
+      "family": "natural",
+      "cohort": "continuation",
+      "total_excess_energy": -59775.2850894563,
+      "diagonal_excess": [
+        17806.230505290587,
+        -48731.817889974045,
+        105.976518063034
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": -30403.04424938849
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": -281.1184452223483
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": 1728.4884717723428
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 1.0063178975897449,
+          "exact_second_read_error_ratio": 0.6048077801051545,
+          "product_error_norm_ratio": 0.03209306301650995,
+          "signed_cross_energy_fraction": -0.3794981265789555,
+          "squared_mean_error_fraction": 0.000802242096373843,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 0.9926141553415591,
+          "exact_second_read_error_ratio": 0.523169957059643,
+          "product_error_norm_ratio": 0.025319243370219676,
+          "signed_cross_energy_fraction": -0.25963072943906346,
+          "squared_mean_error_fraction": 0.007848167776453923,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    },
+    {
+      "family": "natural",
+      "cohort": "spaced_word",
+      "total_excess_energy": 153530.1527342411,
+      "diagonal_excess": [
+        8844.920604881161,
+        67548.74686784518,
+        43.36878655363451
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": 74397.8937930644
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": 1767.7569240891726
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": 927.4657578084941
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 0.8364011356021436,
+          "exact_second_read_error_ratio": 0.42087120805877837,
+          "product_error_norm_ratio": 0.013028357264349949,
+          "signed_cross_energy_fraction": 0.12313082849758453,
+          "squared_mean_error_fraction": 0.33488951986660415,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 0.8820851112631117,
+          "exact_second_read_error_ratio": 0.4618209320951061,
+          "product_error_norm_ratio": 0.011646605564130405,
+          "signed_cross_energy_fraction": 0.008511639745586719,
+          "squared_mean_error_fraction": 0.14211232542172725,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    },
+    {
+      "family": "hybrid",
+      "cohort": "all",
+      "total_excess_energy": -2349653.5024633147,
+      "diagonal_excess": [
+        789988.5179231265,
+        -816195.8319239337,
+        346.27014253358607
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": -2324170.188935496
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": 36250.82730056024
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": -35873.09697008463
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 0.9623144517396315,
+          "exact_second_read_error_ratio": 0.47460976741795885,
+          "product_error_norm_ratio": 0.01031229668443532,
+          "signed_cross_energy_fraction": -0.15140987881838602,
+          "squared_mean_error_fraction": 0.3589993574349297,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 0.9246352925843142,
+          "exact_second_read_error_ratio": 0.3953104809084283,
+          "product_error_norm_ratio": 0.008670136343264159,
+          "signed_cross_energy_fraction": -0.011295971872746509,
+          "squared_mean_error_fraction": 0.3228652965455816,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    },
+    {
+      "family": "hybrid",
+      "cohort": "continuation",
+      "total_excess_energy": -93983.01134358562,
+      "diagonal_excess": [
+        52121.93883648697,
+        -103717.2059958477,
+        124.86928053014438
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": -45642.16870932192
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": 2595.315163294057
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": 534.2400812663739
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 0.9470717972828739,
+          "exact_second_read_error_ratio": 0.5907043464140127,
+          "product_error_norm_ratio": 0.025521349653130042,
+          "signed_cross_energy_fraction": -0.24652795336913136,
+          "squared_mean_error_fraction": 0.027897107756670928,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 0.9638275138935765,
+          "exact_second_read_error_ratio": 0.4570834925450332,
+          "product_error_norm_ratio": 0.01856150069331855,
+          "signed_cross_energy_fraction": -0.13823332500341098,
+          "squared_mean_error_fraction": 0.004644712268096467,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    },
+    {
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "total_excess_energy": 151612.99260680948,
+      "diagonal_excess": [
+        26434.802460007748,
+        65318.53961900296,
+        35.615753949699894
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": 56824.34111612659
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": 2241.407631618358
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": 758.2860261061296
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 0.8097672920218071,
+          "exact_second_read_error_ratio": 0.4767339907106031,
+          "product_error_norm_ratio": 0.011600518400281125,
+          "signed_cross_energy_fraction": 0.11686706284565902,
+          "squared_mean_error_fraction": 0.314456130784753,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 0.8425670444824631,
+          "exact_second_read_error_ratio": 0.4899260435984745,
+          "product_error_norm_ratio": 0.010506760912054647,
+          "signed_cross_energy_fraction": 0.04994285533116903,
+          "squared_mean_error_fraction": 0.12918599107949919,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    },
+    {
+      "family": "change",
+      "cohort": "all",
+      "total_excess_energy": -2048840.6484248359,
+      "diagonal_excess": [
+        232362.68646376813,
+        -2555237.344392158,
+        267.6117935520442
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": 263994.92930394434
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": 21177.01185252433
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": -11405.54344645697
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 0.9111336939541816,
+          "exact_second_read_error_ratio": 0.5288937291013839,
+          "product_error_norm_ratio": 0.014333013184374506,
+          "signed_cross_energy_fraction": -0.11009862020830502,
+          "squared_mean_error_fraction": 6.797459198477403e-06,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 0.9393894208529767,
+          "exact_second_read_error_ratio": 0.48003357381847306,
+          "product_error_norm_ratio": 0.012778785836733798,
+          "signed_cross_energy_fraction": -0.1130480133708891,
+          "squared_mean_error_fraction": 1.5932603962788877e-06,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    },
+    {
+      "family": "change",
+      "cohort": "continuation",
+      "total_excess_energy": -111895.10358602926,
+      "diagonal_excess": [
+        55299.07235030754,
+        -168210.12324486708,
+        130.24726909044864
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": -3045.557716513955
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": 2435.2445440557963
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": 1496.013211886743
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 0.9690721822441943,
+          "exact_second_read_error_ratio": 0.6352604398694185,
+          "product_error_norm_ratio": 0.03283355778076064,
+          "signed_cross_energy_fraction": -0.3437347633791574,
+          "squared_mean_error_fraction": 0.017745691165989005,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 1.0144179073032733,
+          "exact_second_read_error_ratio": 0.5103270698456632,
+          "product_error_norm_ratio": 0.026844204030307413,
+          "signed_cross_energy_fraction": -0.29019802016481955,
+          "squared_mean_error_fraction": 3.663637950645463e-05,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    },
+    {
+      "family": "change",
+      "cohort": "spaced_word",
+      "total_excess_energy": -101787.76913304033,
+      "diagonal_excess": [
+        -10363.86022004683,
+        -140284.3401172246,
+        35.21155683831037
+      ],
+      "cross_excess": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "excess": 43803.27614574794
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "excess": 2160.6746503244385
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "excess": 2861.2688513231546
+        }
+      ],
+      "candidates": {
+        "graph": {
+          "exact_first_read_error_ratio": 0.8316374969250669,
+          "exact_second_read_error_ratio": 0.5327851996450658,
+          "product_error_norm_ratio": 0.014800898305101711,
+          "signed_cross_energy_fraction": 0.024299938156744395,
+          "squared_mean_error_fraction": 0.0007656812196993584,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        },
+        "separate": {
+          "exact_first_read_error_ratio": 0.8764175875088326,
+          "exact_second_read_error_ratio": 0.5134006503294243,
+          "product_error_norm_ratio": 0.012494984286314166,
+          "signed_cross_energy_fraction": -0.03184414008579094,
+          "squared_mean_error_fraction": 0.0002976622222699421,
+          "note": "Ratios compare with this same candidate total error; exact read replacements are diagnostic oracles, not executable compression gains."
+        }
+      }
+    }
+  ],
+  "scope": "Opened-data exact signed energy accounting; terms and cross terms may exceed total or be negative. No independent validation, refitting, or additive causal attribution."
+}
