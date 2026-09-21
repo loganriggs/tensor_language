@@ -1,0 +1,272 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:41:33.591549+00:00",
+    "source": "TOY_OVERLAP_OPTIMIZER_STATES_CROSS_V2.pt",
+    "cases": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "optimizer": "LBFGS after3600stepMuon.03",
+    "lr": 1.0,
+    "max_iter": 200,
+    "max_eval": 300,
+    "history_size": 30,
+    "line_search": "strong_wolfe",
+    "prediction": "At least4of5known targets reach<=1%rootregularizedcoefficienterror in one of two existing starts. All saved candidates checked with explicitdense loss. Otherwise the native mixed-wiring comparison stays unlaunched.",
+    "rationale": "BothAdam andMuon long-budget mixed-wiring recovery fail3of5 despite correctloss/gradients/exactplantedcapacity. Test curvature-aware refinement before attributing misses to structure or spending native GPU compute. No new randomstarts or toy targetchanges."
+  },
+  "records": [
+    {
+      "case": 0,
+      "seed": 0,
+      "initial_error": 0.03652859105559482,
+      "polished_error": 0.0364733961575438,
+      "evaluations": 213,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 0.001334337964506882
+        },
+        {
+          "evaluation": 50,
+          "objective": 0.0013317440943945158
+        },
+        {
+          "evaluation": 100,
+          "objective": 0.0013311252821700537
+        },
+        {
+          "evaluation": 150,
+          "objective": 0.001330657008881279
+        },
+        {
+          "evaluation": 200,
+          "objective": 0.0013303549174608076
+        }
+      ]
+    },
+    {
+      "case": 0,
+      "seed": 1,
+      "initial_error": 3.378386608157641e-05,
+      "polished_error": 3.378386608157641e-05,
+      "evaluations": 1,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 1.141349607417889e-09
+        }
+      ]
+    },
+    {
+      "case": 1,
+      "seed": 0,
+      "initial_error": 0.0255522143839712,
+      "polished_error": 0.025026134254872698,
+      "evaluations": 217,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 0.0006529156599244246
+        },
+        {
+          "evaluation": 50,
+          "objective": 0.0006404750248137174
+        },
+        {
+          "evaluation": 100,
+          "objective": 0.0006309841342169534
+        },
+        {
+          "evaluation": 150,
+          "objective": 0.0006280279281853929
+        },
+        {
+          "evaluation": 200,
+          "objective": 0.0006267058020936375
+        }
+      ]
+    },
+    {
+      "case": 1,
+      "seed": 1,
+      "initial_error": 0.02846631913253842,
+      "polished_error": 0.02842165804682092,
+      "evaluations": 253,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 0.000810331324955523
+        },
+        {
+          "evaluation": 50,
+          "objective": 0.0008082327904686732
+        },
+        {
+          "evaluation": 100,
+          "objective": 0.0008078806705020813
+        },
+        {
+          "evaluation": 150,
+          "objective": 0.0008078310058476923
+        },
+        {
+          "evaluation": 200,
+          "objective": 0.0008077914389527837
+        },
+        {
+          "evaluation": 250,
+          "objective": 0.0008077912665141648
+        }
+      ]
+    },
+    {
+      "case": 2,
+      "seed": 0,
+      "initial_error": 0.026579866304912995,
+      "polished_error": 0.02646599397459694,
+      "evaluations": 218,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 0.0007064892927870492
+        },
+        {
+          "evaluation": 50,
+          "objective": 0.0007037490515779583
+        },
+        {
+          "evaluation": 100,
+          "objective": 0.0007018138156632177
+        },
+        {
+          "evaluation": 150,
+          "objective": 0.0007009022051877034
+        },
+        {
+          "evaluation": 200,
+          "objective": 0.0007005421583441418
+        }
+      ]
+    },
+    {
+      "case": 2,
+      "seed": 1,
+      "initial_error": 0.018095074669225632,
+      "polished_error": 0.017767948318796734,
+      "evaluations": 232,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 0.00032743172728485115
+        },
+        {
+          "evaluation": 50,
+          "objective": 0.00032190204174105863
+        },
+        {
+          "evaluation": 100,
+          "objective": 0.0003198688809900041
+        },
+        {
+          "evaluation": 150,
+          "objective": 0.0003186091503954991
+        },
+        {
+          "evaluation": 200,
+          "objective": 0.00031711123049726897
+        }
+      ]
+    },
+    {
+      "case": 3,
+      "seed": 0,
+      "initial_error": 1.2737237677588557e-05,
+      "polished_error": 1.2737237677588557e-05,
+      "evaluations": 1,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 1.622372236553815e-10
+        }
+      ]
+    },
+    {
+      "case": 3,
+      "seed": 1,
+      "initial_error": 1.5276859117538145e-05,
+      "polished_error": 1.5276859117538145e-05,
+      "evaluations": 1,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 2.3338242449710833e-10
+        }
+      ]
+    },
+    {
+      "case": 4,
+      "seed": 0,
+      "initial_error": 0.00026992936878880903,
+      "polished_error": 7.281207732627819e-05,
+      "evaluations": 256,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 7.286186413472488e-08
+        },
+        {
+          "evaluation": 50,
+          "objective": 5.960277752829294e-09
+        },
+        {
+          "evaluation": 100,
+          "objective": 5.687830132809306e-09
+        },
+        {
+          "evaluation": 150,
+          "objective": 5.551437013788055e-09
+        },
+        {
+          "evaluation": 200,
+          "objective": 5.421792570459161e-09
+        },
+        {
+          "evaluation": 250,
+          "objective": 5.316391734252098e-09
+        }
+      ]
+    },
+    {
+      "case": 4,
+      "seed": 1,
+      "initial_error": 1.3600680644281194e-05,
+      "polished_error": 1.3600680644281194e-05,
+      "evaluations": 1,
+      "history": [
+        {
+          "evaluation": 1,
+          "objective": 1.8497851398772508e-10
+        }
+      ]
+    }
+  ],
+  "best_restart_errors": [
+    3.378386608157641e-05,
+    0.025026134254872698,
+    0.017767948318796734,
+    1.2737237677588557e-05,
+    1.3600680644281194e-05
+  ],
+  "recovered_cases": 3,
+  "recovery_pass": false,
+  "seconds": 2.883438589051366,
+  "scope": "All five fixtures and both fixed Muon starts, same L-BFGS budget. This tests whether curvature-aware refinement repairs the mixed-wiring recovery failure. Does not retroactively pass the pure-Muon experiment."
+}
