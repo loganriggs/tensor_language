@@ -1,0 +1,66 @@
+{
+  "records": [
+    {
+      "policy": "correlation",
+      "channels": 128,
+      "products": 256,
+      "stored_weight_coefficients": 442368,
+      "linear_coefficient_multiplications": 737280,
+      "calibration_full_variation_error": 0.2965893693798729,
+      "normal_equation_error": 1.8238884587300085e-15,
+      "retained_rank": 128
+    },
+    {
+      "policy": "correlation",
+      "channels": 512,
+      "products": 1024,
+      "stored_weight_coefficients": 1769472,
+      "linear_coefficient_multiplications": 2949120,
+      "calibration_full_variation_error": 0.1832658895269953,
+      "normal_equation_error": 3.455669732528069e-15,
+      "retained_rank": 512
+    },
+    {
+      "policy": "correlation",
+      "channels": 1024,
+      "products": 2048,
+      "stored_weight_coefficients": 3538944,
+      "linear_coefficient_multiplications": 5898240,
+      "calibration_full_variation_error": 0.10586929242453079,
+      "normal_equation_error": 3.5681262406859285e-15,
+      "retained_rank": 1024
+    },
+    {
+      "policy": "random0",
+      "channels": 128,
+      "products": 256,
+      "stored_weight_coefficients": 442368,
+      "linear_coefficient_multiplications": 737280,
+      "calibration_full_variation_error": 0.6237254896633223,
+      "normal_equation_error": 1.7260630463961301e-15,
+      "retained_rank": 128
+    },
+    {
+      "policy": "random0",
+      "channels": 512,
+      "products": 1024,
+      "stored_weight_coefficients": 1769472,
+      "linear_coefficient_multiplications": 2949120,
+      "calibration_full_variation_error": 0.24465853822068945,
+      "normal_equation_error": 3.649892205738514e-15,
+      "retained_rank": 512
+    },
+    {
+      "policy": "random0",
+      "channels": 1024,
+      "products": 2048,
+      "stored_weight_coefficients": 3538944,
+      "linear_coefficient_multiplications": 5898240,
+      "calibration_full_variation_error": 0.13201380256466877,
+      "normal_equation_error": 3.499016003619867e-15,
+      "retained_rank": 1024
+    }
+  ],
+  "seconds": 2.2024981109425426,
+  "scope": "Original calibration only, empirical paired-input moment; native reader dictionary with exact convex output refit, no output-subspace truncation. Correlation ignores cancellation; random comparator. Not held evidence or novel feature discovery."
+}

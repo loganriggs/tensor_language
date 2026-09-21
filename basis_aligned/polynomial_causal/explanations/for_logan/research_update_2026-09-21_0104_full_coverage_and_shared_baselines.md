@@ -1,0 +1,125 @@
+# Folding and decomposition update — 2026-09-21 01:04 UTC
+
+We have a validated improvement from jointly fitting output-sharing blocks. The larger finding is that our earlier four-output experiments covered only part of the folded function. The current work expands that coverage and compares against a simpler baseline that reuses the model's existing computations.
+
+**Status:** the 256-output decomposition sweep is running and has completed 192 directions. Its full native replacement test is queued. A new shared-channel baseline has completed calibration fitting. These unfinished evaluations are not reported as successes.
+
+## The function we are simplifying
+
+For the homogeneous bilinear portion of the final MLP,
+
+$$
+B(x)=D[(Lx)\odot(Rx)],
+$$
+
+let $h$ be its input and $m$ the previous MLP's polynomial residual contribution. Define the midpoint $n=h-m/2$. Then
+
+$$
+B(h)-B(h-m)
+=D[(Ln)\odot(Rm)+(Rn)\odot(Lm)].
+$$
+
+This is the complete contribution involving that source within the final bilinear numerator: it includes both its self-interaction and cross-interactions with the remaining residual input. It is bilinear in the intermediate coordinates $n,m$. Substituting the earlier computations would produce a higher-degree expression.
+
+We keep the native normalization denominator explicit; the evaluated $n,m$ coordinates already include that denominator. Final residual context, RMS normalization and logit softcapping remain native operations. Supplying these intermediate states still requires the upstream model. This is not an ablation or replacement of the entire previous MLP.
+
+An **output direction** is a fixed vector describing where a scalar feature writes in residual or reduced-logit space. A **product** multiplies two learned scalar input projections. An **output-sharing block** combines several products that use one output direction. None of these definitions implies a human-interpretable concept.
+
+## Completed: learning output groups helps native interventions
+
+We fitted the original weight-derived four-readout tensor jointly, allowing its output directions to change. Both arms use 16 products. The learned model has the form
+
+$$
+\widehat T_{gij}
+=\sum_{b=1}^{4}W_{gb}\sum_{\ell=1}^{4}A_{ib\ell}B_{jb\ell}.
+$$
+
+The fitted tensor's weighted coefficient error fell from 0.994% to 0.898%; calibration scalar reconstruction error fell from 7.20% to 6.24%. More importantly, the subsequent native-model test improved all four joint comparisons:
+
+| Joint centered-logit intervention error | Fixed output groups | Learned output groups |
+|---|---:|---:|
+| FineWeb removal | 5.65% | 5.23% |
+| FineWeb same-token swap | 6.48% | 6.21% |
+| Code removal | 4.34% | 2.78% |
+| Code same-token swap | 6.24% | 5.13% |
+
+An intervention error compares the predicted logit change with the native computation's logit change. It is not token prediction error. These panels have been reused for diagnostics; fresh confirmation is still required. The joint native reference is invariant under the changed output coordinates, verified to relative energy discrepancy $5.1\times10^{-14}$.
+
+The learned blocks also passed the registered individual swap-fidelity screen. However, random restarts disagreed about block identity, and individual labels change between fits. We have improved a computation, not identified unique semantic units.
+
+## Completed: full-function coverage is the dominant limitation
+
+The selected four output directions omit **46.54% of the calibration variation norm** of the full vocabulary-centered folded contribution. Their retained energy is about 78.3%; norm error and energy fraction are different quantities.
+
+| Full calibration variation error | Fixed output groups | Learned output groups |
+|---|---:|---:|
+| Including omitted output directions | 46.97% | 46.86% |
+| Omitted-direction floor alone | 46.54% | 46.54% |
+
+Thus the improvement inside four features hardly changes full-function error. We must expand output coverage instead of treating excellent selected-feature fidelity as a full replacement.
+
+## Running: broader output coverage and full native replacement
+
+The active sweep fits **4, 16, 64 and 256 output directions**, with **1, 4 or 16 products per direction**, comparing isotropic coefficient error with a separable calibration second-moment metric. The target is the original folded weights; the output basis and moments use calibration data only. Evaluation includes omitted directions and uses reused FineWeb/code panels.
+
+At 256 outputs and four products each, the candidate uses 1,024 products. Counting input projections and residual output writers, its proposed implementation uses 2,654,208 weight coefficients: 6 times fewer than the direct native midpoint representation. Its linear coefficient multiplications are 10 times fewer. These are arithmetic counts for this section, not measured runtime or whole-model speedups.
+
+I implemented an exact grouped evaluator that replaces dense product-to-group bookkeeping with grouped sums and precontracts the residual writer. Its toy replay error is $2.01\times10^{-16}$. Native artifact replay and timing remain to be checked.
+
+The queued native test compares:
+
+- The calibration-mean predictor.
+- Exact projections onto 64 and 256 output directions.
+- The corresponding fitted rank-four programs.
+
+It measures replacement cross-entropy change and full-contribution removal/swap errors. Exact projections isolate the cost of omitted output directions from imperfect product reconstruction.
+
+## New completed calibration baseline: reuse native channels
+
+Independent output fits may duplicate useful computations. As a comparison, retain a subset of native channel computations,
+
+$$
+p_k(n,m)=(L_kn)(R_km)+(R_kn)(L_km),
+$$
+
+and refit their output writers jointly to the entire folded output. Each channel contains two products, with its readers shared across the two inputs. This baseline does not impose a low-dimensional output subspace.
+
+I compared correlation-based channel selection with random selection and solved the output least-squares problem using the empirical joint moment of the original calibration features. This is a data-informed baseline with fixed native readers, not random-initialized feature discovery.
+
+| Retained channels | Products | Correlation selection: calibration full-variation error | Random selection |
+|---|---:|---:|---:|
+| 128 | 256 | 29.66% | 62.37% |
+| 512 | 1,024 | 18.33% | 24.47% |
+| 1,024 | 2,048 | 10.59% | 13.20% |
+
+At 512 channels it uses the same 1,024-product budget as the 256-output/rank-four candidate, with 1,769,472 weight coefficients. **These numbers are training/calibration results only.** The higher-width fits can overfit; held-out and native intervention performance are untested. The comparison motivates evaluating retained native sharing before claiming that a newly learned decomposition is economical.
+
+## What this changes about the research direction
+
+```mermaid
+flowchart TD
+ A[Original folded weights] --> B[Learn output-sharing blocks]
+ B --> C[Selected-feature native fidelity improved]
+ C --> D[Audit full output coverage]
+ D --> E[Expand output directions and product budgets]
+ A --> F[Retain native shared channels and refit writers]
+ E --> G[Compare full-function fidelity and literal costs]
+ F --> G
+ G --> H[Native replacement and interventions]
+ H --> I[Fresh OOD checks, shared DAG search, stable feature identity]
+```
+
+The evidence supports direct optimization and covariance-aware metrics as useful tools. It does not establish that unrestricted Tucker or HT failed, that the fitted blocks are monosemantic, or that low reconstruction error identifies a unique circuit. Previous signed-block tests explicitly demonstrated that a good sum can conceal unreliable individual components.
+
+The next decision depends on the running coverage and native replacement results, followed by a held-out test of the shared-channel baseline. General DAG editing, cross-branch reuse, circuit composition and stable semantic identity remain unfinished. The broader goal remains active.
+
+## Evidence files
+
+- `direct_tensor_match/MIDPOINT_BTD_NATIVE_V1.json`: completed native comparison.
+- `direct_tensor_match/MIDPOINT_BTD_COVERAGE_V1.json`: four-output coverage audit.
+- `direct_tensor_match/MIDPOINT_CHANNEL_REFIT_V1.json`: completed calibration baseline.
+- `direct_tensor_match/MIDPOINT_COVERAGE_COSTS_V1.json`: explicit arithmetic accounting.
+- `direct_tensor_match/MIDPOINT_COVERAGE_PLAN_V1.md`: running coverage sweep.
+- `direct_tensor_match/MIDPOINT_FULL_REPLACE_PLAN_V1.md`: queued full native test.
+
+All paths above are relative to `basis_aligned/polynomial_causal/`. Status is as observed at the report timestamp; pending results are not inferred from calibration fits.

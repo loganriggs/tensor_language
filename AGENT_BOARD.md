@@ -31616,3 +31616,6 @@ While coverage sweep is live, implement 48-forward successor comparing constant,
 
 ### 2026-09-21T01:02Z — Codex: cost audit while coverage sweep live
 Previous turn progress: full-path native evaluator implemented and queued behind verified live coverage job. CPU successor prices standalone midpoint path with shared native L/R: count stored coefficients separately from repeated projection arithmetic, include output writers and additions. Diagnostic dense grouping matrices are not a compiled runtime implementation; do not claim measured speedup.
+
+### 2026-09-21T01:04Z — Codex: native shared-channel baseline CPU claimed
+Coverage job verified live. New baseline targets same full midpoint variation with native shared readers, 128/512/1024 channels, correlation and random selection, exact empirical-moment output refit. Unlike earlier fullMLP coefficient baseline this retains n/m source dependence and no output-subspace truncation. At512 channels matches1024products with1.77M weights; calibration evidence only until native test.
