@@ -1,0 +1,71 @@
+{
+  "rows": [
+    {
+      "family": "EMPIRICAL_SOURCE_DIRECTIONS",
+      "key": "0_seed1816",
+      "native_isotropic_pair_errors": [
+        0.4799268432258166,
+        0.5772505074443008,
+        0.6556821525504511
+      ],
+      "native_isotropic_equal_pair_error": 0.5754612666857181,
+      "calibration_shaped_error": 0.07394804182648228
+    },
+    {
+      "family": "EMPIRICAL_SOURCE_DIRECTIONS",
+      "key": "1_seed1816",
+      "native_isotropic_pair_errors": [
+        0.5008297854231297,
+        0.6014274904668955,
+        0.6792578438827573
+      ],
+      "native_isotropic_equal_pair_error": 0.598313384644017,
+      "calibration_shaped_error": 0.07938844959201888
+    },
+    {
+      "family": "EMPIRICAL_SOURCE_DIRECTIONS",
+      "key": "10_seed1816",
+      "native_isotropic_pair_errors": [
+        0.553925709638732,
+        0.6626040339904072,
+        0.740549954134935
+      ],
+      "native_isotropic_equal_pair_error": 0.6568338278510499,
+      "calibration_shaped_error": 0.09308303852423011
+    },
+    {
+      "family": "COMPONENT_PAIR_READOUT",
+      "key": "0_seed0",
+      "native_isotropic_pair_errors": [
+        0.5003205840900724,
+        0.600876925255614,
+        0.67772167899594
+      ],
+      "native_isotropic_equal_pair_error": 0.597405624443434,
+      "calibration_shaped_error": 0.07926666141356892
+    },
+    {
+      "family": "COMPONENT_PAIR_READOUT",
+      "key": "0.1_seed916",
+      "native_isotropic_pair_errors": [
+        0.5003275763898618,
+        0.600887669473342,
+        0.6782340261530315
+      ],
+      "native_isotropic_equal_pair_error": 0.5976049612837923,
+      "calibration_shaped_error": 0.07927602357527039
+    },
+    {
+      "family": "COMPONENT_PAIR_READOUT",
+      "key": "1_seed0",
+      "native_isotropic_pair_errors": [
+        0.5003737101723699,
+        0.6009630911468609,
+        0.6795692526508631
+      ],
+      "native_isotropic_equal_pair_error": 0.598148492126859,
+      "calibration_shaped_error": 0.07935482001490865
+    }
+  ],
+  "scope": "Native means untransformed residual-input coordinates. Calibration-shaped is the historical local coefficient objective; original referred to its unchanged target/output metric, not isotropic native inputs. No retuning or behavioral adoption."
+}

@@ -190,4 +190,6 @@ The next substantive hurdle is to preserve the difficult components while retain
 - [Quartic coefficient versus function error](research_update_2026-09-21_0524_joint_quartic_metric_failure.md) and [restricted rank limits](research_update_2026-09-21_0554_rank_limits_and_input_geometry.md).
 - [Covariance and polynomial metrics](research_update_2026-09-21_0917_covariance_and_lifted_polynomial_metrics.md), [small-pool overfitting](research_update_2026-09-21_0926_empirical_polynomial_metric_readout.md), and [expanded calibration](research_update_2026-09-21_0934_expanded_moment_calibration.md).
 
+**Later metric clarification (10:00):** Recent local “coefficient” errors use calibration-shaped input coordinates, not isotropic native coordinates. The [direct-component and geometry audit](research_update_2026-09-21_1000_component_loss_and_metric_correction.md) measures both and finds a substantial gap. This does not alter the earlier broad-target results or remove any failed behavioral requirement.
+
 All percentages above describe reconstruction error, not language-model accuracy. Coefficient error, component-value error and native logit-effect error measure different objects. Historical cache chunks lack document identities; later fresh panels have stronger independence checks.

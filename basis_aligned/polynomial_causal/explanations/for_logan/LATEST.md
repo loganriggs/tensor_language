@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
+**Latest result and metric clarification — [Direct component fitting and native coefficient geometry](research_update_2026-09-21_1000_component_loss_and_metric_correction.md).** Direct product fitting still fails. Recent 7–9% coefficient errors used calibration-shaped coordinates; native isotropic error is about 60%, and an exact fixed-dictionary readout cannot repair it.
+
 **Latest completed experiment — [Empirical direction result](research_update_2026-09-21_0951_empirical_direction_result.md).** All six fits completed. The primary improves component three to 14.78% but fails the 13.14% relative requirement; execution and coefficient checks pass.
 
 **Latest diagnostic — [Later-input response](research_update_2026-09-21_0946_later_input_response.md).** The compact graph retains a third-component response gap at its supplied later state. The empirical direction fit is running; no final outcome yet.

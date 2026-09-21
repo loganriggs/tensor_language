@@ -1,0 +1,75 @@
+{
+  "input_statistics": {
+    "calibration16384": {
+      "mean_squared_radius": 1152.0000000000005,
+      "radius_quantiles": [
+        650.6265610643327,
+        1076.9378087720634,
+        1746.091161964845,
+        2712.471677850492
+      ]
+    },
+    "opened448": {
+      "mean_squared_radius": 1465.8503062473424,
+      "radius_quantiles": [
+        798.558697010501,
+        1318.2255463914853,
+        2332.542167812926,
+        3660.5201257326216
+      ]
+    }
+  },
+  "whitened_training_second_moment_extrema": [
+    0.9999999999998418,
+    1.0000000000001221
+  ],
+  "raw_training_second_moment_extrema": [
+    0.03637781085453335,
+    16.450087862226457
+  ],
+  "low_energy_axis_comparison": [
+    {
+      "lowest_training_axes": 16,
+      "train_energy": 0.7607602983563091,
+      "opened_energy": 1.735131032376364,
+      "opened_to_train_ratio": 2.2807854670193364,
+      "opened_energy_fraction": 0.004819958767792305
+    },
+    {
+      "lowest_training_axes": 64,
+      "train_energy": 3.3909505873107264,
+      "opened_energy": 7.295425692018903,
+      "opened_to_train_ratio": 2.1514396934355546,
+      "opened_energy_fraction": 0.020265703496101423
+    },
+    {
+      "lowest_training_axes": 128,
+      "train_energy": 7.451361765883872,
+      "opened_energy": 15.189124900173242,
+      "opened_to_train_ratio": 2.038436111063187,
+      "opened_energy_fraction": 0.04219332970917805
+    },
+    {
+      "lowest_training_axes": 256,
+      "train_energy": 17.355970356291365,
+      "opened_energy": 32.379331495688874,
+      "opened_to_train_ratio": 1.8656019128283248,
+      "opened_energy_fraction": 0.08994539307164376
+    },
+    {
+      "lowest_training_axes": 512,
+      "train_energy": 45.57297315144764,
+      "opened_energy": 72.45501627163529,
+      "opened_to_train_ratio": 1.589868100789771,
+      "opened_energy_fraction": 0.20127021212381366
+    },
+    {
+      "lowest_training_axes": 1152,
+      "train_energy": 370.69124314532644,
+      "opened_energy": 359.98877085230953,
+      "opened_to_train_ratio": 0.971128337960708,
+      "opened_energy_fraction": 1.0
+    }
+  ],
+  "scope": "Diagnostic of fixed input coordinates used by coefficient fitting. Opened448 selection has been repeatedly inspected. Not a fresh test or evidence of semantic identity; directions are never refit to opened data."
+}
