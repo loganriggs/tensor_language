@@ -1,0 +1,7 @@
+{
+  "status": "invalid",
+  "error": "IndexError: tensors used as indices must be long, int, byte or bool tensors",
+  "cause": "Legacy native runner move() casts every tensor to double, including explicit shared/private index tensors.",
+  "result_written": false,
+  "repair": "Wrapper supplies dtype-preserving transfer, float64 for floating tensors and original dtype for index tensors. Same graph/data/thresholds; retain native runner unchanged."
+}

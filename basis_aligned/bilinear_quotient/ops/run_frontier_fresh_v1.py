@@ -13,7 +13,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
 def main():
  import run_partial_graph_fresh_v1 as run
- sys.path.insert(0,str(P));from pairwise_component_interface import component_scalars
+ sys.path.insert(0,str(P));from pairwise_component_interface import component_scalars,move_preserving_dtype
+ run.move=lambda value,torch:move_preserving_dtype(value,'cuda')
  run.COMPONENT_EXECUTOR=component_scalars;run.EXTRA_GRAPH_FILE=None
  run.GRAPH_FILE='FRONTIER_FRESH_GRAPH_V1.pt';run.BASELINE_FILE='FRONTIER_FRESH_BASELINE_CALIBRATION_SHAPED_V1.pt'
  run.ADDITIONAL_GRAPH_FILES={}
