@@ -23,7 +23,7 @@ for case in plan['cases']:
     evaluations+=1;scaled=loss/max(level,1e-6)**2;scaled.backward();
     for parameter in params:parameter.grad=parameter.grad.contiguous()
     return scaled
-   if level>0:
+   if level>0 or (plan.get('refit_zero_if_needed') and initial_error>1e-8):
     opt=torch.optim.LBFGS(params,lr=1.,max_iter=200,max_eval=250,history_size=50,line_search_fn='strong_wolfe',tolerance_grad=1e-10,tolerance_change=1e-14);opt.step(closure)
    with torch.no_grad():
     loss,cores=metric.loss(saved,dense=True);errors=[]
