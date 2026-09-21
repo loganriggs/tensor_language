@@ -1,0 +1,44 @@
+{
+  "records": [
+    {
+      "refit_fraction": 0.0,
+      "isotropic_observer_error": 0.27358114507543946,
+      "covariance_observer_error": 0.05125781123779151,
+      "paired_calibration_scalar_error": 0.04010689589411981,
+      "leading_mode_cosine": 0.9987550621399252,
+      "leading_mode_relative_error": 0.054857445514973686,
+      "leading_singular_value_ratio": 0.9759293424677128,
+      "leading_energy_fraction": 0.9012548311580894
+    },
+    {
+      "refit_fraction": 0.5,
+      "isotropic_observer_error": 0.2771995982084184,
+      "covariance_observer_error": 0.03302368502288352,
+      "paired_calibration_scalar_error": 0.023795677482779613,
+      "leading_mode_cosine": 0.9996034861925841,
+      "leading_mode_relative_error": 0.030507480731592578,
+      "leading_singular_value_ratio": 0.9878631289171168,
+      "leading_energy_fraction": 0.9011981846448387
+    },
+    {
+      "refit_fraction": 1.0,
+      "isotropic_observer_error": 0.2951225238895208,
+      "covariance_observer_error": 0.021861737795796126,
+      "paired_calibration_scalar_error": 0.015098283249975432,
+      "leading_mode_cosine": 0.9999456272927,
+      "leading_mode_relative_error": 0.010430375237562926,
+      "leading_singular_value_ratio": 1.000169835650527,
+      "leading_energy_fraction": 0.9012400607090512
+    }
+  ],
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_observer": true,
+    "pred_c_mode": true
+  },
+  "native_matrix_replay": 1.961809118437105e-15,
+  "maximum_factor_replay": 2.7402099468046124e-15,
+  "native_leading_energy_fraction": 0.9010585799325918,
+  "seconds": 4.566637634765357,
+  "scope": "Same fixed original QR-frame scalar observer and centered midpoint coordinates as prior continuation study. Compressed mixed Hessian is formed from its own factors; affine correction has zero mixed Hessian. Covariance product metric and paired historical calibration are not fresh functional or causal validation. Mode cosine is sign-invariant to paired SVD signs, not proof of monosemantic identity."
+}

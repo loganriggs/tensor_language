@@ -1,0 +1,7 @@
+Frozen continuation observer comparison, 21 September 2026, 17:05 UTC.
+
+The full-layer program has good aggregate natural fidelity but poor native-product intervention alignment. The next test targets a previously behaviorally supported computation, rather than treating every native channel as an intended circuit unit. Freeze the original continuation writer-derived scalar observer q, its original QR frame R_U, and centered midpoint inputs n,m. Teacher mixed matrix is L^T diag(q^T R_U D) R plus its transpose. Student matrix is a^T diag(q^T R_U writer) b plus its transpose. Neither the scalar observer nor its input covariance is refit. Affine corrections have zero mixed Hessian and cannot affect this test.
+
+Compare original retained writers, halfway refit, and frozen full refit. Record isotropic and separable covariance errors, paired calibration scalar error, leading weighted mode cosine, amplitude, and energy fraction. Predictions: original matrix and direct-product replay <1e-10; full-refit covariance observer error <10%; full-refit leading outer-product cosine >.99. Failure would localize a circuit-relevant loss within an externally accurate approximation. Success motivates native removal/interchange validation; it does not establish it.
+
+Zero model forwards. GPU work only through managed runner. Existing replacement cost is 3686 products and 14,067,072 stored coefficients with affine correction. No observer sidecar is added to the executable program. This is not a new independent dataset, nor a new learned circuit.
