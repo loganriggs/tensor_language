@@ -1,0 +1,48 @@
+{
+  "predictions": {
+    "pred_a_exact": true,
+    "pred_b_smaller": true
+  },
+  "records": [
+    {
+      "arm": "original_four_feature_boundary",
+      "before": {
+        "products": 24,
+        "additions": 44920,
+        "stored_coefficients": 46096,
+        "edges": 46160,
+        "nodes": 2368
+      },
+      "after": {
+        "products": 26,
+        "additions": 47212,
+        "stored_coefficients": 48384,
+        "edges": 48452,
+        "nodes": 2366
+      },
+      "relative_replay": 1.9868499404651407e-15
+    },
+    {
+      "arm": "selected_three_feature_boundary",
+      "selected_by": "previous calibration error only",
+      "before": {
+        "products": 20,
+        "additions": 35711,
+        "stored_coefficients": 36883,
+        "edges": 36935,
+        "nodes": 2356
+      },
+      "after": {
+        "products": 18,
+        "additions": 33393,
+        "stored_coefficients": 34560,
+        "edges": 34608,
+        "nodes": 2349
+      },
+      "relative_replay": 4.326032394879346e-16,
+      "archived_program_error_unchanged": 0.27134396693948043
+    }
+  ],
+  "seconds": 1.1553595261648297,
+  "scope": "Bounded exact polynomial compilation only above quadratic-feature boundary. Does not expand full native input tensor. Three-feature replacement retains large previous approximation error; cheaper compilation is not adoption. Four-feature compilation also priced, not automatically accepted."
+}

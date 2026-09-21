@@ -1,0 +1,543 @@
+{
+  "predictions": {
+    "pred_a_recovery": true,
+    "pred_b_negative": true,
+    "pred_c_degree": true
+  },
+  "records": [
+    {
+      "family": "cross_sum",
+      "baseline": {
+        "products": 4,
+        "additions": 5,
+        "stored_coefficients": 5,
+        "edges": 21,
+        "nodes": 16
+      },
+      "candidates": [
+        {
+          "target": 4,
+          "peers": [
+            5,
+            12
+          ],
+          "coefficients": [
+            -0.9999999999999992,
+            0.9999999999999996
+          ],
+          "local_error": 5.537723223227396e-16,
+          "cost": {
+            "products": 3,
+            "additions": 6,
+            "stored_coefficients": 7,
+            "edges": 21,
+            "nodes": 16
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 3,
+              "additions": 12,
+              "stored_coefficients": 13,
+              "edges": 27,
+              "nodes": 16
+            }
+          },
+          "fresh_error": 3.016172377472977e-16
+        },
+        {
+          "target": 5,
+          "peers": [
+            4,
+            12
+          ],
+          "coefficients": [
+            -0.9999999999999997,
+            0.9999999999999998
+          ],
+          "local_error": 2.6567977817553473e-16,
+          "cost": {
+            "products": 3,
+            "additions": 6,
+            "stored_coefficients": 7,
+            "edges": 21,
+            "nodes": 16
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 3,
+              "additions": 12,
+              "stored_coefficients": 13,
+              "edges": 27,
+              "nodes": 16
+            }
+          },
+          "fresh_error": 7.560172501473034e-16
+        },
+        {
+          "target": 12,
+          "peers": [
+            4,
+            5
+          ],
+          "coefficients": [
+            0.9999999999999998,
+            1.0
+          ],
+          "local_error": 1.683000581180082e-16,
+          "cost": {
+            "products": 2,
+            "additions": 1,
+            "stored_coefficients": 4,
+            "edges": 9,
+            "nodes": 10
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 2,
+              "additions": 7,
+              "stored_coefficients": 10,
+              "edges": 15,
+              "nodes": 10
+            }
+          },
+          "fresh_error": 8.612503033705748e-16
+        }
+      ],
+      "passed": true
+    },
+    {
+      "family": "squares_sum",
+      "baseline": {
+        "products": 4,
+        "additions": 3,
+        "stored_coefficients": 5,
+        "edges": 17,
+        "nodes": 12
+      },
+      "candidates": [
+        {
+          "target": 4,
+          "peers": [
+            5,
+            10
+          ],
+          "coefficients": [
+            -1.0000000000000016,
+            1.0000000000000002
+          ],
+          "local_error": 1.2442085405345799e-15,
+          "cost": {
+            "products": 3,
+            "additions": 4,
+            "stored_coefficients": 7,
+            "edges": 17,
+            "nodes": 12
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 3,
+              "additions": 10,
+              "stored_coefficients": 13,
+              "edges": 23,
+              "nodes": 12
+            }
+          },
+          "fresh_error": 2.423201192162909e-15
+        },
+        {
+          "target": 5,
+          "peers": [
+            4,
+            10
+          ],
+          "coefficients": [
+            -1.000000000000001,
+            0.9999999999999997
+          ],
+          "local_error": 1.6052223157652383e-15,
+          "cost": {
+            "products": 3,
+            "additions": 4,
+            "stored_coefficients": 7,
+            "edges": 17,
+            "nodes": 12
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 3,
+              "additions": 10,
+              "stored_coefficients": 13,
+              "edges": 23,
+              "nodes": 12
+            }
+          },
+          "fresh_error": 1.4222789887004582e-15
+        },
+        {
+          "target": 10,
+          "peers": [
+            4,
+            5
+          ],
+          "coefficients": [
+            0.9999999999999992,
+            0.9999999999999996
+          ],
+          "local_error": 6.584238158972248e-16,
+          "cost": {
+            "products": 2,
+            "additions": 1,
+            "stored_coefficients": 5,
+            "edges": 9,
+            "nodes": 8
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 2,
+              "additions": 7,
+              "stored_coefficients": 11,
+              "edges": 15,
+              "nodes": 8
+            }
+          },
+          "fresh_error": 9.540288760914424e-16
+        }
+      ],
+      "passed": true
+    },
+    {
+      "family": "squares_difference",
+      "baseline": {
+        "products": 3,
+        "additions": 2,
+        "stored_coefficients": 3,
+        "edges": 13,
+        "nodes": 10
+      },
+      "candidates": [
+        {
+          "target": 4,
+          "peers": [
+            5,
+            8
+          ],
+          "coefficients": [
+            0.9999999999999986,
+            0.9999999999999998
+          ],
+          "local_error": 1.3607490440838673e-15,
+          "cost": {
+            "products": 2,
+            "additions": 3,
+            "stored_coefficients": 5,
+            "edges": 13,
+            "nodes": 10
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 2,
+              "additions": 9,
+              "stored_coefficients": 11,
+              "edges": 19,
+              "nodes": 10
+            }
+          },
+          "fresh_error": 1.0565576431731466e-15
+        },
+        {
+          "target": 5,
+          "peers": [
+            4,
+            8
+          ],
+          "coefficients": [
+            0.9999999999999993,
+            -0.9999999999999996
+          ],
+          "local_error": 5.8878655209241e-16,
+          "cost": {
+            "products": 2,
+            "additions": 3,
+            "stored_coefficients": 5,
+            "edges": 13,
+            "nodes": 10
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 2,
+              "additions": 9,
+              "stored_coefficients": 11,
+              "edges": 19,
+              "nodes": 10
+            }
+          },
+          "fresh_error": 7.42085777610988e-16
+        },
+        {
+          "target": 8,
+          "peers": [
+            4,
+            5
+          ],
+          "coefficients": [
+            0.9999999999999993,
+            -0.9999999999999994
+          ],
+          "local_error": 7.021677284614166e-16,
+          "cost": {
+            "products": 2,
+            "additions": 1,
+            "stored_coefficients": 5,
+            "edges": 9,
+            "nodes": 8
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 2,
+              "additions": 7,
+              "stored_coefficients": 11,
+              "edges": 15,
+              "nodes": 8
+            }
+          },
+          "fresh_error": 3.118376930444947e-16
+        }
+      ],
+      "passed": true
+    },
+    {
+      "family": "affine_shift",
+      "baseline": {
+        "products": 2,
+        "additions": 1,
+        "stored_coefficients": 3,
+        "edges": 9,
+        "nodes": 9
+      },
+      "candidates": [
+        {
+          "target": 4,
+          "peers": [
+            0,
+            7
+          ],
+          "coefficients": [
+            -0.9999999999999994,
+            0.9999999999999997
+          ],
+          "local_error": 4.3300535959872757e-16,
+          "cost": {
+            "products": 1,
+            "additions": 2,
+            "stored_coefficients": 5,
+            "edges": 9,
+            "nodes": 9
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 1,
+              "additions": 8,
+              "stored_coefficients": 11,
+              "edges": 15,
+              "nodes": 9
+            }
+          },
+          "fresh_error": 9.079879089101121e-16
+        },
+        {
+          "target": 7,
+          "peers": [
+            4,
+            0
+          ],
+          "coefficients": [
+            0.9999999999999998,
+            1.0000000000000004
+          ],
+          "local_error": 3.936394491098206e-16,
+          "cost": {
+            "products": 1,
+            "additions": 1,
+            "stored_coefficients": 5,
+            "edges": 7,
+            "nodes": 7
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 1,
+              "additions": 7,
+              "stored_coefficients": 11,
+              "edges": 13,
+              "nodes": 7
+            }
+          },
+          "fresh_error": 6.662575696923102e-16
+        }
+      ],
+      "passed": true
+    },
+    {
+      "family": "quartic_sum",
+      "baseline": {
+        "products": 6,
+        "additions": 3,
+        "stored_coefficients": 5,
+        "edges": 21,
+        "nodes": 16
+      },
+      "candidates": [
+        {
+          "target": 6,
+          "peers": [
+            7,
+            12
+          ],
+          "coefficients": [
+            -1.000000000000002,
+            0.9999999999999999
+          ],
+          "local_error": 2.1557453878661506e-15,
+          "cost": {
+            "products": 5,
+            "additions": 4,
+            "stored_coefficients": 7,
+            "edges": 21,
+            "nodes": 16
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 5,
+              "additions": 10,
+              "stored_coefficients": 13,
+              "edges": 27,
+              "nodes": 16
+            }
+          },
+          "fresh_error": 1.3333865174959086e-15
+        },
+        {
+          "target": 7,
+          "peers": [
+            6,
+            12
+          ],
+          "coefficients": [
+            -1.0000000000000016,
+            1.0
+          ],
+          "local_error": 1.5383248019722748e-15,
+          "cost": {
+            "products": 5,
+            "additions": 4,
+            "stored_coefficients": 6,
+            "edges": 21,
+            "nodes": 16
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 5,
+              "additions": 10,
+              "stored_coefficients": 12,
+              "edges": 27,
+              "nodes": 16
+            }
+          },
+          "fresh_error": 1.6976519729270054e-15
+        },
+        {
+          "target": 12,
+          "peers": [
+            6,
+            7
+          ],
+          "coefficients": [
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "local_error": 1.9017177286340652e-16,
+          "cost": {
+            "products": 4,
+            "additions": 1,
+            "stored_coefficients": 5,
+            "edges": 13,
+            "nodes": 12
+          },
+          "refit": {
+            "design_rank": 2,
+            "design_width": 3,
+            "cost": {
+              "products": 4,
+              "additions": 7,
+              "stored_coefficients": 11,
+              "edges": 19,
+              "nodes": 12
+            }
+          },
+          "fresh_error": 1.1811358279102888e-15
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "negative": {
+    "proposal": {
+      "target": 7,
+      "peers": [
+        4,
+        5
+      ],
+      "coefficients": [
+        0.9999999999999996,
+        1.0000000000000004
+      ],
+      "local_error": 0.00707089104179903,
+      "cost": {
+        "products": 2,
+        "additions": 3,
+        "stored_coefficients": 7,
+        "edges": 11,
+        "nodes": 10
+      }
+    },
+    "refit": {
+      "design_rank": 2,
+      "design_width": 3,
+      "cost": {
+        "products": 2,
+        "additions": 7,
+        "stored_coefficients": 11,
+        "edges": 15,
+        "nodes": 10
+      }
+    },
+    "output_error": 0.6593804733957871
+  },
+  "seconds": 0.013525533024221659,
+  "scope": "Global peer-combination replacement plus exact linear-output refit; five planted dictionaries and downstream selective contrast. Fresh artificial probes, no native or semantic claim."
+}

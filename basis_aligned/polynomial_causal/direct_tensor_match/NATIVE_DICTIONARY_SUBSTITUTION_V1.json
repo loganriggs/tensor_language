@@ -1,0 +1,172 @@
+{
+  "predictions": {
+    "pred_a_boundary": true,
+    "pred_b_saving": true,
+    "pred_c_fidelity": false
+  },
+  "baseline": {
+    "products": 24,
+    "additions": 44920,
+    "stored_coefficients": 46096,
+    "edges": 46160,
+    "nodes": 2368
+  },
+  "bank_nodes": [
+    1164,
+    1177,
+    1190,
+    1203
+  ],
+  "records": [
+    {
+      "target": 1164,
+      "peers": [
+        1177,
+        1190,
+        1203
+      ],
+      "coefficients": [
+        -0.8542526218674698,
+        -0.7438176060372363,
+        -0.9765438032549689
+      ],
+      "local_error": 0.2493225258250522,
+      "cost": {
+        "products": 20,
+        "additions": 35711,
+        "stored_coefficients": 36883,
+        "edges": 36935,
+        "nodes": 2356
+      },
+      "unrefitted_calibration_error": 0.5518067027610668,
+      "refit": {
+        "design_rank": 6,
+        "design_width": 8,
+        "cost": {
+          "products": 20,
+          "additions": 35711,
+          "stored_coefficients": 36883,
+          "edges": 36935,
+          "nodes": 2356
+        }
+      },
+      "program_errors_by_panel": [
+        0.3268566001078176,
+        0.23891887021661598
+      ]
+    },
+    {
+      "target": 1177,
+      "peers": [
+        1164,
+        1190,
+        1203
+      ],
+      "coefficients": [
+        -1.0760947417490774,
+        -0.8374607075032097,
+        -1.1358668854507585
+      ],
+      "local_error": 0.1772725073348736,
+      "cost": {
+        "products": 20,
+        "additions": 35711,
+        "stored_coefficients": 36883,
+        "edges": 36935,
+        "nodes": 2356
+      },
+      "unrefitted_calibration_error": 0.4834473132001493,
+      "refit": {
+        "design_rank": 6,
+        "design_width": 8,
+        "cost": {
+          "products": 20,
+          "additions": 35711,
+          "stored_coefficients": 36883,
+          "edges": 36935,
+          "nodes": 2356
+        }
+      },
+      "program_errors_by_panel": [
+        0.4037289250161495,
+        0.30877946763657355
+      ]
+    },
+    {
+      "target": 1190,
+      "peers": [
+        1164,
+        1177,
+        1203
+      ],
+      "coefficients": [
+        -1.0647099065962886,
+        -0.9516233548500144,
+        -1.24755342320656
+      ],
+      "local_error": 0.17348345902768975,
+      "cost": {
+        "products": 20,
+        "additions": 35711,
+        "stored_coefficients": 36883,
+        "edges": 36935,
+        "nodes": 2356
+      },
+      "unrefitted_calibration_error": 0.6394905280135212,
+      "refit": {
+        "design_rank": 6,
+        "design_width": 8,
+        "cost": {
+          "products": 20,
+          "additions": 35711,
+          "stored_coefficients": 36883,
+          "edges": 36935,
+          "nodes": 2356
+        }
+      },
+      "program_errors_by_panel": [
+        0.3194233061794235,
+        0.23642315609595804
+      ]
+    },
+    {
+      "target": 1203,
+      "peers": [
+        1164,
+        1177,
+        1190
+      ],
+      "coefficients": [
+        -0.8548078558942345,
+        -0.7892962254305165,
+        -0.7629060998525923
+      ],
+      "local_error": 0.12818540897964673,
+      "cost": {
+        "products": 20,
+        "additions": 35711,
+        "stored_coefficients": 36883,
+        "edges": 36935,
+        "nodes": 2356
+      },
+      "unrefitted_calibration_error": 0.400124778189239,
+      "refit": {
+        "design_rank": 6,
+        "design_width": 8,
+        "cost": {
+          "products": 20,
+          "additions": 35711,
+          "stored_coefficients": 36883,
+          "edges": 36935,
+          "nodes": 2356
+        }
+      },
+      "program_errors_by_panel": [
+        0.27134396693948043,
+        0.19931760790029734
+      ]
+    }
+  ],
+  "seconds": 1.4910557130351663,
+  "scope": "Full global replacement of each four-product quadratic bank feature by peers. Exact least-squares readout refit on <=512oldcalibrationrows. Errors target archived approximate quartic program on two reusedpanels; no native teacher/OOD/semanticadoption. No direction refit in this first screen."
+}
