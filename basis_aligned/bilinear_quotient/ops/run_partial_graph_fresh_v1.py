@@ -10,6 +10,12 @@ in everycell. Null: opened scalar fit hides OOD, donor, or composition failure.
 import os,sys,json,time,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
+GRAPH_FILE='PARTIAL_GRAPH_FROZEN_V1.pt'
+BASELINE_FILE='MULTIMODE_PAIR_BASELINES_V1.pt'
+PLAN_FILE='PARTIAL_GRAPH_FRESH_PLAN_V1.json'
+TOKEN_FILE='PARTIAL_GRAPH_FRESH_TOKENS_V1.pt'
+DONOR_FILE='PARTIAL_GRAPH_FRESH_DONORS_V1.pt'
+OUTPUT_FILE='PARTIAL_GRAPH_FRESH_NATIVE_V1.json'
 def move(x,torch):
  if isinstance(x,dict):return {k:move(v,torch) for k,v in x.items()}
  return x.cuda().double() if isinstance(x,torch.Tensor) else x
@@ -17,22 +23,22 @@ def main():
  import torch
  sys.path.insert(0,str(P));from shared_mixed_source_graph import component_scalars
  from source_interface import residual_write as separate_write
- graph=torch.load(P/'PARTIAL_GRAPH_FROZEN_V1.pt',weights_only=True);baselines=torch.load(P/'MULTIMODE_PAIR_BASELINES_V1.pt',weights_only=True)
+ graph=torch.load(P/GRAPH_FILE,weights_only=True);baselines=torch.load(P/BASELINE_FILE,weights_only=True)
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):
   torch.set_num_threads(2);z=torch.zeros(2,3,1152,dtype=torch.float64);h=torch.ones_like(z)
   assert component_scalars(z,h,graph).shape==(2,3,3)
   for b in baselines.values():assert separate_write(z,h,b).shape==(2,3,1152)
-  print(json.dumps(dict(captures=48,context=256,selections=4,source_products=512,stored_floats=897804,shape_smoke='PASS')));return
+  plan=json.loads((P/PLAN_FILE).read_text());print(json.dumps(dict(captures=48,context=256,selections=4,source_products=plan['source_products']['graph'],stored_floats=plan['stored_float_coefficients']['graph'],shape_smoke='PASS')));return
  import torch.nn.functional as F
  import tiktoken
  from circuit_fast_screen_producer import Bilin18TorchBackend
  from native_feature_capture import capture
  from token_boundary_conditions import annotate
- torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/'PARTIAL_GRAPH_FRESH_NATIVE_V1.json';assert not out.exists()
- plan=json.loads((P/'PARTIAL_GRAPH_FRESH_PLAN_V1.json').read_text())
+ torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/OUTPUT_FILE;assert not out.exists()
+ plan=json.loads((P/PLAN_FILE).read_text())
  for name,digest in plan['file_sha256'].items():assert hashlib.sha256((P/name).read_bytes()).hexdigest()==digest
  graph=move(graph,torch);baselines=move(baselines,torch);writer=graph['residual_writer'];fold=torch.load(P/'PARTIAL_GRAPH_ORIGINAL_FORMS_V1.pt',weights_only=True);Qs=fold['matrices'].cuda();A=fold['A'].cuda();B=fold['B'].cuda();alpha=fold['alpha'].cuda();beta=fold['beta'].cuda()
- tokens=torch.load(P/'PARTIAL_GRAPH_FRESH_TOKENS_V1.pt',weights_only=True);donors=torch.load(P/'PARTIAL_GRAPH_FRESH_DONORS_V1.pt',weights_only=True)
+ tokens=torch.load(P/TOKEN_FILE,weights_only=True);donors=torch.load(P/DONOR_FILE,weights_only=True)
  model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];enc=tiktoken.get_encoding('gpt2');checks=[];qchecks=[];records=[]
  selections={'mode1':[0],'mode2':[1],'mode3':[2],'combined':[0,1,2]}
  logits=lambda x:30*torch.tanh(model.lm_head(F.rms_norm(x,(1152,)))/30)

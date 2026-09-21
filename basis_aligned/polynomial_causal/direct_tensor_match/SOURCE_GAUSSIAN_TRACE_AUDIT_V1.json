@@ -1,0 +1,90 @@
+{
+  "quadrature_relative_errors": [
+    1.5927736299933655e-15,
+    1.2278536523058485e-15,
+    1.8029792315856417e-15,
+    1.995837178113614e-15,
+    1.8482323974846504e-15
+  ],
+  "records": [
+    {
+      "candidate": "separate",
+      "coefficient_relative_error": 0.09592103192252593,
+      "gaussian_remainder_relative_error": 0.095625916413388,
+      "mean_error_energy_fraction": 0.002441072875689906,
+      "per_pair_mean_error_energy_fraction": [
+        0.0033203004820942746,
+        0.0029419590265576142,
+        0.00010891458915348977
+      ],
+      "normalized_source_error_means": [
+        0.008674374905157156,
+        -0.0002181153447985524,
+        -0.0010317351293938613,
+        0.007572123030352618,
+        0.0006450674154365053,
+        0.0009896271012137332
+      ]
+    },
+    {
+      "candidate": "shared",
+      "coefficient_relative_error": 0.1030465793527027,
+      "gaussian_remainder_relative_error": 0.10271389045371662,
+      "mean_error_energy_fraction": 0.0021370525605535163,
+      "per_pair_mean_error_energy_fraction": [
+        0.005056096676046332,
+        0.00038201918157753484,
+        0.00033647039940520087
+      ],
+      "normalized_source_error_means": [
+        0.010367165652651847,
+        -0.0038265228811883976,
+        -0.0026558073963463776,
+        0.0010403603131471431,
+        -0.002404541680992145,
+        0.0006393085265512254
+      ]
+    },
+    {
+      "candidate": "mixed",
+      "coefficient_relative_error": 0.07757874084774839,
+      "gaussian_remainder_relative_error": 0.07758396104014097,
+      "mean_error_energy_fraction": 0.008703322050904487,
+      "per_pair_mean_error_energy_fraction": [
+        0.00746803034597395,
+        0.00037879137674866917,
+        0.01860667001445826
+      ],
+      "normalized_source_error_means": [
+        0.009346718114102578,
+        -0.002407417525212355,
+        -0.0014896041324355073,
+        -0.001546140067254651,
+        -0.006371482819055912,
+        0.013367157253845121
+      ]
+    },
+    {
+      "candidate": "profiled_graph",
+      "coefficient_relative_error": 0.08482259908055094,
+      "gaussian_remainder_relative_error": 0.08450954182088925,
+      "mean_error_energy_fraction": 0.0012109960458435093,
+      "per_pair_mean_error_energy_fraction": [
+        0.0036332709077115085,
+        3.077320816117636e-05,
+        0.00010891458915348977
+      ],
+      "normalized_source_error_means": [
+        0.006817832599261498,
+        0.0019885319183066043,
+        0.00041099997878879676,
+        -0.000582810823032519,
+        0.0006450674154365053,
+        0.0009896271012137332
+      ]
+    }
+  ],
+  "native_input_mean_square_min": 0.9999996579375341,
+  "native_input_mean_square_max": 1.0000002611443968,
+  "scope": "Exact Gaussian surrogate source-remainder metric with old affine/trace centering preserved and expanded covariance. Not the quartic composed component metric, nor a fit, native intervention, or proof that this term causes failures."
+}

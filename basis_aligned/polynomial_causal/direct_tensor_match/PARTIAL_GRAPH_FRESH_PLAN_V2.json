@@ -1,0 +1,100 @@
+{
+  "parent_winner": "0.02_pruned",
+  "file_sha256": {
+    "PARTIAL_GRAPH_FROZEN_V2.pt": "c365aee89fee0c407b1c1338094ee102a2db92d002669974b5748d74dea0e9df",
+    "PARTIAL_GRAPH_BASELINES_V2.pt": "997e0e3d3484173b6e01329a2ecf33c1c8ac5ac51c69076d55cb350977ede167",
+    "PARTIAL_GRAPH_ORIGINAL_FORMS_V1.pt": "b3701927aafb298fc20c1585df0202a057e09ecb47244848d07c2051c12ebdb5",
+    "PARTIAL_GRAPH_FRESH_DONORS_V2.pt": "0cda2ca465850e53d40f913b5f3ac87eee4b62d8264071e3eceb1e9a57207d60"
+  },
+  "tokens_sha256": {
+    "fineweb": "c724888a134d7fc494f539282797f30592e068e1249f6634e11fc4fe7becb0db",
+    "stdlib": "f2d5f3453bb9a687254b42c4d61463b04a35b890a0993743a06ea3f4621561d5"
+  },
+  "recipient_documents": {
+    "fineweb": [
+      "<urn:uuid:3ef84afe-291c-4580-82d0-a78d9362d8a0>",
+      "<urn:uuid:fdb4af4a-e400-44ff-8256-79c1f1537dae>",
+      "<urn:uuid:ba1f58db-8a2c-4ed7-9cac-852763396d97>",
+      "<urn:uuid:543a7a1f-9c72-421d-b8de-643c37eeb942>",
+      "<urn:uuid:46073c0d-8729-4ddd-a121-7a9013e20dda>",
+      "<urn:uuid:9837131e-5faf-4acd-9477-50a320384c34>",
+      "<urn:uuid:ae5c2d0c-7686-4308-9373-34e8a852c53a>",
+      "<urn:uuid:b14cf72c-25cd-4f12-b45a-f2431b43201b>",
+      "<urn:uuid:91beb6da-e333-470a-96b5-f751575b140b>",
+      "<urn:uuid:8e3a7737-664c-4f8c-a681-3ee7bc9d5445>",
+      "<urn:uuid:7b3ffe4b-5fdd-4a56-bdb6-a9ddad2e2ef3>",
+      "<urn:uuid:12c58b96-861c-49d0-8a1a-c0cb4d3ed03d>",
+      "<urn:uuid:a3fb1396-8f40-43db-be81-05c980b685eb>",
+      "<urn:uuid:41677772-38a3-4c75-bc5f-6ac1ebf9406a>",
+      "<urn:uuid:2746a9e9-d3ae-44ff-a6ab-bf2f3a5352ae>",
+      "<urn:uuid:353c7145-58df-4f68-9960-1de909e7b6e3>",
+      "<urn:uuid:8b9f5399-f327-4fdc-9cfd-cf20aee57c35>",
+      "<urn:uuid:0bbc0754-fe4f-4655-a774-3bb2e7a96a53>",
+      "<urn:uuid:4647c4ff-3d93-4677-834f-1649dec862da>",
+      "<urn:uuid:d73bc406-fce9-4565-9bdd-76de81e81a40>",
+      "<urn:uuid:6592f004-d73f-4565-ba2a-661bf98dbca4>",
+      "<urn:uuid:adfa72df-e28a-4098-9e01-095426a95b7a>",
+      "<urn:uuid:4a24ee2f-531a-4da1-948a-e52ba28975d3>",
+      "<urn:uuid:0a140bd9-779c-4ea5-9ec4-362e0870d649>",
+      "<urn:uuid:05b4e512-54df-42c1-93f6-d5c86ca3eecf>",
+      "<urn:uuid:28696eae-d70c-4013-80a8-ce96f99d7ef6>",
+      "<urn:uuid:761e63f5-ba43-418a-aab9-f47cc3d5ad01>",
+      "<urn:uuid:bf25add7-f778-47c5-b95e-232bc9b717a0>",
+      "<urn:uuid:10087292-d93b-4a7b-b0e5-e2ce81a98e64>",
+      "<urn:uuid:d171ae9f-d91b-4e60-81de-658498de9709>",
+      "<urn:uuid:03d1770a-c70c-4d27-b743-df444db70890>",
+      "<urn:uuid:cc16c02c-597a-4646-a73f-5f0a1077928a>"
+    ],
+    "stdlib": [
+      "/venv/main/lib/python3.12/ipaddress.py",
+      "/venv/main/lib/python3.12/linecache.py",
+      "/venv/main/lib/python3.12/locale.py",
+      "/venv/main/lib/python3.12/lzma.py",
+      "/venv/main/lib/python3.12/mailbox.py",
+      "/venv/main/lib/python3.12/mailcap.py",
+      "/venv/main/lib/python3.12/mimetypes.py",
+      "/venv/main/lib/python3.12/modulefinder.py",
+      "/venv/main/lib/python3.12/netrc.py",
+      "/venv/main/lib/python3.12/nntplib.py",
+      "/venv/main/lib/python3.12/ntpath.py",
+      "/venv/main/lib/python3.12/nturl2path.py",
+      "/venv/main/lib/python3.12/operator.py",
+      "/venv/main/lib/python3.12/optparse.py",
+      "/venv/main/lib/python3.12/os.py",
+      "/venv/main/lib/python3.12/pathlib.py"
+    ]
+  },
+  "donor_concentration": {
+    "fineweb": {
+      "pairs": 4961,
+      "max_site_fraction": 0.0008062890265136957,
+      "max_document_fraction": 0.03970973566174507
+    },
+    "stdlib": {
+      "pairs": 3196,
+      "max_site_fraction": 0.0031289111357182264,
+      "max_document_fraction": 0.07446808367967606
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": "finalstate<1e-5/source<1e-4; exact balanced same-token different-document donor constraints",
+    "pred_b_absolute": "natural/hybrid<=.15 and change<=.20 everydomain/cohort/selection",
+    "pred_c_relative": "every graph effecterror<=1.10 separatebaseline"
+  },
+  "selections": [
+    "mode1",
+    "mode2",
+    "mode3",
+    "combined"
+  ],
+  "source_products": {
+    "graph": 576,
+    "baseline": 832
+  },
+  "stored_float_coefficients": {
+    "graph": 971660,
+    "baseline_writer_deduplicated": 971660
+  },
+  "scope": "Fourth newdocument-indexedpanel,32FineWeb+16newcodefiles, excludingprevious3panels. Private320 capacity selectedbeforeoutcomes; identicalprivatebranch suppliedtobaseline. Sharedfirsttwo components unchanged. All originalnativegates retained; nativeinputs stillrequired.",
+  "private_width": 320
+}
