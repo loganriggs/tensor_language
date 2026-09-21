@@ -1,0 +1,84 @@
+{
+  "program_sha256": "5bccb2c3e959c4d8fae59c12a3fde2e2f9973b69a22d2c37fc31c64391cd040a",
+  "fp32_component_drift": [
+    7.730648566119428e-07,
+    2.621092418476994e-06,
+    8.369970225367037e-06
+  ],
+  "actual_executor_gradient_replay": [
+    1.2262377932332202e-14,
+    2.838847335079702e-14,
+    1.2330826069598294e-14
+  ],
+  "assessment": {
+    "native_error": 0.5773745176920195,
+    "covariance_error": 0.07628029808554847,
+    "execution_replay": 6.572567787099457e-15,
+    "per_mode_errors": [
+      0.017265054066342614,
+      0.021743127473094263,
+      0.08346263208999469
+    ],
+    "euclidean_jacobian_errors": [
+      0.1955497573736475,
+      0.1662689472159042,
+      0.16871934176277945
+    ],
+    "stored_floats": 1131980,
+    "physical_storage_floats": 1131980,
+    "index_integers": 4480,
+    "projection_multiplications": 1118208,
+    "activation_products": 1120,
+    "source_total_multiplications": 1121568
+  },
+  "baselines": [
+    {
+      "geometry": "calibration_shaped",
+      "per_mode_errors": [
+        0.023572513329586844,
+        0.022508255474280092,
+        0.10598703998306912
+      ],
+      "euclidean_jacobian_errors": [
+        0.21022523101521468,
+        0.17349156853356293,
+        0.17551081770066865
+      ],
+      "candidate_component_within_110percent": [
+        true,
+        true,
+        true
+      ],
+      "candidate_jacobian_within_110percent": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "geometry": "native_isotropic",
+      "per_mode_errors": [
+        0.01768800370830357,
+        0.0325977005975111,
+        0.13575218174201364
+      ],
+      "euclidean_jacobian_errors": [
+        0.2041704052362484,
+        0.1847916933111047,
+        0.18284904224711637
+      ],
+      "candidate_component_within_110percent": [
+        true,
+        true,
+        true
+      ],
+      "candidate_jacobian_within_110percent": [
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "source_saving": 0.15707070707070703,
+  "scope": "Independent saved-artifact replay and FP32/autodiff checks on448opened states/16gradient rows. Immutable candidate for prospective evaluation. Source price excludes common endpoint/affine work consistently with baselines. Not full-model speedup, fresh validity or semantic circuit identification."
+}
