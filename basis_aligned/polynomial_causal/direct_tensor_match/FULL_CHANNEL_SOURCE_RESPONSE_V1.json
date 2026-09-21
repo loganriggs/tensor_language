@@ -1,0 +1,5227 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_tangent": false,
+    "pred_c_large_shift": false
+  },
+  "summary": [
+    {
+      "domain": "fineweb",
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 110,
+      "effect_error": 0.13649985892533512
+    },
+    {
+      "domain": "fineweb",
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.13137677070128106
+    },
+    {
+      "domain": "fineweb",
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 110,
+      "effect_error": 0.13789736376004794
+    },
+    {
+      "domain": "fineweb",
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.12964236393620265
+    },
+    {
+      "domain": "fineweb",
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 110,
+      "effect_error": 0.14771286612867224
+    },
+    {
+      "domain": "fineweb",
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.12267632284683659
+    },
+    {
+      "domain": "fineweb",
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 110,
+      "effect_error": 0.09169971041476183
+    },
+    {
+      "domain": "fineweb",
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.058638643277909235
+    },
+    {
+      "domain": "fineweb",
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 110,
+      "effect_error": 0.1363470804613926
+    },
+    {
+      "domain": "fineweb",
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.13156149263699554
+    },
+    {
+      "domain": "fineweb",
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 110,
+      "effect_error": 0.1288405478301718
+    },
+    {
+      "domain": "fineweb",
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.1315035114085218
+    },
+    {
+      "domain": "stdlib",
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 174,
+      "effect_error": 0.12389269794677554
+    },
+    {
+      "domain": "stdlib",
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 160,
+      "effect_error": 0.09288465156427025
+    },
+    {
+      "domain": "stdlib",
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 174,
+      "effect_error": 0.12394125377975228
+    },
+    {
+      "domain": "stdlib",
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 160,
+      "effect_error": 0.09594492938664173
+    },
+    {
+      "domain": "stdlib",
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 174,
+      "effect_error": 0.1378348965288669
+    },
+    {
+      "domain": "stdlib",
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 160,
+      "effect_error": 0.1049091967567584
+    },
+    {
+      "domain": "stdlib",
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 174,
+      "effect_error": 0.0638836123816231
+    },
+    {
+      "domain": "stdlib",
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 160,
+      "effect_error": 0.04679236829395486
+    },
+    {
+      "domain": "stdlib",
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 174,
+      "effect_error": 0.12390704798562177
+    },
+    {
+      "domain": "stdlib",
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 160,
+      "effect_error": 0.09258636929250902
+    },
+    {
+      "domain": "stdlib",
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 174,
+      "effect_error": 0.10407232070068483
+    },
+    {
+      "domain": "stdlib",
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 160,
+      "effect_error": 0.08522078206700298
+    }
+  ],
+  "records": [
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 238988.2320228109,
+      "error_energy": 5230.134916583575
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 108,
+      "reference_energy": 1985948.8494321979,
+      "error_energy": 17408.203351190103
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 238988.2320228109,
+      "error_energy": 5196.57704518591
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 108,
+      "reference_energy": 1985948.8494321979,
+      "error_energy": 18097.201576587417
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 2835090199.3850765,
+      "error_energy": 27333434.559141748
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 108,
+      "reference_energy": 74233353830.67113,
+      "error_energy": 193150047.5814103
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 23.905842019868146,
+      "error_energy": 0.5236253157365213
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 108,
+      "reference_energy": 199.00974489200183,
+      "error_energy": 1.7451187313568082
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 2396.6386259335072,
+      "error_energy": 52.87558805056712
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 108,
+      "reference_energy": 20277.873678109394,
+      "error_energy": 178.4931269120666
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 249037.47600618337,
+      "error_energy": 5463.209282631295
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 0,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 108,
+      "reference_energy": 2295609.2130736327,
+      "error_energy": 21231.265932999166
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 234685.63521737803,
+      "error_energy": 5889.365913802587
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 111,
+      "reference_energy": 1928347.2609910087,
+      "error_energy": 10597.841239110936
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 234685.63521737803,
+      "error_energy": 5098.386961031523
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 111,
+      "reference_energy": 1928347.2609910087,
+      "error_energy": 10562.85725160957
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 1178923835.0310836,
+      "error_energy": 19103221.967915
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 111,
+      "reference_energy": 72872658440.97807,
+      "error_energy": 161077664.06632516
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 23.345478877486315,
+      "error_energy": 0.5869630573903
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 111,
+      "reference_energy": 193.06237013092374,
+      "error_energy": 1.062047135672904
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 2224.5530255598806,
+      "error_energy": 56.94162117724237
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 111,
+      "reference_energy": 19505.427747950558,
+      "error_energy": 108.8104970328998
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 142188.5721804735,
+      "error_energy": 4438.225909194256
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 1,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 111,
+      "reference_energy": 2020984.060158798,
+      "error_energy": 17572.547973615277
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 81165.04665462303,
+      "error_energy": 1495.967834030485
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 1697969.1848639653,
+      "error_energy": 10905.03007455213
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 81165.04665462303,
+      "error_energy": 1448.101962658448
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 1697969.1848639653,
+      "error_energy": 10237.754949129398
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 963495848.1092865,
+      "error_energy": 5470589.98913151
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 61097945743.180374,
+      "error_energy": 138723884.6613468
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 8.131225186177698,
+      "error_energy": 0.14984438560502436
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 170.19425984161214,
+      "error_energy": 1.0932353726637938
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 826.4776384799566,
+      "error_energy": 15.207224605774678
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 17385.95592127837,
+      "error_energy": 111.83631346082117
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 95145.6528375377,
+      "error_energy": 1699.064305648315
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 2,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 2017292.0541136959,
+      "error_energy": 13158.618047887752
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 83048.66472708803,
+      "error_energy": 1057.9685918832981
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 1617619.5386017116,
+      "error_energy": 7977.036154913265
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 83048.66472708803,
+      "error_energy": 981.864869882741
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 1617619.5386017116,
+      "error_energy": 7482.742945035542
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 613931486.5779603,
+      "error_energy": 4523621.5400126185
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 75838587815.5128,
+      "error_energy": 124263774.54239437
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 8.298917141671966,
+      "error_energy": 0.1057281818271463
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 161.98797625053786,
+      "error_energy": 0.7984011924842167
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 822.3111789523699,
+      "error_energy": 10.522228182796837
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 16405.78566765689,
+      "error_energy": 80.69799637521973
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 59932.22394429051,
+      "error_energy": 1012.9280765904762
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 3,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 1837093.3950680154,
+      "error_energy": 10941.072655460035
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 115102.49509038056,
+      "error_energy": 2656.1639006316445
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 2471500.5573897054,
+      "error_energy": 18695.10253281122
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 115102.49509038056,
+      "error_energy": 2784.1813599442503
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 2471500.5573897054,
+      "error_energy": 15001.484136371018
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 267232258.11432764,
+      "error_energy": 4822074.375915097
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 68668121249.99629,
+      "error_energy": 142442432.21644926
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 11.523608808479999,
+      "error_energy": 0.2658410017097465
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 247.77287113675115,
+      "error_energy": 1.888640334444414
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 1164.2424184503686,
+      "error_energy": 26.779706328044618
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 25256.52979410434,
+      "error_energy": 208.1669905446291
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 126306.48985581167,
+      "error_energy": 2813.5171315211337
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 4,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 2538334.914692409,
+      "error_energy": 23885.379993799994
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 114807.44653104187,
+      "error_energy": 4781.55250852768
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 2706221.6195226638,
+      "error_energy": 21267.997011006573
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 114807.44653104187,
+      "error_energy": 4890.802377272923
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 2706221.6195226638,
+      "error_energy": 17265.308484749326
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 794132495.3218479,
+      "error_energy": 19624457.781580195
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 95394478429.04626,
+      "error_energy": 196708349.78875998
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 11.542162815578475,
+      "error_energy": 0.4804195465532454
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 271.58899673866665,
+      "error_energy": 2.132079025315859
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 1212.3310993134737,
+      "error_energy": 50.153049053750365
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 28014.27992154754,
+      "error_energy": 217.73419951747047
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 195791.61857137017,
+      "error_energy": 7646.2239536665975
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 5,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 3158656.9608814,
+      "error_energy": 24172.439639581506
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 182231.1746661794,
+      "error_energy": 3856.188329153996
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 102,
+      "reference_energy": 1960186.8643065859,
+      "error_energy": 10554.52283380271
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 182231.1746661794,
+      "error_energy": 3535.0476706344007
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 102,
+      "reference_energy": 1960186.8643065859,
+      "error_energy": 9932.204407212117
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 338542082.06398106,
+      "error_energy": 6403334.215735369
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 102,
+      "reference_energy": 61292494002.96403,
+      "error_energy": 116057671.58556807
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 18.23465988113154,
+      "error_energy": 0.3861313645059139
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 102,
+      "reference_energy": 196.30080119635673,
+      "error_energy": 1.0572206327038245
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 1826.8247660096872,
+      "error_energy": 38.97360348006475
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 102,
+      "reference_energy": 19887.108649370482,
+      "error_energy": 107.57127277123914
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 138313.72048831035,
+      "error_energy": 3444.974838234877
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 6,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 102,
+      "reference_energy": 2204149.314480396,
+      "error_energy": 14659.2912628739
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 121516.11509270813,
+      "error_energy": 2431.9436440368945
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 57,
+      "reference_energy": 2228574.3943838943,
+      "error_energy": 24428.96582982137
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 121516.11509270813,
+      "error_energy": 1928.1647036652384
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 57,
+      "reference_energy": 2228574.3943838943,
+      "error_energy": 21013.381513808803
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 1778447782.704691,
+      "error_energy": 9313695.731983526
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 57,
+      "reference_energy": 50357150872.994736,
+      "error_energy": 162706959.82773763
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 12.189040002184797,
+      "error_energy": 0.24410248964130749
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 57,
+      "reference_energy": 223.5478806272249,
+      "error_energy": 2.451305732288972
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 1252.7758334736257,
+      "error_energy": 25.2145131969171
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 57,
+      "reference_energy": 22948.596788715906,
+      "error_energy": 252.70447032122215
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 159589.3328520084,
+      "error_energy": 2947.2579878557262
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 7,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 57,
+      "reference_energy": 2505397.1988693643,
+      "error_energy": 32651.551743812124
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 79481.17557442727,
+      "error_energy": 2243.439996847731
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 96,
+      "reference_energy": 18094003.59862871,
+      "error_energy": 891113.056402433
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 79481.17557442727,
+      "error_energy": 2104.9823000977167
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 96,
+      "reference_energy": 18094003.59862871,
+      "error_energy": 907868.8211267728
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 262233076.57213858,
+      "error_energy": 3615226.9680463653
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 96,
+      "reference_energy": 121473761861.76851,
+      "error_energy": 2816278117.8035293
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 7.936172446839164,
+      "error_energy": 0.22406103232941854
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 96,
+      "reference_energy": 1815.276885427969,
+      "error_energy": 88.95550782225459
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 782.3228015659229,
+      "error_energy": 22.122237697802994
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 96,
+      "reference_energy": 187267.9408895575,
+      "error_energy": 8734.317849569015
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 64826.47368087865,
+      "error_energy": 1733.444745917944
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 8,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 96,
+      "reference_energy": 22090340.17222427,
+      "error_energy": 771615.3687881697
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 9,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 113,
+      "reference_energy": 2111376.1874036933,
+      "error_energy": 10395.95489467249
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 9,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 113,
+      "reference_energy": 2111376.1874036933,
+      "error_energy": 9709.738808688799
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 9,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 113,
+      "reference_energy": 90317539507.30167,
+      "error_energy": 130021760.34495665
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 9,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 113,
+      "reference_energy": 211.4401414018018,
+      "error_energy": 1.0398049807633938
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 9,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 113,
+      "reference_energy": 21413.6592387882,
+      "error_energy": 104.25084025795687
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 9,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 113,
+      "reference_energy": 2250863.6780496966,
+      "error_energy": 11021.354016742851
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 222583.6681363033,
+      "error_energy": 3305.07327549653
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 1505990.975094086,
+      "error_energy": 7969.349097858014
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 222583.6681363033,
+      "error_energy": 3426.8409009601464
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 1505990.975094086,
+      "error_energy": 7781.776111219611
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 1922446949.6458025,
+      "error_energy": 14021586.25965222
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 54543050583.466255,
+      "error_energy": 95250313.9295133
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 22.25447593984915,
+      "error_energy": 0.3309904457248674
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 150.75514005642148,
+      "error_energy": 0.7973570721362654
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 2219.9631324956713,
+      "error_energy": 33.516067843728024
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 15214.402355744423,
+      "error_energy": 80.17254001394038
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 202025.85367621214,
+      "error_energy": 3437.6312567727887
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 10,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 101,
+      "reference_energy": 1631081.4657519779,
+      "error_energy": 8803.013687957986
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 2114325.1307026716,
+      "error_energy": 29242.157311870884
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 142,
+      "reference_energy": 5806247.736169431,
+      "error_energy": 89981.70859661761
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 2114325.1307026716,
+      "error_energy": 19660.745214125036
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 142,
+      "reference_energy": 5806247.736169431,
+      "error_energy": 95487.78727859222
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 8427542462.568596,
+      "error_energy": 37835371.670515954
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 142,
+      "reference_energy": 112779243687.07529,
+      "error_energy": 691571966.7399321
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 209.08839600534364,
+      "error_energy": 2.9004268356541782
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 142,
+      "reference_energy": 581.3547076621444,
+      "error_energy": 9.014005830701654
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 18837.511560649542,
+      "error_energy": 269.0030932550559
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 142,
+      "reference_energy": 58808.66406853938,
+      "error_energy": 917.9828139377512
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 694795.0283526669,
+      "error_energy": 13051.208214128332
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 11,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 142,
+      "reference_energy": 6881848.182760986,
+      "error_energy": 128215.89117833844
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 135187.87250037253,
+      "error_energy": 2867.1876630850898
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 1562006.0390712833,
+      "error_energy": 8770.211084012988
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 135187.87250037253,
+      "error_energy": 2967.891004581038
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 1562006.0390712833,
+      "error_energy": 8303.198316671247
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 759999981.7233121,
+      "error_energy": 10135416.190636087
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 53380448099.87413,
+      "error_energy": 107861036.73361446
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 13.51399740797726,
+      "error_energy": 0.2867700963324623
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 156.31840204414885,
+      "error_energy": 0.8767313946721776
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 1346.465261050963,
+      "error_energy": 28.701024541544136
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 15731.151472302368,
+      "error_energy": 87.56603500239137
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 126906.83925794275,
+      "error_energy": 2738.1112653380806
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 12,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 1581234.0416053706,
+      "error_energy": 9806.497447113585
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 13,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 104,
+      "reference_energy": 1810326.521646149,
+      "error_energy": 10592.324363341471
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 13,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 104,
+      "reference_energy": 1810326.521646149,
+      "error_energy": 10461.757389271002
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 13,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 104,
+      "reference_energy": 59669352089.792946,
+      "error_energy": 124556024.16468494
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 13,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 104,
+      "reference_energy": 181.25806954360604,
+      "error_energy": 1.0603117043076624
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 13,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 104,
+      "reference_energy": 18328.948931914652,
+      "error_energy": 107.07790688866757
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 13,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 104,
+      "reference_energy": 1994680.5841833039,
+      "error_energy": 12318.810050722088
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 932986.6591575884,
+      "error_energy": 15347.238068681323
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 78,
+      "reference_energy": 2276612.823852629,
+      "error_energy": 17506.604773720428
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 932986.6591575884,
+      "error_energy": 14059.571894249893
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 78,
+      "reference_energy": 2276612.823852629,
+      "error_energy": 16929.834071704303
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 4695771382.0563545,
+      "error_energy": 42899292.41766539
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 78,
+      "reference_energy": 68452470109.392,
+      "error_energy": 161123522.61921966
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 92.92120540119018,
+      "error_energy": 1.5306464296523077
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 78,
+      "reference_energy": 228.25570074802698,
+      "error_energy": 1.7520580003408974
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 8939.428514681633,
+      "error_energy": 149.24010906880926
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 78,
+      "reference_energy": 23339.425388835443,
+      "error_energy": 176.3342036343435
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 610507.3332202572,
+      "error_energy": 11876.846458916865
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 14,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 78,
+      "reference_energy": 2641985.93444095,
+      "error_energy": 18291.259059141947
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 46475.18551575989,
+      "error_energy": 1001.6662472364143
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 66,
+      "reference_energy": 1733983.49499706,
+      "error_energy": 16245.854769863647
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 46475.18551575989,
+      "error_energy": 754.3278307946226
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 66,
+      "reference_energy": 1733983.49499706,
+      "error_energy": 15635.512084899301
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 959062571.0111657,
+      "error_energy": 5086947.805551975
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 66,
+      "reference_energy": 47856467260.58534,
+      "error_energy": 134117746.00698341
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 4.672709604569349,
+      "error_energy": 0.10070687073651807
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 66,
+      "reference_energy": 173.94224239287973,
+      "error_energy": 1.626369318375697
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 490.8182529573006,
+      "error_energy": 10.55967833153139
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 66,
+      "reference_energy": 17883.99294779195,
+      "error_energy": 164.48444744958988
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 82125.84953855588,
+      "error_energy": 1466.0152707490206
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 15,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 66,
+      "reference_energy": 1907015.725960542,
+      "error_energy": 21059.359626914476
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 49766.698620559735,
+      "error_energy": 1546.0581820807893
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 1644961.055934952,
+      "error_energy": 7681.57276966023
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 49766.698620559735,
+      "error_energy": 1571.121957869323
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 1644961.055934952,
+      "error_energy": 7656.86921171573
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 190875078.53539148,
+      "error_energy": 4816161.753584856
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 73017197971.8594,
+      "error_energy": 110888125.90344827
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 4.982217076733135,
+      "error_energy": 0.15484136997331938
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 164.72765650746555,
+      "error_energy": 0.7694336693397266
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 503.26664904006805,
+      "error_energy": 15.686875205021455
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 16685.557279634617,
+      "error_energy": 78.26618234373515
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 56462.00795496396,
+      "error_energy": 1665.376589049145
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 16,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 98,
+      "reference_energy": 1910547.3656759,
+      "error_energy": 10848.171901159003
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 17,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 2424282.2911789664,
+      "error_energy": 11724.551958118349
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 17,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 2424282.2911789664,
+      "error_energy": 10824.381229528726
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 17,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 73200638344.3169,
+      "error_energy": 113981808.16181186
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 17,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 242.9316474034922,
+      "error_energy": 1.174093274693599
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 17,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 24744.06143366985,
+      "error_energy": 118.94625875976085
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 17,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 112,
+      "reference_energy": 2662890.047850306,
+      "error_energy": 13970.208830500138
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 44258.55775301965,
+      "error_energy": 1377.657507726526
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 126,
+      "reference_energy": 3216160.042979791,
+      "error_energy": 28834.504789038394
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 44258.55775301965,
+      "error_energy": 1308.7556307973903
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 126,
+      "reference_energy": 3216160.042979791,
+      "error_energy": 28354.54331151752
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 96120462.9328328,
+      "error_energy": 2218697.2949936
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 126,
+      "reference_energy": 75417990071.96527,
+      "error_energy": 230147048.77474672
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 4.421085762489429,
+      "error_energy": 0.13770017315282737
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 126,
+      "reference_energy": 322.270879097855,
+      "error_energy": 2.8891938733090705
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 437.9016138914445,
+      "error_energy": 13.70659090442501
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 126,
+      "reference_energy": 32815.68355071849,
+      "error_energy": 294.2870123692058
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 41158.64946319596,
+      "error_energy": 1283.615324534914
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 18,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 126,
+      "reference_energy": 3768978.3737474075,
+      "error_energy": 36500.06439130903
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 378593.9161781493,
+      "error_energy": 6824.038647317175
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 1661084.7003752948,
+      "error_energy": 10140.052684211916
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 378593.9161781493,
+      "error_energy": 6271.2537721088975
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 1661084.7003752948,
+      "error_energy": 10140.06922812128
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 3008260852.647515,
+      "error_energy": 23150730.696957085
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 55215563815.36728,
+      "error_energy": 123674161.11491467
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 37.91151720103855,
+      "error_energy": 0.6826059738450778
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 166.412684875194,
+      "error_energy": 1.0159599178913714
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 3833.945307184685,
+      "error_energy": 68.33982393183177
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 16913.632672258922,
+      "error_energy": 103.435192453833
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 5,
+      "reference_energy": 381064.77938158065,
+      "error_energy": 6008.610074315055
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 19,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 95,
+      "reference_energy": 1898312.2490749452,
+      "error_energy": 12669.302277967283
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 647960.295701802,
+      "error_energy": 12027.24806448046
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 31,
+      "reference_energy": 850434.2938185512,
+      "error_energy": 7468.06498697321
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 647960.295701802,
+      "error_energy": 11891.034382622196
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 31,
+      "reference_energy": 850434.2938185512,
+      "error_energy": 7032.648778825476
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 4574056375.952537,
+      "error_energy": 37949068.43329482
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 31,
+      "reference_energy": 25148045661.294506,
+      "error_energy": 67813921.64936215
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 64.75799995399606,
+      "error_energy": 1.203776789766166
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 31,
+      "reference_energy": 85.3056588887808,
+      "error_energy": 0.7481946326705715
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 6435.081526842766,
+      "error_energy": 121.14405558142943
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 31,
+      "reference_energy": 8769.592360842587,
+      "error_energy": 76.04645340054407
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 8,
+      "reference_energy": 599719.4587547941,
+      "error_energy": 11482.544478623005
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 20,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 31,
+      "reference_energy": 1069172.6666298,
+      "error_energy": 8343.957769387007
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 121197.68718489702,
+      "error_energy": 2259.7273719172154
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 75,
+      "reference_energy": 1439392.6797026189,
+      "error_energy": 6964.960269407029
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 121197.68718489702,
+      "error_energy": 2280.8196251923146
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 75,
+      "reference_energy": 1439392.6797026189,
+      "error_energy": 6354.102122869477
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 857985349.5189478,
+      "error_energy": 9804671.097294072
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 75,
+      "reference_energy": 61664634294.72193,
+      "error_energy": 87183657.60164276
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 12.114907949555638,
+      "error_energy": 0.2262417952737342
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 75,
+      "reference_energy": 144.31211518535338,
+      "error_energy": 0.698600269036376
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 1206.6362795262198,
+      "error_energy": 22.85202258729862
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 75,
+      "reference_energy": 14768.734625185998,
+      "error_energy": 71.85943183861127
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 113654.04719510346,
+      "error_energy": 2395.0569755340066
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 21,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 75,
+      "reference_energy": 1596395.4358956446,
+      "error_energy": 9380.285476305176
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 352254.3770922789,
+      "error_energy": 7725.963009409723
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 88,
+      "reference_energy": 1323391.0328109758,
+      "error_energy": 8399.343074208176
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 352254.3770922789,
+      "error_energy": 6732.999822136854
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 88,
+      "reference_energy": 1323391.0328109758,
+      "error_energy": 8033.699254691983
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 2126555332.6555214,
+      "error_energy": 17424216.604278028
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 88,
+      "reference_energy": 41887497103.848206,
+      "error_energy": 105762402.08448356
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 35.201094847511314,
+      "error_energy": 0.7729809780734382
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 88,
+      "reference_energy": 132.47134309629328,
+      "error_energy": 0.8408364029289519
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 3496.7444007139457,
+      "error_energy": 77.60666017278542
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 88,
+      "reference_energy": 13364.483457308062,
+      "error_energy": 84.9006807017397
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 349270.85175072274,
+      "error_energy": 8584.54943104169
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 22,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 88,
+      "reference_energy": 1425175.7143473607,
+      "error_energy": 9290.599709447142
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 82458.15772279282,
+      "error_energy": 1358.5775782259539
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 83,
+      "reference_energy": 2024152.4521590506,
+      "error_energy": 10807.909064331398
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 82458.15772279282,
+      "error_energy": 1196.0777729513684
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 83,
+      "reference_energy": 2024152.4521590506,
+      "error_energy": 9829.160150272313
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 471325973.2126818,
+      "error_energy": 3812815.253792503
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 83,
+      "reference_energy": 69168732265.73602,
+      "error_energy": 111464450.95990628
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 8.222003621289147,
+      "error_energy": 0.13552360478995262
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 83,
+      "reference_energy": 202.8241749409565,
+      "error_energy": 1.0829084808192668
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 800.2435377650631,
+      "error_energy": 13.239213311520064
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 83,
+      "reference_energy": 20628.424358195138,
+      "error_energy": 110.19589019820654
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 58711.47115445357,
+      "error_energy": 988.2584800764782
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 23,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 83,
+      "reference_energy": 2121213.201430467,
+      "error_energy": 12557.211232549926
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 61991.53574661095,
+      "error_energy": 1551.854919037517
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 80,
+      "reference_energy": 1780611.5710953341,
+      "error_energy": 32587.401983958684
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 61991.53574661095,
+      "error_energy": 1704.3274360731627
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 80,
+      "reference_energy": 1780611.5710953341,
+      "error_energy": 31331.956295920034
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 589065449.4089999,
+      "error_energy": 6915076.455449196
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 80,
+      "reference_energy": 56990882925.462494,
+      "error_energy": 163800709.20092005
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 6.224211973577854,
+      "error_energy": 0.15562971993913632
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 80,
+      "reference_energy": 178.46524906098688,
+      "error_energy": 3.244424874407845
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 647.3977832669757,
+      "error_energy": 16.061332553843236
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 80,
+      "reference_energy": 18194.075075607034,
+      "error_energy": 310.21148008452764
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 2,
+      "reference_energy": 120858.07616080026,
+      "error_energy": 3736.67488148943
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 24,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 80,
+      "reference_energy": 1802475.262678948,
+      "error_energy": 28379.020084302636
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 162619.36415058663,
+      "error_energy": 3581.5904666380943
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 1554030.233516824,
+      "error_energy": 11033.72523455993
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 162619.36415058663,
+      "error_energy": 3443.614713355188
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 1554030.233516824,
+      "error_energy": 10271.637256083184
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 1221274127.6937556,
+      "error_energy": 13970959.491789354
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 51553515010.82087,
+      "error_energy": 121587272.05223335
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 16.282232463887954,
+      "error_energy": 0.3589555024603064
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 155.7520457322567,
+      "error_energy": 1.1053696643812785
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 1647.2883591517812,
+      "error_energy": 36.61665704617011
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 15888.99370323624,
+      "error_energy": 112.53466054585371
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 190815.85304349614,
+      "error_energy": 4338.178397284139
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 25,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 1737788.165487597,
+      "error_energy": 14368.674095061344
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 180900.83002743067,
+      "error_energy": 5684.610436102814
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 128,
+      "reference_energy": 2241375.41305336,
+      "error_energy": 15185.713109527711
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 180900.83002743067,
+      "error_energy": 5935.15626222231
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 128,
+      "reference_energy": 2241375.41305336,
+      "error_energy": 14819.238770794389
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 1168530382.9588728,
+      "error_energy": 21279648.13618645
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 128,
+      "reference_energy": 72852638471.12027,
+      "error_energy": 175558754.28458434
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 18.088362543648767,
+      "error_energy": 0.5685533687795336
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 128,
+      "reference_energy": 224.4006885277503,
+      "error_energy": 1.519635418879795
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 1809.485823875361,
+      "error_energy": 56.938285408274695
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 128,
+      "reference_energy": 22674.28868446801,
+      "error_energy": 152.9632190170896
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 206975.92716750782,
+      "error_energy": 6045.146999072122
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 26,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 128,
+      "reference_energy": 2447055.790395662,
+      "error_energy": 16603.243971195192
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 226474.3760457209,
+      "error_energy": 2655.6813713152706
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 53,
+      "reference_energy": 1241085.0546031236,
+      "error_energy": 6897.980834085893
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 226474.3760457209,
+      "error_energy": 2389.3272703967564
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 53,
+      "reference_energy": 1241085.0546031236,
+      "error_energy": 6124.108027831961
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 2853234337.4215155,
+      "error_energy": 11844198.288197326
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 53,
+      "reference_energy": 44877511621.06525,
+      "error_energy": 74770158.31456739
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 22.493754647933073,
+      "error_energy": 0.2652587281015842
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 53,
+      "reference_energy": 124.31373452402065,
+      "error_energy": 0.6912129428844582
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 2121.1451540644457,
+      "error_energy": 26.36447072719834
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 53,
+      "reference_energy": 12608.308358551072,
+      "error_energy": 70.43862473671108
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 151945.10097932926,
+      "error_energy": 3130.1254659521833
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 27,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 53,
+      "reference_energy": 1295276.447179283,
+      "error_energy": 8184.706256137866
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 215098.9056477244,
+      "error_energy": 4690.975650048907
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 1441103.7415087167,
+      "error_energy": 8784.31224459541
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 215098.9056477244,
+      "error_energy": 4572.584752867508
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 1441103.7415087167,
+      "error_energy": 7761.505330777073
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 5397640749.728887,
+      "error_energy": 37005640.966935426
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 82538373875.34991,
+      "error_energy": 103975819.59700102
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 21.528565899409653,
+      "error_energy": 0.4699543704835859
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 144.5807657490752,
+      "error_energy": 0.8818892592133778
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 2173.8531312223795,
+      "error_energy": 47.851932949792115
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 14894.727189787449,
+      "error_energy": 91.46136586108597
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 294315.04198072746,
+      "error_energy": 7131.809322508219
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 28,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 76,
+      "reference_energy": 1975683.1755705976,
+      "error_energy": 12843.618865322214
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 24224.76360978287,
+      "error_energy": 314.3529374444195
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 105,
+      "reference_energy": 1587208.9629912265,
+      "error_energy": 6865.628145319575
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 24224.76360978287,
+      "error_energy": 296.2371894671617
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 105,
+      "reference_energy": 1587208.9629912265,
+      "error_energy": 6332.1059999472545
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 356540492.57466793,
+      "error_energy": 2779823.171846672
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 105,
+      "reference_energy": 72654088752.46753,
+      "error_energy": 102378773.91738558
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 2.4177774918140766,
+      "error_energy": 0.03143493612424461
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 105,
+      "reference_energy": 158.97151498689848,
+      "error_energy": 0.6872086915294441
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 237.57040417476463,
+      "error_energy": 3.144068932692506
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 105,
+      "reference_energy": 16124.160728855224,
+      "error_energy": 69.37934723292004
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 20523.636145224562,
+      "error_energy": 329.4281951846624
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 29,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 105,
+      "reference_energy": 1804053.918035891,
+      "error_energy": 8097.647475673463
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 128193.32251587985,
+      "error_energy": 2892.2364210193155
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 82,
+      "reference_energy": 1245101.2761532164,
+      "error_energy": 6061.93392946574
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 128193.32251587985,
+      "error_energy": 2820.074871752602
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 82,
+      "reference_energy": 1245101.2761532164,
+      "error_energy": 6082.807562691425
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 579196903.8723495,
+      "error_energy": 6826863.0295336135
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 82,
+      "reference_energy": 62403728278.86562,
+      "error_energy": 86962365.01218545
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 12.908434865075332,
+      "error_energy": 0.29089099785660544
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 82,
+      "reference_energy": 124.683518770269,
+      "error_energy": 0.6067663486030275
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 1377.3022987068043,
+      "error_energy": 30.71040753123112
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 82,
+      "reference_energy": 12622.358204367754,
+      "error_energy": 61.24126864650262
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 3,
+      "reference_energy": 265359.0158377542,
+      "error_energy": 5520.808987118657
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 30,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 82,
+      "reference_energy": 1367833.8002241778,
+      "error_energy": 7141.109742507557
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 427340.4877846249,
+      "error_energy": 9219.499364217008
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 1525920.473018842,
+      "error_energy": 8277.460690395317
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 427340.4877846249,
+      "error_energy": 8326.479647760949
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 1525920.473018842,
+      "error_energy": 8204.330448517767
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 3414385202.459301,
+      "error_energy": 33174834.40152794
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 56061355747.91425,
+      "error_energy": 92410132.21947001
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 42.73680788372326,
+      "error_energy": 0.9224392087173772
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 152.85123404005407,
+      "error_energy": 0.8284486860230516
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 4275.812860625742,
+      "error_energy": 92.68995540831477
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 15520.369774045657,
+      "error_energy": 83.4852312535871
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 422440.58058041113,
+      "error_energy": 9322.637014928814
+    },
+    {
+      "domain": "fineweb",
+      "document_index": 31,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 94,
+      "reference_energy": 1769152.1008966446,
+      "error_energy": 9010.552950393876
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 92689.6352933537,
+      "error_energy": 1260.7247409581382
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 8,
+      "reference_energy": 77119.41591015253,
+      "error_energy": 456.42621375508793
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 92689.6352933537,
+      "error_energy": 1079.8710295705982
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 8,
+      "reference_energy": 77119.41591015253,
+      "error_energy": 428.26650305759176
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 1909714985.466246,
+      "error_energy": 6830994.2021842925
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 8,
+      "reference_energy": 2145740364.3329968,
+      "error_energy": 4273402.9345036745
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 9.254521411105033,
+      "error_energy": 0.12565776807552848
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 8,
+      "reference_energy": 7.716566013401284,
+      "error_energy": 0.045683437292603435
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 912.6188851024501,
+      "error_energy": 12.201593759991962
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 8,
+      "reference_energy": 775.6851256413511,
+      "error_energy": 4.604745238567945
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 81675.8324446152,
+      "error_energy": 935.1620979537072
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 0,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 8,
+      "reference_energy": 80338.42826749815,
+      "error_energy": 491.4864841895977
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 242857.64936421445,
+      "error_energy": 3507.961863290763
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 15,
+      "reference_energy": 284091.36421296245,
+      "error_energy": 1754.8601542713534
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 242857.64936421445,
+      "error_energy": 2974.6468715208375
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 15,
+      "reference_energy": 284091.36421296245,
+      "error_energy": 1606.169106428908
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 2690191863.6438174,
+      "error_energy": 10627241.124533117
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 15,
+      "reference_energy": 7369082873.872158,
+      "error_energy": 14821255.894232815
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 24.253198355767367,
+      "error_energy": 0.35158008002530916
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 15,
+      "reference_energy": 28.434178936703155,
+      "error_energy": 0.1756436079535769
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 2399.03287724648,
+      "error_energy": 35.93051124169864
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 15,
+      "reference_energy": 2864.75610187835,
+      "error_energy": 17.705454780067086
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 253554.475592267,
+      "error_energy": 5159.340064690231
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 1,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 15,
+      "reference_energy": 293378.1405956783,
+      "error_energy": 1831.5058157553826
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 92542.3442894328,
+      "error_energy": 1311.0039041119683
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 101718.67081571651,
+      "error_energy": 649.891528078743
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 92542.3442894328,
+      "error_energy": 1199.9566016397782
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 101718.67081571651,
+      "error_energy": 617.8670468306275
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 930561905.1140407,
+      "error_energy": 4594646.1807819605
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 3261791644.515772,
+      "error_energy": 6208861.463647426
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 9.2412321761627,
+      "error_energy": 0.13102948084458005
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 10.175953532512196,
+      "error_energy": 0.06495452285474107
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 912.8053952673934,
+      "error_energy": 13.044369222310937
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 1021.4301337866,
+      "error_energy": 6.464300265472243
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 84820.4547248974,
+      "error_energy": 1302.7511889563148
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 2,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 107110.92771596162,
+      "error_energy": 613.7379145777165
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 109478.22308569815,
+      "error_energy": 1975.7226626807276
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 79830.54043635457,
+      "error_energy": 507.2436678383221
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 109478.22308569815,
+      "error_energy": 1968.367978246003
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 79830.54043635457,
+      "error_energy": 432.374082668259
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 598024367.6556494,
+      "error_energy": 6913570.982946567
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 2587764235.377919,
+      "error_energy": 4680337.035408424
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 10.947181451900782,
+      "error_energy": 0.19775133064644018
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 7.985720943106328,
+      "error_energy": 0.05074659241240132
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 1094.1390453781871,
+      "error_energy": 19.93189269616614
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 801.1442365605269,
+      "error_energy": 5.09565082386826
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 7,
+      "reference_energy": 109732.9533072953,
+      "error_energy": 2100.2280400619175
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 3,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 86440.81481911095,
+      "error_energy": 555.8009712113649
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 6269.860723446976,
+      "error_energy": 67.2150511395722
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 110301.80151333398,
+      "error_energy": 762.7745082854908
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 6269.860723446976,
+      "error_energy": 61.29765196948078
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 110301.80151333398,
+      "error_energy": 639.8628219686035
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 114758019.61196798,
+      "error_energy": 424225.4656782334
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 4079644345.102392,
+      "error_energy": 7340062.844885865
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 0.6276474775509442,
+      "error_energy": 0.006729640611285576
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 11.06163645669828,
+      "error_energy": 0.07640647937837561
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 63.364448777394145,
+      "error_energy": 0.6802529970234966
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 1135.5764166668737,
+      "error_energy": 7.755406692054224
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 1,
+      "reference_energy": 6963.107526619825,
+      "error_energy": 74.77815352806329
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 4,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 147571.74022565596,
+      "error_energy": 819.434453782736
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 61052.12469578664,
+      "error_energy": 865.2210279625399
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 42222.19876652399,
+      "error_energy": 290.99428245508415
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 61052.12469578664,
+      "error_energy": 788.1464335136445
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 42222.19876652399,
+      "error_energy": 263.2106312517153
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 534322983.993177,
+      "error_energy": 3180497.6551061636
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 1085028079.7310257,
+      "error_energy": 2400430.9792921958
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 6.09653219055407,
+      "error_energy": 0.0864057985835173
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 4.23007806658668,
+      "error_energy": 0.02913739166634101
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 601.807616136581,
+      "error_energy": 8.536438603729183
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 430.19426859606637,
+      "error_energy": 2.948060795922842
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 53077.84956420447,
+      "error_energy": 761.7096141433042
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 5,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 5,
+      "reference_energy": 50724.41711036416,
+      "error_energy": 328.98612962347534
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 15,
+      "reference_energy": 190053.59960867427,
+      "error_energy": 2493.2309732445083
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 19,
+      "reference_energy": 155210.05001002204,
+      "error_energy": 950.0074133206535
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 15,
+      "reference_energy": 190053.59960867427,
+      "error_energy": 1948.4833934456494
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 19,
+      "reference_energy": 155210.05001002204,
+      "error_energy": 886.2699261541298
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 15,
+      "reference_energy": 2589250072.8387475,
+      "error_energy": 9206641.264260244
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 19,
+      "reference_energy": 5671446256.281218,
+      "error_energy": 10449106.731654268
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 15,
+      "reference_energy": 19.006209464441454,
+      "error_energy": 0.24908600806210238
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 19,
+      "reference_energy": 15.52171371325753,
+      "error_energy": 0.09508187041163457
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 15,
+      "reference_energy": 1904.772470293576,
+      "error_energy": 24.755178788167534
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 19,
+      "reference_energy": 1552.4350014389042,
+      "error_energy": 9.580943209546373
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 15,
+      "reference_energy": 225751.46983565233,
+      "error_energy": 3035.103640131011
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 6,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 19,
+      "reference_energy": 152235.78354796313,
+      "error_energy": 1028.5897799618479
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 11,
+      "reference_energy": 59832.15454670222,
+      "error_energy": 960.193050444653
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 59439.32223031444,
+      "error_energy": 350.0361536360251
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 11,
+      "reference_energy": 59832.15454670222,
+      "error_energy": 880.2682613578274
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 59439.32223031444,
+      "error_energy": 351.03169653847164
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 11,
+      "reference_energy": 617598447.2717102,
+      "error_energy": 4626824.560262523
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 2062500552.2649078,
+      "error_energy": 4395754.949189674
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 11,
+      "reference_energy": 5.986045371130093,
+      "error_energy": 0.09606298812791861
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 5.9505433904048735,
+      "error_energy": 0.03503760453635654
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 11,
+      "reference_energy": 601.2615699535609,
+      "error_energy": 9.645215974169599
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 600.9667258159373,
+      "error_energy": 3.534160133398502
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 11,
+      "reference_energy": 64607.14289784072,
+      "error_energy": 1004.6738215244283
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 7,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 65312.57303263866,
+      "error_energy": 378.6165414435519
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 27,
+      "reference_energy": 1520039.873880609,
+      "error_energy": 23332.12380009466
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 11,
+      "reference_energy": 119171.68987944334,
+      "error_energy": 989.7667372624312
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 27,
+      "reference_energy": 1520039.873880609,
+      "error_energy": 13824.794450024894
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 11,
+      "reference_energy": 119171.68987944334,
+      "error_energy": 882.5510755041012
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 27,
+      "reference_energy": 11679681180.552515,
+      "error_energy": 42320071.69088341
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 11,
+      "reference_energy": 4521062226.196206,
+      "error_energy": 11210235.029258154
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 27,
+      "reference_energy": 151.54001123079476,
+      "error_energy": 2.319242402425476
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 11,
+      "reference_energy": 11.924137830076262,
+      "error_energy": 0.09908406517768824
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 27,
+      "reference_energy": 14824.06891561195,
+      "error_energy": 222.21440827830963
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 11,
+      "reference_energy": 1198.7735635548352,
+      "error_energy": 10.005955430274637
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 27,
+      "reference_energy": 994952.8435870965,
+      "error_energy": 18965.13712284102
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 8,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 11,
+      "reference_energy": 127873.25621695335,
+      "error_energy": 1095.3060139010734
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 19,
+      "reference_energy": 875966.6349658557,
+      "error_energy": 14969.865397873396
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 9,
+      "reference_energy": 166591.37915810721,
+      "error_energy": 1145.8648276525707
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 19,
+      "reference_energy": 875966.6349658557,
+      "error_energy": 10397.221861083764
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 9,
+      "reference_energy": 166591.37915810721,
+      "error_energy": 963.2822039105471
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 19,
+      "reference_energy": 4716374827.991264,
+      "error_energy": 24368965.374260783
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 9,
+      "reference_energy": 5302826221.984384,
+      "error_energy": 12199807.670713974
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 19,
+      "reference_energy": 87.35414365963996,
+      "error_energy": 1.4925680375329053
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 9,
+      "reference_energy": 16.658671615982353,
+      "error_energy": 0.11459965024499015
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 19,
+      "reference_energy": 8536.27454267472,
+      "error_energy": 145.65907019023467
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 9,
+      "reference_energy": 1665.6950315020963,
+      "error_energy": 11.48707546735013
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 19,
+      "reference_energy": 865537.0358060487,
+      "error_energy": 15910.860207282753
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 9,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 9,
+      "reference_energy": 176893.7376042308,
+      "error_energy": 1278.6297030179862
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 229748.6915930853,
+      "error_energy": 3571.172123287368
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 10,
+      "reference_energy": 87120.38161595166,
+      "error_energy": 510.22519524799316
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 229748.6915930853,
+      "error_energy": 2651.423901948591
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 10,
+      "reference_energy": 87120.38161595166,
+      "error_energy": 488.96511552212075
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 2405826633.321915,
+      "error_energy": 9527096.644984774
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 10,
+      "reference_energy": 2595577552.8084335,
+      "error_energy": 5708666.22751227
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 23.08270916661354,
+      "error_energy": 0.3589517204331041
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 10,
+      "reference_energy": 8.715702293105803,
+      "error_energy": 0.05106081231153316
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 2410.583982821234,
+      "error_energy": 37.663348712856425
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 10,
+      "reference_energy": 874.6292668515139,
+      "error_energy": 5.140821563473545
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 9,
+      "reference_energy": 402562.71581915196,
+      "error_energy": 7056.995168966854
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 10,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 10,
+      "reference_energy": 88253.5142019252,
+      "error_energy": 547.9553153014741
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 16,
+      "reference_energy": 686744.547293331,
+      "error_energy": 7831.164163206035
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 78008.00906435895,
+      "error_energy": 454.71712733615755
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 16,
+      "reference_energy": 686744.547293331,
+      "error_energy": 5831.892752905676
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 78008.00906435895,
+      "error_energy": 388.9138572472931
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 16,
+      "reference_energy": 5360686732.489069,
+      "error_energy": 16331597.615022494
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 2793734123.3536615,
+      "error_energy": 4708529.959250412
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 16,
+      "reference_energy": 68.25199201889345,
+      "error_energy": 0.7789176052920223
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 7.814420056068203,
+      "error_energy": 0.04545936511383067
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 16,
+      "reference_energy": 6462.761145749567,
+      "error_energy": 74.57200949087729
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 793.7954217217768,
+      "error_energy": 4.532779908709488
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 16,
+      "reference_energy": 429663.4654306988,
+      "error_energy": 6843.119334567536
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 11,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 6,
+      "reference_energy": 90472.36334167444,
+      "error_energy": 419.4785923880812
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 17,
+      "reference_energy": 469624.90073725505,
+      "error_energy": 10148.158045705688
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 20,
+      "reference_energy": 339371.40693325124,
+      "error_energy": 6156.921931879426
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 17,
+      "reference_energy": 469624.90073725505,
+      "error_energy": 6953.77784137735
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 20,
+      "reference_energy": 339371.40693325124,
+      "error_energy": 4612.950043137256
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 17,
+      "reference_energy": 3433727710.865736,
+      "error_energy": 19844577.283902407
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 20,
+      "reference_energy": 7305503582.255718,
+      "error_energy": 24488618.452378634
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 17,
+      "reference_energy": 46.955138820022455,
+      "error_energy": 1.0159411483694845
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 20,
+      "reference_energy": 34.22612238504486,
+      "error_energy": 0.6290471517762443
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 17,
+      "reference_energy": 4704.749041696155,
+      "error_energy": 103.09303430823626
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 20,
+      "reference_energy": 3725.721621032423,
+      "error_energy": 77.06903536495753
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 17,
+      "reference_energy": 658921.6617582517,
+      "error_energy": 17300.910027784128
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 12,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 20,
+      "reference_energy": 465472.4715380207,
+      "error_energy": 12751.961599740489
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 18,
+      "reference_energy": 311665.8416867427,
+      "error_energy": 4299.591131539699
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 75743.88449450667,
+      "error_energy": 451.20000024967146
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 18,
+      "reference_energy": 311665.8416867427,
+      "error_energy": 3353.3881387341885
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 75743.88449450667,
+      "error_energy": 441.4398054704943
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 18,
+      "reference_energy": 4301502624.605116,
+      "error_energy": 14077630.015639434
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 2786421201.37506,
+      "error_energy": 5244068.577057522
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 18,
+      "reference_energy": 31.32948324936634,
+      "error_energy": 0.43314021156753474
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 7.574346367592669,
+      "error_energy": 0.04512757368698252
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 18,
+      "reference_energy": 3290.485806406317,
+      "error_energy": 46.46560351662734
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 757.3635667831518,
+      "error_energy": 4.519166166080151
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 18,
+      "reference_energy": 571131.0704226502,
+      "error_energy": 11638.736614451813
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 13,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 75474.05451821338,
+      "error_energy": 454.0126031865408
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 79758.26069992309,
+      "error_energy": 741.619988867797
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 94290.39427388668,
+      "error_energy": 744.9245394042247
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 79758.26069992309,
+      "error_energy": 595.2950564093198
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 94290.39427388668,
+      "error_energy": 692.316775458943
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 1702012471.0429885,
+      "error_energy": 4145412.5284266993
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 3505393176.6176953,
+      "error_energy": 8528491.442297094
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 7.958527691166692,
+      "error_energy": 0.07429925045326116
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 9.434125058100753,
+      "error_energy": 0.07455394602054377
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 780.4092740316128,
+      "error_energy": 7.553651822337653
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 948.0679246598768,
+      "error_energy": 7.513081693400602
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 4,
+      "reference_energy": 66022.49186083797,
+      "error_energy": 828.3046077249628
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 14,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 12,
+      "reference_energy": 100285.05829774472,
+      "error_energy": 844.9020377088289
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "tangent",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 109752.39148251407,
+      "error_energy": 1549.7008736866267
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "tangent",
+      "cohort": "spaced_word",
+      "sites": 4,
+      "reference_energy": 42710.63116325105,
+      "error_energy": 222.32820641235332
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "tangent_common_background",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 109752.39148251407,
+      "error_energy": 1141.9231806091802
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "tangent_common_background",
+      "cohort": "spaced_word",
+      "sites": 4,
+      "reference_energy": 42710.63116325105,
+      "error_energy": 197.42062142634114
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "residual_tangent",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 1146413290.5490391,
+      "error_energy": 5530968.042089928
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "residual_tangent",
+      "cohort": "spaced_word",
+      "sites": 4,
+      "reference_energy": 1861260279.6034455,
+      "error_energy": 2381579.8523217863
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "0.01",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 10.91908472485132,
+      "error_energy": 0.15386531412054322
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "0.01",
+      "cohort": "spaced_word",
+      "sites": 4,
+      "reference_energy": 4.275081874637449,
+      "error_energy": 0.022270252674023206
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "0.1",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 1043.1694702429927,
+      "error_energy": 14.45571462374269
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "0.1",
+      "cohort": "spaced_word",
+      "sites": 4,
+      "reference_energy": 431.0779589511184,
+      "error_energy": 2.260930757122801
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "1.0",
+      "cohort": "continuation",
+      "sites": 6,
+      "reference_energy": 71310.24232578705,
+      "error_energy": 939.9872851343399
+    },
+    {
+      "domain": "stdlib",
+      "document_index": 15,
+      "arm": "1.0",
+      "cohort": "spaced_word",
+      "sites": 4,
+      "reference_energy": 45832.19557463414,
+      "error_energy": 262.7521449112361
+    }
+  ],
+  "central_difference_error": 2.7547080939920215e-09,
+  "prior_alpha1_replay": 5.463760080481883e-08,
+  "toy_controls": [
+    {
+      "value_error": 1.985245508062155e-16,
+      "derivative_error": 3.091768828424421e-16
+    },
+    {
+      "value_error": 2.105929593620022e-16,
+      "derivative_error": 8.331256843523294e-16
+    },
+    {
+      "value_error": 3.133904288159106e-16,
+      "derivative_error": 7.121432082508015e-16
+    },
+    {
+      "value_error": 5.537714379516426e-16,
+      "derivative_error": 1.005990642693084e-15
+    },
+    {
+      "value_error": 3.6712090460697507e-16,
+      "derivative_error": 2.3621741917176285e-16
+    }
+  ],
+  "seconds": 8.952861875295639,
+  "scope": "Opened same-token/same-cohort donors. Analytic derivative includes input RMS, residual identity, bilinear or affine student, final RMS and softcap. Common-background derivative uses native endpoint normalization Jacobian for both residual tangents. This separates background sensitivity from derivative mismatch; it is not a new fit or whole upstream-state interchange."
+}
