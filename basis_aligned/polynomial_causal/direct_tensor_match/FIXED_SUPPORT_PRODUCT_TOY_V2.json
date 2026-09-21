@@ -1,0 +1,82 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:21:17.043621+00:00",
+    "steps": 1800,
+    "rate": 0.03,
+    "optimizer": "Muon",
+    "seeds": [
+      0,
+      1
+    ],
+    "threshold": 0.01,
+    "required_cases": 4,
+    "pred_a": "Reduced-space/full-space coefficient errors and gradients agree including deliberately nonzero outside residual.",
+    "pred_b": "At least4of5planted product graphs recoverwithin1%inoneof2randomstarts withknownfixedsupports.",
+    "scope": "Second-stage random product fitting with support guidance. Does not count densecore ascheapgraph. Native first-stage experiment stilllive; no native second-stagequeuebeforeterminalinterpretation.",
+    "mixed": true,
+    "question": "Same support-guided product fitting with each two-slot product block split into a shared and private slot; all5knownstructures retained atsame sizes and2randomstarts."
+  },
+  "records": [
+    {
+      "case": 0,
+      "seed": 0,
+      "regularized_root_error": 0.016594614931639533
+    },
+    {
+      "case": 0,
+      "seed": 1,
+      "regularized_root_error": 0.0021809964011576858
+    },
+    {
+      "case": 1,
+      "seed": 0,
+      "regularized_root_error": 0.0071472582443727
+    },
+    {
+      "case": 1,
+      "seed": 1,
+      "regularized_root_error": 0.012486632105477308
+    },
+    {
+      "case": 2,
+      "seed": 0,
+      "regularized_root_error": 0.01146540142232446
+    },
+    {
+      "case": 2,
+      "seed": 1,
+      "regularized_root_error": 0.01656856575093223
+    },
+    {
+      "case": 3,
+      "seed": 0,
+      "regularized_root_error": 0.0185024492082602
+    },
+    {
+      "case": 3,
+      "seed": 1,
+      "regularized_root_error": 0.01919380988247064
+    },
+    {
+      "case": 4,
+      "seed": 0,
+      "regularized_root_error": 0.013598275927659552
+    },
+    {
+      "case": 4,
+      "seed": 1,
+      "regularized_root_error": 0.02475733886548763
+    }
+  ],
+  "best_restart_errors": [
+    0.0021809964011576858,
+    0.0071472582443727,
+    0.01146540142232446,
+    0.0185024492082602,
+    0.013598275927659552
+  ],
+  "recovered_cases": 2,
+  "recovery_pass": false,
+  "seconds": 32.58114154078066,
+  "scope": "Product coefficients randomly initialized within known fixed shared/pair supports. Establishes stage2recovery with oracle support guidance, not discovery of supports or native success."
+}
