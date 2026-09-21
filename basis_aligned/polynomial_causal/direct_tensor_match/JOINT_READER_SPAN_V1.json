@@ -1,0 +1,125 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_0",
+      "components": [
+        {
+          "mode": 1,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.08626144279611178,
+          "component_error": 0.02381753708069394,
+          "dense_symmetric_core_coefficients": 124256
+        },
+        {
+          "mode": 2,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.08397976758025899,
+          "component_error": 0.02227934202972833,
+          "dense_symmetric_core_coefficients": 124256
+        },
+        {
+          "mode": 3,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.07129039049852359,
+          "component_error": 0.1263189974483332,
+          "dense_symmetric_core_coefficients": 124256
+        }
+      ],
+      "dense_core_metric_error": 0.08077944799170386,
+      "actual_product_graph_metric_error": 0.08223715301695697,
+      "scope": "Optimal coefficient projection within these fixed pair input spans, but not an adopted/priced shared program. Recompiling dense pair cores would change reader maps and arithmetic."
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "components": [
+        {
+          "mode": 1,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.0867255258443451,
+          "component_error": 0.024997835724246097,
+          "dense_symmetric_core_coefficients": 124256
+        },
+        {
+          "mode": 2,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.08386220443961168,
+          "component_error": 0.02362840879494101,
+          "dense_symmetric_core_coefficients": 124256
+        },
+        {
+          "mode": 3,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.0711553623692156,
+          "component_error": 0.12600242648094404,
+          "dense_symmetric_core_coefficients": 124256
+        }
+      ],
+      "dense_core_metric_error": 0.08086464361376522,
+      "actual_product_graph_metric_error": 0.08239320493165532,
+      "scope": "Optimal coefficient projection within these fixed pair input spans, but not an adopted/priced shared program. Recompiling dense pair cores would change reader maps and arithmetic."
+    },
+    {
+      "key": "native_isotropic_0",
+      "components": [
+        {
+          "mode": 1,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.4835237948636804,
+          "component_error": 0.018779206254711838,
+          "dense_symmetric_core_coefficients": 124256
+        },
+        {
+          "mode": 2,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.5193051242460829,
+          "component_error": 0.03097435055686068,
+          "dense_symmetric_core_coefficients": 124256
+        },
+        {
+          "mode": 3,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.5405468698853534,
+          "component_error": 0.1403340578786462,
+          "dense_symmetric_core_coefficients": 124256
+        }
+      ],
+      "dense_core_metric_error": 0.5149964371431668,
+      "actual_product_graph_metric_error": 0.5190564556175348,
+      "scope": "Optimal coefficient projection within these fixed pair input spans, but not an adopted/priced shared program. Recompiling dense pair cores would change reader maps and arithmetic."
+    },
+    {
+      "key": "native_isotropic_26301",
+      "components": [
+        {
+          "mode": 1,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.48315349662310964,
+          "component_error": 0.02150967685597864,
+          "dense_symmetric_core_coefficients": 124256
+        },
+        {
+          "mode": 2,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.5191574140224673,
+          "component_error": 0.03040429835454025,
+          "dense_symmetric_core_coefficients": 124256
+        },
+        {
+          "mode": 3,
+          "span_rank": 352,
+          "metric_coefficient_error": 0.5407506914017219,
+          "component_error": 0.1398884199449707,
+          "dense_symmetric_core_coefficients": 124256
+        }
+      ],
+      "dense_core_metric_error": 0.5149022664820555,
+      "actual_product_graph_metric_error": 0.519038258375934,
+      "scope": "Optimal coefficient projection within these fixed pair input spans, but not an adopted/priced shared program. Recompiling dense pair cores would change reader maps and arithmetic."
+    }
+  ],
+  "coefficient_guards": {
+    "native_error": 0.6078558841808147,
+    "covariance_error": 0.07734469220772448
+  },
+  "scope": "Separates reader-span restriction from fixed product topology for the overlapping edit. Uses opened448only; no native model forward or fresh claim."
+}

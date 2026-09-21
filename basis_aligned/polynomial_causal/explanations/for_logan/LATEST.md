@@ -1,6 +1,8 @@
 # Latest requested update for Logan
 
-**Start here — [Overall review: from folded weights to a simpler arithmetic program](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 10:42 UTC. Explains the original QR → decomposition → graph plan, distinguishes the broad and local targets, and summarizes completed evidence through the 10:37 fresh tests.
+**Start here — [From folded weights to a simpler circuit: the overall research review](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 11:53 UTC. Explains QR, the two-stage decomposition and graph plan, why the experiments narrowed to selected components, and what the latest results do and do not establish.
+
+**Latest input-space diagnostic — [Input subspaces before graph search](research_update_2026-09-21_1158_input_subspaces_before_graph_search.md).** Unrestricted cores in the learned spans still miss the coefficient requirement; tested private-span replacements do not fix it. Support-guided toys recover four of five, but native supports must improve.
 
 **Latest joint fit — [Optimizer recovery, native fitting and shared-feature identity](research_update_2026-09-21_1132_joint_graph_fit_and_identity.md).** Muon recovers all five planted graphs after a longer schedule. Native joint fitting improves greatly but fails fidelity; shared-branch identity differs across starts despite similar overall functions.
 

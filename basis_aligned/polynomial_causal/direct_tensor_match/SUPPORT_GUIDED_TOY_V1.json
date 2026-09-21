@@ -1,0 +1,157 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:45:42.937554+00:00",
+    "steps": 3600,
+    "optimizer": "Muon",
+    "rate": 0.03,
+    "seeds": [
+      0,
+      1
+    ],
+    "source": "Five unchanged mixed-slot fixture targets",
+    "method": "Recover pair input ranges from eigenvectors of sum_o Q_o^2. Recover common intersection from eigenvalue3ofsum pair projectors. Constrain shared directions to intersection and private directions to each pair support. All initialization coefficients random; planted parameters used only for oracle representability check.",
+    "threshold": "At least4of5known targets within1%in one of two starts. All originals retained; this is a new support-guided pipeline, not a relabeled pass of unrestricted optimization.",
+    "opposing_predictions": "If irrelevant input directions/basin geometry cause failure, target-support constraints should improve recovery. If it stillfails, fixed mixed product arrangement or local optimization remains problematic; do not claim native circuit failure from it.",
+    "limits": "Exact support available for planted low-rank targets. Native teacher forms have full support; this directly motivates testing approximate supports from an earlier decomposition, but is not automatically a native solution."
+  },
+  "controls": [
+    {
+      "case": 0,
+      "pair_support_dimensions": [
+        5,
+        5,
+        5
+      ],
+      "intersection_dimension": 3,
+      "planted_shared_width": 1,
+      "oracle_parameter_replay": 3.80468076458505e-15
+    },
+    {
+      "case": 1,
+      "pair_support_dimensions": [
+        6,
+        6,
+        6
+      ],
+      "intersection_dimension": 4,
+      "planted_shared_width": 2,
+      "oracle_parameter_replay": 1.5484027822911804e-14
+    },
+    {
+      "case": 2,
+      "pair_support_dimensions": [
+        5,
+        5,
+        5
+      ],
+      "intersection_dimension": 3,
+      "planted_shared_width": 3,
+      "oracle_parameter_replay": 1.9867622789005103e-14
+    },
+    {
+      "case": 3,
+      "pair_support_dimensions": [
+        3,
+        3,
+        3
+      ],
+      "intersection_dimension": 1,
+      "planted_shared_width": 1,
+      "oracle_parameter_replay": 1.3104639900625668e-15
+    },
+    {
+      "case": 4,
+      "pair_support_dimensions": [
+        4,
+        4,
+        4
+      ],
+      "intersection_dimension": 2,
+      "planted_shared_width": 2,
+      "oracle_parameter_replay": 1.5714846210260558e-15
+    }
+  ],
+  "records": [
+    {
+      "case": 0,
+      "seed": 0,
+      "initial_error": 0.647232838682444,
+      "final_error": 0.04841779742674592,
+      "best_step": 3600
+    },
+    {
+      "case": 0,
+      "seed": 1,
+      "initial_error": 0.7991863865711748,
+      "final_error": 1.3775282000128997e-05,
+      "best_step": 3599
+    },
+    {
+      "case": 1,
+      "seed": 0,
+      "initial_error": 0.8119613481317807,
+      "final_error": 0.0268723071260382,
+      "best_step": 3600
+    },
+    {
+      "case": 1,
+      "seed": 1,
+      "initial_error": 0.7704171000880494,
+      "final_error": 0.0285168934833731,
+      "best_step": 3600
+    },
+    {
+      "case": 2,
+      "seed": 0,
+      "initial_error": 0.6098797890065986,
+      "final_error": 0.0008538633174873399,
+      "best_step": 3600
+    },
+    {
+      "case": 2,
+      "seed": 1,
+      "initial_error": 0.6990497346161555,
+      "final_error": 0.0017528603486385373,
+      "best_step": 3600
+    },
+    {
+      "case": 3,
+      "seed": 0,
+      "initial_error": 0.49763665834774096,
+      "final_error": 1.2801882647012018e-05,
+      "best_step": 3600
+    },
+    {
+      "case": 3,
+      "seed": 1,
+      "initial_error": 0.5997631528054096,
+      "final_error": 0.008787865392161727,
+      "best_step": 3600
+    },
+    {
+      "case": 4,
+      "seed": 0,
+      "initial_error": 0.5488770856626309,
+      "final_error": 3.087826170718193e-05,
+      "best_step": 3599
+    },
+    {
+      "case": 4,
+      "seed": 1,
+      "initial_error": 0.6277194290827519,
+      "final_error": 6.847052166344103e-05,
+      "best_step": 3597
+    }
+  ],
+  "best_restart_errors": [
+    1.3775282000128997e-05,
+    0.0268723071260382,
+    0.0008538633174873399,
+    1.2801882647012018e-05,
+    3.087826170718193e-05
+  ],
+  "recovered_cases": 4,
+  "recovery_pass": true,
+  "seconds": 62.80751462560147,
+  "scope": "Random coefficients within weight-derived exact pair supports and their common intersection. This changes the optimization parameterization, not the target or held recovery threshold. Does not retroactively pass unrestricted random initialization. Native full-rank forms need approximate learned supports; no native success asserted."
+}
