@@ -1,0 +1,22 @@
+[
+  {
+    "arm": "uniform",
+    "train_feature_leverage_median": 0.06456372280607704,
+    "eval_feature_leverage_median": 0.0592292556835193,
+    "eval_above_train_99percentile": 20,
+    "eval_highest_leverage_decile_weighted_error_share": 0.050901011814951096,
+    "eval_highest_leverage_decile_reference_share": 0.08265066604358713,
+    "eval_weighted_error": 0.14606742056462,
+    "scope": "Root1 only. Ridge inverse-design feature leverage, not calibrated uncertainty. Opened-panel post-fitdiagnostic; higherror concentration alone doesnotproveOOD."
+  },
+  {
+    "arm": "sensitive",
+    "train_feature_leverage_median": 0.40926105605909513,
+    "eval_feature_leverage_median": 0.37405258948902,
+    "eval_above_train_99percentile": 6,
+    "eval_highest_leverage_decile_weighted_error_share": 0.020210134922862034,
+    "eval_highest_leverage_decile_reference_share": 0.06796958786976634,
+    "eval_weighted_error": 0.1479317689911,
+    "scope": "Root1 only. Ridge inverse-design feature leverage, not calibrated uncertainty. Opened-panel post-fitdiagnostic; higherror concentration alone doesnotproveOOD."
+  }
+]
