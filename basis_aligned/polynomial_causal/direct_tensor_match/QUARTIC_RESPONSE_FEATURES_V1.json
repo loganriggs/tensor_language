@@ -1,0 +1,204 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_response": true,
+    "pred_c_values": true
+  },
+  "records": [
+    {
+      "objective": 0.003597818415925183,
+      "selected_step": 300,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.0037877165382582227
+        },
+        {
+          "step": 50,
+          "objective": 0.0037886019000940717
+        },
+        {
+          "step": 100,
+          "objective": 0.0036714920989524055
+        },
+        {
+          "step": 150,
+          "objective": 0.00363086238889993
+        },
+        {
+          "step": 200,
+          "objective": 0.00360909957905718
+        },
+        {
+          "step": 250,
+          "objective": 0.0035998370581713855
+        },
+        {
+          "step": 300,
+          "objective": 0.003597818415925183
+        }
+      ],
+      "width": 4,
+      "response_weight": 0.0,
+      "value_errors": [
+        0.05997237588717113,
+        0.1274213878579805
+      ],
+      "response_errors": [
+        0.2000696741426208,
+        0.2693598311276413
+      ],
+      "export_replay": 2.545721053245462e-07,
+      "products": 26,
+      "stored_coefficients": 48384,
+      "program_sha256": "be0be83d1a4f1de5f7e0bec84fff2d973745a6c8a93f175128b7a1248c92ae01"
+    },
+    {
+      "objective": 0.016098981794718265,
+      "selected_step": 300,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.0428175293211159
+        },
+        {
+          "step": 50,
+          "objective": 0.0227239660917984
+        },
+        {
+          "step": 100,
+          "objective": 0.017784195341650558
+        },
+        {
+          "step": 150,
+          "objective": 0.016682598949854098
+        },
+        {
+          "step": 200,
+          "objective": 0.01627443169328243
+        },
+        {
+          "step": 250,
+          "objective": 0.016128802350318612
+        },
+        {
+          "step": 300,
+          "objective": 0.016098981794718265
+        }
+      ],
+      "width": 4,
+      "response_weight": 1.0,
+      "value_errors": [
+        0.06652191040724466,
+        0.13975488577303571
+      ],
+      "response_errors": [
+        0.10803382818105264,
+        0.2504216339732741
+      ],
+      "export_replay": 2.909281647021123e-07,
+      "products": 26,
+      "stored_coefficients": 48384,
+      "program_sha256": "df0c3cbb60d32146fa37a9d3a44b0d8c5d0e44ac4ac3f3064ba7aaace0b9cb0f"
+    },
+    {
+      "objective": 0.0004050860032353306,
+      "selected_step": 300,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.0004672962507849926
+        },
+        {
+          "step": 50,
+          "objective": 0.0004847341801858938
+        },
+        {
+          "step": 100,
+          "objective": 0.0004392173879498713
+        },
+        {
+          "step": 150,
+          "objective": 0.00042011886215827406
+        },
+        {
+          "step": 200,
+          "objective": 0.0004101427190207109
+        },
+        {
+          "step": 250,
+          "objective": 0.00040598309869172163
+        },
+        {
+          "step": 300,
+          "objective": 0.0004050860032353306
+        }
+      ],
+      "width": 32,
+      "response_weight": 0.0,
+      "value_errors": [
+        0.020111211508604763,
+        0.13018605793207094
+      ],
+      "response_errors": [
+        0.21769676988265263,
+        0.276876853456418
+      ],
+      "export_replay": 4.558800586413501e-07,
+      "products": 656,
+      "stored_coefficients": 903168,
+      "program_sha256": "815b8853a65c9ad417a48a14d10c4c0dd189726e675ab09bee754260eda14bb3"
+    },
+    {
+      "objective": 0.0022010070119766337,
+      "selected_step": 300,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.014973490263220169
+        },
+        {
+          "step": 50,
+          "objective": 0.0029321125701586657
+        },
+        {
+          "step": 100,
+          "objective": 0.002510389506129575
+        },
+        {
+          "step": 150,
+          "objective": 0.002330305160776346
+        },
+        {
+          "step": 200,
+          "objective": 0.0022432557017071776
+        },
+        {
+          "step": 250,
+          "objective": 0.002208426513299338
+        },
+        {
+          "step": 300,
+          "objective": 0.0022010070119766337
+        }
+      ],
+      "width": 32,
+      "response_weight": 1.0,
+      "value_errors": [
+        0.02568739797235096,
+        0.1185340623190748
+      ],
+      "response_errors": [
+        0.039233493810430585,
+        0.21113083561144408
+      ],
+      "export_replay": 4.6558185917475527e-07,
+      "products": 656,
+      "stored_coefficients": 903168,
+      "program_sha256": "b635fd5656ea398d011c8ac121c315f89a6ce90e5d7c28aceaa3e24ef84a060e"
+    }
+  ],
+  "target_replay": 0.0,
+  "seconds": 20.44925854401663,
+  "scope": "Matched inherited feature optimization, value/responsefit onpanel0; donorroll997internaltoeachexistingpanel. Openedevaluationpanel1, no finalOOD/nativeintervention orsemanticadoption."
+}
