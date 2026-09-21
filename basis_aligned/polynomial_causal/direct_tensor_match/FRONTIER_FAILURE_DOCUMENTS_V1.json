@@ -1,0 +1,160 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "natural",
+      "cohort": "continuation",
+      "baseline": "isotropic_baseline",
+      "total_excess_error_energy": 12.478982330899072,
+      "documents_with_positive_excess": 13,
+      "documents": 32,
+      "leave_one_document_out_failures": 31,
+      "largest_positive_documents": [
+        {
+          "document": "<urn:uuid:1445395c-cf41-409b-90ef-df413d437161>",
+          "graph_error_energy": 86.82306667323031,
+          "baseline_error_energy": 36.909620826280985,
+          "excess": 42.162425473430325
+        },
+        {
+          "document": "<urn:uuid:ce4a4aa3-eaab-4d1c-b858-28b9d8565a02>",
+          "graph_error_energy": 15.758875363164947,
+          "baseline_error_energy": 5.405940741216181,
+          "excess": 9.217687066293369
+        },
+        {
+          "document": "<urn:uuid:17a33de9-fa6f-4f00-b522-7397d63ab1bf>",
+          "graph_error_energy": 9.684176289481144,
+          "baseline_error_energy": 3.593870104800124,
+          "excess": 5.3355934626729935
+        }
+      ]
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "baseline": "isotropic_baseline",
+      "total_excess_error_energy": 30.490857464393358,
+      "documents_with_positive_excess": 12,
+      "documents": 32,
+      "leave_one_document_out_failures": 31,
+      "largest_positive_documents": [
+        {
+          "document": "<urn:uuid:346defa6-92c4-4ba3-a9d6-ed22833a5101>",
+          "graph_error_energy": 330.4597412031274,
+          "baseline_error_energy": 112.75997739175114,
+          "excess": 194.02016855910853
+        },
+        {
+          "document": "<urn:uuid:c541b9a6-531b-4455-88ac-39fb62b08a3c>",
+          "graph_error_energy": 39.953731117060045,
+          "baseline_error_energy": 11.381250538252868,
+          "excess": 26.182417965774075
+        },
+        {
+          "document": "<urn:uuid:7134efdf-fde0-4e80-930f-d438287d1987>",
+          "graph_error_energy": 33.64916031095143,
+          "baseline_error_energy": 7.570745076789157,
+          "excess": 24.48855876803655
+        }
+      ]
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "baseline": "separate",
+      "total_excess_error_energy": 2.916522911486582,
+      "documents_with_positive_excess": 8,
+      "documents": 16,
+      "leave_one_document_out_failures": 15,
+      "largest_positive_documents": [
+        {
+          "document": "/venv/main/lib/python3.12/trace.py",
+          "graph_error_energy": 16.39730425408265,
+          "baseline_error_energy": 10.306891963905569,
+          "excess": 3.9259649777569106
+        },
+        {
+          "document": "/venv/main/lib/python3.12/timeit.py",
+          "graph_error_energy": 6.977118737745143,
+          "baseline_error_energy": 4.517447522249505,
+          "excess": 1.511007235823243
+        },
+        {
+          "document": "/venv/main/lib/python3.12/sunau.py",
+          "graph_error_energy": 1.7945234871018267,
+          "baseline_error_energy": 0.8934455506757422,
+          "excess": 0.7134543707841787
+        }
+      ]
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "baseline": "separate",
+      "total_excess_error_energy": 3.6969580226798886,
+      "documents_with_positive_excess": 8,
+      "documents": 16,
+      "leave_one_document_out_failures": 15,
+      "largest_positive_documents": [
+        {
+          "document": "/venv/main/lib/python3.12/traceback.py",
+          "graph_error_energy": 16.846952633977605,
+          "baseline_error_energy": 6.390048746398026,
+          "excess": 9.114993650835993
+        },
+        {
+          "document": "/venv/main/lib/python3.12/telnetlib.py",
+          "graph_error_energy": 7.093542007938522,
+          "baseline_error_energy": 3.159860986447556,
+          "excess": 3.270110214336979
+        },
+        {
+          "document": "/venv/main/lib/python3.12/symtable.py",
+          "graph_error_energy": 6.91692592814876,
+          "baseline_error_energy": 4.577888140136693,
+          "excess": 1.3776812785833608
+        }
+      ]
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "baseline": "separate",
+      "total_excess_error_energy": 10.094599677042769,
+      "documents_with_positive_excess": 8,
+      "documents": 16,
+      "leave_one_document_out_failures": 16,
+      "largest_positive_documents": [
+        {
+          "document": "/venv/main/lib/python3.12/traceback.py",
+          "graph_error_energy": 16.062632489004503,
+          "baseline_error_energy": 5.050660043653208,
+          "excess": 9.951333836184123
+        },
+        {
+          "document": "/venv/main/lib/python3.12/trace.py",
+          "graph_error_energy": 25.73796809877114,
+          "baseline_error_energy": 16.001890174109565,
+          "excess": 6.375680988098569
+        },
+        {
+          "document": "/venv/main/lib/python3.12/tempfile.py",
+          "graph_error_energy": 13.917762085629409,
+          "baseline_error_energy": 8.418416663183233,
+          "excess": 3.7314779231776978
+        }
+      ]
+    }
+  ],
+  "scope": "Opened fresh-result diagnostic only. Positive excess means graph squared-error energy exceeds1.21times baseline squared-error energy; common reference-energy denominator cancels. Leave-one-out is descriptive and does not replace all-document registered verdict. No removed documents or candidate refitting."
+}

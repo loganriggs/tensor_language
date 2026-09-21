@@ -1,0 +1,2399 @@
+{
+  "all_point_summaries_replay": true,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_absolute": true,
+    "pred_c_relative": false,
+    "pred_d_both_baselines": false
+  },
+  "counts": {
+    "graph": {
+      "cells": 72,
+      "absolute_failures": 0,
+      "covariance_baseline_failures": 3,
+      "isotropic_baseline_failures": 2,
+      "either_baseline_failures": 5,
+      "covariance_baseline_lower_CI_above_1_10": 0,
+      "isotropic_baseline_lower_CI_above_1_10": 0
+    }
+  },
+  "records": [
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "natural",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.014975361213823576,
+        "separate": 0.018941802056268366,
+        "isotropic_baseline": 0.030293296032818853
+      },
+      "error_interval95": [
+        0.01305252323731808,
+        0.017163870808673962
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.7905985486142179,
+          "interval95": [
+            0.7528475706087885,
+            0.8376402639506884
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.49434571918485587,
+          "interval95": [
+            0.3854180195634959,
+            0.6724933303620234
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "natural",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.02138233994471301,
+        "separate": 0.028235775243111584,
+        "isotropic_baseline": 0.020592906998144974
+      },
+      "error_interval95": [
+        0.016238607052893313,
+        0.027695870015234977
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.7572783024588445,
+          "interval95": [
+            0.6985037649878915,
+            0.8050648899058865
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 1.0383351872875037,
+          "interval95": [
+            0.7680985139642545,
+            1.3920381998291331
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.024777126285548755,
+        "separate": 0.02729685713875215,
+        "isotropic_baseline": 0.03171751172640972
+      },
+      "error_interval95": [
+        0.021090684544809953,
+        0.0292341678960553
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9076915397111324,
+          "interval95": [
+            0.8701027855992661,
+            0.9536890033363259
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.781181276112463,
+          "interval95": [
+            0.7036259058785198,
+            0.8640759373869802
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "hybrid",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.01398986002764066,
+        "separate": 0.01690484303457526,
+        "isotropic_baseline": 0.02857694246417585
+      },
+      "error_interval95": [
+        0.012641268211307647,
+        0.015413978499425628
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8275652130592032,
+          "interval95": [
+            0.7826539403309362,
+            0.8748605551170657
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.4895506244301116,
+          "interval95": [
+            0.40691101275212327,
+            0.6217475462408208
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.023162708360040248,
+        "separate": 0.0302016814183974,
+        "isotropic_baseline": 0.023442132698499905
+      },
+      "error_interval95": [
+        0.01889390315671237,
+        0.02768336117807823
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.7669343980938309,
+          "interval95": [
+            0.7096059250126696,
+            0.8229407554922179
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.9880802509714682,
+          "interval95": [
+            0.7733855072039519,
+            1.2440673948873568
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.02473603107212643,
+        "separate": 0.02611906673457052,
+        "isotropic_baseline": 0.03495662381316571
+      },
+      "error_interval95": [
+        0.02300706273355444,
+        0.02641992711841953
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9470488101087647,
+          "interval95": [
+            0.9250593765914732,
+            0.9704215292083895
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7076207131539431,
+          "interval95": [
+            0.6681522150187402,
+            0.751182210400038
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "change",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.03442350120997692,
+        "separate": 0.0394816573361385,
+        "isotropic_baseline": 0.05004839908947289
+      },
+      "error_interval95": [
+        0.03123623479483587,
+        0.03862581247852831
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8718859220346931,
+          "interval95": [
+            0.8155190602143587,
+            0.9302081806167076
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6878042422183592,
+          "interval95": [
+            0.5911729919399658,
+            0.7995165297146613
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "change",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.0314523499244434,
+        "separate": 0.035416927798184214,
+        "isotropic_baseline": 0.036597311556708034
+      },
+      "error_interval95": [
+        0.026868523654444126,
+        0.03869968761108927
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8880598030316996,
+          "interval95": [
+            0.7945145162204283,
+            1.011844455014439
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8594169513164254,
+          "interval95": [
+            0.7559341402205623,
+            0.9815728255720869
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode1",
+      "family": "change",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.04896980650004213,
+        "separate": 0.05319228666900234,
+        "isotropic_baseline": 0.06350287561704356
+      },
+      "error_interval95": [
+        0.04492092961186476,
+        0.052827652768704485
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9206185627018579,
+          "interval95": [
+            0.8964659053918865,
+            0.9469761935631072
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.771143133664629,
+          "interval95": [
+            0.7269501872356495,
+            0.8183810843979739
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "natural",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.029803505279771183,
+        "separate": 0.030419543679994922,
+        "isotropic_baseline": 0.04453855797060354
+      },
+      "error_interval95": [
+        0.02589173691618986,
+        0.03417773273075828
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9797485982464336,
+          "interval95": [
+            0.9385049073746065,
+            1.0227112827704377
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6691618821480968,
+          "interval95": [
+            0.5766932474951958,
+            0.7779404052679885
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "natural",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.07951231962521181,
+        "separate": 0.08184308507473136,
+        "isotropic_baseline": 0.07004327749083522
+      },
+      "error_interval95": [
+        0.06265940005518905,
+        0.09171154643305318
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9715215348078422,
+          "interval95": [
+            0.8396666065216388,
+            1.06187757805777
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 1.135188450249427,
+          "interval95": [
+            0.8362694937497565,
+            1.352530608104643
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.030527642476213368,
+        "separate": 0.03143512114139008,
+        "isotropic_baseline": 0.04116722698938321
+      },
+      "error_interval95": [
+        0.02697201947918063,
+        0.03449106769070482
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9711316949887033,
+          "interval95": [
+            0.9223588334279005,
+            1.027751359006083
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7415520720908958,
+          "interval95": [
+            0.6861971756833978,
+            0.7963138966699795
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "hybrid",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.03527590691325214,
+        "separate": 0.03573775980976779,
+        "isotropic_baseline": 0.05174683838819914
+      },
+      "error_interval95": [
+        0.03108608819021884,
+        0.039698389250231884
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.987076613112459,
+          "interval95": [
+            0.9483398203547913,
+            1.022506919257277
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6817016848182325,
+          "interval95": [
+            0.6027938490817185,
+            0.7745420246710548
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.07789614886837141,
+        "separate": 0.07858123813712865,
+        "isotropic_baseline": 0.09670458125965345
+      },
+      "error_interval95": [
+        0.06100121744454716,
+        0.09835948040055827
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.991281770496391,
+          "interval95": [
+            0.8894852495354271,
+            1.0963013430081998
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8055062940525943,
+          "interval95": [
+            0.6756612940210013,
+            0.9765458779938924
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.037728260312593596,
+        "separate": 0.03894262373984277,
+        "isotropic_baseline": 0.05580393551127221
+      },
+      "error_interval95": [
+        0.033990350178272774,
+        0.04196623372393606
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9688165996374111,
+          "interval95": [
+            0.9400704058306799,
+            1.0013721008385235
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6760860137717816,
+          "interval95": [
+            0.6157185590414433,
+            0.7377192848277424
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "change",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.04992600673997738,
+        "separate": 0.05144145626347151,
+        "isotropic_baseline": 0.06813093372350482
+      },
+      "error_interval95": [
+        0.04463489594345084,
+        0.055949357944926115
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9705403067181391,
+          "interval95": [
+            0.9327630433387839,
+            1.0044142318118283
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.732794987701059,
+          "interval95": [
+            0.6616260069687536,
+            0.8155446224539329
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "change",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.08427216725757711,
+        "separate": 0.08693414222500062,
+        "isotropic_baseline": 0.08750057480544199
+      },
+      "error_interval95": [
+        0.06521282451933458,
+        0.1033311752502623
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9693794072237596,
+          "interval95": [
+            0.8491342669380169,
+            1.0548221262510662
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.9631041561150511,
+          "interval95": [
+            0.7281795904041354,
+            1.226962104255975
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode2",
+      "family": "change",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.040796856550325764,
+        "separate": 0.042900431595211404,
+        "isotropic_baseline": 0.0539224444075724
+      },
+      "error_interval95": [
+        0.036718435434923404,
+        0.04481552828471442
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9509661099745103,
+          "interval95": [
+            0.9129031576046277,
+            0.9884726850036148
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7565839605111931,
+          "interval95": [
+            0.6966832694256316,
+            0.8234237424037286
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "natural",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.11508228253584026,
+        "separate": 0.13378752409322062,
+        "isotropic_baseline": 0.14438757252072024
+      },
+      "error_interval95": [
+        0.1021807131110472,
+        0.13104646796283956
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8601869517792489,
+          "interval95": [
+            0.8297851532189837,
+            0.8944013319291714
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7970373109453409,
+          "interval95": [
+            0.743174367201895,
+            0.8819543570763761
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "natural",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.08918651968343393,
+        "separate": 0.10046216959823663,
+        "isotropic_baseline": 0.1554980864428498
+      },
+      "error_interval95": [
+        0.0605206476331254,
+        0.1747644136556785
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8877622297040196,
+          "interval95": [
+            0.7969344180161295,
+            1.0178396643616052
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.5735538084336018,
+          "interval95": [
+            0.41884098294435995,
+            0.8621042543256658
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.1388003151396623,
+        "separate": 0.1574532634266554,
+        "isotropic_baseline": 0.13780177865548057
+      },
+      "error_interval95": [
+        0.11337835746858431,
+        0.16229601558076803
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8815334285168247,
+          "interval95": [
+            0.8262148769385999,
+            0.9459844795785177
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 1.0072461799399424,
+          "interval95": [
+            0.9372123677660539,
+            1.103753509289599
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "hybrid",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.10052887761435748,
+        "separate": 0.11857427398783252,
+        "isotropic_baseline": 0.11284126162699616
+      },
+      "error_interval95": [
+        0.08381551387832642,
+        0.12015090900868053
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8478135621953986,
+          "interval95": [
+            0.8105130095093039,
+            0.8839941928509967
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8908875721955499,
+          "interval95": [
+            0.7768623234191793,
+            1.0161985756828298
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.13861578963264037,
+        "separate": 0.16947468004291472,
+        "isotropic_baseline": 0.12273741402048838
+      },
+      "error_interval95": [
+        0.07971958615712087,
+        0.20297518127087466
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8179144495067925,
+          "interval95": [
+            0.6773904343196525,
+            0.8990621362895411
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 1.1293686667498262,
+          "interval95": [
+            0.6996737703943527,
+            1.457398947160467
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.09276381627869677,
+        "separate": 0.10790518692916946,
+        "isotropic_baseline": 0.09687401217852941
+      },
+      "error_interval95": [
+        0.08193170966380245,
+        0.10419532216557022
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8596789359123977,
+          "interval95": [
+            0.8058300169288769,
+            0.9096870368502572
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.9575717387212378,
+          "interval95": [
+            0.8559294374942523,
+            1.0564565395285364
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "change",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.10247553817191285,
+        "separate": 0.11787403776838135,
+        "isotropic_baseline": 0.12935941804508216
+      },
+      "error_interval95": [
+        0.0905741089553622,
+        0.11582195748055073
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8693647906867664,
+          "interval95": [
+            0.8415542568085562,
+            0.9015647357647477
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7921768644336341,
+          "interval95": [
+            0.7214266226995872,
+            0.8821327103105735
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "change",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.1111694567681957,
+        "separate": 0.12707368614543454,
+        "isotropic_baseline": 0.14316804267423736
+      },
+      "error_interval95": [
+        0.08994634481272228,
+        0.13145164764987116
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8748424645599986,
+          "interval95": [
+            0.7621404141850366,
+            0.9496867604601049
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7764963094532848,
+          "interval95": [
+            0.6543885486708813,
+            0.9163462727974467
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "mode3",
+      "family": "change",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.09894877438727769,
+        "separate": 0.10822257687586408,
+        "isotropic_baseline": 0.11349806975106708
+      },
+      "error_interval95": [
+        0.08701454577669715,
+        0.10941016643136117
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9143080606995355,
+          "interval95": [
+            0.847684539447269,
+            0.9685007435485007
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8718101955768934,
+          "interval95": [
+            0.8091538350877449,
+            0.9264990762342932
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "natural",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.019589664536519096,
+        "separate": 0.023222176387270928,
+        "isotropic_baseline": 0.033817831765582035
+      },
+      "error_interval95": [
+        0.016828564026843528,
+        0.022727068316368053
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.843575735961468,
+          "interval95": [
+            0.8122829986883983,
+            0.8755140275294946
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.5792702699661662,
+          "interval95": [
+            0.4641101619700229,
+            0.745283491134026
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "natural",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.026446545184505347,
+        "separate": 0.0329723637669077,
+        "isotropic_baseline": 0.02724887590798918
+      },
+      "error_interval95": [
+        0.0201039391939925,
+        0.03393975589977454
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8020821731636992,
+          "interval95": [
+            0.7546472150714484,
+            0.8385807202351689
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.9705554560785168,
+          "interval95": [
+            0.737224134187356,
+            1.2592966127563103
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.03331696649180113,
+        "separate": 0.036991889153512744,
+        "isotropic_baseline": 0.03664449351543221
+      },
+      "error_interval95": [
+        0.02797630992078384,
+        0.039392723799340154
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9006559884935575,
+          "interval95": [
+            0.8491010406935274,
+            0.9711864205690975
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.9091943507902559,
+          "interval95": [
+            0.8490061457838585,
+            0.9663919368949188
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "hybrid",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.01900716696471964,
+        "separate": 0.022306948870154306,
+        "isotropic_baseline": 0.030495848448203855
+      },
+      "error_interval95": [
+        0.017178197707222845,
+        0.021060980695081784
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8520738123065488,
+          "interval95": [
+            0.8193487890330265,
+            0.8858448138310984
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6232706395102486,
+          "interval95": [
+            0.550191083488338,
+            0.7405595593679458
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.02838509365997959,
+        "separate": 0.03773127159260382,
+        "isotropic_baseline": 0.02692161898446479
+      },
+      "error_interval95": [
+        0.022496320076673827,
+        0.03453130352443442
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.7522962376265026,
+          "interval95": [
+            0.6982136966902577,
+            0.7902116438664721
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 1.054360574538972,
+          "interval95": [
+            0.8052542714561614,
+            1.3046815535235086
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.03486879027836781,
+        "separate": 0.03837019707594217,
+        "isotropic_baseline": 0.044333244685436375
+      },
+      "error_interval95": [
+        0.03218470950518929,
+        0.03796742229906928
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9087467080076658,
+          "interval95": [
+            0.8598874529234025,
+            0.9578446691583179
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7865156391276349,
+          "interval95": [
+            0.7350600868121445,
+            0.8433163745370204
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "change",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.043877629553602145,
+        "separate": 0.04971595036140479,
+        "isotropic_baseline": 0.05938272226884171
+      },
+      "error_interval95": [
+        0.04051505554885473,
+        0.0480032316050995
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8825664446649094,
+          "interval95": [
+            0.8502936262768628,
+            0.9212770205350735
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7388955554269843,
+          "interval95": [
+            0.6701099828939273,
+            0.8201836393040521
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "change",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.036517503991997276,
+        "separate": 0.04214509576503173,
+        "isotropic_baseline": 0.04420296700290976
+      },
+      "error_interval95": [
+        0.031253410332919666,
+        0.044072745161692045
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8664710170689959,
+          "interval95": [
+            0.7910364069631685,
+            0.9677217229427016
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8261324175273898,
+          "interval95": [
+            0.722417617209875,
+            0.9371925867690487
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "fineweb",
+      "selection": "combined",
+      "family": "change",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.05862988382734977,
+        "separate": 0.06388713345225866,
+        "isotropic_baseline": 0.07226850830154423
+      },
+      "error_interval95": [
+        0.0536310297396592,
+        0.0643866181738179
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9177103535434485,
+          "interval95": [
+            0.8710747129890738,
+            0.9674700367694458
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8112784559315025,
+          "interval95": [
+            0.7624319081104929,
+            0.8617163486339317
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "natural",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.008714129633436148,
+        "separate": 0.00956125031773612,
+        "isotropic_baseline": 0.01782563364677185
+      },
+      "error_interval95": [
+        0.007731847482978213,
+        0.009640027092254515
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9114006373488033,
+          "interval95": [
+            0.857882711250816,
+            0.976620738511569
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.4888538498048984,
+          "interval95": [
+            0.44942262714925263,
+            0.5418511266917896
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "natural",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.008481513650871983,
+        "separate": 0.011824642151110532,
+        "isotropic_baseline": 0.013745601321911756
+      },
+      "error_interval95": [
+        0.006354632591862975,
+        0.011162188671557653
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.7172744462356035,
+          "interval95": [
+            0.5969150310838822,
+            0.9367984381517515
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6170347482253591,
+          "interval95": [
+            0.47303927651260635,
+            0.8243291147812022
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.023342803484585273,
+        "separate": 0.02034215076656907,
+        "isotropic_baseline": 0.049693104801548364
+      },
+      "error_interval95": [
+        0.019981792754371598,
+        0.02757685120483119
+      ],
+      "ratios": {
+        "separate": {
+          "point": 1.1475091180106467,
+          "interval95": [
+            0.9431895317086637,
+            1.2359662231129984
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.46973928430927797,
+          "interval95": [
+            0.3019568059620023,
+            0.7223996327294369
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "hybrid",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.008925160360295949,
+        "separate": 0.010013251215983043,
+        "isotropic_baseline": 0.018561069093631016
+      },
+      "error_interval95": [
+        0.008345894421393373,
+        0.009660937849932187
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8913349088905015,
+          "interval95": [
+            0.8470373915063311,
+            0.9416630073167801
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.4808537867766733,
+          "interval95": [
+            0.4498833851249372,
+            0.5172702760594111
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.008243238651324659,
+        "separate": 0.01305670238971789,
+        "isotropic_baseline": 0.016743535466431383
+      },
+      "error_interval95": [
+        0.006684591358393345,
+        0.010201467654887572
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.6313415443869029,
+          "interval95": [
+            0.4654331858071945,
+            0.8782673429222652
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.4923236593520695,
+          "interval95": [
+            0.40285174972994303,
+            0.6037153971621041
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.025156148222087657,
+        "separate": 0.02398714980018312,
+        "isotropic_baseline": 0.06360951783636593
+      },
+      "error_interval95": [
+        0.018861658915163174,
+        0.03883406089104297
+      ],
+      "ratios": {
+        "separate": {
+          "point": 1.0487343611743156,
+          "interval95": [
+            0.8501444088002192,
+            1.2397049713114092
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.3954777378882401,
+          "interval95": [
+            0.3273225774125055,
+            0.5237321489115544
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "change",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.02328350232323423,
+        "separate": 0.02733654674521106,
+        "isotropic_baseline": 0.03673225638079244
+      },
+      "error_interval95": [
+        0.02155964838341102,
+        0.025014716766389798
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8517353175676127,
+          "interval95": [
+            0.8290804570558427,
+            0.8794878966155174
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6338707342631241,
+          "interval95": [
+            0.5714151898647689,
+            0.7057777373923204
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "change",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.017241468521914587,
+        "separate": 0.02382545633494875,
+        "isotropic_baseline": 0.032789182520254645
+      },
+      "error_interval95": [
+        0.014405917456252644,
+        0.021515361928528067
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.7236574309228934,
+          "interval95": [
+            0.6256708637103772,
+            0.8857287597951352
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.5258279468011784,
+          "interval95": [
+            0.38145201656444166,
+            0.7677937815694927
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode1",
+      "family": "change",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.03655072628787545,
+        "separate": 0.04008251335959704,
+        "isotropic_baseline": 0.04442314354721248
+      },
+      "error_interval95": [
+        0.02351290482795609,
+        0.05102229862574184
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9118870855218971,
+          "interval95": [
+            0.8657534233328041,
+            1.0332581373086538
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8227856781236046,
+          "interval95": [
+            0.5259314859979674,
+            1.1731277190123868
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "natural",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.048115971840517587,
+        "separate": 0.06112829240365073,
+        "isotropic_baseline": 0.1131518864390741
+      },
+      "error_interval95": [
+        0.04207918473035157,
+        0.056175279145651354
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.7871309658511577,
+          "interval95": [
+            0.7487257051850391,
+            0.8300585996219607
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.4252334923856998,
+          "interval95": [
+            0.3670616203965743,
+            0.49411482457636585
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "natural",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.06538556715232612,
+        "separate": 0.07713208277263853,
+        "isotropic_baseline": 0.10075330021853558
+      },
+      "error_interval95": [
+        0.03724205622615366,
+        0.099627539918616
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8477090829384512,
+          "interval95": [
+            0.5378228662185497,
+            1.1917801557619876
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6489670016813716,
+          "interval95": [
+            0.28450816243265487,
+            1.0911180501851845
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.043590599417770215,
+        "separate": 0.04367000771405153,
+        "isotropic_baseline": 0.113995973011948
+      },
+      "error_interval95": [
+        0.028981182706137244,
+        0.061383476247373954
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9981816285263498,
+          "interval95": [
+            0.8006657678543412,
+            1.1170011806391962
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.38238718672282795,
+          "interval95": [
+            0.27906722742467677,
+            0.46616438187536907
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "hybrid",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.05628396965580452,
+        "separate": 0.069146851062477,
+        "isotropic_baseline": 0.13304851654064404
+      },
+      "error_interval95": [
+        0.05066287870029683,
+        0.06394162927740686
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8139773365087826,
+          "interval95": [
+            0.7686483969144167,
+            0.8529967413296202
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.42303342509355024,
+          "interval95": [
+            0.3946130046001973,
+            0.44946492073608874
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.052653221617220275,
+        "separate": 0.06790783894791895,
+        "isotropic_baseline": 0.12595910606335772
+      },
+      "error_interval95": [
+        0.03667952136105579,
+        0.07852365916854555
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.7753629394332809,
+          "interval95": [
+            0.585069558361651,
+            1.0461892963101551
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.4180183812255351,
+          "interval95": [
+            0.27645043560345345,
+            0.5989251309732104
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.05494749616527124,
+        "separate": 0.06216438022606689,
+        "isotropic_baseline": 0.1598715041902835
+      },
+      "error_interval95": [
+        0.04510739403577627,
+        0.07034919170314309
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8839064423299847,
+          "interval95": [
+            0.7971231312528538,
+            0.9717054382103869
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.3436978743871153,
+          "interval95": [
+            0.29929898037985736,
+            0.403372651216972
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "change",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.05900540837385467,
+        "separate": 0.06189293623318392,
+        "isotropic_baseline": 0.09346717945767734
+      },
+      "error_interval95": [
+        0.04740723918361411,
+        0.07442506789141044
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.95334640695587,
+          "interval95": [
+            0.850177632557255,
+            1.086524791289886
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6312954848559732,
+          "interval95": [
+            0.5532320249632368,
+            0.739263152624105
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "change",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.12416087186572525,
+        "separate": 0.11648167137126861,
+        "isotropic_baseline": 0.12870634807918083
+      },
+      "error_interval95": [
+        0.07328556511126735,
+        0.1655810713308376
+      ],
+      "ratios": {
+        "separate": {
+          "point": 1.0659262560714835,
+          "interval95": [
+            0.5903470203936595,
+            1.6567355806022295
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.9646833564832468,
+          "interval95": [
+            0.5410166483978306,
+            1.5682324568331987
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode2",
+      "family": "change",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.06603197778199203,
+        "separate": 0.06566378366422389,
+        "isotropic_baseline": 0.09335082884869861
+      },
+      "error_interval95": [
+        0.049404308810582914,
+        0.10933891947605676
+      ],
+      "ratios": {
+        "separate": {
+          "point": 1.0056072632008373,
+          "interval95": [
+            0.881206003084717,
+            1.1192670766726585
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7073528815584006,
+          "interval95": [
+            0.538453929685354,
+            0.9345485704601174
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "natural",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.01752791445824315,
+        "separate": 0.019327300429952236,
+        "isotropic_baseline": 0.026085169622645205
+      },
+      "error_interval95": [
+        0.016225406559939495,
+        0.019043966111223585
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9068992600269974,
+          "interval95": [
+            0.8696316783165928,
+            0.9558127152594241
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6719494146216599,
+          "interval95": [
+            0.6023004654430446,
+            0.745753360232709
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "natural",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.04278304768257801,
+        "separate": 0.04519777752718568,
+        "isotropic_baseline": 0.08101400824513524
+      },
+      "error_interval95": [
+        0.03230236626076156,
+        0.05056777333795277
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9465741464133884,
+          "interval95": [
+            0.7446926410376657,
+            1.1818552868036527
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.5280944445203039,
+          "interval95": [
+            0.35302413728406645,
+            0.6176545970355374
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.02194969505382172,
+        "separate": 0.01950816403644083,
+        "isotropic_baseline": 0.02967421658081901
+      },
+      "error_interval95": [
+        0.017075917902825866,
+        0.02875203051469555
+      ],
+      "ratios": {
+        "separate": {
+          "point": 1.1251543206639107,
+          "interval95": [
+            0.9842606915880003,
+            1.293950079022668
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7396891167805821,
+          "interval95": [
+            0.5652976591327501,
+            1.0815989300971705
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "hybrid",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.016772176119632744,
+        "separate": 0.018598818809472218,
+        "isotropic_baseline": 0.024066537233473705
+      },
+      "error_interval95": [
+        0.015774991262214853,
+        0.017930224691213206
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9017871667791516,
+          "interval95": [
+            0.8693127431190235,
+            0.9381468409990908
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6969085729668094,
+          "interval95": [
+            0.6676941019475785,
+            0.7327050957153283
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.03545685725388105,
+        "separate": 0.03254455987962497,
+        "isotropic_baseline": 0.05654209432325936
+      },
+      "error_interval95": [
+        0.02347878308817266,
+        0.047152100116275485
+      ],
+      "ratios": {
+        "separate": {
+          "point": 1.0894864574917593,
+          "interval95": [
+            0.8519069325409317,
+            1.3025767042678429
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6270877950004655,
+          "interval95": [
+            0.4411882367045267,
+            0.7585578407035043
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.024156676902377862,
+        "separate": 0.024349596419765814,
+        "isotropic_baseline": 0.03450436508778824
+      },
+      "error_interval95": [
+        0.019904429507805865,
+        0.027277330623849506
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9920770958966963,
+          "interval95": [
+            0.9091638846181354,
+            1.156193990094833
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.700104953124536,
+          "interval95": [
+            0.5640639050299328,
+            0.8758189935272845
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "change",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.038511223146795906,
+        "separate": 0.0422580614978093,
+        "isotropic_baseline": 0.046341457810397314
+      },
+      "error_interval95": [
+        0.03500859474623678,
+        0.04233917180312937
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.911334353299485,
+          "interval95": [
+            0.8837559924119882,
+            0.9427528363955617
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8310317578778328,
+          "interval95": [
+            0.7514581054172957,
+            0.9202333931120532
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "change",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.03801251386816479,
+        "separate": 0.0404664887169566,
+        "isotropic_baseline": 0.04670400144829536
+      },
+      "error_interval95": [
+        0.027597910896398403,
+        0.0492593645934725
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9393578507402465,
+          "interval95": [
+            0.7548695980453711,
+            1.184385633906986
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8139027211672074,
+          "interval95": [
+            0.5831378159966382,
+            1.0453884085288119
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "mode3",
+      "family": "change",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.04813949402423131,
+        "separate": 0.053016079227161,
+        "isotropic_baseline": 0.05734515637429727
+      },
+      "error_interval95": [
+        0.03521738719401867,
+        0.059841073080099866
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9080168644302287,
+          "interval95": [
+            0.7839695644323547,
+            1.0311314130797284
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.8394692257881428,
+          "interval95": [
+            0.6170762092574514,
+            1.0012627448056532
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "natural",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.01493839519793933,
+        "separate": 0.01736570368306154,
+        "isotropic_baseline": 0.02666905335613171
+      },
+      "error_interval95": [
+        0.013756576713953549,
+        0.016013403782477204
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8602240065002491,
+          "interval95": [
+            0.8126662145570638,
+            0.920033350300662
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.5601396869418582,
+          "interval95": [
+            0.5175606385134572,
+            0.6123475134369786
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "natural",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.013541509885472756,
+        "separate": 0.019520818812731874,
+        "isotropic_baseline": 0.03089056008803713
+      },
+      "error_interval95": [
+        0.011225644022849536,
+        0.015980419218358754
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.6936957929572457,
+          "interval95": [
+            0.5283827085867314,
+            0.9941441251810632
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.4383704875172181,
+          "interval95": [
+            0.3276249952547722,
+            0.5595825067459187
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "natural",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.031522917552690724,
+        "separate": 0.02753012361490891,
+        "isotropic_baseline": 0.05216885120410163
+      },
+      "error_interval95": [
+        0.026356123671952628,
+        0.03925368157612124
+      ],
+      "ratios": {
+        "separate": {
+          "point": 1.1450336363771183,
+          "interval95": [
+            0.9935154574279812,
+            1.3016969556525673
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6042478763690378,
+          "interval95": [
+            0.4721172447059017,
+            0.8512192235784916
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "hybrid",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.0150888438433168,
+        "separate": 0.017085723849340186,
+        "isotropic_baseline": 0.02703986513808137
+      },
+      "error_interval95": [
+        0.014067995649192767,
+        0.01630122890295828
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8831258175754432,
+          "interval95": [
+            0.8533036282610523,
+            0.9229666702971702
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.5580221560375518,
+          "interval95": [
+            0.51123005539379,
+            0.6052593062578878
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "hybrid",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.017554833582275352,
+        "separate": 0.019202245790609862,
+        "isotropic_baseline": 0.03762144998422327
+      },
+      "error_interval95": [
+        0.011404524104082586,
+        0.024374461133053537
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.914207315836978,
+          "interval95": [
+            0.605959891830561,
+            1.4823474126814176
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.4666176766083459,
+          "interval95": [
+            0.3277491285096727,
+            0.5779891891557781
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.03142406780695059,
+        "separate": 0.033428521018362356,
+        "isotropic_baseline": 0.0576559422767015
+      },
+      "error_interval95": [
+        0.025732596226245092,
+        0.035814009065830196
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.9400376340218367,
+          "interval95": [
+            0.8125792271805432,
+            1.107279689259823
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.5450273912121789,
+          "interval95": [
+            0.47003451489290166,
+            0.626368502864778
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "change",
+      "cohort": "all",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.030852647579307085,
+        "separate": 0.035014974058059,
+        "isotropic_baseline": 0.043661401496410686
+      },
+      "error_interval95": [
+        0.029022236225446574,
+        0.03270627647964869
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.8811272436800816,
+          "interval95": [
+            0.8625460311455503,
+            0.9014131872159474
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.7066343846484959,
+          "interval95": [
+            0.6610140960404786,
+            0.7615931665726223
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "change",
+      "cohort": "continuation",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.026677736252679076,
+        "separate": 0.025294162855820573,
+        "isotropic_baseline": 0.04309976183554451
+      },
+      "error_interval95": [
+        0.0212971786229414,
+        0.0317683205618159
+      ],
+      "ratios": {
+        "separate": {
+          "point": 1.054699315598821,
+          "interval95": [
+            0.8848159571203854,
+            1.2563574464336311
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.6189764192775159,
+          "interval95": [
+            0.5433709131432229,
+            0.765066584692752
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    },
+    {
+      "domain": "stdlib",
+      "selection": "combined",
+      "family": "change",
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "point_errors": {
+        "graph": 0.045343125902361184,
+        "separate": 0.05146690118534907,
+        "isotropic_baseline": 0.053489017752534763
+      },
+      "error_interval95": [
+        0.0333094385352747,
+        0.06034399024982567
+      ],
+      "ratios": {
+        "separate": {
+          "point": 0.881015271136411,
+          "interval95": [
+            0.8171257779232418,
+            1.0000560737443063
+          ]
+        },
+        "isotropic_baseline": {
+          "point": 0.847709077630472,
+          "interval95": [
+            0.7086462342510541,
+            0.9579438419723229
+          ]
+        }
+      },
+      "valid_bootstrap_replicates": 4000
+    }
+  ],
+  "scope": "4000paired recipient-document/file bootstrap resamples, fixed donor map and frozen fits. Pointwise95%intervals without multiplicity correction; no uncertainty over training, donor choice or pretraining overlap. Openedfit passes reconstruction at15.7%source saving; fresh relativebaseline failures remain. No arm selection or refitting after fresh outcomes."
+}

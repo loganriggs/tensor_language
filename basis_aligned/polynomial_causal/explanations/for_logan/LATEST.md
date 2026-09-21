@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Latest local result — [Graph reconstruction passes at15.7%source-cost saving](research_update_2026-09-21_1451_local_graph_fidelity_pass.md).** Export and opened-state comparisons pass; candidate frozen before fresh evaluation. Full circuit identification remains open.
+**Latest local result — [Graph reconstruction passes at15.7%source-cost saving](research_update_2026-09-21_1451_local_graph_fidelity_pass.md).** Opened-state reconstruction and all72fresh absolute checks pass; five fresh relative-baseline checks fail. Unchanged replication registered; full circuit identification remains open.
 
 **Start here — [Overall review: folded weights → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 14:15 UTC. Explains the original two-stage plan, the exact QR step, the move to a smaller diagnostic target, and what the completed results do and do not establish.
 
