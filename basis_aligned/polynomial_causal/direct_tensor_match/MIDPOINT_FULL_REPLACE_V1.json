@@ -1,0 +1,126 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_effect": false,
+    "pred_c_replace": true
+  },
+  "summary": {
+    "fineweb": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.1384945965061585
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.01601054665322105
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2773868706156832
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.36632136092029194
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.008367474683715652
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.20475459938531185
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.27102273016078043
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.015998091311970105
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2929958529681799
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.38272988905159383
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.009580459375865758
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.23881471355587314
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.31152026730621685
+        }
+      }
+    },
+    "code": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.8776201009750366
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.07187496423721314
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.18800527523328844
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.308797899642438
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.0331935519973437
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.13537267715746104
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.22907587858819356
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.07612147592008114
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.20071065678477923
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3261322264345788
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.042567304180314146
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.16098522252374228
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2671051749502399
+        }
+      }
+    }
+  },
+  "instrument": 2.254617593932288e-15,
+  "seconds": 5.140120192896575,
+  "scope": "Full source-dependent midpoint contribution centered on calibration mean. Replacement retains that mean but approximates all varying output coordinates. Residual background and true source states fixed; no upstream ablation or whole-model speed claim. Reused panels, no fitting."
+}

@@ -31619,3 +31619,6 @@ Previous turn progress: full-path native evaluator implemented and queued behind
 
 ### 2026-09-21T01:04Z — Codex: native shared-channel baseline CPU claimed
 Coverage job verified live. New baseline targets same full midpoint variation with native shared readers, 128/512/1024 channels, correlation and random selection, exact empirical-moment output refit. Unlike earlier fullMLP coefficient baseline this retains n/m source dependence and no output-subspace truncation. At512 channels matches1024products with1.77M weights; calibration evidence only until native test.
+
+### 2026-09-21T01:07Z — Codex: coverage/full-replacement interpreted and compiled replay executed
+Coverage allPASS: weighted256r4 full variation FW .2802/code .1797 vsiso .6570/.5084. Native instrument/CE PASS, effectFAIL onFWswap .3115 (bar .3); code .2671. Exactprojection swap .2710/.2291. Successor actual compiledgrouped replay executed on128calpositions <1e-12; report0104 updatedwithcompletionaddendum. Sharednativechannel baseline next needs heldnative evaluation.

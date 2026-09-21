@@ -2,7 +2,7 @@
 
 We have a validated improvement from jointly fitting output-sharing blocks. The larger finding is that our earlier four-output experiments covered only part of the folded function. The current work expands that coverage and compares against a simpler baseline that reuses the model's existing computations.
 
-**Status:** the 256-output decomposition sweep is running and has completed 192 directions. Its full native replacement test is queued. A new shared-channel baseline has completed calibration fitting. These unfinished evaluations are not reported as successes.
+**Updated at 01:07 UTC:** the coverage sweep and full native replacement test have finished. Results are in the addendum below; the earlier sections preserve the experiment rationale. The shared-channel baseline still has calibration results only.
 
 ## The function we are simplifying
 
@@ -123,3 +123,27 @@ The next decision depends on the running coverage and native replacement results
 - `direct_tensor_match/MIDPOINT_FULL_REPLACE_PLAN_V1.md`: queued full native test.
 
 All paths above are relative to `basis_aligned/polynomial_causal/`. Status is as observed at the report timestamp; pending results are not inferred from calibration fits.
+
+## 01:07 UTC addendum: broader results are now complete
+
+The 256-output, four-products-per-output program uses 1,024 products. Covariance-weighted fitting materially outperformed isotropic fitting under the full functional metric:
+
+| Full folded-output variation error | Isotropic | Covariance-weighted | Exact output-projection floor |
+|---|---:|---:|---:|
+| FineWeb | 65.70% | 28.02% | 23.31% |
+| Code | 50.84% | 17.97% | 14.79% |
+
+All registered coverage-sweep checks passed. These are pre-final-normalization errors and remain distinct from native behavior.
+
+| Native full-contribution metric | FineWeb | Code |
+|---|---:|---:|
+| Replacement CE increase, nats/token | 0.00958 | 0.04257 |
+| Full removal-effect relative error | 23.88% | 16.10% |
+| Full same-token swap-effect relative error | 31.15% | 26.71% |
+| Exact256-output projection swap error | 27.10% | 22.91% |
+
+The instrument passed and replacement CE stayed below the registered 0.05 threshold on both panels. **The intervention gate failed:** FineWeb swap error was 31.15%, exceeding the preregistered 30% bar. This is not a promoted circuit. Exact output projection passes that bar, so both omitted-output error and product approximation matter.
+
+For context, the calibration-mean replacement adds 0.13849 nats/token on FineWeb and 0.87762 on code. The broader learned program substantially improves on that baseline, but low CE does not establish faithful interventions, stable identities, or composition.
+
+A successor CPU check replayed the actual exported256-output program through the grouped evaluator on original calibration positions and passed below1e-12 relative error. This validates the exact rewrite, not measured speed. The next outstanding comparison is held-out/native evaluation of the shared-channel baseline at the same product budget.
