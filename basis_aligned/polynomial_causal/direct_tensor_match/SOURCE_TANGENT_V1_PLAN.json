@@ -1,0 +1,30 @@
+{
+  "parent_receipt": "CONVEX_SOURCE_EXCHANGE_GRADIENT_V1.json",
+  "parent_objective": 1.0281318708903684,
+  "pair": 0,
+  "column": 1,
+  "first_order_weighted_descent": 0.002571975975550971,
+  "arms": [
+    {
+      "label": "A",
+      "angle": 0.01,
+      "plan": "SOURCE_TANGENT_V1_A_PLAN.json"
+    },
+    {
+      "label": "B",
+      "angle": 0.03,
+      "plan": "SOURCE_TANGENT_V1_B_PLAN.json"
+    },
+    {
+      "label": "C",
+      "angle": 0.1,
+      "plan": "SOURCE_TANGENT_V1_C_PLAN.json"
+    },
+    {
+      "label": "D",
+      "angle": 0.3,
+      "plan": "SOURCE_TANGENT_V1_D_PLAN.json"
+    }
+  ],
+  "selection": "Retain incumbent unless best executable arm strictly improves maximum squared normalized fidelity. Report all four arms. Original fidelity limits unchanged."
+}
