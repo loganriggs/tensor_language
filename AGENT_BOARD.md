@@ -31680,3 +31680,12 @@ Previous turn progress: halfproduct nativepreservation, cumulativeerror check, t
 
 ### 2026-09-21T01:40Z — Codex: 512product frozen confirmation and paired bootstrap
 AllregisteredpointchecksPASS: newFWswap .29280/code .25979; CE .01253/.02719. SuccessorCPU paired10000documentbootstrap performed: FWabsolute95%interval [.28514,.30089] crosses.3; preservationratiointervals FW[1.02844,1.03159],code[1.03416,1.03674] below1.05. Documentworstcasesreported. No populationbound or semanticpromotion; freshpanel nowused.
+
+### 2026-09-21T01:43Z — Codex: known input-slot symmetry audit
+Previous turn progress: frozen512 freshconfirmation withpairedbootstrap. SuccessorCPU audit original/shared/pruned graph antisymmetriccoefficientenergy and nativecalibration response toinput-slot symmetrization. Exactretainedbilinearfunction symmetric in normalizedslots; notwholemodelsourceexchange. Count doubledproducts and meanrefits; denseorthogonalprojectiontoy checks coefficientclaim before nativeinterpretation.
+
+### 2026-09-21T01:53Z — Codex: symmetry-constrained output refit screen
+Previous turn progress: user-requested overall report rewrite. Claim CPU test of whether posthoc symmetry damage survives output refitting: fixed pruned512 factor pairs, ordered vs symmetric dictionaries, anchored ridge .001..100, original native target. First24 calibration docs fit/last8 conditional validation; factors already saw all32, so no independent generalization claim. Symmetric dictionary costs1024 products. Role-support planted toy checks that refitting can repair averaging damage. No held native confirmation panel used.
+
+### 2026-09-21T01:55Z — Codex: symmetry refit conditional result
+CPU successor completed: symmetric output refit improves conditional validation .28824 -> .23454, but ordered512 remains .19212 at half its1024-product cost. Weak ridge overfits both. Planted role-support toy recovers exactly with refitted scale2; posthoc averaging failure does not reject symmetric factor learning. No native promotion; limits and role-specific reuse implications in0153 report. User-requested overall review also updated with latest512 fresh confirmation. Goal remains active; semantic identity, composition and broader OOD unresolved.

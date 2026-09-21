@@ -1,0 +1,36 @@
+{
+  "records": [
+    {
+      "program": "original1024",
+      "products": 1024,
+      "symmetrized_products": 2048,
+      "coefficient_antisymmetric_energy_fraction": 0.26982590821735725,
+      "full_calibration_error": 0.18921768861812385,
+      "reverse_calibration_error": 0.42951849247687,
+      "symmetrized_calibration_error": 0.27330726903547553,
+      "original_predicted_swap_asymmetry": 0.5001704132093945
+    },
+    {
+      "program": "shared1024",
+      "products": 1024,
+      "symmetrized_products": 2048,
+      "coefficient_antisymmetric_energy_fraction": 0.24650487201375668,
+      "full_calibration_error": 0.19292280068247536,
+      "reverse_calibration_error": 0.44117344260424435,
+      "symmetrized_calibration_error": 0.2800773321666073,
+      "original_predicted_swap_asymmetry": 0.5181896467435966
+    },
+    {
+      "program": "pruned512",
+      "products": 512,
+      "symmetrized_products": 1024,
+      "coefficient_antisymmetric_energy_fraction": 0.2599204022151359,
+      "full_calibration_error": 0.20004987860743753,
+      "reverse_calibration_error": 0.4533789403086701,
+      "symmetrized_calibration_error": 0.28851537649233955,
+      "original_predicted_swap_asymmetry": 0.533250620991592
+    }
+  ],
+  "toy_projection_identity": 6.477569114177693e-17,
+  "scope": "Exactsymmetry of source-dependent bilinear function in already-normalized n,m slots. Not symmetry ofthe fullmodel underphysically swapping residualsources and recomputing normalization. Coefficientenergy usesisotropic inputslots and fixedvocabularycenteredoutputmetric; calibration usespairednative inputs. Meanrecentered separately forreverse/symmetric controls."
+}

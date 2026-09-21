@@ -1,220 +1,223 @@
-# Overall review: from tensor decomposition to shared arithmetic graphs
+# Overall review: folding → decomposition → arithmetic circuits
 
-Rewritten 21 September 2026, 01:27 UTC. This replaces the incremental experiment log previously at this path.
+Updated 21 September 2026. Results through the 01:40 UTC confirmation report. This replaces the earlier “full coverage and shared baselines” write-up with an overview of the research direction.
 
-**Your original two-stage idea is still the direction:** first use tensor decompositions to discover useful computations; then simplify their arithmetic graph, allowing computations to be shared. We now have a concrete example of that pipeline that approximates a selected folded section of the model. We do **not** yet have a general automatic graph-search system or a set of identified semantic circuits.
+**Your remembered plan is correct: first decompose a folded model computation; then simplify the resulting arithmetic graph. QR removes redundant output coordinates before either stage.** We have implemented a restricted version of that pipeline and obtained a smaller executable approximation. We have not yet implemented general arithmetic-circuit search or established interpretable identities for its features.
 
-The strongest progress is that a weight-derived decomposition can be converted into a graph, improved with a small shared correction, and made substantially smaller by sharing its input projections. Native-model tests show useful fidelity, with meaningful remaining error. The initial Tucker/HT experiments did not establish that those methods are incapable of finding circuits.
+The latest concrete result is a reduction from **1,024 to 512 products and about 52% fewer weight coefficients**, with a modest loss of fidelity on new documents. These savings concern one folded contribution inside the model. The remaining intervention error is approximately 26–29%, so this is useful progress rather than an exact replacement.
 
-## 1. What we set out to do
+## 1. The plan, with the terms defined
 
-For the 18-block model, the residual width is 1,152, the bilinear width is 4,608, and the vocabulary has 50,304 tokens. A bilinear MLP computes
+A bilinear MLP computes
 
 $$
-B(x)=D[(Lx)\odot(Rx)].
+B(x)=D\big[(Lx)\odot(Rx)\big].
 $$
 
-Each row of $L$ or $R$ reads one scalar feature from $x$. The elementwise product $\odot$ multiplies corresponding features. The columns of $D$ specify where those products write into the residual stream.
+Here $x$ is the input residual vector; rows of $L$ and $R$ read scalar features; $\odot$ multiplies corresponding features; and $D$ writes their products back into the residual stream. The unembedding $U$ maps residual coordinates to vocabulary coordinates.
 
-The proposed workflow was:
+**Folding** means contracting adjacent linear maps or substituting an earlier computation into a later one. **Decomposition** means finding a smaller structured representation of the resulting function. An **arithmetic circuit**, represented as a directed acyclic graph (DAG), specifies the linear combinations and products we actually compute. A shared intermediate is computed once and used by multiple consumers.
 
 ```mermaid
 flowchart TD
- A[Choose a section of the trained model] --> B[Fold linear maps and express its tensor implicitly]
- B --> C[Stage 1: fit Tucker, HT, block terms or other candidate structures]
- C --> D[Candidate linear features, products and output directions]
- D --> E[Stage 2: simplify the arithmetic graph and share computations]
- E --> F[Compare reconstruction error and actual program cost]
- F --> G[Freeze the program and test it in the native model]
- G --> H[Check transfer, interventions, reuse and feature identity]
+    A[Trained model weights] --> B[Choose and fold a specific computation]
+    B --> C[Exact QR output reduction]
+    C --> D[Stage 1: decompose the joint tensor]
+    D --> E[Candidate features, products and output directions]
+    E --> F[Stage 2: share, remove and refit graph computations]
+    F --> G[Compare error against program cost]
+    G --> H[Freeze and test inside the native model]
+    H --> I[Test feature meaning and selective interventions]
 ```
 
-A **tensor decomposition** proposes how to build the function. An **arithmetic graph**, or DAG, records which linear combinations and products are actually computed, and which later computations reuse them. A **circuit**, in the stronger sense we want, needs additional evidence about its behavior and interventions. A compact graph alone is not that evidence.
+We have reached native-model testing for specific graph simplifications. Stable feature meaning and a general graph-edit search remain unfinished.
 
-## 2. Where QR and folding enter
+## 2. QR is an exact preparation step
 
-Let $U$ be the unembedding: the matrix mapping residual vectors to vocabulary logits. Before final nonlinear operations, the MLP's projected contribution is
+The linear vocabulary-space contribution is
 
 $$
-F(x)=UD[(Lx)\odot(Rx)].
+F(x)=UD\big[(Lx)\odot(Rx)\big].
 $$
 
-Our implementation uses the thin QR factorization
+The implementation factorizes the unembedding, then folds its smaller factor into the MLP output:
 
 $$
 U=Q R_U,\qquad Q^\top Q=I,
 $$
 
-and folds $R_U$ into the MLP output matrix:
-
 $$
 \widetilde D=R_U D,\qquad
-F(x)=Q\underbrace{\widetilde D[(Lx)\odot(Rx)]}_{\widetilde F(x)}.
+F(x)=Q\widetilde F(x),\qquad
+\widetilde F(x)=\widetilde D\big[(Lx)\odot(Rx)\big].
 $$
 
-We can therefore work with 1,152 reduced output coordinates instead of 50,304 vocabulary coordinates. This step is **exact**: multiplying by the fixed $Q$ restores the linear vocabulary-space contribution, and preserves Euclidean error. Directly QR-factorizing $UD$, as you proposed, is another way to express this output-space reduction; the implementation here QR-factorizes $U$ and then contracts with $D$.
-
-**QR is not the lossy decomposition.** Choosing only 4 or 256 output directions later is a separate approximation. Those two operations were too easy to confuse in the earlier report.
-
-We can also fold earlier linear output projections into $L$ and $R$. If an input is assembled as $x=Ez$, its contribution becomes
+This changes the working output width from **50,304 vocabulary coordinates to 1,152 residual-sized coordinates**, without approximation. In particular,
 
 $$
-\widetilde F(z)=\widetilde D[(LEz)\odot(REz)].
+\|Q(\widetilde F-\widehat{\widetilde F})\|_2
+=\|\widetilde F-\widehat{\widetilde F}\|_2.
 $$
 
-This defines an **order-three tensor**: one output index and two input indices. “Order three” counts indices; the function is quadratic, not cubic. We evaluate and contract this tensor implicitly rather than allocate its enormous dense array.
+Your proposal to QR-factorize $UD$ directly has the same purpose. Our implementation uses QR of $U$, followed by contraction with $D$.
 
-Substituting a previous bilinear computation into those input features produces quartic terms and an **order-five tensor**. We explored that route too. RMS normalization, attention normalization and softcapping remain explicit operations; these are not folded into a fixed polynomial tensor.
+**Later selecting only 4 or 256 output directions is lossy; QR itself is not.** The exact statement concerns this linear contribution. Final normalization and logit softcapping still need native-model evaluation.
 
-## 3. What happened in the decomposition stage
+## 3. Stage one: what tensor are we decomposing?
 
-We tested planted toy structures, optimizer choices, learning rates, restarts and different notions of reconstruction error. We then tried quadratic and quartic structures on trained weights, including sparse Tucker-style cores, CP/product sums, shared quadratic features and hierarchical constructions.
-
-A Tucker-style candidate has the form
+For one bilinear layer, the reduced function has a joint coefficient tensor
 
 $$
-s=P^\top z,\qquad
-h_g=\sum_{p,q}G_{gpq}s_ps_q,\qquad
+\widetilde F_v(x)=\sum_{i,j}T_{vij}x_i x_j,
+$$
+
+$$
+T_{vij}=\frac12\sum_k\widetilde D_{vk}
+\big(L_{ki}R_{kj}+L_{kj}R_{ki}\big).
+$$
+
+It is **order three** because it has three indices: one output index and two input indices. Its function is quadratic, not cubic. Decomposing this joint tensor lets cancellations and shared structure across all three matrices influence the fit.
+
+A Tucker candidate writes
+
+$$
+s=P^\top x,\qquad
+h_g=\sum_{p,q}G_{gpq}s_p s_q,\qquad
 y=Wh.
 $$
 
-Here $s_p$ are learned input features, $G$ specifies their interactions, and $W$ gives each computed feature's output effect. HT extends the organization into a hierarchy over tensor input slots. A general DAG additionally permits reuse across branches.
+The columns of $P$ define input features; the core $G$ specifies which feature pairs interact; the columns of $W$ specify the output effects. Sparse $G$ means few interactions. It does not guarantee interpretable features.
 
-**There was no single “Tucker/HT failed” result.** The experiments exposed several different issues:
+Substituting a second pure bilinear layer gives a quartic function with an **order-five tensor**: one output index and four input indices. Hierarchical Tucker (HT) organizes its contractions as a tree of smaller bilinear computations. Its tree groups tensor slots, which can all receive the same full input vector. A DAG goes further by allowing intermediate computations to be reused across branches.
 
-- **Optimization:** representable toy functions sometimes fitted poorly from one initialization or learning rate, then recovered under a different fit. A bad endpoint is not a rank lower bound.
-- **Choice of structure:** a function cheap as a shared computation can be expensive in a flat product representation or an unfavorable hierarchy.
-- **Choice of error metric:** matching every coefficient equally can spend capacity on directions that matter little on model states. Conversely, fitting a data-weighted metric does not establish global coefficient accuracy.
-- **Feature identity:** different decompositions can compute almost the same function while assigning different meanings to their intermediate variables. Sparse or low-rank representations do not resolve this automatically.
+### Did Tucker or HT fail?
 
-The global quartic fits were not sufficiently good or economical to yield the desired circuits. We therefore retained intermediate computations and worked on a more tractable folded path, rather than claiming a successful decomposition of the fully expanded network.
+**We did not establish that Tucker or HT cannot represent the useful structure.** We tested particular widths, parameterizations, optimizers and objectives. Some trained-weight fits had large reconstruction error; the broad quartic experiments did not produce a sufficiently accurate, economical program.
 
-## 4. Which folded function are we working on now?
+The important distinctions are:
 
-The current target is the part of the **last bilinear MLP** that depends on the previous MLP's polynomial residual contribution.
+| Possible cause of a poor fit | What we learned |
+|---|---|
+| Too little capacity or an unsuitable factorization | A compact computation need not have a compact representation under the chosen ranks and grouping. |
+| Optimization failure | Toy recovery depended on initialization and optimization settings; a poor endpoint is not a proof of insufficient rank. |
+| An unsuitable error metric | Low coefficient error and good behavior on actual model states are different objectives. |
+| Ambiguous intermediate features | Similar total functions can have very different internal decompositions. |
 
-Let $h$ be the last MLP's input, and let $m$ be that previous contribution. The target is
+We ran five planted structural baselines and optimizer/rate/restart experiments. They supported testing multiple structures and fits, rather than declaring one universal optimizer or interpreting every negative result as a structural impossibility.
+
+## 4. The tractable folded target we moved to
+
+Instead of fully expanding the quartic tensor, we retained an earlier intermediate contribution.
+
+Let $h$ be the last MLP's input and $m$ the preceding MLP's polynomial residual contribution, including its relevant residual scaling. The target is the part of the last bilinear MLP depending on that source:
 
 $$
 B(h)-B(h-m).
 $$
 
-An early approach concentrated on the previous contribution's self-interaction. But its cross-interactions with the rest of the residual stream also matter. The midpoint identity retains all of them:
-
-$$
-n=h-\frac{m}{2},
-$$
+With $n=h-m/2$, an exact identity gives
 
 $$
 \boxed{
 B(h)-B(h-m)
-=D[(Ln)\odot(Rm)+(Rn)\odot(Lm)].
+=D\big[(Ln)\odot(Rm)+(Rn)\odot(Lm)\big].
 }
 $$
 
-This is bilinear in the intermediate vectors $n$ and $m$. It lets us retain the earlier computation instead of expanding every quartic coefficient. In evaluation, both inputs receive the appropriate native normalization scaling; the recipient residual context and final nonlinear operations remain native.
+This includes both the source's self-interaction and its cross-interactions with the remaining input. It is bilinear in the intermediate vectors $n$ and $m$, avoiding immediate expansion of every upstream coefficient.
 
-**Scope:** this is a complete source-dependent contribution within the last MLP. It is not the entire model, and it still needs the upstream model to supply $n$ and $m$.
+In evaluation, $n$ and $m$ use the original recipient's normalization denominator. We keep normalization explicit. This identity does **not** mean we recompute normalization after subtracting $m$, or ablate the whole upstream MLP and recompute the network.
 
-## 5. Why the report switched from four features to “full coverage”
+**The upstream model still supplies these vectors. We are simplifying a defined contribution inside the last MLP, not replacing the whole model.**
 
-Initially we reconstructed four selected output features very well. A 16-product program reproduced their joint native swap effects with roughly 5–6% error on a new panel.
+### What “full coverage” meant
 
-That result was real, but its target was limited. The four output directions omitted 46.5% of the calibration variation norm of the whole folded contribution. Good reconstruction of those four features was not a good reconstruction of everything.
+The earliest strong result concerned only **four selected output features**. Their 16-product approximation had roughly 5–6% joint swap-effect error, but those four directions omitted substantial output variation.
 
-We then expanded to 256 output directions and counted the error from **all omitted directions**. That is what the old title meant by “full coverage.” It should have said **evaluation against the full folded contribution**. The representation still omits directions and is approximate.
+We then used 256 output directions and evaluated error against **the full source-dependent contribution, including omitted directions**. That was called “full coverage.” It did not mean exact reconstruction, all model layers, or all possible circuits. The clearer phrase is **full-contribution evaluation**.
 
-The current stage-one initializer is an **output-sharing block decomposition**, not an end-to-end HT fit: choose an output basis, then use a rank-four matrix factorization for the bilinear form associated with each output direction. This is one of the candidate structures in the broader Tucker/block-term family.
+## 5. What actually supplied the current candidate?
 
-At four products per output direction, this gives 1,024 products. With the same selected output basis, changing the input-fitting metric made a large difference:
+The current initializer is an **output-sharing block decomposition**, rather than an end-to-end HT fit:
 
-| Full folded-output variation error | Isotropic input metric | Calibration-weighted input metric |
-|---|---:|---:|
-| FineWeb diagnostic panel | 65.7% | 28.0% |
-| Related-code diagnostic panel | 50.8% | 18.0% |
+1. Choose 256 output directions.
+2. Approximate each direction's bilinear form using four products of learned linear features.
+3. Assemble the resulting 1,024 products into an executable graph.
 
-These errors are measured before the final native normalization and softcap. They are not token error rates or intervention errors.
+Covariance information helped substantially. Holding the selected output basis fixed, calibration-weighted input fitting reduced full-output variation error from **65.7% to 28.0% on FineWeb**, and **50.8% to 18.0% on related code**, compared with isotropic input fitting.
 
-**Your covariance suggestion helped.** We explored both isotropic objectives and calibration-informed moments, including a paired-input moment in earlier smaller experiments. The latest program also uses calibration data for output refitting. Its discovery starts from weights, but it is not data-free. Both columns above use the same calibration-selected output basis; this is a comparison of input metrics, not an entirely data-free method against a data-informed one.
+Those are output reconstruction errors before final native nonlinearities, not intervention errors. Both fits used a calibration-selected output basis; this comparison does not isolate an entirely data-free method against a data-informed one.
 
-## 6. What we have actually implemented from stage two
+Thus the weight-matching direction has produced useful candidate computations, especially with data-informed metrics. We do not have a controlled result attributing the entire improvement to the paper's optimization method alone.
 
-The current candidate starts with 1,024 learned products, originally arranged in 256 groups of four. Each group shares an output direction. We have tested concrete graph changes rather than treating that grouping as permanent.
+## 6. Stage two: which graph simplifications have we done?
 
-**First, let individual products write beyond their original groups.** An unconstrained output refit overfitted. Regularizing the refit toward zero also lost useful structure. Regularizing toward the original weight-derived writers worked better.
+We have implemented specific edits and refits:
 
-**Second, compress the useful correction into shared features.** Eight linear combinations of the existing products retained the correction's benefit. Each product is computed once and feeds both its original group and the correction. No new products are required.
+| Step | Change and reason |
+|---|---|
+| Refit output writes | Let products contribute beyond their initial output groups. Unconstrained fitting overfitted; regularizing toward the original weight-derived writes worked better. |
+| Share the output correction | Express the useful correction through eight shared linear combinations of existing products. No additional products were needed. |
+| Share input projections | Read 256 common input features on each side, then combine them into product inputs. This reduced stored coefficients. |
+| Remove products and refit | Select a smaller product dictionary jointly and refit its output writes, accounting for output storage as well as input storage. |
 
-**Third, share the input projections.** The latest experiment finds common input subspaces from contractions of the joint tensor, taking both the other input factors and output writers into account. This is more informed than compressing each matrix independently.
-
-The graph now has this structure:
+The latest graph is:
 
 ```mermaid
 flowchart TD
- N[Normalized midpoint input] --> PN[256 shared linear input features]
- M[Normalized previous-source input] --> PM[256 shared linear input features]
- PN --> A[Linear combinations for product inputs]
- PM --> B[Linear combinations for product inputs]
- A --> P[1024 products, computed once]
- B --> P
- P --> G[256 original output-group sums]
- P --> C[8 shared linear correction features]
- G --> Y[Output writes and calibration mean]
- C --> Y
+    N[Normalized midpoint input n] --> A[256 shared linear features]
+    M[Normalized source input m] --> B[256 shared linear features]
+    A --> C[Linear combinations for left product inputs]
+    B --> D[Linear combinations for right product inputs]
+    C --> E[512 retained products]
+    D --> E
+    E --> F[Refitted compact output map and mean]
+    F --> G[Replacement contribution in the native model]
 ```
 
-The eight correction features are continuous linear combinations of products. They are not automatically eight interpretable concepts.
+After product removal, the refitted output map replaces the earlier explicit group-plus-correction layout. The final graph need not preserve the initializer's grouping.
 
-| Executable graph | Products | Weight coefficients |
+**This is a restricted realization of your second stage.** We have not implemented a general search over arbitrary shared sums, cross-depth reuse, alternative hierarchies and graph topology. Nor have we established that the retained nodes are semantic units.
+
+## 7. Latest results: smaller program, measured fidelity cost
+
+Both programs below were frozen before testing on the same new panel: 32 FineWeb documents and 16 additional Python files from this repository.
+
+“Replacement loss” is the increase in next-token cross-entropy after substituting the approximation. “Swap-effect error” measures how closely it reproduces the native logit change when the contribution is interchanged between matched-token contexts. Lower is better for both.
+
+| Metric | Corrected 1,024-product graph | Simplified 512-product graph |
 |---|---:|---:|
-| Products with grouped output writers | 1,024 | 2,654,208 |
-| Add eight shared correction features | 1,024 | 2,671,616 |
-| Also share 256 input features on each side | 1,024 | 1,426,432 |
+| Stored weight coefficients | 2,671,616 | 1,291,264 |
+| FineWeb replacement loss, nats/token | 0.01178 | 0.01253 |
+| Code replacement loss, nats/token | 0.02561 | 0.02719 |
+| FineWeb swap-effect error | 28.43% | 29.28% |
+| Code swap-effect error | 25.09% | 25.98% |
 
-Means are accounted for separately. These counts cover the folded section, not upstream computation or the whole model. The latest graph cuts weight storage by about 47% relative to the corrected graph. A small CPU benchmark also ran faster, but we have not established whole-model or GPU speedup.
+The smaller graph uses **half the products and 51.7% fewer weight coefficients**. Its intervention errors increased by less than the registered 5% relative allowance. These counts exclude upstream computation and account for means separately; they do not establish whole-model acceleration.
 
-**What remains missing from stage two:** a general search that proposes arbitrary graph edits, changes topology, merges intermediate computations across depths and jointly refits them. We have tested selected edits and exported executable graphs. We have not built the full automatic search procedure you proposed.
+The absolute 30% intervention-error check passed on point estimates. However, the smaller graph's FineWeb bootstrap interval is **28.51–30.09%**, crossing that threshold. The code panel is related local source, not broad external validation. These qualifications matter when assessing how strong the result is.
 
-## 7. What the native-model tests say
+The earlier four-feature 5–6% errors and these full-contribution 26–29% errors have different targets and should not be compared as a regression.
 
-There are two distinct questions:
+## 8. What the baselines and negative results tell us
 
-- **Replacement:** if we substitute the approximation, how much does next-token cross-entropy increase? Lower is better; zero would preserve the native loss on that panel.
-- **Intervention:** if we remove or swap the computation, how closely does the approximation reproduce the native logit change? This is a relative error in the change, not in the original logits.
+Retaining native channels and refitting their writes was an alternative to learning new factors. At the same 1,024-product budget, that baseline fitted calibration data better but transferred worse in native interventions. Training error alone therefore did not select the better program.
 
-For the corrected graph **before input sharing**, we froze its weights and tested new documents: 32 FineWeb documents and 16 previously unused top-level Python files from this repository.
+Other experiments found that a good combined approximation could have unreliable individual component interventions. Algebraic controls showed that internal components can change while their total function stays fixed. This is a warning about **feature identification**, not simply reconstruction quality.
 
-| New-panel result | FineWeb | Related local code |
-|---|---:|---:|
-| Replacement cross-entropy increase, nats/token | 0.0101 | 0.0253 |
-| Full-contribution removal-effect error | 22.29% | 15.53% |
-| Full-contribution same-token swap-effect error | 28.17% | 26.10% |
+The current evidence supports three conclusions:
 
-The correction lowered code replacement loss from 0.0374 to 0.0253 nats/token. The registered confirmation checks passed. The code panel is not broad external OOD, and pretraining overlap is unknown.
+- Decomposition can supply useful building blocks for this folded target.
+- Shared projections, output corrections and product removal can make their graph smaller while largely preserving its measured behavior.
+- Reconstruction and compression alone have not supplied stable, interpretable, selectively manipulable circuits.
 
-The **new input-sharing graph** has so far been tested on the older reused diagnostic panels. Its swap errors were 31.28% on FineWeb and 27.17% on code, within the registered 5% relative degradation allowance against the larger graph on those same panels. It passed that preservation test, but has not received its own fresh-panel confirmation. Its FineWeb result remains above the earlier 30% absolute intervention threshold.
+The next substantive step is to broaden graph search and test intermediate-feature identity and interventions. Further compression is useful, but does not by itself answer the circuit-discovery question.
 
-Do not compare the early 5–6% figure directly with these 28–31% figures: the former concerned four selected output features; the latter includes the entire varying folded contribution.
+## Supporting records
 
-## 8. What the shared baselines taught us
-
-We also tried retaining native channels and refitting their output writers, instead of learning new factors. At the same 1,024-product budget, that baseline looked better on calibration data but transferred worse in native interventions. Regularization helped without reversing the comparison.
-
-This is why the report contains negative results: they prevent us from mistaking a good training fit for a useful circuit. Likewise, splitting a good combined computation into positive and negative components produced unreliable individual interventions, and exact algebraic controls showed that different components could implement the same total function.
-
-Our current conclusion is therefore specific:
-
-**Decomposition has supplied useful building blocks, and several graph edits have improved their fidelity or cost. Covariance information and weight-anchored fitting helped. We have not shown that the resulting features are uniquely identified, monosemantic, reusable across arbitrary contexts, or composable with other replacements.**
-
-The next work should test the smaller shared-input graph beyond reused panels, pursue graph changes that save products as well as projections, and establish the behavioral meaning and selective manipulability of intermediate features. Merely getting another low reconstruction error would not complete the goal.
-
-## Evidence and further detail
-
-This is the overall review. Individual measurements and caveats are retained in:
-
-- [Fresh corrected-graph confirmation](research_update_2026-09-21_0121_frozen_graph_confirmation.md).
-- [Full-coverage sweep results](../../direct_tensor_match/MIDPOINT_COVERAGE_SWEEP_V1.json).
-- [Weight-anchored output refit](../../direct_tensor_match/MIDPOINT_PRODUCT_REFIT_NATIVE_V1.json).
+- [Latest frozen 512-product confirmation and uncertainty](research_update_2026-09-21_0140_pruned_graph_confirmation.md).
+- [Product selection and removal](research_update_2026-09-21_0136_product_removal.md).
+- [Earlier corrected-graph confirmation](research_update_2026-09-21_0121_frozen_graph_confirmation.md).
+- [Output-basis and input-metric sweep](../../direct_tensor_match/MIDPOINT_COVERAGE_SWEEP_V1.json).
+- [Weight-anchored output-refit results](../../direct_tensor_match/MIDPOINT_PRODUCT_REFIT_NATIVE_V1.json).
 - [Shared-input graph results](../../direct_tensor_match/MIDPOINT_SHARED_GRAPH_NATIVE_V1.json).
-
-The full research objective remains open. The current object is a compact, partially validated arithmetic approximation of a defined folded path—not yet the final interpretable circuit discovery system.

@@ -1,0 +1,93 @@
+{
+  "records": [
+    {
+      "family": "ordered",
+      "ridge": null,
+      "train": 0.20232512325549906,
+      "validation": 0.19235178110973636
+    },
+    {
+      "family": "ordered",
+      "ridge": 0.001,
+      "train": 0.13911235135847805,
+      "validation": 0.2655958252672589
+    },
+    {
+      "family": "ordered",
+      "ridge": 0.01,
+      "train": 0.1412181670141195,
+      "validation": 0.24791829801578513
+    },
+    {
+      "family": "ordered",
+      "ridge": 0.1,
+      "train": 0.15177233078281466,
+      "validation": 0.21709442113931196
+    },
+    {
+      "family": "ordered",
+      "ridge": 1.0,
+      "train": 0.17418659315090676,
+      "validation": 0.195666583331213
+    },
+    {
+      "family": "ordered",
+      "ridge": 10.0,
+      "train": 0.1940584326238526,
+      "validation": 0.19212251967036145
+    },
+    {
+      "family": "ordered",
+      "ridge": 100.0,
+      "train": 0.20097709915114673,
+      "validation": 0.1923429937700178
+    },
+    {
+      "family": "symmetric",
+      "ridge": null,
+      "train": 0.28859422980441696,
+      "validation": 0.28824226553221466
+    },
+    {
+      "family": "symmetric",
+      "ridge": 0.001,
+      "train": 0.14423251561769956,
+      "validation": 0.27092565000965024
+    },
+    {
+      "family": "symmetric",
+      "ridge": 0.01,
+      "train": 0.14765978512559072,
+      "validation": 0.2557529062774863
+    },
+    {
+      "family": "symmetric",
+      "ridge": 0.1,
+      "train": 0.16252329574866017,
+      "validation": 0.23593915998319595
+    },
+    {
+      "family": "symmetric",
+      "ridge": 1.0,
+      "train": 0.19900982168740755,
+      "validation": 0.23453838180856348
+    },
+    {
+      "family": "symmetric",
+      "ridge": 10.0,
+      "train": 0.24468106122139557,
+      "validation": 0.25437107810094234
+    },
+    {
+      "family": "symmetric",
+      "ridge": 100.0,
+      "train": 0.2765830482719346,
+      "validation": 0.2778822810605264
+    }
+  ],
+  "toy": {
+    "refitted_scale": 2.0,
+    "relative_error": 0.0
+  },
+  "scope": "Conditional calibration split: first 24 documents fit, last 8 validation; features previously learned using all 32, so not independent generalization. Original native reduced-output target, fixed vocabulary metric. Symmetric family uses two products per retained pair (1024 vs ordered512). All means and scales fitted on first24. Ridge anchors to original pruned output map; only output map refitted. Not full symmetry-constrained factor learning."
+}
