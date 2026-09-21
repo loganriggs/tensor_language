@@ -1,0 +1,119 @@
+{
+  "rows": [
+    {
+      "case": "shared_squares",
+      "width": 2,
+      "oracle_replay": 2.57933018004676e-16,
+      "fits": [
+        {
+          "seed": 0,
+          "error": 8.457759677664647e-10,
+          "iterations": 43
+        },
+        {
+          "seed": 1,
+          "error": 7.346939922413485e-10,
+          "iterations": 46
+        },
+        {
+          "seed": 2,
+          "error": 7.008073491828537e-10,
+          "iterations": 46
+        }
+      ]
+    },
+    {
+      "case": "signed_mixed",
+      "width": 2,
+      "oracle_replay": 5.633721043146851e-16,
+      "fits": [
+        {
+          "seed": 0,
+          "error": 8.954581948771311e-10,
+          "iterations": 59
+        },
+        {
+          "seed": 1,
+          "error": 9.691486705313576e-10,
+          "iterations": 57
+        },
+        {
+          "seed": 2,
+          "error": 8.609488446583368e-10,
+          "iterations": 56
+        }
+      ]
+    },
+    {
+      "case": "dense_core",
+      "width": 3,
+      "oracle_replay": 8.126536151214659e-16,
+      "fits": [
+        {
+          "seed": 0,
+          "error": 8.08330911641022e-10,
+          "iterations": 73
+        },
+        {
+          "seed": 1,
+          "error": 8.11336933661976e-10,
+          "iterations": 72
+        },
+        {
+          "seed": 2,
+          "error": 8.523291727064337e-10,
+          "iterations": 75
+        }
+      ]
+    },
+    {
+      "case": "common_factor",
+      "width": 3,
+      "oracle_replay": 6.767545270573502e-16,
+      "fits": [
+        {
+          "seed": 0,
+          "error": 9.821092588670422e-10,
+          "iterations": 68
+        },
+        {
+          "seed": 1,
+          "error": 8.229665081667204e-10,
+          "iterations": 69
+        },
+        {
+          "seed": 2,
+          "error": 7.851927318965085e-10,
+          "iterations": 68
+        }
+      ]
+    },
+    {
+      "case": "four_features",
+      "width": 4,
+      "oracle_replay": 1.2097375389644795e-15,
+      "fits": [
+        {
+          "seed": 0,
+          "error": 8.794425340072617e-10,
+          "iterations": 50
+        },
+        {
+          "seed": 1,
+          "error": 9.74848293934311e-10,
+          "iterations": 53
+        },
+        {
+          "seed": 2,
+          "error": 8.697814268350824e-10,
+          "iterations": 53
+        }
+      ]
+    }
+  ],
+  "seconds": 0.14090159395709634,
+  "predictions": {
+    "all_recovered": true
+  },
+  "scope": "Shared multi-output quadratic dictionary. Rank/width supplied. No feature identity guarantee; conditional core solves exact, subspace update heuristic."
+}

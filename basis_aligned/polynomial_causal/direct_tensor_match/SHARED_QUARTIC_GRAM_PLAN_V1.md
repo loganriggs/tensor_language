@@ -1,0 +1,7 @@
+**Joint outputs and shared quadratic features**
+
+Replace separate scalar low-rank representatives with K_v=P G_v P^T, one common15-by-r quadratic feature bank for all4outputs. Alternate polynomial-preserving affine projection, common subspace proposal from sum_v K_v^2, and exact coefficient least-squares fitting of all symmetric cores. The eigenspace proposal is heuristic; no best common two-sided projection or global convergence claim.
+
+Five planted controls at widths2/2/3/3/4, three starts,1000iterations: shared squares, signed mixed forms, dense cores, common factor, four features. Oracle-span core replay<1e-10; best of three coefficient error<1e-6 in every case. Preserve failures before native use. Targets have4outputs and5inputcoordinates. This family deliberately tests sharing; these are not five fundamentally different full-network architectures.
+
+Native successor if controls pass:16saved first-row contexts, all4outputs jointly, widths4/6/8, seeds0/1,1000iterations, exact symmetric Frobenius objective. Predict all width4targets<5% and all width8targets<1%; compare identical algorithm's initial subspace with exact core refit. Report total output-weighted and per-output errors. No independently normalized outputs: preserve native output geometry. Literal dense coefficient count15r+4r(r+1)/2; distinct nonlinear products15+r(r+1)/2. Dense quartic coefficient baseline280 stored values. Source polynomial graph cost and normalized behavior remain separate, and this five-input restriction is not the full tensor.
