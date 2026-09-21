@@ -1,0 +1,118 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_values": true,
+    "pred_c_component": false
+  },
+  "rows": [
+    {
+      "seed": 1101,
+      "ratio": 0.0,
+      "budget": 0.0,
+      "solver": {
+        "multiplier": null,
+        "displacement": 0.0,
+        "endpoint": "coefficient"
+      },
+      "baseline_replay": 5.612194884954418e-09,
+      "export_error": 1.3064488991732761e-07,
+      "text_error": 0.6566850958998772,
+      "gaussian_error": 0.9147650623079948,
+      "sampled_coefficient_error": 0.9682632103987024,
+      "root1_sensitivity_error": 1.0811085073914763,
+      "root1_same_token_error": 0.5114381545147983
+    },
+    {
+      "seed": 1101,
+      "ratio": 1.0,
+      "budget": 0.006375399640099852,
+      "solver": {
+        "multiplier": 34445.838833194066,
+        "displacement": 0.006375399640099854,
+        "endpoint": "constrained",
+        "stationarity": 2.371031666106514e-16
+      },
+      "baseline_replay": 5.612194884954418e-09,
+      "export_error": 1.3213517435586462e-07,
+      "text_error": 0.210566566798029,
+      "gaussian_error": 0.8732672066304915,
+      "sampled_coefficient_error": 0.9888598159367322,
+      "root1_sensitivity_error": 0.40130428237062143,
+      "root1_same_token_error": 0.36596987432261546
+    },
+    {
+      "seed": 1101,
+      "ratio": null,
+      "budget": null,
+      "solver": {
+        "multiplier": 0.0,
+        "displacement": 1.0073626272568896,
+        "endpoint": "target",
+        "stationarity": 1.3576657335544065e-16
+      },
+      "baseline_replay": 5.612194884954418e-09,
+      "export_error": 1.5008281837635787e-07,
+      "text_error": 0.12999800449763005,
+      "gaussian_error": 2.7243980110659978,
+      "sampled_coefficient_error": 2.818567747516081,
+      "root1_sensitivity_error": 0.2756700088836784,
+      "root1_same_token_error": 0.3042170498458915
+    },
+    {
+      "seed": 1102,
+      "ratio": 0.0,
+      "budget": 0.0,
+      "solver": {
+        "multiplier": null,
+        "displacement": 0.0,
+        "endpoint": "coefficient"
+      },
+      "baseline_replay": 4.138634080034097e-09,
+      "export_error": 1.1329171675505868e-07,
+      "text_error": 0.6408823128718544,
+      "gaussian_error": 0.9157173312925926,
+      "sampled_coefficient_error": 0.9719734645067081,
+      "root1_sensitivity_error": 1.0773662094439387,
+      "root1_same_token_error": 0.5006719655957351
+    },
+    {
+      "seed": 1102,
+      "ratio": 1.0,
+      "budget": 0.00649212519268812,
+      "solver": {
+        "multiplier": 27000.23450726003,
+        "displacement": 0.0064921251926881255,
+        "endpoint": "constrained",
+        "stationarity": 2.2216893162413603e-16
+      },
+      "baseline_replay": 4.138634080034097e-09,
+      "export_error": 1.3818534030444808e-07,
+      "text_error": 0.20002796486671806,
+      "gaussian_error": 0.887089020590149,
+      "sampled_coefficient_error": 0.994172510880583,
+      "root1_sensitivity_error": 0.42412843668927713,
+      "root1_same_token_error": 0.38146850153225265
+    },
+    {
+      "seed": 1102,
+      "ratio": null,
+      "budget": null,
+      "solver": {
+        "multiplier": 0.0,
+        "displacement": 1.7202459082166122,
+        "endpoint": "target",
+        "stationarity": 6.716709256597973e-17
+      },
+      "baseline_replay": 4.138634080034097e-09,
+      "export_error": 1.3391263482116343e-07,
+      "text_error": 0.14570811049899113,
+      "gaussian_error": 3.099110626100577,
+      "sampled_coefficient_error": 3.573016488891789,
+      "root1_sensitivity_error": 0.2939699068393096,
+      "root1_same_token_error": 0.26065842486346585
+    }
+  ],
+  "seconds": 39.38784481585026,
+  "peak_memory_bytes": 1604783616,
+  "scope": "Exact fixed-feature shiftedGaussian readout, coefficientbudgetrelativecapturedscore notfullnorm. Fixed144quadratics and learned512pairs. Inputstatistics/readers data-informed; no empiricaloutput fit, newfeatures, OOD or nativefinite-removal claim."
+}
