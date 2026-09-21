@@ -1,0 +1,277 @@
+{
+  "plan": {
+    "learning_rates": [
+      0.005,
+      0.02
+    ],
+    "starts": [
+      "pruned",
+      "pruned_1pct_perturbed"
+    ],
+    "steps": 4000,
+    "ridge": 1e-10,
+    "schedule": "cosine",
+    "optimizer": "Adam on left/right with analytic ridge readout",
+    "selection": "Lowest profiled weight objective only; preserve private third program.",
+    "input_sha256": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "graph_sha256": "b5cba0025b48504bb8e3178f55cc05cd2d731dafaf38eb79067ca93e9faa89bd",
+    "native_forwards": 0,
+    "source_products": 512,
+    "stored_float_budget": 906782,
+    "scope": "Allthree targets scored; firsttwo share256mixedproducts, thirdprivate256. Nativeopened gates15% and1.10baseline; matchedcoefficientstorage. No freshconfirmation yet."
+  },
+  "records": [
+    {
+      "key": "0.005_pruned",
+      "selection_objective": 0.007615424606118198,
+      "coefficient_error_first_two": 0.08726639741128761,
+      "dense_objective_replay": 3.426078865054194e-16,
+      "best_step": 4000,
+      "per_mode_errors": [
+        0.02515874355890866,
+        0.025290292246704364,
+        0.11941807156784633
+      ],
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.08618896264525636
+        },
+        {
+          "step": 400,
+          "objective": 0.008278218744590397
+        },
+        {
+          "step": 800,
+          "objective": 0.008141510957050116
+        },
+        {
+          "step": 1200,
+          "objective": 0.008493823264056465
+        },
+        {
+          "step": 1600,
+          "objective": 0.008202717446495136
+        },
+        {
+          "step": 2000,
+          "objective": 0.0077355838807841425
+        },
+        {
+          "step": 2400,
+          "objective": 0.007683307735521421
+        },
+        {
+          "step": 2800,
+          "objective": 0.007689673164275499
+        },
+        {
+          "step": 3200,
+          "objective": 0.00762478926080714
+        },
+        {
+          "step": 3600,
+          "objective": 0.007616748704686096
+        },
+        {
+          "step": 4000,
+          "objective": 0.007615424606118198
+        }
+      ]
+    },
+    {
+      "key": "0.005_pruned_1pct_perturbed",
+      "selection_objective": 0.007613574903472218,
+      "coefficient_error_first_two": 0.08725579875113844,
+      "dense_objective_replay": 5.915407053080912e-16,
+      "best_step": 4000,
+      "per_mode_errors": [
+        0.025082302578897802,
+        0.024713965733503204,
+        0.11941807156784633
+      ],
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.08647413137216238
+        },
+        {
+          "step": 400,
+          "objective": 0.008423269403116182
+        },
+        {
+          "step": 800,
+          "objective": 0.00800058308591791
+        },
+        {
+          "step": 1200,
+          "objective": 0.007873236432645044
+        },
+        {
+          "step": 1600,
+          "objective": 0.007781577796224228
+        },
+        {
+          "step": 2000,
+          "objective": 0.007750544510366477
+        },
+        {
+          "step": 2400,
+          "objective": 0.007679178983269943
+        },
+        {
+          "step": 2800,
+          "objective": 0.0076495583148519395
+        },
+        {
+          "step": 3200,
+          "objective": 0.007623085214743667
+        },
+        {
+          "step": 3600,
+          "objective": 0.00761492065275562
+        },
+        {
+          "step": 4000,
+          "objective": 0.007613574903472218
+        }
+      ]
+    },
+    {
+      "key": "0.02_pruned",
+      "selection_objective": 0.007589521319265272,
+      "coefficient_error_first_two": 0.08711785692267936,
+      "dense_objective_replay": 1.734723475976807e-16,
+      "best_step": 4000,
+      "per_mode_errors": [
+        0.02649119718203811,
+        0.02484261930063104,
+        0.11941807156784633
+      ],
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.08618896264525636
+        },
+        {
+          "step": 400,
+          "objective": 0.010662649000643228
+        },
+        {
+          "step": 800,
+          "objective": 0.008519130053916498
+        },
+        {
+          "step": 1200,
+          "objective": 0.008601355596120297
+        },
+        {
+          "step": 1600,
+          "objective": 0.009316397192473604
+        },
+        {
+          "step": 2000,
+          "objective": 0.008388977909913085
+        },
+        {
+          "step": 2400,
+          "objective": 0.007840187599691366
+        },
+        {
+          "step": 2800,
+          "objective": 0.00774285500742445
+        },
+        {
+          "step": 3200,
+          "objective": 0.007623271129349315
+        },
+        {
+          "step": 3600,
+          "objective": 0.007593650204191836
+        },
+        {
+          "step": 4000,
+          "objective": 0.007589521319265272
+        }
+      ]
+    },
+    {
+      "key": "0.02_pruned_1pct_perturbed",
+      "selection_objective": 0.007590239593643179,
+      "coefficient_error_first_two": 0.08712197922400816,
+      "dense_objective_replay": 6.071532165918825e-17,
+      "best_step": 4000,
+      "per_mode_errors": [
+        0.02479345736516908,
+        0.02380400748023444,
+        0.11941807156784633
+      ],
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.08647413137216238
+        },
+        {
+          "step": 400,
+          "objective": 0.009581816955610627
+        },
+        {
+          "step": 800,
+          "objective": 0.01345848121487901
+        },
+        {
+          "step": 1200,
+          "objective": 0.008539654201062669
+        },
+        {
+          "step": 1600,
+          "objective": 0.008333935683285557
+        },
+        {
+          "step": 2000,
+          "objective": 0.00799147729708784
+        },
+        {
+          "step": 2400,
+          "objective": 0.008285014631961565
+        },
+        {
+          "step": 2800,
+          "objective": 0.007698519544233416
+        },
+        {
+          "step": 3200,
+          "objective": 0.007623353149349209
+        },
+        {
+          "step": 3600,
+          "objective": 0.007594310773392735
+        },
+        {
+          "step": 4000,
+          "objective": 0.007590239593643179
+        }
+      ]
+    }
+  ],
+  "winner": "0.02_pruned",
+  "ratios_to_baseline": [
+    0.8661755464171819,
+    0.9014519886018397,
+    0.9999999730969096
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_fidelity": true,
+    "pred_c_simplicity": true
+  },
+  "seconds": 190.39440067997202
+}

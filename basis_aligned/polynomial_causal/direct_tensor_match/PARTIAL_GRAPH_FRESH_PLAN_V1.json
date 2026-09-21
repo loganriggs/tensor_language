@@ -1,0 +1,99 @@
+{
+  "parent_winner": "0.02_pruned",
+  "file_sha256": {
+    "PARTIAL_GRAPH_FROZEN_V1.pt": "70c928ee62445b4c7e3b050d85dd041a56847e49e6d2d37f6ef0a635cf727213",
+    "MULTIMODE_PAIR_BASELINES_V1.pt": "178e4328b9f34bb9363d9aefb3d37351c87890721ce5576bfce910e91f2b9cec",
+    "PARTIAL_GRAPH_ORIGINAL_FORMS_V1.pt": "b3701927aafb298fc20c1585df0202a057e09ecb47244848d07c2051c12ebdb5",
+    "PARTIAL_GRAPH_FRESH_DONORS_V1.pt": "15631c42beeb5080b780ade0a2fb0fe4570c2bac1e36d95f09ed9ad1c0e8802f"
+  },
+  "tokens_sha256": {
+    "fineweb": "8632cc68f84328b733e6bda32212122bce7d2735272404c16b331e95dbaeb604",
+    "stdlib": "8bb84a88168fb6578f775ffa7661f783fb99524097f46f1fccb4208123cf2479"
+  },
+  "recipient_documents": {
+    "fineweb": [
+      "<urn:uuid:4a30c9ae-d6d9-4bea-8f91-377e6660f2e5>",
+      "<urn:uuid:b140703f-96bf-4c5c-b4e8-7c3739f74c87>",
+      "<urn:uuid:73d391d6-4c2b-40a8-8ce1-d6330d20e954>",
+      "<urn:uuid:97c34e83-82b2-4c99-9124-779b91db91ed>",
+      "<urn:uuid:b71cd126-7c5d-4cb7-9c9d-a04ac48962db>",
+      "<urn:uuid:71af239b-5707-4913-be37-e07ca6ccc24b>",
+      "<urn:uuid:5e5fb2a3-8727-40ad-bd10-a65fa0618f75>",
+      "<urn:uuid:e1fd0234-7f44-40be-a206-811da05d6a00>",
+      "<urn:uuid:7b746535-6e89-4641-9542-731a8b3bd10e>",
+      "<urn:uuid:e46b7456-a101-498d-9ec0-20465d5c0352>",
+      "<urn:uuid:e96b813b-5439-4a04-bfaa-2a3065fad9a0>",
+      "<urn:uuid:e3402e0c-0eab-40f2-98e6-742c1f4eaebd>",
+      "<urn:uuid:6c1a2bf5-1a89-4ddb-9842-8c404a232527>",
+      "<urn:uuid:5cec1bec-f6a0-4e59-ac0d-4543a82a1fae>",
+      "<urn:uuid:8f4b98cc-b9b6-4f03-bdfe-20c3e3a71278>",
+      "<urn:uuid:efc626bd-55e6-4dfe-9cde-7690d3e775ed>",
+      "<urn:uuid:58940670-a9d7-42bd-b807-f9b6134fb621>",
+      "<urn:uuid:00dc57d4-1284-4da1-a9d6-8889d728acd6>",
+      "<urn:uuid:b6b14f61-3fd7-4800-8949-869b424294b7>",
+      "<urn:uuid:9d7a7d30-c316-4a92-aeee-64efff8c88db>",
+      "<urn:uuid:13b8dd5d-310b-4706-95d9-e62e1a178338>",
+      "<urn:uuid:8c28b549-6e2a-4557-a074-1453fda8feb3>",
+      "<urn:uuid:21ae92c9-c938-44cc-9e05-1ab408d87cf5>",
+      "<urn:uuid:75eb0709-f453-4518-97dc-1282381a1763>",
+      "<urn:uuid:31e28d16-6525-4105-ac64-d727e8d0c219>",
+      "<urn:uuid:786bbed4-3232-48f5-96a9-e55a200d2af5>",
+      "<urn:uuid:917dae20-fc88-4157-8102-7bc1f242345a>",
+      "<urn:uuid:b64d4701-aad6-4cf8-b6ec-2dba478fb83f>",
+      "<urn:uuid:2c3b137b-e18c-4deb-9f56-507801126226>",
+      "<urn:uuid:2850b75a-50d2-4dac-acb8-e4ae011a8332>",
+      "<urn:uuid:bfbd06b4-2627-4599-a93c-1aece4251ba7>",
+      "<urn:uuid:65cce718-5a33-4b4c-9aef-f2ce2a90b35a>"
+    ],
+    "stdlib": [
+      "/venv/main/lib/python3.12/fnmatch.py",
+      "/venv/main/lib/python3.12/fractions.py",
+      "/venv/main/lib/python3.12/ftplib.py",
+      "/venv/main/lib/python3.12/functools.py",
+      "/venv/main/lib/python3.12/getopt.py",
+      "/venv/main/lib/python3.12/getpass.py",
+      "/venv/main/lib/python3.12/gettext.py",
+      "/venv/main/lib/python3.12/glob.py",
+      "/venv/main/lib/python3.12/graphlib.py",
+      "/venv/main/lib/python3.12/gzip.py",
+      "/venv/main/lib/python3.12/hashlib.py",
+      "/venv/main/lib/python3.12/heapq.py",
+      "/venv/main/lib/python3.12/hmac.py",
+      "/venv/main/lib/python3.12/imaplib.py",
+      "/venv/main/lib/python3.12/imghdr.py",
+      "/venv/main/lib/python3.12/inspect.py"
+    ]
+  },
+  "donor_concentration": {
+    "fineweb": {
+      "pairs": 5064,
+      "max_site_fraction": 0.0013823064509779215,
+      "max_document_fraction": 0.03909952566027641
+    },
+    "stdlib": {
+      "pairs": 3135,
+      "max_site_fraction": 0.001913875574246049,
+      "max_document_fraction": 0.0746411457657814
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": "finalstate<1e-5/source<1e-4; exact balanced same-token different-document donor constraints",
+    "pred_b_absolute": "natural/hybrid<=.15 and change<=.20 everydomain/cohort/selection",
+    "pred_c_relative": "every graph effecterror<=1.10 separatebaseline"
+  },
+  "selections": [
+    "mode1",
+    "mode2",
+    "mode3",
+    "combined"
+  ],
+  "source_products": {
+    "graph": 512,
+    "baseline": 768
+  },
+  "stored_float_coefficients": {
+    "graph": 897804,
+    "baseline_writer_deduplicated": 897804
+  },
+  "scope": "Third new document-indexed panel,32FineWeb+16newcodefiles, context256. Coefficient-only primary selection before outcomes. Source substitution holds attention17 background fixed; native finalRMS andsoftcap retained. Nativeinputproducers remain dependencies."
+}
