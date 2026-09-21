@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "real_continuation_ce_interval": [
+      0.07545088927689743,
+      0.1717665212172967
+    ],
+    "real_spaced_ce_interval": [
+      -0.0013365663103160732,
+      0.0008991404719190437
+    ],
+    "real_minus_sham_continuation_ce_interval": [
+      0.043219191099927994,
+      0.10517481697044563
+    ],
+    "real_minus_sham_continuation_logodds_interval": [
+      1.0207511498095319,
+      1.2797667495298206
+    ],
+    "same_token_logodds_contrast_interval": [
+      0.8583554233868462,
+      2.021115685727068
+    ]
+  },
+  "draws": 10000,
+  "scope": "Paired document bootstrap over32frozen confirmation rows. Recomputes same-current-token stratum means and min-count weights within each resample, allowing strata to lose coverage. Descriptive intervals conditional on panel and discovered hypothesis; not familywise guarantees or randomized context treatment."
+}
