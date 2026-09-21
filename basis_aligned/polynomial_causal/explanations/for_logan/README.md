@@ -1,8 +1,8 @@
 # Requested full reports for Logan
 
-**Latest two-stage experiment — [Learned features and graph refitting](research_update_2026-09-21_1742_learned_features_and_graph_refitting.md).** Five structural controls, four successful graph simplifications, and a full-layer learned-direction candidate that improves fitting but fails native intervention checks.
+**Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 18:04 UTC. Starts from the two-stage plan, distinguishes local graphs from the full-layer target, and includes the latest learned-direction and mixed-objective results. This is the overall review; the individual reports below are experiment details.
 
-**Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 17:01 UTC, covering results through 16:57. Explains the two-stage plan, the local shared-graph results, the newer full-layer compression baseline, and why reconstruction and intervention fidelity differ.
+**Latest two-stage experiment — [Learned features and graph refitting](research_update_2026-09-21_1742_learned_features_and_graph_refitting.md).** Five structural controls, four successful graph simplifications, and a full-layer learned-direction candidate that improves fitting but fails native intervention checks.
 
 **Earlier local experiment detail — [Local graph reconstruction and fresh follow-ups](research_update_2026-09-21_1451_local_graph_fidelity_pass.md).** Local reconstruction passes at 15.7% source-cost saving. Both fresh panels pass absolute checks but retain relative baseline failures; two failures remain after pooling. The full folded replacement and circuit-identification goals remain open.
 

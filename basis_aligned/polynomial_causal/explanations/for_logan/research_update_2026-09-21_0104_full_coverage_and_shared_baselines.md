@@ -1,15 +1,20 @@
 **Overall review: folded weights → tensor decomposition → shared arithmetic circuits**
 
-Rewritten 21 September 2026, 17:01 UTC. Covers completed results through 16:57 UTC. The original filename is retained so existing links still work.
+Rewritten 21 September 2026, 18:04 UTC. Includes the completed learned-direction and mixed-objective follow-ups available at this review. The original filename is retained so existing links still work.
 
 **The two-stage plan you remember is still the research direction.** First, fit a tensor decomposition to the joint computation of a section of the model. Second, turn its features into an arithmetic graph, then simplify and refit that graph while allowing computations to be shared. QR is an exact output-coordinate reduction that makes the fitting cheaper.
 
-We have implemented the exact folding and output reduction, several decomposition families, and restricted shared-graph searches. We have **not completed a general Tucker/HT-to-arbitrary-graph optimizer**. The experiments have produced two distinct results:
+The main outcome so far is **a useful compression baseline, plus evidence about why simpler representations fail**. We have not yet found a replacement that passes all the reconstruction and intervention tests, or completed the general Tucker/HT-to-arbitrary-graph optimizer.
 
-- A **small shared graph spanning selected computations in two MLPs** saves 15.7% of the measured source arithmetic. It passes local reconstruction checks but still has transfer failures.
-- A **new baseline for the entire last MLP’s polynomial** removes 20% of its products. With an affine correction, it saves 11.7% of the counted coefficients and reproduces the layer’s logit effect with 4.44% error on new FineWeb documents and 2.12% on new code files. It is a compression baseline, not an identified semantic circuit.
+Three different targets appeared in the updates. Keeping them separate makes the trajectory easier to follow:
 
-Neither result establishes that we have found the simple, reusable, selectively manipulable circuits we ultimately want.
+| Target | What we actually simplify | Where it stands |
+|---|---|---|
+| Selected two-layer computations | A few quadratic measurements from MLP16 feeding selected MLP17 components | Shared arithmetic saves about 15.7% of the measured source cost, but transfer failures remain. |
+| Full last-MLP polynomial | All 4,608 products and their output effects in MLP17 | A 3,686-product replacement gives a useful natural-input baseline; intervention failures remain. |
+| General folded section | A two-layer or deeper computation, represented by a freely edited shared graph | The intended destination; only restricted versions of the search are implemented. |
+
+MLP16 and MLP17 use zero-based numbering: they are the last two of the model’s 18 blocks. “Full” in the second row means the entire last MLP polynomial, not the entire language model.
 
 **The plan, from beginning to end**
 
@@ -128,38 +133,45 @@ The intended search alternates discrete edits—merge, split, introduce, remove,
 
 **What happened after adopting this direction**
 
-**1. Broad fits were too inaccurate, so we narrowed the target to understand why.** Early simplification of a selected two-MLP contribution reduced 1,024 products to 512, but logit-effect error remained about 26% on FineWeb and 21% on code. Storage barely decreased. Fewer products alone did not make it a good replacement.
+**First, we tested whether the machinery could recover known structure.** The recent five-family suite planted independent products, shared input directions, shared output directions, squares, and cancelling terms. This tests fitting code and optimization separately from whether the trained model actually contains the assumed structure.
 
-Much of the subsequent work therefore targeted six quadratic measurements from MLP16 feeding three selected components in MLP17. A measurement, or *read*, is simply $q_j(z)=z^\top Q_jz$. This was a diagnostic subproblem, not the full folded tensor.
+With exact output-weight solves and longer Adam fitting, a width-six model recovered nine of ten runs, covering all five families at least once. “Recovered” here means both coefficient and response errors below 1%; it does not mean the learned internal variables matched the planted ones uniquely. A restricted graph stage then tried deleting products and refitting: four of five selected family examples reached the planted four-product budget while retaining those error limits. The cancellation example remained at six products. Adam was stronger in this particular suite; earlier parameterizations gave different results, so there is no universal optimizer verdict. [Toy and graph experiments](research_update_2026-09-21_1742_learned_features_and_graph_refitting.md).
 
-**2. Shared graphs helped this local problem, but the strongest affordable version still has transfer failures.** Learning directions, allowing pairwise sharing, compiling products, and adding correction terms produced the 15.7% arithmetic saving. More aggressive versions near 20% saving failed reconstruction requirements.
+**Second, local two-layer searches found some savings, but exposed composition problems.** Much of the work simplified six quadratic measurements from MLP16 feeding three selected MLP17 components. A measurement is a scalar function such as $q_j(z)=z^\top Q_jz$.
 
-The successful local fit has 7.63% covariance-shaped coefficient error but 57.74% coefficient error in the original coordinates. On new panels, it passes absolute effect-error limits but retains failures against similarly priced baselines. Subsequent refits improved fitting losses without reliably improving transfer. A numerical scaling bug was repaired; longer contexts alone did not explain the failures.
+Allowing shared directions, shared products and correction terms saved 15.7% of measured source arithmetic. More aggressive versions around 20% saving failed reconstruction requirements. The accepted local fit had 7.63% covariance-shaped coefficient error but 57.74% error in the original coordinates. It passed absolute reconstruction limits on new panels while retaining failures against similarly priced baselines. Refitting improved training losses without reliably improving transfer. These results concern the selected computations, not the entire folded tensor. [Local result](research_update_2026-09-21_1451_local_graph_fidelity_pass.md).
 
-The lesson is that both the chosen metric and the supplied residual context matter. An accurate local approximation can still misrepresent the composed computation. [Local result](research_update_2026-09-21_1451_local_graph_fidelity_pass.md) · [Transfer diagnostics](../../direct_tensor_match/INTERCHANGE_TRANSFER_INTERPRETATION_V1.md).
+**Third, we checked whether narrow Tucker fits were failing for mathematical reasons.** Exact matrix-unfolding spectra provide necessary rank bounds for the full last-MLP tensor:
 
-**3. We returned to the full tensor and obtained an optimizer-independent explanation for some low-rank failures.** Exact unfolding spectra give necessary rank bounds. For 10% relative coefficient error in folded Euclidean coordinates, the full last-MLP target requires input rank at least **1,089** and output rank at least **1,088**, out of 1,152 available directions.
+| Reconstruction geometry | Necessary input rank | Necessary output rank |
+|---|---:|---:|
+| Folded Euclidean coefficients, 10% relative error | 1,089 | 1,088 |
+| Activation-covariance-weighted coefficients, 10% relative error | 416 | 818 |
 
-With activation-covariance weighting, the corresponding necessary ranks are **416 input** and **818 output**. These are separate lower bounds, not a guarantee that those two ranks jointly achieve 10% error.
+There are 1,152 available residual directions. Each number is a separate necessary bound; using both ranks does not guarantee the desired error.
 
-Thus, some narrow Tucker fits fail because their allowed subspaces are too small, regardless of optimizer. This does **not** rule out a broad but sparse arithmetic circuit, alternative HT groupings, or a different functional metric. [Full-tensor bounds](../../direct_tensor_match/FULL_TENSOR_MODE_INTERPRETATION_V1.md).
+This answers the earlier “was the assumed rank too small?” question: **yes, some narrow full-tensor Tucker choices cannot achieve the desired coefficient error, regardless of the optimizer.** It does not establish that HT in general fails, or that a broad sparse graph cannot be cheap. A small subspace and a cheap arithmetic program are different requirements. [Rank evidence](../../direct_tensor_match/FULL_TENSOR_MODE_INTERPRETATION_V1.md).
 
-**4. A simpler full-layer baseline now works reasonably well on natural inputs.** We retained 3,686 of the native 4,608 products, refit their output weights using the covariance-shaped objective, and optionally added an affine correction that matches the teacher’s value and gradient at the calibration mean. This is pruning and refitting an existing program; it is not new feature discovery.
+**Fourth, we established a baseline that covers the full last MLP.** We retained 3,686 of its 4,608 native products, refit the output weights, and added an affine correction matching the teacher’s value and gradient at the calibration mean. The correction costs coefficients and is included in the accounting.
 
-The frozen programs were tested on 32 new FineWeb documents and 16 new code files:
+This removes 20.0% of products and saves 11.7% of stored coefficients. It keeps the inherited input directions, so it is pruning and refitting rather than discovery of a new feature dictionary. On an initially fresh panel of 32 FineWeb documents and 16 code files, its natural logit-effect error was 4.44% and 2.12%, respectively. Its worst FineWeb document reached 21.82%, so the average conceals uneven accuracy. [Baseline evaluation](../../direct_tensor_match/FULL_CHANNEL_FRESH_INTERPRETATION_V1.md).
 
-| Full last-MLP replacement | Product reduction | Stored coefficient saving | FineWeb effect error | Code effect error |
-|---|---:|---:|---:|---:|
-| Retained products + refitted output weights | 20.0% | 20.0% | 5.29% | 3.57% |
-| Same products + affine correction | 20.0% | 11.7% | 4.44% | 2.12% |
+**Fifth, learning new directions showed that the fitting objective matters.** We next allowed both input factors to move, solving for output weights during fitting. All the following replacements have the same 3,686-product and 14,067,072-coefficient budget, including the affine correction.
 
-Here **effect error** is the norm of the replacement-induced logit discrepancy divided by the norm of the original MLP’s logit contribution, measured through the actual downstream normalization and softcap. It is not a language-model error rate. Savings concern the counted polynomial representation, not whole-model runtime.
+| Full-layer replacement | FineWeb natural effect error | Code natural effect error | Full-path intervention cohorts passing the 10% error limit |
+|---|---:|---:|---:|
+| Original pruning/refitting baseline | 4.44% | 2.12% | 0 of 4 |
+| Learned directions: covariance + response fitting | 6.64% | 2.78% | 0 of 4 |
+| Learned directions: add an isotropic tensor penalty | **4.21%** | **2.07%** | **1 of 4** |
+| Learned directions: isotropic tensor objective alone | 8.41% | 6.77% | 0 of 4 |
 
-The corrected program slightly worsens average cross-entropy: +0.00426 nats/token on FineWeb and +0.00144 on code. Its worst FineWeb document has 21.82% effect error, so the aggregate result is not uniform accuracy. The replacement requires the original model’s normalized last-MLP input; it is not a standalone token-to-output model. [Frozen export and fresh results](../../direct_tensor_match/FULL_CHANNEL_FRESH_INTERPRETATION_V1.md).
+“Natural effect error” compares the replacement’s logit discrepancy with the original MLP’s logit contribution, through actual downstream normalization and softcapping. It is not a language-model error rate.
 
-**5. Good output reconstruction does not establish preservation of internal computations.** When we perturb corresponding retained native product channels, the refitted program has 15.94% aggregate discrepancy in their output responses. Dropped channels make a map that assigns them no replacement intervention particularly inaccurate.
+The intervention test swaps a preceding-MLP source contribution between examples while holding recipient attention fixed, then recomputes the last MLP and downstream output. Its four primary cohorts are FineWeb/code crossed with continuation/spaced-word tokens. This is a different, harder requirement than matching ordinary forward outputs.
 
-Partially anchoring the output weights to their original values improves these intervention responses while worsening natural-input reconstruction. This reveals an objective tradeoff, not a universal impossibility: a circuit may legitimately use different internal variables from the original neurons. We still need to identify and test that correspondence. [Intervention audit](../../direct_tensor_match/FULL_CHANNEL_INTERVENTION_INTERPRETATION_V1.md).
+The first learned-direction fit improved its training errors but worsened these behavioral results. Adding a global isotropic penalty restrained that drift: the mixed candidate improved all three fitting metrics over the fixed-product candidates and slightly improved natural-output fidelity. However, its full-path intervention errors were **14.06%, 11.08%, 11.88%, and 8.45%**. Three remain above the 10% limit. Its average cross-entropy changes were +0.00430 nats/token on FineWeb and +0.00018 on code.
+
+These later candidates were tested on the **same, already opened panel**, not new independent confirmation data. The learned-direction fits ran for 100 steps and do not establish convergence. Even the “isotropic-only” fit retained a data-informed initialization, parameter coordinates and affine correction; only its fitting objective was weight-only. None of these replacements is adopted as a faithful causal circuit. [Latest comparison and records](../../direct_tensor_match/FULL_QUADRATIC_MULTIGEOMETRY_INTERPRETATION_V1.md).
 
 **Did the paper-inspired weight matching help?**
 
@@ -177,9 +189,9 @@ Adam and Muon have both recovered planted examples under favorable parameterizat
 
 The covariance distinction matters. A weighted coefficient norm changes which directions matter. Exact expected squared error for a quadratic function generally depends on **fourth-order input moments**. Input covariance alone specifies that functional loss only with additional distributional assumptions. We should not call all of these objectives the same error measure.
 
-**What “full coverage” and “shared baselines” meant**
+**Why the previous title was confusing**
 
-The old title was misleading without its scope. **Full coverage** meant accounting for all error in a *selected target*, including what lay outside the fitted subspace. It did not mean the whole network had been decomposed. The newer full-layer result above really does target the entire last MLP polynomial, but still not the entire model.
+The old title was misleading without its scope. **Full coverage** meant accounting for all error in a *selected target*, including what lay outside the fitted subspace. It did not mean the whole network had been decomposed. The full-layer baseline really does target the entire last MLP polynomial, but still not the entire model.
 
 **Shared baselines** means competitors are also allowed to reuse computations. Otherwise, we could appear to win just by comparing our shared graph against an unnecessarily duplicated implementation. Compare both total arithmetic and stored coefficients at a stated error, not just product counts.
 
@@ -189,9 +201,9 @@ The old title was misleading without its scope. **Full coverage** meant accounti
 |---|---|
 | Exact folding and QR output reduction | Implemented. |
 | Joint tensor fitting with and without activation information | Implemented, with distinct metrics recorded. |
-| Decomposition proposals and restricted graph simplification | Tested on toys and local native targets. |
+| Decomposition proposals and restricted graph simplification | Tested on toys and local native targets; product deletion/refitting reaches the planted budget in four of five selected toy examples. |
 | General HT initialization followed by arbitrary graph search | Incomplete. |
-| Useful full-layer compression baseline | Available, with new-document evaluation and explicit limits. |
+| Useful full-layer compression baseline | Available. Learned-direction follow-ups modestly improve natural reconstruction, but full-path intervention failures remain. |
 | Identified, reusable circuits with selective causal effects | Not established by this decomposition work. |
 
-The useful next comparison is whether learned decompositions and graph edits can outperform the new full-layer baseline while yielding intermediate computations whose roles survive behavioral and intervention tests. That is the remaining purpose of the two stages: discover useful computations, then reorganize and share them into a simpler program.
+The next substantive test is whether fitting the composed two-MLP path, including normalization, on artificial inputs propagated through the preceding weights gives a better reconstruction objective. That experiment is proposed, not completed. The broader missing step remains graph search that can introduce and share intermediate computations at different depths, and then beat these baselines on both cost and behavior.
