@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-09-21T14:03:03.141287+00:00",
+  "metrics": [
+    "calibration_shaped",
+    "native_isotropic"
+  ],
+  "pair_width": 352,
+  "edge_width": 64,
+  "null_samples": 32,
+  "seed_base": 49000,
+  "statistic": "Mean across the three consumer pairs of the mean squared top64 principal cosines between their independently derived352-dimensional input supports.",
+  "null": "Independently Haar-rotate each pair input space in1152 dimensions. This preserves each pair spectrum and individual support width but removes relative orientation. Generate equivalent independent Stiefel frames; no model fit or text forward.",
+  "pred_a": "A common orthogonal change of coordinates preserves the native statistic to1e-10.",
+  "pred_b": "Native statistic exceeds every one of32 null statistics in each geometry.",
+  "scope": "Descriptive cross-pair input compatibility. Does not preserve upstream architecture correlations, identify semantic features, establish causal reuse, or improve a native circuit."
+}
