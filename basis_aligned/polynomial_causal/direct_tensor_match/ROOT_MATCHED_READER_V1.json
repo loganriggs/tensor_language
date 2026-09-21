@@ -1,0 +1,755 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_reader": false,
+    "pred_c_shape": true
+  },
+  "rows": [
+    {
+      "panel": "calibration",
+      "pairs": 36,
+      "recipient_prefixes": 21,
+      "pairs_flat": [
+        [
+          83,
+          211
+        ],
+        [
+          122,
+          508
+        ],
+        [
+          164,
+          1061
+        ],
+        [
+          199,
+          264
+        ],
+        [
+          211,
+          83
+        ],
+        [
+          264,
+          1032
+        ],
+        [
+          285,
+          1113
+        ],
+        [
+          294,
+          1061
+        ],
+        [
+          390,
+          1222
+        ],
+        [
+          402,
+          1042
+        ],
+        [
+          418,
+          164
+        ],
+        [
+          508,
+          765
+        ],
+        [
+          560,
+          2029
+        ],
+        [
+          630,
+          1077
+        ],
+        [
+          640,
+          1668
+        ],
+        [
+          765,
+          508
+        ],
+        [
+          849,
+          1233
+        ],
+        [
+          918,
+          83
+        ],
+        [
+          976,
+          849
+        ],
+        [
+          1004,
+          2029
+        ],
+        [
+          1032,
+          264
+        ],
+        [
+          1042,
+          402
+        ],
+        [
+          1061,
+          164
+        ],
+        [
+          1077,
+          630
+        ],
+        [
+          1113,
+          918
+        ],
+        [
+          1222,
+          390
+        ],
+        [
+          1233,
+          849
+        ],
+        [
+          1272,
+          1848
+        ],
+        [
+          1668,
+          390
+        ],
+        [
+          1674,
+          264
+        ],
+        [
+          1768,
+          294
+        ],
+        [
+          1798,
+          390
+        ],
+        [
+          1809,
+          849
+        ],
+        [
+          1848,
+          1272
+        ],
+        [
+          1870,
+          976
+        ],
+        [
+          2029,
+          1004
+        ]
+      ],
+      "response": {
+        "error": 0.01164343134009239,
+        "cosine": 0.9999429549843963,
+        "correlation": 0.9999437363708524,
+        "norm_ratio": 1.0045779001078932,
+        "reference_energy": 3.495754793205346e+25
+      },
+      "full_graph_response": {
+        "error": 0.01164347547908006,
+        "cosine": 0.9999429550606541,
+        "correlation": 0.9999437364614738,
+        "norm_ratio": 1.0045780275158929,
+        "reference_energy": 3.495754793205346e+25
+      },
+      "constant_token_response": {
+        "error": 1.0,
+        "cosine": 0.0,
+        "correlation": 0.0,
+        "norm_ratio": 0.0,
+        "reference_energy": 3.495754793205346e+25
+      },
+      "ordinary_values": {
+        "error": 0.0030481819862423066,
+        "cosine": 0.9999953713414891,
+        "correlation": 0.9999409295447136,
+        "norm_ratio": 1.0001800814501638,
+        "reference_energy": 2.1190511243250185e+26
+      },
+      "pair_rows": [
+        {
+          "recipient": 83,
+          "donor": 211,
+          "reference": 830715027041.138,
+          "predicted": 834893217832.1748
+        },
+        {
+          "recipient": 122,
+          "donor": 508,
+          "reference": -227199350950.75195,
+          "predicted": -225606687254.43604
+        },
+        {
+          "recipient": 164,
+          "donor": 1061,
+          "reference": 1064949816098.8318,
+          "predicted": 1068457883541.2966
+        },
+        {
+          "recipient": 199,
+          "donor": 264,
+          "reference": 298497841537.1206,
+          "predicted": 306244722898.13574
+        },
+        {
+          "recipient": 211,
+          "donor": 83,
+          "reference": -830715027041.138,
+          "predicted": -834893217832.1748
+        },
+        {
+          "recipient": 264,
+          "donor": 1032,
+          "reference": -971624076666.728,
+          "predicted": -982885352228.1177
+        },
+        {
+          "recipient": 285,
+          "donor": 1113,
+          "reference": -360889083421.1367,
+          "predicted": -338254769842.2363
+        },
+        {
+          "recipient": 294,
+          "donor": 1061,
+          "reference": -260765052850.02246,
+          "predicted": -266137294786.54712
+        },
+        {
+          "recipient": 390,
+          "donor": 1222,
+          "reference": -148089658038.51025,
+          "predicted": -153019909038.60303
+        },
+        {
+          "recipient": 402,
+          "donor": 1042,
+          "reference": -1572307019659.1963,
+          "predicted": -1570910458655.126
+        },
+        {
+          "recipient": 418,
+          "donor": 164,
+          "reference": -2445757708365.9614,
+          "predicted": -2436647838647.2695
+        },
+        {
+          "recipient": 508,
+          "donor": 765,
+          "reference": 462049226892.7412,
+          "predicted": 464161766815.67285
+        },
+        {
+          "recipient": 560,
+          "donor": 2029,
+          "reference": 314629679364.7461,
+          "predicted": 328173177784.7627
+        },
+        {
+          "recipient": 630,
+          "donor": 1077,
+          "reference": 1283610389600.8506,
+          "predicted": 1272263249618.9783
+        },
+        {
+          "recipient": 640,
+          "donor": 1668,
+          "reference": -199570849732.68213,
+          "predicted": -188522083307.1504
+        },
+        {
+          "recipient": 765,
+          "donor": 508,
+          "reference": -462049226892.7412,
+          "predicted": -464161766815.67285
+        },
+        {
+          "recipient": 849,
+          "donor": 1233,
+          "reference": 1436701780338.1528,
+          "predicted": 1460734065281.2659
+        },
+        {
+          "recipient": 918,
+          "donor": 83,
+          "reference": 1296510350163.4907,
+          "predicted": 1303219713016.835
+        },
+        {
+          "recipient": 976,
+          "donor": 849,
+          "reference": -385003594824.7295,
+          "predicted": -404261777635.25977
+        },
+        {
+          "recipient": 1004,
+          "donor": 2029,
+          "reference": 457320720365.8379,
+          "predicted": 467069218209.47217
+        },
+        {
+          "recipient": 1032,
+          "donor": 264,
+          "reference": 971624076666.728,
+          "predicted": 982885352228.1177
+        },
+        {
+          "recipient": 1042,
+          "donor": 402,
+          "reference": 1572307019659.1963,
+          "predicted": 1570910458655.126
+        },
+        {
+          "recipient": 1061,
+          "donor": 164,
+          "reference": -1064949816098.8318,
+          "predicted": -1068457883541.2966
+        },
+        {
+          "recipient": 1077,
+          "donor": 630,
+          "reference": -1283610389600.8506,
+          "predicted": -1272263249618.9783
+        },
+        {
+          "recipient": 1113,
+          "donor": 918,
+          "reference": -681094235969.7451,
+          "predicted": -696397493831.1475
+        },
+        {
+          "recipient": 1222,
+          "donor": 390,
+          "reference": 148089658038.51025,
+          "predicted": 153019909038.60303
+        },
+        {
+          "recipient": 1233,
+          "donor": 849,
+          "reference": -1436701780338.1528,
+          "predicted": -1460734065281.2659
+        },
+        {
+          "recipient": 1272,
+          "donor": 1848,
+          "reference": 0.0,
+          "predicted": 0.0
+        },
+        {
+          "recipient": 1668,
+          "donor": 390,
+          "reference": 1303550146064.9297,
+          "predicted": 1313346026361.5432
+        },
+        {
+          "recipient": 1674,
+          "donor": 264,
+          "reference": 1104608657327.1929,
+          "predicted": 1125053410686.5732
+        },
+        {
+          "recipient": 1768,
+          "donor": 294,
+          "reference": 1514822881625.3552,
+          "predicted": 1515594870384.0703
+        },
+        {
+          "recipient": 1798,
+          "donor": 390,
+          "reference": 148089658038.51025,
+          "predicted": 153019909038.60303
+        },
+        {
+          "recipient": 1809,
+          "donor": 849,
+          "reference": -1436701780338.1528,
+          "predicted": -1460734065281.2659
+        },
+        {
+          "recipient": 1848,
+          "donor": 1272,
+          "reference": 0.0,
+          "predicted": 0.0
+        },
+        {
+          "recipient": 1870,
+          "donor": 976,
+          "reference": 333721700540.35547,
+          "predicted": 335508668538.83984
+        },
+        {
+          "recipient": 2029,
+          "donor": 1004,
+          "reference": -457320720365.8379,
+          "predicted": -467069218209.47217
+        }
+      ]
+    },
+    {
+      "panel": "evaluation",
+      "pairs": 30,
+      "recipient_prefixes": 21,
+      "pairs_flat": [
+        [
+          8,
+          1480
+        ],
+        [
+          241,
+          370
+        ],
+        [
+          293,
+          1124
+        ],
+        [
+          326,
+          773
+        ],
+        [
+          370,
+          434
+        ],
+        [
+          434,
+          370
+        ],
+        [
+          649,
+          8
+        ],
+        [
+          684,
+          2027
+        ],
+        [
+          746,
+          2027
+        ],
+        [
+          773,
+          1669
+        ],
+        [
+          778,
+          649
+        ],
+        [
+          787,
+          1362
+        ],
+        [
+          843,
+          1803
+        ],
+        [
+          911,
+          1167
+        ],
+        [
+          961,
+          1346
+        ],
+        [
+          1124,
+          1316
+        ],
+        [
+          1167,
+          911
+        ],
+        [
+          1316,
+          1124
+        ],
+        [
+          1343,
+          1533
+        ],
+        [
+          1346,
+          961
+        ],
+        [
+          1362,
+          787
+        ],
+        [
+          1468,
+          1533
+        ],
+        [
+          1480,
+          8
+        ],
+        [
+          1533,
+          1468
+        ],
+        [
+          1669,
+          773
+        ],
+        [
+          1803,
+          843
+        ],
+        [
+          1808,
+          911
+        ],
+        [
+          1871,
+          911
+        ],
+        [
+          2027,
+          684
+        ],
+        [
+          2041,
+          1468
+        ]
+      ],
+      "response": {
+        "error": 0.1532127593141769,
+        "cosine": 0.9896356997134175,
+        "correlation": 0.9896206559771284,
+        "norm_ratio": 0.9362225200296622,
+        "reference_energy": 9.562498981049571e+24
+      },
+      "full_graph_response": {
+        "error": 0.15321275729098788,
+        "cosine": 0.9896356954968462,
+        "correlation": 0.9896206517541043,
+        "norm_ratio": 0.9362225997409019,
+        "reference_energy": 9.562498981049571e+24
+      },
+      "constant_token_response": {
+        "error": 1.0,
+        "cosine": 0.0,
+        "correlation": 0.0,
+        "norm_ratio": 0.0,
+        "reference_energy": 9.562498981049571e+24
+      },
+      "ordinary_values": {
+        "error": 0.026561218106370025,
+        "cosine": 0.9996537191619767,
+        "correlation": 0.9894721957623763,
+        "norm_ratio": 0.9960403354753993,
+        "reference_energy": 1.973711043616765e+26
+      },
+      "pair_rows": [
+        {
+          "recipient": 8,
+          "donor": 1480,
+          "reference": 178788738545.8745,
+          "predicted": 172316196450.15967
+        },
+        {
+          "recipient": 241,
+          "donor": 370,
+          "reference": -203331551983.5669,
+          "predicted": -141430197304.95557
+        },
+        {
+          "recipient": 293,
+          "donor": 1124,
+          "reference": -242938777019.20166,
+          "predicted": -388026173795.3618
+        },
+        {
+          "recipient": 326,
+          "donor": 773,
+          "reference": 815436386799.6245,
+          "predicted": 865049628474.4775
+        },
+        {
+          "recipient": 370,
+          "donor": 434,
+          "reference": 333765109557.83057,
+          "predicted": 288310158603.4209
+        },
+        {
+          "recipient": 434,
+          "donor": 370,
+          "reference": -333765109557.83057,
+          "predicted": -288310158603.4209
+        },
+        {
+          "recipient": 649,
+          "donor": 8,
+          "reference": -47585855957.876465,
+          "predicted": -216944668332.96826
+        },
+        {
+          "recipient": 684,
+          "donor": 2027,
+          "reference": 302314122038.00977,
+          "predicted": 207893114504.57642
+        },
+        {
+          "recipient": 746,
+          "donor": 2027,
+          "reference": 1085963786722.4902,
+          "predicted": 1012876992892.3044
+        },
+        {
+          "recipient": 773,
+          "donor": 1669,
+          "reference": -255059023282.9673,
+          "predicted": -299640170926.13525
+        },
+        {
+          "recipient": 778,
+          "donor": 649,
+          "reference": -1151144495241.526,
+          "predicted": -976878086882.5247
+        },
+        {
+          "recipient": 787,
+          "donor": 1362,
+          "reference": -1252684078341.981,
+          "predicted": -1082860445285.699
+        },
+        {
+          "recipient": 843,
+          "donor": 1803,
+          "reference": 235900702040.16797,
+          "predicted": 153625552488.29297
+        },
+        {
+          "recipient": 911,
+          "donor": 1167,
+          "reference": -244934017491.0244,
+          "predicted": -236216129809.1245
+        },
+        {
+          "recipient": 961,
+          "donor": 1346,
+          "reference": -15297272031.868164,
+          "predicted": 34141894502.333984
+        },
+        {
+          "recipient": 1124,
+          "donor": 1316,
+          "reference": 219859879344.77393,
+          "predicted": 205885313397.95117
+        },
+        {
+          "recipient": 1167,
+          "donor": 911,
+          "reference": 244934017491.0244,
+          "predicted": 236216129809.1245
+        },
+        {
+          "recipient": 1316,
+          "donor": 1124,
+          "reference": -219859879344.77393,
+          "predicted": -205885313397.95117
+        },
+        {
+          "recipient": 1343,
+          "donor": 1533,
+          "reference": -716655342808.8208,
+          "predicted": -716778242822.5552
+        },
+        {
+          "recipient": 1346,
+          "donor": 961,
+          "reference": 15297272031.868164,
+          "predicted": -34141894502.333984
+        },
+        {
+          "recipient": 1362,
+          "donor": 787,
+          "reference": 1252684078341.981,
+          "predicted": 1082860445285.699
+        },
+        {
+          "recipient": 1468,
+          "donor": 1533,
+          "reference": -755044259782.8799,
+          "predicted": -784454917547.3345
+        },
+        {
+          "recipient": 1480,
+          "donor": 8,
+          "reference": -178788738545.8745,
+          "predicted": -172316196450.15967
+        },
+        {
+          "recipient": 1533,
+          "donor": 1468,
+          "reference": 755044259782.8799,
+          "predicted": 784454917547.3345
+        },
+        {
+          "recipient": 1669,
+          "donor": 773,
+          "reference": 255059023282.9673,
+          "predicted": 299640170926.13525
+        },
+        {
+          "recipient": 1803,
+          "donor": 843,
+          "reference": -235900702040.16797,
+          "predicted": -153625552488.29297
+        },
+        {
+          "recipient": 1808,
+          "donor": 911,
+          "reference": -584821290269.4512,
+          "predicted": -489538413148.43604
+        },
+        {
+          "recipient": 1871,
+          "donor": 911,
+          "reference": -70597294019.68799,
+          "predicted": -145034069529.53662
+        },
+        {
+          "recipient": 2027,
+          "donor": 684,
+          "reference": -302314122038.00977,
+          "predicted": -207893114504.57642
+        },
+        {
+          "recipient": 2041,
+          "donor": 1468,
+          "reference": 472456843266.38525,
+          "predicted": 589564194508.9131
+        }
+      ]
+    }
+  ],
+  "graph_reader_replays": [
+    1.5184982991436425e-07,
+    1.5041770304384835e-07
+  ],
+  "native_reader_replays": [
+    5.970549448675569e-15,
+    6.050118890751706e-15
+  ],
+  "writer_gram_max_offdiag": 1.9621977723937308e-07,
+  "program_sha256": "f50ab7fe62295fd338e883c486ca1d77d3dbf9d3d21883f8b7b95393bf6fb2df",
+  "seconds": 0.5019711409695446,
+  "scope": "Frozenfeature1, purequartic native vocabularymetric reader; identical currentnewline-token acrossdifferentprefixes; openedstates, no feature-removal or native-logit causal claim."
+}
