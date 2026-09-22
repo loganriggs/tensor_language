@@ -67,7 +67,7 @@ def main() -> None:
     state = GB.instrument(model)
     nbox = {}
     nhooks = [blocks[l].attn.register_forward_pre_hook(lambda m, a, l=l: nbox.__setitem__(l, a[0])) for l in LAYERS]
-    native, fw = ce(ev, False); forwards += fw
+    native, fw = GB.ce(model, ev, dev, EBATCH); forwards += fw
     results, saved_all, manip_all = {}, {}, {}
     for R in ARMS:
         ranks = {k: R for k in ALL}
