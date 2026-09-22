@@ -34,9 +34,39 @@ Medians over the 4 factors; E2 null (random pair / span) ≈ 0.007 / 0.010 per l
 3. **Finite ablations agree at 5% of the residual norm and not at 20%.** E3 top-1 patching removes 0.4–1.1 of the finite interaction at scale 0.05 (random-5: 0.00); at 0.2 the fractions are −15 to +1.9, i.e. the finite response is far outside the quadratic regime there.
 4. **The penalised factors are partly, not fully, neuron-aligned.** Span alignment to the best unit 0.27–0.66 (null 0.01); a raw neuron as a factor recovers 0.3–1.1 of the factor's energy.
 
-## 3. Full-scale runs
+## 3. Full-scale runs on the bilinear checkpoint (32 train / 64 held-out prompts, 8 factors, 10 iterations, seeds 0 1 2, weights 0 / 0.1 / 1)
 
-_(filled in as the runs land: bilinear/AdvBench and bilinear/FineWeb at 32 train / 64 held-out, 8 factors, 10 iterations, seeds 0 1 2, weights 0 / 0.1 / 1, with E4 across seeds and across disjoint train halves; then the sqrd-attention bilinear and the SwiGLU variants.)_
+Medians over 24 factors (8 × 3 seeds); E1–E3 on 16 held-out contexts; E4 across the three seed pairs and across two disjoint halves of the training prompts (both halves fitted from seed 0). Full tables with all columns: `python scripts/summarize.py results/full_bilinear_*.json`.
+
+### 3a. AdvBench prompts (AJ's distribution)
+
+| w | median held-out PR | held-out energy / baseline | E1 top-1 | E1 top-5 | E1 all-AJ-MLPs | E1 source MLP | E1 attention | E2 span align | E2 read-off ratio | E3 top-1 @0.05 | E3 random-5 | E4 seeds (pair / span) | E4 split (pair / span) | top-5 Jaccard |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | 386 | 1.00 | 0.01 | 0.05 | 0.24 | 0.85 | 0.52 | 0.47 | 0.09 | 0.02 | 0.00 | 0.20 / 0.17 | 0.82 / 0.64 | 0.79 |
+| 0.1 | 3.1 | 0.70 | 0.12 | 0.26 | 0.75 | 0.60 | 0.55 | 0.44 | 0.34 | 0.22 | 0.00 | 0.08 / 0.06 | 0.53 / 0.42 | 0.51 |
+| 1 | 2.7 | 0.66 | 0.18 | 0.32 | 0.85 | 0.58 | 0.59 | 0.44 | 0.43 | 0.22 | 0.00 | 0.16 / 0.10 | 0.83 / 0.60 | 0.79 |
+
+Per-factor counts (24 per weight): PR ≤ 5 — 0 / 10 / 11; top-1 completeness in [0.5, 1.5] — 0 / 9 / 10; raw neuron beats the factor (read-off ≥ 1) — 0 / 1 / 0; cross-seed span match > 0.8 — **0 / 0 / 0 of 24** (best pair 0.58); split-stable — 2 / 1 / 3 of 8.
+
+### 3b. FineWeb prompts (off-distribution: real text, 32 tokens, no padding)
+
+| w | median held-out PR | held-out energy / baseline | E1 top-1 | E1 top-5 | E1 all-AJ-MLPs | E1 source MLP | E1 attention | E2 span align | E2 read-off ratio | E3 top-1 @0.05 | E3 random-5 | E4 seeds (pair / span) | E4 split (pair / span) | top-5 Jaccard |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | 190 | 1.00 | 0.09 | 0.12 | 0.38 | 0.78 | 0.71 | 0.42 | 1.81 | 0.05 | 0.00 | 0.38 / 0.32 | 0.12 / 0.12 | 0.17 |
+| 0.1 | 12.5 | 0.98 | 0.41 | 0.67 | 0.78 | 0.27 | 0.73 | 0.34 | 1.85 | 0.25 | 0.00 | 0.54 / 0.42 | 0.44 / 0.39 | 0.49 |
+| 1 | 10.2 | 0.97 | 0.51 | 0.68 | 0.79 | 0.22 | 0.74 | 0.32 | 2.08 | 0.26 | 0.00 | 0.62 / 0.54 | 0.43 / 0.38 | 0.39 |
+
+Per-factor counts: PR ≤ 5 — 2 / 6 / 7; top-1 completeness in [0.5, 1.5] — 2 / 6 / 10; |top-1 completeness| > 2 (cancelling pathways) — 2 / 3 / 3; raw neuron beats the factor — 15 / 21 / 21; cross-seed span match > 0.8 — 5 / 7 / **10 of 24** (ten pairs at 0.89–1.00: the same few factors recur in every seed); split-stable — 1 / 3 / 2 of 8.
+
+### What the two runs say
+
+1. **The PR drop replicates on AJ's data and shrinks off it.** AdvBench: 386 → 3 with 66–70% of the energy (AJ's "70–100%"). FineWeb: 190 → 10–12 with 97–98% of the energy. The 400× figure is specific to the prompt distribution (32-token AdvBench targets are mostly EOS padding at the three scored positions).
+2. **The penalty concentrates about half the factors; the other half stay diffuse.** On AdvBench 10–11 of 24 penalised factors have PR ≤ 5 and top-1 completeness 0.5–0.75; the rest keep PR 15–130 with 70–95% of their interaction in the *source-block MLP*, outside the PR range (the scale-invariance loophole, live in half the dictionary). Medians (top-1 0.12–0.18) hide this bimodality.
+3. **Attention carries the majority of every factor.** Freezing all attention in the span removes 52–59% (AdvBench) and 71–74% (FineWeb) of the interaction for penalised and unpenalised factors alike. The interactions the method finds are attention-mediated interactions that *also* pass through one MLP unit; PR ≈ 3 says nothing about the attention part. (The groups overlap: freezing everything gives exactly 1.00 while the parts sum to ~2.)
+4. **Concentrated factors are partly neuron-aligned, and on FineWeb a raw neuron is the better factor.** Span alignment to the best unit is 0.32–0.47 against a null of 0.01. On AdvBench the best unit, scored as a factor with no optimisation, recovers 34–43% of the factor's energy; on FineWeb it recovers **1.8–2.1×** the factor's energy (21 of 24 factors are beaten by a single neuron). The fitting is not finding the best single-neuron factor even when it lands near one.
+5. **Finite ablations agree with the derivative picture where the derivative is valid.** Patching the top unit to clean at 5% of the residual norm removes 0.4–0.65 of the finite interaction for concentrated factors and ~0 for random units; at 20% the response is non-quadratic (fractions from −15 to +2) and uninformative.
+6. **Stability depends on the data more than on the penalty, and the fit is init-dominated.** On AdvBench no factor recurs across seeds (best pairwise span match 0.58; null 0.0001), at any weight — by the README's own table this makes per-factor retention numbers on that data uninterpretable. On FineWeb a handful of factors recur exactly (ten seed-pairs at ≥ 0.89 at w = 1) and the rest do not. The split test as specified (both halves from seed 0) is confounded with shared initialisation: split matches (0.4–0.8) exceed cross-seed matches (0.06–0.2) on AdvBench, the opposite of what data-stability would give. The energy traces are still rising at iteration 10 (e.g. 1.61 → 1.95 × 10⁻⁴ over the last three iterations at w = 0), so the fixed-point iteration has not converged; a 30-iteration convergence run is in `results/conv30_*`.
+7. **cos(l, r) = 1.00 for every factor at every weight** (median), including unpenalised ones at this scale: the asymmetric parametrisation is redundant (§1).
 
 ## 4. Verdict
 

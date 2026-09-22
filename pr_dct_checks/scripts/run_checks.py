@@ -77,6 +77,7 @@ def main():
     ap.add_argument("--ablation-scales", type=float, nargs="+", default=[0.05, 0.2])
     ap.add_argument("--skip-readoff", action="store_true")
     ap.add_argument("--skip-split", action="store_true")
+    ap.add_argument("--skip-eval", action="store_true", help="fits + held-out energy/PR + E4 only (no E1-E3)")
     ap.add_argument("--out", default="results/pr_dct_checks.json")
     a = ap.parse_args()
     os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True); t_start = time.time()
@@ -122,7 +123,7 @@ def main():
 
     # ---- E2 prep: effective read directions of every unit per layer (bilinear only)
     eff = {}
-    if not a.skip_readoff and read_weights(model.transformer.h[a.source_layer].mlp) is not None:
+    if not a.skip_readoff and not a.skip_eval and read_weights(model.transformer.h[a.source_layer].mlp) is not None:
         with sdpa_kernel(SDPBackend.MATH):
             for L in spans.all_layers:
                 WL, WR = read_weights(model.transformer.h[L].mlp)
@@ -193,15 +194,17 @@ def main():
             with sdpa_kernel(SDPBackend.MATH):
                 ev_train = evaluate(dic, spans.make_span, contexts_of(train), aj_layers)
                 ev_held = evaluate(dic, spans.make_span, held_ctxs, aj_layers)
-            factors = [evaluate_factor(dic.U[:, f], dic.L[:, f], dic.R[:, f]) for f in range(a.factors)]
+            factors = [evaluate_factor(dic.U[:, f], dic.L[:, f], dic.R[:, f]) for f in range(a.factors)] if not a.skip_eval else [
+                dict(heldout_energy=ev_held["factor_mean_energy"][f], heldout_pr=ev_held["factor_median_pr"][f], cos_l_r=float((torch.nn.functional.normalize(dic.L[:, f], dim=0) @ torch.nn.functional.normalize(dic.R[:, f], dim=0)).abs()),
+                     E1_completeness={}, E3_ablation={}) for f in range(a.factors)]
             results["fits"].append({"seed": seed, "penalty_weight": w, "penalty_scale": scale, "trace_objective": dic.objective_values,
                                     "trace_energy": dic.score_energy_values, "trace_normalized_pr": dic.normalized_pr_values,
                                     "train": ev_train, "heldout": ev_held, "factors": factors, "seconds": time.time() - t0})
             json.dump(results, open(a.out, "w"), indent=1, default=float)
+            extra = "" if a.skip_eval else (f" | median top1 completeness {np.median([x['E1_completeness'][f'top{a.topk[0]}_aj_range'] for x in factors]):.3f}"
+                                            f" | source-MLP {np.median([x['E1_completeness']['source_block_mlp'] for x in factors]):.3f} attention {np.median([x['E1_completeness']['all_attention'] for x in factors]):.3f}")
             print(f"seed={seed} w={w}: train energy {ev_train['mean_total_energy']:.4g} heldout {ev_held['mean_total_energy']:.4g} | median heldout PR "
-                  f"{ev_held['median_participation_ratio']:.1f} | median top1 completeness {np.median([x['E1_completeness'][f'top{a.topk[0]}_aj_range'] for x in factors]):.3f}"
-                  f" | source-MLP {np.median([x['E1_completeness']['source_block_mlp'] for x in factors]):.3f} attention {np.median([x['E1_completeness']['all_attention'] for x in factors]):.3f}"
-                  f" | {time.time() - t0:.0f}s", flush=True)
+                  f"{ev_held['median_participation_ratio']:.1f}{extra} | trace energy {[f'{x:.2e}' for x in dic.score_energy_values[-3:]]} | {time.time() - t0:.0f}s", flush=True)
 
     null = random_match_null(d, d, a.factors, n_draws=10); results["stability"]["random_null_mean"] = float(null.mean()); results["stability"]["random_null_max"] = float(null.max())
     snull = random_match_null_span(d, d, a.factors, n_draws=10); results["stability"]["span_random_null_mean"] = float(snull.mean()); results["stability"]["span_random_null_max"] = float(snull.max())

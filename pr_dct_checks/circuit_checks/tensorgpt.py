@@ -23,7 +23,7 @@ def hidden_features(mlp, x):
     if hasattr(mlp, "Left"):
         left = mlp.Left(x)
         if mlp.config.gated:
-            left = F.silu(left)
+            left = left * torch.sigmoid(left)      # SiLU from primitives: F.silu's backward has no forward-mode rule, and E1-E3 need jvp-of-jvp
         return left * mlp.Right(x)
     h = mlp.c_fc(x)
     return h.square() if mlp.config.squared_mlp else F.relu(h).square()
