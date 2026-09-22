@@ -1,0 +1,12 @@
+adapter parity vs repository blocks: 0.00e+00
+seed=0 w=0.0: train energy 0.001333 heldout 0.00101 | median heldout PR 189.5 | median top1 completeness 0.073 | source-MLP 0.829 attention 0.709 | 560s
+seed=0 w=0.1: train energy 0.001363 heldout 0.0009362 | median heldout PR 14.5 | median top1 completeness 0.317 | source-MLP 0.207 attention 0.731 | 1166s
+seed=0 w=1.0: train energy 0.001385 heldout 0.0009729 | median heldout PR 10.2 | median top1 completeness 0.437 | source-MLP 0.094 attention 0.734 | 1771s
+seed=1 w=0.0: train energy 0.001458 heldout 0.001072 | median heldout PR 166.0 | median top1 completeness 0.086 | source-MLP 0.714 attention 0.744 | 559s
+seed=1 w=0.1: train energy 0.001564 heldout 0.001145 | median heldout PR 12.5 | median top1 completeness 0.456 | source-MLP 0.503 attention 0.722 | 1165s
+seed=1 w=1.0: train energy 0.001499 heldout 0.001084 | median heldout PR 9.7 | median top1 completeness 0.509 | source-MLP 0.277 attention 0.740 | 1768s
+seed=2 w=0.0: train energy 0.001501 heldout 0.001106 | median heldout PR 250.9 | median top1 completeness 0.091 | source-MLP 0.736 attention 0.707 | 560s
+seed=2 w=0.1: train energy 0.001429 heldout 0.00103 | median heldout PR 10.3 | median top1 completeness 0.427 | source-MLP 0.216 attention 0.725 | 1165s
+seed=2 w=1.0: train energy 0.001439 heldout 0.001036 | median heldout PR 11.9 | median top1 completeness 0.430 | source-MLP 0.227 attention 0.727 | 1770s
+stability: {'random_null_mean': 5.743767906096764e-05, 'random_null_max': 0.0001822674530558288, 'span_random_null_mean': 0.00010465201921761036, 'span_random_null_max': 0.00034644309198483825, 'seeds_w0.0': [0.261, 0.373, 0.501], 'seeds_w0.0_span': [0.213, 0.264, 0.474], 'seeds_w0.1': [0.496, 0.502, 0.618], 'seeds_w0.1_span': [0.38, 0.39, 0.505], 'seeds_w1.0': [0.62, 0.571, 0.678], 'seeds_w1.0_span': [0.517, 0.508, 0.59], 'split_w0.0': 0.116, 'split_w0.0_span': 0.124, 'split_w0.0_top5_jaccard': 0.17, 'split_w0.1': 0.438, 'split_w0.1_span': 0.389, 'split_w0.1_top5_jaccard': 0.49, 'split_w1.0': 0.43, 'split_w1.0_span': 0.379, 'split_w1.0_top5_jaccard': 0.387}
+wrote results/full_bilinear_fineweb.json (5924s)
