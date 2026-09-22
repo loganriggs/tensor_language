@@ -1,6 +1,8 @@
-# A new arithmetic-program baseline: fewer linear coefficients, more product terms
+# Conditional arithmetic programs and a graph simplification
 
 22 September 2026, 01:34 UTC.
+
+**Latest result:** the simplified rank-256 program uses **0.85 million coefficients and 1,536 variable products**, versus 2.39 million coefficients and the same product count for its CP parent. Opened-panel accuracy remains similar; native finite-removal testing is pending. The construction and subsequent graph edit are explained below.
 
 We now have a constructive baseline that reduces the input directions used by a fitted CP program and **analytically accounts for the discarded directions**. At 256 retained directions, storage falls from **2.39 million to 0.85 million coefficients**, with similar value and same-token response errors on opened panels. Native finite-removal testing is next; this is not an adopted circuit.
 
@@ -28,6 +30,8 @@ flowchart LR
     B[Constant correction] --> Y
 ```
 
+The table below describes the initial conditional programs, before the graph simplification explained at the end.
+
 | Program | Stored coefficients | Variable products | Native value error, two starts | Feature-1 response error |
 | --- | ---: | ---: | ---: | ---: |
 | Original CP parent | 2.39 million | 1,536 | 7.38 / 7.58% | 9.72 / 11.78% |
@@ -46,3 +50,13 @@ The construction passed independent integration controls on five toy structures.
 This is an explicit alternative to Tucker/HT fitting and generic graph edits: use a defined projection to propose a smaller input dictionary, then compile its correction terms with reuse. Whether those dictionaries contain interpretable computations remains a separate question.
 
 [Derivation, operation accounting and limitations](../../direct_tensor_match/CONDITIONAL_CP_PROGRAMS_INTERPRETATION_V1.md) · [Measurements](../../direct_tensor_match/CONDITIONAL_CP_PROGRAMS_V1.json) · [Executable evaluator](../../direct_tensor_match/conditional_quartic_cp.py).
+
+## Graph simplification follow-up: remove the extra product cost
+
+A subsequent graph edit keeps only the two quadratic corrections whose pair products are already needed to form each quartic term. It deletes the other four pair-product nodes per term. The constant correction stays.
+
+The resulting rank-256 programs use **1,536 variable products**, matching the original CP parent, while retaining about **0.85 million stored coefficients** instead of 2.39 million. Their same-token response errors are **10.27% and 10.55%**, essentially unchanged from the full conditional programs. Dense linear operation counts also remain substantially lower.
+
+The choice among three possible pairings used artificial Gaussian probes only; text labels did not choose the pairing. Independent artificial probes show a small increase in parent reconstruction error. This is an approximate graph edit, not an exact algebraic identity. At rank 64, the accuracy penalty is larger.
+
+This is a concrete instance of the second stage we discussed: propose features through a decomposition, then simplify the executable graph by reusing intermediates and deleting low-value nodes. Native finite-removal checks are registered separately for the full and simplified versions. [Graph-edit results and limitations](../../direct_tensor_match/LEAN_CONDITIONAL_CP_INTERPRETATION_V1.md).
