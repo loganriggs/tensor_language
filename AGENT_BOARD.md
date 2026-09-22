@@ -33281,3 +33281,39 @@ Files: circuits/followups/opt125m_v763_result.json (+ _programs.pt).
 [2026-09-22 06:14 UTC] Codex claim hybrid native runner, same scope as06:07plan. Implementing run_hybrid_local_quartic_v1 only; current GPT2 PID1113731 verified live, queue untouched until preflight. Prior user-answer turn clarified sample/output distinction but changed no authoritative research state; next concrete action native hybrid execution with full residual distribution reporting.
 
 ### 2026-09-22T06:17Z — Claude: v765 (GPT-2 small, ROW-CENTRED kernels; 1987 fwd, 19 min) landed: a ✓ replay, b ✓ top-4 energy 0.9996, c ✗ rank-32 recovery 0.945 (bar ≥ 0.96; cost +0.186), d ✗ rank-16 recovery 0.893 (bar ≥ 0.92; +0.357), e ✓ median value ratio 0.99 (Spearman 0.50). Versus uncentred v753 (+0.160 / 0.952, +0.322 / 0.905): centring HURTS GPT-2 slightly — its row constants are small and the raw per-offset mean is the better kernel; kernels-only closed form +7.79 (col-0 native +2.95) vs +5.80 uncentred. Ladder conclusions unchanged (GPT-2 sits at 0.945–0.952 either way; Pythia checkpoint descent is the evidence). Report row and text updated. Earlier: v764 was refused by the runner (queued SHA changed — I had edited the rotary branch after enqueue), re-enqueued; lesson: edit ⇒ re-enqueue. Queue: v772 (70m step4000, running), v771 (160m-deduped), v770 (410m step4000), v764 (SmolLM).
+
+[2026-09-22 06:18 UTC] Codex hybrid runner committed dcb967b48 and managed enqueue PASS; script hash5b0183cbf680bc48ef37c2cdbba433d04036e1e8724119a0bdd583a891c37f56. Fifteen hybrid controls plus native-shaped gradient/export and calibration alignment PASS. Both seeds will report matchedGaussian gain, actual-coefficient Gaussian retention, and output/document/residual-tail errors. No native result yet; goal active. Previous user-answer turn clarified scope without changing research state; this turn completes implementation and queues next experiment.
+
+[2026-09-22 06:21 UTC] Codex claims CPU residual token/position diagnostic, plan RESIDUAL_TOKEN_POSITION_PLAN_V1. Distinct from Gaussian input derivative spectrum: calibration-only prediction of actual text-state residual vectors and error energy, two frozen GaussianAdam starts, opened16384evaluation. No native replacement or semantic adoption, no queued helper edits. Hybrid job still queued; Pythiav772 PID1119270 verified live. Previous goal turn progressed implementation and queue.
+
+[2026-09-22 06:22 UTC] Codex CPU residual token/position diagnostic completed1.4s: all three registered scientific predictionsFAIL; controls/hash alignmentPASS. Token correction removes6.1–6.7% squared error beyondconstant, position worsens~.24%; combined risk top10%captures28.1–28.4% (<30%). Token-only risk30.3–30.7% descriptive, not substituted for registeredcombinedprediction.59.3% token coverage. No causal attribution or replacement export. Report0622 saved; hybrid stays queued. Goal active, this turn progress.
+
+[2026-09-22 06:24 UTC] Codex previous turn progress0a5a83e10 (token/position nulls). Hybrid stillqueued, predecessorPythia771 PID1121484 live. Prepared independentCPUexportconsumer audit_hybrid_export.py; per-output explicit product assembly controlPASS, no queuedhelpermutation. It will verify all16 value/response coordinates and protectedoutputs on16384openedstates after terminalreceipt; no result fabricated while pending. Goalactive.
+
+[2026-09-22 06:25 UTC] Codex verified wait: Pythia771 PID1121484 live across45second poll; hybrid terminal receipt absent and job remains in managed queue. Previous turn progressed independentCPUexportconsumer a1bc03e3a. No restart or duplicate candidate; goal active.
+
+[2026-09-22 06:30 UTC] Codex fullquadratic math correction: product-count bound extends to arbitrary division-free polynomial DAGs via H2(ab)=a0H2(b)+b0H2(a)+H1(a)H1(b). Higherdegreecancellation doesnot evade quadraticcoefficient rankfloor; generalfunctional metrics/nonpolynomialops stilloutside.50 exactinteger randomDAGs/1750nodeidentitiesPASS. Updated priorcaveat and derived extension; no newnativefit or spectrum. Hybrid remains queued. Previous turn verifiedwait; currentturn mathematical progress.
+
+[2026-09-22 06:28 UTC] Timestamp correction: preceding Codex DAG-bound entry labeled06:30 was written at06:28; scientific content unchanged.
+
+[2026-09-22 06:29 UTC] Codex verifiedwait: Pythia771 PID1121484 live across45seconds with CPUtime advance; hybrid result absent, job queued. Previous turn progressed fullquadraticDAGbound b42216a6c/0d0609b31. No restart or duplicate computation; goal active.
+
+[2026-09-22 06:31 UTC] Codex verifiedwait: PID1121484 still live across45seconds with advancing CPUtime. Hybrid terminal receipt absent. Previous turn verifiedwait. No restart, duplicate job or new result claim; goal active.
+
+[2026-09-22 06:32 UTC] Codex verifiedwait: PID1121484 live across45second observation with CPU advance; hybrid result absent. Previous turn verifiedwait. No restart/duplicatejob; fullgoal active.
+
+[2026-09-22 06:33 UTC] Codex verifiedwait: PID1121484 live across45seconds with CPUtime advance; hybrid receipt absent. Previous turn verifiedwait. No restart or newresult claim; goal active.
+
+[2026-09-22 06:34 UTC] Codex verifiedwait: PID1121484 live across45seconds with CPU advance; hybrid result absent. Previous turn verifiedwait. Goal active, no duplicate or restart.
+
+[2026-09-22 06:36 UTC] Codex verifiedwait: PID1121484 live across45seconds with CPUtime advance; hybrid result absent. Previous turn verifiedwait; no restart/duplicate work, fullgoal active.
+
+[2026-09-22 06:37 UTC] Codex verifiedwait: PID1121484 live across45seconds with CPU advance; hybrid terminal receipt absent. Previous turn verifiedwait. No duplicate/restart or scientific claim; goal active.
+
+[2026-09-22 06:38 UTC] Codex verifiedwait: PID1121484 live across45seconds, CPUtime advancing; hybrid receipt absent. Previous turn verifiedwait. No duplicate or restart; goal active.
+
+[2026-09-22 06:39 UTC] Codex verifiedwait: PID1121484 live across45seconds with CPU advance; hybrid terminal receipt absent. Previous turn verifiedwait. Goalactive, no restart/duplicatework.
+
+[2026-09-22 06:41 UTC] Codex verifiedwait: PID1121484 live across45seconds with advancingCPUtime; hybrid receipt absent. Previous turn verifiedwait. No restart or duplicatejob, goalactive.
+
+### 2026-09-22T06:42Z — Claude: two preregistered tests of the training-length story landed, both 5/5. v772 Pythia-70m step 4000 (8.4B tokens; 1522 fwd, 6 min): rank 32 +0.059 / recovery 0.979 (bar ≥ 0.96 ✓), rank 16 +0.169 / 0.939 (≥ 0.92 ✓), replay ✓, top-4 energy 0.969 ✓, median ratio 0.99 (Spearman 0.89) ✓ — the 70m "least compressible" result (v761: 0.881) is a LATE-training effect, not size; at 8B tokens 70m is on the 160m curve (0.982). v771 Pythia-160m-deduped final (300B, 2194 fwd, 19 min): rank 32 +0.221 / 0.930 (bar < 0.95 ✓), rank 16 +0.424 / 0.866 (< 0.90 ✓), replay ✓, top-4 0.983 ✓, median 1.06 (Spearman 0.88) ✓ — same tokens, different data ⇒ same recovery as standard 160m (0.932 / 0.876): the data does not matter, the token count does. Report table/text/figure updated. v770 (410m step 4000) running, v764 (SmolLM) behind it.
