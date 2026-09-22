@@ -1,0 +1,31 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_gradient": true,
+    "pred_c_resources": true
+  },
+  "seed": 1101,
+  "ridge": 1e-06,
+  "coefficient_weight": 34445.838833194066,
+  "readout_replay": 2.569756093278427e-08,
+  "normal_residual": 1.5106612658426781e-15,
+  "loss_replay": 4.486329763680205e-17,
+  "gradient_seconds": 34.780584895052016,
+  "peak_gradient_bytes": 2610182656,
+  "finite_differences": [
+    {
+      "epsilon": 0.0001,
+      "finite_difference": 3.041420637801967,
+      "analytic": 3.0415522215091357,
+      "relative_error": 4.326202464596742e-05
+    },
+    {
+      "epsilon": 3e-05,
+      "finite_difference": 3.0415403782388384,
+      "analytic": 3.0415522215091357,
+      "relative_error": 3.89382441425751e-06
+    }
+  ],
+  "seconds": 108.80365262832493,
+  "scope": "Exact shared144x4/512gradient resource/correctness profile only. No parameter update, native effect/OOD test or adoption. Detached optimal readout includesridge; teacher constant omitted."
+}

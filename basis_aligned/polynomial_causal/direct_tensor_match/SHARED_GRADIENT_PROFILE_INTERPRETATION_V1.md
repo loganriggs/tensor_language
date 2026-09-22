@@ -1,0 +1,9 @@
+Native shared-producer gradient profile passes
+
+22September2026. AllregisteredbarsPASS. Seed1101,144quadraticsx4productsx1152inputs,512rootpairs,16outputs, ridge1e-6. Exactstreamedgradient34.78seconds, peakallocated2.610GB. Physicalreadoutreplay2.57e-8, normalresidual1.51e-15, streamedlossreplay4.49e-17. Profiledfinite-differenceerrors4.33e-5and3.89e-6atsteps1e-4and3e-5. Fullprofile108.80s includesfourre-profiledforwardevaluations.
+
+Theprecommittedbudgetrule givesestimated53.286secondspertrainingstep and11stepsperstart. Thetwo-startsharedproducerfit was enqueuedwithunchangedcriteria, hashd91b5213ae59e2649098c02ccc5a7165c13604c17c31c021d0822b998ff41c23. Thisisboundedwarmstartlearning, notthe400-steptoyconvergencecheck. A negative11-stepresult mustnotbeinterpretedasarchitecturalimpossibility.
+
+No modelparameterwasupdatedbytheprofile. A benignPyTorchwarning reportedconvertinga graph-bearingnormscalartoPythonforlogging; finite-differencechecks andgradientitselfcompleted. Theprofileartifactrecordsactualmetrics; nohelperswereeditedwhilelive.
+
+[Profile results](SHARED_GRADIENT_PROFILE_V1.json), [profile preregistration](SHARED_GRADIENT_PROFILE_PLAN_V1.md), [queued training preregistration](SHARED_MIXED_FEATURES_PLAN_V1.md).
