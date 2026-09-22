@@ -11,7 +11,7 @@ PREDICTIONS (scored as written; failures preserved)
     pred_c_half_in_few_heads      at final, the fewest heads whose isolated costs sum to half the total number <= 15 of 144. Prior: unsure
     pred_d_cost_tracks_value      at final, Spearman(isolated cost, mean-ablation value) over all 144 heads >= 0.5. Prior: likely
     pred_e_relative_recovery_falls median relative recovery over heads with value >= 0.02 is lower at final than at step 1000. Prior: likely
-PRICE (registered maximum): per checkpoint: native 6 + kappa_r 4 + full program 6 + 144 x 6 = 880; two checkpoints 1760 forwards; 0 backwards; 0 fits. Bar <= 1800.
+PRICE (registered maximum): per checkpoint: the 193-row caches take 7 forwards per CE: native 7 + kappa_r 4 + full program 7 + 144 x 7 = 1026; two checkpoints 2052 forwards (first run tripped an 1800 bar priced at 6 per CE); 0 backwards; 0 fits. Bar <= 2100.
 """
 from __future__ import annotations
 from datetime import datetime, timezone
@@ -28,7 +28,7 @@ REPO = "EleutherAI/pythia-160m"
 FIT64 = ROOT / ".rowcache/pythia_fineweb_n480_skip80.pt"
 EVAL_ROWS = ROOT / ".rowcache/pythia_fineweb_n192_skip7000.pt"
 CANDIDATE_ID = f"pythia.perhead_{TAG}"
-FORWARDS_MAX, EBATCH, KBATCH = 1800, 32, 16
+FORWARDS_MAX, EBATCH, KBATCH = 2100, 32, 16
 REPLAY_TOL, GROW, FEW, RHO_MIN, VALUE_FLOOR = 0.02, 1.5, 15, 0.5, 0.02
 PREDICTIONS = {"pred_a_full_program_replays": "+-0.02 both", "pred_b_sum_grows": ">= 1.5x", "pred_c_half_in_few_heads": "<= 15 heads", "pred_d_cost_tracks_value": "spearman >= 0.5", "pred_e_relative_recovery_falls": "final < step1000"}
 
