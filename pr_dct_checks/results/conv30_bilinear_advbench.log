@@ -1,0 +1,9 @@
+adapter parity vs repository blocks: 0.00e+00
+seed=0 w=0.0: train energy 0.000238 heldout 0.0002334 | median heldout PR 384.4 | trace energy ['2.37e-04', '2.37e-04', '2.37e-04'] | 357s
+seed=0 w=1.0: train energy 0.0001776 heldout 0.0001759 | median heldout PR 2.8 | trace energy ['1.77e-04', '1.77e-04', '1.77e-04'] | 918s
+seed=1 w=0.0: train energy 0.0002226 heldout 0.0002228 | median heldout PR 136.5 | trace energy ['2.14e-04', '2.14e-04', '2.15e-04'] | 358s
+seed=1 w=1.0: train energy 0.0001605 heldout 0.000158 | median heldout PR 97.7 | trace energy ['1.57e-04', '1.57e-04', '1.57e-04'] | 920s
+seed=2 w=0.0: train energy 0.000227 heldout 0.0002231 | median heldout PR 470.7 | trace energy ['2.02e-04', '2.02e-04', '2.06e-04'] | 357s
+seed=2 w=1.0: train energy 0.0001689 heldout 0.0001682 | median heldout PR 1.6 | trace energy ['1.66e-04', '1.66e-04', '1.66e-04'] | 917s
+stability: {'random_null_mean': 5.743767906096764e-05, 'random_null_max': 0.0001822674530558288, 'span_random_null_mean': 0.00010465201921761036, 'span_random_null_max': 0.00034644309198483825, 'seeds_w0.0': [0.216, 0.259, 0.279], 'seeds_w0.0_span': [0.215, 0.236, 0.304], 'seeds_w1.0': [0.251, 0.25, 0.166], 'seeds_w1.0_span': [0.191, 0.189, 0.17]}
+wrote results/conv30_bilinear_advbench.json (2759s)
