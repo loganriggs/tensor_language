@@ -33317,3 +33317,103 @@ Files: circuits/followups/opt125m_v763_result.json (+ _programs.pt).
 [2026-09-22 06:41 UTC] Codex verifiedwait: PID1121484 live across45seconds with advancingCPUtime; hybrid receipt absent. Previous turn verifiedwait. No restart or duplicatejob, goalactive.
 
 ### 2026-09-22T06:42Z — Claude: two preregistered tests of the training-length story landed, both 5/5. v772 Pythia-70m step 4000 (8.4B tokens; 1522 fwd, 6 min): rank 32 +0.059 / recovery 0.979 (bar ≥ 0.96 ✓), rank 16 +0.169 / 0.939 (≥ 0.92 ✓), replay ✓, top-4 energy 0.969 ✓, median ratio 0.99 (Spearman 0.89) ✓ — the 70m "least compressible" result (v761: 0.881) is a LATE-training effect, not size; at 8B tokens 70m is on the 160m curve (0.982). v771 Pythia-160m-deduped final (300B, 2194 fwd, 19 min): rank 32 +0.221 / 0.930 (bar < 0.95 ✓), rank 16 +0.424 / 0.866 (< 0.90 ✓), replay ✓, top-4 0.983 ✓, median 1.06 (Spearman 0.88) ✓ — same tokens, different data ⇒ same recovery as standard 160m (0.932 / 0.876): the data does not matter, the token count does. Report table/text/figure updated. v770 (410m step 4000) running, v764 (SmolLM) behind it.
+
+[2026-09-22 06:42 UTC] Codex verified queue transition: Pythia771 exited0 at06:41:14, successorPythia770 PID1126844 directly verified live across45seconds. Hybrid behindcurrentplusSmolLM; receiptabsent. Previous turn verifiedwait. No restart/duplicate, goalactive.
+
+[2026-09-22 06:43 UTC] Codex verifiedwait: Pythia770 PID1126844 live across45seconds with advancingCPUtime; hybrid result absent. Previous turn verifiedqueue transition. No duplicate/restart; goalactive.
+
+[2026-09-22 06:44 UTC] Codex verifiedwait: Pythia770 PID1126844 live across45seconds with CPU advance; hybrid terminal receipt absent. Previous turn verifiedwait. No restart/duplicate; fullgoal active.
+
+[2026-09-22 06:46 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid result absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 06:47 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance; hybrid result absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 06:48 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No restart/duplicate; goalactive.
+
+[2026-09-22 06:49 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. Goalactive; no duplicate/restart.
+
+[2026-09-22 06:50 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. Goalactive; no restart/duplicate.
+
+[2026-09-22 06:52 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance; hybrid result absent. Previous turn verifiedwait. No restart/duplicate; goalactive.
+
+[2026-09-22 06:53 UTC] Codex verifiedwait: PID1126844 live across45seconds with advancingCPUtime; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 06:54 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. Goalactive; no duplicate or restart.
+
+[2026-09-22 06:55 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 06:56 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. Goalactive; no restart/duplicate.
+
+[2026-09-22 06:57 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 06:59 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance; hybrid receipt absent. Previous turn verifiedwait. Goalactive; no restart/duplicate.
+
+[2026-09-22 07:00 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance; hybrid result absent. Previous turn verifiedwait. Goalactive; no restart/duplicate.
+
+[2026-09-22 07:01 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance and recentlog output; hybrid receipt absent, queued behindSmolLM. Previous turn verifiedwait. NewClaudejobs are behindhybrid, no queuechange. Goalactive.
+
+[2026-09-22 07:03 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid result absent. Previous turn verifiedwait. No restart/duplicate; goalactive.
+
+[2026-09-22 07:04 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 07:05 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 07:07 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 07:08 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance; hybrid receipt absent. Previous turn verifiedwait. Goalactive; no duplicate/restart.
+
+[2026-09-22 07:09 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance; hybrid receipt absent. Previous turn verifiedwait. Goalactive; no restart/duplicate.
+
+[2026-09-22 07:10 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No restart/duplicate; goalactive.
+
+[2026-09-22 07:12 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No restart/duplicate; goalactive.
+
+[2026-09-22 07:13 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No restart/duplicate; goalactive.
+
+[2026-09-22 07:14 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 07:15 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 07:16 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPUtime advance; hybrid receipt absent. Previous turn verifiedwait. No duplicate/restart; goalactive.
+
+[2026-09-22 07:18 UTC] Codex hourly review0718: weight-folding maintained under explicit user focus; token/position null and fullquadraticDAGbound are thishour receipts. No ownnativefit complete; hybrid staysqueued, predecessorPID1126844 live withCPUadvance. Independentexportaudit ready. No newcandidate or post-hoc metric tuning. Previous turn verifiedwait; goalactive.
+
+[2026-09-22 07:20 UTC] Codex verifiedwait: PID1126844 live across45seconds with CPU advance; hybrid result absent. Previous turn hourlyreview2e8a21ab1 and verifiedwait. No restart/duplicate; goalactive.
+
+### 2026-09-22 07:26 UTC — Codex: Verified wait for hybrid metric experiment
+Previous user-facing turn clarified existing evidence; no new research result. Revalidated managed queue: hybrid hash 5b0183cbf680bc48ef37c2cdbba433d04036e1e8724119a0bdd583a891c37f56 remains behind SmolLM. Active predecessor PID 1126844 directly observed before and after 45-second wait with advancing CPU time. Hybrid receipt absent. Independent export audit remains ready; no restart, duplicate job, or metric changes. Full tensor and circuit goal remains active.
+
+### 2026-09-22 07:27 UTC — Codex: Verified wait
+Previous turn was a verified wait. PID 1126844 directly observed across another 45-second interval with advancing CPU time; hybrid remains queued behind SmolLM, result absent. No restart, duplicate, or queue edit. Full circuit goal active; awaiting the registered two-start comparison before changing representation.
+
+### 2026-09-22 07:28 UTC — Codex: Verified wait
+Prior turn verified wait. Predecessor PID 1126844 remains directly live across 45 seconds with CPU advance; hybrid result absent, queued comparison unchanged. No restart or duplicate. Goal active.
+
+### 2026-09-22 07:30 UTC — Codex: Verified wait and predecessor log inspection
+Previous turn verified wait. PID 1126844 directly live before/after 45 seconds with advancing CPU time. Its log records completed rank-16 fitting and subsequent execution remains live; no terminal hybrid receipt. Existing managed hybrid job remains continuation, independent export audit ready. No queue change or circuit success claim.
+
+### 2026-09-22 07:31 UTC — Codex: Verified wait
+Previous turn verified wait. PID 1126844 directly observed alive across 45 seconds with CPU advance; hybrid remains queued and terminal result absent. No restart or queue mutation. Full goal active.
+
+### 2026-09-22 07:33 UTC — Codex: Verified wait
+Previous turn verified wait. Predecessor PID 1126844 live across 45-second observation with CPU advance; managed hybrid job remains queued, receipt absent. No restart, duplication, or metric changes. Full tensor/circuit objective remains active.
+
+### 2026-09-22 07:34 UTC — Codex: Verified wait
+Previous turn verified wait. PID 1126844 directly live across 45 seconds with CPU advance; hybrid terminal receipt absent, queued job unchanged. No restart or duplicate. Full objective active.
+
+### 2026-09-22 07:36 UTC — Codex: CPU document-bootstrap claim
+Local quartic follow-up reports document distributions but no cluster uncertainty. Adding paired whole-document bootstrap for both frozen Gaussian Adam starts against CP1001, all sixteen value outputs and smaller-output RMS, using existing opened 256-document panel. No fit, candidate selection, new success threshold, or response-pair independence assumption. Owned new audit_local_document_bootstrap.py and LOCAL_DOCUMENT_BOOTSTRAP_V1.json plus contextual report. GPU queue unchanged.
+
+### 2026-09-22 07:37 UTC — Codex: Document-bootstrap evidence complete
+Commit c27355aad adds paired whole-document bootstrap (2000 resamples, 256 documents, CPU 1.06 s) for both frozen Gaussian Adam starts. Relative smaller-output improvement 7.05% [6.67,7.46] and 7.15% [6.79,7.53], conditional on opened panel; no OOD/causal claim or new pass gate. Controls pass. Report for_logan/research_update_2026-09-22_0736_document_uncertainty.md. Hybrid managed job remains continuation and independent export audit ready. Full tensor and reusable circuit goal remains active.
+
+### 2026-09-22 07:39 UTC — Codex: Verified wait after bootstrap analysis
+Previous turn made progress: c27355aad document-bootstrap analysis committed and pushed. PID 1126844 directly live across 45 seconds with CPU advance; managed hybrid job remains queued and its result absent. Independent export audit ready; no duplicate or restart. Full goal active.
+
+### 2026-09-22 07:41 UTC — Codex: Verified wait
+Previous turn verified wait. PID 1126844 directly observed live before/after 45 seconds with CPU advance; hybrid still queued, no result. Existing independent audit ready; no restart or duplicate. Full goal active.
+
+### 2026-09-22 07:41 UTC — Codex: Correction and queue transition
+The immediately preceding wait note was inaccurate: PID 1126844 exited during the observation interval, not live at both ends. Authoritative runner records Pythia770 exit=0 at 07:41:04 and SmolLM v764 starting then. Hybrid is now next queued. No hybrid result yet. Use this transition rather than the preceding liveness claim.
+
+### 2026-09-22T07:41Z — Claude: v770 Pythia-410m step 4000 (8.4B tokens; 3874 fwd, 60 min) landed 5/5: replay ✓, top-4 energy 0.964 ✓, rank 32 +0.020 / recovery 0.994 (bar ≥ 0.96 ✓), rank 16 +0.090 / 0.971 (≥ 0.92 ✓), median value ratio 0.98 (Spearman 0.92) ✓. Joint value 3.12, kernels-only +2.27 (col-0 native +2.05). Versus 410m final (v762: 0.935 / 0.913) the descent with tokens is the same at 2.5x the 160m size; the bigger model is slightly SIMPLER at both ends (rank 16: 0.971 vs 160m's 0.947 early; 0.913 vs 0.876 late) — a small size effect in the wrong direction to explain the bilinear models. Training-length story now has four preregistered confirmations (v770-v772 + the 160m checkpoint curve v766-v769). Report table/text/figure updated. v764 (SmolLM) running; v774/v773 (Pythia-1b step 4000 / final) queued behind Codex's hybrid job.
