@@ -1,3 +1,5 @@
+**Start here — [What we are decomposing and what the 16 features mean](research_update_2026-09-22_0000_model_context_and_research_trajectory.md).** New contextual review, 22 September 2026, 00:00 UTC: exact model branch, origin of the 16 writers, two-stage progress, current results and remaining failures. The [shared-feature conditions report](research_update_2026-09-21_2112_shared_feature_conditions.md) is also rewritten with model context and completed intervention follow-ups.
+
 **Latest requested update — [What the new fits taught us](research_update_2026-09-21_2309_what_the_new_fits_taught_us.md).** Larger CP and shared-hierarchy results, exact weight matching, the mean/covariance improvement, and remaining component failures.
 
 **Latest overall follow-up — [What changed after the two-stage proposal](research_update_2026-09-21_2213_what_changed_after_shared_graph.md).** Exact weight fitting, feature-removal failures, optimizer controls, and the new capacity bound; distinguishes completed results from the proposed larger baseline.
