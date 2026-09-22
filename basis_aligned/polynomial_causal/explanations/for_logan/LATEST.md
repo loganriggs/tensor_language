@@ -1,3 +1,5 @@
+[22 September02:38 — Input-reader sharing: a concrete second-stage graph edit](research_update_2026-09-22_0238_reader_reuse.md).
+
 [22 September 02:11 — Balanced feature fitting failed its improvement and response-retention criteria](research_update_2026-09-22_0211_balanced_features_failed.md).
 
 **New constructive baseline — [Gaussian conditional arithmetic programs](research_update_2026-09-22_0134_conditional_program_baseline.md).** Reduced linear storage with explicit quadratic corrections and pair reuse; native finite-removal check prepared.
