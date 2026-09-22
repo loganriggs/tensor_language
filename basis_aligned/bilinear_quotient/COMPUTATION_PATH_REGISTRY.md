@@ -532,3 +532,7 @@ Matched48,384scalars:8productcenteredprogram totalerror23.12% vs26productquartic
 
 ### 2026-09-20 20:15 — Mean correction and failed feature identity
 QuarticGaussianbias47,312coefficients/26products18.38%error,27.84%variationunchanged. Fourproductfeaturematchingfails(cos.455),componentscancel63–1367×. Normalizedwriterpenalty.001medianratio3.02,24.06%nativeerror,stabilitystillfails. Orthogonaloutputsharing43,808/8products23.15%. Matrix-freeGaussianprojectedquadraticcrosschecked4e-16. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_2015_mean_correction_and_feature_stability.md).
+
+### 2026-09-22 01:59 — Pure quartic conditional programs and failed harmonic truncation
+
+MLP16→17 bias-free self term, fixed 16-output subspace. Lean conditional rank256: 848,912 floats, 1,536 products; opened-panel value errors 7.24/7.46%, native finite-removal tests pending. Exact sphere harmonic degree0/2 truncation fails (138.47% value error); algebra controls pass. These are path approximations, not identified circuits. [Canonical review and evidence links](../polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-22_0159.md). Broader midpoint target remains separate.

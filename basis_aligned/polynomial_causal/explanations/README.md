@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest review (22 September 01:59 UTC): [larger evaluation and residual distribution](for_logan/research_update_2026-09-22_0112_larger_panel_results.md), [conditional arithmetic programs and graph edits](for_logan/research_update_2026-09-22_0134_conditional_program_baseline.md), and [mathematical review](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-22_0159.md). Older dated entries below describe their historical stage.
+
 Current overview: [What changed after the two-stage proposal](for_logan/research_update_2026-09-21_2213_what_changed_after_shared_graph.md). Earlier foundations: [QR, decomposition and arithmetic circuits](for_logan/research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md). Newer technical evidence: [shared hierarchy](../direct_tensor_match/SPARSE_QUARTIC_BANK_INTERPRETATION_V1.md) and [exact Gaussian metric tradeoff](../direct_tensor_match/EXACT_GAUSSIAN_CP_READOUT_INTERPRETATION_V1.md).
 
 Latest decomposition evidence: [Mean correction and feature stability](for_logan/research_update_2026-09-20_2015_mean_correction_and_feature_stability.md).

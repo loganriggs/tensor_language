@@ -68,3 +68,11 @@ The simplified rank-256 program is **1.48–2.46× faster than its CP parent** i
 An algebraic stress test shows the limitation of fitting around a shifted Gaussian. The native pure quartic has exactly the same output at $x$ and $-x$. The simplified conditional programs do not: on 256 selected states, error rises from about **8.4%** at the original inputs to **13.8–13.9%** at their negatives. Negated states preserve input norm but are not established text examples, so this is not a text-OOD measurement.
 
 This is expected to be possible under conditional averaging; it is not a failure of the integration code. The approximation gains efficiency in a data-informed region while losing global polynomial identities. Enforcing sign symmetry by averaging the two predictions worsens the original-input error in this test. [Symmetry audit and limits](../../direct_tensor_match/CONDITIONAL_SYMMETRY_INTERPRETATION_V1.md).
+
+## 01:59 mathematical review: normalization does not make the quartic disposable
+
+A further CPU check tested a tempting simplification. On a fixed-radius input surface, the native quartic can be decomposed exactly into a genuinely quartic harmonic part plus quadratic and constant parts. “Harmonic” here means its Laplacian is zero; it does not mean a semantic feature. We can calculate the lower-degree parts directly from weight contractions without storing the enormous tensor.
+
+However, dropping the quartic remainder gave **138.47% value error** on one state from each of 256 opened documents, and **112.55% error** in the existing root1 same-token responses. Independent small-model derivative controls passed. Thus this particular mathematically well-defined truncation fails: normalization does not make the remaining fourth-degree computation negligible. This does not rule out a different learned compact program.
+
+The [three-hour review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-22_0159.md) connects Gaussian conditional programs, hierarchical tensor representations and graph rewrites to their precise assumptions. The immediate priorities remain balanced feature fitting and testing the smaller conditional programs inside native finite interventions.
