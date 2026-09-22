@@ -1,0 +1,22 @@
+{
+  "rates": {
+    "adam": 0.1,
+    "muon": 0.01
+  },
+  "files": {
+    "MIXED_CP_FEATURES_SEED1001_V1.pt": "c0ea4433c4f78415eea30164c6168cedf9835c3d0a88ddf6279a4137644e3898",
+    "GAUSSIAN_CP_DATA_PROJECTIONS_V1.pt": "dce3c4a7501f7b9494dc6094eadaba5a4dc6ecbfa41787102e28cd13227115ef",
+    "OUTPUT_BALANCED_CALIBRATION_METRIC_V1.json": "ded6752018d6d444f0825b96e590cccdf380e5257b3287984a263f1dea11f54d",
+    "NATIVE_QUARTIC_COVARIANCE_V1.pt": "dac780c6c05986b397dce6449cce58d67347ec345a64786addd92e600f0844a6",
+    "SENSITIVE_ROOT_CALIBRATION_V2.pt": "c8a732a61723661d286b702afecb58331670fa3e5cb26c6803ca910dcdf771f7",
+    "ROOT_MATCHED_READER_V1.json": "405905b4383972c76020a73b9f9dc5f503acf17a3bd5ac4d3c195c70d74f9710",
+    "LOCAL_QUARTIC_RESIDUAL_TOY_SWEEP_V2.json": "e79c7956d568ee42e77ff224db6852e3474c20eae035fae5505de464a8de1fd6",
+    "local_quartic_residual.py": "33e28bf31d964a7e07dd6c670b8e9573ddbb57ef85ccfddf707f9ffb2ffd0e16",
+    "mixed_gaussian_cp.py": "1a7c19d651886c44383bc95628064afadf7ba71bcfbde64454ce8ffaf9534194",
+    "noncentral_gaussian_cp.py": "dc8c823a40ec77dd52f435ec674a3ae79eca190ba7d0e10e6922c859ad1c561e",
+    "quartic_cp.py": "479c0ee63eb8195dd1895806810e6709c1f9dc0ab2349505f40fc3e5beef1808",
+    "quartic_cp_profile.py": "9cfef87ebd3e893d00d985c52caa31eb4deebcbda59fe56bcf8ad177dd558dd9",
+    "native_quartic_gaussian_projection.py": "9a86ae425382711f9e2c2edd0f759b6221b1f615c53fd60ce164c70ae24acddd"
+  },
+  "selection": "Per optimizer lowest median among fixed .01/.1 rates overfivefamilies\u00d7twostarts500steps; native data not used."
+}

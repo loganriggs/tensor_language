@@ -1,0 +1,30 @@
+{
+  "normal_residual": 3.4115867693991674e-16,
+  "finite_differences": [
+    {
+      "epsilon": 0.0001,
+      "analytic": 0.045994719452447874,
+      "finite_difference": 0.04598657758701129,
+      "relative_error": 0.00017701739533391948
+    },
+    {
+      "epsilon": 3e-05,
+      "analytic": 0.045994719452447874,
+      "finite_difference": 0.04599398664374657,
+      "relative_error": 1.5932452899539424e-05
+    }
+  ],
+  "forward_backward_seconds": 4.387826721183956,
+  "process_peak_rss_bytes": 3446202368,
+  "seconds": 16.992200083099306,
+  "pass_integrity": true,
+  "source_sha256": "c0ea4433c4f78415eea30164c6168cedf9835c3d0a88ddf6279a4137644e3898",
+  "shape": {
+    "outputs": 12,
+    "per_output": 8,
+    "new_atoms": 96,
+    "input_width": 1152,
+    "parent_atoms": 512
+  },
+  "scope": "Actual native CPUfloat64 derivative profile. No optimizerstep/fitting or GPUtimingclaim; noexport oradoption."
+}

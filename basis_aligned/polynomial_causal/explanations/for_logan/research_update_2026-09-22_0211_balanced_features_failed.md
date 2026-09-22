@@ -67,3 +67,9 @@ So output-local corrections avoid the dominant-output damage seen with balancing
 The two existing CP fits contain512quartic product features each. Combining all1024products and refitting their output coefficients directly against native Gaussian weight contractions gives only about **2% improvement** in small-output values and responses over the better single-bank scores. Both single-bank controls were refitted under the same objective. The union fails the registered15% improvement screen while doubling variable products to3,072.
 
 This is stronger than the earlier failed averaging test: the union could independently recombine every product, but still had limited useful complementarity. It motivates learning new residual products instead of another combination of the current dictionaries. [Method, costs and complete comparison](../../direct_tensor_match/UNION_CP_DICTIONARY_INTERPRETATION_V1.md).
+
+## 02:32 next experiment: learn missing quartic products
+
+The next comparison learns new product features specifically for the native-minus-CP residual, assigning eight quartic products to each smaller output. Unlike the unsuccessful union, the input directions can change. Unlike output balancing in one shared dictionary, the new terms cannot directly rewrite the four dominant output coordinates.
+
+The loss and gradients passed independent toy checks and a native-size finite-difference check. In a longer five-family toy sweep, Adam at0.1 and Muon at0.01 reached median errors of0.69% and0.83%; neither was uniformly successful. The native comparison therefore retains both, with two random starts each. It adds288products and442,464coefficients as a discovery step; any useful products would still need graph simplification and native intervention evidence. This is a prepared experiment, not a native recovery result. [Controls, optimizer comparison and protocol](../../direct_tensor_match/LOCAL_QUARTIC_RESIDUAL_INSTRUMENT_V1.md).

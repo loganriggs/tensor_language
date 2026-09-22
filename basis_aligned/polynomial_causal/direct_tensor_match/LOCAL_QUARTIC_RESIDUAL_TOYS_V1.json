@@ -1,0 +1,169 @@
+{
+  "rows": [
+    {
+      "family": "generic",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.12517694625818676,
+      "objective": -33.79403882267377
+    },
+    {
+      "family": "generic",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.09304776653418684,
+      "objective": -34.03475394761218
+    },
+    {
+      "family": "generic",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.16603044836121839,
+      "objective": -33.38559695075899
+    },
+    {
+      "family": "generic",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 84,
+      "relative_error": 0.26362394297743963,
+      "objective": -31.946006582385476
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.05933925763155446,
+      "objective": -96.519832010397
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.08132828379348865,
+      "objective": -96.220229433828
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.14255563177547426,
+      "objective": -94.89247541036114
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.13253184118536088,
+      "objective": -95.1595644455384
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.058087262811134056,
+      "objective": -86.36819619757145
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.1619041068190411,
+      "objective": -84.38897250898316
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.07720440150585618,
+      "objective": -86.14405849818144
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.1649781846224429,
+      "objective": -84.30188972405026
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.15170943646596663,
+      "objective": -23.27824733291207
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.12630395483548956,
+      "objective": -23.446535822566503
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.3219726811382051,
+      "objective": -21.356613423871373
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.22205367949728363,
+      "objective": -22.65179500023188
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.08943787245689717,
+      "objective": -312.2780302051473
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.035154322810173874,
+      "objective": -314.4070937988194
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 100,
+      "relative_error": 0.1129525573909797,
+      "objective": -310.7798696018996
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 100,
+      "relative_error": 0.07485448076085018,
+      "objective": -313.0322647002734
+    }
+  ],
+  "steps": 100,
+  "lr": 0.03,
+  "restarts": 2,
+  "seconds": 17.715489557012916,
+  "scope": "Five planted native-two-layerquartic targets with exactlytwo residualatoms peroutput; same4inputdimensions/100steps/.03rate/twostarts. Readouts profiled, choosebytrainingobjective. ExactGaussianpopulationerror fromindependentresidualCPmoments, no text. Small matchedpilot not comprehensiveoptimizercomparison."
+}
