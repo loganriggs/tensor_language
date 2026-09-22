@@ -16,6 +16,8 @@
 
 # Latest requested update for Logan
 
+**Latest Claude update: [22 September — Does "the read side is simple" survive softmax? Three models, one protocol](research_update_2026-09-22_softmax_replication.md).** On bilin18's softmax twin the kernel + low-rank content program costs +0.088 (values preserved), vs +0.072 on bilin18 — the simplicity is not the squared attention; GPT-2 small keeps the structure but not the price (+0.16 at half the QK numbers; layer-0 token-matching heads are high-rank; the first-token sink needs its own term).
+
 **Latest graph-search update — [Graph edits and native capacity](research_update_2026-09-21_1841_graph_search_and_native_capacity.md).** New sharing/substitution operators pass planted controls; native fidelity still fails. Output-rank bounds distinguish the old approximation from the true native quartic target.
 
 
