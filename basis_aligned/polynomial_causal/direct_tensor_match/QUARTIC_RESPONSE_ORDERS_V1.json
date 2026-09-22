@@ -1,0 +1,692 @@
+{
+  "rows": [
+    {
+      "name": "original384",
+      "normalized_chord_ladder": [
+        {
+          "alpha": 0.01,
+          "error": 0.10860031502699041,
+          "native_effect_norm": 5.401808246483411,
+          "native_linearization_error": 0.005351584637418047
+        },
+        {
+          "alpha": 0.05,
+          "error": 0.10962119873583935,
+          "native_effect_norm": 26.611027817967685,
+          "native_linearization_error": 0.02834008723946857
+        },
+        {
+          "alpha": 0.1,
+          "error": 0.11089354712789518,
+          "native_effect_norm": 52.049496017199004,
+          "native_linearization_error": 0.06108407096623112
+        },
+        {
+          "alpha": 0.25,
+          "error": 0.11476399285621434,
+          "native_effect_norm": 118.37478644356658,
+          "native_linearization_error": 0.19477614740523047
+        },
+        {
+          "alpha": 0.5,
+          "error": 0.12246721857541842,
+          "native_effect_norm": 181.01779530944282,
+          "native_linearization_error": 0.620931787986225
+        },
+        {
+          "alpha": 1.0,
+          "error": 0.15321278933798618,
+          "native_effect_norm": 162.28765049465088,
+          "native_linearization_error": 3.2249119460535316
+        }
+      ],
+      "normalized_first_derivative_error": 0.10834433683998522,
+      "normalized_first_order_response_error": 2.9085373496237996,
+      "normalized_endpoint_error": 0.15321278933798618,
+      "response_error": 0.15321275931417694,
+      "order_relative_errors": [
+        0.33945897315780665,
+        0.6911859977123788,
+        0.9501723133143737,
+        1.313824148581903
+      ],
+      "error_order_norm_over_net_native": [
+        0.3848145971576771,
+        0.327248316158309,
+        0.08281180679274586,
+        0.023260000252449266
+      ],
+      "signed_error_contributions": [
+        1.1351485294419617,
+        0.07135392233287087,
+        -0.23319092385619006,
+        0.026688472081357564
+      ],
+      "error_gram_over_net_error": [
+        [
+          6.308312616381391,
+          -4.628091753663215,
+          -0.864215443637515,
+          0.3191431103612986
+        ],
+        [
+          -4.628091753663215,
+          4.562101808894759,
+          0.3958641948788694,
+          -0.258520327777544
+        ],
+        [
+          -0.864215443637515,
+          0.3958641948788694,
+          0.2921424399293612,
+          -0.056982115026905686
+        ],
+        [
+          0.3191431103612986,
+          -0.258520327777544,
+          -0.056982115026905686,
+          0.023047804524508678
+        ]
+      ],
+      "error_cancellation_ratio": 11.18560466973002,
+      "first_order_only_response_error": 0.2648809406271026,
+      "interpolation_replay": 5.3727871888780016e-15
+    },
+    {
+      "name": "CP512_1001",
+      "normalized_chord_ladder": [
+        {
+          "alpha": 0.01,
+          "error": 0.1240582131722985,
+          "native_effect_norm": 5.401808246483411,
+          "native_linearization_error": 0.005351584637418047
+        },
+        {
+          "alpha": 0.05,
+          "error": 0.1246249281172469,
+          "native_effect_norm": 26.611027817967685,
+          "native_linearization_error": 0.02834008723946857
+        },
+        {
+          "alpha": 0.1,
+          "error": 0.12523846574888686,
+          "native_effect_norm": 52.049496017199004,
+          "native_linearization_error": 0.06108407096623112
+        },
+        {
+          "alpha": 0.25,
+          "error": 0.12632145979316148,
+          "native_effect_norm": 118.37478644356658,
+          "native_linearization_error": 0.19477614740523047
+        },
+        {
+          "alpha": 0.5,
+          "error": 0.12452279075846878,
+          "native_effect_norm": 181.01779530944282,
+          "native_linearization_error": 0.620931787986225
+        },
+        {
+          "alpha": 1.0,
+          "error": 0.09722686851232704,
+          "native_effect_norm": 162.28765049465088,
+          "native_linearization_error": 3.2249119460535316
+        }
+      ],
+      "normalized_first_derivative_error": 0.12390676895321288,
+      "normalized_first_order_response_error": 2.830793251860227,
+      "normalized_endpoint_error": 0.09722686851232706,
+      "response_error": 0.0972268582986685,
+      "order_relative_errors": [
+        0.3133811565006621,
+        0.6770349252654942,
+        0.8505482504108876,
+        1.0098426919352492
+      ],
+      "error_order_norm_over_net_native": [
+        0.35525248419209715,
+        0.32054836181113744,
+        0.07412911994377404,
+        0.01787829923411067
+      ],
+      "signed_error_contributions": [
+        1.310538551266283,
+        0.18721453300526103,
+        -0.5469231413607479,
+        0.04917005708920403
+      ],
+      "error_gram_over_net_error": [
+        [
+          13.35062944296464,
+          -10.897982136885247,
+          -1.6772844686011887,
+          0.5351757137880776
+        ],
+        [
+          -10.897982136885247,
+          10.869626427455275,
+          0.6422217122347403,
+          -0.4266514697995083
+        ],
+        [
+          -1.6772844686011887,
+          0.6422217122347403,
+          0.5813065055943306,
+          -0.09316689058863042
+        ],
+        [
+          0.5351757137880776,
+          -0.4266514697995083,
+          -0.09316689058863042,
+          0.03381270368926513
+        ]
+      ],
+      "error_cancellation_ratio": 24.835375079703514,
+      "first_order_only_response_error": 0.22203405563331396,
+      "interpolation_replay": 3.367836091276698e-15
+    },
+    {
+      "name": "CP512_1002",
+      "normalized_chord_ladder": [
+        {
+          "alpha": 0.01,
+          "error": 0.13723786223345216,
+          "native_effect_norm": 5.401808246483411,
+          "native_linearization_error": 0.005351584637418047
+        },
+        {
+          "alpha": 0.05,
+          "error": 0.13792492937915815,
+          "native_effect_norm": 26.611027817967685,
+          "native_linearization_error": 0.02834008723946857
+        },
+        {
+          "alpha": 0.1,
+          "error": 0.1386938222685882,
+          "native_effect_norm": 52.049496017199004,
+          "native_linearization_error": 0.06108407096623112
+        },
+        {
+          "alpha": 0.25,
+          "error": 0.14028427422784767,
+          "native_effect_norm": 118.37478644356658,
+          "native_linearization_error": 0.19477614740523047
+        },
+        {
+          "alpha": 0.5,
+          "error": 0.13959829631357548,
+          "native_effect_norm": 181.01779530944282,
+          "native_linearization_error": 0.620931787986225
+        },
+        {
+          "alpha": 1.0,
+          "error": 0.11781473175705581,
+          "native_effect_norm": 162.28765049465088,
+          "native_linearization_error": 3.2249119460535316
+        }
+      ],
+      "normalized_first_derivative_error": 0.13705683556832587,
+      "normalized_first_order_response_error": 2.788817356344616,
+      "normalized_endpoint_error": 0.1178147317570559,
+      "response_error": 0.11781472215844518,
+      "order_relative_errors": [
+        0.3421374238319484,
+        0.738236166838447,
+        0.9460825655585046,
+        1.003486830639427
+      ],
+      "error_order_norm_over_net_native": [
+        0.3878509196551749,
+        0.34952464795963206,
+        0.08245536681207676,
+        0.017765774787437245
+      ],
+      "signed_error_contributions": [
+        1.254926153147458,
+        0.15334519138110014,
+        -0.4374648386559764,
+        0.02919349412741829
+      ],
+      "error_gram_over_net_error": [
+        [
+          10.837535281667153,
+          -8.719358090970113,
+          -1.2230338881309097,
+          0.35978285058133064
+        ],
+        [
+          -8.719358090970113,
+          8.801495821719632,
+          0.3601411268373375,
+          -0.28893366620575517
+        ],
+        [
+          -1.2230338881309097,
+          0.3601411268373375,
+          0.4898224985486953,
+          -0.06439457591109979
+        ],
+        [
+          0.35978285058133064,
+          -0.28893366620575517,
+          -0.06439457591109979,
+          0.02273888566294262
+        ]
+      ],
+      "error_cancellation_ratio": 20.151592487598425,
+      "first_order_only_response_error": 0.22929041918764007,
+      "interpolation_replay": 2.9106571998377573e-15
+    },
+    {
+      "name": "CP256_1001",
+      "normalized_chord_ladder": [
+        {
+          "alpha": 0.01,
+          "error": 0.18374296332035414,
+          "native_effect_norm": 5.401808246483411,
+          "native_linearization_error": 0.005351584637418047
+        },
+        {
+          "alpha": 0.05,
+          "error": 0.18451356165333735,
+          "native_effect_norm": 26.611027817967685,
+          "native_linearization_error": 0.02834008723946857
+        },
+        {
+          "alpha": 0.1,
+          "error": 0.1853677822290141,
+          "native_effect_norm": 52.049496017199004,
+          "native_linearization_error": 0.06108407096623112
+        },
+        {
+          "alpha": 0.25,
+          "error": 0.18705270829230414,
+          "native_effect_norm": 118.37478644356658,
+          "native_linearization_error": 0.19477614740523047
+        },
+        {
+          "alpha": 0.5,
+          "error": 0.18557356300603584,
+          "native_effect_norm": 181.01779530944282,
+          "native_linearization_error": 0.620931787986225
+        },
+        {
+          "alpha": 1.0,
+          "error": 0.14949822078467606,
+          "native_effect_norm": 162.28765049465088,
+          "native_linearization_error": 3.2249119460535316
+        }
+      ],
+      "normalized_first_derivative_error": 0.1835391148361924,
+      "normalized_first_order_response_error": 2.6431001155904035,
+      "normalized_endpoint_error": 0.149498220784676,
+      "response_error": 0.14949820649847215,
+      "order_relative_errors": [
+        0.42036236125423976,
+        0.8843074981311253,
+        0.9728900979718715,
+        1.012531950086121
+      ],
+      "error_order_norm_over_net_native": [
+        0.47652760862827737,
+        0.41868345233752846,
+        0.08479176428830117,
+        0.01792590997816321
+      ],
+      "signed_error_contributions": [
+        1.3519054995728903,
+        0.046249001178542415,
+        -0.43235244522474914,
+        0.03419794447331648
+      ],
+      "error_gram_over_net_error": [
+        [
+          10.160244751366708,
+          -7.977481378967469,
+          -1.1284634819765207,
+          0.2976056091501693
+        ],
+        [
+          -7.977481378967469,
+          7.843314471560373,
+          0.41631198036730155,
+          -0.2358960717816643
+        ],
+        [
+          -1.1284634819765207,
+          0.41631198036730155,
+          0.3216883836969052,
+          -0.041889327312435276
+        ],
+        [
+          0.2976056091501693,
+          -0.2358960717816643,
+          -0.041889327312435276,
+          0.014377734417246699
+        ]
+      ],
+      "error_cancellation_ratio": 18.339625341041234,
+      "first_order_only_response_error": 0.20045151343223822,
+      "interpolation_replay": 3.65852161593612e-15
+    },
+    {
+      "name": "CP256_1002",
+      "normalized_chord_ladder": [
+        {
+          "alpha": 0.01,
+          "error": 0.1736938862329223,
+          "native_effect_norm": 5.401808246483411,
+          "native_linearization_error": 0.005351584637418047
+        },
+        {
+          "alpha": 0.05,
+          "error": 0.17462585538120706,
+          "native_effect_norm": 26.611027817967685,
+          "native_linearization_error": 0.02834008723946857
+        },
+        {
+          "alpha": 0.1,
+          "error": 0.17569753534310298,
+          "native_effect_norm": 52.049496017199004,
+          "native_linearization_error": 0.06108407096623112
+        },
+        {
+          "alpha": 0.25,
+          "error": 0.17815565217273158,
+          "native_effect_norm": 118.37478644356658,
+          "native_linearization_error": 0.19477614740523047
+        },
+        {
+          "alpha": 0.5,
+          "error": 0.17858430641659653,
+          "native_effect_norm": 181.01779530944282,
+          "native_linearization_error": 0.620931787986225
+        },
+        {
+          "alpha": 1.0,
+          "error": 0.14976438696558766,
+          "native_effect_norm": 162.28765049465088,
+          "native_linearization_error": 3.2249119460535316
+        }
+      ],
+      "normalized_first_derivative_error": 0.17345136760591204,
+      "normalized_first_order_response_error": 2.6715892574810276,
+      "normalized_endpoint_error": 0.14976438696558772,
+      "response_error": 0.14976437542397603,
+      "order_relative_errors": [
+        0.4233616611271911,
+        0.8968601517386633,
+        1.0649927041048464,
+        1.0236696185807022
+      ],
+      "error_order_norm_over_net_native": [
+        0.47992764946864214,
+        0.4246266207031797,
+        0.09281892222304175,
+        0.018123091748855492
+      ],
+      "signed_error_contributions": [
+        1.3889620396774107,
+        0.03407059087309061,
+        -0.45872230220746685,
+        0.035689671656965925
+      ],
+      "error_gram_over_net_error": [
+        [
+          10.269150126023511,
+          -8.074774394706841,
+          -1.0938130750132922,
+          0.2883993833740315
+        ],
+        [
+          -8.074774394706841,
+          8.038914241143415,
+          0.2941322369249256,
+          -0.22420149248840882
+        ],
+        [
+          -1.0938130750132922,
+          0.2941322369249256,
+          0.38411034437152375,
+          -0.04315180849062402
+        ],
+        [
+          0.2883993833740315,
+          -0.22420149248840882,
+          -0.04315180849062402,
+          0.01464358926196731
+        ]
+      ],
+      "error_cancellation_ratio": 18.706818300800414,
+      "first_order_only_response_error": 0.2162879444089233,
+      "interpolation_replay": 3.0890459666208144e-15
+    },
+    {
+      "name": "learned_shared_1101",
+      "normalized_chord_ladder": [
+        {
+          "alpha": 0.01,
+          "error": 0.2138764543710099,
+          "native_effect_norm": 5.401808246483411,
+          "native_linearization_error": 0.005351584637418047
+        },
+        {
+          "alpha": 0.05,
+          "error": 0.21484599767514423,
+          "native_effect_norm": 26.611027817967685,
+          "native_linearization_error": 0.02834008723946857
+        },
+        {
+          "alpha": 0.1,
+          "error": 0.21605274610728395,
+          "native_effect_norm": 52.049496017199004,
+          "native_linearization_error": 0.06108407096623112
+        },
+        {
+          "alpha": 0.25,
+          "error": 0.21968859541828611,
+          "native_effect_norm": 118.37478644356658,
+          "native_linearization_error": 0.19477614740523047
+        },
+        {
+          "alpha": 0.5,
+          "error": 0.2266817606801881,
+          "native_effect_norm": 181.01779530944282,
+          "native_linearization_error": 0.620931787986225
+        },
+        {
+          "alpha": 1.0,
+          "error": 0.25845928592184886,
+          "native_effect_norm": 162.28765049465088,
+          "native_linearization_error": 3.2249119460535316
+        }
+      ],
+      "normalized_first_derivative_error": 0.21363331530795804,
+      "normalized_first_order_response_error": 2.5583378065416302,
+      "normalized_endpoint_error": 0.2584592859218488,
+      "response_error": 0.25845928947913194,
+      "order_relative_errors": [
+        0.417942668746469,
+        0.799022260543298,
+        0.8226737105627109,
+        0.8542271928318999
+      ],
+      "error_order_norm_over_net_native": [
+        0.4737846173649697,
+        0.3783043785626692,
+        0.07169972795244986,
+        0.015123275624340814
+      ],
+      "signed_error_contributions": [
+        1.0456876632501049,
+        0.13239435438554234,
+        -0.1908037349933733,
+        0.012721717357726028
+      ],
+      "error_gram_over_net_error": [
+        [
+          3.3602966584689464,
+          -2.04309398185963,
+          -0.34635968188756766,
+          0.07484466852835657
+        ],
+        [
+          -2.04309398185963,
+          2.1423895616953814,
+          0.08862200273753007,
+          -0.05552322818773874
+        ],
+        [
+          -0.34635968188756766,
+          0.08862200273753007,
+          0.07695745968857692,
+          -0.010023515531912603
+        ],
+        [
+          0.07484466852835657,
+          -0.05552322818773874,
+          -0.010023515531912603,
+          0.0034237925490207834
+        ]
+      ],
+      "error_cancellation_ratio": 5.583067472401926,
+      "first_order_only_response_error": 0.29693068244942517,
+      "interpolation_replay": 4.07882420478467e-15
+    },
+    {
+      "name": "learned_shared_1102",
+      "normalized_chord_ladder": [
+        {
+          "alpha": 0.01,
+          "error": 0.30043783788427053,
+          "native_effect_norm": 5.401808246483411,
+          "native_linearization_error": 0.005351584637418047
+        },
+        {
+          "alpha": 0.05,
+          "error": 0.30142987508758773,
+          "native_effect_norm": 26.611027817967685,
+          "native_linearization_error": 0.02834008723946857
+        },
+        {
+          "alpha": 0.1,
+          "error": 0.30270495802131353,
+          "native_effect_norm": 52.049496017199004,
+          "native_linearization_error": 0.06108407096623112
+        },
+        {
+          "alpha": 0.25,
+          "error": 0.30689936922158817,
+          "native_effect_norm": 118.37478644356658,
+          "native_linearization_error": 0.19477614740523047
+        },
+        {
+          "alpha": 0.5,
+          "error": 0.3167918741176534,
+          "native_effect_norm": 181.01779530944282,
+          "native_linearization_error": 0.620931787986225
+        },
+        {
+          "alpha": 1.0,
+          "error": 0.36353099339052725,
+          "native_effect_norm": 162.28765049465088,
+          "native_linearization_error": 3.2249119460535316
+        }
+      ],
+      "normalized_first_derivative_error": 0.30019305440886385,
+      "normalized_first_order_response_error": 2.295116277532387,
+      "normalized_endpoint_error": 0.3635309933905272,
+      "response_error": 0.36353099196893224,
+      "order_relative_errors": [
+        0.4726770905031045,
+        0.7837838976010452,
+        0.8693543888864869,
+        0.8197699454760927
+      ],
+      "error_order_norm_over_net_native": [
+        0.5358321875411352,
+        0.37108963661134786,
+        0.07576815981489653,
+        0.014513243008438703
+      ],
+      "signed_error_contributions": [
+        1.0330615793342637,
+        0.09656582861209763,
+        -0.1325497921938879,
+        0.002922384247526884
+      ],
+      "error_gram_over_net_error": [
+        [
+          2.172574677927635,
+          -0.9599946502823828,
+          -0.21215490520506197,
+          0.03263645689407333
+        ],
+        [
+          -0.9599946502823828,
+          1.0420169152358314,
+          0.04100825810379488,
+          -0.026464694445145754
+        ],
+        [
+          -0.21215490520506197,
+          0.04100825810379488,
+          0.043440077987035426,
+          -0.004843223079656246
+        ],
+        [
+          0.03263645689407333,
+          -0.026464694445145754,
+          -0.004843223079656246,
+          0.0015938448782555582
+        ]
+      ],
+      "error_cancellation_ratio": 3.2596255160287573,
+      "first_order_only_response_error": 0.3927584013476956,
+      "interpolation_replay": 3.308997922302709e-15
+    }
+  ],
+  "normalized_derivative_fd_error": 2.0086366953487578e-10,
+  "normalized_native_first_order_response_error": 3.2249119460535316,
+  "normalization_endpoint_difference": 1.046521256367356e-06,
+  "control_error": 1.065719233824722e-15,
+  "polarization_replay": 1.305680512765169e-14,
+  "native_reference_replay": 1.0322111465896545e-14,
+  "native_order_norms_over_total": [
+    1.1336115041471762,
+    0.47345912278518976,
+    0.08715451464154247,
+    0.017704043785125516
+  ],
+  "native_order_gram_over_total": [
+    [
+      1.2850750423348232,
+      -0.18327926851810097,
+      -0.0892083369376024,
+      0.009881638307481799
+    ],
+    [
+      -0.18327926851810097,
+      0.2241635409485214,
+      0.011249734558819504,
+      -0.006203511388817197
+    ],
+    [
+      -0.0892083369376024,
+      0.011249734558819504,
+      0.007595909422402842,
+      -0.001014218957827399
+    ],
+    [
+      0.009881638307481799,
+      -0.006203511388817197,
+      -0.001014218957827399,
+      0.0003134331663456414
+    ]
+  ],
+  "native_first_order_response_error": 0.49003764341285017,
+  "step_relative_to_input_median": 0.5683872672869413,
+  "pairs": 30,
+  "unique_unordered_pairs": 20,
+  "seconds": 1.333516163751483,
+  "scope": "Root1 numerator, same30directed/20unordered opened newline-token pairs. Straightline between normalized endpoints passes through nonnormalized states; exact polynomial identity, not full-model or normalized-path intervention. Taylor coefficients depend on recipient anchor. Signed order contributions can be negative; not independent error percentages. No new fitting."
+}

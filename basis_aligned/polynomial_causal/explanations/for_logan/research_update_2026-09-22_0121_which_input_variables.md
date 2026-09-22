@@ -25,3 +25,11 @@ This helps refine the earlier finding that four *output* directions capture most
 There are two limits to this conclusion. Local derivatives measure sensitivity, not which variables caused an observed value error. And a function with gradients spread across many directions can still have a compact nonlinear arithmetic program. We have evidence against a simple few-coordinate repair, not a proof against compact circuits.
 
 Analytic derivatives passed five toy-family checks against automatic differentiation, the quartic scaling identity, and native finite-difference checks. The [full audit](../../direct_tensor_match/RESIDUAL_INPUT_SENSITIVITY_INTERPRETATION_V1.md) defines the metrics and lists limitations; the [results](../../direct_tensor_match/RESIDUAL_INPUT_SENSITIVITY_V1.json) include all 16 output features.
+
+## Follow-up: do local sensitivity errors predict finite changes?
+
+Not reliably by themselves. On the existing same-token pairs, the smaller original graph has **10.8%** error in the initial derivative along a norm-preserving path, but **15.3%** error in the full endpoint change. The stronger CP candidates have slightly worse local derivative errors, **12.4–13.7%**, but better endpoint errors, **9.7–11.8%**.
+
+An exact quartic expansion shows substantial cancellation between orders. Interpreting each order's error separately would be misleading, especially because a straight line between normalized endpoints changes the input norm in between. Keeping normalization explicit changes the derivative comparison substantially.
+
+Endpoint movements here are large: the median length is about 57% of input norm. Even the native computation is poorly approximated by its starting derivative over that distance. We should keep exact finite-response tests rather than replace them with a derivative loss alone. [Response-order and normalized-path audit](../../direct_tensor_match/QUARTIC_RESPONSE_ORDERS_INTERPRETATION_V1.md).
