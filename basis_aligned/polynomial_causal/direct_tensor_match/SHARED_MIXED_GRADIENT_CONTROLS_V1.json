@@ -1,0 +1,112 @@
+[
+  {
+    "family": "independent",
+    "gradient_error": 3.890105191335101e-15,
+    "value_error": 1.106508403657362e-15,
+    "coefficient_rectangle_error": 0.0,
+    "gaussian_rectangle_error": 0.0,
+    "profile_finite_difference_ladder": [
+      {
+        "step": 1e-05,
+        "relative_error": 6.36495542263322e-09
+      },
+      {
+        "step": 1e-06,
+        "relative_error": 1.7139967681127864e-09
+      },
+      {
+        "step": 1e-07,
+        "relative_error": 1.93188780117261e-08
+      }
+    ],
+    "ridge": 0.01
+  },
+  {
+    "family": "shared_input",
+    "gradient_error": 2.563922684974724e-15,
+    "value_error": 1.9805781516682202e-16,
+    "coefficient_rectangle_error": 0.0,
+    "gaussian_rectangle_error": 0.0,
+    "profile_finite_difference_ladder": [
+      {
+        "step": 1e-05,
+        "relative_error": 8.959727450709252e-10
+      },
+      {
+        "step": 1e-06,
+        "relative_error": 1.908801493308982e-10
+      },
+      {
+        "step": 1e-07,
+        "relative_error": 9.003345821715246e-10
+      }
+    ],
+    "ridge": 0.01
+  },
+  {
+    "family": "shared_output",
+    "gradient_error": 1.3781601443503214e-13,
+    "value_error": 1.8930217891083603e-16,
+    "coefficient_rectangle_error": 0.0,
+    "gaussian_rectangle_error": 0.0,
+    "profile_finite_difference_ladder": [
+      {
+        "step": 1e-05,
+        "relative_error": 1.5284060864066693e-08
+      },
+      {
+        "step": 1e-06,
+        "relative_error": 8.37301280839308e-08
+      },
+      {
+        "step": 1e-07,
+        "relative_error": 9.964246604396783e-07
+      }
+    ],
+    "ridge": 0.01
+  },
+  {
+    "family": "squares",
+    "gradient_error": 1.0671343884364784e-14,
+    "value_error": 8.338335205285137e-16,
+    "coefficient_rectangle_error": 0.0,
+    "gaussian_rectangle_error": 0.0,
+    "profile_finite_difference_ladder": [
+      {
+        "step": 1e-05,
+        "relative_error": 6.184928560448264e-09
+      },
+      {
+        "step": 1e-06,
+        "relative_error": 7.651700634590462e-09
+      },
+      {
+        "step": 1e-07,
+        "relative_error": 8.516543930728422e-08
+      }
+    ],
+    "ridge": 0.01
+  },
+  {
+    "family": "cancellation",
+    "gradient_error": 5.590398663919873e-14,
+    "value_error": 1.45889394312127e-15,
+    "coefficient_rectangle_error": 0.0,
+    "gaussian_rectangle_error": 0.0,
+    "profile_finite_difference_ladder": [
+      {
+        "step": 1e-05,
+        "relative_error": 0.005511717519169357
+      },
+      {
+        "step": 1e-06,
+        "relative_error": 5.513442621668957e-05
+      },
+      {
+        "step": 1e-07,
+        "relative_error": 9.082310854254848e-07
+      }
+    ],
+    "ridge": 0.01
+  }
+]
