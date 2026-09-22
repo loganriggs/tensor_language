@@ -123,8 +123,8 @@ def effective_unit_directions(mlp_input_fn: Callable[[torch.Tensor], torch.Tenso
     idx = torch.as_tensor(list(units), device=W_left.device)
     try:  # batched pullback; falls back to a loop if vmap can't trace the model
         from torch.func import vmap
-        lefts = vmap(lambda a: pull(a)[0])(W_left[idx].float())
-        rights = vmap(lambda b: pull(b)[0])(W_right[idx].float())
+        lefts = vmap(lambda a: pull(a)[0], chunk_size=256)(W_left[idx].float())      # chunked: 4608 units x a 4-block pullback
+        rights = vmap(lambda b: pull(b)[0], chunk_size=256)(W_right[idx].float())
     except Exception:
         lefts = torch.stack([pull(W_left[h].float())[0] for h in idx])
         rights = torch.stack([pull(W_right[h].float())[0] for h in idx])
