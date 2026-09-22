@@ -11,7 +11,7 @@ We kept the existing CP512 approximation to the pure quartic MLP16→MLP17 path 
 The correction adds eight quartic features to each of the twelve smaller outputs, numbered 4–15:
 
 $$
-\widehat F_g(x)=F^{\mathrm{parent}}_g(x)+\sum_{k=1}^{8}c_{gk}\prod_{s=1}^{4}(a_{gks}^{	op}x),\qquad g=4,\ldots,15.
+\widehat F_g(x)=F^{\mathrm{parent}}_g(x)+\sum_{k=1}^{8}c_{gk}\prod_{s=1}^{4}(a_{gks}^{\top}x),\qquad g=4,\ldots,15.
 $$
 
 The first four outputs remain unchanged. The directions a are learned from scratch; coefficients c are solved analytically at each optimization step with ridge 1e-6. Fitting uses exact weight contractions under the calibration-derived Gaussian mean/covariance, with fixed output-balancing weights. No text labels are fitted. This is data-informed weight matching rather than a wholly data-free loss.
