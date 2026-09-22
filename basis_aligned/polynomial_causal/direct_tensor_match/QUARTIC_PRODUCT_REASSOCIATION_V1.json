@@ -1,0 +1,236 @@
+{
+  "controls": [
+    {
+      "name": "independent",
+      "baseline": {
+        "products": 12,
+        "additions": 3,
+        "stored_coefficients": 0,
+        "edges": 28,
+        "nodes": 29
+      },
+      "compiled": {
+        "cost": {
+          "products": 12,
+          "additions": 3,
+          "stored_coefficients": 0,
+          "edges": 28,
+          "nodes": 29,
+          "product_depth": 2
+        },
+        "unique_roots": 4,
+        "quadratic_nodes": 8,
+        "cubic_nodes": 0
+      },
+      "exact_polynomial_equality": true
+    },
+    {
+      "name": "fourth_powers",
+      "baseline": {
+        "products": 8,
+        "additions": 3,
+        "stored_coefficients": 0,
+        "edges": 20,
+        "nodes": 13
+      },
+      "compiled": {
+        "cost": {
+          "products": 8,
+          "additions": 3,
+          "stored_coefficients": 0,
+          "edges": 20,
+          "nodes": 13,
+          "product_depth": 2
+        },
+        "unique_roots": 4,
+        "quadratic_nodes": 4,
+        "cubic_nodes": 0
+      },
+      "exact_polynomial_equality": true
+    },
+    {
+      "name": "shared_quadratic",
+      "baseline": {
+        "products": 12,
+        "additions": 3,
+        "stored_coefficients": 0,
+        "edges": 28,
+        "nodes": 23
+      },
+      "compiled": {
+        "cost": {
+          "products": 9,
+          "additions": 3,
+          "stored_coefficients": 0,
+          "edges": 22,
+          "nodes": 20,
+          "product_depth": 2
+        },
+        "unique_roots": 4,
+        "quadratic_nodes": 5,
+        "cubic_nodes": 0
+      },
+      "exact_polynomial_equality": true
+    },
+    {
+      "name": "shared_cubic",
+      "baseline": {
+        "products": 9,
+        "additions": 3,
+        "stored_coefficients": 0,
+        "edges": 22,
+        "nodes": 17
+      },
+      "compiled": {
+        "cost": {
+          "products": 6,
+          "additions": 3,
+          "stored_coefficients": 0,
+          "edges": 16,
+          "nodes": 14,
+          "product_depth": 3
+        },
+        "unique_roots": 4,
+        "quadratic_nodes": 1,
+        "cubic_nodes": 1
+      },
+      "exact_polynomial_equality": true
+    },
+    {
+      "name": "duplicate_cancellation",
+      "baseline": {
+        "products": 0,
+        "additions": 0,
+        "stored_coefficients": 0,
+        "edges": 0,
+        "nodes": 1
+      },
+      "compiled": {
+        "cost": {
+          "products": 0,
+          "additions": 0,
+          "stored_coefficients": 0,
+          "edges": 0,
+          "nodes": 1,
+          "product_depth": 0
+        },
+        "unique_roots": 0,
+        "quadratic_nodes": 0,
+        "cubic_nodes": 0
+      },
+      "exact_polynomial_equality": true
+    }
+  ],
+  "rows": [
+    {
+      "seed": 1001,
+      "source": "original",
+      "reader_count": 2048,
+      "reader_coefficients": 2359296,
+      "replay_error": 6.956237656381107e-16,
+      "original_fixed_tree": {
+        "products": 1536,
+        "additions": 8176,
+        "stored_coefficients": 8192,
+        "edges": 11264,
+        "nodes": 3600
+      },
+      "compiled": {
+        "cost": {
+          "products": 1536,
+          "additions": 8176,
+          "stored_coefficients": 8192,
+          "edges": 11264,
+          "nodes": 3600,
+          "product_depth": 2
+        },
+        "unique_roots": 512,
+        "quadratic_nodes": 1024,
+        "cubic_nodes": 0
+      }
+    },
+    {
+      "seed": 1001,
+      "source": "linear_reuse",
+      "reader_count": 1920,
+      "reader_coefficients": 2211840,
+      "replay_error": 6.916962257410328e-16,
+      "original_fixed_tree": {
+        "products": 1536,
+        "additions": 8176,
+        "stored_coefficients": 8192,
+        "edges": 11264,
+        "nodes": 3472
+      },
+      "compiled": {
+        "cost": {
+          "products": 1527,
+          "additions": 8176,
+          "stored_coefficients": 8192,
+          "edges": 11246,
+          "nodes": 3463,
+          "product_depth": 2
+        },
+        "unique_roots": 512,
+        "quadratic_nodes": 1015,
+        "cubic_nodes": 0
+      }
+    },
+    {
+      "seed": 1002,
+      "source": "original",
+      "reader_count": 2048,
+      "reader_coefficients": 2359296,
+      "replay_error": 8.087262926790015e-16,
+      "original_fixed_tree": {
+        "products": 1536,
+        "additions": 8176,
+        "stored_coefficients": 8192,
+        "edges": 11264,
+        "nodes": 3600
+      },
+      "compiled": {
+        "cost": {
+          "products": 1536,
+          "additions": 8176,
+          "stored_coefficients": 8192,
+          "edges": 11264,
+          "nodes": 3600,
+          "product_depth": 2
+        },
+        "unique_roots": 512,
+        "quadratic_nodes": 1024,
+        "cubic_nodes": 0
+      }
+    },
+    {
+      "seed": 1002,
+      "source": "linear_reuse",
+      "reader_count": 1920,
+      "reader_coefficients": 2211840,
+      "replay_error": 7.444965242636213e-16,
+      "original_fixed_tree": {
+        "products": 1535,
+        "additions": 8176,
+        "stored_coefficients": 8192,
+        "edges": 11262,
+        "nodes": 3471
+      },
+      "compiled": {
+        "cost": {
+          "products": 1525,
+          "additions": 8176,
+          "stored_coefficients": 8192,
+          "edges": 11242,
+          "nodes": 3461,
+          "product_depth": 2
+        },
+        "unique_roots": 512,
+        "quadratic_nodes": 1013,
+        "cubic_nodes": 0
+      }
+    }
+  ],
+  "seconds": 1.6366360289976,
+  "scope": "Exact reassociation over fixed reader IDs, with rational duplicate-root cancellation. Dense reader bank excluded from DAG prices and separately reported. Greedy root-order search, no global optimum/general algebraic identity claim. Native model fidelity inherited unchanged."
+}

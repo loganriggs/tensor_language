@@ -85,3 +85,20 @@ Native reconstruction remains roughly7.39% /7.57% pooled error on the larger pan
 A separate check returned to the native last MLP's third-order quadratic tensor, rather than the quartic approximations. Could all selected outputs use one shared orthogonal set of input features and only squares of those features? The native quadratic matrices do not commute, ruling out that exact restricted representation. For eight fixed, separately normalized output pairs, an analytic commutator inequality gives numerical coefficient-error lower bounds of **5.4–7.0%**.
 
 This does not rule out general Tucker: a full Tucker core can retain interactions between different input features. It also leaves nonorthogonal dictionaries, block terms and bilinear DAGs available. The result separates one structural restriction from optimizer failure; it is not a lower bound on text prediction error. [Derivation, controls and precise scope](../../direct_tensor_match/JOINT_SQUARE_BASIS_INTERPRETATION_V1.md).
+
+
+## 03:50 follow-up: shared readers expose shared quadratic products
+
+The second-stage graph search now finds an additional exact saving. After the reader-sharing edit, reassociating the quartic products reduces nonlinear multiplication counts from the naive1,536to**1,527and1,525**. One product in the second candidate was already shared by the old fixed tree, so the additional savings are9and10.
+
+For example, instead of computing $(ac)(bd)$ and $(ae)(bf)$ separately, the graph can compute $q=ab$ once and reuse it in $q(cd)$ and $q(ef)$. The compiler also permits cubic intermediates, with an exact planted control, although these two native candidate graphs use quadratic sharing only.
+
+```mermaid
+flowchart LR
+  A[Frozen quartic CP candidate] --> B[Approximate linear-reader sharing]
+  B --> C[Exact product reassociation]
+  C --> D[Cache repeated quadratic products]
+  D --> E[Same candidate function with fewer products]
+```
+
+Both graphs were exported and reloaded; float64 replay errors are below $7.5\times10^{-16}$. Dense input projections and output coefficients are unchanged, so this modest operation-count saving is not a demonstrated runtime improvement. The rewrite also preserves the candidate's existing native-fidelity failures. It is concrete progress on graph simplification, not a newly identified circuit. [Exact controls, accounting, and graph exports](../../direct_tensor_match/QUARTIC_PRODUCT_REASSOCIATION_INTERPRETATION_V1.md).

@@ -1,3 +1,5 @@
+[22 September 03:50 — Exact product reassociation adds a small saving after reader sharing](research_update_2026-09-22_0238_reader_reuse.md#0350-follow-up-shared-readers-expose-shared-quadratic-products).
+
 [22 September 03:42 — Learned response-loss toys: no advantage, structural-coverage correction, and strong duration sensitivity](research_update_2026-09-22_0342_response_feature_learning.md).
 
 [22 September 03:31 — Calibration-moment follow-up: better values, still poor component responses](research_update_2026-09-22_0325_gaussian_response_fit.md#0331-follow-up-how-much-does-the-gaussian-approximation-matter).

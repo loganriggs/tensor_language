@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "seed": 1001,
+      "relative_replay": 6.916962257410328e-16,
+      "cost": {
+        "products": 1527,
+        "additions": 8176,
+        "stored_coefficients": 8192,
+        "edges": 11246,
+        "nodes": 3463,
+        "product_depth": 2
+      },
+      "reader_floats": 2211840,
+      "json_bytes": 267621,
+      "sha256": "59d8ba4f172cf3d723ab5b53f8c44c461b8af2de41bb852529ae817e446e0263",
+      "source_sha256": "c962a399c8a5e89cf5160e4ed9285f31ac472b454ec82c40006cd5ce704b70f3"
+    },
+    {
+      "seed": 1002,
+      "relative_replay": 7.444965242636213e-16,
+      "cost": {
+        "products": 1525,
+        "additions": 8176,
+        "stored_coefficients": 8192,
+        "edges": 11242,
+        "nodes": 3461,
+        "product_depth": 2
+      },
+      "reader_floats": 2211840,
+      "json_bytes": 267690,
+      "sha256": "4a7ed63181ef4800798d8b79b5dbc36a8655bfaf57e40019dfe00c96904f64d9",
+      "source_sha256": "c4a44918124ecde6bebab4179ec389ebfae8665ee70c4f5add10333b7454aa7a"
+    }
+  ],
+  "scope": "Two exact product DAG exports, fixed externally referenced dense reader bank and writer. JSON integer ratios are review format, no byte/runtime improvement asserted."
+}
