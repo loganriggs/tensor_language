@@ -38,3 +38,11 @@ The queued output-local residual fit addresses a different weakness: coordinates
 The separate reader-sharing graph edit remains a successful parent-preservation screen, with about 6% array-storage savings; it inherits the CP parent's native limitations. Neither result supplies semantic selectivity, fresh/OOD transfer or composition. The full research goal remains unfinished.
 
 [Cell-by-cell comparison with parents](../../direct_tensor_match/CONDITIONAL_REMOVAL_COMPARISON_V1.json) · [Full-program receipt](../../direct_tensor_match/CONDITIONAL_CP_REMOVAL_V1.json) · [Lean-program receipt](../../direct_tensor_match/LEAN_CONDITIONAL_CP_REMOVAL_V1.json) · [Registered full-program protocol](../../direct_tensor_match/CONDITIONAL_CP_REMOVAL_PLAN_V1.md) · [Registered lean-program protocol](../../direct_tensor_match/LEAN_CONDITIONAL_CP_REMOVAL_PLAN_V1.md).
+
+## Follow-up: are a few documents causing the failures?
+
+The answer differs by stratum. In the lean program's four failing FineWeb cells, **9–14 of the16 documents** individually exceed10% relative error. The two documents contributing the most absolute squared error account for **33–51% of error**, versus **18–21% of reference-effect energy**. Thus there is a heavy tail, but the failure is not confined to one or two prefixes.
+
+For seed1002's failing quarter-strength non-newline code cell, **14 of16 documents** exceed10%. Its two largest error contributors account for22% of error and23% of reference energy. That failure is comparatively broad and uniform across these documents. These are document aggregates on an opened small panel, not evidence that individual token errors are uniform. [Document-level diagnostics](../../direct_tensor_match/REMOVAL_DOCUMENT_TAILS_V1.json).
+
+A follow-up stage-by-stage test is prepared to distinguish raw scalar prediction error from reweighting by the MLP normalization denominator, final RMS normalization, unembedding and softcap. It will replay the completed final-effect scores and cache the native interfaces for reuse. These stages use different norms; their errors must not be added as if they were independent components. [Protocol](../../direct_tensor_match/REMOVAL_STAGE_GEOMETRY_PLAN_V1.md).
