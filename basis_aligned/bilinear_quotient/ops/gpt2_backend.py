@@ -13,8 +13,10 @@ from transformers import GPT2LMHeadModel
 REPO = "gpt2"
 
 
-def load(device="cuda"):
-    m = GPT2LMHeadModel.from_pretrained(REPO, attn_implementation="eager").float().eval().to(device)
+def load(repo=REPO, device="cuda"):
+    if repo in ("cuda", "cpu"):
+        repo, device = REPO, repo
+    m = GPT2LMHeadModel.from_pretrained(repo, attn_implementation="eager").float().eval().to(device)
     for p in m.parameters():
         p.requires_grad_(False)
     return m
@@ -30,9 +32,26 @@ def ce(model, rows, device="cuda", batch=32):
     return total / n, fw
 
 
+def family(model):
+    return "gpt2"
+
+
+def geometry(model):
+    c = model.config; H = c.n_head; D = c.n_embd; hd = D // H
+    return c.n_layer, H, D, hd, H
+
+
+def head_qk(model, l, h):
+    """q / k weight rows [hd, D] and biases for head h of layer l from the Conv1D c_attn ([D, 3D]: q | k | v), and the logit scale."""
+    at = model.transformer.h[l].attn; c = model.config; H = c.n_head; D = c.n_embd; hd = D // H
+    W = at.c_attn.weight.detach().float(); b = at.c_attn.bias.detach().float()
+    return W[:, h * hd:(h + 1) * hd].T.contiguous(), b[h * hd:(h + 1) * hd], W[:, D + h * hd:D + (h + 1) * hd].T.contiguous(), b[D + h * hd:D + (h + 1) * hd], hd ** -0.5
+
+
 def instrument(model):
-    state = {"logit_edit": None, "z_edit": None}
+    state = {"logit_edit": None, "z_edit": None, "n": {}, "cos": None, "sin": None}
     original = G.eager_attention_forward
+    hooks = [blk.attn.register_forward_pre_hook(lambda m, a, kw, l=l: state["n"].__setitem__(l, a[0] if a else kw["hidden_states"]), with_kwargs=True) for l, blk in enumerate(model.transformer.h)]
 
     def eager(module, query, key, value, attention_mask, head_mask=None, **kwargs):
         # query/key/value: [B, H, T, D]
@@ -54,5 +73,5 @@ def instrument(model):
         return z.transpose(1, 2), w
 
     G.eager_attention_forward = eager
-    state["_restore"] = lambda: setattr(G, "eager_attention_forward", original)
+    state["_restore"] = lambda: (setattr(G, "eager_attention_forward", original), [h.remove() for h in hooks])
     return state
