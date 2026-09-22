@@ -39,3 +39,23 @@ Native quartic Euler-identity errors are below 1e-10, and the independent finite
 **Decision:** do not introduce a rank-4 or rank-64 native input restriction on the strength of the successful toys. Preserve the already queued unrestricted-direction residual learner and evaluate its actual finite responses. If a future subspace approach is proposed, it must justify its dimension with independent native evidence and charge its projection. These measurements still leave room for sparse nonlinear computation distributed across many linear input directions.
 
 [Protocol](NATIVE_RESIDUAL_SUBSPACE_PLAN_V1.md) · [All spectra and per-output captures](NATIVE_RESIDUAL_SUBSPACE_V1.json) · [Audit](audit_native_residual_subspace.py) · [Contrasting positive toy control](WIDE_QUARTIC_SUBSPACE_INTERPRETATION_V1.md).
+
+## Larger-probe follow-up: the broad residual persists
+
+2026-09-22 04:49 UTC. Repeated the same measure and output subset with 1,024 fitting and 1,024 independent checking probes, new fixed seeds. This addresses the substantial subspace overfitting in the first screen; it does not replace the original record.
+
+| Rank | Training/checking capture, parent 1001 | Training/checking capture, parent 1002 |
+| ---: | ---: | ---: |
+| 4 | 15.4% / 15.5% | 16.1% / 16.2% |
+| 16 | 27.4% / 27.1% | 28.6% / 28.4% |
+| 32 | 37.2% / 36.4% | 38.5% / 37.7% |
+| 64 | 49.9% / 48.2% | 51.3% / 49.7% |
+| 128 | 64.9% / 62.3% | 66.1% / 63.6% |
+| 256 | 80.3% / 77.3% | 81.1% / 78.3% |
+| 512 | 93.0% / 91.0% | 93.3% / 91.4% |
+
+Rank 64 still captures only 48–50% on checking probes; its fitting/checking gap shrinks to roughly two percentage points. Rank 512 now captures 90.95/91.38% on checking probes. This supports the conclusion that this residual is distributed across many directions in the specified Gaussian derivative geometry, while explicitly improving the finite-probe estimate. It is still not a certified optimal population subspace.
+
+Capturing 91% of derivative energy does not mean 91% of function values are reconstructed, nor a 9% relative reconstruction error. A function approximation would require its own construction and value/response tests. A broad linear span can also support a sparse nonlinear program, so this result does not rule out economical DAGs. No compact-subspace replacement is exported.
+
+The follow-up took 25.47 seconds on two CPU threads. [Separate protocol](NATIVE_RESIDUAL_SUBSPACE_LARGE_PLAN_V1.md) · [All updated spectra and output captures](NATIVE_RESIDUAL_SUBSPACE_LARGE_V1.json).
