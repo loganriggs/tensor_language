@@ -1,3 +1,5 @@
+**Input-side residual audit — [Which input variables are missed?](research_update_2026-09-22_0121_which_input_variables.md).** Derivative error is diffuse across input directions and strongly affected by covariance weighting; no few-coordinate repair identified.
+
 **Larger evaluation completed — [16,384 states from 256 new documents](research_update_2026-09-22_0112_larger_panel_results.md).** CP pooled errors7.38/7.58%; small-feature errors42–69%replicate; measured capture and scoring cost.
 
 **New completed fit — [Learning the shared quadratic features](research_update_2026-09-22_0108_learned_shared_features.md).** Same program cost; pooled error improves from about20%to12–13%, but component fidelity and small-feature errors still fail.
