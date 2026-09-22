@@ -1,0 +1,344 @@
+{
+  "rows": [
+    {
+      "seed": 1101,
+      "root_products": 512,
+      "rows": [
+        {
+          "cutoff": 0.0,
+          "rank": 512,
+          "sensitivity_error": 0.20338354104994574,
+          "oracle_error": 0.0970062223581169,
+          "excess_error": 0.17875865739544597,
+          "pythagoras_error": 1.1413448518595327e-16,
+          "high_leverage_error_fraction": 0.08839295230407826,
+          "high_leverage_target_energy_fraction": 0.09685038435447163
+        },
+        {
+          "cutoff": 0.001,
+          "rank": 512,
+          "sensitivity_error": 0.20338354104994574,
+          "oracle_error": 0.0970062223581169,
+          "excess_error": 0.17875865739544597,
+          "pythagoras_error": 1.1413448518595327e-16,
+          "high_leverage_error_fraction": 0.08839295230407826,
+          "high_leverage_target_energy_fraction": 0.09685038435447163
+        },
+        {
+          "cutoff": 0.003,
+          "rank": 502,
+          "sensitivity_error": 0.19903081022305144,
+          "oracle_error": 0.0970062223581169,
+          "excess_error": 0.17379026509517678,
+          "pythagoras_error": 7.3851725708558e-17,
+          "high_leverage_error_fraction": 0.0778453998689758,
+          "high_leverage_target_energy_fraction": 0.09685038435447163
+        },
+        {
+          "cutoff": 0.01,
+          "rank": 446,
+          "sensitivity_error": 0.22799737472446688,
+          "oracle_error": 0.0970062223581169,
+          "excess_error": 0.20633127660404912,
+          "pythagoras_error": 8.056551895479055e-17,
+          "high_leverage_error_fraction": 0.1413003460953324,
+          "high_leverage_target_energy_fraction": 0.09685038435447163
+        },
+        {
+          "cutoff": 0.03,
+          "rank": 277,
+          "sensitivity_error": 0.25586418073628736,
+          "oracle_error": 0.0970062223581169,
+          "excess_error": 0.2367620573648979,
+          "pythagoras_error": 1.0070689869348818e-16,
+          "high_leverage_error_fraction": 0.09533219825763603,
+          "high_leverage_target_energy_fraction": 0.09685038435447163
+        }
+      ],
+      "leverage_quantiles": [
+        2026.582581932088,
+        6459.464681019109,
+        20217.47525025702,
+        101803.38697019975
+      ],
+      "singular_ratio": 0.0010408186413458185,
+      "oracle_solver": {
+        "rank": 512,
+        "relative_smallest_singular": 0.0008958946342211983,
+        "stationarity": 2.4578502102804084e-15
+      }
+    },
+    {
+      "seed": 1101,
+      "root_products": 768,
+      "rows": [
+        {
+          "cutoff": 0.0,
+          "rank": 768,
+          "sensitivity_error": 0.20767940207911018,
+          "oracle_error": 0.07852249678500678,
+          "excess_error": 0.19226271491525573,
+          "pythagoras_error": 4.162551812664178e-16,
+          "high_leverage_error_fraction": 0.07042622827414069,
+          "high_leverage_target_energy_fraction": 0.09237568399196196
+        },
+        {
+          "cutoff": 0.001,
+          "rank": 765,
+          "sensitivity_error": 0.20638884004010838,
+          "oracle_error": 0.07852249678500678,
+          "excess_error": 0.19086794071228833,
+          "pythagoras_error": 4.43110354251348e-16,
+          "high_leverage_error_fraction": 0.06622780866295175,
+          "high_leverage_target_energy_fraction": 0.09237568399196196
+        },
+        {
+          "cutoff": 0.003,
+          "rank": 743,
+          "sensitivity_error": 0.2135497327495426,
+          "oracle_error": 0.07852249678500678,
+          "excess_error": 0.19858928937898274,
+          "pythagoras_error": 3.1554828257292963e-16,
+          "high_leverage_error_fraction": 0.074976801653247,
+          "high_leverage_target_energy_fraction": 0.09237568399196196
+        },
+        {
+          "cutoff": 0.01,
+          "rank": 621,
+          "sensitivity_error": 0.2202552639224834,
+          "oracle_error": 0.07852249678500678,
+          "excess_error": 0.20578289235067956,
+          "pythagoras_error": 5.3710345969860363e-17,
+          "high_leverage_error_fraction": 0.0957805487240417,
+          "high_leverage_target_energy_fraction": 0.09237568399196196
+        },
+        {
+          "cutoff": 0.03,
+          "rank": 338,
+          "sensitivity_error": 0.24967952151060982,
+          "oracle_error": 0.07852249678500678,
+          "excess_error": 0.23701071908336876,
+          "pythagoras_error": 1.342758649246509e-16,
+          "high_leverage_error_fraction": 0.09068051831878769,
+          "high_leverage_target_energy_fraction": 0.09237568399196196
+        }
+      ],
+      "leverage_quantiles": [
+        3713.883197635073,
+        11466.992135771212,
+        31687.484979969824,
+        190730.7250196088
+      ],
+      "singular_ratio": 0.0006524872863428829,
+      "oracle_solver": {
+        "rank": 768,
+        "relative_smallest_singular": 0.0005036187192322769,
+        "stationarity": 5.913899884003081e-15
+      }
+    },
+    {
+      "seed": 1102,
+      "root_products": 512,
+      "rows": [
+        {
+          "cutoff": 0.0,
+          "rank": 512,
+          "sensitivity_error": 0.21628117672448863,
+          "oracle_error": 0.10791312425773565,
+          "excess_error": 0.18743613583902188,
+          "pythagoras_error": 2.685517298493018e-16,
+          "high_leverage_error_fraction": 0.10465618453510919,
+          "high_leverage_target_energy_fraction": 0.09018792588377175
+        },
+        {
+          "cutoff": 0.001,
+          "rank": 512,
+          "sensitivity_error": 0.21628117672448863,
+          "oracle_error": 0.10791312425773565,
+          "excess_error": 0.18743613583902188,
+          "pythagoras_error": 2.685517298493018e-16,
+          "high_leverage_error_fraction": 0.10465618453510919,
+          "high_leverage_target_energy_fraction": 0.09018792588377175
+        },
+        {
+          "cutoff": 0.003,
+          "rank": 506,
+          "sensitivity_error": 0.21629528201988513,
+          "oracle_error": 0.10791312425773565,
+          "excess_error": 0.18745241165959006,
+          "pythagoras_error": 2.685517298493018e-16,
+          "high_leverage_error_fraction": 0.12702685584373563,
+          "high_leverage_target_energy_fraction": 0.09018792588377175
+        },
+        {
+          "cutoff": 0.01,
+          "rank": 453,
+          "sensitivity_error": 0.22313744037108335,
+          "oracle_error": 0.10791312425773565,
+          "excess_error": 0.19530764170480763,
+          "pythagoras_error": 2.21555177125674e-16,
+          "high_leverage_error_fraction": 0.13282737698409633,
+          "high_leverage_target_energy_fraction": 0.09018792588377175
+        },
+        {
+          "cutoff": 0.03,
+          "rank": 304,
+          "sensitivity_error": 0.24827492247661162,
+          "oracle_error": 0.10791312425773565,
+          "excess_error": 0.22359605261207546,
+          "pythagoras_error": 6.7137932462325454e-18,
+          "high_leverage_error_fraction": 0.09814396889680853,
+          "high_leverage_target_energy_fraction": 0.09018792588377175
+        }
+      ],
+      "leverage_quantiles": [
+        2068.710345374171,
+        6826.417517026345,
+        20922.633465441882,
+        68792.2594853755
+      ],
+      "singular_ratio": 0.0013555183005440805,
+      "oracle_solver": {
+        "rank": 512,
+        "relative_smallest_singular": 0.0009668535117793065,
+        "stationarity": 2.2644023392022102e-15
+      }
+    },
+    {
+      "seed": 1102,
+      "root_products": 768,
+      "rows": [
+        {
+          "cutoff": 0.0,
+          "rank": 768,
+          "sensitivity_error": 0.22213806007286915,
+          "oracle_error": 0.08678015809631923,
+          "excess_error": 0.2044859943705579,
+          "pythagoras_error": 3.6925862854279e-16,
+          "high_leverage_error_fraction": 0.09517565047892028,
+          "high_leverage_target_energy_fraction": 0.09081007798550671
+        },
+        {
+          "cutoff": 0.001,
+          "rank": 766,
+          "sensitivity_error": 0.22266847830089903,
+          "oracle_error": 0.08678015809631923,
+          "excess_error": 0.20506207691724995,
+          "pythagoras_error": 3.558310420503249e-16,
+          "high_leverage_error_fraction": 0.09574154078757101,
+          "high_leverage_target_energy_fraction": 0.09081007798550671
+        },
+        {
+          "cutoff": 0.003,
+          "rank": 749,
+          "sensitivity_error": 0.2303884159420513,
+          "oracle_error": 0.08678015809631923,
+          "excess_error": 0.21341983591284522,
+          "pythagoras_error": 2.8869310958799944e-16,
+          "high_leverage_error_fraction": 0.11550179096674995,
+          "high_leverage_target_energy_fraction": 0.09081007798550671
+        },
+        {
+          "cutoff": 0.01,
+          "rank": 638,
+          "sensitivity_error": 0.239837854614737,
+          "oracle_error": 0.08678015809631923,
+          "excess_error": 0.22358756822993875,
+          "pythagoras_error": 5.3710345969860363e-17,
+          "high_leverage_error_fraction": 0.09596042800663618,
+          "high_leverage_target_energy_fraction": 0.09081007798550671
+        },
+        {
+          "cutoff": 0.03,
+          "rank": 370,
+          "sensitivity_error": 0.2561127851522217,
+          "oracle_error": 0.08678015809631923,
+          "excess_error": 0.2409625756817972,
+          "pythagoras_error": 7.3851725708558e-17,
+          "high_leverage_error_fraction": 0.13898286717215202,
+          "high_leverage_target_energy_fraction": 0.09081007798550671
+        }
+      ],
+      "leverage_quantiles": [
+        3680.5127029539453,
+        11770.092784869135,
+        33961.38027878365,
+        116189.1114176707
+      ],
+      "singular_ratio": 0.00038614996002890595,
+      "oracle_solver": {
+        "rank": 768,
+        "relative_smallest_singular": 0.0002280908393371633,
+        "stationarity": 5.104246089007468e-15
+      }
+    }
+  ],
+  "control": {
+    "rows": [
+      {
+        "cutoff": 0.0,
+        "rank": 7,
+        "sensitivity_error": 7.067335537954694e-16,
+        "oracle_error": 7.95837205964146e-16,
+        "excess_error": 9.121963141998126e-16,
+        "pythagoras_error": 9.65986657976168e-31,
+        "high_leverage_error_fraction": 0.0967788614592076,
+        "high_leverage_target_energy_fraction": 0.12747719222273896
+      },
+      {
+        "cutoff": 0.001,
+        "rank": 7,
+        "sensitivity_error": 7.067335537954694e-16,
+        "oracle_error": 7.95837205964146e-16,
+        "excess_error": 9.121963141998126e-16,
+        "pythagoras_error": 9.65986657976168e-31,
+        "high_leverage_error_fraction": 0.0967788614592076,
+        "high_leverage_target_energy_fraction": 0.12747719222273896
+      },
+      {
+        "cutoff": 0.003,
+        "rank": 7,
+        "sensitivity_error": 7.067335537954694e-16,
+        "oracle_error": 7.95837205964146e-16,
+        "excess_error": 9.121963141998126e-16,
+        "pythagoras_error": 9.65986657976168e-31,
+        "high_leverage_error_fraction": 0.0967788614592076,
+        "high_leverage_target_energy_fraction": 0.12747719222273896
+      },
+      {
+        "cutoff": 0.01,
+        "rank": 7,
+        "sensitivity_error": 7.067335537954694e-16,
+        "oracle_error": 7.95837205964146e-16,
+        "excess_error": 9.121963141998126e-16,
+        "pythagoras_error": 9.65986657976168e-31,
+        "high_leverage_error_fraction": 0.0967788614592076,
+        "high_leverage_target_energy_fraction": 0.12747719222273896
+      },
+      {
+        "cutoff": 0.03,
+        "rank": 7,
+        "sensitivity_error": 7.067335537954694e-16,
+        "oracle_error": 7.95837205964146e-16,
+        "excess_error": 9.121963141998126e-16,
+        "pythagoras_error": 9.65986657976168e-31,
+        "high_leverage_error_fraction": 0.0967788614592076,
+        "high_leverage_target_energy_fraction": 0.12747719222273896
+      }
+    ],
+    "leverage_quantiles": [
+      78.28632632273667,
+      123.94213553950445,
+      182.87842481069123,
+      192.824360281238
+    ],
+    "singular_ratio": 0.6484208438061639,
+    "oracle_solver": {
+      "rank": 7,
+      "relative_smallest_singular": 0.5433830128427605,
+      "stationarity": 3.3153884398426804e-16
+    }
+  },
+  "seconds": 2.591862291097641,
+  "scope": "Root1, opened calibration/evaluation panels. Cutoffs fixed before diagnostic, all reported, no selection/export. Leverage uses weighted calibration design; top10% evaluation leverage group. Pythagoras decomposes weighted evaluation error into evaluation-optimal irreducible residual and calibration-fit excess. Oracle uses evaluation labels, not predictive evidence. Shared producers are calibration-informed. Correlation/concentration is not causation."
+}
