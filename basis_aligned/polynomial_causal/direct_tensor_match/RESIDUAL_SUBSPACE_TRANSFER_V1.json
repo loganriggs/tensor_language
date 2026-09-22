@@ -1,0 +1,132 @@
+{
+  "rows": [
+    {
+      "seed": 1001,
+      "subspaces": [
+        {
+          "rank": 1,
+          "calibration_capture": 0.35046931365349093,
+          "evaluation_capture": 0.6286098707772858,
+          "remaining_relative_error": 0.03852851492715207,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 2,
+          "calibration_capture": 0.5160743878608152,
+          "evaluation_capture": 0.7239370854531859,
+          "remaining_relative_error": 0.03321781985110752,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 4,
+          "calibration_capture": 0.7531558063453806,
+          "evaluation_capture": 0.8475865472886516,
+          "remaining_relative_error": 0.024681908720506136,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 8,
+          "calibration_capture": 0.921246253436587,
+          "evaluation_capture": 0.9514259614219283,
+          "remaining_relative_error": 0.013933787976235132,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 12,
+          "calibration_capture": 0.9747337149777335,
+          "evaluation_capture": 0.9846167723356095,
+          "remaining_relative_error": 0.007841349742161273,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 16,
+          "calibration_capture": 0.9999999999999999,
+          "evaluation_capture": 0.9999999999999996,
+          "remaining_relative_error": 6.39028318067205e-17,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        }
+      ],
+      "mean_cosine": 0.28738026206391726,
+      "calibration_mean_norm": 0.5047166980381638,
+      "evaluation_mean_norm": 3.1704731306838982,
+      "mean_only_diagnostic_error": 0.06263409111715777,
+      "original_evaluation_error": 0.06322183414224321
+    },
+    {
+      "seed": 1002,
+      "subspaces": [
+        {
+          "rank": 1,
+          "calibration_capture": 0.3363889040750912,
+          "evaluation_capture": 0.6064535747314352,
+          "remaining_relative_error": 0.04132572480416886,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 2,
+          "calibration_capture": 0.4986538276558585,
+          "evaluation_capture": 0.7206176350338726,
+          "remaining_relative_error": 0.034819456511621674,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 4,
+          "calibration_capture": 0.7391037850878345,
+          "evaluation_capture": 0.8414925931985108,
+          "remaining_relative_error": 0.026226918932043947,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 8,
+          "calibration_capture": 0.9204623948909302,
+          "evaluation_capture": 0.951804233697096,
+          "remaining_relative_error": 0.014461952750927362,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 12,
+          "calibration_capture": 0.9754751529979785,
+          "evaluation_capture": 0.9848012745717571,
+          "remaining_relative_error": 0.008121309807556754,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        },
+        {
+          "rank": 16,
+          "calibration_capture": 0.9999999999999993,
+          "evaluation_capture": 0.9999999999999986,
+          "remaining_relative_error": 6.869749355549406e-17,
+          "scope": "Evaluation residual projection is an oracle, NOT a deployable correction. Basis learned on calibration only."
+        }
+      ],
+      "mean_cosine": 0.2917354778002353,
+      "calibration_mean_norm": 0.5664089954419853,
+      "evaluation_mean_norm": 3.259179928308999,
+      "mean_only_diagnostic_error": 0.06523362882765651,
+      "original_evaluation_error": 0.06587528291254952
+    }
+  ],
+  "restart_alignment": [
+    {
+      "panel": "calibration",
+      "residual_cosine": 0.9164067699766723,
+      "ensemble_error": 0.04489309701559396,
+      "individual_errors": [
+        0.044906949159855866,
+        0.046815704361864614
+      ],
+      "scope": "Averaging both programs roughly doubles arithmetic/storage; diagnostic, not a simpler candidate."
+    },
+    {
+      "panel": "evaluation",
+      "residual_cosine": 0.9561233558673894,
+      "ensemble_error": 0.06383689094006671,
+      "individual_errors": [
+        0.06322183414224321,
+        0.06587528291254952
+      ],
+      "scope": "Averaging both programs roughly doubles arithmetic/storage; diagnostic, not a simpler candidate."
+    }
+  ],
+  "seconds": 0.7152190301567316,
+  "scope": "Previously opened 6144 calibration and2048 evaluation token states. Two existing CP512 candidates. Diagnostic addresses stability and potential shared residual writers, not causal semantics, input attribution, fresh validation, or learned executable correction."
+}
