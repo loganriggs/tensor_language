@@ -11,8 +11,8 @@ import transformers.models.gpt_neox.modeling_gpt_neox as N
 from transformers import GPTNeoXForCausalLM
 
 
-def load(repo, device="cuda"):
-    m = GPTNeoXForCausalLM.from_pretrained(repo, attn_implementation="eager").float().eval().to(device)
+def load(repo, device="cuda", revision=None):
+    m = GPTNeoXForCausalLM.from_pretrained(repo, attn_implementation="eager", revision=revision).float().eval().to(device)
     for p in m.parameters():
         p.requires_grad_(False)
     return m
