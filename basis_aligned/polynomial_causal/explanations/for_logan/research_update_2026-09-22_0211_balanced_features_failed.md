@@ -53,3 +53,11 @@ The next structural question is whether smaller outputs need distinct computatio
 Initial physical predictions, normal-equation residuals and float32 exports passed the registered integrity checks. The CPU follow-up matched the GPU's original-panel errors within 1e-5 and verified every artifact hash. Its scorer passed exact-match and known multiplicative-error controls. All four arms are retained, including failures. The larger-panel follow-up made no coefficient updates or candidate selections.
 
 [Registered protocol](../../direct_tensor_match/BALANCED_SHARED_FEATURES_PLAN_V1.md) · [Terminal results and all optimization histories](../../direct_tensor_match/BALANCED_SHARED_FEATURES_NATIVE_V1.json) · [Larger-panel diagnostics](../../direct_tensor_match/BALANCED_SHARED_FOLLOWUP_V1.json) · [Follow-up scorer](../../direct_tensor_match/audit_balanced_shared_followup.py).
+
+## 02:16 follow-up: give smaller outputs separate corrections
+
+A different structural test kept the CP parents fixed and added a separate quadratic correction to each of outputs4–15. These corrections come from exact Gaussian moments of the native-minus-parent weights, rather than fitting text labels. Outputs0–3 remain exactly unchanged at this polynomial interface.
+
+The primary version adds192 square operations and235,404 stored coefficients. It improves small-feature values by about7–8%, but their finite responses by only4–5% on the original panel, failing the registered15% improvement requirement. On the larger opened panel, small-feature errors remain roughly53–56%. Even retaining the entire quadratic correction leaves about40–43% error there and has a much larger implementation cost.
+
+So output-local corrections avoid the dominant-output damage seen with balancing, but a few low-degree corrections do not recover the missing computation. This narrows the next structural hypothesis toward richer products or better response-focused discovery. [Derivation, all ranks, prices and controls](../../direct_tensor_match/OUTPUT_SPECIFIC_CORRECTION_INTERPRETATION_V1.md).
