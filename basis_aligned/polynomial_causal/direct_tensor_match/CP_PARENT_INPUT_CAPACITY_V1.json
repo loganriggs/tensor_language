@@ -1,0 +1,142 @@
+{
+  "rows": [
+    {
+      "seed": 1001,
+      "trace_replay": 1.314924948299852e-15,
+      "largest_eigenvalue": 0.0006614926621695257,
+      "smallest_eigenvalue": 1.829956085369607e-09,
+      "bounds": [
+        {
+          "cp_terms": 64,
+          "max_input_rank": 256,
+          "relative_coefficient_error_lower_bound": 0.24219473756494353
+        },
+        {
+          "cp_terms": 128,
+          "max_input_rank": 512,
+          "relative_coefficient_error_lower_bound": 0.10252993417791338
+        },
+        {
+          "cp_terms": 192,
+          "max_input_rank": 768,
+          "relative_coefficient_error_lower_bound": 0.042548704939687015
+        },
+        {
+          "cp_terms": 256,
+          "max_input_rank": 1024,
+          "relative_coefficient_error_lower_bound": 0.01272898098811665
+        },
+        {
+          "cp_terms": 288,
+          "max_input_rank": 1152,
+          "relative_coefficient_error_lower_bound": 0.0
+        },
+        {
+          "cp_terms": 384,
+          "max_input_rank": 1152,
+          "relative_coefficient_error_lower_bound": 0.0
+        },
+        {
+          "cp_terms": 512,
+          "max_input_rank": 1152,
+          "relative_coefficient_error_lower_bound": 0.0
+        }
+      ],
+      "necessary": {
+        "0.1": {
+          "required_input_rank": 520,
+          "necessary_cp_terms": 130
+        },
+        "0.05": {
+          "required_input_rank": 725,
+          "necessary_cp_terms": 182
+        },
+        "0.01": {
+          "required_input_rank": 1057,
+          "necessary_cp_terms": 265
+        }
+      }
+    },
+    {
+      "seed": 1002,
+      "trace_replay": 8.435794855220235e-16,
+      "largest_eigenvalue": 0.0006964465710757547,
+      "smallest_eigenvalue": 1.6458196664544185e-09,
+      "bounds": [
+        {
+          "cp_terms": 64,
+          "max_input_rank": 256,
+          "relative_coefficient_error_lower_bound": 0.22920377513986157
+        },
+        {
+          "cp_terms": 128,
+          "max_input_rank": 512,
+          "relative_coefficient_error_lower_bound": 0.09372059059458034
+        },
+        {
+          "cp_terms": 192,
+          "max_input_rank": 768,
+          "relative_coefficient_error_lower_bound": 0.03811257921767941
+        },
+        {
+          "cp_terms": 256,
+          "max_input_rank": 1024,
+          "relative_coefficient_error_lower_bound": 0.011350633328688289
+        },
+        {
+          "cp_terms": 288,
+          "max_input_rank": 1152,
+          "relative_coefficient_error_lower_bound": 0.0
+        },
+        {
+          "cp_terms": 384,
+          "max_input_rank": 1152,
+          "relative_coefficient_error_lower_bound": 0.0
+        },
+        {
+          "cp_terms": 512,
+          "max_input_rank": 1152,
+          "relative_coefficient_error_lower_bound": 0.0
+        }
+      ],
+      "necessary": {
+        "0.1": {
+          "required_input_rank": 493,
+          "necessary_cp_terms": 124
+        },
+        "0.05": {
+          "required_input_rank": 695,
+          "necessary_cp_terms": 174
+        },
+        "0.01": {
+          "required_input_rank": 1042,
+          "necessary_cp_terms": 261
+        }
+      }
+    }
+  ],
+  "controls": [
+    {
+      "family": "independent",
+      "dense_gram_error": 2.129097688270801e-16
+    },
+    {
+      "family": "shared_input",
+      "dense_gram_error": 2.4782557490148876e-16
+    },
+    {
+      "family": "shared_output",
+      "dense_gram_error": 1.9186706652288457e-16
+    },
+    {
+      "family": "squares",
+      "dense_gram_error": 5.725423826109634e-16
+    },
+    {
+      "family": "cancellation",
+      "dense_gram_error": 6.153411180486855e-16
+    }
+  ],
+  "seconds": 1.134315136820078,
+  "scope": "Exact implicit first-input mode Gram of the fully input-symmetric coefficient tensor for fittedmixedCP512parent,16outputs,d1152. A CP-rquartic student usesatmost4rinputdirections, henceunfoldingrank<=4r. Singularvaluetail yieldsnumerical coefficientFrobenius lowerbound, NOT Gaussian/text/nativeeffect bound, NOT whole-native-modelbound, NOT sufficientrecovery condition orintervalcertificate."
+}
