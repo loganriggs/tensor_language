@@ -1,0 +1,17 @@
+[opt125m_v763] native: stock 3.43530 | explicit 3.43530 | geometry L=12 H=12 D=768 hd=64 kv=12 rotary=False
+[opt125m_v763] values: top 0.0:0.022 10.6:0.012 9.6:0.010 7.1:0.010 0.7:0.009 7.11:0.008 8.6:0.008 7.8:0.008 7.6:0.008 11.11:0.007 11.8:0.007 11.5:0.006 | median 0.0025 | sum 0.428 | joint 3.215
+[opt125m_v763] kernels-only +5.0473 | with column 0 native +1.6197 | SVD energy cum [0.924, 0.967, 0.986, 0.992, 0.996, 0.998, 0.999, 1.0] | ladder k=1:+5.852 k=2:+5.549 k=4:+5.350 k=8:+5.014 k=16:+5.047
+[opt125m_v763] rank 16: closed-form +0.5821 -> snapshot (step 300) +0.2326, recovery 0.928; curve [0.582, 0.376, 0.316, 0.287, 0.268, 0.255, 0.247, 0.241, 0.238, 0.236, 0.233, 0.233, 0.233]
+[opt125m_v763] rank 32: closed-form +0.4249 -> snapshot (step 200) +0.1155, recovery 0.964; curve [0.425, 0.188, 0.149, 0.129, 0.123, 0.118, 0.115, 0.116, 0.116, 0.117, 0.117, 0.117, 0.118]
+[opt125m_v763] rank 32 manipulability: Spearman 0.660, median ratio 1.12: 0.0:0.022->0.020 10.6:0.012->0.014 9.6:0.010->0.012 7.1:0.010->0.010 0.7:0.009->0.005 7.11:0.008->0.010 8.6:0.008->0.007 7.8:0.008->0.010
+{
+  "predictions": {
+    "pred_a_instrument_replays": true,
+    "pred_b_kernel_energy_top4": true,
+    "pred_c_rank32_cost": true,
+    "pred_d_rank16_cost": true,
+    "pred_e_rank32_values_preserved_scale": true
+  },
+  "forwards": 1988,
+  "backwards": 600
+}
