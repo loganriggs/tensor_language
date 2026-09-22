@@ -76,3 +76,9 @@ A further CPU check tested a tempting simplification. On a fixed-radius input su
 However, dropping the quartic remainder gave **138.47% value error** on one state from each of 256 opened documents, and **112.55% error** in the existing root1 same-token responses. Independent small-model derivative controls passed. Thus this particular mathematically well-defined truncation fails: normalization does not make the remaining fourth-degree computation negligible. This does not rule out a different learned compact program.
 
 The [three-hour review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-22_0159.md) connects Gaussian conditional programs, hierarchical tensor representations and graph rewrites to their precise assumptions. The immediate priorities remain balanced feature fitting and testing the smaller conditional programs inside native finite interventions.
+
+## 02:02 follow-up: does compression improve every component?
+
+No. Comparing the smaller programs to their original CP parents on the same opened 256-document panel shows that their small pooled improvements partly come from cancelling errors the parents already made. For the two lean programs, pooled error improves from **7.38% to 7.24%** and **7.58% to 7.46%**, but only **5 of 16** and **2 of 16** fixed output coordinates improve. The smaller coordinates still have roughly **43–70% relative error**.
+
+This does not invalidate the storage and speed savings. It means that “slightly better pooled error” should not be read as “more faithfully recovers all components.” The smaller programs improve 164 and 155 of the 256 document-level scores, respectively, so the gain is neither universal nor confined to one document. Native finite interventions still need their own test. [Residual accounting and exact error identity](../../direct_tensor_match/CONDITIONAL_RESIDUAL_ACCOUNTING_INTERPRETATION_V1.md).
