@@ -342,3 +342,5 @@ Original-weight continuation grounding (Sept21 03:56): [report](../explanations/
 [Weight-derived subspace control](WIDE_QUARTIC_SUBSPACE_INTERPRETATION_V1.md): recovered planted rank4 input span,10/10 reduced fits versus5/10 matched ambient fits; native low-rank assumption unproved.
 
 [Native residual subspace screen](NATIVE_RESIDUAL_SUBSPACE_INTERPRETATION_V1.md): rank64 captures only43–45% independent Gaussian derivative energy; rank4 toy discovery does not transfer as a native assumption.
+
+[Wide quartic L-BFGS control](WIDE_QUARTIC_LBFGS_INTERPRETATION_V1.md): initial-objective scaling avoids premature absolute-tolerance stops;8/10 full-budget recoveries,7/10 by251evaluations. Native comparison not yet run.
