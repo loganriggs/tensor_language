@@ -1,0 +1,190 @@
+{
+  "backwards": 300,
+  "candidate_id": "softmax.program_fit_v752",
+  "finished_utc": "2026-09-22T00:19:51.389851+00:00",
+  "forwards": 601,
+  "plan": {
+    "bars": {
+      "cf_max": 0.5,
+      "fit_max": 0.15,
+      "ratio": [
+        0.5,
+        2.0
+      ],
+      "replay_tol": 0.002,
+      "rho_min": 0.7
+    },
+    "candidate_id": "softmax.program_fit_v752",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 13845666,
+    "forwards_max": 625,
+    "gpu_accessed": false,
+    "model": "Elriggs/gpt2-bilinear-18l-9h-1152embd",
+    "model_backwards": 300,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_manip": 24,
+    "steps": 300
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_closed_form_cost": true,
+    "pred_c_fitted_cost": true,
+    "pred_d_values_preserved_rank": true,
+    "pred_e_values_preserved_scale": true
+  },
+  "report": {
+    "chosen_step": 225,
+    "closed_form_cost": 0.1640477577845254,
+    "heldout_curve": {
+      "0": 0.1640477577845254,
+      "100": 0.08850165208180716,
+      "125": 0.08879641691843654,
+      "150": 0.0867079496383667,
+      "175": 0.08799485365549709,
+      "200": 0.08913628260294582,
+      "225": 0.08762768904368068,
+      "25": 0.10661852359771729,
+      "250": 0.088997483253479,
+      "275": 0.08980627854665091,
+      "300": 0.08976121743520071,
+      "50": 0.0964053074518838,
+      "75": 0.09046471118927002
+    },
+    "joint_value": 3.388,
+    "manipulability": {
+      "0.3": {
+        "in_program_value": 0.012269576390584458,
+        "native_value": 0.009770234425862334,
+        "ratio": 1.2558118726513083
+      },
+      "0.6": {
+        "in_program_value": 0.0111163457234702,
+        "native_value": 0.008886416753132842,
+        "ratio": 1.2509367985190671
+      },
+      "1.6": {
+        "in_program_value": 0.011542836825052749,
+        "native_value": 0.009606997172037612,
+        "ratio": 1.201503093875123
+      },
+      "10.5": {
+        "in_program_value": 0.009770075480143081,
+        "native_value": 0.012623151143391631,
+        "ratio": 0.7739807096628033
+      },
+      "11.0": {
+        "in_program_value": 0.010929266611734878,
+        "native_value": 0.011305729548136245,
+        "ratio": 0.9667015795134223
+      },
+      "11.3": {
+        "in_program_value": 0.010714133580525864,
+        "native_value": 0.012349446614583037,
+        "ratio": 0.8675800556013508
+      },
+      "11.4": {
+        "in_program_value": 0.010008056958516587,
+        "native_value": 0.009981751441955566,
+        "ratio": 1.0026353608095722
+      },
+      "11.6": {
+        "in_program_value": 0.015051205952962388,
+        "native_value": 0.01729091008504202,
+        "ratio": 0.8704692742565846
+      },
+      "2.0": {
+        "in_program_value": 0.01907356580098485,
+        "native_value": 0.015409469604492188,
+        "ratio": 1.2377821099971213
+      },
+      "3.1": {
+        "in_program_value": 0.028337478637695312,
+        "native_value": 0.02736147244771292,
+        "ratio": 1.0356708211463224
+      },
+      "4.7": {
+        "in_program_value": 0.10417389869689941,
+        "native_value": 0.0923678080240884,
+        "ratio": 1.127816074943904
+      },
+      "5.1": {
+        "in_program_value": 0.009558757146199692,
+        "native_value": 0.01031164328257228,
+        "ratio": 0.926986793885215
+      },
+      "5.3": {
+        "in_program_value": 0.008262038230895996,
+        "native_value": 0.00936559836069728,
+        "ratio": 0.8821687534207774
+      },
+      "5.4": {
+        "in_program_value": 0.012737711270650376,
+        "native_value": 0.013448834419250488,
+        "ratio": 0.9471238081731291
+      },
+      "5.7": {
+        "in_program_value": 0.01834579308827733,
+        "native_value": 0.014136870702107451,
+        "ratio": 1.297726595571284
+      },
+      "6.0": {
+        "in_program_value": 0.011177659034729004,
+        "native_value": 0.01045660177866603,
+        "ratio": 1.0689571307510346
+      },
+      "6.2": {
+        "in_program_value": 0.023716092109680176,
+        "native_value": 0.020365873972574722,
+        "ratio": 1.1645015648047785
+      },
+      "6.6": {
+        "in_program_value": 0.009237090746561538,
+        "native_value": 0.010152300198872588,
+        "ratio": 0.9098520104426499
+      },
+      "7.2": {
+        "in_program_value": 0.013974865277608384,
+        "native_value": 0.013862530390421401,
+        "ratio": 1.0081034907786102
+      },
+      "7.4": {
+        "in_program_value": 0.01022978623708104,
+        "native_value": 0.011569182078043472,
+        "ratio": 0.8842272658579383
+      },
+      "7.5": {
+        "in_program_value": 0.011881073315938462,
+        "native_value": 0.009877602259317886,
+        "ratio": 1.2028296953069386
+      },
+      "7.6": {
+        "in_program_value": 0.009851257006327163,
+        "native_value": 0.010607242584228516,
+        "ratio": 0.9287293024649594
+      },
+      "7.7": {
+        "in_program_value": 0.013511617978414048,
+        "native_value": 0.011094530423481963,
+        "ratio": 1.2178629885782488
+      },
+      "8.5": {
+        "in_program_value": 0.009554306666056167,
+        "native_value": 0.009202122688293457,
+        "ratio": 1.0382720367563392
+      }
+    },
+    "median_ratio": 1.0356708211463224,
+    "native": 3.1140218575795493,
+    "rank_counts": {
+      "16": 104,
+      "64": 58
+    },
+    "recovery": 0.9741358650992678,
+    "snapshot_cost": 0.08762768904368068,
+    "spearman": 0.7069565217391299,
+    "values": 13845666
+  },
+  "schema": "softmax_program_fit_result_v752",
+  "serial_seconds": 667.8200677321292
+}
