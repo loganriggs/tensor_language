@@ -61,3 +61,9 @@ A different structural test kept the CP parents fixed and added a separate quadr
 The primary version adds192 square operations and235,404 stored coefficients. It improves small-feature values by about7–8%, but their finite responses by only4–5% on the original panel, failing the registered15% improvement requirement. On the larger opened panel, small-feature errors remain roughly53–56%. Even retaining the entire quadratic correction leaves about40–43% error there and has a much larger implementation cost.
 
 So output-local corrections avoid the dominant-output damage seen with balancing, but a few low-degree corrections do not recover the missing computation. This narrows the next structural hypothesis toward richer products or better response-focused discovery. [Derivation, all ranks, prices and controls](../../direct_tensor_match/OUTPUT_SPECIFIC_CORRECTION_INTERPRETATION_V1.md).
+
+## 02:22 follow-up: combine the existing quartic products
+
+The two existing CP fits contain512quartic product features each. Combining all1024products and refitting their output coefficients directly against native Gaussian weight contractions gives only about **2% improvement** in small-output values and responses over the better single-bank scores. Both single-bank controls were refitted under the same objective. The union fails the registered15% improvement screen while doubling variable products to3,072.
+
+This is stronger than the earlier failed averaging test: the union could independently recombine every product, but still had limited useful complementarity. It motivates learning new residual products instead of another combination of the current dictionaries. [Method, costs and complete comparison](../../direct_tensor_match/UNION_CP_DICTIONARY_INTERPRETATION_V1.md).
