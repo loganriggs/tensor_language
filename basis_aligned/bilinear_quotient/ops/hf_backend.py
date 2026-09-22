@@ -48,7 +48,33 @@ def head_qk(model, l, h):
     Wq = at.q_proj.weight.detach().float()[h * hd:(h + 1) * hd]; bq = at.q_proj.bias.detach().float()[h * hd:(h + 1) * hd] if at.q_proj.bias is not None else None
     Wk = at.k_proj.weight.detach().float()[hk * hd:(hk + 1) * hd]; bk = at.k_proj.bias.detach().float()[hk * hd:(hk + 1) * hd] if at.k_proj.bias is not None else None
     scale = hd ** -0.5        # OPT pre-scales q by this and calls attention with scaling 1.0; Llama passes it as scaling — the product is the same
+    if getattr(c, "head_dim", None) is not None:
+        hd2 = c.head_dim                        # Qwen3 and friends set head_dim independently of hidden_size / n_head
+        if hd2 != hd:
+            hd = hd2
+            Wq = at.q_proj.weight.detach().float()[h * hd:(h + 1) * hd]; Wk = at.k_proj.weight.detach().float()[hk * hd:(hk + 1) * hd]
+            bq = at.q_proj.bias.detach().float()[h * hd:(h + 1) * hd] if at.q_proj.bias is not None else None
+            bk = at.k_proj.bias.detach().float()[hk * hd:(hk + 1) * hd] if at.k_proj.bias is not None else None
+            scale = hd ** -0.5
     return Wq, bq, Wk, bk, scale
+
+
+def qk_norm(model, l):
+    """Per-head RMSNorm weights applied to q and k before rotary (Qwen3 etc.), or (None, None, eps) if the model has none.
+    Qwen3 normalises over the head dimension, exactly as bilin18 does; OLMo-2 normalises the whole projection and is NOT handled here."""
+    at = attn_of(layers(model)[l], model)
+    qn = getattr(at, "q_norm", None); kn = getattr(at, "k_norm", None)
+    if qn is None or kn is None:
+        return None, None, None
+    hd = getattr(model.config, "head_dim", None) or model.config.hidden_size // model.config.num_attention_heads
+    if qn.weight.shape[0] != hd:
+        raise ValueError(f"q_norm is over {tuple(qn.weight.shape)}, not the head dim {hd} — whole-projection QK-norm is not supported")
+    return qn.weight.detach().float(), kn.weight.detach().float(), float(getattr(qn, "variance_epsilon", 1e-6))
+
+
+def apply_qk_norm(x, w, eps):
+    """RMSNorm over the last (head) dimension, then the learned per-dimension weight."""
+    return x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + eps) * w
 
 
 def rotary_qk(q, k, cos, sin):
@@ -63,7 +89,10 @@ def instrument(model):
     if fam == "opt":
         import transformers.models.opt.modeling_opt as M
     else:
-        import transformers.models.llama.modeling_llama as M
+        import sys
+        M = sys.modules[type(model).__module__]          # the model's OWN module: Qwen3 &co. import eager_attention_forward by name,
+        if not hasattr(M, "eager_attention_forward"):    # so patching llama's copy would not be seen
+            import transformers.models.llama.modeling_llama as M
     state = {"logit_edit": None, "z_edit": None, "n": {}, "cos": None, "sin": None}
     original = M.eager_attention_forward
     hooks = []
@@ -77,7 +106,10 @@ def instrument(model):
 
     def eager(module, query, key, value, attention_mask, scaling, dropout=0.0, **kwargs):
         if fam != "opt":
-            key = M.repeat_kv(key, module.num_key_value_groups); value = M.repeat_kv(value, module.num_key_value_groups)
+            rep = getattr(M, "repeat_kv", None)
+            if rep is None:
+                import transformers.models.llama.modeling_llama as _L; rep = _L.repeat_kv
+            key = rep(key, module.num_key_value_groups); value = rep(value, module.num_key_value_groups)
         logits = torch.matmul(query, key.transpose(-1, -2)) * scaling
         layer_idx = idx_of[id(module)]
         if state["logit_edit"] is not None:
