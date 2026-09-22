@@ -14,6 +14,8 @@
 
 [Exact product reassociation and exported DAGs](QUARTIC_PRODUCT_REASSOCIATION_INTERPRETATION_V1.md), 22 September03:50:9/10additional products saved after reader sharing, unchanged candidate function and native limitations.
 
+[Approximate quadratic reuse](CP_QUADRATIC_REUSE_INTERPRETATION_V1.md), 22 September03:59: larger edit fails finite-response/per-output preservation; smaller edit exposes a computation–fidelity tradeoff.
+
 ## Current direction — 22 September 01:59 UTC
 
 The current pure-quartic MLP16→MLP17 branch compares fixed 16-output programs, not a full-model replacement. [Larger evaluation](../explanations/for_logan/research_update_2026-09-22_0112_larger_panel_results.md) confirms good pooled CP error but poor smaller-output fidelity. [Conditional programs and graph simplification](../explanations/for_logan/research_update_2026-09-22_0134_conditional_program_baseline.md) reduce stored coefficients and measured CPU time; native finite-removal tests failed absolute fidelity and parent retention. [Result](../explanations/for_logan/research_update_2026-09-22_0241_conditional_removal_results.md). Balanced producer fitting completed: integrity passed, small-feature improvement and response-retention criteria failed. [Result](../explanations/for_logan/research_update_2026-09-22_0211_balanced_features_failed.md). No semantic, OOD or composition adoption follows yet.

@@ -1,3 +1,5 @@
+[22 September 03:59 — Whole-quadratic sharing saves more products but fails the primary fidelity criterion](research_update_2026-09-22_0238_reader_reuse.md#0359-follow-up-approximate-sharing-of-whole-quadratic-products).
+
 [22 September 03:50 — Exact product reassociation adds a small saving after reader sharing](research_update_2026-09-22_0238_reader_reuse.md#0350-follow-up-shared-readers-expose-shared-quadratic-products).
 
 [22 September 03:42 — Learned response-loss toys: no advantage, structural-coverage correction, and strong duration sensitivity](research_update_2026-09-22_0342_response_feature_learning.md).

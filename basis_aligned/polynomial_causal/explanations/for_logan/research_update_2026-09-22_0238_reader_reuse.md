@@ -105,4 +105,10 @@ Both graphs were exported and reloaded; float64 replay errors are below $7.5\tim
 
 ## 03:54 precision check: finite changes survive the exported graph
 
-The exported graphs also preserve their source candidates in float32 on all16,384openedstates and2,494matched pairs. The largest per-output relative response difference is **1.27e-6**; both candidates pass all registered pooled and per-output numerical thresholds. This is a CPU transformation-preservation check, not new native accuracy or OOD evidence. It leaves the source candidates' much larger component-fidelity failures unchanged. [All coordinate results and precise comparison](../../direct_tensor_match/PRODUCT_DAG_RESPONSE_REPLAY_INTERPRETATION_V1.md).
+The exported graphs also preserve their source candidates in float32 on all 16,384 opened states and 2,494 matched pairs. The largest per-output relative response difference is **1.27e-6**; both candidates pass all registered pooled and per-output numerical thresholds. This is a CPU transformation-preservation check, not new native accuracy or OOD evidence. It leaves the source candidates' much larger component-fidelity failures unchanged. [All coordinate results and precise comparison](../../direct_tensor_match/PRODUCT_DAG_RESPONSE_REPLAY_INTERPRETATION_V1.md).
+
+## 03:59 follow-up: approximate sharing of whole quadratic products
+
+A more aggressive edit replaces one quadratic intermediate with another existing quadratic, using a weight-derived scale. The registered 128-edit version fails: parent response deviations are 3.45–4.33%, above the 1% limit, and the worst individual outputs change by 8.12–11.60% in responses.
+
+At 64 edits, the program retains 1,920 linear readers—the same number as the earlier linear-sharing candidate—but uses 1,472 nonlinear products instead of 1,527/1,525. That saving comes with worse preservation of some individual outputs. This smaller setting is a descriptive tradeoff, not a replacement for the failed primary test. Native small-output response errors still remain near 58–60%, and no new candidate was exported. [Detailed accounting, controls and both fidelity comparisons](../../direct_tensor_match/CP_QUADRATIC_REUSE_INTERPRETATION_V1.md).
