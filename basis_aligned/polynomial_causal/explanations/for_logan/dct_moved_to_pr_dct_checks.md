@@ -1,0 +1,1 @@
+The PR-regularized DCT circuit-checks handoff (README + zip) moved to /workspace/tensor_language/pr_dct_checks/ on 22 Sep 2026 (Claude); results will be written there as RESULTS.md and linked from LATEST.md.
