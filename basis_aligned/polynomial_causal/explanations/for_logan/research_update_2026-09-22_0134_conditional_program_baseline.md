@@ -82,3 +82,9 @@ The [three-hour review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-22_0159.m
 No. Comparing the smaller programs to their original CP parents on the same opened 256-document panel shows that their small pooled improvements partly come from cancelling errors the parents already made. For the two lean programs, pooled error improves from **7.38% to 7.24%** and **7.58% to 7.46%**, but only **5 of 16** and **2 of 16** fixed output coordinates improve. The smaller coordinates still have roughly **43–70% relative error**.
 
 This does not invalidate the storage and speed savings. It means that “slightly better pooled error” should not be read as “more faithfully recovers all components.” The smaller programs improve 164 and 155 of the 256 document-level scores, respectively, so the gain is neither universal nor confined to one document. Native finite interventions still need their own test. [Residual accounting and exact error identity](../../direct_tensor_match/CONDITIONAL_RESIDUAL_ACCOUNTING_INTERPRETATION_V1.md).
+
+## 02:05 follow-up: preserving changes across contexts
+
+A broader response check now uses **2,494 pairs** of states with the same token ID and position in different documents, covering all 16 outputs. CP parents have **11.60% / 11.98%** pooled error in the predicted changes; the lean conditional programs have **11.74% / 12.10%**. Smaller-coordinate response errors remain about **42–73%** across the tested programs.
+
+Thus most response error already exists in the parents. Compression adds little to it, but its small improvement in pooled output values does not improve these finite changes. This test compares observed contexts, rather than isolating a semantic variable or installing a model intervention. [Full explanation and pairing protocol](../../direct_tensor_match/ALL_FEATURE_MATCHED_RESPONSES_INTERPRETATION_V1.md).
