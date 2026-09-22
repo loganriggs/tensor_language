@@ -1,0 +1,412 @@
+{
+  "rows": [
+    {
+      "family": "independent",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.43099265729648784,
+      "initial": {
+        "coefficient_error": 0.735103661797578,
+        "gaussian_error": 0.5671033515062375,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 0.0004875191422330896,
+        "step": 400,
+        "coefficient_error": 0.029485140907846624,
+        "gaussian_error": 0.010167727778200748
+      },
+      "recovery": false
+    },
+    {
+      "family": "independent",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.43099265729648784,
+      "initial": {
+        "coefficient_error": 0.735103661797578,
+        "gaussian_error": 0.5671033515062375,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 3.883204417771192e-07,
+        "step": 390,
+        "coefficient_error": 0.00011168196429313124,
+        "gaussian_error": 6.124062008375694e-05
+      },
+      "recovery": true
+    },
+    {
+      "family": "independent",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.46699484257294105,
+      "initial": {
+        "coefficient_error": 0.8003966544535508,
+        "gaussian_error": 0.5416157893169105,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 5.050050664829034e-05,
+        "step": 400,
+        "coefficient_error": 0.008725021749887847,
+        "gaussian_error": 0.004940873444094341
+      },
+      "recovery": true
+    },
+    {
+      "family": "independent",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.46699484257294105,
+      "initial": {
+        "coefficient_error": 0.8003966544535508,
+        "gaussian_error": 0.5416157893169105,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.2122844186765372e-07,
+        "step": 385,
+        "coefficient_error": 4.298587958820828e-05,
+        "gaussian_error": 1.747146532768812e-05
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_input",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.19249718281367892,
+      "initial": {
+        "coefficient_error": 0.5645035130666963,
+        "gaussian_error": 0.2575410184212634,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 6.352673150934527e-06,
+        "step": 400,
+        "coefficient_error": 0.0031026459977078224,
+        "gaussian_error": 0.0014592269151613155
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_input",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.19249718281367892,
+      "initial": {
+        "coefficient_error": 0.5645035130666963,
+        "gaussian_error": 0.2575410184212634,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.3531546207060327e-07,
+        "step": 387,
+        "coefficient_error": 6.59678911367697e-05,
+        "gaussian_error": 2.640824792203264e-05
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_input",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.1675441843345882,
+      "initial": {
+        "coefficient_error": 0.4885783318357133,
+        "gaussian_error": 0.31044490838954425,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 4.79479441237203e-07,
+        "step": 400,
+        "coefficient_error": 0.0007680774791072507,
+        "gaussian_error": 0.00035122904291461153
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_input",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.1675441843345882,
+      "initial": {
+        "coefficient_error": 0.4885783318357133,
+        "gaussian_error": 0.31044490838954425,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.3089475321898365e-07,
+        "step": 393,
+        "coefficient_error": 3.457428838181696e-05,
+        "gaussian_error": 1.6966688386453675e-05
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_output",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.39921008734791713,
+      "initial": {
+        "coefficient_error": 0.655110723794195,
+        "gaussian_error": 0.607659326499491,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.4179555699081516e-06,
+        "step": 400,
+        "coefficient_error": 0.001147999903239035,
+        "gaussian_error": 0.0011203396784465703
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_output",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.39921008734791713,
+      "initial": {
+        "coefficient_error": 0.655110723794195,
+        "gaussian_error": 0.607659326499491,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 2.0888192779044003e-07,
+        "step": 395,
+        "coefficient_error": 0.00023077489300064996,
+        "gaussian_error": 0.00017995324504001874
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_output",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.21697667176626462,
+      "initial": {
+        "coefficient_error": 0.46241125745081274,
+        "gaussian_error": 0.4691781207921029,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 4.189609933315412e-05,
+        "step": 400,
+        "coefficient_error": 0.0063475064031794474,
+        "gaussian_error": 0.006581088542140187
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_output",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.21697667176626462,
+      "initial": {
+        "coefficient_error": 0.46241125745081274,
+        "gaussian_error": 0.4691781207921029,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.236447831950579e-07,
+        "step": 399,
+        "coefficient_error": 0.00012012216475550501,
+        "gaussian_error": 9.62981470212408e-05
+      },
+      "recovery": true
+    },
+    {
+      "family": "squares",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.5629881830610874,
+      "initial": {
+        "coefficient_error": 0.827833358757837,
+        "gaussian_error": 0.6638247165959158,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 5.5932651995775965e-05,
+        "step": 400,
+        "coefficient_error": 0.00869675972117376,
+        "gaussian_error": 0.0059785911626571
+      },
+      "recovery": true
+    },
+    {
+      "family": "squares",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.5629881830610874,
+      "initial": {
+        "coefficient_error": 0.827833358757837,
+        "gaussian_error": 0.6638247165959158,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.0018212604974746e-07,
+        "step": 396,
+        "coefficient_error": 1.1414500850551062e-05,
+        "gaussian_error": 6.716563401012303e-06
+      },
+      "recovery": true
+    },
+    {
+      "family": "squares",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.3940277576836098,
+      "initial": {
+        "coefficient_error": 0.7129208250796231,
+        "gaussian_error": 0.5289523294221264,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.2737780775065255e-06,
+        "step": 400,
+        "coefficient_error": 0.001290083938302046,
+        "gaussian_error": 0.0007867580132508527
+      },
+      "recovery": true
+    },
+    {
+      "family": "squares",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.3940277576836098,
+      "initial": {
+        "coefficient_error": 0.7129208250796231,
+        "gaussian_error": 0.5289523294221264,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.2964310268042484e-07,
+        "step": 399,
+        "coefficient_error": 6.614961465024443e-05,
+        "gaussian_error": 4.3279229205942586e-05
+      },
+      "recovery": true
+    },
+    {
+      "family": "cancellation",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.25943574092004357,
+      "initial": {
+        "coefficient_error": 0.49056817755147814,
+        "gaussian_error": 0.5274579722428596,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.5137315243185395e-05,
+        "step": 400,
+        "coefficient_error": 0.004155676433192088,
+        "gaussian_error": 0.0035616616523397237
+      },
+      "recovery": true
+    },
+    {
+      "family": "cancellation",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.25943574092004357,
+      "initial": {
+        "coefficient_error": 0.49056817755147814,
+        "gaussian_error": 0.5274579722428596,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 1.6280506578481973e-07,
+        "step": 399,
+        "coefficient_error": 5.583002020762484e-05,
+        "gaussian_error": 6.904630075015547e-05
+      },
+      "recovery": true
+    },
+    {
+      "family": "cancellation",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.348537868601964,
+      "initial": {
+        "coefficient_error": 0.6274184846009703,
+        "gaussian_error": 0.5508352392213344,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 6.875150509195382e-06,
+        "step": 400,
+        "coefficient_error": 0.002687076322639913,
+        "gaussian_error": 0.0025206747619228144
+      },
+      "recovery": true
+    },
+    {
+      "family": "cancellation",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.348537868601964,
+      "initial": {
+        "coefficient_error": 0.6274184846009703,
+        "gaussian_error": 0.5508352392213344,
+        "coefficient_design_rank": 21,
+        "ambient_quartic_dimension": 35
+      },
+      "best": {
+        "loss": 9.586895677180477e-08,
+        "step": 400,
+        "coefficient_error": 2.621419356730627e-05,
+        "gaussian_error": 2.802960860415897e-05
+      },
+      "recovery": true
+    }
+  ],
+  "steps": 400,
+  "width": 6,
+  "dimension": 4,
+  "rates": [
+    0.1
+  ],
+  "seconds": 20.019579731859267,
+  "scope": "Five planted shared-quadratic families, two random starts each, Adam/Muon at[0.1],400steps. Teacher3quadratics x2terms, student6x2 complete21rootpairs,2outputs,d4. Exact256coefficient entries and5^4Gauss-Hermite degree8-exact quadrature under shifted diagonalGaussian. Loss averages relative squared coefficient/Gaussian errors plusreadoutridge1e-8. No probes or evaluation-panel selection; finite toy optimizer ranking doesnotprove native convergence/identifiability."
+}

@@ -1,0 +1,567 @@
+{
+  "rows": [
+    {
+      "family": "independent",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.11549040937579756,
+      "best": {
+        "loss": 0.00464516230104131,
+        "step": 100,
+        "coefficient_error": 0.07376319899466519,
+        "gaussian_error": 0.06203907257441999
+      },
+      "recovery": false
+    },
+    {
+      "family": "independent",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.11549040937579756,
+      "best": {
+        "loss": 0.0030182520258385595,
+        "step": 100,
+        "coefficient_error": 0.057898753045911536,
+        "gaussian_error": 0.05180336776923004
+      },
+      "recovery": false
+    },
+    {
+      "family": "independent",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.11549040937579756,
+      "best": {
+        "loss": 0.004990679359156972,
+        "step": 71,
+        "coefficient_error": 0.07635734829109488,
+        "gaussian_error": 0.06442468041655743
+      },
+      "recovery": false
+    },
+    {
+      "family": "independent",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.11549040937579756,
+      "best": {
+        "loss": 0.004630148073677028,
+        "step": 100,
+        "coefficient_error": 0.07364499534442936,
+        "gaussian_error": 0.061938638903786994
+      },
+      "recovery": false
+    },
+    {
+      "family": "independent",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.09840870971028814,
+      "best": {
+        "loss": 0.004399678988396681,
+        "step": 100,
+        "coefficient_error": 0.06471952582256155,
+        "gaussian_error": 0.06789976358795957
+      },
+      "recovery": false
+    },
+    {
+      "family": "independent",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.09840870971028814,
+      "best": {
+        "loss": 0.002870564067201568,
+        "step": 100,
+        "coefficient_error": 0.04790571537901971,
+        "gaussian_error": 0.058701787607446314
+      },
+      "recovery": false
+    },
+    {
+      "family": "independent",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.09840870971028814,
+      "best": {
+        "loss": 0.0069926290154508864,
+        "step": 100,
+        "coefficient_error": 0.09055788271748273,
+        "gaussian_error": 0.076054164524938
+      },
+      "recovery": false
+    },
+    {
+      "family": "independent",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.09840870971028814,
+      "best": {
+        "loss": 0.004458635636745372,
+        "step": 100,
+        "coefficient_error": 0.06474203185682521,
+        "gaussian_error": 0.06874103586374368
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_input",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.17226595254315755,
+      "best": {
+        "loss": 0.0019413033260644865,
+        "step": 100,
+        "coefficient_error": 0.05050380386465785,
+        "gaussian_error": 0.036480303940449293
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_input",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.17226595254315755,
+      "best": {
+        "loss": 0.0016605122929544607,
+        "step": 100,
+        "coefficient_error": 0.049366441607687196,
+        "gaussian_error": 0.02971134450865082
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_input",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.17226595254315755,
+      "best": {
+        "loss": 0.00392725289257862,
+        "step": 100,
+        "coefficient_error": 0.07649094734817379,
+        "gaussian_error": 0.04475732341458737
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_input",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.17226595254315755,
+      "best": {
+        "loss": 1.9700634950982242e-05,
+        "step": 62,
+        "coefficient_error": 0.005712788641461082,
+        "gaussian_error": 0.0024243014482811243
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_input",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.2942270972503478,
+      "best": {
+        "loss": 0.00010148118406837384,
+        "step": 100,
+        "coefficient_error": 0.01224998885330352,
+        "gaussian_error": 0.0072084379525168265
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_input",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.2942270972503478,
+      "best": {
+        "loss": 1.279535571600643e-06,
+        "step": 100,
+        "coefficient_error": 0.0010518183093804437,
+        "gaussian_error": 0.0006623749592915492
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_input",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.2942270972503478,
+      "best": {
+        "loss": 0.018383498300471368,
+        "step": 100,
+        "coefficient_error": 0.17254158818746204,
+        "gaussian_error": 0.0836317894805889
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_input",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.2942270972503478,
+      "best": {
+        "loss": 0.0014201000539290866,
+        "step": 100,
+        "coefficient_error": 0.046483252432678375,
+        "gaussian_error": 0.026000598578471798
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_output",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.2474390860762764,
+      "best": {
+        "loss": 0.00016338234932682138,
+        "step": 100,
+        "coefficient_error": 0.016601510080788667,
+        "gaussian_error": 0.007148864574724648
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_output",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.2474390860762764,
+      "best": {
+        "loss": 4.705731820134204e-05,
+        "step": 100,
+        "coefficient_error": 0.008512261167431945,
+        "gaussian_error": 0.0046448686237829965
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_output",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.2474390860762764,
+      "best": {
+        "loss": 0.0015524754262779116,
+        "step": 100,
+        "coefficient_error": 0.050943167833659785,
+        "gaussian_error": 0.022576393208449116
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_output",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.2474390860762764,
+      "best": {
+        "loss": 3.878685932902138e-05,
+        "step": 79,
+        "coefficient_error": 0.007829824262619767,
+        "gaussian_error": 0.004029819329665766
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_output",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.31681932010966374,
+      "best": {
+        "loss": 1.5388394242557405e-05,
+        "step": 100,
+        "coefficient_error": 0.005102521915284901,
+        "gaussian_error": 0.0021530911555514495
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_output",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.31681932010966374,
+      "best": {
+        "loss": 5.161927723938657e-05,
+        "step": 100,
+        "coefficient_error": 0.009455789919597812,
+        "gaussian_error": 0.003712663872141493
+      },
+      "recovery": true
+    },
+    {
+      "family": "shared_output",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.31681932010966374,
+      "best": {
+        "loss": 0.004327780752286335,
+        "step": 100,
+        "coefficient_error": 0.08407412729946422,
+        "gaussian_error": 0.03983646535700774
+      },
+      "recovery": false
+    },
+    {
+      "family": "shared_output",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.31681932010966374,
+      "best": {
+        "loss": 0.000630826413894497,
+        "step": 100,
+        "coefficient_error": 0.032530688274744354,
+        "gaussian_error": 0.014240864248922997
+      },
+      "recovery": false
+    },
+    {
+      "family": "squares",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.1869949825753044,
+      "best": {
+        "loss": 0.0011202349973210555,
+        "step": 100,
+        "coefficient_error": 0.04609383408537505,
+        "gaussian_error": 0.010691251469169355
+      },
+      "recovery": false
+    },
+    {
+      "family": "squares",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.1869949825753044,
+      "best": {
+        "loss": 0.0014518909033584297,
+        "step": 100,
+        "coefficient_error": 0.053180278413869415,
+        "gaussian_error": 0.008590205567170878
+      },
+      "recovery": false
+    },
+    {
+      "family": "squares",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.1869949825753044,
+      "best": {
+        "loss": 0.0013492130522200583,
+        "step": 100,
+        "coefficient_error": 0.05053383892503326,
+        "gaussian_error": 0.011958629744975538
+      },
+      "recovery": false
+    },
+    {
+      "family": "squares",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.1869949825753044,
+      "best": {
+        "loss": 0.0001639732864686476,
+        "step": 100,
+        "coefficient_error": 0.017785891235102252,
+        "gaussian_error": 0.002763330449719546
+      },
+      "recovery": false
+    },
+    {
+      "family": "squares",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.11583652364886753,
+      "best": {
+        "loss": 0.001976851587058896,
+        "step": 9,
+        "coefficient_error": 0.0613957769059894,
+        "gaussian_error": 0.013547399370924858
+      },
+      "recovery": false
+    },
+    {
+      "family": "squares",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.11583652364886753,
+      "best": {
+        "loss": 0.000304081815553496,
+        "step": 100,
+        "coefficient_error": 0.02203149883342756,
+        "gaussian_error": 0.011011450553166985
+      },
+      "recovery": false
+    },
+    {
+      "family": "squares",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.11583652364886753,
+      "best": {
+        "loss": 0.0020277096813740166,
+        "step": 100,
+        "coefficient_error": 0.0627646209505855,
+        "gaussian_error": 0.010730737785879095
+      },
+      "recovery": false
+    },
+    {
+      "family": "squares",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.11583652364886753,
+      "best": {
+        "loss": 0.00013167159260956324,
+        "step": 100,
+        "coefficient_error": 0.014501517874465429,
+        "gaussian_error": 0.007215472485161448
+      },
+      "recovery": false
+    },
+    {
+      "family": "cancellation",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.33576436744284316,
+      "best": {
+        "loss": 2.5424151841841336e-06,
+        "step": 100,
+        "coefficient_error": 0.0016961842287625095,
+        "gaussian_error": 0.0010904476999507337
+      },
+      "recovery": true
+    },
+    {
+      "family": "cancellation",
+      "seed": 1,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.33576436744284316,
+      "best": {
+        "loss": 1.201711228609745e-06,
+        "step": 100,
+        "coefficient_error": 0.0006931882872346833,
+        "gaussian_error": 0.000410302873646498
+      },
+      "recovery": true
+    },
+    {
+      "family": "cancellation",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.33576436744284316,
+      "best": {
+        "loss": 0.0145176607613925,
+        "step": 100,
+        "coefficient_error": 0.14960687659104177,
+        "gaussian_error": 0.08156084536214626
+      },
+      "recovery": false
+    },
+    {
+      "family": "cancellation",
+      "seed": 1,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.33576436744284316,
+      "best": {
+        "loss": 0.0007673744739799439,
+        "step": 100,
+        "coefficient_error": 0.031005228575390283,
+        "gaussian_error": 0.023928557291089832
+      },
+      "recovery": false
+    },
+    {
+      "family": "cancellation",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.03,
+      "initial_loss": 0.29655810085745926,
+      "best": {
+        "loss": 0.01238570921503295,
+        "step": 100,
+        "coefficient_error": 0.11584993336830669,
+        "gaussian_error": 0.10653146344821027
+      },
+      "recovery": false
+    },
+    {
+      "family": "cancellation",
+      "seed": 2,
+      "optimizer": "Adam",
+      "rate": 0.1,
+      "initial_loss": 0.29655810085745926,
+      "best": {
+        "loss": 5.497184216127637e-05,
+        "step": 100,
+        "coefficient_error": 0.007912580864951963,
+        "gaussian_error": 0.006078301712519805
+      },
+      "recovery": true
+    },
+    {
+      "family": "cancellation",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.03,
+      "initial_loss": 0.29655810085745926,
+      "best": {
+        "loss": 0.05187819007189738,
+        "step": 100,
+        "coefficient_error": 0.28669044954387196,
+        "gaussian_error": 0.14684891581848877
+      },
+      "recovery": false
+    },
+    {
+      "family": "cancellation",
+      "seed": 2,
+      "optimizer": "Muon",
+      "rate": 0.1,
+      "initial_loss": 0.29655810085745926,
+      "best": {
+        "loss": 0.0030761589907835713,
+        "step": 100,
+        "coefficient_error": 0.05581008637267271,
+        "gaussian_error": 0.05510296528110558
+      },
+      "recovery": false
+    }
+  ],
+  "steps": 100,
+  "seconds": 6.309369408059865,
+  "scope": "Five planted shared-quadratic families, two random starts each, Adam/Muon at.03/.1,100steps. Teacher3quadratics x2terms, student4x2 complete10rootpairs,2outputs,d3. Exact81coefficient entries and5^3Gauss-Hermite degree8-exact quadrature under shifted diagonalGaussian. Loss averages relative squared coefficient/Gaussian errors plusreadoutridge1e-8. No probes or evaluation-panel selection; finite toy optimizer ranking doesnotprove native convergence/identifiability."
+}
