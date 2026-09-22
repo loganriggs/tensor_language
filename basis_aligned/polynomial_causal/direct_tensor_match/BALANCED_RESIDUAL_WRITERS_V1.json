@@ -1,0 +1,108 @@
+{
+  "rows": [
+    {
+      "seed": 1001,
+      "sha256": "c0ea4433c4f78415eea30164c6168cedf9835c3d0a88ddf6279a4137644e3898",
+      "subspaces": [
+        {
+          "rank": 1,
+          "calibration_capture": 0.2456183757310639,
+          "value_capture": 0.1947403190094603,
+          "response_capture": 0.21349713226652786
+        },
+        {
+          "rank": 2,
+          "calibration_capture": 0.38113833313830536,
+          "value_capture": 0.34147967824945946,
+          "response_capture": 0.3518865539349925
+        },
+        {
+          "rank": 4,
+          "calibration_capture": 0.6165395878345925,
+          "value_capture": 0.5618027462333235,
+          "response_capture": 0.577839404306765
+        },
+        {
+          "rank": 8,
+          "calibration_capture": 0.8981720297853706,
+          "value_capture": 0.8784270483462482,
+          "response_capture": 0.8880397449159434
+        },
+        {
+          "rank": 12,
+          "calibration_capture": 1.0000000000000004,
+          "value_capture": 1.0000000000000004,
+          "response_capture": 1.0000000000000004
+        }
+      ],
+      "evaluation_specific_rank4_oracle_capture": {
+        "value": 0.6066150089704911,
+        "response": 0.6063170759364704
+      }
+    },
+    {
+      "seed": 1002,
+      "sha256": "4a430782115234cf867ed5688c35cea7046c05376035aeee370af69f4a53100a",
+      "subspaces": [
+        {
+          "rank": 1,
+          "calibration_capture": 0.2496664503771901,
+          "value_capture": 0.19419628455566482,
+          "response_capture": 0.21376383497495005
+        },
+        {
+          "rank": 2,
+          "calibration_capture": 0.38206067597253907,
+          "value_capture": 0.307261064842953,
+          "response_capture": 0.32284749119584966
+        },
+        {
+          "rank": 4,
+          "calibration_capture": 0.6131423971887744,
+          "value_capture": 0.5756122585605197,
+          "response_capture": 0.5762540688980925
+        },
+        {
+          "rank": 8,
+          "calibration_capture": 0.8891373456515825,
+          "value_capture": 0.8691850029437077,
+          "response_capture": 0.8820503453202496
+        },
+        {
+          "rank": 12,
+          "calibration_capture": 1.0000000000000007,
+          "value_capture": 1.0000000000000007,
+          "response_capture": 1.0000000000000004
+        }
+      ],
+      "evaluation_specific_rank4_oracle_capture": {
+        "value": 0.6021833454562606,
+        "response": 0.5955289561547908
+      }
+    }
+  ],
+  "calibration_target_rms": [
+    2.417161226704521,
+    2.8853345381029696,
+    2.5121167449324817,
+    1.8647901030085703,
+    1.5763287225010982,
+    1.077244961396845,
+    1.0443209257054011,
+    1.0646920309670813,
+    0.9103820204687679,
+    0.8653905469764023,
+    0.786880202154842,
+    0.7038136385131575
+  ],
+  "prediction": false,
+  "seconds": 1.8091373890638351,
+  "controls": {
+    "planted_rank2": true,
+    "token_alignment": true,
+    "orthogonality": true,
+    "energy_accounting": true,
+    "full_rank_closure": true
+  },
+  "scope": "Calibration output basis, opened16384 states/2494 responses. Oracle residual amplitudes, no predictor, no export, no causal/OOD claim."
+}

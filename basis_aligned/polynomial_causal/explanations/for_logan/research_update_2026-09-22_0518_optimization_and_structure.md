@@ -65,3 +65,10 @@ For the full single-layer quadratic tensor, existing spectral bounds require at 
 The next native results should tell us whether the tested extra computations recover meaningful missing behavior. Only after that should we spend further effort simplifying and interpreting them.
 
 Sources within this project: [native optimizer protocol](../../direct_tensor_match/NATIVE_LOCAL_LBFGS_PLAN_V1.md), [larger-panel evaluation](../../direct_tensor_match/NATIVE_LOCAL_LBFGS_FOLLOWUP_PLAN_V1.md), [full quadratic bounds](../../direct_tensor_match/FULL_QUADRATIC_PRODUCT_BOUNDS_V1.md), and [fixed-dictionary capacity diagnosis](research_update_2026-09-22_0417_dictionary_capacity.md).
+
+
+## 05:25 follow-up: are the smaller errors just a few missing shared effects?
+
+We tested this without letting the largest outputs dominate. Restrict to outputs 4–15 and divide each by its calibration target RMS. Four output directions learned from calibration residuals capture only **56–58%** of the larger panel's value/response residual energy, failing the registered 90% hypothesis. Even four directions chosen using the evaluation answers capture only about **60%**. Eight calibration directions capture about **87–89%**.
+
+So the smaller-output misses are spread across several output effects. A correction limited to four fixed writers would leave roughly 63% of the current residual RMS even with ideal scalar amplitudes on this panel. This does not exclude simpler shared intermediate computations that feed a broader output space. It supports keeping all twelve smaller output ports in the pending learner. These are oracle residual diagnostics, not an implemented repair or semantic classification. [Full calculation and limits](../../direct_tensor_match/BALANCED_RESIDUAL_WRITERS_INTERPRETATION_V1.md).
