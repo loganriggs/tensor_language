@@ -2,7 +2,7 @@
 
 ## Current direction — 22 September 01:59 UTC
 
-The current pure-quartic MLP16→MLP17 branch compares fixed 16-output programs, not a full-model replacement. [Larger evaluation](../explanations/for_logan/research_update_2026-09-22_0112_larger_panel_results.md) confirms good pooled CP error but poor smaller-output fidelity. [Conditional programs and graph simplification](../explanations/for_logan/research_update_2026-09-22_0134_conditional_program_baseline.md) reduce stored coefficients and measured CPU time; native finite-removal tests are pending. Balanced producer fitting is running. No semantic, OOD or composition adoption follows yet.
+The current pure-quartic MLP16→MLP17 branch compares fixed 16-output programs, not a full-model replacement. [Larger evaluation](../explanations/for_logan/research_update_2026-09-22_0112_larger_panel_results.md) confirms good pooled CP error but poor smaller-output fidelity. [Conditional programs and graph simplification](../explanations/for_logan/research_update_2026-09-22_0134_conditional_program_baseline.md) reduce stored coefficients and measured CPU time; native finite-removal tests are pending. Balanced producer fitting completed: integrity passed, small-feature improvement and response-retention criteria failed. [Result](../explanations/for_logan/research_update_2026-09-22_0211_balanced_features_failed.md). No semantic, OOD or composition adoption follows yet.
 
 [Current mathematical review and harmonic-truncation failure](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-22_0159.md). The broader midpoint branch below remains a separate target and baseline.
 

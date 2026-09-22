@@ -1,3 +1,5 @@
+[22 September 02:11 — Balanced feature fitting failed its improvement and response-retention criteria](research_update_2026-09-22_0211_balanced_features_failed.md).
+
 **New constructive baseline — [Gaussian conditional arithmetic programs](research_update_2026-09-22_0134_conditional_program_baseline.md).** Reduced linear storage with explicit quadratic corrections and pair reuse; native finite-removal check prepared.
 
 **Input-side residual audit — [Which input variables are missed?](research_update_2026-09-22_0121_which_input_variables.md).** Derivative error is diffuse across input directions and strongly affected by covariance weighting; no few-coordinate repair identified.
