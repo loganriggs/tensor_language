@@ -1,0 +1,46 @@
+{
+  "rows": [
+    {
+      "seed": 1001,
+      "count": 64,
+      "gaussian_joint_over_sum_individual": 1.037068276070413,
+      "text_joint_over_sum_individual": 1.619653612885536,
+      "gaussian_relative_edit": 0.0010559735487725192,
+      "text_relative_edit": 0.003051716586712406,
+      "text_over_gaussian_relative_edit": 2.8899555204387184,
+      "replay": 4.336808689942018e-18
+    },
+    {
+      "seed": 1001,
+      "count": 128,
+      "gaussian_joint_over_sum_individual": 1.0375450375475752,
+      "text_joint_over_sum_individual": 1.5636913757221087,
+      "gaussian_relative_edit": 0.00422577607914941,
+      "text_relative_edit": 0.011426212483354818,
+      "text_over_gaussian_relative_edit": 2.7039323119209753,
+      "replay": 2.6020852139652106e-17
+    },
+    {
+      "seed": 1002,
+      "count": 64,
+      "gaussian_joint_over_sum_individual": 1.1094221677928344,
+      "text_joint_over_sum_individual": 2.8073497523156057,
+      "gaussian_relative_edit": 0.0009894170907008635,
+      "text_relative_edit": 0.0037660166231807493,
+      "text_over_gaussian_relative_edit": 3.806298333206528,
+      "replay": 4.7704895589362195e-18
+    },
+    {
+      "seed": 1002,
+      "count": 128,
+      "gaussian_joint_over_sum_individual": 1.2032341721870128,
+      "text_joint_over_sum_individual": 2.395989516532793,
+      "gaussian_relative_edit": 0.003474726419383086,
+      "text_relative_edit": 0.009379576303085717,
+      "text_over_gaussian_relative_edit": 2.699371165097653,
+      "replay": 3.2959746043559335e-17
+    }
+  ],
+  "seconds": 3.0691057411022484,
+  "scope": "Descriptive diagnosis of already opened candidates. Ratios of joint to individual squared edit energies quantify interference. Text/Gaussian compares normalized RMS edit, not the same input distribution. No refit or selection."
+}
