@@ -35,6 +35,14 @@ def table(path):
         sp = st.get(f"split_w{w}"); sps = st.get(f"split_w{w}_span"); jac = st.get(f"split_w{w}_top5_jaccard")
         s5 = f"{np.mean(sp):.2f} / {np.mean(sps):.2f}" if sp else "—"; j5 = f"{np.mean(jac):.2f}" if jac else "—"
         out.append(f"| {w:g} | {med([f['heldout']['median_participation_ratio'] for f in by_w[w]]):.1f} | {ratio:.2f} | {c('top1_aj_range'):.2f} | {c('top5_aj_range'):.2f} | {c('all_aj_range_mlps'):.2f} | {c('source_block_mlp'):.2f} | {c('all_attention'):.2f} | {span:.2f} | {ro:.2f} | {e3('top1@0.05'):.2f} | {e3('top5@0.05'):.2f} | {e3('random5@0.05'):.2f} | {e3('top1@0.2'):.2f} | {med([x['cos_l_r'] for x in F]):.2f} | {s4} | {s5} | {j5} |")
+    out += ["", "Per-factor counts (all seeds): PR ≤ 5 | top-1 completeness in [0.5, 1.5] | |top-1 completeness| > 2 (cancelling pathways) | E2 read-off ratio ≥ 1 (a raw neuron beats the factor) | split-stable (span match > 0.8) | seed-stable (span match > 0.8)", "",
+            "| w | n factors | PR ≤ 5 | top-1 ∈ [0.5, 1.5] | |top-1| > 2 | read-off ≥ 1 | split-stable | seed-stable |", "|---|---|---|---|---|---|---|---|"]
+    for w in sorted(by_w):
+        F = [x for f in by_w[w] for x in f["factors"]]; n = len(F)
+        t1 = [x["E1_completeness"]["top1_aj_range"] for x in F]
+        sp = st.get(f"split_w{w}_span", []); ss = [v for l in st.get(f"seeds_w{w}_span", []) for v in l]
+        out.append(f"| {w:g} | {n} | {sum(x['heldout_pr'] <= 5 for x in F)} | {sum(0.5 <= v <= 1.5 for v in t1)} | {sum(abs(v) > 2 for v in t1)} | "
+                   f"{sum(x['E2_readoff_top_unit']['energy_ratio'] >= 1 for x in F if 'E2_readoff_top_unit' in x)} | {sum(v > 0.8 for v in sp)} of {len(sp)} | {sum(v > 0.8 for v in ss)} of {len(ss)} |")
     if st:
         out += ["", f"E4 random-dictionary null: pair {st.get('random_null_mean', float('nan')):.4f} (max {st.get('random_null_max', float('nan')):.4f}), span {st.get('span_random_null_mean', float('nan')):.4f} (max {st.get('span_random_null_max', float('nan')):.4f}). Held-out energy is (u·H[l,r])² averaged over factors and contexts; medians are over factors (and seeds)."]
     return "\n".join(out)
