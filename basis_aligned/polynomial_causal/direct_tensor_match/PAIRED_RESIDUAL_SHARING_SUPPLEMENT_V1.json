@@ -1,0 +1,120 @@
+{
+  "rows": [
+    {
+      "family": "cross_output_shared_quadratic",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.004756667739617963,
+      "response_error": 0.004890595320092092,
+      "coefficient_error": 0.0053157743190960375
+    },
+    {
+      "family": "cross_output_shared_quadratic",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.005516583508805324,
+      "response_error": 0.005571329544515046,
+      "coefficient_error": 0.005671282962944835
+    },
+    {
+      "family": "cross_output_shared_quadratic",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.038892918870097576,
+      "response_error": 0.04002546216524965,
+      "coefficient_error": 0.044659549194927484
+    },
+    {
+      "family": "cross_output_shared_quadratic",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.03401702078414375,
+      "response_error": 0.03463672251277086,
+      "coefficient_error": 0.03685616291766023
+    },
+    {
+      "family": "cross_output_shared_quadratic",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.14273710517483407,
+      "response_error": 0.145884388761836,
+      "coefficient_error": 0.1579441290030946
+    },
+    {
+      "family": "cross_output_shared_quadratic",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.2526122093681353,
+      "response_error": 0.25386506270135867,
+      "coefficient_error": 0.2697233150741132
+    },
+    {
+      "family": "cross_output_shared_quadratic",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.07136767741247951,
+      "response_error": 0.07169301419106808,
+      "coefficient_error": 0.07601339590258589
+    },
+    {
+      "family": "cross_output_shared_quadratic",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 246,
+      "value_error": 0.06407302058604095,
+      "response_error": 0.06543124042586833,
+      "coefficient_error": 0.07153560703704077
+    }
+  ],
+  "summary": [
+    {
+      "optimizer": "adam",
+      "response_fits_below_5percent": 2,
+      "mean_response_error_ratio": 0.8951821310320417,
+      "pred_feasibility": null,
+      "pred_comparison": null
+    },
+    {
+      "optimizer": "muon",
+      "response_fits_below_5percent": 0,
+      "mean_response_error_ratio": 1.467506729990433,
+      "pred_feasibility": null,
+      "pred_comparison": null
+    }
+  ],
+  "witnesses": [
+    {
+      "family": "cross_output_shared_quadratic",
+      "atoms_per_output": 2,
+      "known_factors_exact": true,
+      "value_norm": 5.719910635321634,
+      "response_norm": 9.86810667521502
+    }
+  ],
+  "steps": 250,
+  "seconds": 13.910624945070595,
+  "scope": "Descriptive8fit supplement: one quadratic factor shared across both outputs, independently verified algebraic replay. Fifth distinct structural class when combined with original cohort. Not part of original feasibility/comparison predictions; no native/causal adoption."
+}

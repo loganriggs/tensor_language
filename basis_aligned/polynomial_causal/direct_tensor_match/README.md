@@ -10,6 +10,8 @@
 
 [Calibration-moment diagnostic](MIXED_CP_CALIBRATION_MOMENTS_INTERPRETATION_V1.md), 22 September 03:31 UTC: same features, improved data-based readout; component-response gate still fails.
 
+[Learned response-loss toy comparison](PAIRED_RESIDUAL_LEARNING_INTERPRETATION_V1.md), 22 September03:42; [duration caveat for pending native fit](LOCAL_QUARTIC_RESIDUAL_DURATION_CAVEAT_V1.md). No new native sweep justified by these toys.
+
 ## Current direction — 22 September 01:59 UTC
 
 The current pure-quartic MLP16→MLP17 branch compares fixed 16-output programs, not a full-model replacement. [Larger evaluation](../explanations/for_logan/research_update_2026-09-22_0112_larger_panel_results.md) confirms good pooled CP error but poor smaller-output fidelity. [Conditional programs and graph simplification](../explanations/for_logan/research_update_2026-09-22_0134_conditional_program_baseline.md) reduce stored coefficients and measured CPU time; native finite-removal tests failed absolute fidelity and parent retention. [Result](../explanations/for_logan/research_update_2026-09-22_0241_conditional_removal_results.md). Balanced producer fitting completed: integrity passed, small-feature improvement and response-retention criteria failed. [Result](../explanations/for_logan/research_update_2026-09-22_0211_balanced_features_failed.md). No semantic, OOD or composition adoption follows yet.

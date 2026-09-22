@@ -1,0 +1,500 @@
+{
+  "rows": [
+    {
+      "family": "generic",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.018224556004699927,
+      "response_error": 0.01988586539322401,
+      "coefficient_error": 0.02880144359306557
+    },
+    {
+      "family": "generic",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.013337743615093246,
+      "response_error": 0.01444406136201924,
+      "coefficient_error": 0.02017173346647761
+    },
+    {
+      "family": "generic",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.02449137286874717,
+      "response_error": 0.026553755890956578,
+      "coefficient_error": 0.03752901553814854
+    },
+    {
+      "family": "generic",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.019021167272372734,
+      "response_error": 0.020673477180278756,
+      "coefficient_error": 0.02942979803218031
+    },
+    {
+      "family": "generic",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.14811322472829064,
+      "response_error": 0.1605269453200164,
+      "coefficient_error": 0.22929009627724461
+    },
+    {
+      "family": "generic",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.13279935617255112,
+      "response_error": 0.14250640462408262,
+      "coefficient_error": 0.1979926242650887
+    },
+    {
+      "family": "generic",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 247,
+      "value_error": 0.21662654738058082,
+      "response_error": 0.23538496069748746,
+      "coefficient_error": 0.33970012056534904
+    },
+    {
+      "family": "generic",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 246,
+      "value_error": 0.22186905719354882,
+      "response_error": 0.24028651321346872,
+      "coefficient_error": 0.3456903675192858
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.014308430776740788,
+      "response_error": 0.015685118337909917,
+      "coefficient_error": 0.02535657543496988
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.020694970638271384,
+      "response_error": 0.022678522184282845,
+      "coefficient_error": 0.03657868430894582
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.01389685232462723,
+      "response_error": 0.015067619136682267,
+      "coefficient_error": 0.023551703493914354
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.012641628420123546,
+      "response_error": 0.013698664386650143,
+      "coefficient_error": 0.022078358385057475
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.0742606931234513,
+      "response_error": 0.08142124877926848,
+      "coefficient_error": 0.13488884140958407
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.07698925018276603,
+      "response_error": 0.08461747302374246,
+      "coefficient_error": 0.1401340168377583
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.072311580912446,
+      "response_error": 0.07915880015559157,
+      "coefficient_error": 0.12354896540765499
+    },
+    {
+      "family": "paired_squares",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.04903091475495706,
+      "response_error": 0.053159311358948504,
+      "coefficient_error": 0.08286596645758268
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.009660809193565769,
+      "response_error": 0.010649684076619616,
+      "coefficient_error": 0.01701602695148527
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.013223720873182078,
+      "response_error": 0.014369592280210093,
+      "coefficient_error": 0.02285609383476398
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.041793765890856975,
+      "response_error": 0.04632340281642608,
+      "coefficient_error": 0.0737767595911789
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.047288358812923315,
+      "response_error": 0.05117680029247432,
+      "coefficient_error": 0.07822560257583656
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.04801154298649333,
+      "response_error": 0.0524088679342938,
+      "coefficient_error": 0.08153669080532815
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.04546176438625754,
+      "response_error": 0.04863587188321155,
+      "coefficient_error": 0.07459653255387093
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.17436706697873944,
+      "response_error": 0.1893003192472182,
+      "coefficient_error": 0.27974412284598527
+    },
+    {
+      "family": "squared_quadratics",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.13214943939769394,
+      "response_error": 0.1428993111184213,
+      "coefficient_error": 0.21626465757384788
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.08414901321054262,
+      "response_error": 0.09104825132088137,
+      "coefficient_error": 0.13576766325318193
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.08727742937632298,
+      "response_error": 0.09367496308038528,
+      "coefficient_error": 0.1361931966878155
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.007272875728979318,
+      "response_error": 0.007767377470687736,
+      "coefficient_error": 0.01079346179861381
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.00680536239583129,
+      "response_error": 0.007283888644871468,
+      "coefficient_error": 0.010354835576581081
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.20909312975978583,
+      "response_error": 0.22060710407676415,
+      "coefficient_error": 0.2937446574498082
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.18513643061334153,
+      "response_error": 0.1979599778147861,
+      "coefficient_error": 0.2764828816835645
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.21308916845696269,
+      "response_error": 0.22572731081148423,
+      "coefficient_error": 0.30737194886428026
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.18750901872041678,
+      "response_error": 0.19885511559273153,
+      "coefficient_error": 0.27506832712098794
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.008972552653089085,
+      "response_error": 0.00962848312530465,
+      "coefficient_error": 0.016608517198047894
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.0062468324879552005,
+      "response_error": 0.006515259844749828,
+      "coefficient_error": 0.010868308351219366
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.005726172529409241,
+      "response_error": 0.00612377246473003,
+      "coefficient_error": 0.010505471149394178
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "adam",
+      "lr": 0.1,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.004842992046179405,
+      "response_error": 0.005009618987654272,
+      "coefficient_error": 0.00802484998311865
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.13336967074842762,
+      "response_error": 0.14340301097360447,
+      "coefficient_error": 0.24386263736736238
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.2699088338346083,
+      "response_error": 0.2948761119101673,
+      "coefficient_error": 0.5221077467538024
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "value",
+      "selected_step": 250,
+      "value_error": 0.11400452922402031,
+      "response_error": 0.12204860833800717,
+      "coefficient_error": 0.19710525805394508
+    },
+    {
+      "family": "fourth_powers",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1,
+      "objective": "response",
+      "selected_step": 250,
+      "value_error": 0.07370636982060684,
+      "response_error": 0.07651926952069336,
+      "coefficient_error": 0.11961378683552121
+    }
+  ],
+  "summary": [
+    {
+      "optimizer": "adam",
+      "response_fits_below_5percent": 8,
+      "mean_response_error_ratio": 1.0031821960090657,
+      "pred_feasibility": true,
+      "pred_comparison": false
+    },
+    {
+      "optimizer": "muon",
+      "response_fits_below_5percent": 1,
+      "mean_response_error_ratio": 0.9803496236666552,
+      "pred_feasibility": false,
+      "pred_comparison": false
+    }
+  ],
+  "witnesses": [
+    {
+      "family": "generic",
+      "atoms_per_output": 2,
+      "known_factors_exact": true,
+      "value_norm": 34.331998371421065,
+      "response_norm": 52.36817403663981
+    },
+    {
+      "family": "paired_squares",
+      "atoms_per_output": 2,
+      "known_factors_exact": true,
+      "value_norm": 96.86089794672857,
+      "response_norm": 143.36767929075808
+    },
+    {
+      "family": "squared_quadratics",
+      "atoms_per_output": 2,
+      "known_factors_exact": true,
+      "value_norm": 86.6606035490195,
+      "response_norm": 123.34706610257248
+    },
+    {
+      "family": "shared_quadratic_factors",
+      "atoms_per_output": 2,
+      "known_factors_exact": true,
+      "value_norm": 23.82663649038575,
+      "response_norm": 37.29191887765321
+    },
+    {
+      "family": "fourth_powers",
+      "atoms_per_output": 2,
+      "known_factors_exact": true,
+      "value_norm": 314.79613277345834,
+      "response_norm": 452.415187615338
+    }
+  ],
+  "steps": 250,
+  "seconds": 67.96050418820232,
+  "scope": "Original preregistered40fits: five configurations, four distinct polynomial structural classes because paired_squares and squared_quadratics are slot permutations of the same class. Known2atoms/output residual capacity. Prior value-tuned rates; own-objective checkpoint selection. Full results preserved; descriptive fifth structural class in separate supplement. No native/causal adoption."
+}
