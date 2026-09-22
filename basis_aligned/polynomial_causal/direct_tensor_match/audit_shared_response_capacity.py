@@ -9,7 +9,7 @@ P=Path(__file__).resolve().parent
 
 from audit_fixed_cp_response_capacity import fit
 
-def main():
+def main(all_pool=False):
     torch.set_num_threads(2);torch.set_grad_enabled(False);start=time.monotonic()
     cache=torch.load(P/'NATIVE_QUARTIC_COVARIANCE_V1.pt',weights_only=True)['panels']
     extra=torch.load(P/'QUARTIC_ADDITIONAL_STATES_V1.pt',weights_only=True)
@@ -35,6 +35,14 @@ def main():
     rows=[]
     for seed in [1101,1102]:
         program=torch.load(P/f'SPARSE_SUPPORT_EXCHANGE_SEED{seed}_V1.pt',weights_only=True)
+        if all_pool:
+            original=torch.load(P/f'SPARSE_QUARTIC_BANK_SEED{seed}_V1.pt',weights_only=True)['pairs']
+            candidates=torch.triu_indices(144,144,offset=1)
+            occupied=set((original[0]*144+original[1]).tolist())
+            remaining=candidates[:,torch.tensor([int(a)*144+int(b) not in occupied for a,b in candidates.T])]
+            chosen=torch.randperm(remaining.shape[1],generator=torch.Generator().manual_seed(11700))[:256]
+            program['pairs']=torch.cat([original,remaining[:,chosen]],1)
+            assert program['pairs'].shape==(2,768)
         phis=[]
         for x in xs:
             phis.append(features(x,*[a.double() for a in program['factors']],program['pairs']))
@@ -62,5 +70,11 @@ def main():
             pred=phis[1]@c
             rows.append(dict(seed=seed,arm=arm,solver=info,calibration=measurements[0],evaluation=measurements[1],same_token_response_error=float(((pred[don]-pred[rec])-reference).norm()/reference.norm())))
     result=dict(rows=rows,pair_replay=replay,seconds=time.monotonic()-start,scope='Root1 only, fixed shared quadratic directions and512learned rootpairs. SVD least squares rcond1e-12 with column scaling; no ridge. Calibration output labels are used in two arms: this is data-based diagnostic, not weights-only fitting. Evaluation-fitted oracle measures representational capacity on opened rows, NOT generalization or a deployable candidate. No coefficients exported. No full-model finite removal or OOD claim.')
-    (P/'SHARED_RESPONSE_CAPACITY_V1.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
-if __name__=='__main__':main()
+    if all_pool:
+        result['scope']=result['scope'].replace('and512learned rootpairs','andall768candidate rootpairs; a larger diagnostic dictionary, not the 512-product deployed budget')
+    output='SHARED_POOL_RESPONSE_CAPACITY_V1.json' if all_pool else 'SHARED_RESPONSE_CAPACITY_V1.json'
+    (P/output).write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--all-pool',action='store_true')
+    main(all_pool=parser.parse_args().all_pool)
