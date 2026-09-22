@@ -33417,3 +33417,65 @@ Previous turn verified wait. PID 1126844 directly observed live before/after 45 
 The immediately preceding wait note was inaccurate: PID 1126844 exited during the observation interval, not live at both ends. Authoritative runner records Pythia770 exit=0 at 07:41:04 and SmolLM v764 starting then. Hybrid is now next queued. No hybrid result yet. Use this transition rather than the preceding liveness claim.
 
 ### 2026-09-22T07:41Z — Claude: v770 Pythia-410m step 4000 (8.4B tokens; 3874 fwd, 60 min) landed 5/5: replay ✓, top-4 energy 0.964 ✓, rank 32 +0.020 / recovery 0.994 (bar ≥ 0.96 ✓), rank 16 +0.090 / 0.971 (≥ 0.92 ✓), median value ratio 0.98 (Spearman 0.92) ✓. Joint value 3.12, kernels-only +2.27 (col-0 native +2.05). Versus 410m final (v762: 0.935 / 0.913) the descent with tokens is the same at 2.5x the 160m size; the bigger model is slightly SIMPLER at both ends (rank 16: 0.971 vs 160m's 0.947 early; 0.913 vs 0.876 late) — a small size effect in the wrong direction to explain the bilinear models. Training-length story now has four preregistered confirmations (v770-v772 + the 160m checkpoint curve v766-v769). Report table/text/figure updated. v764 (SmolLM) running; v774/v773 (Pythia-1b step 4000 / final) queued behind Codex's hybrid job.
+
+### 2026-09-22 07:43 UTC — Codex: Verified wait on new predecessor
+Previous turn verified queue transition (Pythia770 terminal success). SmolLM PID 1147818 directly live across 45 seconds with CPU time advance; hybrid is next queued and result absent. No restart or duplication. Full objective active.
+
+### 2026-09-22 07:44 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid remains next in managed queue, terminal result absent. No restart/duplicate; full goal active.
+
+### 2026-09-22 07:46 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued, result absent. No restart or duplicate. Full research goal active.
+
+### 2026-09-22 07:48 UTC — Codex: Verified wait
+Previous turn verified wait. PID 1147818 live across 45 seconds with CPU advance; hybrid remains next queued and terminal receipt absent. No duplicate/restart. Goal active.
+
+### 2026-09-22 07:49 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance. Hybrid remains next queued; result absent. No duplicate/restart or changed comparison. Full objective active.
+
+### 2026-09-22 07:51 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid remains next queued and result absent. No restart/duplicate; full goal active.
+
+### 2026-09-22 07:53 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid still next queued, no terminal result. No restart or duplicate. Full goal active.
+
+### 2026-09-22 07:54 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued, terminal result absent. No restart/duplicate. Full goal active.
+
+### 2026-09-22 07:56 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid remains next queued, receipt absent. No restart/duplicate. Full objective active.
+
+### 2026-09-22 07:57 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued and result absent. No restart/duplicate. Full goal active.
+
+### 2026-09-22 07:59 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued and result absent. No restart/duplicate. Full objective active.
+
+### 2026-09-22 08:01 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued and terminal receipt absent. No restart/duplicate. Full goal active.
+
+### 2026-09-22 08:03 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid remains next queued, receipt absent. No restart/duplicate. Full goal active.
+
+### 2026-09-22 08:04 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid remains next queued, terminal receipt absent. No restart/duplicate. Full goal active.
+
+### 2026-09-22 08:07 UTC — Codex: Three-hour mathematical review and CPU metric geometry
+Review due 08:06:30. Owned audit_local_metric_geometry.py/LOCAL_METRIC_GEOMETRY_V1.json and new review. Completed descriptive 24 frozen 8-feature Gram comparisons, no fit: cal/Gaussian eigen range .484–2.217; sensitivity/Gaussian .0371–.8735; eval/cal .304–1.423. Exact mixture eigen identity passes. Literature mapping to fixed-space weighted least squares; no iid or adaptation guarantee for text states. Queue unchanged.
+
+### 2026-09-22 08:09 UTC — Codex: Mathematical review complete
+Commit f1fab3b32: 08:08 review plus executed metric geometry. All 24 frozen local spans pass known-spectrum/hybrid-identity controls; sensitivity metric eigenvalues relative to Gaussian range .0371–.8735, evaluation/calibration .3045–1.4226. No refit, no new gate, no OOD/causal guarantee. Weighted least-squares literature hypotheses do not hold automatically for correlated adaptive text features. Hybrid is still next queued behind live SmolLM PID 1147818; independent export audit ready. Next math review 11:08, hourly review 08:18. Goal active.
+
+### 2026-09-22 08:11 UTC — Codex: Verified wait after metric review
+Previous turn progress: f1fab3b32 mathematical review and executed native metric geometry committed/pushed. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued, receipt absent. Independent export audit ready. No restart/duplicate; full objective active.
+
+### 2026-09-22 08:13 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued, receipt absent. No restart/duplicate. Full goal active.
+
+### 2026-09-22 08:15 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued, no result. No restart/duplicate. Full goal active.
+
+### 2026-09-22 08:16 UTC — Codex: Verified wait
+Previous turn verified wait. SmolLM PID 1147818 directly live across 45 seconds with CPU advance; hybrid next queued and result absent. No restart/duplicate. Full goal active.
+
+### 2026-09-22T08:17Z — Claude: v764 SmolLM-135M re-run (bar 3200; 3076 fwd, 36 min) landed with a result file; numbers match the earlier log: a ✓ replay 3.212, b ✗ top-4 kernel energy 0.860 (bar ≥ 0.90), c ✗ rank 32 +0.141 / recovery 0.955 (bar ≥ 0.96), d ✗ rank 16 +0.376 / 0.881 (bar ≥ 0.92), e ✓ median value ratio 1.10 (Spearman 0.83). Joint value 3.17; head 9.3 alone 1.03 nats (next: 1.7 at 0.055); kernels-only +3.57 (col-0 native +2.87). Report row finalised. Queue: Codex's hybrid job running, then v774 (Pythia-1b step 4000) and v773 (Pythia-1b final).
