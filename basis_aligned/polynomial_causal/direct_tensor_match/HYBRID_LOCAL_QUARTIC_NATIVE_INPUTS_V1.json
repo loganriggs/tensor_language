@@ -1,0 +1,40 @@
+{
+  "rates": {
+    "adam": 0.1
+  },
+  "eta": 0.5,
+  "seeds": [
+    25001,
+    25002
+  ],
+  "updates": 250,
+  "files": {
+    "MIXED_CP_FEATURES_SEED1001_V1.pt": "c0ea4433c4f78415eea30164c6168cedf9835c3d0a88ddf6279a4137644e3898",
+    "GAUSSIAN_CP_DATA_PROJECTIONS_V1.pt": "dce3c4a7501f7b9494dc6094eadaba5a4dc6ecbfa41787102e28cd13227115ef",
+    "OUTPUT_BALANCED_CALIBRATION_METRIC_V1.json": "ded6752018d6d444f0825b96e590cccdf380e5257b3287984a263f1dea11f54d",
+    "NATIVE_QUARTIC_COVARIANCE_V1.pt": "dac780c6c05986b397dce6449cce58d67347ec345a64786addd92e600f0844a6",
+    "SENSITIVE_ROOT_CALIBRATION_V2.pt": "c8a732a61723661d286b702afecb58331670fa3e5cb26c6803ca910dcdf771f7",
+    "ROOT_MATCHED_READER_V1.json": "405905b4383972c76020a73b9f9dc5f503acf17a3bd5ac4d3c195c70d74f9710",
+    "LOCAL_QUARTIC_RESIDUAL_TOY_SWEEP_V2.json": "e79c7956d568ee42e77ff224db6852e3474c20eae035fae5505de464a8de1fd6",
+    "local_quartic_residual.py": "33e28bf31d964a7e07dd6c670b8e9573ddbb57ef85ccfddf707f9ffb2ffd0e16",
+    "mixed_gaussian_cp.py": "1a7c19d651886c44383bc95628064afadf7ba71bcfbde64454ce8ffaf9534194",
+    "noncentral_gaussian_cp.py": "dc8c823a40ec77dd52f435ec674a3ae79eca190ba7d0e10e6922c859ad1c561e",
+    "quartic_cp.py": "479c0ee63eb8195dd1895806810e6709c1f9dc0ab2349505f40fc3e5beef1808",
+    "quartic_cp_profile.py": "9cfef87ebd3e893d00d985c52caa31eb4deebcbda59fe56bcf8ad177dd558dd9",
+    "native_quartic_gaussian_projection.py": "9a86ae425382711f9e2c2edd0f759b6221b1f615c53fd60ce164c70ae24acddd",
+    "hybrid_local_quartic.py": "86942347c638031cdaa496d29418f8e549b245ad4758b1360951a020b9a22f14",
+    "check_hybrid_local_quartic.py": "0a1a1733399402aa4dd31671557086e294504269df90b7cd31834a983a77853c",
+    "HYBRID_LOCAL_QUARTIC_PLAN_V1.md": "ce4cf820d8cbd63bc307c3750ca9a0551760dc976610bd78fdb4cc93af5ab329",
+    "HYBRID_LOCAL_QUARTIC_CONTROLS_V1.json": "81b4ce5c17efd29aa5b4bc600c22d7ba85af1819bf5294549ff323e236e2a9a3",
+    "QUARTIC_ADDITIONAL_STATES_V1.pt": "b08518d3329b3d28cfd7114bc7608ba719c466b73fe0d4e5de3b54674524788b",
+    "RESIDUAL_FRESH_STATES_V1.pt": "bfb59161231c9fa5b1852f8b60dc0f37834f2b0c51e559bbc035136f48c21a99",
+    "ALL_FEATURE_MATCHED_RESPONSES_V1.json": "b1e4eefea985bfbc0d5d81db6aca169fb1aa9c56c504817885d25fc3c316f076",
+    "LOCAL_QUARTIC_RESIDUAL_ADAM_SEED25001_V1.pt": "72f3e54560aac1242d8de49d5c66f23f8f4ff8c947ff4c556b6be26ac85596a6",
+    "LOCAL_QUARTIC_RESIDUAL_ADAM_SEED25002_V1.pt": "2a2e45ffeb6055d7eaadbd5a927fed1c96346e0ae300f7626c0862da03d98244",
+    "audit_local_quartic_followup.py": "e7a21b7803058a2493fe5ac26fc433b603782866008e906552fd11c397374003",
+    "audit_balanced_shared_followup.py": "c2835b47cea5e28df0d320454c93edac98d7e6ca32d1807f9a72bae6ed256a43"
+  },
+  "calibration_alignment": "PASS: sensitivity hash uses64 input tokens; state caches use65 tokens including next-token label. Same96documents/order.",
+  "preflight": "15 planted hybrid moment/envelope controls; native-shaped512parent/96atoms/12outputs/8local gradient and1152 export smoke PASS; initial import-name correction caught before queue.",
+  "selection": "Hybrid calibration objective only; baseline-matched larger-panel comparison and Gaussian actual-coefficient gain evaluated after selection."
+}

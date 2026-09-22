@@ -9,7 +9,7 @@ from mixed_gaussian_cp import gram_dynamic
 from noncentral_gaussian_cp import project_shifted
 from audit_conditional_residual_accounting import P
 
-def main():
+def controls():
  torch.set_num_threads(2);rows=[]
  for family in [0,1,3,4,5]:
   t,pf,pc,rf,rc=planted(0 if family==5 else family)
@@ -40,5 +40,9 @@ def main():
     refgrad=torch.autograd.grad(reference,pars,retain_graph=True)
     assert max(float((a-b).norm()/b.norm().clamp_min(1e-20)) for a,b in zip(g1,refgrad))<1e-8
    rows.append(dict(family=family,eta=eta,envelope_gradient_error=gradient,normal_residual=info['normal_residual']))
+ return rows
+
+def main():
+ rows=controls()
  (P/'HYBRID_LOCAL_QUARTIC_CONTROLS_V1.json').write_text(json.dumps(dict(rows=rows,pass_all=True,scope='Five distinct planted structures; no optimizer fitting or native result. eta0 prior objective on original four teacher forms, eta1 independent empirical energy, eta.5 envelope gradient.'),indent=2)+'\n');print('15 hybrid moment/gradient cases PASS')
 if __name__=='__main__':main()
