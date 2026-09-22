@@ -98,3 +98,7 @@ pq+a p+b q=(p+b)(q+a)-ab.
 $$
 
 The final constant is folded into the output bias. This eliminates **1,024 coefficient multiplications per state**, while leaving variable products, additions and storage unchanged. Native replay agrees to about **1e-7 in float32**. Measured warm CPU speedup is only **1–7%**, depending on batch size, so the practical gain is modest. This demonstrates an exact second-stage graph edit; it does not repair the approximation's component errors. [Derivation, accounting and tests](../../direct_tensor_match/SHIFTED_PAIR_CP_INTERPRETATION_V1.md).
+
+## Completed native-removal tests: both variants fail
+
+The previously pending tests completed at02:35. Both full and lean conditional programs passed their replay checks but failed the absolute10% and relative parent-retention criteria. Each has5/16cells above10% error. FineWeb newline cases improve, while code newline cases worsen enough to fail retention. These16cells span seeds/domains/strengths/token strata and intervene on output coordinate1 only. [Full contextual explanation and cell counts](research_update_2026-09-22_0241_conditional_removal_results.md).
