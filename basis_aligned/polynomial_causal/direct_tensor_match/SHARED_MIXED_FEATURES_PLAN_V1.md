@@ -1,0 +1,17 @@
+Learn shared quadratic producers under the exact mixed weight/Gaussian objective
+
+22September2026,00:24UTC. Nativeimplementation prepared andCPUchecked; enqueue onlyafterSHARED_GRADIENT_PROFILE_V1 passes allregisteredcriteria. No nativefeature-learningresultyet.
+
+Target: samepurequarticMLP16selfterm throughbothMLP17factors,16fixeddata-informednativeoutputreaders, originalnormalizedMLP16inputx. Otherresidual/cross/attention/biaspaths stayoutside; actualnormalization/softcapremainexplicit forlaternativeeffects. Fit144sharedquadratics, each4bilinearproducts over1152coordinates;512rootproducts fixedfrommixedsupportexchange, all144diagonalsretained. Bothstarts1101/1102. Price1088variableproducts1353728floats1024indices unchanged;compare1536-productmixedCP and384-productempiricalgraph withoutclaimingequalprice.
+
+Parameters: two576x1152matrices reshape144x4x1152. NormalizeeachquadraticcoefficientFrobeniusnorm throughdifferentiablenormalize_bank; streamexactgradients thenpullbacknormalization. Output16x512readout exactlysolved eachstep withridge1e-6. Objective (Gaussian+lambda coefficient)/(1+lambda), fixedlambda fromeacharchivedprimaryGaussianfit, teacherconstant omitted. This doesnotmaintaintheoldcoefficientbudget asfeaturesmove. No textoutputlabels ornativeeffectlabelsfit/choosecheckpoint. Mean/covariance aredata-informed.
+
+Optimizer: Muon,match_rms_adamw,weightdecay0,initialrate.1sqrt(4/1152),cosine to1%floor. Selectionmotivatedbyd4nonsaturatedplantedcontrols:400stepsMuon10/10 atboth4/6quadratics,Adam4/10and9/10. Shorter100stepd3rankingfavoredAdam; preserve thislimitation. Nativewarmstartsnotrandomtoys, so norecoveryguarantee.
+
+Budgetrule fixedbeforeprofile result: estimated_step=gradient_seconds+(profile_total_seconds-gradient_seconds)/4. nsteps=min(100,floor(600/estimated_step)). Ifnsteps<10, do nottrain; improvecontractions first. Bothstartsgetsamensteps, noearlystopbasedonevaluation. This is an approximate600secondperstartstepbudget, notahardwalltimepromise; startup/scoring andmeasurementerroraddoverhead. Bestcheckpoint minimizesfittingobjective; evaluateonlyinitial/best onexistingopenedpanels.
+
+Pred_a_integrity: initialpredictionreplay<1e-4 relative,savedFP32export<1e-4,allnormalresiduals<1e-8,finitegradients. Pred_b_learning: bothstarts>=1%relativeimprovement innegativeprofiledobjective andtext_error<=initial. This1%usescapturedregularizedscore, notrelativefullteachererror. Pred_c_component: BOTHstartsroot1same-tokenresponseandsensitivityerrors<=10%. Reportfailedgatesandcoefficient/isotropicGaussian/texterrors separately. No nativefinite-removal/OOD/semanticadoptionfromthisscreen.
+
+CPUpreflight completed: real144x4/512rootpairs/16outputreporting shapes, normalizedproducergradients, Muonmatrixupdate, coefficientqueryandsame-tokenindexbranches. Independentstreamed/fullgradient5families andnormalizationVJP3seeds alreadycommitted. Nativeprofile validatesactual1152dimensionloss/gradient; donotrelaxitsrequirements tostartfit.
+
+Decision afterrun: ifcomponentsimprove substantially, freezeandcompareactualfinite-removalerrors withmixedCP atliteralcost. Ifreconstructionimprovesbutcomponentdoesnot, keepthatnegativeevidence andtestmetric/targetmisalignment. Ifoptimizationbarelymoves, comparestepbudget/gradientgeometry beforeclaimingarchitecturefailure. No broadclaimsaboutordinaryHT orarbitraryDAGs.
