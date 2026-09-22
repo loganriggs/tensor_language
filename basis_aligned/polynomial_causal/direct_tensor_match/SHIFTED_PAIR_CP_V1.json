@@ -1,0 +1,262 @@
+{
+  "controls": [
+    {
+      "family": "random",
+      "matching": 0,
+      "error": 2.736236531000353e-16
+    },
+    {
+      "family": "random",
+      "matching": 1,
+      "error": 2.009312145816937e-16
+    },
+    {
+      "family": "random",
+      "matching": 2,
+      "error": 1.9341738902052158e-16
+    },
+    {
+      "family": "zero_correction",
+      "matching": 0,
+      "error": 0.0
+    },
+    {
+      "family": "zero_correction",
+      "matching": 1,
+      "error": 0.0
+    },
+    {
+      "family": "zero_correction",
+      "matching": 2,
+      "error": 0.0
+    },
+    {
+      "family": "repeated_factors",
+      "matching": 0,
+      "error": 9.052255158671254e-17
+    },
+    {
+      "family": "repeated_factors",
+      "matching": 1,
+      "error": 1.6982321408900903e-16
+    },
+    {
+      "family": "repeated_factors",
+      "matching": 2,
+      "error": 1.9501952207978797e-16
+    },
+    {
+      "family": "large_correction",
+      "matching": 0,
+      "error": 1.2129388712567104e-14
+    },
+    {
+      "family": "large_correction",
+      "matching": 1,
+      "error": 1.3437036555734583e-14
+    },
+    {
+      "family": "large_correction",
+      "matching": 2,
+      "error": 1.913017163252133e-14
+    },
+    {
+      "family": "constant_only",
+      "matching": 0,
+      "error": 4.709724051868841e-16
+    },
+    {
+      "family": "constant_only",
+      "matching": 1,
+      "error": 2.0340693446583644e-16
+    },
+    {
+      "family": "constant_only",
+      "matching": 2,
+      "error": 1.85039341525437e-16
+    }
+  ],
+  "rows": [
+    {
+      "seed": 1001,
+      "source_sha256": "84f0e00dd65a74ca2f1a48005ad2d305dcfb6c82ed433fe5ac3391ddaef3a5c6",
+      "float64_replay": 9.138116482448737e-16,
+      "float32_replay": 1.0569964103979146e-07,
+      "cost_before": {
+        "variable_products": 1536,
+        "stored_floats": 848912,
+        "coefficient_multiplications": 828416,
+        "additions": 828160,
+        "matching_indices": 1,
+        "convention": "Floats include common1152x16writer; operationcounts exclude commonwriter equally. Two pair products reused by quartic and quadraticcorrections; exactconstantsretained."
+      },
+      "cost_after": {
+        "variable_products": 1536,
+        "stored_floats": 848912,
+        "coefficient_multiplications": 827392,
+        "additions": 828160,
+        "matching_indices": 1,
+        "convention": "Floats include common1152x16writer; operationcounts exclude commonwriter equally. Two pair products reused by quartic and quadraticcorrections; exactconstantsretained."
+      },
+      "timings": [
+        {
+          "batch": 1,
+          "baseline": [
+            9.503853973001241e-05,
+            8.533034007996321e-05,
+            8.58402019366622e-05,
+            8.465484715998172e-05,
+            8.572218008339406e-05,
+            8.538763970136642e-05,
+            8.574592880904675e-05
+          ],
+          "rewritten": [
+            8.131311740726232e-05,
+            8.037624880671501e-05,
+            8.126032073050737e-05,
+            8.046400733292103e-05,
+            8.086387068033218e-05,
+            8.080976083874703e-05,
+            8.112185634672641e-05
+          ],
+          "speedup": 1.0600800995820192
+        },
+        {
+          "batch": 64,
+          "baseline": [
+            0.0005821163300424814,
+            0.0005640560761094093,
+            0.0005601245909929275,
+            0.0005575837567448616,
+            0.0005584245081990957,
+            0.0005567301996052265,
+            0.0005573914851993323
+          ],
+          "rewritten": [
+            0.0005970376078039408,
+            0.0005531623959541321,
+            0.0005466110073029995,
+            0.0005488743074238301,
+            0.0005468584597110749,
+            0.0005487040150910615,
+            0.0005459026899188757
+          ],
+          "speedup": 1.0177153671937702
+        },
+        {
+          "batch": 2048,
+          "baseline": [
+            0.013341737911105156,
+            0.013224194757640362,
+            0.013182566035538912,
+            0.013174961786717176,
+            0.01318430993705988,
+            0.013190120924264193,
+            0.0132065718062222
+          ],
+          "rewritten": [
+            0.013162849005311728,
+            0.013043101876974106,
+            0.013017232995480299,
+            0.013084099628031254,
+            0.013054383918642998,
+            0.013054504059255123,
+            0.013040897902101278
+          ],
+          "speedup": 1.010397810150761
+        }
+      ]
+    },
+    {
+      "seed": 1002,
+      "source_sha256": "f24740146204f698cfc7520ad2031a111cec8bfac5da6f9a373f558b2b9c6b61",
+      "float64_replay": 1.0277824483017965e-15,
+      "float32_replay": 1.0467520183965462e-07,
+      "cost_before": {
+        "variable_products": 1536,
+        "stored_floats": 848912,
+        "coefficient_multiplications": 828416,
+        "additions": 828160,
+        "matching_indices": 1,
+        "convention": "Floats include common1152x16writer; operationcounts exclude commonwriter equally. Two pair products reused by quartic and quadraticcorrections; exactconstantsretained."
+      },
+      "cost_after": {
+        "variable_products": 1536,
+        "stored_floats": 848912,
+        "coefficient_multiplications": 827392,
+        "additions": 828160,
+        "matching_indices": 1,
+        "convention": "Floats include common1152x16writer; operationcounts exclude commonwriter equally. Two pair products reused by quartic and quadraticcorrections; exactconstantsretained."
+      },
+      "timings": [
+        {
+          "batch": 1,
+          "baseline": [
+            9.361143223941326e-05,
+            9.002973791211844e-05,
+            8.712383918464183e-05,
+            8.770724292844534e-05,
+            8.761106058955193e-05,
+            8.66627600044012e-05,
+            8.752538822591305e-05
+          ],
+          "rewritten": [
+            8.1744440831244e-05,
+            8.269544690847397e-05,
+            8.207466918975115e-05,
+            8.21712426841259e-05,
+            8.21338826790452e-05,
+            8.229377679526806e-05,
+            8.21857713162899e-05
+          ],
+          "speedup": 1.06620099353173
+        },
+        {
+          "batch": 64,
+          "baseline": [
+            0.0005856500007212162,
+            0.0005653264932334423,
+            0.000560083519667387,
+            0.0005581678822636604,
+            0.0005610855296254158,
+            0.0005563314072787762,
+            0.000564626231789589
+          ],
+          "rewritten": [
+            0.0006005903705954552,
+            0.0005512137897312642,
+            0.0005508149974048137,
+            0.0005498592276126146,
+            0.0005481360014528037,
+            0.0005408712197095156,
+            0.0005454808939248324
+          ],
+          "speedup": 1.0204166838511444
+        },
+        {
+          "batch": 2048,
+          "baseline": [
+            0.01341918483376503,
+            0.013382204808294773,
+            0.01331419637426734,
+            0.013279289938509464,
+            0.013523362576961517,
+            0.013403145130723715,
+            0.013288686983287334
+          ],
+          "rewritten": [
+            0.013288848102092743,
+            0.013150014914572239,
+            0.013086272869259119,
+            0.013179469853639603,
+            0.01335525419563055,
+            0.013275472912937403,
+            0.013196843210607767
+          ],
+          "speedup": 1.0140459043673422
+        }
+      ]
+    }
+  ],
+  "scope": "Exact real-arithmetic rewrite, compiled constants in float64 then cast. Warm eagerCPU2threads7rounds. No source mutation, fitting, newaccuracyclaim, candidateexportorqueuedhelperchange."
+}

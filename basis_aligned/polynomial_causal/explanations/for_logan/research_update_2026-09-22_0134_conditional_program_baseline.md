@@ -88,3 +88,13 @@ This does not invalidate the storage and speed savings. It means that “slightl
 A broader response check now uses **2,494 pairs** of states with the same token ID and position in different documents, covering all 16 outputs. CP parents have **11.60% / 11.98%** pooled error in the predicted changes; the lean conditional programs have **11.74% / 12.10%**. Smaller-coordinate response errors remain about **42–73%** across the tested programs.
 
 Thus most response error already exists in the parents. Compression adds little to it, but its small improvement in pooled output values does not improve these finite changes. This test compares observed contexts, rather than isolating a semantic variable or installing a model intervention. [Full explanation and pairing protocol](../../direct_tensor_match/ALL_FEATURE_MATCHED_RESPONSES_INTERPRETATION_V1.md).
+
+## 02:08 exact graph simplification
+
+We can make the lean graph slightly cheaper without changing its mathematical function. For each atom, the existing pair features p and q and correction coefficients a,b satisfy
+
+$$
+pq+a p+b q=(p+b)(q+a)-ab.
+$$
+
+The final constant is folded into the output bias. This eliminates **1,024 coefficient multiplications per state**, while leaving variable products, additions and storage unchanged. Native replay agrees to about **1e-7 in float32**. Measured warm CPU speedup is only **1–7%**, depending on batch size, so the practical gain is modest. This demonstrates an exact second-stage graph edit; it does not repair the approximation's component errors. [Derivation, accounting and tests](../../direct_tensor_match/SHIFTED_PAIR_CP_INTERPRETATION_V1.md).
