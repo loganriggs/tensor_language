@@ -1,0 +1,192 @@
+{
+  "checks": {
+    "unseen_fallback": true,
+    "planted_token_signal": true,
+    "planted_position_signal": true
+  },
+  "rows": [
+    {
+      "seed": 25001,
+      "sha256": "72f3e54560aac1242d8de49d5c66f23f8f4ff8c947ff4c556b6be26ac85596a6",
+      "seen_token_fraction": 0.59307861328125,
+      "unseen_error_energy_share": 0.279035532514451,
+      "models": {
+        "constant": {
+          "error_energy_over_original": 0.9678736454132876,
+          "error_energy_over_constant": 1.0,
+          "per_output_energy_over_original": [
+            0.7048494966721062,
+            0.8761571341159963,
+            0.9927410943506945,
+            0.9975228995798976,
+            0.999092101491329,
+            1.0001189983586494,
+            1.002861588983362,
+            0.9785473992305628,
+            0.9764789702238925,
+            1.0198026350915208,
+            0.9907306980390617,
+            1.0734736087290087
+          ],
+          "documents_improved": 238,
+          "top10_predicted_risk_error_share": null
+        },
+        "position": {
+          "error_energy_over_original": 0.9701481299051053,
+          "error_energy_over_constant": 1.002349980808545,
+          "per_output_energy_over_original": [
+            0.7017125567055692,
+            0.8678418459548676,
+            0.996286899176787,
+            1.0023185572714999,
+            1.0033720999821463,
+            1.0070634262817202,
+            1.0017236665797042,
+            0.9791571542359729,
+            0.9819763217154645,
+            1.0268169052498741,
+            0.9919371018957366,
+            1.0782129691920588
+          ],
+          "documents_improved": 229,
+          "top10_predicted_risk_error_share": 0.10713092146982857
+        },
+        "token": {
+          "error_energy_over_original": 0.9088394993789307,
+          "error_energy_over_constant": 0.9390063503494313,
+          "per_output_energy_over_original": [
+            0.6459208288182555,
+            0.8662128833063268,
+            0.9523220543134987,
+            0.9056944494808409,
+            0.9195157003561397,
+            0.956869561218793,
+            0.9161397993504273,
+            0.9224162992904495,
+            0.8743226546710289,
+            0.9970149696173616,
+            0.9332314757088069,
+            1.031983460515627
+          ],
+          "documents_improved": 228,
+          "top10_predicted_risk_error_share": 0.3029881313852144
+        },
+        "additive": {
+          "error_energy_over_original": 0.9111568121935134,
+          "error_energy_over_constant": 0.9414005810690756,
+          "per_output_energy_over_original": [
+            0.6431544866831159,
+            0.8573094805007924,
+            0.9566168752423833,
+            0.9106267610486506,
+            0.9234644091266457,
+            0.9629494384802001,
+            0.9156499313113029,
+            0.9230323941673243,
+            0.8797876212867075,
+            1.004656300725903,
+            0.9345278044730086,
+            1.036315327176524
+          ],
+          "documents_improved": 225,
+          "top10_predicted_risk_error_share": 0.28114888005054267
+        }
+      }
+    },
+    {
+      "seed": 25002,
+      "sha256": "2a2e45ffeb6055d7eaadbd5a927fed1c96346e0ae300f7626c0862da03d98244",
+      "seen_token_fraction": 0.59307861328125,
+      "unseen_error_energy_share": 0.2761144007966542,
+      "models": {
+        "constant": {
+          "error_energy_over_original": 0.9675937079314438,
+          "error_energy_over_constant": 1.0,
+          "per_output_energy_over_original": [
+            0.7103849315815445,
+            0.9043551116395689,
+            0.9886352178664912,
+            0.9959247239203703,
+            0.9935016023783666,
+            1.0005508219408312,
+            0.995429024156089,
+            0.9794355817436701,
+            0.9746594243415484,
+            1.0074381565963213,
+            1.0006165654405905,
+            1.0624838996137314
+          ],
+          "documents_improved": 238,
+          "top10_predicted_risk_error_share": null
+        },
+        "position": {
+          "error_energy_over_original": 0.9700224431967772,
+          "error_energy_over_constant": 1.0025100775722546,
+          "per_output_energy_over_original": [
+            0.7068801018843388,
+            0.8921071595014256,
+            0.9922335709147458,
+            0.9997777982796889,
+            0.9980523339880554,
+            1.007512641277521,
+            0.9950224081149571,
+            0.9809652983782766,
+            0.9823288665129161,
+            1.0134680625610633,
+            1.0026408951155101,
+            1.0682141186740113
+          ],
+          "documents_improved": 230,
+          "top10_predicted_risk_error_share": 0.10589997484279308
+        },
+        "token": {
+          "error_energy_over_original": 0.9030664432529423,
+          "error_energy_over_constant": 0.9333116119404598,
+          "per_output_energy_over_original": [
+            0.647728284861588,
+            0.884760473870166,
+            0.9505947163799512,
+            0.9007764183218715,
+            0.911125167766617,
+            0.9549999575651853,
+            0.9016388584749623,
+            0.9049729946452998,
+            0.8686785720040419,
+            0.9902390372004265,
+            0.9361491989074804,
+            1.0084010612553878
+          ],
+          "documents_improved": 230,
+          "top10_predicted_risk_error_share": 0.30689675249963994
+        },
+        "additive": {
+          "error_energy_over_original": 0.9055592467075372,
+          "error_energy_over_constant": 0.9358879034501723,
+          "per_output_energy_over_original": [
+            0.6445712543418269,
+            0.8721734539647691,
+            0.9548310530862518,
+            0.9045607069101338,
+            0.9152343828862427,
+            0.9613320810044133,
+            0.9016916460851536,
+            0.9068208944232542,
+            0.8762925398888639,
+            0.9966634386104323,
+            0.9378597131464455,
+            1.0144077669309441
+          ],
+          "documents_improved": 227,
+          "top10_predicted_risk_error_share": 0.28420619581471407
+        }
+      }
+    }
+  ],
+  "predictions": {
+    "token": false,
+    "position": false,
+    "risk": false
+  },
+  "seconds": 1.4038105830550194,
+  "scope": "Calibration-only residual and risk tables; opened evaluation; descriptive not causal; no candidate export or evaluation refit."
+}
