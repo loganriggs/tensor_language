@@ -536,3 +536,7 @@ QuarticGaussianbias47,312coefficients/26products18.38%error,27.84%variationuncha
 ### 2026-09-22 01:59 — Pure quartic conditional programs and failed harmonic truncation
 
 MLP16→17 bias-free self term, fixed 16-output subspace. Lean conditional rank256: 848,912 floats, 1,536 products; opened-panel value errors 7.24/7.46%, native finite-removal tests pending. Exact sphere harmonic degree0/2 truncation fails (138.47% value error); algebra controls pass. These are path approximations, not identified circuits. [Canonical review and evidence links](../polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-22_0159.md). Broader midpoint target remains separate.
+
+### 22 September 2026, 03:17 — Selected last-MLP quadratic shared output blocks
+
+Native MLP17, all1152input coordinates, fixed16outputreaders; output-SVD block terms improve over independent fixed-output factors but remain worse than exact native4608products at similar storage. Natural4608centerederror12.92%; equal-outputvariant worst18.51%. Scope is coefficient/Gaussian screen, no OOD/causal adoption. [Path explanation](../polynomial_causal/explanations/for_logan/research_update_2026-09-22_0317_shared_output_blocks.md).

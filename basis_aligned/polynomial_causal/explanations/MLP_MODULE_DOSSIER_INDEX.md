@@ -71,3 +71,5 @@ The live regional chain is [native attention8 scope](../TYPED_FACE_NATIVE8_SCOPE
 ## 22 September 01:59 — Last-two-MLP pure quartic branch
 
 [Current mathematical review](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-22_0159.md) indexes conditional CP programs, graph pruning, native residual audits and the failed harmonic truncation. This selects only MLP16 self contribution inside both MLP17 inputs and 16 fixed output directions. It is neither a whole-layer replacement nor a semantic circuit. Native finite effects remain queued; preserve the separate broader midpoint baseline.
+
+22 September 03:17: [MLP17 selected-output quadratic block-term baselines](for_logan/research_update_2026-09-22_0317_shared_output_blocks.md). Shared output directions help; native channel pruning and fixed-basis cores remain inaccurate. Separate from the MLP16→17 quartic branch and its intervention results.

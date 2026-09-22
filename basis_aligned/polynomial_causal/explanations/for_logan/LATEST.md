@@ -1,3 +1,5 @@
+[22 September 03:17 — Shared output directions improve quadratic block terms; no native adoption yet](research_update_2026-09-22_0317_shared_output_blocks.md).
+
 [22 September 03:07 — Sparse quadratic baseline: distinguish mean prediction from changing signal](research_update_2026-09-22_0307_sparse_quadratic_baseline.md).
 
 [22 September02:41 — Conditional programs fail native-removal fidelity and retention](research_update_2026-09-22_0241_conditional_removal_results.md).
