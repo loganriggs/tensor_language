@@ -54,3 +54,5 @@ Both reachable graphs are exported in the existing rational JSON review format, 
 The earlier reader edit was approximate relative to its CP parent. This subsequent product rewrite is exact relative to that edited candidate. It inherits the candidate's native approximation and intervention failures. It supplies a concrete example of edits composing usefully: sharing linear features can expose shared higher-degree computations, which a later graph pass can cache. It does not identify their semantics or establish causal adoption.
 
 [Plan and tie-break refinement](QUARTIC_PRODUCT_REASSOCIATION_PLAN_V1.md) · [Controls and native prices](QUARTIC_PRODUCT_REASSOCIATION_V1.json) · [Compiler](quartic_product_reassociation.py) · [Export checks](QUARTIC_PRODUCT_DAG_EXPORT_V1.json) · [Seed1001graph](QUARTIC_PRODUCT_DAG_SEED1001_V1.graph.json) · [Seed1002graph](QUARTIC_PRODUCT_DAG_SEED1002_V1.graph.json).
+
+Follow-up03:54: [float32 value and finite-response preservation](PRODUCT_DAG_RESPONSE_REPLAY_INTERPRETATION_V1.md) passes for both exported graphs on16,384openedstates/2,494pairs. This preserves the source approximation; no native adoption follows.

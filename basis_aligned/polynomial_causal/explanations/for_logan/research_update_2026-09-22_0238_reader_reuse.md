@@ -102,3 +102,7 @@ flowchart LR
 ```
 
 Both graphs were exported and reloaded; float64 replay errors are below $7.5\times10^{-16}$. Dense input projections and output coefficients are unchanged, so this modest operation-count saving is not a demonstrated runtime improvement. The rewrite also preserves the candidate's existing native-fidelity failures. It is concrete progress on graph simplification, not a newly identified circuit. [Exact controls, accounting, and graph exports](../../direct_tensor_match/QUARTIC_PRODUCT_REASSOCIATION_INTERPRETATION_V1.md).
+
+## 03:54 precision check: finite changes survive the exported graph
+
+The exported graphs also preserve their source candidates in float32 on all16,384openedstates and2,494matched pairs. The largest per-output relative response difference is **1.27e-6**; both candidates pass all registered pooled and per-output numerical thresholds. This is a CPU transformation-preservation check, not new native accuracy or OOD evidence. It leaves the source candidates' much larger component-fidelity failures unchanged. [All coordinate results and precise comparison](../../direct_tensor_match/PRODUCT_DAG_RESPONSE_REPLAY_INTERPRETATION_V1.md).
