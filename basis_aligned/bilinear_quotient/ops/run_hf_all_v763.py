@@ -49,7 +49,7 @@ def main() -> None:
     if os.environ.get("BQLIB_DRYRUN") or os.environ.get("BQLIB_NO_MODEL"):
         print(json.dumps(plan, indent=2, sort_keys=True)); return
     t0 = time.perf_counter()
-    model = HB.load(REPO, "cuda"); dev = "cuda"; L, H, D, hd, kv = HB.geometry(model); rot = None; forwards = 0; backwards = 0; ROTARY = HB.family(model) != "opt"
+    model = HB.load(REPO, "cuda"); dev = "cuda"; L, H, D, hd, kv = HB.geometry(model); rot = None; forwards = 0; backwards = 0; ROTARY = HB.family(model) == "llama"
     LAYERS = tuple(range(L)); ALL = [(l, h) for l in LAYERS for h in range(H)]
     allfit = torch.cat([torch.load(p, map_location="cpu").long() for p in FIT_ROWS]); ev = torch.load(EVAL_ROWS, map_location="cpu").long()
     gen = torch.Generator().manual_seed(703); perm = torch.randperm(allfit.shape[0], generator=gen); val = allfit[perm[:N_VAL]]; fit = allfit[perm[N_VAL:]]
