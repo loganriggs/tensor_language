@@ -1,0 +1,9 @@
+Profile the exact shared-producer gradient before a native training schedule
+
+22September2026. Claim: same last-two-MLP purequartic target and16fixedwriters, same selected selfterm; move144quadraticproducers eachwith4products over1152coordinates.512selectedrootpairs frozen from mixedsupportexchange start1101. No outputs/interventions omitted relative to that comparison; normalization remains outside polynomial.
+
+This run performs no updates and exports no candidate. Its purpose is to make the higher-information comparison (learn shared producers vs fixed producers vs mixedCP) computationally concrete. Reuse cached exact coefficient/GaussianGrams to solve the initial16-outputreadout withridge1e-6, fixedlambda34445.8388. Replay against savedphysicalreadout<1e-4; normalresidual<1e-8; streamedfixedreadoutloss versuscache<1e-6. Fullgradient chunk8, measure peakallocatedmemory and elapsedCUDA-synchronizedtime.
+
+Check two central finite differences of the fully re-profiled ridgeobjective along the gradient direction scaled to factor norm, relative steps1e-4 and3e-5. Both relativeerrors<1e-3. Resourcesprediction gradient<180seconds and peak<20GB. Failure is an instrument/resource result, not evidence against learnable shared circuits. Objective teacherconstant cancels; finite differences must refitC for eachperturbation. No evaluation labels enter.
+
+CPUpreflight: fiveplantedfamily exactgradient controls; native144x4x1152factor shapes,2x512rectangular self-Grams, gradients and16-outputreadoutcontraction. Coefficient/Gaussianforward branch already passed actual512/768native runs. The separate numerical control usesridge.01 due cancellationfixture conditioning; nativeprofile retains1e-6 explicitly. Postprofile choose a bounded optimization budget frommeasuredtime. Finalarchitecture remains1088products1353728coefficients1024indices iftrained.
