@@ -1,0 +1,1597 @@
+{
+  "rows": [
+    {
+      "optimizer": "adam",
+      "seed": 25001,
+      "sha256": "72f3e54560aac1242d8de49d5c66f23f8f4ff8c947ff4c556b6be26ac85596a6",
+      "modes": {
+        "value": {
+          "local": {
+            "per_output": [
+              0.4330824951427269,
+              0.4011475663088545,
+              0.4405540504338251,
+              0.38003603874852665,
+              0.5111168584772724,
+              0.536611440524061,
+              0.5843103907444561,
+              0.45784287428643167,
+              0.6192430067695505,
+              0.5306570190854237,
+              0.5416792526323964,
+              0.5026720592640355
+            ],
+            "small_rms": 0.4998650214706658
+          },
+          "shared": {
+            "per_output": [
+              0.3700325892259315,
+              0.3287871734248749,
+              0.4083288133363355,
+              0.3485739101783364,
+              0.4406231981725687,
+              0.4841330237718765,
+              0.5037593248818277,
+              0.4105749841329846,
+              0.5467083547369682,
+              0.5070014774660896,
+              0.5114238629953345,
+              0.47277887275207303
+            ],
+            "small_rms": 0.44955115847966914
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 22.77934229795609,
+              "orthogonality": 2.369050956000383e-16,
+              "qr_energy_agreement": 1.2968685461129615e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 30.56831274810483,
+              "orthogonality": 7.456587966666006e-16,
+              "qr_energy_agreement": 1.1169306948752868e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 17.891646278637765,
+              "orthogonality": 4.205359684996826e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 22.3414167791044,
+              "orthogonality": 1.3880992559109283e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 20.229807636794714,
+              "orthogonality": 8.874913351769906e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 22.222738950368637,
+              "orthogonality": 1.0373356216032206e-16,
+              "qr_energy_agreement": 1.3963425833335215e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 22.041512124697263,
+              "orthogonality": 7.45939926019252e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 20.82389860768138,
+              "orthogonality": 1.8247276236256998e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 24.395063375760614,
+              "orthogonality": 4.417005844886273e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 26.768205739517867,
+              "orthogonality": 1.6723286768941274e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 27.360525151086275,
+              "orthogonality": 1.4557265301061486e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 23.325014788641344,
+              "orthogonality": 7.549979183180511e-17,
+              "qr_energy_agreement": 8.631959589599775e-17
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 144.0265594492605,
+            "orthogonality": 9.775048383522423e-16,
+            "qr_energy_agreement": 2.792326737188217e-17
+          }
+        },
+        "response": {
+          "local": {
+            "per_output": [
+              0.43858506675750053,
+              0.45446980763904027,
+              0.42334078601057296,
+              0.3901993430843199,
+              0.5899002928627037,
+              0.5546166804271508,
+              0.5867230811742078,
+              0.43104862095249824,
+              0.6350363809150751,
+              0.5331834759662138,
+              0.6340153131064716,
+              0.5628495642283252
+            ],
+            "small_rms": 0.5261758573227061
+          },
+          "shared": {
+            "per_output": [
+              0.37283586326661144,
+              0.37637999739569117,
+              0.38592555908661236,
+              0.36201217674170644,
+              0.48220236138593414,
+              0.4822933070714471,
+              0.49555340665646097,
+              0.3973958264462269,
+              0.5577028164471323,
+              0.49960796769697535,
+              0.5872036410608458,
+              0.5275082632965041
+            ],
+            "small_rms": 0.46663655080098515
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.649910510374186,
+              "orthogonality": 1.0387317193819606e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 9.789167075983519,
+              "orthogonality": 1.2987424696960136e-16,
+              "qr_energy_agreement": 1.137728748014619e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 5.7057475297179625,
+              "orthogonality": 1.302006492773147e-16,
+              "qr_energy_agreement": 2.602173233625312e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 6.623174528001798,
+              "orthogonality": 1.3993702275062632e-16,
+              "qr_energy_agreement": 1.6772548781488196e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 6.910892360736699,
+              "orthogonality": 1.126063910345848e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.443631256280232,
+              "orthogonality": 1.1509743398989406e-16,
+              "qr_energy_agreement": 1.0400327038265676e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.68756072514837,
+              "orthogonality": 1.623733298482558e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 5.923964873084694,
+              "orthogonality": 1.835681108307396e-16,
+              "qr_energy_agreement": 1.1262530065273642e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.6670558437149,
+              "orthogonality": 1.705117043616419e-16,
+              "qr_energy_agreement": 2.044382264485541e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.732088238884132,
+              "orthogonality": 5.598696260624434e-17,
+              "qr_energy_agreement": 1.3706784286074974e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 8.171078202668776,
+              "orthogonality": 2.228714582554444e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.505110774585084,
+              "orthogonality": 1.0353456830459389e-16,
+              "qr_energy_agreement": 2.4889214003126108e-16
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 39.168044427432896,
+            "orthogonality": 2.229655468415745e-16,
+            "qr_energy_agreement": 1.137728748014619e-16
+          }
+        }
+      }
+    },
+    {
+      "optimizer": "adam",
+      "seed": 25002,
+      "sha256": "2a2e45ffeb6055d7eaadbd5a927fed1c96346e0ae300f7626c0862da03d98244",
+      "modes": {
+        "value": {
+          "local": {
+            "per_output": [
+              0.4327885187802112,
+              0.403390991887822,
+              0.44073519582980614,
+              0.3832447508161038,
+              0.5140006235100971,
+              0.5064837381201588,
+              0.5774534081601467,
+              0.4807535261454118,
+              0.6116099188926652,
+              0.5225799928736719,
+              0.5404091157281409,
+              0.5126660031514948
+            ],
+            "small_rms": 0.4982032751657482
+          },
+          "shared": {
+            "per_output": [
+              0.36998245267408,
+              0.33343728849821047,
+              0.410048943062396,
+              0.3497332099305731,
+              0.4529786604468365,
+              0.4687153029030956,
+              0.5199580042912724,
+              0.42862994745589067,
+              0.5545796927991784,
+              0.5006094210108331,
+              0.5030697975270556,
+              0.47270897273686746
+            ],
+            "small_rms": 0.45204958952908214
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 25.564439669191454,
+              "orthogonality": 4.188780998347039e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 26.061102973393957,
+              "orthogonality": 3.989286962762627e-16,
+              "qr_energy_agreement": 1.1169306948752868e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 18.608838187429416,
+              "orthogonality": 5.338303217442931e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 23.46137083289871,
+              "orthogonality": 1.0180997712422831e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 20.814935838338116,
+              "orthogonality": 5.277676911543629e-16,
+              "qr_energy_agreement": 1.7553310255715788e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 20.22834293545209,
+              "orthogonality": 1.2795096052033193e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 22.404816351432803,
+              "orthogonality": 4.871935198433717e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 23.573654899957656,
+              "orthogonality": 9.754358474569999e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 25.039365318321313,
+              "orthogonality": 7.191615815093872e-17,
+              "qr_energy_agreement": 1.474348003930222e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 23.809490017982355,
+              "orthogonality": 1.153640468498935e-16,
+              "qr_energy_agreement": 9.546407320929767e-17
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 27.786326476678493,
+              "orthogonality": 1.3397780433466328e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 26.396905878200663,
+              "orthogonality": 1.8674868376237145e-16,
+              "qr_energy_agreement": 1.726391917919955e-16
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 112.8307118168476,
+            "orthogonality": 1.9763050090497674e-15,
+            "qr_energy_agreement": 5.584653474376434e-17
+          }
+        },
+        "response": {
+          "local": {
+            "per_output": [
+              0.4360315675121808,
+              0.47161959218738464,
+              0.4203505080851952,
+              0.39292726575090836,
+              0.590378031217557,
+              0.5273753803406017,
+              0.577522446330277,
+              0.44694041632960657,
+              0.6285142835457582,
+              0.5293991503951231,
+              0.634500094367727,
+              0.5759063699820669
+            ],
+            "small_rms": 0.5254479088134146
+          },
+          "shared": {
+            "per_output": [
+              0.37681801071123155,
+              0.3876634817644632,
+              0.3823782625878052,
+              0.36283127098437756,
+              0.49974118170082665,
+              0.47714297986429616,
+              0.5109904668443181,
+              0.4065021313552234,
+              0.5596106087962206,
+              0.4925861329990972,
+              0.5774389737689843,
+              0.5271708392487675
+            ],
+            "small_rms": 0.46913451883934315
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 8.392586719501354,
+              "orthogonality": 1.6718894677412723e-16,
+              "qr_energy_agreement": 1.563665268114903e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 8.59991633368909,
+              "orthogonality": 9.984218983991385e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 5.495198962090575,
+              "orthogonality": 6.647684901936471e-17,
+              "qr_energy_agreement": 1.301086616812656e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.400557723082266,
+              "orthogonality": 1.1297906447557603e-16,
+              "qr_energy_agreement": 1.6772548781488196e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.024976816509026,
+              "orthogonality": 1.165011708086722e-16,
+              "qr_energy_agreement": 1.2138715839341644e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 6.864339099978128,
+              "orthogonality": 1.1110035013967791e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.508152474992391,
+              "orthogonality": 2.370077491136385e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 6.621012344139394,
+              "orthogonality": 2.5530253744991435e-16,
+              "qr_energy_agreement": 1.1262530065273642e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.692773908857318,
+              "orthogonality": 1.3296681379876043e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.410637554986471,
+              "orthogonality": 8.358728410381149e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 8.864496523409917,
+              "orthogonality": 1.5241943574656107e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.773871718819468,
+              "orthogonality": 1.1002264188130934e-16,
+              "qr_energy_agreement": 0.0
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 34.24091791726143,
+            "orthogonality": 2.5206544594333846e-16,
+            "qr_energy_agreement": 2.8443218700365475e-17
+          }
+        }
+      }
+    },
+    {
+      "optimizer": "muon",
+      "seed": 25001,
+      "sha256": "b574ccaa5d9cf37b73640a55a49f8cb95226af1b7309637de2a705a8ebe1884e",
+      "modes": {
+        "value": {
+          "local": {
+            "per_output": [
+              0.5324344281989285,
+              0.4791688437856208,
+              0.4679423986394509,
+              0.41440440008310625,
+              0.559053095669646,
+              0.596014643935471,
+              0.6650339466219897,
+              0.5425965725148275,
+              0.6621073811136444,
+              0.5831085852705203,
+              0.587980024387659,
+              0.5719475130082842
+            ],
+            "small_rms": 0.5597240078618717
+          },
+          "shared": {
+            "per_output": [
+              0.4551856819203646,
+              0.4329766105822343,
+              0.4511050439289285,
+              0.39678809410607335,
+              0.5173044746827886,
+              0.569937627829863,
+              0.6096050557356393,
+              0.5023392507491568,
+              0.6310168830451547,
+              0.5661067951068218,
+              0.5749959971497801,
+              0.5560694261641645
+            ],
+            "small_rms": 0.5268212839118874
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1944095393497665,
+              "orthogonality": 9.821618733955965e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.132938476526427,
+              "orthogonality": 9.33209409170459e-17,
+              "qr_energy_agreement": 1.1169306948752868e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.7687027881252282,
+              "orthogonality": 7.930900863838383e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.058606387835407,
+              "orthogonality": 8.795591707580753e-17,
+              "qr_energy_agreement": 1.1051849299829137e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1095365606981582,
+              "orthogonality": 1.1997072507785485e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1561923446846634,
+              "orthogonality": 5.015535136369182e-17,
+              "qr_energy_agreement": 1.3963425833335215e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1340445031958606,
+              "orthogonality": 1.0447853451421954e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.2253649836147054,
+              "orthogonality": 1.5326148651010852e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.2269414964776544,
+              "orthogonality": 1.1697360132130878e-16,
+              "qr_energy_agreement": 2.948696007860444e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.170981722106144,
+              "orthogonality": 5.962424292052138e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.2125906365526669,
+              "orthogonality": 1.1553657533633906e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.2513666355797741,
+              "orthogonality": 8.081631385035569e-17,
+              "qr_energy_agreement": 0.0
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 3.0225156948935474,
+            "orthogonality": 2.001761830560267e-16,
+            "qr_energy_agreement": 1.1169306948752868e-16
+          }
+        },
+        "response": {
+          "local": {
+            "per_output": [
+              0.45716446041751796,
+              0.5179735333237696,
+              0.4513017648116085,
+              0.4203428423488737,
+              0.6074430203175855,
+              0.5873980454154547,
+              0.6558182548348552,
+              0.5214052016767458,
+              0.6844979405132522,
+              0.5793714702132703,
+              0.6868222401401933,
+              0.6421626893057372
+            ],
+            "small_rms": 0.5745975553725221
+          },
+          "shared": {
+            "per_output": [
+              0.42198722707385666,
+              0.47375368717302496,
+              0.41983954608789714,
+              0.3992804775407113,
+              0.5483084409558543,
+              0.5466152542737898,
+              0.5766328042582592,
+              0.46381755703746935,
+              0.6438323305628275,
+              0.5432824865804436,
+              0.657637561609537,
+              0.6143830229497512
+            ],
+            "small_rms": 0.5326739161493598
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.093217248414561,
+              "orthogonality": 3.736459579948332e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1144277105347484,
+              "orthogonality": 4.830115977844429e-17,
+              "qr_energy_agreement": 1.137728748014619e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.131439620027712,
+              "orthogonality": 4.8414298481246704e-17,
+              "qr_energy_agreement": 1.301086616812656e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1063644363153542,
+              "orthogonality": 4.456563151079921e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1107785166400992,
+              "orthogonality": 1.6926828874020156e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1520939959443763,
+              "orthogonality": 4.3846972741257315e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1264755292489619,
+              "orthogonality": 7.360407036986636e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1712432237086863,
+              "orthogonality": 4.527726778479945e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1059783706272752,
+              "orthogonality": 4.5633223508533424e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1757753675569422,
+              "orthogonality": 3.874535061093016e-17,
+              "qr_energy_agreement": 1.3706784286074974e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1139551696465175,
+              "orthogonality": 5.0639813254375677e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1464171946579529,
+              "orthogonality": 8.223365450164782e-17,
+              "qr_energy_agreement": 0.0
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 1.8450101981094333,
+            "orthogonality": 1.3842460745038008e-16,
+            "qr_energy_agreement": 5.688643740073095e-17
+          }
+        }
+      }
+    },
+    {
+      "optimizer": "muon",
+      "seed": 25002,
+      "sha256": "6bab9cfd9c8508efe28b8623eda9edbc61278546890066c5c52417caba95bbb4",
+      "modes": {
+        "value": {
+          "local": {
+            "per_output": [
+              0.529608940388793,
+              0.48625556948953064,
+              0.4701644727104929,
+              0.4147604320331162,
+              0.5690827827387482,
+              0.5948636158714635,
+              0.6676991323600049,
+              0.5438585798305874,
+              0.6668583188608703,
+              0.581919087022117,
+              0.5843114478610971,
+              0.5731777680975191
+            ],
+            "small_rms": 0.5614427575825771
+          },
+          "shared": {
+            "per_output": [
+              0.44695189536168245,
+              0.4257380627222874,
+              0.4523518171314573,
+              0.39523814164208354,
+              0.5255227495379968,
+              0.5662124865332345,
+              0.6196760365302925,
+              0.502995395349089,
+              0.6406806196128364,
+              0.5689082505940048,
+              0.5666769687160453,
+              0.5572370723692509
+            ],
+            "small_rms": 0.5276829811943932
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.2475924714659758,
+              "orthogonality": 4.602035885277568e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1010712433435734,
+              "orthogonality": 5.676334972644925e-17,
+              "qr_energy_agreement": 1.1169306948752868e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1390024407609034,
+              "orthogonality": 6.059404957142024e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.2556148917356227,
+              "orthogonality": 7.45977351508721e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.0911943823160184,
+              "orthogonality": 6.836857097239545e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.3865964487296485,
+              "orthogonality": 9.433465605639095e-17,
+              "qr_energy_agreement": 1.3963425833335215e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1940000770738644,
+              "orthogonality": 1.6290240552871273e-16,
+              "qr_energy_agreement": 1.1750459574391213e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1796443390246596,
+              "orthogonality": 4.1245029220305634e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1068519454388515,
+              "orthogonality": 6.02281395817064e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.184120332913151,
+              "orthogonality": 1.0169604803120772e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1848833427233116,
+              "orthogonality": 1.353503751899222e-16,
+              "qr_energy_agreement": 1.5299822153246269e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.3778989292621149,
+              "orthogonality": 4.3341923023038043e-17,
+              "qr_energy_agreement": 0.0
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 2.8706355995196264,
+            "orthogonality": 1.7120545700034882e-16,
+            "qr_energy_agreement": 1.1169306948752868e-16
+          }
+        },
+        "response": {
+          "local": {
+            "per_output": [
+              0.4596460982169805,
+              0.5155853698908657,
+              0.4529678108237076,
+              0.4210952475033075,
+              0.6310258482487056,
+              0.5887870128327988,
+              0.6629168560115762,
+              0.5218372917683222,
+              0.686481016871271,
+              0.5776561510671675,
+              0.684868909996045,
+              0.6442479912771092
+            ],
+            "small_rms": 0.5777315014059253
+          },
+          "shared": {
+            "per_output": [
+              0.4193813090930148,
+              0.47004820131038416,
+              0.4235558424679001,
+              0.4061960434358999,
+              0.5752514803788977,
+              0.5512375706377598,
+              0.6054298037911026,
+              0.47343541256128097,
+              0.6466529755786325,
+              0.5551347733700797,
+              0.6501609449475544,
+              0.6111337813224744
+            ],
+            "small_rms": 0.5392288223277494
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1140394561069402,
+              "orthogonality": 3.1849989112517884e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.089666280033262,
+              "orthogonality": 6.892047912754685e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1249058235617644,
+              "orthogonality": 3.9342652579163725e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1221277892226575,
+              "orthogonality": 3.82536218619435e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.100950248799154,
+              "orthogonality": 3.139317718473109e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1249618869345746,
+              "orthogonality": 3.986442571712434e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.095406925560208,
+              "orthogonality": 4.3837910498529747e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1238275993143592,
+              "orthogonality": 6.925286862812454e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1187418546734997,
+              "orthogonality": 6.084391457868336e-17,
+              "qr_energy_agreement": 2.044382264485541e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1287780334942656,
+              "orthogonality": 3.962664205289906e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1002194760165074,
+              "orthogonality": 3.994469143283295e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.171372219913577,
+              "orthogonality": 4.0245682191325355e-17,
+              "qr_energy_agreement": 0.0
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 1.800148272191148,
+            "orthogonality": 1.2669837843177345e-16,
+            "qr_energy_agreement": 5.688643740073095e-17
+          }
+        }
+      }
+    },
+    {
+      "optimizer": "lbfgs",
+      "seed": 25001,
+      "sha256": "7e7c18d88c3ed4bd6018606cd72127f0543c2057e5b0985228029b50377c48bc",
+      "modes": {
+        "value": {
+          "local": {
+            "per_output": [
+              0.5141478524985537,
+              0.4268797557227638,
+              0.45433117093673325,
+              0.3973536368400882,
+              0.5190698020451341,
+              0.5626202976952315,
+              0.5472778577868184,
+              0.5242675910155385,
+              0.6408271983126104,
+              0.5408218657963734,
+              0.5618023970576214,
+              0.5264107601198706
+            ],
+            "small_rms": 0.5217840945086649
+          },
+          "shared": {
+            "per_output": [
+              0.3794822302427519,
+              0.3741375042097122,
+              0.41357493985907073,
+              0.3622989406907602,
+              0.44043414003674597,
+              0.5040593846852389,
+              0.4887367828424441,
+              0.4469414208631285,
+              0.5515653459772809,
+              0.5209148619736066,
+              0.5243962587742176,
+              0.4945432747248829
+            ],
+            "small_rms": 0.4626112362734049
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.7901762833590107,
+              "orthogonality": 1.895778483523586e-16,
+              "qr_energy_agreement": 2.593737092225923e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.44742728330155,
+              "orthogonality": 4.96029920945965e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1196070179108342,
+              "orthogonality": 2.1318498654799683e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 8.536525286273628,
+              "orthogonality": 2.960701954084371e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.4453799351789562,
+              "orthogonality": 2.502991593308033e-16,
+              "qr_energy_agreement": 1.7553310255715788e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 9.818384364327793,
+              "orthogonality": 1.2338456649533395e-16,
+              "qr_energy_agreement": 1.3963425833335215e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.476725881925545,
+              "orthogonality": 5.071856371625907e-16,
+              "qr_energy_agreement": 1.1750459574391213e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 4.432207401609946,
+              "orthogonality": 2.1900515771538848e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.917364305307094,
+              "orthogonality": 2.8541219895118476e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.4650638620198524,
+              "orthogonality": 1.7968146495895803e-16,
+              "qr_energy_agreement": 9.546407320929767e-17
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 4.531548081024984,
+              "orthogonality": 2.0566283614368453e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.112255093866867,
+              "orthogonality": 1.9088491099880606e-16,
+              "qr_energy_agreement": 0.0
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 69.51681189747366,
+            "orthogonality": 8.036489788956384e-16,
+            "qr_energy_agreement": 5.584653474376434e-17
+          }
+        },
+        "response": {
+          "local": {
+            "per_output": [
+              0.44923913800980614,
+              0.4937151085877496,
+              0.43835544722404257,
+              0.40274526818706097,
+              0.5892660043101726,
+              0.5614222204229286,
+              0.5329663254968998,
+              0.4910401324122764,
+              0.6480767264584497,
+              0.5480817821957318,
+              0.6388995383598148,
+              0.5863041708122324
+            ],
+            "small_rms": 0.536957074175025
+          },
+          "shared": {
+            "per_output": [
+              0.36317540376362867,
+              0.3942481582443914,
+              0.3904531250887159,
+              0.37132053882118593,
+              0.47680795598247344,
+              0.5070392613789797,
+              0.4790713028915326,
+              0.42475276657605787,
+              0.5620663835425878,
+              0.5151144828571667,
+              0.601428963074661,
+              0.5502542515819737
+            ],
+            "small_rms": 0.4759006832683204
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.3619403641422085,
+              "orthogonality": 7.568220687043438e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1720792171966956,
+              "orthogonality": 1.3849376642141323e-16,
+              "qr_energy_agreement": 1.137728748014619e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1562851389904987,
+              "orthogonality": 8.295730731379688e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.7969198862984945,
+              "orthogonality": 9.704033920041564e-17,
+              "qr_energy_agreement": 1.6772548781488196e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.3083718709972145,
+              "orthogonality": 1.5689280871714713e-16,
+              "qr_energy_agreement": 1.2138715839341644e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 3.7676803890875834,
+              "orthogonality": 1.5151037399523048e-16,
+              "qr_energy_agreement": 1.0400327038265676e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.5201258862358875,
+              "orthogonality": 4.7232947238976805e-16,
+              "qr_energy_agreement": 8.320492417174837e-17
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.445624356168004,
+              "orthogonality": 9.624943647688246e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.003457880375046,
+              "orthogonality": 1.5555924460221153e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.4010193102141746,
+              "orthogonality": 1.6326316730258971e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 3.0014383556418553,
+              "orthogonality": 2.509376900609852e-16,
+              "qr_energy_agreement": 1.0644939098814754e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.6011828399088468,
+              "orthogonality": 1.9077523555882424e-16,
+              "qr_energy_agreement": 0.0
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 17.98483505483249,
+            "orthogonality": 3.5178324487347818e-16,
+            "qr_energy_agreement": 1.137728748014619e-16
+          }
+        }
+      }
+    },
+    {
+      "optimizer": "lbfgs",
+      "seed": 25002,
+      "sha256": "0461e11a072617d9536838c903fa8dafcfc618f7f5a590a9c2054370d2d112f9",
+      "modes": {
+        "value": {
+          "local": {
+            "per_output": [
+              0.5177408563194421,
+              0.43573933619790234,
+              0.4551888513272679,
+              0.40102723273547125,
+              0.533066596601325,
+              0.5511637091037326,
+              0.5969472509064926,
+              0.4740739554796488,
+              0.6309742522849593,
+              0.5428594297837377,
+              0.5725042203410835,
+              0.5290237354930383
+            ],
+            "small_rms": 0.5240411660062099
+          },
+          "shared": {
+            "per_output": [
+              0.3803603889624045,
+              0.3612429385313843,
+              0.41655475716190343,
+              0.36250060763751146,
+              0.45812507044108053,
+              0.4941198364506771,
+              0.5080404343605601,
+              0.4296572710782838,
+              0.5540486659592094,
+              0.5175221092796386,
+              0.531647738814974,
+              0.49872861298992216
+            ],
+            "small_rms": 0.4639519635968922
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.5530998742721664,
+              "orthogonality": 2.658133093913542e-16,
+              "qr_energy_agreement": 1.2968685461129615e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.474556388440046,
+              "orthogonality": 3.781857731173547e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 12.23728757373319,
+              "orthogonality": 1.5023303715041138e-16,
+              "qr_energy_agreement": 1.8248681405579275e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 27.75975523014355,
+              "orthogonality": 1.7785712323963132e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 14.872814432892861,
+              "orthogonality": 2.063665492054426e-16,
+              "qr_energy_agreement": 3.5106620511431575e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 5.697394242717352,
+              "orthogonality": 2.2110380678905384e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.617241436564436,
+              "orthogonality": 4.4298666192283084e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 4.240412175698749,
+              "orthogonality": 5.23993573024183e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 21.556538684043815,
+              "orthogonality": 2.8025678189744076e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 11.565184778135198,
+              "orthogonality": 3.3065444904455676e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.7763937887626426,
+              "orthogonality": 2.5525914678710027e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.422722109361169,
+              "orthogonality": 1.7147478168832894e-16,
+              "qr_energy_agreement": 0.0
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 98.52729077831465,
+            "orthogonality": 4.0062357537378654e-16,
+            "qr_energy_agreement": 5.584653474376434e-17
+          }
+        },
+        "response": {
+          "local": {
+            "per_output": [
+              0.4506751014122942,
+              0.4492671128781524,
+              0.4397667107714093,
+              0.4101144813246475,
+              0.6028219114272636,
+              0.5573249415861325,
+              0.5924126793268775,
+              0.47476612064981816,
+              0.6479225541345682,
+              0.5447116079220529,
+              0.6679354927654518,
+              0.5919813366636921
+            ],
+            "small_rms": 0.5423707780208975
+          },
+          "shared": {
+            "per_output": [
+              0.3665712937414567,
+              0.3892982822410963,
+              0.3936397671048469,
+              0.37412824022333985,
+              0.49816857913827145,
+              0.4938017928873092,
+              0.5013227820955006,
+              0.4105179118091142,
+              0.562332976585702,
+              0.5060476834126356,
+              0.6012551001917463,
+              0.5494676983492012
+            ],
+            "small_rms": 0.47683318060166185
+          },
+          "local_checks": [
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.3873558435210938,
+              "orthogonality": 9.740690654059263e-17,
+              "qr_energy_agreement": 1.563665268114903e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.1951798927411323,
+              "orthogonality": 2.4035417147556574e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 3.548042473449283,
+              "orthogonality": 1.2523160284831372e-16,
+              "qr_energy_agreement": 1.301086616812656e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.423009037419448,
+              "orthogonality": 6.567370928746247e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 4.446939208815253,
+              "orthogonality": 1.0381964355641406e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.4732529529467073,
+              "orthogonality": 1.5747949143120699e-16,
+              "qr_energy_agreement": 1.0400327038265676e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.620358663762139,
+              "orthogonality": 2.550183715475359e-16,
+              "qr_energy_agreement": 1.6640984834349675e-16
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.531330162398151,
+              "orthogonality": 1.5848711215248677e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 7.914934983834107,
+              "orthogonality": 8.609452871430159e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 3.7337424781312496,
+              "orthogonality": 1.4801395503800783e-16,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 1.6231842374577614,
+              "orthogonality": 9.079447228931357e-17,
+              "qr_energy_agreement": 0.0
+            },
+            {
+              "rank": 8,
+              "columns": 8,
+              "condition": 2.2931146094542934,
+              "orthogonality": 2.0970959979217278e-16,
+              "qr_energy_agreement": 1.2444607001563054e-16
+            }
+          ],
+          "shared_check": {
+            "rank": 96,
+            "columns": 96,
+            "condition": 24.133012832438148,
+            "orthogonality": 1.9726155419837164e-16,
+            "qr_energy_agreement": 1.137728748014619e-16
+          }
+        }
+      }
+    }
+  ],
+  "prediction": false,
+  "seconds": 1.9578884979709983,
+  "scope": "Opened-label oracle, fixed parent/new atom directions; separate value/response optima, not one predictor. No fitting/export for deployment or OOD/semantic claim."
+}
