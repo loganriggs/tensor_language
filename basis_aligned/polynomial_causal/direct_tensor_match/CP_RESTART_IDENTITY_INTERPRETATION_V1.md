@@ -14,6 +14,9 @@ One-to-one term alignment maximizes **signed output-contribution cosine**: a ter
 
 Interpretation: weak one-to-one alignment alone could have been a basis artifact. The projection test makes the distinction explicit. In Gaussian geometry, a candidate function can be represented well in the other dictionary even though the full dictionaries and individual terms differ. In coefficient geometry, that projection remains poor. Thus current evidence supports approximate function-level agreement under a chosen input law, not stable global polynomial units or semantic circuits. Dense linear recombinations also retain the original product cost unless graph simplification actually removes computations.
 
-No model was changed, adopted or pruned by this audit. Learned mixed-objective results remain pending; rerun the same comparison only after both artifacts are complete.
+No model was changed, adopted or pruned by this audit. The mixed-objective successor has since completed; its archived result is summarized below. Do not rerun this already-completed comparison merely because the original note described it as pending.
 
 [Baseline receipt](CP_RESTART_IDENTITY_BASELINE_V1.json) · [CPU implementation](audit_cp_restart_identity.py).
+
+
+**Archived mixed-objective successor (linked into this note on 22 September 03:31).** [Existing mixed comparison](CP_RESTART_IDENTITY_MIXED_V1.json), committed2053e0215 on21September23:30, reports shifted-Gaussian function difference1.68% and centered difference2.72%, but only5/512 matched individual contributions above0.9. Fifty scalar-span directions exceed canonical correlation0.9. In coefficient geometry, function difference is84.39%, projection error72.65%, and only3matched contributions exceed0.9. This is previously completed evidence, not a new experiment. It supports distribution-dependent aggregate agreement, not stable individual mechanisms.

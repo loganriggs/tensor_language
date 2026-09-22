@@ -1,3 +1,5 @@
+[22 September 03:31 — Calibration-moment follow-up: better values, still poor component responses](research_update_2026-09-22_0325_gaussian_response_fit.md#0331-follow-up-how-much-does-the-gaussian-approximation-matter).
+
 [22 September 03:25 — Exact Gaussian response fitting fails to repair frozen quartic dictionaries](research_update_2026-09-22_0325_gaussian_response_fit.md).
 
 [22 September 03:17 — Shared output directions improve quadratic block terms; no native adoption yet](research_update_2026-09-22_0317_shared_output_blocks.md).
