@@ -1,0 +1,198 @@
+{
+  "backwards": 200,
+  "candidate_id": "pythia.sequential_pythia160m_polish_v781",
+  "finished_utc": "2026-09-22T12:09:01.664034+00:00",
+  "forwards": 552,
+  "plan": {
+    "arms": [
+      "refined",
+      "joint"
+    ],
+    "bars": {
+      "joint_before": 0.2131,
+      "ratio": [
+        0.5,
+        2.0
+      ],
+      "rec_min": 0.95,
+      "replay_tol": 0.003
+    },
+    "candidate_id": "pythia.sequential_pythia160m_polish_v781",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": "joint polish of 144 rank-32 programs from two starts",
+    "forwards_max": 900,
+    "gpu_accessed": false,
+    "model": "EleutherAI/pythia-160m",
+    "model_backwards": 200,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rank": 32,
+    "steps": 100
+  },
+  "predictions": {
+    "pred_a_joint_replays": true,
+    "pred_b_refined_start_beats_v760": true,
+    "pred_c_joint_recovery": false,
+    "pred_d_refined_beats_control": true,
+    "pred_e_values_preserved": true
+  },
+  "report": {
+    "arms": {
+      "joint": {
+        "chosen_step": 75,
+        "curve": {
+          "0": 0.21313994536128078,
+          "100": 0.21516913206466093,
+          "25": 0.21942535089087611,
+          "50": 0.21826895654510325,
+          "75": 0.2139594480781355
+        },
+        "recovery": 0.9313890702599961,
+        "snapshot_cost": 0.2139594480781355,
+        "start_cost": 0.21313994536128078
+      },
+      "refined": {
+        "chosen_step": 75,
+        "curve": {
+          "0": 0.26586116904421786,
+          "100": 0.21309986139208537,
+          "25": 0.21759915598933555,
+          "50": 0.2154478297950071,
+          "75": 0.21287585416606047
+        },
+        "recovery": 0.9317365491230978,
+        "snapshot_cost": 0.21287585416606047,
+        "start_cost": 0.26586116904421786
+      }
+    },
+    "best_arm": "refined",
+    "joint_value": 3.118445543427541,
+    "manipulability": {
+      "0.0": {
+        "in_program_value": 0.03848459065886978,
+        "native_value": 0.050516637495762406,
+        "ratio": 0.761820116433879
+      },
+      "0.11": {
+        "in_program_value": 0.12403871234834485,
+        "native_value": 0.028644823657416385,
+        "ratio": 4.330231312708053
+      },
+      "0.2": {
+        "in_program_value": 0.03426896722823214,
+        "native_value": 0.089940457764067,
+        "ratio": 0.3810183768257767
+      },
+      "0.3": {
+        "in_program_value": 0.04624789366450344,
+        "native_value": 0.03273262137576083,
+        "ratio": 1.4128991727729738
+      },
+      "0.4": {
+        "in_program_value": 0.21279435207189046,
+        "native_value": 0.03890629877080576,
+        "ratio": 5.4694062091448705
+      },
+      "0.8": {
+        "in_program_value": 0.038988408647052886,
+        "native_value": 0.032771400837082965,
+        "ratio": 1.1897083326061233
+      },
+      "1.1": {
+        "in_program_value": 0.022999951258842355,
+        "native_value": 0.030681182683440777,
+        "ratio": 0.7496435680511061
+      },
+      "1.2": {
+        "in_program_value": 0.03825093056871465,
+        "native_value": 0.04220959559623427,
+        "ratio": 0.9062140972543978
+      },
+      "1.4": {
+        "in_program_value": 0.0880028003238027,
+        "native_value": 0.030553421208277864,
+        "ratio": 2.8802928393485447
+      },
+      "1.7": {
+        "in_program_value": 0.039063043544947273,
+        "native_value": 0.02918209189578036,
+        "ratio": 1.3385964133227772
+      },
+      "1.8": {
+        "in_program_value": 0.11419554448498337,
+        "native_value": 0.04080452696647052,
+        "ratio": 2.798599885223984
+      },
+      "2.10": {
+        "in_program_value": 0.014368253668355369,
+        "native_value": 0.020722784526607363,
+        "ratio": 0.6933553572352698
+      },
+      "2.11": {
+        "in_program_value": 0.027083419147550636,
+        "native_value": 0.030809023219686704,
+        "ratio": 0.8790742554358089
+      },
+      "2.9": {
+        "in_program_value": 0.020244153670078813,
+        "native_value": 0.023701669020973704,
+        "ratio": 0.8541235493654341
+      },
+      "3.1": {
+        "in_program_value": 0.021817227101696535,
+        "native_value": 0.02657728615202437,
+        "ratio": 0.8208974752689238
+      },
+      "3.10": {
+        "in_program_value": 0.01278672934813807,
+        "native_value": 0.021722251269483905,
+        "ratio": 0.5886465997242775
+      },
+      "3.2": {
+        "in_program_value": 0.10921281236441027,
+        "native_value": 0.10184013411171078,
+        "ratio": 1.0723946243492986
+      },
+      "3.3": {
+        "in_program_value": 0.041828054220565125,
+        "native_value": 0.04264137905496401,
+        "ratio": 0.9809263946799065
+      },
+      "4.0": {
+        "in_program_value": 0.019353157498058327,
+        "native_value": 0.028279080909768606,
+        "ratio": 0.6843630300365615
+      },
+      "4.5": {
+        "in_program_value": 0.024399749973277096,
+        "native_value": 0.02922033028281401,
+        "ratio": 0.8350264948109725
+      },
+      "5.1": {
+        "in_program_value": 0.022425246362241413,
+        "native_value": 0.02179644762543198,
+        "ratio": 1.0288486797305334
+      },
+      "5.5": {
+        "in_program_value": 0.017930616368901475,
+        "native_value": 0.023113748570180004,
+        "ratio": 0.775755447648786
+      },
+      "5.8": {
+        "in_program_value": 0.03218753350213399,
+        "native_value": 0.033965945861500035,
+        "ratio": 0.9476413120771693
+      },
+      "7.8": {
+        "in_program_value": 0.09425082107899696,
+        "native_value": 0.085804133835234,
+        "ratio": 1.0984414953711061
+      }
+    },
+    "median_ratio": 0.9476413120771693,
+    "native": 3.473106689403712,
+    "spearman": 0.684347826086956
+  },
+  "schema": "pythia_polish_result_pythia160m_polish_v781",
+  "serial_seconds": 360.73398213414475
+}
