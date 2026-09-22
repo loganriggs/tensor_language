@@ -1,3 +1,5 @@
+**New constructive baseline — [Gaussian conditional arithmetic programs](research_update_2026-09-22_0134_conditional_program_baseline.md).** Reduced linear storage with explicit quadratic corrections and pair reuse; native finite-removal check prepared.
+
 **Input-side residual audit — [Which input variables are missed?](research_update_2026-09-22_0121_which_input_variables.md).** Derivative error is diffuse across input directions and strongly affected by covariance weighting; no few-coordinate repair identified.
 
 **Larger evaluation completed — [16,384 states from 256 new documents](research_update_2026-09-22_0112_larger_panel_results.md).** CP pooled errors7.38/7.58%; small-feature errors42–69%replicate; measured capture and scoring cost.
