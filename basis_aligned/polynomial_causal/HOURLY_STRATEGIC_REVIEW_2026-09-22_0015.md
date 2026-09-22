@@ -1,0 +1,22 @@
+ACTIVE_TRACK: WEIGHT_FOLDING
+
+22 September2026,00:15UTC. Continue user-authorized two-day decomposition focus through22September15:10UTC; explicit user override of the skill's hourly track alternation remains in force. Prior2315review receipt: exact mixedCP producer learning; handoff for later circuit work retains operational root1 removal interface and failed capitalization selectivity.
+
+Full target remains predictive/OOD, extractable, selectively manipulable, composable, stably identified and literally simpler circuits. Current scope is one selfterm throughMLP16→MLP17 with16fixeddata-informedwriters; all18blocks and residual/attention/cross terms are not covered. Fixed writer identity is operational; learned internal features are not yet stable semantic units.
+
+What changed: mixedCP learning improved text6.32/6.59% and native newline removal5.3–7.6% versus26–31% for384graph, but all-cell gates and native capitalization selectivity fail. LargerCP costs1536products. Shared1088-product dictionary under Gaussian readout improved strongly versus coefficient-only, but componenterrorsremain~36–42%. Sixteen mixedmetric product exchanges now pass modestlearning criterion yet failcomponentcriterion. All768pool relaxation leavesonly.41/.32%capturedobjective room; this bounds only thisobjective/pool. Evaluationlabeloracle canfitroot1below9% withpairconstraints, whereascalibrationtransferfails. Spectraltruncation andhighleverage explanations didnotrepair.
+
+Interpretation targets: computational spec and extraction fidelity have stronger evidence for thefixednativeprojection, not a named capitalization circuit. Sharedgraph reuse is literal, but taskcomposition/OODprediction remain untested. No crossmodule semanticgrouping or withinmodule tasksplit is identified. Restart disagreementprevents interpreting fittedatoms as stable units. Lowercostshared modelstillfailsresponsecomparison againstlargerCP.
+
+Next ranked action: (1) native gradientresource/correctness profile for sharedquadraticproducerlearning, already managedqueued; (2) ifpractical, boundedcontinuousfit withfixednormalizationandtopology, measuringthe samecomponenterrors; (3) only after fidelityimproves, finite-nativeeffectandnewcontextvalidation. Morefixedpoolgreedyswaps orreadoutridge sweeps demoted. Failedgradient/resourcebar would redirect to smallerstreamingblocks or another exactcontraction schedule, notprove architectural impossibility. If learning does not improve responses, reconsider targetmetric and featurefamily rather than keep expanding a reconstruction sweep.
+
+Confounds: outputbasis selected fromcalibrationparent; no16conceptclaim. Evaluationoracles neverexported orused for fitting. Repeatedopenedpanels arediagnostic, notfreshOOD. Gaussianmean matters; covariancealone insufficient; isotope/coefficient/text/nativeeffect norms differ. Ridge requiresfixedfeature scale; newstreamedVJPnormalization controls pass~1e-15andradialgaugegradientvanishes. Teacherconstant omitted inoptimization cannot yieldnormalizedfullerror. Cancellation finite-differencefixture failureandstepconvergence documented. No loosening nativecriteria.
+
+Throughput fromcommits/runner: own completedGPUkernels since2315 roughly8.3minutes (mixedCP387.48s,removal1.83s,coefficientexchange9.55s,Gaussianreadout39.39s,mixedexchange58.23s). CPUcapacity/transferanalyses1–3seconds each. Requestedreport/provenance rewrite occupied~10minutes byboardtimestamps. Exactmoment/gradientimplementation andscientificinterpretation account formuch ofremainingactivework; sharedGPUjobs createqueuedlatency, notexclusive idle. Exact per-minute authoringversusreview split isnotinstrumented, so no falseprecisebudgetclaim. Currentprofile queuedbehindv752/v753; verifiedv752runnerprocess earlier. No competing GPU launch.
+
+TRACK_ALTERNATION: OVERRIDDEN by explicit two-dayuserdirection; no unauthorizedtrackswitch.
+TRACK_PROGRESS: PASS — completednative mixedlearning/removal andtwo fixed-costgraphcomparisons.
+CEREMONY_BUDGET: PASS withqualification — numericalgradient/momentcontrols addressnewexactcontractions; do notrepeatfulltoy suite forroutineanalysis. Reuse existingnativeinterfaces andmanagedrunner.
+NOVELTY_LESSON_GATE: PASS — priorfixedreadoutcapacity,Gaussianmean,probeoverfit,postnormalizationsensitivity andrestartidentityresults informedthe newproducerlearningaction.
+
+Three-hour math/literature review last2253UTC; nextdue0153UTC. Currenthourlycheckpointdoesnotresetthatclock. No completion/adoptionclaim.
