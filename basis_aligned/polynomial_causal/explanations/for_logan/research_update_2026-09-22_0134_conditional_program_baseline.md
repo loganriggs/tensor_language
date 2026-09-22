@@ -60,3 +60,11 @@ The resulting rank-256 programs use **1,536 variable products**, matching the or
 The choice among three possible pairings used artificial Gaussian probes only; text labels did not choose the pairing. Independent artificial probes show a small increase in parent reconstruction error. This is an approximate graph edit, not an exact algebraic identity. At rank 64, the accuracy penalty is larger.
 
 This is a concrete instance of the second stage we discussed: propose features through a decomposition, then simplify the executable graph by reusing intermediates and deleting low-value nodes. Native finite-removal checks are registered separately for the full and simplified versions. [Graph-edit results and limitations](../../direct_tensor_match/LEAN_CONDITIONAL_CP_INTERPRETATION_V1.md).
+
+## Measured speed and a limitation of the Gaussian approximation
+
+The simplified rank-256 program is **1.48–2.46× faster than its CP parent** in the tested warm CPU batches. This uses two threads, float32, and batches of 1, 64 or 2,048 states. It measures only the selected polynomial's 16 outputs—not the entire transformer or GPU performance. The full conditional program was only about 1.1× faster at the largest batch and slightly slower at batch 64, so the graph edit matters in practice. [Benchmark details](../../direct_tensor_match/CONDITIONAL_CP_CPU_BENCHMARK_INTERPRETATION_V1.md).
+
+An algebraic stress test shows the limitation of fitting around a shifted Gaussian. The native pure quartic has exactly the same output at $x$ and $-x$. The simplified conditional programs do not: on 256 selected states, error rises from about **8.4%** at the original inputs to **13.8–13.9%** at their negatives. Negated states preserve input norm but are not established text examples, so this is not a text-OOD measurement.
+
+This is expected to be possible under conditional averaging; it is not a failure of the integration code. The approximation gains efficiency in a data-informed region while losing global polynomial identities. Enforcing sign symmetry by averaging the two predictions worsens the original-input error in this test. [Symmetry audit and limits](../../direct_tensor_match/CONDITIONAL_SYMMETRY_INTERPRETATION_V1.md).
