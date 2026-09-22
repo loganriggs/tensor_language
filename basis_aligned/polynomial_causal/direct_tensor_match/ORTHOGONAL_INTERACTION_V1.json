@@ -1,0 +1,618 @@
+{
+  "controls": [
+    {
+      "kind": "diagonal",
+      "replay": 2.0328831459980288e-15,
+      "metrics": [
+        {
+          "centered_gaussian_error": 7.508448271167096e-15,
+          "target_mean_energy_fraction": 0.3847869776002242,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "squares",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 7.403627934129908e-15,
+          "natural_coefficient_error": 7.508448271167096e-15,
+          "feature_coefficient_errors": [
+            5.356309909390275e-15,
+            8.960818749048955e-15,
+            7.446797382925517e-15
+          ],
+          "natural_gaussian_error": 5.889290170839234e-15,
+          "equal_output_gaussian_error": 5.867612494251671e-15
+        },
+        {
+          "centered_gaussian_error": 1.478393589257092e-15,
+          "target_mean_energy_fraction": 0.3847869776002242,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "paired_blocks",
+          "products": 18,
+          "stored_floats": 198,
+          "equal_output_coefficient_error": 1.472203807375212e-15,
+          "natural_coefficient_error": 1.478393589257092e-15,
+          "feature_coefficient_errors": [
+            1.5139460463170968e-15,
+            1.3048001331986304e-15,
+            1.5835454311752088e-15
+          ],
+          "natural_gaussian_error": 1.159585645316057e-15,
+          "equal_output_gaussian_error": 1.1667687154317906e-15
+        },
+        {
+          "centered_gaussian_error": 7.508448271167096e-15,
+          "target_mean_energy_fraction": 0.3847869776002242,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "top_12",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 7.403627934129908e-15,
+          "natural_coefficient_error": 7.508448271167096e-15,
+          "feature_coefficient_errors": [
+            5.356309909390275e-15,
+            8.960818749048955e-15,
+            7.446797382925517e-15
+          ],
+          "natural_gaussian_error": 5.889290170839234e-15,
+          "equal_output_gaussian_error": 5.867612494251671e-15
+        },
+        {
+          "centered_gaussian_error": 8.808697247559771e-16,
+          "target_mean_energy_fraction": 0.3847869776002242,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "top_24",
+          "products": 24,
+          "stored_floats": 216,
+          "equal_output_coefficient_error": 8.834508358906686e-16,
+          "natural_coefficient_error": 8.808697247559771e-16,
+          "feature_coefficient_errors": [
+            9.205028365820834e-16,
+            8.501100963857297e-16,
+            8.783185584827108e-16
+          ],
+          "natural_gaussian_error": 6.909147169217794e-16,
+          "equal_output_gaussian_error": 7.001631104168089e-16
+        },
+        {
+          "centered_gaussian_error": 3.5756004079054816e-16,
+          "target_mean_energy_fraction": 0.3847869776002242,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "top_48",
+          "products": 48,
+          "stored_floats": 288,
+          "equal_output_coefficient_error": 3.5586361809219977e-16,
+          "natural_coefficient_error": 3.5756004079054816e-16,
+          "feature_coefficient_errors": [
+            3.7532346220006845e-16,
+            2.919658915944333e-16,
+            3.9217975586793676e-16
+          ],
+          "natural_gaussian_error": 2.8045406423041586e-16,
+          "equal_output_gaussian_error": 2.8203332614023253e-16
+        }
+      ]
+    },
+    {
+      "kind": "paired_blocks",
+      "replay": 1.7312097985936306e-15,
+      "metrics": [
+        {
+          "centered_gaussian_error": 0.5422961398575393,
+          "target_mean_energy_fraction": 0.12708863981538684,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "squares",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 0.5304931745057664,
+          "natural_coefficient_error": 0.5422961398575393,
+          "feature_coefficient_errors": [
+            0.3360929270317863,
+            0.61901477383108,
+            0.5900265068364974
+          ],
+          "natural_gaussian_error": 0.5066657947162665,
+          "equal_output_gaussian_error": 0.4960295243640884
+        },
+        {
+          "centered_gaussian_error": 3.124630051863394e-14,
+          "target_mean_energy_fraction": 0.12708863981538684,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "paired_blocks",
+          "products": 18,
+          "stored_floats": 198,
+          "equal_output_coefficient_error": 3.148191718922781e-14,
+          "natural_coefficient_error": 3.124630051863394e-14,
+          "feature_coefficient_errors": [
+            3.6050448230360015e-14,
+            3.198624865907988e-14,
+            2.5506438576128836e-14
+          ],
+          "natural_gaussian_error": 2.919333279483763e-14,
+          "equal_output_gaussian_error": 2.943668488099001e-14
+        },
+        {
+          "centered_gaussian_error": 0.24918447405613153,
+          "target_mean_energy_fraction": 0.12708863981538684,
+          "residual_mean_energy_fraction": 0.15914450192493296,
+          "name": "top_12",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 0.2534219875439277,
+          "natural_coefficient_error": 0.24918447405613153,
+          "feature_coefficient_errors": [
+            0.2750295193281645,
+            0.15590791536348772,
+            0.3044989273171159
+          ],
+          "natural_gaussian_error": 0.25388986686700055,
+          "equal_output_gaussian_error": 0.26034357122307716
+        },
+        {
+          "centered_gaussian_error": 3.519913922808529e-15,
+          "target_mean_energy_fraction": 0.12708863981538684,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "top_24",
+          "products": 24,
+          "stored_floats": 216,
+          "equal_output_coefficient_error": 3.483622642078103e-15,
+          "natural_coefficient_error": 3.519913922808529e-15,
+          "feature_coefficient_errors": [
+            2.9838260040580426e-15,
+            3.7919989303640265e-15,
+            3.622762292343062e-15
+          ],
+          "natural_gaussian_error": 3.2886459149444376e-15,
+          "equal_output_gaussian_error": 3.2573080394933297e-15
+        },
+        {
+          "centered_gaussian_error": 6.239303428491344e-16,
+          "target_mean_energy_fraction": 0.12708863981538684,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "top_48",
+          "products": 48,
+          "stored_floats": 288,
+          "equal_output_coefficient_error": 6.203623010395985e-16,
+          "natural_coefficient_error": 6.239303428491344e-16,
+          "feature_coefficient_errors": [
+            5.771285812078748e-16,
+            6.56019294974228e-16,
+            6.2538743114003995e-16
+          ],
+          "natural_gaussian_error": 5.8293640646288715e-16,
+          "equal_output_gaussian_error": 5.800602758080136e-16
+        }
+      ]
+    },
+    {
+      "kind": "sparse",
+      "replay": 8.501705251308378e-16,
+      "metrics": [
+        {
+          "centered_gaussian_error": 0.8163291837357279,
+          "target_mean_energy_fraction": 0.1691922220489954,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "squares",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 0.8100508051938597,
+          "natural_coefficient_error": 0.8163291837357279,
+          "feature_coefficient_errors": [
+            0.7423606381761466,
+            0.8283105798522039,
+            0.8551895621306836
+          ],
+          "natural_gaussian_error": 0.7440730924480238,
+          "equal_output_gaussian_error": 0.7478777378830778
+        },
+        {
+          "centered_gaussian_error": 0.7057111679784976,
+          "target_mean_energy_fraction": 0.1691922220489954,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "paired_blocks",
+          "products": 18,
+          "stored_floats": 198,
+          "equal_output_coefficient_error": 0.6978196187386457,
+          "natural_coefficient_error": 0.7057111679784976,
+          "feature_coefficient_errors": [
+            0.5497423731058554,
+            0.76162738418153,
+            0.7606337566571634
+          ],
+          "natural_gaussian_error": 0.6432462560383723,
+          "equal_output_gaussian_error": 0.6442605260886002
+        },
+        {
+          "centered_gaussian_error": 0.6219477251683787,
+          "target_mean_energy_fraction": 0.1691922220489954,
+          "residual_mean_energy_fraction": 0.11015035878905512,
+          "name": "top_12",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 0.6211958295246748,
+          "natural_coefficient_error": 0.6219477251683787,
+          "feature_coefficient_errors": [
+            0.546917457082402,
+            0.6743746055450563,
+            0.6354155824269766
+          ],
+          "natural_gaussian_error": 0.6009603867014646,
+          "equal_output_gaussian_error": 0.611617444589669
+        },
+        {
+          "centered_gaussian_error": 0.41709370429482,
+          "target_mean_energy_fraction": 0.1691922220489954,
+          "residual_mean_energy_fraction": 0.015727099469280813,
+          "name": "top_24",
+          "products": 24,
+          "stored_floats": 216,
+          "equal_output_coefficient_error": 0.41430229236630234,
+          "natural_coefficient_error": 0.41709370429482,
+          "feature_coefficient_errors": [
+            0.37953781820326626,
+            0.42618170990866644,
+            0.4350394959917415
+          ],
+          "natural_gaussian_error": 0.38320057085655146,
+          "equal_output_gaussian_error": 0.386294122562126
+        },
+        {
+          "centered_gaussian_error": 0.1681865685610713,
+          "target_mean_energy_fraction": 0.1691922220489954,
+          "residual_mean_energy_fraction": 0.0293044305189395,
+          "name": "top_48",
+          "products": 48,
+          "stored_floats": 288,
+          "equal_output_coefficient_error": 0.1657890984338474,
+          "natural_coefficient_error": 0.1681865685610713,
+          "feature_coefficient_errors": [
+            0.1438996976008034,
+            0.16905277104593086,
+            0.18213213091218486
+          ],
+          "natural_gaussian_error": 0.1555965857659204,
+          "equal_output_gaussian_error": 0.15527077986876417
+        }
+      ]
+    },
+    {
+      "kind": "dense",
+      "replay": 1.3055791298659238e-15,
+      "metrics": [
+        {
+          "centered_gaussian_error": 0.8773306927532454,
+          "target_mean_energy_fraction": 0.05090397089599812,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "squares",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 0.8802128459937087,
+          "natural_coefficient_error": 0.8773306927532454,
+          "feature_coefficient_errors": [
+            0.9024583669950696,
+            0.8484338271358706,
+            0.888849199566049
+          ],
+          "natural_gaussian_error": 0.8547092444566052,
+          "equal_output_gaussian_error": 0.8595427162112016
+        },
+        {
+          "centered_gaussian_error": 0.7630680262204423,
+          "target_mean_energy_fraction": 0.05090397089599812,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "paired_blocks",
+          "products": 18,
+          "stored_floats": 198,
+          "equal_output_coefficient_error": 0.7669583732972335,
+          "natural_coefficient_error": 0.7630680262204423,
+          "feature_coefficient_errors": [
+            0.7734955317681029,
+            0.7147952712436527,
+            0.809597320681528
+          ],
+          "natural_gaussian_error": 0.7433927725851295,
+          "equal_output_gaussian_error": 0.7489478100726795
+        },
+        {
+          "centered_gaussian_error": 0.6563509613276999,
+          "target_mean_energy_fraction": 0.05090397089599812,
+          "residual_mean_energy_fraction": 0.11216063867585592,
+          "name": "top_12",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 0.658517166627928,
+          "natural_coefficient_error": 0.6563509613276999,
+          "feature_coefficient_errors": [
+            0.6979465627899856,
+            0.6431430536108981,
+            0.6325916410392394
+          ],
+          "natural_gaussian_error": 0.6786158614988042,
+          "equal_output_gaussian_error": 0.6841938550643005
+        },
+        {
+          "centered_gaussian_error": 0.4796453339192529,
+          "target_mean_energy_fraction": 0.05090397089599812,
+          "residual_mean_energy_fraction": 0.06327437810443624,
+          "name": "top_24",
+          "products": 24,
+          "stored_floats": 216,
+          "equal_output_coefficient_error": 0.47906721763876753,
+          "natural_coefficient_error": 0.4796453339192529,
+          "feature_coefficient_errors": [
+            0.4764846675612422,
+            0.4859720177767184,
+            0.4746680488146727
+          ],
+          "natural_gaussian_error": 0.4828020465611088,
+          "equal_output_gaussian_error": 0.4831871218550745
+        },
+        {
+          "centered_gaussian_error": 0.23270559411045297,
+          "target_mean_energy_fraction": 0.05090397089599812,
+          "residual_mean_energy_fraction": 0.012760563087022543,
+          "name": "top_48",
+          "products": 48,
+          "stored_floats": 288,
+          "equal_output_coefficient_error": 0.2338450482711727,
+          "natural_coefficient_error": 0.23270559411045297,
+          "feature_coefficient_errors": [
+            0.26189265489903246,
+            0.22872742283060524,
+            0.2077174117835266
+          ],
+          "natural_gaussian_error": 0.22816585560503866,
+          "equal_output_gaussian_error": 0.22964745068693723
+        }
+      ]
+    },
+    {
+      "kind": "signed_shared",
+      "replay": 3.0922374693232757e-15,
+      "metrics": [
+        {
+          "centered_gaussian_error": 2.7862461312255512e-15,
+          "target_mean_energy_fraction": 0.004086472955514216,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "squares",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 2.7862461312255528e-15,
+          "natural_coefficient_error": 2.7862461312255512e-15,
+          "feature_coefficient_errors": [
+            2.7862461312255512e-15,
+            2.7862461312255512e-15,
+            2.7862461312255512e-15
+          ],
+          "natural_gaussian_error": 2.7805473435487617e-15,
+          "equal_output_gaussian_error": 2.780547343548762e-15
+        },
+        {
+          "centered_gaussian_error": 1.0562279197587253e-15,
+          "target_mean_energy_fraction": 0.004086472955514216,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "paired_blocks",
+          "products": 18,
+          "stored_floats": 198,
+          "equal_output_coefficient_error": 1.056227919758726e-15,
+          "natural_coefficient_error": 1.0562279197587253e-15,
+          "feature_coefficient_errors": [
+            1.0562279197587255e-15,
+            1.0562279197587255e-15,
+            1.0562279197587255e-15
+          ],
+          "natural_gaussian_error": 1.0540675870495853e-15,
+          "equal_output_gaussian_error": 1.0540675870495853e-15
+        },
+        {
+          "centered_gaussian_error": 2.7862461312255512e-15,
+          "target_mean_energy_fraction": 0.004086472955514216,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "top_12",
+          "products": 12,
+          "stored_floats": 180,
+          "equal_output_coefficient_error": 2.7862461312255528e-15,
+          "natural_coefficient_error": 2.7862461312255512e-15,
+          "feature_coefficient_errors": [
+            2.7862461312255512e-15,
+            2.7862461312255512e-15,
+            2.7862461312255512e-15
+          ],
+          "natural_gaussian_error": 2.7805473435487617e-15,
+          "equal_output_gaussian_error": 2.780547343548762e-15
+        },
+        {
+          "centered_gaussian_error": 5.32088705587116e-16,
+          "target_mean_energy_fraction": 0.004086472955514216,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "top_24",
+          "products": 24,
+          "stored_floats": 216,
+          "equal_output_coefficient_error": 5.320887055871162e-16,
+          "natural_coefficient_error": 5.32088705587116e-16,
+          "feature_coefficient_errors": [
+            5.320887055871162e-16,
+            5.320887055871162e-16,
+            5.320887055871162e-16
+          ],
+          "natural_gaussian_error": 5.310004095732155e-16,
+          "equal_output_gaussian_error": 5.310004095732155e-16
+        },
+        {
+          "centered_gaussian_error": 1.9752847268956183e-16,
+          "target_mean_energy_fraction": 0.004086472955514216,
+          "residual_mean_energy_fraction": 0.0,
+          "name": "top_48",
+          "products": 48,
+          "stored_floats": 288,
+          "equal_output_coefficient_error": 1.975284726895619e-16,
+          "natural_coefficient_error": 1.9752847268956183e-16,
+          "feature_coefficient_errors": [
+            1.9752847268956185e-16,
+            1.9752847268956185e-16,
+            1.9752847268956185e-16
+          ],
+          "natural_gaussian_error": 1.9712446214169139e-16,
+          "equal_output_gaussian_error": 1.971244621416914e-16
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "centered_gaussian_error": 0.9203155871008297,
+      "target_mean_energy_fraction": 0.9333195187886586,
+      "residual_mean_energy_fraction": 0.0,
+      "name": "squares",
+      "products": 1152,
+      "stored_floats": 1345536,
+      "equal_output_coefficient_error": 0.9607064355096521,
+      "natural_coefficient_error": 0.9203155871008297,
+      "feature_coefficient_errors": [
+        0.8835610603153439,
+        0.9156369511793673,
+        0.9330526053754292,
+        0.8941675350364867,
+        0.976281882450406,
+        0.9931071600440254,
+        0.926830519733941,
+        0.9742473714631524,
+        0.9898239830794344,
+        0.9764287637973729,
+        0.9922055863403637,
+        0.9736553686489458,
+        0.9818975905316162,
+        0.9755841375745619,
+        0.9858887038755244,
+        0.9884582396468592
+      ],
+      "natural_gaussian_error": 0.23764908158432585,
+      "equal_output_gaussian_error": 0.339831858796342
+    },
+    {
+      "centered_gaussian_error": 0.8941430190832785,
+      "target_mean_energy_fraction": 0.9333195187886586,
+      "residual_mean_energy_fraction": 0.0,
+      "name": "paired_blocks",
+      "products": 1728,
+      "stored_floats": 1354752,
+      "equal_output_coefficient_error": 0.9455959181989063,
+      "natural_coefficient_error": 0.8941430190832785,
+      "feature_coefficient_errors": [
+        0.8497702626538413,
+        0.8884949700740774,
+        0.8826357188993624,
+        0.8742106808125709,
+        0.9693590456618231,
+        0.9742250896076041,
+        0.9022969661845269,
+        0.9640710363294441,
+        0.9807303540145139,
+        0.9684704207309116,
+        0.9810284809288805,
+        0.9645649174125326,
+        0.9781836742449412,
+        0.9701866162527604,
+        0.9796252626597881,
+        0.9843366689794723
+      ],
+      "natural_gaussian_error": 0.23089065345461698,
+      "equal_output_gaussian_error": 0.3344867970841653
+    },
+    {
+      "centered_gaussian_error": 0.8120743411864034,
+      "target_mean_energy_fraction": 0.9333195187886586,
+      "residual_mean_energy_fraction": 0.6400031723944604,
+      "name": "top_1152",
+      "products": 1152,
+      "stored_floats": 1345536,
+      "equal_output_coefficient_error": 0.8742585986244309,
+      "natural_coefficient_error": 0.8120743411864034,
+      "feature_coefficient_errors": [
+        0.7707212275530572,
+        0.8061160044300596,
+        0.7802887948294877,
+        0.7792122269817155,
+        0.8787637806330314,
+        0.9013596533131717,
+        0.807770261724919,
+        0.8813688196029652,
+        0.9242327677432057,
+        0.9111931414164655,
+        0.9150673884010616,
+        0.9083514213500655,
+        0.9235494961266353,
+        0.8848113978868021,
+        0.9368228178296005,
+        0.946051046649668
+      ],
+      "natural_gaussian_error": 0.3494989008842613,
+      "equal_output_gaussian_error": 0.40850924609892136
+    },
+    {
+      "centered_gaussian_error": 0.789849709713279,
+      "target_mean_energy_fraction": 0.9333195187886586,
+      "residual_mean_energy_fraction": 0.5223659511342963,
+      "name": "top_2304",
+      "products": 2304,
+      "stored_floats": 1363968,
+      "equal_output_coefficient_error": 0.8581263986805745,
+      "natural_coefficient_error": 0.789849709713279,
+      "feature_coefficient_errors": [
+        0.7437131355934801,
+        0.7848161199581545,
+        0.7556404545032811,
+        0.7533903583296359,
+        0.8632246404070784,
+        0.8904730352965581,
+        0.7828242085718341,
+        0.8676967493500888,
+        0.9120120571487232,
+        0.8978098297463397,
+        0.9034421357001686,
+        0.8928086145141805,
+        0.9113159386014699,
+        0.8701610625018434,
+        0.9250725226310074,
+        0.9359858856226584
+      ],
+      "natural_gaussian_error": 0.29511833108073876,
+      "equal_output_gaussian_error": 0.3656679440925014
+    },
+    {
+      "centered_gaussian_error": 0.7641233458813637,
+      "target_mean_energy_fraction": 0.9333195187886586,
+      "residual_mean_energy_fraction": 0.42939163206625824,
+      "name": "top_4608",
+      "products": 4608,
+      "stored_floats": 1400832,
+      "equal_output_coefficient_error": 0.8390217705442501,
+      "natural_coefficient_error": 0.7641233458813637,
+      "feature_coefficient_errors": [
+        0.7126681195633753,
+        0.7600994691402045,
+        0.7272012010993736,
+        0.7233428112388017,
+        0.8446805574950704,
+        0.8752332779379266,
+        0.7546932515631156,
+        0.8516483163526263,
+        0.8975691255709874,
+        0.8800768200290362,
+        0.8901083757469692,
+        0.8750874183289924,
+        0.8972775443221012,
+        0.8529474940691794,
+        0.9101476739379449,
+        0.9230439242916613
+      ],
+      "natural_gaussian_error": 0.26121238420433873,
+      "equal_output_gaussian_error": 0.3392875001388829
+    }
+  ],
+  "native_replay": 2.2919257284490357e-15,
+  "native_price": {
+    "products": 4608,
+    "stored_floats": 10690560
+  },
+  "seconds": 7.980953767430037,
+  "scope": "True nativeMLP17quadratic selected16outputprojections/all1152inputs. Singleenergy-eigenbasis, nojointoptimization. TopKoptimalonlyinthisfixedbasisandnormalizedcoefficientmetric. Gaussianfunctionerrors includetraces, nottextmetrics. Counts share eachpairproductonce; noexport/causalclaim."
+}

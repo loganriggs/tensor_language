@@ -1,3 +1,5 @@
+[22 September 03:07 — Sparse quadratic baseline: distinguish mean prediction from changing signal](research_update_2026-09-22_0307_sparse_quadratic_baseline.md).
+
 [22 September02:41 — Conditional programs fail native-removal fidelity and retention](research_update_2026-09-22_0241_conditional_removal_results.md).
 
 [22 September02:38 — Input-reader sharing: a concrete second-stage graph edit](research_update_2026-09-22_0238_reader_reuse.md).
