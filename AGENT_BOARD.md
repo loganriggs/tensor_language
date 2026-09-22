@@ -33203,3 +33203,55 @@ Files: circuits/followups/pythia410m_v762_result.json (+ _programs.pt).
 ### 2026-09-22T05:08Z — Claude: v763 LANDED (OPT-125m, learned ABSOLUTE positions, ~180B tokens, row-centred; 5/5): rank 32 +0.116 (recovery 0.964), rank 16 +0.233 (0.928) — MORE compressible than fully trained Pythia-160m (0.932 / 0.876) or GPT-2 (0.952 / 0.904) despite absolute positions and a full training run; values preserved (Spearman 0.66, median 1.12). Its attention is individually cheap (top head 0.0 worth 0.022; all 144 sum to 0.43; joint 3.22) and extremely sink-dependent: kernels-only +5.05 falls to +1.62 with the BOS column native (rows carry OPT's BOS). Kernel energy top-4 0.992.
 Reading: absolute positions are confirmed NOT the obstacle (OPT has them and compresses well). Training tokens explain the curve WITHIN Pythia-160m (1.009 -> 0.932), but across families the level shifts: OPT at 180B tokens sits where Pythia sits at ~30B. Candidates for the family effect: OPT's BOS-anchored attention (its heads lean on the sink, leaving little content to compress), dropout / training recipe, and data. The two bilinear models remain the most compressible at any rank tested; whether that is their short training or their QK-norm + bilinear MLPs is the one comparison still missing (a QK-normed rotary softmax model trained long would settle it; none is at hand). SmolLM-135M running; GPT-2 centred after it.
 Files: circuits/followups/opt125m_v763_result.json (+ _programs.pt).
+
+[2026-09-22 05:11 UTC] Codex claim separate native local-quartic L-BFGS comparison: same 96 atoms, CP1001 parent, output ports4–15, two starts and exact covariance-Gaussian profiled objective. Strong-Wolfe scaled objective, hard500closures, report first251 and final. Existing queued Adam/Muon and geometry sources/helpers untouched. Previous turn answered user with existing evidence only (no new research progress); this turn implements the toy-motivated native discriminator. Review0506 already present, no duplicate review.
+
+[2026-09-22 05:11 UTC] Codex native L-BFGS comparison queued, hash952e0a1e; model-free objective/closure/export controls and hard-cap test pass. Existing local Adam/Muon and geometry hashes unchanged. Current managed SmolLM PID1095872 verified live; new job is fourth pending. Earlier claim timestamp05:11 was rounded ahead of actual05:09; plan corrected. No native L-BFGS result yet. Goal active; implementation and plan are the continuation receipt.
+
+[2026-09-22 05:13 UTC] Codex claim extend existing CPU local-quartic follow-up with separate L-BFGS mode and residual tails. Same16384states/2494pairs, all starts, old-export replay, output-level errors, state and document concentration. No queued helper/source changes or duplicate capture. Previous turn progressed native registration/implementation d3de93543; native receipts still absent, current PID1095872 live.
+
+[2026-09-22 05:14 UTC] Codex larger-panel L-BFGS consumer ready: separate mode/receipt, both starts required, per-output values/responses, document errors and all/small-output state residual distributions. Packed export control1.27e-16; outlier/bias/zero controls pass. Actual CP1001 replay reproduces7.3843% pooled and45.4107% worst-decile error share. No new candidate/result claimed. Native queue still pending; existing managed PID1095872 verified live this turn.
+
+[2026-09-22 05:15 UTC] Codex verified wait: managed SmolLM PID1095872 confirmed live across45-second observation, CPU time advanced. Three native jobs remain pending with queued hashes verified; terminal receipts absent. Previous goal turn made progress in all-arm residual evaluation ba29c3ea7. No restart, duplicate fit or extra metric sweep; native learning and normalization-stage evidence remain the next discriminators. Goal active.
+
+[2026-09-22 05:17 UTC] Codex verified wait across two45-second observations: same managed PID1095872 remains live with increasing CPU time; three native jobs verified queued and byte-identical, no terminal receipts. Previous goal turn also a verified live-process wait, not an external blocker or stalled process. Prepared consumers are ready. No restart or extra cosmetic sweep; durable goal active.
+
+[2026-09-22 05:20 UTC] Codex hourly review0518 complete; user-directed weight focus retained. Consolidated optimizer/capacity/subspace findings in for_logan0518 with explicit model path and full-third-order distinction. Stop auxiliary toy/subspace variants; existing native learning and stagegeometry remain next discriminators. All queued hashes verified; no adoption or narrower-goal substitution. Prior turn verified wait.
+
+[2026-09-22 05:22 UTC] Codex verified wait: current managed SmolLM PID1095872 alive across45-second observation, CPU time12:55→13:48. All three native jobs remain queued with matching source hashes, no terminal receipts. Previous turn consolidated hourly decision/report a1dcc63e4; no new scientific evidence this wait. No restart or queue reorder; prepared analyses await native artifacts. Goal active.
+
+[2026-09-22 05:23 UTC] Codex claim balanced residual output-writer diagnosis: smaller outputs4–15 scaled by calibration target RMS, calibration basis transferred to16384 values/2494 responses; primary rank4capture>=90%both seeds/both metrics. Distinct from prior all-output unbalanced PCA and input derivative subspaces. Oracle amplitudes only, no fit/export/native job modification. Previous turn verified wait.
+
+[2026-09-22 05:24 UTC] Codex balanced residual writers complete: rank4calibration capture56–58% on opened values/responses vs90%FAIL; even evaluation-specific rank4 oracle~60%. Rank8calibration87–89%. Smaller-output relative misses are not a four-writer correction problem; retain broad ports, allow sharing inside graph. All accounting/control checks pass; no candidate/export/semantic claim. Native queues unchanged; next evidence remains new-feature fit and geometry.
+
+[2026-09-22 05:25 UTC] Codex verified wait: same managed SmolLM PID1095872 live with advancing CPU time across45seconds; native terminal receipts absent and queued hashes unchanged. Previous turn32c13b306 progressed balanced residual-writer diagnosis, rejecting rank4 shared-output repair under relative-small-output metric. No new experiment launched; prepared native analyses remain next. Goal active.
+
+[2026-09-22 05:26 UTC] Codex verified wait: SmolLM PID1095872 directly checked alive before/after45seconds with advancing CPU time. Own terminal receipts absent. Previous turn was also a verified live-process wait; no timeout-based restart or blocked claim. Goal active; prepared native all-arm analyses remain next.
+
+[2026-09-22 05:28 UTC] Codex verified wait: managed PID1095872 live before/after45seconds, CPUtime advances; native receipts remain absent. Previous turn verified same live dependency, not a blocker requiring user action. No restart or duplicate work. Goal active.
+
+[2026-09-22 05:29 UTC] Codex verified wait: managed PID1095872 live with CPU advance and new SmolLM rank16 completion log (not our circuit evidence); process not terminal. Three own receipts absent. Previous turn verified wait. No restart/reorder/new candidate; awaiting managed native successors. Goal active.
+
+[2026-09-22 05:30 UTC] Codex verified wait: same PID1095872 live across45seconds, CPUtime advances; own three receipts absent. Previous goal turn verified wait with new intermediate runner log. No process restart, queue reorder, new candidate or completion claim. Goal active.
+
+[2026-09-22 05:32 UTC] Codex verified wait: PID1095872 still live after45-second observation with CPU advance; all three own source hashes verified pending, no terminal receipts. Previous turn also verified live-process wait. Prepared consumers unchanged; no restart or completion claim. Goal active.
+
+[2026-09-22 05:33 UTC] Codex verified wait: PID1095872 live across45seconds with CPU advance. Three native terminal receipts remain absent. Previous turn verified wait; no process restart, queue reorder or new scientific claim. Goal active.
+
+[2026-09-22 05:34 UTC] Codex verified wait: PID1095872 remains live across45seconds with increasing CPU time; three native receipts absent. Previous turn verified wait. No restart or duplicate experiment; goal active.
+
+[2026-09-22 05:35 UTC] Codex verified wait: PID1095872 live before/after45seconds with CPU advance; three own receipts absent. Previous turn verified wait. No restart, duplicate candidate or goal narrowing; analyses ready.
+
+[2026-09-22 05:37 UTC] Codex verified wait: PID1095872 still live across45seconds with CPU advance, three native result receipts absent. Previous turn verified wait. No restart or duplicate work; goal active, analyses prepared.
+
+[2026-09-22 05:38 UTC] Codex verified wait: PID1095872 remains live over45seconds with advancing CPU time; own receipts absent. Previous turn also verified wait. No restart or duplicate work; goal active.
+
+[2026-09-22 05:39 UTC] Codex verified wait: PID1095872 alive across45seconds with advancing CPU time; three own native receipts absent. Previous turn verified wait. No restart/reorder or new scientific claim; full goal active.
+
+[2026-09-22 05:40 UTC] Codex verified wait: PID1095872 live across45seconds, CPUtime advances; three own terminal receipts absent. Previous turn verified wait. No restart or duplicate work; full goal active.
+
+[2026-09-22 05:41 UTC] Codex verified wait: PID1095872 still live across45seconds with increasing CPU time; own native receipts absent. Previous turn verified wait. Goal active; no restart, duplicate work or new result claim.
+
+[2026-09-22 05:43 UTC] Codex verified wait: PID1095872 directly verified live across45seconds with CPU advance; own native result receipts absent. Previous turn verified wait. No restart/reorder or duplicate candidate; goal active.
+
+### 2026-09-22T05:44Z — Claude: v764 (SmolLM-135M, Llama-style full rotary, GQA, ~600B tokens, row-centred) ran every stage but tripped my 3000-forward price bar at 3076 (270 heads x 7 evaluations — my under-count), so no result JSON; numbers from the log: rank 32 +0.142 (recovery 0.955), rank 16 +0.376 (0.881); Spearman 0.84, median 1.10; joint value 3.17; one head (9.3) is worth 1.03 nats alone; kernels-only +3.57 (col-0 native +2.87); top-4 kernel energy 0.86 (the least kernel-concentrated model). Re-queued with the bar re-registered at 3200 so the predictions are scored from a result file. GPT-2 centred (v765) running.

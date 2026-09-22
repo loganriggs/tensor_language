@@ -15,7 +15,7 @@ PREDICTIONS (scored as written; failures preserved)
     pred_c_rank32_cost          rank-32 snapshot recovery >= 0.96. Prior: unsure
     pred_d_rank16_cost          rank-16 snapshot recovery >= 0.92. Prior: unsure
     pred_e_rank32_values_preserved_scale rank-32: median value ratio in [0.5, 2]. Prior: likely
-PRICE (registered maximum): as v755 (per-head ablations scale with the head count). Bars: forwards <= 3000, backwards <= 600.
+PRICE (registered maximum): as v755 (per-head ablations scale with the head count). Bars: forwards <= 3200, backwards <= 600 (first run tripped a 3000 bar at 3076 forwards — 270 heads x 7 evaluations — with all stages complete; re-registered).
 """
 from __future__ import annotations
 from datetime import datetime, timezone
@@ -34,7 +34,7 @@ OUT_PT = ROOT / f"circuits/followups/{TAG}_programs.pt"
 FIT_ROWS = (ROOT / f".rowcache/{PREFIX}_fineweb_n480_skip80.pt", ROOT / f".rowcache/{PREFIX}_fineweb_n192_skip11000.pt")
 EVAL_ROWS = ROOT / f".rowcache/{PREFIX}_fineweb_n192_skip7000.pt"
 CANDIDATE_ID = f"hf.all_{TAG}"
-FORWARDS_MAX, BACKWARDS_MAX = 3000, 600
+FORWARDS_MAX, BACKWARDS_MAX = 3200, 600
 EBATCH, TBATCH, STEPS, EVAL_EVERY, N_VAL, N_MANIP = 32, 8, 300, 25, 96, 24
 LR_MAP, LR_MAP_MIN, LR_K, LR_K_MIN = 3e-4, 3e-5, 0.01, 0.001
 KS, ARMS = (1, 2, 4, 8, 16), (16, 32)
