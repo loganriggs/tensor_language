@@ -1,0 +1,7 @@
+adapter parity vs repository blocks: 0.00e+00
+seed=0 w=0.0: train energy 5.97e-05 heldout 6.076e-05 | median heldout PR 304.6 | median top1 completeness 0.059 | source-MLP 0.846 attention 0.581 | 100s
+seed=0 w=1.0: train energy 7.888e-05 heldout 8.072e-05 | median heldout PR 1.8 | median top1 completeness 0.456 | source-MLP 0.418 attention 0.611 | 199s
+seed=0 w=10.0: train energy 8.144e-05 heldout 8.336e-05 | median heldout PR 1.7 | median top1 completeness 0.516 | source-MLP 0.409 attention 0.612 | 299s
+seed=0 w=100.0: train energy 7.28e-05 heldout 7.449e-05 | median heldout PR 1.5 | median top1 completeness 0.644 | source-MLP 0.339 attention 0.608 | 399s
+stability: {'random_null_mean': 4.5611341192852706e-05, 'random_null_max': 0.00019673605856951326, 'span_random_null_mean': 7.504571112804115e-05, 'span_random_null_max': 0.00030390755273401737, 'seeds_w0.0': [], 'seeds_w0.0_span': [], 'seeds_w1.0': [], 'seeds_w1.0_span': [], 'seeds_w10.0': [], 'seeds_w10.0_span': [], 'seeds_w100.0': [], 'seeds_w100.0_span': []}
+wrote results/e0_ajscale_bilinear.json (405s)
