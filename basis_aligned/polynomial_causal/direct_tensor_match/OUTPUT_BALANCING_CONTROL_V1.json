@@ -1,0 +1,35 @@
+{
+  "rows": [
+    {
+      "family": "shared_sum",
+      "matched_ridge_readout_replay": 1.3237806052914349e-16,
+      "unbalanced_ridge_readout_change": 0.561491891290678,
+      "producer_gradient_cosine": 0.6188379356251144
+    },
+    {
+      "family": "shared_product",
+      "matched_ridge_readout_replay": 2.5374922792562534e-16,
+      "unbalanced_ridge_readout_change": 0.2995982489725042,
+      "producer_gradient_cosine": 0.25940669223015717
+    },
+    {
+      "family": "dense_rank_one",
+      "matched_ridge_readout_replay": 4.940970535580313e-16,
+      "unbalanced_ridge_readout_change": 0.8116715366036187,
+      "producer_gradient_cosine": 0.5672747099344035
+    },
+    {
+      "family": "sparse_pairs",
+      "matched_ridge_readout_replay": 1.0871826416743477e-16,
+      "unbalanced_ridge_readout_change": 0.33535672269311084,
+      "producer_gradient_cosine": 0.5389439020685037
+    },
+    {
+      "family": "cancellation",
+      "matched_ridge_readout_replay": 2.240711719662686e-16,
+      "unbalanced_ridge_readout_change": 0.9941592025467763,
+      "producer_gradient_cosine": 1.0
+    }
+  ],
+  "scope": "Toy algebra/control. No native model improvement. Output weighting with independent unconstrained readouts changes only producer optimization when regularization is consistently weighted. Fixed-readout changes under unweighted ridge are a regularization effect."
+}
