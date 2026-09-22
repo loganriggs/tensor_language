@@ -1,0 +1,20 @@
+# Bidegree-typed vs untyped correction with seven times the fitting data
+
+22 September 2026, 17:58 UTC. Claude (Fable). Registered before any fitting. Follows BIDEGREE_CORRECTION_PLAN_V1.md, whose receipt (BIDEGREE_CORRECTION_V1.json) showed both arms data-starved: fit objective 0.003 at step 400 against a held-out minimum of 0.70 near step 40–50 (442,464 parameters, 5,120 fitting states). Typed/untyped fresh error ratios were 0.98–0.99 and cross-start cosines 0.58–0.88, so the earlier rung cannot distinguish "the typed class does not help" from "no 96-atom text fit is identified at this data size".
+
+**Question.** With the same two arms, seeds, loop, capacity and scoring, does fitting on 43,008 states from 672 documents (instead of 5,120 states from 80) change (i) whether typing helps and (ii) whether the fits are identified across starts?
+
+**Fitting data.** The exact teacher: F4(x) computed from the model's own MLP16/MLP17 weights and the 16 fixed reader directions, which reproduces the stored native calibration targets to 1.2e-6 (checked again in this run, bar 1e-4). Documents: `.rowcache/fineweb_n480_skip80.pt` (480) and `.rowcache/fineweb_n192_skip11000.pt` (192), first 64 positions each — both are in the fresh panel's exclusion list and disjoint from the calibration cache (`fineweb_n96_skip1200.pt`). Fit split: the first 608 documents (38,912 states); held-out split for the snapshot: the last 64 documents (4,096 states). Objective: mean over the 16 outputs of the unweighted relative squared error of the correction to residual = F4(x) − parent(x) (no sensitivity weights exist for these states; the sensitivity-weighted error on the 6,144 calibration states is reported as a held-out secondary metric). The fresh 16,384-state panel and the 2,494 matched pairs are scored exactly as before and never enter fitting or selection.
+
+**Arms.** TYPED: per output 6 atoms, each a product of p unit reads of S and q unit reads of C with the (p, q) counts fixed by the same rule as before (largest-remainder rounding of 6 × the census residual piece shares on the calibration panel). UNTYPED: 6 atoms of four unit reads of x. Coefficients profiled in closed form (ridge 1e-8); reads by Adam lr 0.05, 400 updates, seeds 25001 and 25002; snapshot at the best held-out objective (evaluated every 10 updates).
+
+**Predictions (scored as written; failures preserved).**
+1. pred_a_integrity: S + C reproduces the stored rows on the calibration and fresh panels to ≤ 1e-4, and x on the new panel to ≤ 1e-4; the teacher reproduces the stored calibration targets to ≤ 1e-4; the exported programs reloaded from disk reproduce every reported fresh error to ≤ 1e-8; the planted controls of the previous rung pass.
+2. pred_b_typed_beats_untyped: for both seeds, the typed arm's fresh small-output value RMS AND response RMS are ≤ 0.85 × the untyped arm's. Prior: unsure.
+3. pred_c_data_relieves_overfitting: for both seeds and both arms, the fresh small-output value RMS ≤ 0.45 (previous rung 0.49–0.51; Codex's hybrid 0.466; parent 0.566). Prior: unsure.
+4. pred_d_large_outputs_kept: for both seeds, the typed arm's fresh value error on each of outputs 0–3 is ≤ the parent's and on output 3 ≤ 0.9 × the parent's. Prior: likely.
+5. pred_e_cross_start_stability: the typed arm's cross-start cosine on the fresh panel has mean ≥ 0.9 and minimum ≥ 0.8 over outputs 4–15 (previous rung: 0.58–0.88). Prior: unsure.
+
+**Price.** Forwards: 84 (new panel) + 12 (calibration) + 32 (fresh) = 128, bar 140; model backwards 0; four fits of 442,464 parameters for 400 updates each on 38,912 states. Literal program cost per atom as before (4 × 1,152 read multiply-adds, 3 products, 1 coefficient multiply, 1 add).
+
+**Not licensed by this rung.** No feature names, no semantic labels, no intervention. A passing pred_e licenses a cross-start canonical-correlation audit of the typed dictionary per output before any intervention; a failing pred_b with seven times the data closes the bidegree-typed class at this capacity.

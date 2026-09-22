@@ -1,3 +1,5 @@
+[22 September 17:55 — Source/context geometry: the exact S + C census, and a bidegree-typed correction that does not beat untyped atoms (data-starved; 7× data ablation queued)](research_update_2026-09-22_source_context_geometry.md)
+
 [22 September — Final Codex compression report: what was compressed, what survived, and what remains open](research_update_2026-09-22_final_codex_compression.md).
 
 [22 September 06:05 — Why the bilinear models' heads are compressible: training length, not positions or size (Pythia checkpoint ladder, OPT, SmolLM)](research_update_2026-09-22_why_compressible.md).
