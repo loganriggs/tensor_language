@@ -14,8 +14,10 @@ PREDICTIONS (scored as written; failures preserved)
     pred_c_rank32_cost          rank-32 recovery < 0.96 — i.e. a long-trained QK-normed model is NOT as cheap as the twin (twin at rank 24: 0.965). Prior: likely under H3
     pred_d_rank16_cost          rank-16 recovery < 0.93 (twin at rank 16: 0.949). Prior: likely under H3
     pred_e_rank32_values_preserved_scale rank-32 median value ratio over the 24 most valuable heads in [0.5, 2]. Prior: likely
-PRICE (registered maximum): stock 7 + explicit 7; means 15; kernels 2; 448 heads x 7 = 3136; all-ablated 7; kernels-only 7 + col0 7; ladder 35;
-2 arms x (kappa_r 24 + step-0 10 + 300 + 12 x (24 + 7 + 7) + snapshot 8) = 1740; manipulability 168; total ~5140 forwards, 600 backwards. Bars: forwards <= 5600, backwards <= 600.
+PRICE (registered maximum): at batch 8 a CE over the 190 held-out rows is 24 forwards (the first run OOMed at batch 32 on the 152k-vocab logits, so the
+count inflates while the compute does not): native 48; means 59; kernels 8; 448 heads x 24 = 10752; all-ablated 24; kernels-only 48; ladder 120;
+2 arms x (kappa_r 8 + step-0 24 + 300 steps + 12 x (8 + 24 + 24) + snapshot 32) = 2072; manipulability 24 x 24 = 576; total ~13700 forwards, 600 backwards.
+Bars: forwards <= 15000, backwards <= 600.
 """
 from __future__ import annotations
 from datetime import datetime, timezone
@@ -34,8 +36,8 @@ OUT_PT = ROOT / f"circuits/followups/{TAG}_programs.pt"
 FIT_ROWS = (ROOT / f".rowcache/{PREFIX}_fineweb_n480_skip80.pt", ROOT / f".rowcache/{PREFIX}_fineweb_n192_skip11000.pt")
 EVAL_ROWS = ROOT / f".rowcache/{PREFIX}_fineweb_n192_skip7000.pt"
 CANDIDATE_ID = f"hf.all_{TAG}"
-FORWARDS_MAX, BACKWARDS_MAX = 5600, 600
-EBATCH, TBATCH, STEPS, EVAL_EVERY, N_VAL, N_MANIP = 32, 8, 300, 25, 96, 24
+FORWARDS_MAX, BACKWARDS_MAX = 15000, 600
+EBATCH, TBATCH, STEPS, EVAL_EVERY, N_VAL, N_MANIP = 8, 8, 300, 25, 96, 24   # Qwen3's 152k vocab makes a batch-32 fp32 logits tensor ~10 GB: the first run OOMed, so CE runs in batches of 8
 LR_MAP, LR_MAP_MIN, LR_K, LR_K_MIN = 3e-4, 3e-5, 0.01, 0.001
 KS, ARMS = (1, 2, 4, 8, 16), (16, 32)
 REPLAY_TOL, E4_MIN, REC32, REC16, RATIO = 0.002, 0.90, 0.96, 0.93, (0.5, 2.0)
