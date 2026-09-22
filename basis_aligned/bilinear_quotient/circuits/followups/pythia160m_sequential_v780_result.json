@@ -1,0 +1,1036 @@
+{
+  "backwards": 7200,
+  "candidate_id": "pythia.sequential_pythia160m_sequential_v780",
+  "finished_utc": "2026-09-22T12:00:40.630192+00:00",
+  "forwards": 12009,
+  "plan": {
+    "bars": {
+      "halve": 0.5,
+      "ratio": [
+        0.5,
+        2.0
+      ],
+      "rec_min": 0.96,
+      "replay_tol": 0.003
+    },
+    "candidate_id": "pythia.sequential_pythia160m_sequential_v780",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": "144 per-head refinements of rank-32 q/k maps + kernel multipliers",
+    "forwards_max": 13000,
+    "gpu_accessed": false,
+    "model": "EleutherAI/pythia-160m",
+    "model_backwards": 7300,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rank": 32,
+    "steps_per_head": 50
+  },
+  "predictions": {
+    "pred_a_joint_replays": true,
+    "pred_b_sum_isolated_halves": false,
+    "pred_c_joint_recovery": false,
+    "pred_d_beats_joint_fit": false,
+    "pred_e_values_preserved": true
+  },
+  "report": {
+    "heads": {
+      "0.0": {
+        "chosen_step": 50,
+        "isolated_cost": 0.007331367601384642,
+        "isolated_cost_before": 0.007430717735092962,
+        "value": 0.050516637495762406
+      },
+      "0.1": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0007192372040427664,
+        "isolated_cost_before": 0.0009085563798025831,
+        "value": 0.011836685664913027
+      },
+      "0.10": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0011210960427714411,
+        "isolated_cost_before": 0.0013275776502381653,
+        "value": 0.015634778867731125
+      },
+      "0.11": {
+        "chosen_step": 50,
+        "isolated_cost": -0.00048193412741248665,
+        "isolated_cost_before": -0.00023432346205654042,
+        "value": 0.028644823657416385
+      },
+      "0.2": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0071631231456223965,
+        "isolated_cost_before": 0.01388145234300664,
+        "value": 0.089940457764067
+      },
+      "0.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.003100981984113904,
+        "isolated_cost_before": 0.003318822445646852,
+        "value": 0.03273262137576083
+      },
+      "0.4": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0006138858399862279,
+        "isolated_cost_before": 4.628285225161122e-05,
+        "value": 0.03890629877080576
+      },
+      "0.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0004000984942975627,
+        "isolated_cost_before": 0.0006401514142289066,
+        "value": 0.009465119999307436
+      },
+      "0.6": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0002730930407430776,
+        "isolated_cost_before": 0.003923349429906242,
+        "value": 0.016364247070075333
+      },
+      "0.7": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0030912599415358066,
+        "isolated_cost_before": 0.00448808398271483,
+        "value": 0.01380541781687361
+      },
+      "0.8": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00380185354558904,
+        "isolated_cost_before": 0.00408316770365813,
+        "value": 0.032771400837082965
+      },
+      "0.9": {
+        "chosen_step": 50,
+        "isolated_cost": 0.000499674693290153,
+        "isolated_cost_before": 0.0007017869405796517,
+        "value": 0.006490042790229911
+      },
+      "1.0": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0012766499593466207,
+        "isolated_cost_before": 0.0017193154349843809,
+        "value": 0.010065376449742924
+      },
+      "1.1": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0032554216335474173,
+        "isolated_cost_before": 0.0035312076924376434,
+        "value": 0.030681182683440777
+      },
+      "1.10": {
+        "chosen_step": 25,
+        "isolated_cost": 0.002880395385267853,
+        "isolated_cost_before": 0.023726175486114887,
+        "value": 0.005576729156810067
+      },
+      "1.11": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0005567827372972012,
+        "isolated_cost_before": 0.0007395287251843463,
+        "value": 0.006056696639777481
+      },
+      "1.2": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0009594371281758107,
+        "isolated_cost_before": 0.0012562596118512737,
+        "value": 0.04220959559623427
+      },
+      "1.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0018826506916105323,
+        "isolated_cost_before": 0.0026733887627949926,
+        "value": 0.010815997197838101
+      },
+      "1.4": {
+        "chosen_step": 50,
+        "isolated_cost": -0.00016247917333434003,
+        "isolated_cost_before": 0.0005540106580665949,
+        "value": 0.030553421208277864
+      },
+      "1.5": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0002571202312728893,
+        "isolated_cost_before": 0.0005677956991245736,
+        "value": 0.009222923782822967
+      },
+      "1.6": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0014211340889409563,
+        "isolated_cost_before": 0.004921470899038383,
+        "value": 0.007808498767991168
+      },
+      "1.7": {
+        "chosen_step": 50,
+        "isolated_cost": 0.000614231732225079,
+        "isolated_cost_before": 0.001006501943953797,
+        "value": 0.02918209189578036
+      },
+      "1.8": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00011500299285716054,
+        "isolated_cost_before": 0.001246399212377458,
+        "value": 0.04080452696647052
+      },
+      "1.9": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0009918620549336232,
+        "isolated_cost_before": 0.0007918301023965846,
+        "value": 0.004307570235098979
+      },
+      "10.0": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0002830176773467308,
+        "isolated_cost_before": 0.0003581528836580361,
+        "value": 0.001231827266475527
+      },
+      "10.1": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00040933258175224196,
+        "isolated_cost_before": 0.0004560008567846552,
+        "value": 0.004099371519731054
+      },
+      "10.10": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0009198719973388947,
+        "isolated_cost_before": 0.0008280017833017794,
+        "value": 0.003854658937207045
+      },
+      "10.11": {
+        "chosen_step": 50,
+        "isolated_cost": 0.000600853114547828,
+        "isolated_cost_before": 0.0005777153944102054,
+        "value": 0.002699089791490472
+      },
+      "10.2": {
+        "chosen_step": 0,
+        "isolated_cost": 0.00023897447734277932,
+        "isolated_cost_before": 0.00023897447734277932,
+        "value": 0.000556895152274528
+      },
+      "10.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0003396081183240085,
+        "isolated_cost_before": 0.0003084481688979679,
+        "value": 0.0006953088730727863
+      },
+      "10.4": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00021909679155873718,
+        "isolated_cost_before": 0.000415743941470037,
+        "value": 0.001985438747109214
+      },
+      "10.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.002850063106556444,
+        "isolated_cost_before": 0.0031036120004603873,
+        "value": 0.003251729233894718
+      },
+      "10.6": {
+        "chosen_step": 0,
+        "isolated_cost": 0.0015262285044772561,
+        "isolated_cost_before": 0.0015262285044772561,
+        "value": 0.001754425967912976
+      },
+      "10.7": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0006673891927291287,
+        "isolated_cost_before": 0.0005952175417092143,
+        "value": 0.0023425280121323055
+      },
+      "10.8": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0006861872005954339,
+        "isolated_cost_before": 0.0006608184755156898,
+        "value": 0.001970042836480612
+      },
+      "10.9": {
+        "chosen_step": 0,
+        "isolated_cost": 0.003740625677948639,
+        "isolated_cost_before": 0.003740625677948639,
+        "value": 0.004453329224660685
+      },
+      "11.0": {
+        "chosen_step": 0,
+        "isolated_cost": 0.0010844771726143954,
+        "isolated_cost_before": 0.0010844771726143954,
+        "value": 0.003544399775371687
+      },
+      "11.1": {
+        "chosen_step": 0,
+        "isolated_cost": 5.1045047186892845e-05,
+        "isolated_cost_before": 5.1045047186892845e-05,
+        "value": 0.000774394662886646
+      },
+      "11.10": {
+        "chosen_step": 25,
+        "isolated_cost": 0.00036822946578096705,
+        "isolated_cost_before": 0.0003813116043960285,
+        "value": 0.0018591300193508964
+      },
+      "11.11": {
+        "chosen_step": 0,
+        "isolated_cost": 0.000791518799381663,
+        "isolated_cost_before": 0.000791518799381663,
+        "value": 0.005567213414246375
+      },
+      "11.2": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0006779253173987421,
+        "isolated_cost_before": 0.0006953249323551347,
+        "value": 0.00217959176691096
+      },
+      "11.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0012436258978176795,
+        "isolated_cost_before": 0.0015677590444296285,
+        "value": 0.0014967115431869793
+      },
+      "11.4": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0007352050721953773,
+        "isolated_cost_before": 0.0007260080446234163,
+        "value": 0.0009512666593560759
+      },
+      "11.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00011896098833608093,
+        "isolated_cost_before": 0.00021049148678153884,
+        "value": 0.002052855615171101
+      },
+      "11.6": {
+        "chosen_step": 0,
+        "isolated_cost": 0.000713366918613012,
+        "isolated_cost_before": 0.000713366918613012,
+        "value": 0.0017610176857272286
+      },
+      "11.7": {
+        "chosen_step": 0,
+        "isolated_cost": 0.0005893250203503619,
+        "isolated_cost_before": 0.0005893250203503619,
+        "value": 0.0021052867019730748
+      },
+      "11.8": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0004495907323964765,
+        "isolated_cost_before": 0.0007113508609908337,
+        "value": 0.002358104280856921
+      },
+      "11.9": {
+        "chosen_step": 0,
+        "isolated_cost": 0.0011565907631512218,
+        "isolated_cost_before": 0.0011565907631512218,
+        "value": 0.003337588334948016
+      },
+      "2.0": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0024049776205745665,
+        "isolated_cost_before": 0.0027709155502715355,
+        "value": 0.01052680534402306
+      },
+      "2.1": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0010636594011375067,
+        "isolated_cost_before": 0.001307459075216233,
+        "value": 0.01596086507016503
+      },
+      "2.10": {
+        "chosen_step": 50,
+        "isolated_cost": 0.002454072082598291,
+        "isolated_cost_before": 0.0026409873072963386,
+        "value": 0.020722784526607363
+      },
+      "2.11": {
+        "chosen_step": 50,
+        "isolated_cost": 0.003223553840360438,
+        "isolated_cost_before": 0.0036064355484559663,
+        "value": 0.030809023219686704
+      },
+      "2.2": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0018120862041728358,
+        "isolated_cost_before": 0.002105261995384744,
+        "value": 0.008643771700290515
+      },
+      "2.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0012533639996781254,
+        "isolated_cost_before": 0.0014010723390724955,
+        "value": 0.016849995894753
+      },
+      "2.4": {
+        "chosen_step": 50,
+        "isolated_cost": 0.002092141561557348,
+        "isolated_cost_before": 0.003416793951716457,
+        "value": 0.007952229346635864
+      },
+      "2.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0010331554116360664,
+        "isolated_cost_before": 0.0012411861222023646,
+        "value": 0.00408184095985531
+      },
+      "2.6": {
+        "chosen_step": 50,
+        "isolated_cost": 0.001724486523959179,
+        "isolated_cost_before": 0.0025737001488246314,
+        "value": 0.013593747825820124
+      },
+      "2.7": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0013263064962596438,
+        "isolated_cost_before": -0.0008383180193334283,
+        "value": 0.008017378149872467
+      },
+      "2.8": {
+        "chosen_step": 0,
+        "isolated_cost": 0.001093210951651713,
+        "isolated_cost_before": 0.001093210951651713,
+        "value": 0.017471663074789756
+      },
+      "2.9": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00348403663832908,
+        "isolated_cost_before": 0.0038272259766571892,
+        "value": 0.023701669020973704
+      },
+      "3.0": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00071360657252173,
+        "isolated_cost_before": 0.0012538087182711877,
+        "value": 0.010929610445091775
+      },
+      "3.1": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0011714097749382368,
+        "isolated_cost_before": 0.0016938849434331438,
+        "value": 0.02657728615202437
+      },
+      "3.10": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0008090617125513511,
+        "isolated_cost_before": 0.0009890380918671227,
+        "value": 0.021722251269483905
+      },
+      "3.11": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0003832906021354887,
+        "isolated_cost_before": 0.000624465201184865,
+        "value": 0.006806406950085719
+      },
+      "3.2": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0001240999587457381,
+        "isolated_cost_before": 0.0005125542378796588,
+        "value": 0.10184013411171078
+      },
+      "3.3": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0006550754290168825,
+        "isolated_cost_before": 0.0008436941729925707,
+        "value": 0.04264137905496401
+      },
+      "3.4": {
+        "chosen_step": 50,
+        "isolated_cost": -4.9322997968115345e-05,
+        "isolated_cost_before": -5.7869006932609324e-05,
+        "value": 0.017513491329133934
+      },
+      "3.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0017199726302385976,
+        "isolated_cost_before": 0.002556915727921716,
+        "value": 0.012061406911346051
+      },
+      "3.6": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0005789457825180477,
+        "isolated_cost_before": 0.0007538832531071016,
+        "value": 0.010075281321075824
+      },
+      "3.7": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0005092262604073916,
+        "isolated_cost_before": 0.004030915739622554,
+        "value": 0.006717459525468872
+      },
+      "3.8": {
+        "chosen_step": 50,
+        "isolated_cost": 2.9388487030601596e-06,
+        "isolated_cost_before": 0.0002878824046237405,
+        "value": 0.014495768077632754
+      },
+      "3.9": {
+        "chosen_step": 50,
+        "isolated_cost": 0.002091460895043973,
+        "isolated_cost_before": 0.002982879549727979,
+        "value": 0.017654197821345363
+      },
+      "4.0": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0019409742997718027,
+        "isolated_cost_before": 0.0019826777858438227,
+        "value": 0.028279080909768606
+      },
+      "4.1": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0036604231503343243,
+        "isolated_cost_before": 0.005176587425983037,
+        "value": 0.013891168208937543
+      },
+      "4.10": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0020060304533013884,
+        "isolated_cost_before": 0.0020093732547263876,
+        "value": 0.0012764177174147129
+      },
+      "4.11": {
+        "chosen_step": 50,
+        "isolated_cost": 0.004208847648738967,
+        "isolated_cost_before": 0.004806529672652271,
+        "value": 0.01661641239502254
+      },
+      "4.2": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0022129876625971434,
+        "isolated_cost_before": 0.002273482979887831,
+        "value": 0.008649864345016578
+      },
+      "4.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00012993812561035156,
+        "isolated_cost_before": 0.0004858538276790725,
+        "value": 0.019213501035858283
+      },
+      "4.4": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0011476914499706226,
+        "isolated_cost_before": 0.0014534700719801563,
+        "value": 0.013160521502321831
+      },
+      "4.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0013279235424770164,
+        "isolated_cost_before": 0.0017103345900619793,
+        "value": 0.02922033028281401
+      },
+      "4.6": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0014607338090018018,
+        "isolated_cost_before": 0.0015064916462477207,
+        "value": 0.0032759182193733416
+      },
+      "4.7": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0013535998645841651,
+        "isolated_cost_before": 0.0022454150600137446,
+        "value": 0.015268238097274622
+      },
+      "4.8": {
+        "chosen_step": 50,
+        "isolated_cost": -0.001673033818062386,
+        "isolated_cost_before": -0.0008531419724380207,
+        "value": 0.013807409167907458
+      },
+      "4.9": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0011685240454006873,
+        "isolated_cost_before": 0.0012720014147187264,
+        "value": 0.012972115235007298
+      },
+      "5.0": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0029090710872194947,
+        "isolated_cost_before": 0.003974169647137593,
+        "value": 0.010951460951968084
+      },
+      "5.1": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0012352120691012658,
+        "isolated_cost_before": 0.0021115004089828915,
+        "value": 0.02179644762543198
+      },
+      "5.10": {
+        "chosen_step": 50,
+        "isolated_cost": 0.002812672155508622,
+        "isolated_cost_before": 0.0031448608853037463,
+        "value": 0.0038257028154755623
+      },
+      "5.11": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0004777957738371086,
+        "isolated_cost_before": 0.0006325640208979522,
+        "value": 0.009957292536997286
+      },
+      "5.2": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0009400276322439893,
+        "isolated_cost_before": -0.00032334624176844073,
+        "value": 0.0058768178514863045
+      },
+      "5.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0011152047567417611,
+        "isolated_cost_before": 0.0016981283000094827,
+        "value": 0.011714537526659186
+      },
+      "5.4": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0006947727401023229,
+        "isolated_cost_before": -0.0004152102791583623,
+        "value": 0.010000091760269836
+      },
+      "5.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0023067417540079127,
+        "isolated_cost_before": 0.0026587884043163257,
+        "value": 0.023113748570180004
+      },
+      "5.6": {
+        "chosen_step": 25,
+        "isolated_cost": 0.00031161555354453085,
+        "isolated_cost_before": 0.0003500935944868999,
+        "value": 0.0002977810993094465
+      },
+      "5.7": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0014415750849430253,
+        "isolated_cost_before": 0.0023007849955187787,
+        "value": 0.0024941955823352124
+      },
+      "5.8": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0014938307549670071,
+        "isolated_cost_before": 0.001605289587702785,
+        "value": 0.033965945861500035
+      },
+      "5.9": {
+        "chosen_step": 50,
+        "isolated_cost": 0.002118309544775876,
+        "isolated_cost_before": 0.002554453716376859,
+        "value": 0.005660280662497019
+      },
+      "6.0": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00027983546874654763,
+        "isolated_cost_before": 0.00047378960051069896,
+        "value": 0.013893284328243105
+      },
+      "6.1": {
+        "chosen_step": 50,
+        "isolated_cost": -0.00031832339232451545,
+        "isolated_cost_before": 0.0004224036024025324,
+        "value": 0.0035926875672807057
+      },
+      "6.10": {
+        "chosen_step": 50,
+        "isolated_cost": -0.001930444351749827,
+        "isolated_cost_before": -0.0009644785075608731,
+        "value": 0.0024049232660794395
+      },
+      "6.11": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0016031994103147262,
+        "isolated_cost_before": 0.0023144427976458104,
+        "value": 0.011431870682869327
+      },
+      "6.2": {
+        "chosen_step": 0,
+        "isolated_cost": 0.0008789134149105315,
+        "isolated_cost_before": 0.0008789134149105315,
+        "value": 0.0066034719733991665
+      },
+      "6.3": {
+        "chosen_step": 50,
+        "isolated_cost": -0.00012118828729024145,
+        "isolated_cost_before": 0.0005654436318982548,
+        "value": 0.0106834339971984
+      },
+      "6.4": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0005861489883973725,
+        "isolated_cost_before": 0.0008266021550626945,
+        "value": 0.019583725558661502
+      },
+      "6.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0019234462105548467,
+        "isolated_cost_before": 0.003244962099302473,
+        "value": 0.00904949464946192
+      },
+      "6.6": {
+        "chosen_step": 50,
+        "isolated_cost": 0.002672091666898524,
+        "isolated_cost_before": 0.003300091145569617,
+        "value": 0.010951900729243569
+      },
+      "6.7": {
+        "chosen_step": 50,
+        "isolated_cost": 0.003100970866148689,
+        "isolated_cost_before": 0.0049818253887750075,
+        "value": 0.013652698981329259
+      },
+      "6.8": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0023889924578095467,
+        "isolated_cost_before": 0.0035648271827497524,
+        "value": 0.010919955110302748
+      },
+      "6.9": {
+        "chosen_step": 50,
+        "isolated_cost": -0.00026720299004301395,
+        "isolated_cost_before": 2.378009143821913e-06,
+        "value": 0.0005223825187878894
+      },
+      "7.0": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0003316068896359603,
+        "isolated_cost_before": -9.760708388917294e-05,
+        "value": 0.0031355996206015035
+      },
+      "7.1": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0006843675603520616,
+        "isolated_cost_before": 0.0009949824970618693,
+        "value": 0.00720138376858559
+      },
+      "7.10": {
+        "chosen_step": 25,
+        "isolated_cost": 0.00023055076599121094,
+        "isolated_cost_before": 0.00021868295620119937,
+        "value": 0.0005011570886006567
+      },
+      "7.11": {
+        "chosen_step": 50,
+        "isolated_cost": 0.003821406339734157,
+        "isolated_cost_before": 0.005004548038225476,
+        "value": 0.01673708678527186
+      },
+      "7.2": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0014067239711939017,
+        "isolated_cost_before": 0.0020570372052759467,
+        "value": 0.0014878505252182705
+      },
+      "7.3": {
+        "chosen_step": 50,
+        "isolated_cost": -0.00019076698184639085,
+        "isolated_cost_before": 0.0003702961719098674,
+        "value": 0.0003168335850372017
+      },
+      "7.4": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0006136807753014395,
+        "isolated_cost_before": 0.0007988727154506492,
+        "value": 0.00452302280485295
+      },
+      "7.5": {
+        "chosen_step": 0,
+        "isolated_cost": 0.0002119738820920425,
+        "isolated_cost_before": 0.0002119738820920425,
+        "value": 0.0015259740266158062
+      },
+      "7.6": {
+        "chosen_step": 50,
+        "isolated_cost": -0.0005632360982152917,
+        "isolated_cost_before": -0.0005283565718894323,
+        "value": 0.0007896176273956002
+      },
+      "7.7": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0007463329196593094,
+        "isolated_cost_before": 0.0009690158725401687,
+        "value": 0.01684261480143645
+      },
+      "7.8": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0028476233309415733,
+        "isolated_cost_before": 0.0041181077611258665,
+        "value": 0.085804133835234
+      },
+      "7.9": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0006629234768564807,
+        "isolated_cost_before": 0.0008334359974440098,
+        "value": 0.0013810933562758976
+      },
+      "8.0": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0006092039414635764,
+        "isolated_cost_before": 0.0008470826816062704,
+        "value": 0.0018582072282700146
+      },
+      "8.1": {
+        "chosen_step": 0,
+        "isolated_cost": 7.676707648229808e-05,
+        "isolated_cost_before": 7.676707648229808e-05,
+        "value": 0.004378097662653957
+      },
+      "8.10": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0028391835603072124,
+        "isolated_cost_before": 0.0027750786104348,
+        "value": 0.007390647354521107
+      },
+      "8.11": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0018402319498012076,
+        "isolated_cost_before": 0.0020264455073855103,
+        "value": 0.002297087654548502
+      },
+      "8.2": {
+        "chosen_step": 50,
+        "isolated_cost": 0.001225415906757732,
+        "isolated_cost_before": 0.0011578013859883107,
+        "value": 0.0016081011974748982
+      },
+      "8.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0004698563116201093,
+        "isolated_cost_before": 0.0006638932104552353,
+        "value": 0.001622151834359542
+      },
+      "8.4": {
+        "chosen_step": 50,
+        "isolated_cost": 0.00014949339041425702,
+        "isolated_cost_before": 0.0001616107367481412,
+        "value": 0.004254942730918199
+      },
+      "8.5": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0006512063772565746,
+        "isolated_cost_before": 0.0008934038290706603,
+        "value": 0.0036349247156644005
+      },
+      "8.6": {
+        "chosen_step": 25,
+        "isolated_cost": 0.00013130934127225657,
+        "isolated_cost_before": 0.0003545827816187064,
+        "value": 0.00011712405348074384
+      },
+      "8.7": {
+        "chosen_step": 0,
+        "isolated_cost": 0.000272458081418403,
+        "isolated_cost_before": 0.000272458081418403,
+        "value": 0.002811195936845312
+      },
+      "8.8": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0005538797131472428,
+        "isolated_cost_before": 0.0009126490261888165,
+        "value": 0.002043263282182739
+      },
+      "8.9": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0007363798704789204,
+        "isolated_cost_before": 0.0008266923341109234,
+        "value": 0.003965752112432774
+      },
+      "9.0": {
+        "chosen_step": 0,
+        "isolated_cost": 0.0005386839258854081,
+        "isolated_cost_before": 0.0005386839258854081,
+        "value": 0.0005255400207992977
+      },
+      "9.1": {
+        "chosen_step": 50,
+        "isolated_cost": 7.179487554509478e-05,
+        "isolated_cost_before": 0.0001525100648711586,
+        "value": 0.000142380363582717
+      },
+      "9.10": {
+        "chosen_step": 0,
+        "isolated_cost": 0.00011235444656909621,
+        "isolated_cost_before": 0.00011235444656909621,
+        "value": 0.0007963291721639898
+      },
+      "9.11": {
+        "chosen_step": 50,
+        "isolated_cost": -1.9279786342085714e-05,
+        "isolated_cost_before": 9.608515803671835e-05,
+        "value": 0.0004024567381706312
+      },
+      "9.2": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0010672047965885056,
+        "isolated_cost_before": 0.0011750490554254256,
+        "value": 0.0019827024924321535
+      },
+      "9.3": {
+        "chosen_step": 50,
+        "isolated_cost": 0.006360319611939502,
+        "isolated_cost_before": 0.006335593258160799,
+        "value": 0.012456173723843111
+      },
+      "9.4": {
+        "chosen_step": 0,
+        "isolated_cost": 0.00027924992259897863,
+        "isolated_cost_before": 0.00027924992259897863,
+        "value": 0.002642829183469697
+      },
+      "9.5": {
+        "chosen_step": 0,
+        "isolated_cost": 0.002002251580588865,
+        "isolated_cost_before": 0.002002251580588865,
+        "value": 0.001423980287936999
+      },
+      "9.6": {
+        "chosen_step": 0,
+        "isolated_cost": 0.0003480651835703341,
+        "isolated_cost_before": 0.0003480651835703341,
+        "value": 0.002826963681631156
+      },
+      "9.7": {
+        "chosen_step": 50,
+        "isolated_cost": 0.0031504001024473816,
+        "isolated_cost_before": 0.0030194082408372402,
+        "value": 0.004203209605241565
+      },
+      "9.8": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0013263793806954638,
+        "isolated_cost_before": 0.0011415382741026825,
+        "value": 0.005521874353675571
+      },
+      "9.9": {
+        "chosen_step": 25,
+        "isolated_cost": 0.0016683556255281395,
+        "isolated_cost_before": 0.001182432619401208,
+        "value": 0.003434935999657718
+      }
+    },
+    "joint_refined_cost": 0.26586116904421786,
+    "joint_replay_cost": 0.21313994536128078,
+    "joint_value": 3.118445543427541,
+    "manipulability": {
+      "0.0": {
+        "in_program_value": 0.03611988354223383,
+        "native_value": 0.050516637495762406,
+        "ratio": 0.7150096548936725
+      },
+      "0.11": {
+        "in_program_value": 0.12817044085171547,
+        "native_value": 0.028644823657416385,
+        "ratio": 4.474471282651135
+      },
+      "0.2": {
+        "in_program_value": 0.025830394863464612,
+        "native_value": 0.089940457764067,
+        "ratio": 0.28719438955073195
+      },
+      "0.3": {
+        "in_program_value": 0.049015221818123234,
+        "native_value": 0.03273262137576083,
+        "ratio": 1.4974426048999547
+      },
+      "0.4": {
+        "in_program_value": 0.21999954806708288,
+        "native_value": 0.03890629877080576,
+        "ratio": 5.654599769643589
+      },
+      "0.8": {
+        "in_program_value": 0.03754075080001895,
+        "native_value": 0.032771400837082965,
+        "ratio": 1.1455339058176346
+      },
+      "1.1": {
+        "in_program_value": 0.020311288883031242,
+        "native_value": 0.030681182683440777,
+        "ratio": 0.6620112755299239
+      },
+      "1.2": {
+        "in_program_value": 0.046009660384815465,
+        "native_value": 0.04220959559623427,
+        "ratio": 1.0900284576268295
+      },
+      "1.4": {
+        "in_program_value": 0.07743191842588093,
+        "native_value": 0.030553421208277864,
+        "ratio": 2.534312537310952
+      },
+      "1.7": {
+        "in_program_value": 0.045053538880817534,
+        "native_value": 0.02918209189578036,
+        "ratio": 1.5438762595128466
+      },
+      "1.8": {
+        "in_program_value": 0.11987303822769402,
+        "native_value": 0.04080452696647052,
+        "ratio": 2.9377387054675297
+      },
+      "2.10": {
+        "in_program_value": 0.007654827493460026,
+        "native_value": 0.020722784526607363,
+        "ratio": 0.3693918393848801
+      },
+      "2.11": {
+        "in_program_value": 0.027891220824088236,
+        "native_value": 0.030809023219686704,
+        "ratio": 0.9052939012446841
+      },
+      "2.9": {
+        "in_program_value": 0.02110858284747641,
+        "native_value": 0.023701669020973704,
+        "ratio": 0.8905947859113778
+      },
+      "3.1": {
+        "in_program_value": 0.02141954491175513,
+        "native_value": 0.02657728615202437,
+        "ratio": 0.8059342398329717
+      },
+      "3.10": {
+        "in_program_value": 0.0014530018821279356,
+        "native_value": 0.021722251269483905,
+        "ratio": 0.06689002277444225
+      },
+      "3.2": {
+        "in_program_value": 0.12227856186387465,
+        "native_value": 0.10184013411171078,
+        "ratio": 1.2006912886597783
+      },
+      "3.3": {
+        "in_program_value": 0.024317840220396736,
+        "native_value": 0.04264137905496401,
+        "ratio": 0.5702873771753829
+      },
+      "4.0": {
+        "in_program_value": 0.015981801433266885,
+        "native_value": 0.028279080909768606,
+        "ratio": 0.5651457161659804
+      },
+      "4.5": {
+        "in_program_value": 0.026899992493150116,
+        "native_value": 0.02922033028281401,
+        "ratio": 0.9205916645292471
+      },
+      "5.1": {
+        "in_program_value": 0.02279328064597319,
+        "native_value": 0.02179644762543198,
+        "ratio": 1.0457337377939564
+      },
+      "5.5": {
+        "in_program_value": 0.015810315473092196,
+        "native_value": 0.023113748570180004,
+        "ratio": 0.6840221275699837
+      },
+      "5.8": {
+        "in_program_value": 0.0315314031017877,
+        "native_value": 0.033965945861500035,
+        "ratio": 0.9283240110656875
+      },
+      "7.8": {
+        "in_program_value": 0.08658294974213421,
+        "native_value": 0.085804133835234,
+        "ratio": 1.0090766711589414
+      }
+    },
+    "median_ratio": 0.9283240110656875,
+    "native": 3.473106689403712,
+    "recovery": 0.914745611125213,
+    "spearman": 0.6252173913043473,
+    "sum_isolated_after": 0.16760238835229613,
+    "sum_isolated_before": 0.25263063277603903
+  },
+  "schema": "pythia_sequential_result_pythia160m_sequential_v780",
+  "serial_seconds": 1118.2113013779745
+}
