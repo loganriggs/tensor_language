@@ -1,0 +1,2796 @@
+{
+  "scope": "Previously opened evaluation panel, no training or model forward. 2048 correlated token states in 32 prefixes; 16 scalar output coordinates of the selected MLP16-to-MLP17 pure quartic component, not full-model outputs.",
+  "states": 2048,
+  "prefixes": 32,
+  "states_per_prefix": 64,
+  "outputs": 16,
+  "normalizing_scale": 19054614563.464127,
+  "rows": [
+    {
+      "name": "original384",
+      "artifact": "EXPANDED_ROOT_EMPIRICAL_V1.pt",
+      "artifact_sha256": "f50ab7fe62295fd338e883c486ca1d77d3dbf9d3d21883f8b7b95393bf6fb2df",
+      "prediction_seconds": 0.02042068215087056,
+      "pooled_relative_error": 0.08131342059255875,
+      "row_error_over_common_target_rms": {
+        "0.5": 0.05981457948541956,
+        "0.9": 0.12357054471920663,
+        "0.95": 0.151338157176902,
+        "0.99": 0.20614269897361906,
+        "1.0": 0.3699848936471741
+      },
+      "row_relative_error": {
+        "0.5": 0.08445673633747779,
+        "0.9": 0.18108482945886203,
+        "0.95": 0.22940365620651443,
+        "0.99": 0.3575326760852327,
+        "1.0": 0.8994048622610947
+      },
+      "row_target_norm_over_common_rms": {
+        "0.5": 0.696135371223229,
+        "0.9": 1.4756725290714907,
+        "0.95": 2.1564796029168862,
+        "0.99": 2.9437712579842747,
+        "1.0": 3.708087464504579
+      },
+      "error_concentration": {
+        "0.01": 0.0944785727306538,
+        "0.05": 0.28053818277617826,
+        "0.1": 0.4195022058627604
+      },
+      "target_energy_concentration": {
+        "0.01": 0.10450185572571331,
+        "0.05": 0.3613065300914433,
+        "0.1": 0.5136104140305605
+      },
+      "target_energy_on_worst_error_rows": {
+        "0.01": 0.026133119377157114,
+        "0.05": 0.11706157081812141,
+        "0.1": 0.2097548246356518
+      },
+      "prefix_relative_errors": {
+        "0.5": 0.07521188470362686,
+        "0.9": 0.1121392411268395,
+        "0.95": 0.11462868075509698,
+        "0.99": 0.127538297692067,
+        "1.0": 0.13312452371317635
+      },
+      "prefixes": [
+        {
+          "prefix": 0,
+          "relative_error": 0.07588253697461668,
+          "residual_energy_share": 0.02901814168633295
+        },
+        {
+          "prefix": 1,
+          "relative_error": 0.05689948998291046,
+          "residual_energy_share": 0.020241393194617027
+        },
+        {
+          "prefix": 2,
+          "relative_error": 0.07429024365443396,
+          "residual_energy_share": 0.022923741490666418
+        },
+        {
+          "prefix": 3,
+          "relative_error": 0.0788164083298588,
+          "residual_energy_share": 0.03109019934355483
+        },
+        {
+          "prefix": 4,
+          "relative_error": 0.06379753105481892,
+          "residual_energy_share": 0.02251640338203054
+        },
+        {
+          "prefix": 5,
+          "relative_error": 0.06808502511246173,
+          "residual_energy_share": 0.028380505620598327
+        },
+        {
+          "prefix": 6,
+          "relative_error": 0.06610154569196033,
+          "residual_energy_share": 0.019256083440635757
+        },
+        {
+          "prefix": 7,
+          "relative_error": 0.06328379618836504,
+          "residual_energy_share": 0.015851947354067735
+        },
+        {
+          "prefix": 8,
+          "relative_error": 0.0805766496515487,
+          "residual_energy_share": 0.042363171019826604
+        },
+        {
+          "prefix": 9,
+          "relative_error": 0.06910279698726365,
+          "residual_energy_share": 0.03317258763308901
+        },
+        {
+          "prefix": 10,
+          "relative_error": 0.06411044989035031,
+          "residual_energy_share": 0.02300540582991852
+        },
+        {
+          "prefix": 11,
+          "relative_error": 0.07007194021465818,
+          "residual_energy_share": 0.025164834381183283
+        },
+        {
+          "prefix": 12,
+          "relative_error": 0.11510443977411391,
+          "residual_energy_share": 0.04301276100805299
+        },
+        {
+          "prefix": 13,
+          "relative_error": 0.13312452371317635,
+          "residual_energy_share": 0.09264965027009468
+        },
+        {
+          "prefix": 14,
+          "relative_error": 0.1142394233759013,
+          "residual_energy_share": 0.04017457759813004
+        },
+        {
+          "prefix": 15,
+          "relative_error": 0.09378656085110568,
+          "residual_energy_share": 0.04272326735505768
+        },
+        {
+          "prefix": 16,
+          "relative_error": 0.07360790453355012,
+          "residual_energy_share": 0.02137078673434357
+        },
+        {
+          "prefix": 17,
+          "relative_error": 0.09028733333198294,
+          "residual_energy_share": 0.040143007727210404
+        },
+        {
+          "prefix": 18,
+          "relative_error": 0.08199322289129855,
+          "residual_energy_share": 0.03861608841614876
+        },
+        {
+          "prefix": 19,
+          "relative_error": 0.08542901585324066,
+          "residual_energy_share": 0.024323000804306147
+        },
+        {
+          "prefix": 20,
+          "relative_error": 0.11229184387371749,
+          "residual_energy_share": 0.05836332853943471
+        },
+        {
+          "prefix": 21,
+          "relative_error": 0.09292044179672523,
+          "residual_energy_share": 0.04180962568613642
+        },
+        {
+          "prefix": 22,
+          "relative_error": 0.05913200056969839,
+          "residual_energy_share": 0.016072798237049064
+        },
+        {
+          "prefix": 23,
+          "relative_error": 0.07803562821723883,
+          "residual_energy_share": 0.02763040737759933
+        },
+        {
+          "prefix": 24,
+          "relative_error": 0.11076581640493748,
+          "residual_energy_share": 0.030263478414195827
+        },
+        {
+          "prefix": 25,
+          "relative_error": 0.09427145579982324,
+          "residual_energy_share": 0.03236123612000839
+        },
+        {
+          "prefix": 26,
+          "relative_error": 0.07454123243263705,
+          "residual_energy_share": 0.03365618820529853
+        },
+        {
+          "prefix": 27,
+          "relative_error": 0.09005361479074618,
+          "residual_energy_share": 0.02904586594384291
+        },
+        {
+          "prefix": 28,
+          "relative_error": 0.06648231792351336,
+          "residual_energy_share": 0.019656124355485957
+        },
+        {
+          "prefix": 29,
+          "relative_error": 0.05932419077512786,
+          "residual_energy_share": 0.016400088576345076
+        },
+        {
+          "prefix": 30,
+          "relative_error": 0.06798633793367703,
+          "residual_energy_share": 0.016921842254464053
+        },
+        {
+          "prefix": 31,
+          "relative_error": 0.06538601330925757,
+          "residual_energy_share": 0.021821462000274423
+        }
+      ],
+      "features": [
+        {
+          "feature": 0,
+          "relative_error": 0.06909205041464596,
+          "residual_energy_share": 0.5718961032475026,
+          "target_energy_share": 0.7921098913801371,
+          "bias": -3.252145842170023,
+          "target_rms": 84.38570623656949
+        },
+        {
+          "feature": 1,
+          "relative_error": 0.07825371096668461,
+          "residual_energy_share": 0.08534968036912409,
+          "target_energy_share": 0.09215448508039394,
+          "bias": -0.642014264359908,
+          "target_rms": 28.782890770159128
+        },
+        {
+          "feature": 2,
+          "relative_error": 0.08931155632513521,
+          "residual_energy_share": 0.12361404472223464,
+          "target_energy_share": 0.10246533491796336,
+          "bias": 0.5208476341745106,
+          "target_rms": 30.350416348063856
+        },
+        {
+          "feature": 3,
+          "relative_error": 0.24667240572545368,
+          "residual_energy_share": 0.09205601815628002,
+          "target_energy_share": 0.010003120687524942,
+          "bias": -0.8504702876819352,
+          "target_rms": 9.482960148125063
+        },
+        {
+          "feature": 4,
+          "relative_error": 0.4591078503737277,
+          "residual_energy_share": 0.01850258355062917,
+          "target_energy_share": 0.0005803999920148306,
+          "bias": -0.37253433152265125,
+          "target_rms": 2.2842302051067134
+        },
+        {
+          "feature": 5,
+          "relative_error": 0.5221952021653247,
+          "residual_energy_share": 0.02972743073733599,
+          "target_energy_share": 0.0007208021659045506,
+          "bias": -0.5274395083888305,
+          "target_rms": 2.545565126512004
+        },
+        {
+          "feature": 6,
+          "relative_error": 0.5364800849996691,
+          "residual_energy_share": 0.02733703850192189,
+          "target_energy_share": 0.0006280131192428914,
+          "bias": 0.1698286672112852,
+          "target_rms": 2.3760771031575705
+        },
+        {
+          "feature": 7,
+          "relative_error": 0.4494099660453073,
+          "residual_energy_share": 0.010456824704654921,
+          "target_energy_share": 0.00034232521629869536,
+          "bias": 0.07314351041504438,
+          "target_rms": 1.754266688786657
+        },
+        {
+          "feature": 8,
+          "relative_error": 0.38878583030552033,
+          "residual_energy_share": 0.007102387131559352,
+          "target_energy_share": 0.00031067617243122665,
+          "bias": -0.13296517094788346,
+          "target_rms": 1.6712066077832146
+        },
+        {
+          "feature": 9,
+          "relative_error": 0.46264539934337084,
+          "residual_energy_share": 0.0043207797450100565,
+          "target_energy_share": 0.00013347197733583555,
+          "bias": 0.062090720094143535,
+          "target_rms": 1.095396170656061
+        },
+        {
+          "feature": 10,
+          "relative_error": 0.5473540438407977,
+          "residual_energy_share": 0.0056024569333780975,
+          "target_energy_share": 0.0001236420868096243,
+          "bias": 0.10914364877831752,
+          "target_rms": 1.054288172329146
+        },
+        {
+          "feature": 11,
+          "relative_error": 0.4818478266643401,
+          "residual_energy_share": 0.005252169672562465,
+          "target_energy_share": 0.00014956962345326786,
+          "bias": 0.09334527114086393,
+          "target_rms": 1.1595724040749573
+        },
+        {
+          "feature": 12,
+          "relative_error": 0.6681657403794,
+          "residual_energy_share": 0.005954449888504216,
+          "target_energy_share": 8.818560499091778e-05,
+          "bias": -0.04437957890020832,
+          "target_rms": 0.8903792298128945
+        },
+        {
+          "feature": 13,
+          "relative_error": 0.71716092713205,
+          "residual_energy_share": 0.006613889462396859,
+          "target_energy_share": 8.502529627516916e-05,
+          "bias": -0.00505436776249084,
+          "target_rms": 0.8742794051769147
+        },
+        {
+          "feature": 14,
+          "relative_error": 0.5930331177260562,
+          "residual_energy_share": 0.003184802310700048,
+          "target_energy_share": 5.98754853979784e-05,
+          "bias": 0.06339192695074121,
+          "target_rms": 0.7336698880693621
+        },
+        {
+          "feature": 15,
+          "relative_error": 0.6658209430462015,
+          "residual_energy_share": 0.003029340866205377,
+          "target_energy_share": 4.518119382576976e-05,
+          "bias": 0.06612340693352045,
+          "target_rms": 0.637316294252545
+        }
+      ],
+      "groups": [
+        {
+          "group": "newline",
+          "count": 30,
+          "relative_error": 0.03542699376191049,
+          "residual_energy_share": 0.019801990308809192,
+          "target_energy_share": 0.10431930945060085
+        },
+        {
+          "group": "other",
+          "count": 2018,
+          "relative_error": 0.08506335996800554,
+          "residual_energy_share": 0.9801980096911909,
+          "target_energy_share": 0.8956806905493991
+        },
+        {
+          "group": "positions_0_15",
+          "count": 512,
+          "relative_error": 0.06708570089437173,
+          "residual_energy_share": 0.17761570139942517,
+          "target_energy_share": 0.2609431458192673
+        },
+        {
+          "group": "positions_16_31",
+          "count": 512,
+          "relative_error": 0.08532916705870915,
+          "residual_energy_share": 0.2524046704026045,
+          "target_energy_share": 0.22920645050973584
+        },
+        {
+          "group": "positions_32_47",
+          "count": 512,
+          "relative_error": 0.08509804825700922,
+          "residual_energy_share": 0.2748115309737417,
+          "target_energy_share": 0.250911296257398
+        },
+        {
+          "group": "positions_48_63",
+          "count": 512,
+          "relative_error": 0.0868156688146176,
+          "residual_energy_share": 0.2951680972242285,
+          "target_energy_share": 0.25893910741359893
+        }
+      ],
+      "bias_energy_share": 0.2100771684569484,
+      "centered_residual_pc_energy_shares": [
+        0.5911461029118068,
+        0.17117152119360352,
+        0.07706189357134074,
+        0.049130947944185745,
+        0.025089960189154756,
+        0.021748506156561733,
+        0.016401748357646285,
+        0.009880337464131835,
+        0.008830569415031384,
+        0.007932088955028133,
+        0.006475546298052612,
+        0.005026524542884515,
+        0.003589479508123797,
+        0.0029733240235719715,
+        0.0018960315371520766,
+        0.0016454179317242116
+      ],
+      "leading_residual_direction": [
+        -0.9021702546240239,
+        -0.25836641308179775,
+        -0.11274039320858337,
+        -0.2941724334242808,
+        -0.08683556505246251,
+        -0.04732103496486316,
+        0.09204384606453216,
+        0.0043985434358074045,
+        -0.025403796739156853,
+        0.026030287318088124,
+        0.005425367181780924,
+        0.006062700947408407,
+        -0.013201244107916316,
+        -7.440343177711473e-05,
+        0.010200160723710834,
+        0.012217101347238364
+      ],
+      "top_error_contexts": [
+        {
+          "flat_index": 884,
+          "prefix": 13,
+          "position": 52,
+          "context": " of standard-duty automotive and truck applications. The SS365 Oil Filter Magnet fits oil filters with a diameter from 3.",
+          "current_token": ".",
+          "relative_error": 0.3500365104076406,
+          "error_over_common_target_rms": 0.3699848936471741,
+          "squared_error_share": 0.010109125095200344,
+          "largest_error_feature": 3
+        },
+        {
+          "flat_index": 590,
+          "prefix": 9,
+          "position": 14,
+          "context": " of Light, Insubstantial (Space and Time 2007), and How to",
+          "current_token": " to",
+          "relative_error": 0.24571168312011574,
+          "error_over_common_target_rms": 0.2885068644365433,
+          "squared_error_share": 0.006146924623308448,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1702,
+          "prefix": 26,
+          "position": 38,
+          "context": "-day East Cemetery on the Old Post Road. But in looking at its origin in 1830 by a town body called the",
+          "current_token": " the",
+          "relative_error": 0.12451070469166503,
+          "error_over_common_target_rms": 0.2721834214743194,
+          "squared_error_share": 0.005471027833071765,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1160,
+          "prefix": 18,
+          "position": 8,
+          "context": " one FilterMAG. Nobody else utilizes the patented",
+          "current_token": " patented",
+          "relative_error": 0.1684583183675084,
+          "error_over_common_target_rms": 0.25829543405072264,
+          "squared_error_share": 0.004926960089324677,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1224,
+          "prefix": 19,
+          "position": 8,
+          "context": "The publication detail shows the title, authors (",
+          "current_token": " (",
+          "relative_error": 0.17036961923733004,
+          "error_over_common_target_rms": 0.25615807337778884,
+          "squared_error_share": 0.004845757564536288,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1388,
+          "prefix": 21,
+          "position": 44,
+          "context": " Muammar Gaddafi's sons, Mo'tassim, has also been killed by fighters from Libya's NTC while",
+          "current_token": " while",
+          "relative_error": 0.19562560545845742,
+          "error_over_common_target_rms": 0.2529709816257139,
+          "squared_error_share": 0.004725926881567854,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 885,
+          "prefix": 13,
+          "position": 53,
+          "context": " standard-duty automotive and truck applications. The SS365 Oil Filter Magnet fits oil filters with a diameter from 3.50",
+          "current_token": "50",
+          "relative_error": 0.3220990432215164,
+          "error_over_common_target_rms": 0.252127167383378,
+          "squared_error_share": 0.004694451702148177,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1307,
+          "prefix": 20,
+          "position": 27,
+          "context": " and wounded in both legs as he tried to flee in a convoy which NATO warplanes attacked, National Transitional Council official",
+          "current_token": " official",
+          "relative_error": 0.16890250223164024,
+          "error_over_common_target_rms": 0.25043764899812665,
+          "squared_error_share": 0.0046317469306819,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1292,
+          "prefix": 20,
+          "position": 12,
+          "context": "Gaddafi was captured and wounded in both legs as he tried to",
+          "current_token": " to",
+          "relative_error": 0.3487617477484089,
+          "error_over_common_target_rms": 0.247570673755496,
+          "squared_error_share": 0.004526306752896251,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1138,
+          "prefix": 17,
+          "position": 50,
+          "context": " its eight Neodymium magnets are.\nThe K&N HP-3001 has a diameter of roughly 3",
+          "current_token": " 3",
+          "relative_error": 0.35233681357399077,
+          "error_over_common_target_rms": 0.24200252747507714,
+          "squared_error_share": 0.004324992808083419,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1297,
+          "prefix": 20,
+          "position": 17,
+          "context": "Gaddafi was captured and wounded in both legs as he tried to flee in a convoy which",
+          "current_token": " which",
+          "relative_error": 0.3034391545189958,
+          "error_over_common_target_rms": 0.2393342780620653,
+          "squared_error_share": 0.004230146358159048,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 357,
+          "prefix": 5,
+          "position": 37,
+          "context": " unfortunately under Ohio law only a 4th degree misdemeanor, which is quite shocking to me,\" DeWine said. \"",
+          "current_token": " \"",
+          "relative_error": 0.09142168972108748,
+          "error_over_common_target_rms": 0.23568841964075987,
+          "squared_error_share": 0.004102249537806167,
+          "largest_error_feature": 0
+        }
+      ]
+    },
+    {
+      "name": "mixed_cp_1001",
+      "artifact": "MIXED_CP_FEATURES_SEED1001_V1.pt",
+      "artifact_sha256": "c0ea4433c4f78415eea30164c6168cedf9835c3d0a88ddf6279a4137644e3898",
+      "prediction_seconds": 0.09239555010572076,
+      "pooled_relative_error": 0.06322183414224304,
+      "row_error_over_common_target_rms": {
+        "0.5": 0.04479814151640124,
+        "0.9": 0.09714261917592701,
+        "0.95": 0.11846504496013918,
+        "0.99": 0.16537607215247674,
+        "1.0": 0.27359349786526327
+      },
+      "row_relative_error": {
+        "0.5": 0.060346257682126064,
+        "0.9": 0.16131748588844932,
+        "0.95": 0.2145432701842956,
+        "0.99": 0.3420295873404872,
+        "1.0": 0.9215077772146112
+      },
+      "row_target_norm_over_common_rms": {
+        "0.5": 0.696135371223229,
+        "0.9": 1.4756725290714907,
+        "0.95": 2.1564796029168862,
+        "0.99": 2.9437712579842747,
+        "1.0": 3.708087464504579
+      },
+      "error_concentration": {
+        "0.01": 0.10571191096939274,
+        "0.05": 0.2895072441867193,
+        "0.1": 0.43387005045943694
+      },
+      "target_energy_concentration": {
+        "0.01": 0.10450185572571331,
+        "0.05": 0.3613065300914433,
+        "0.1": 0.5136104140305605
+      },
+      "target_energy_on_worst_error_rows": {
+        "0.01": 0.015952624059231812,
+        "0.05": 0.09044913611171373,
+        "0.1": 0.18206931547570707
+      },
+      "prefix_relative_errors": {
+        "0.5": 0.05693193442048551,
+        "0.9": 0.09123556845317392,
+        "0.95": 0.09542192804306257,
+        "0.99": 0.11380640282386915,
+        "1.0": 0.12176787638328128
+      },
+      "prefixes": [
+        {
+          "prefix": 0,
+          "relative_error": 0.05567708173290128,
+          "residual_energy_share": 0.025842178382371146
+        },
+        {
+          "prefix": 1,
+          "relative_error": 0.044841550704792746,
+          "residual_energy_share": 0.02079577831787527
+        },
+        {
+          "prefix": 2,
+          "relative_error": 0.047405085148801894,
+          "residual_energy_share": 0.015440525546266987
+        },
+        {
+          "prefix": 3,
+          "relative_error": 0.05964854440777724,
+          "residual_energy_share": 0.02945643644940419
+        },
+        {
+          "prefix": 4,
+          "relative_error": 0.058007824257290376,
+          "residual_energy_share": 0.030793191912745887
+        },
+        {
+          "prefix": 5,
+          "relative_error": 0.059011536462099744,
+          "residual_energy_share": 0.035268017584329625
+        },
+        {
+          "prefix": 6,
+          "relative_error": 0.04120075076930854,
+          "residual_energy_share": 0.012375001734600329
+        },
+        {
+          "prefix": 7,
+          "relative_error": 0.05030938197737242,
+          "residual_energy_share": 0.01657241571707002
+        },
+        {
+          "prefix": 8,
+          "relative_error": 0.046582184560214686,
+          "residual_energy_share": 0.023420708710028833
+        },
+        {
+          "prefix": 9,
+          "relative_error": 0.04683547922938667,
+          "residual_energy_share": 0.025207415149029903
+        },
+        {
+          "prefix": 10,
+          "relative_error": 0.05544895233473635,
+          "residual_energy_share": 0.02846749277423423
+        },
+        {
+          "prefix": 11,
+          "relative_error": 0.059931905468137196,
+          "residual_energy_share": 0.030451749038102126
+        },
+        {
+          "prefix": 12,
+          "relative_error": 0.09487883894203596,
+          "residual_energy_share": 0.04834395450302197
+        },
+        {
+          "prefix": 13,
+          "relative_error": 0.096085703610984,
+          "residual_energy_share": 0.07984274859906962
+        },
+        {
+          "prefix": 14,
+          "relative_error": 0.12176787638328128,
+          "residual_energy_share": 0.07550488633308321
+        },
+        {
+          "prefix": 15,
+          "relative_error": 0.07252895710514862,
+          "residual_energy_share": 0.0422665093828525
+        },
+        {
+          "prefix": 16,
+          "relative_error": 0.05585604458368065,
+          "residual_energy_share": 0.020356459109845466
+        },
+        {
+          "prefix": 17,
+          "relative_error": 0.06994594331174957,
+          "residual_energy_share": 0.03985397089010509
+        },
+        {
+          "prefix": 18,
+          "relative_error": 0.06629473808113547,
+          "residual_energy_share": 0.041760026243449856
+        },
+        {
+          "prefix": 19,
+          "relative_error": 0.046707452240241254,
+          "residual_energy_share": 0.012027323262147687
+        },
+        {
+          "prefix": 20,
+          "relative_error": 0.08556995285016344,
+          "residual_energy_share": 0.05606302028291826
+        },
+        {
+          "prefix": 21,
+          "relative_error": 0.09186508129795284,
+          "residual_energy_share": 0.0675997288945408
+        },
+        {
+          "prefix": 22,
+          "relative_error": 0.04907405497704141,
+          "residual_energy_share": 0.018312199785549228
+        },
+        {
+          "prefix": 23,
+          "relative_error": 0.06709418544133154,
+          "residual_energy_share": 0.033787921383986494
+        },
+        {
+          "prefix": 24,
+          "relative_error": 0.06739975915208357,
+          "residual_energy_share": 0.018535926827303595
+        },
+        {
+          "prefix": 25,
+          "relative_error": 0.06968552465909547,
+          "residual_energy_share": 0.029250958551833264
+        },
+        {
+          "prefix": 26,
+          "relative_error": 0.045817761996874096,
+          "residual_energy_share": 0.021034384726091242
+        },
+        {
+          "prefix": 27,
+          "relative_error": 0.0723794638589246,
+          "residual_energy_share": 0.031038664822321142
+        },
+        {
+          "prefix": 28,
+          "relative_error": 0.04902205376391662,
+          "residual_energy_share": 0.017679047745109443
+        },
+        {
+          "prefix": 29,
+          "relative_error": 0.049818871261095576,
+          "residual_energy_share": 0.019132009795127032
+        },
+        {
+          "prefix": 30,
+          "relative_error": 0.04803041592121509,
+          "residual_energy_share": 0.013970994422302417
+        },
+        {
+          "prefix": 31,
+          "relative_error": 0.048117481110811856,
+          "residual_energy_share": 0.019548353123283155
+        }
+      ],
+      "features": [
+        {
+          "feature": 0,
+          "relative_error": 0.052004934436429825,
+          "residual_energy_share": 0.5359698509493139,
+          "target_energy_share": 0.7921098913801371,
+          "bias": -2.8339452512555674,
+          "target_rms": 84.38570623656949
+        },
+        {
+          "feature": 1,
+          "relative_error": 0.05425366330373071,
+          "residual_energy_share": 0.06786415256186941,
+          "target_energy_share": 0.09215448508039394,
+          "bias": -0.39746380963259836,
+          "target_rms": 28.782890770159128
+        },
+        {
+          "feature": 2,
+          "relative_error": 0.06654238328073608,
+          "residual_energy_share": 0.11351140120628483,
+          "target_energy_share": 0.10246533491796336,
+          "bias": 0.7727425110746657,
+          "target_rms": 30.350416348063856
+        },
+        {
+          "feature": 3,
+          "relative_error": 0.18582493316803453,
+          "residual_energy_share": 0.08641901202064024,
+          "target_energy_share": 0.010003120687524942,
+          "bias": -0.5901124591078546,
+          "target_rms": 9.482960148125063
+        },
+        {
+          "feature": 4,
+          "relative_error": 0.5439699372222788,
+          "residual_energy_share": 0.042967789653214086,
+          "target_energy_share": 0.0005803999920148306,
+          "bias": -0.7359608508404513,
+          "target_rms": 2.2842302051067134
+        },
+        {
+          "feature": 5,
+          "relative_error": 0.494946857835086,
+          "residual_energy_share": 0.04417728721583693,
+          "target_energy_share": 0.0007208021659045506,
+          "bias": -0.549170010230076,
+          "target_rms": 2.545565126512004
+        },
+        {
+          "feature": 6,
+          "relative_error": 0.43576420550406136,
+          "residual_energy_share": 0.029835796842220975,
+          "target_energy_share": 0.0006280131192428914,
+          "bias": -0.07900853189403256,
+          "target_rms": 2.3760771031575705
+        },
+        {
+          "feature": 7,
+          "relative_error": 0.3744487643772432,
+          "residual_energy_share": 0.012008520745677142,
+          "target_energy_share": 0.00034232521629869536,
+          "bias": 0.06790147432257322,
+          "target_rms": 1.754266688786657
+        },
+        {
+          "feature": 8,
+          "relative_error": 0.40715458566472096,
+          "residual_energy_share": 0.01288523740762678,
+          "target_energy_share": 0.00031067617243122665,
+          "bias": -0.1409708030826223,
+          "target_rms": 1.6712066077832146
+        },
+        {
+          "feature": 9,
+          "relative_error": 0.5382136755910192,
+          "residual_energy_share": 0.00967309314037523,
+          "target_energy_share": 0.00013347197733583555,
+          "bias": 0.03336282794516974,
+          "target_rms": 1.095396170656061
+        },
+        {
+          "feature": 10,
+          "relative_error": 0.6247395255799875,
+          "residual_energy_share": 0.012073414505139258,
+          "target_energy_share": 0.0001236420868096243,
+          "bias": 0.13686871590162097,
+          "target_rms": 1.054288172329146
+        },
+        {
+          "feature": 11,
+          "relative_error": 0.47853516402522966,
+          "residual_energy_share": 0.008569133935211198,
+          "target_energy_share": 0.00014956962345326786,
+          "bias": 0.11121054992594337,
+          "target_rms": 1.1595724040749573
+        },
+        {
+          "feature": 12,
+          "relative_error": 0.6174973611797091,
+          "residual_energy_share": 0.008412667581802022,
+          "target_energy_share": 8.818560499091778e-05,
+          "bias": 0.04123833492876996,
+          "target_rms": 0.8903792298128945
+        },
+        {
+          "feature": 13,
+          "relative_error": 0.578083047061326,
+          "residual_energy_share": 0.007108769597150767,
+          "target_energy_share": 8.502529627516916e-05,
+          "bias": 0.07902915778504765,
+          "target_rms": 0.8742794051769147
+        },
+        {
+          "feature": 14,
+          "relative_error": 0.5466554197478746,
+          "residual_energy_share": 0.004476537030860002,
+          "target_energy_share": 5.98754853979784e-05,
+          "bias": 0.05574629343888686,
+          "target_rms": 0.7336698880693621
+        },
+        {
+          "feature": 15,
+          "relative_error": 0.598374184924282,
+          "residual_energy_share": 0.004047335606777166,
+          "target_energy_share": 4.518119382576976e-05,
+          "bias": -0.00966619675724563,
+          "target_rms": 0.637316294252545
+        }
+      ],
+      "groups": [
+        {
+          "group": "newline",
+          "count": 30,
+          "relative_error": 0.03947100947836094,
+          "residual_energy_share": 0.04066183640775293,
+          "target_energy_share": 0.10431930945060085
+        },
+        {
+          "group": "other",
+          "count": 2018,
+          "relative_error": 0.06542991348727206,
+          "residual_energy_share": 0.9593381635922471,
+          "target_energy_share": 0.8956806905493991
+        },
+        {
+          "group": "positions_0_15",
+          "count": 512,
+          "relative_error": 0.05209088109306504,
+          "residual_energy_share": 0.17714753695835345,
+          "target_energy_share": 0.2609431458192673
+        },
+        {
+          "group": "positions_16_31",
+          "count": 512,
+          "relative_error": 0.06492634398808049,
+          "residual_energy_share": 0.24173222544520995,
+          "target_energy_share": 0.22920645050973584
+        },
+        {
+          "group": "positions_32_47",
+          "count": 512,
+          "relative_error": 0.06597358860492443,
+          "residual_energy_share": 0.2732286572674739,
+          "target_energy_share": 0.250911296257398
+        },
+        {
+          "group": "positions_48_63",
+          "count": 512,
+          "relative_error": 0.06893934838934238,
+          "residual_energy_share": 0.30789158032896263,
+          "target_energy_share": 0.25893910741359893
+        }
+      ],
+      "bias_energy_share": 0.2797445468245936,
+      "centered_residual_pc_energy_shares": [
+        0.5054239428286887,
+        0.14900640280314717,
+        0.08462294605770959,
+        0.07773696568945096,
+        0.05548548065742976,
+        0.027241530094324843,
+        0.020075019407001207,
+        0.016760718296100128,
+        0.013401586989418174,
+        0.01196390121453778,
+        0.011251806285559714,
+        0.007720903988098609,
+        0.006614793235626001,
+        0.005689767088231909,
+        0.0037259194969582925,
+        0.0032783158677171845
+      ],
+      "leading_residual_direction": [
+        0.9146894513422246,
+        0.12237748664201792,
+        -0.26884908101542104,
+        0.1481587349108328,
+        0.12033910021346578,
+        0.18345910936466117,
+        -0.010279040006360728,
+        0.004869569442112341,
+        0.04785918552036934,
+        0.004636311538710294,
+        -0.04583326748269403,
+        -0.022739396598527823,
+        0.007152013382708607,
+        -0.003944456271229708,
+        -0.026691246337285635,
+        -0.012613714887402951
+      ],
+      "top_error_contexts": [
+        {
+          "flat_index": 1659,
+          "prefix": 25,
+          "position": 59,
+          "context": "'s brand of budget austerity makes the media swoon–hence we saw coverage (FAIR Media Advisory, 4/",
+          "current_token": "/",
+          "relative_error": 0.27278293508605883,
+          "error_over_common_target_rms": 0.27359349786526327,
+          "squared_error_share": 0.009144235645656428,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 841,
+          "prefix": 13,
+          "position": 9,
+          "context": "FilterMAG Oil Filter Magnet (SS365) $",
+          "current_token": " $",
+          "relative_error": 0.22568916636222752,
+          "error_over_common_target_rms": 0.25443399330436495,
+          "squared_error_share": 0.007908354592427173,
+          "largest_error_feature": 4
+        },
+        {
+          "flat_index": 766,
+          "prefix": 11,
+          "position": 62,
+          "context": " a gift.\nDuring a presentation at the National Conference on Philanthropic Planning in San Antonio, Texas, Marcia",
+          "current_token": "ia",
+          "relative_error": 0.09639945614135681,
+          "error_over_common_target_rms": 0.25350515113351263,
+          "squared_error_share": 0.007850719170949394,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1390,
+          "prefix": 21,
+          "position": 46,
+          "context": "mar Gaddafi's sons, Mo'tassim, has also been killed by fighters from Libya's NTC while another,",
+          "current_token": ",",
+          "relative_error": 0.15303690539488676,
+          "error_over_common_target_rms": 0.25239121203372766,
+          "squared_error_share": 0.007781876316232862,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 918,
+          "prefix": 14,
+          "position": 22,
+          "context": " immediately begin cleaning your engine's oil without restricting or otherwise affecting oil flow.\nModern oil filters remove particulates by",
+          "current_token": " by",
+          "relative_error": 0.31046710247338494,
+          "error_over_common_target_rms": 0.2201305574288757,
+          "squared_error_share": 0.005919656848065644,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 915,
+          "prefix": 14,
+          "position": 19,
+          "context": " immediately begin cleaning your engine's oil without restricting or otherwise affecting oil flow.\nModern oil filters remove",
+          "current_token": " remove",
+          "relative_error": 0.30418051479670644,
+          "error_over_common_target_rms": 0.21660653543989214,
+          "squared_error_share": 0.005731640958411886,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1371,
+          "prefix": 21,
+          "position": 27,
+          "context": " body of the Libyan dictator has now been taken to Misrata.\nOne of Muammar Gaddafi's sons,",
+          "current_token": ",",
+          "relative_error": 0.1268188477576829,
+          "error_over_common_target_rms": 0.20510246941347723,
+          "squared_error_share": 0.005138988478732207,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1139,
+          "prefix": 17,
+          "position": 51,
+          "context": " eight Neodymium magnets are.\nThe K&N HP-3001 has a diameter of roughly 3.",
+          "current_token": ".",
+          "relative_error": 0.17599838813910748,
+          "error_over_common_target_rms": 0.20130066478339237,
+          "squared_error_share": 0.004950240326242651,
+          "largest_error_feature": 4
+        },
+        {
+          "flat_index": 1917,
+          "prefix": 29,
+          "position": 61,
+          "context": " die in ignorance of the Gospel, but is speaking of the consequences of willfully rejecting the gospel when it is offered. �",
+          "current_token": " �",
+          "relative_error": 0.17962244036143404,
+          "error_over_common_target_rms": 0.2003331344618731,
+          "squared_error_share": 0.004902769072344008,
+          "largest_error_feature": 1
+        },
+        {
+          "flat_index": 1310,
+          "prefix": 20,
+          "position": 30,
+          "context": " both legs as he tried to flee in a convoy which NATO warplanes attacked, National Transitional Council official Abdel Majid",
+          "current_token": "id",
+          "relative_error": 0.19344901577430532,
+          "error_over_common_target_rms": 0.1955290378322581,
+          "squared_error_share": 0.004670446395385786,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 375,
+          "prefix": 5,
+          "position": 55,
+          "context": " DeWine said. \"I think that's something the legislature needs to look at.\"\nThe trial of Ma'",
+          "current_token": "'",
+          "relative_error": 0.40177025063086963,
+          "error_over_common_target_rms": 0.18782367254332524,
+          "squared_error_share": 0.004309595625821455,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 954,
+          "prefix": 14,
+          "position": 58,
+          "context": ". The pores are small enough to trap most particulate matter in the oil but are large enough to permit the oil to",
+          "current_token": " to",
+          "relative_error": 0.3127818323201204,
+          "error_over_common_target_rms": 0.18422245650209781,
+          "squared_error_share": 0.0041459208209742885,
+          "largest_error_feature": 0
+        }
+      ]
+    },
+    {
+      "name": "mixed_cp_1002",
+      "artifact": "MIXED_CP_FEATURES_SEED1002_V1.pt",
+      "artifact_sha256": "4a430782115234cf867ed5688c35cea7046c05376035aeee370af69f4a53100a",
+      "prediction_seconds": 0.07565331971272826,
+      "pooled_relative_error": 0.06587528291254946,
+      "row_error_over_common_target_rms": {
+        "0.5": 0.04727203320463572,
+        "0.9": 0.10176082736585099,
+        "0.95": 0.12339614685797838,
+        "0.99": 0.1769207751033639,
+        "1.0": 0.293976795447845
+      },
+      "row_relative_error": {
+        "0.5": 0.0629515441664029,
+        "0.9": 0.16552828343122858,
+        "0.95": 0.21853739679393086,
+        "0.99": 0.34401455857632507,
+        "1.0": 0.9206048714612604
+      },
+      "row_target_norm_over_common_rms": {
+        "0.5": 0.696135371223229,
+        "0.9": 1.4756725290714907,
+        "0.95": 2.1564796029168862,
+        "0.99": 2.9437712579842747,
+        "1.0": 3.708087464504579
+      },
+      "error_concentration": {
+        "0.01": 0.11201401681598255,
+        "0.05": 0.30077366132318795,
+        "0.1": 0.4429420456368267
+      },
+      "target_energy_concentration": {
+        "0.01": 0.10450185572571331,
+        "0.05": 0.3613065300914433,
+        "0.1": 0.5136104140305605
+      },
+      "target_energy_on_worst_error_rows": {
+        "0.01": 0.02203244771494048,
+        "0.05": 0.12274340428840433,
+        "0.1": 0.20362754887582277
+      },
+      "prefix_relative_errors": {
+        "0.5": 0.06136939436581937,
+        "0.9": 0.0933837123048951,
+        "0.95": 0.09762185413674668,
+        "0.99": 0.12336774750348384,
+        "1.0": 0.13405183980081956
+      },
+      "prefixes": [
+        {
+          "prefix": 0,
+          "relative_error": 0.058040514465890196,
+          "residual_energy_share": 0.02586591785737688
+        },
+        {
+          "prefix": 1,
+          "relative_error": 0.046304706156771354,
+          "residual_energy_share": 0.020424592195563886
+        },
+        {
+          "prefix": 2,
+          "relative_error": 0.051535710747574376,
+          "residual_energy_share": 0.016808074005241765
+        },
+        {
+          "prefix": 3,
+          "relative_error": 0.061592871446293676,
+          "residual_energy_share": 0.028928812309978427
+        },
+        {
+          "prefix": 4,
+          "relative_error": 0.06114591728534507,
+          "residual_energy_share": 0.0315141559875913
+        },
+        {
+          "prefix": 5,
+          "relative_error": 0.06169282521225322,
+          "residual_energy_share": 0.035503054381039664
+        },
+        {
+          "prefix": 6,
+          "relative_error": 0.04318672510703964,
+          "residual_energy_share": 0.012523471988182018
+        },
+        {
+          "prefix": 7,
+          "relative_error": 0.05063924018780198,
+          "residual_energy_share": 0.01546505294963903
+        },
+        {
+          "prefix": 8,
+          "relative_error": 0.049714804428822236,
+          "residual_energy_share": 0.024570896086012782
+        },
+        {
+          "prefix": 9,
+          "relative_error": 0.05018570429556269,
+          "residual_energy_share": 0.026658003419405427
+        },
+        {
+          "prefix": 10,
+          "relative_error": 0.05600016954312198,
+          "residual_energy_share": 0.026744249084348307
+        },
+        {
+          "prefix": 11,
+          "relative_error": 0.06356105705165922,
+          "residual_energy_share": 0.03154768443604363
+        },
+        {
+          "prefix": 12,
+          "relative_error": 0.09384737121648283,
+          "residual_energy_share": 0.04356491479766852
+        },
+        {
+          "prefix": 13,
+          "relative_error": 0.09958702593844614,
+          "residual_energy_share": 0.0789973732643827
+        },
+        {
+          "prefix": 14,
+          "relative_error": 0.13405183980081956,
+          "residual_energy_share": 0.08428384643257295
+        },
+        {
+          "prefix": 15,
+          "relative_error": 0.07677704637534573,
+          "residual_energy_share": 0.04362400295056469
+        },
+        {
+          "prefix": 16,
+          "relative_error": 0.06241606342278348,
+          "residual_energy_share": 0.0234122862257436
+        },
+        {
+          "prefix": 17,
+          "relative_error": 0.07054731886589326,
+          "residual_energy_share": 0.03734192977116988
+        },
+        {
+          "prefix": 18,
+          "relative_error": 0.06704747566357679,
+          "residual_energy_share": 0.03934202433974309
+        },
+        {
+          "prefix": 19,
+          "relative_error": 0.05342367681999732,
+          "residual_energy_share": 0.014492835788998336
+        },
+        {
+          "prefix": 20,
+          "relative_error": 0.08921078210060551,
+          "residual_energy_share": 0.056125186152610626
+        },
+        {
+          "prefix": 21,
+          "relative_error": 0.09601398629899258,
+          "residual_energy_share": 0.068014611917134
+        },
+        {
+          "prefix": 22,
+          "relative_error": 0.05089010443370605,
+          "residual_energy_share": 0.018138129875312443
+        },
+        {
+          "prefix": 23,
+          "relative_error": 0.06614573369848675,
+          "residual_energy_share": 0.030247158159956614
+        },
+        {
+          "prefix": 24,
+          "relative_error": 0.06735074620606539,
+          "residual_energy_share": 0.01704792932143285
+        },
+        {
+          "prefix": 25,
+          "relative_error": 0.0751972621320457,
+          "residual_energy_share": 0.03137243345116964
+        },
+        {
+          "prefix": 26,
+          "relative_error": 0.045476595891015464,
+          "residual_energy_share": 0.019086538016113246
+        },
+        {
+          "prefix": 27,
+          "relative_error": 0.07702042028960858,
+          "residual_energy_share": 0.03237227874691583
+        },
+        {
+          "prefix": 28,
+          "relative_error": 0.048852678798808495,
+          "residual_energy_share": 0.016171184276924103
+        },
+        {
+          "prefix": 29,
+          "relative_error": 0.0490180068721235,
+          "residual_energy_share": 0.017059775809270764
+        },
+        {
+          "prefix": 30,
+          "relative_error": 0.04930673062806735,
+          "residual_energy_share": 0.013561141060129643
+        },
+        {
+          "prefix": 31,
+          "relative_error": 0.04967591030639888,
+          "residual_energy_share": 0.019190454941763378
+        }
+      ],
+      "features": [
+        {
+          "feature": 0,
+          "relative_error": 0.053804724552521686,
+          "residual_energy_share": 0.5284224673854803,
+          "target_energy_share": 0.7921098913801371,
+          "bias": -2.91538905247205,
+          "target_rms": 84.38570623656949
+        },
+        {
+          "feature": 1,
+          "relative_error": 0.05814970588185134,
+          "residual_energy_share": 0.07180695900479568,
+          "target_energy_share": 0.09215448508039394,
+          "bias": -0.4417663147285999,
+          "target_rms": 28.782890770159128
+        },
+        {
+          "feature": 2,
+          "relative_error": 0.06805145829793985,
+          "residual_energy_share": 0.10934699429297162,
+          "target_energy_share": 0.10246533491796336,
+          "bias": 0.6891591428734041,
+          "target_rms": 30.350416348063856
+        },
+        {
+          "feature": 3,
+          "relative_error": 0.1993877084238813,
+          "residual_energy_share": 0.09164046535234914,
+          "target_energy_share": 0.010003120687524942,
+          "bias": -0.6330881602306129,
+          "target_rms": 9.482960148125063
+        },
+        {
+          "feature": 4,
+          "relative_error": 0.5997139560368863,
+          "residual_energy_share": 0.04810284045044421,
+          "target_energy_share": 0.0005803999920148306,
+          "bias": -0.798069542357853,
+          "target_rms": 2.2842302051067134
+        },
+        {
+          "feature": 5,
+          "relative_error": 0.5137658986802571,
+          "residual_energy_share": 0.04384313948540779,
+          "target_energy_share": 0.0007208021659045506,
+          "bias": -0.5691682280492625,
+          "target_rms": 2.545565126512004
+        },
+        {
+          "feature": 6,
+          "relative_error": 0.44689096644895643,
+          "residual_energy_share": 0.028901932417926907,
+          "target_energy_share": 0.0006280131192428914,
+          "bias": -0.12980510376607646,
+          "target_rms": 2.3760771031575705
+        },
+        {
+          "feature": 7,
+          "relative_error": 0.3968495922477541,
+          "residual_energy_share": 0.012423551977397375,
+          "target_energy_share": 0.00034232521629869536,
+          "bias": 0.05496838146451634,
+          "target_rms": 1.754266688786657
+        },
+        {
+          "feature": 8,
+          "relative_error": 0.44758431979001634,
+          "residual_energy_share": 0.014342098015509015,
+          "target_energy_share": 0.00031067617243122665,
+          "bias": -0.1781556774492173,
+          "target_rms": 1.6712066077832146
+        },
+        {
+          "feature": 9,
+          "relative_error": 0.5370711766441147,
+          "residual_energy_share": 0.008871739854355305,
+          "target_energy_share": 0.00013347197733583555,
+          "bias": 0.03179780787628988,
+          "target_rms": 1.095396170656061
+        },
+        {
+          "feature": 10,
+          "relative_error": 0.622648708770132,
+          "residual_energy_share": 0.011046063188724187,
+          "target_energy_share": 0.0001236420868096243,
+          "bias": 0.1487442256634538,
+          "target_rms": 1.054288172329146
+        },
+        {
+          "feature": 11,
+          "relative_error": 0.4589336724970057,
+          "residual_energy_share": 0.007259358772489872,
+          "target_energy_share": 0.00014956962345326786,
+          "bias": 0.07556975490228052,
+          "target_rms": 1.1595724040749573
+        },
+        {
+          "feature": 12,
+          "relative_error": 0.6202754600732071,
+          "residual_energy_share": 0.0078184724651175,
+          "target_energy_share": 8.818560499091778e-05,
+          "bias": 0.04974424907771169,
+          "target_rms": 0.8903792298128945
+        },
+        {
+          "feature": 13,
+          "relative_error": 0.6009795923759569,
+          "residual_energy_share": 0.00707656690076643,
+          "target_energy_share": 8.502529627516916e-05,
+          "bias": 0.08535499647687261,
+          "target_rms": 0.8742794051769147
+        },
+        {
+          "feature": 14,
+          "relative_error": 0.5647282407988439,
+          "residual_energy_share": 0.004400307971010073,
+          "target_energy_share": 5.98754853979784e-05,
+          "bias": 0.027704096219974654,
+          "target_rms": 0.7336698880693621
+        },
+        {
+          "feature": 15,
+          "relative_error": 0.6716698987730094,
+          "residual_energy_share": 0.004697042465254665,
+          "target_energy_share": 4.518119382576976e-05,
+          "bias": -0.0031690330006402807,
+          "target_rms": 0.637316294252545
+        }
+      ],
+      "groups": [
+        {
+          "group": "newline",
+          "count": 30,
+          "relative_error": 0.046937080092122954,
+          "residual_energy_share": 0.0529604729705546,
+          "target_energy_share": 0.10431930945060085
+        },
+        {
+          "group": "other",
+          "count": 2018,
+          "relative_error": 0.06773762109827518,
+          "residual_energy_share": 0.9470395270294454,
+          "target_energy_share": 0.8956806905493991
+        },
+        {
+          "group": "positions_0_15",
+          "count": 512,
+          "relative_error": 0.05513561431507997,
+          "residual_energy_share": 0.18279543366073925,
+          "target_energy_share": 0.2609431458192673
+        },
+        {
+          "group": "positions_16_31",
+          "count": 512,
+          "relative_error": 0.06820786374457255,
+          "residual_energy_share": 0.2457257925251505,
+          "target_energy_share": 0.22920645050973584
+        },
+        {
+          "group": "positions_32_47",
+          "count": 512,
+          "relative_error": 0.06778316319554406,
+          "residual_energy_share": 0.26565554859520357,
+          "target_energy_share": 0.250911296257398
+        },
+        {
+          "group": "positions_48_63",
+          "count": 512,
+          "relative_error": 0.07159107802380762,
+          "residual_energy_share": 0.30582322521890676,
+          "target_energy_share": 0.25893910741359893
+        }
+      ],
+      "bias_energy_share": 0.2722822589778108,
+      "centered_residual_pc_energy_shares": [
+        0.493962437019999,
+        0.1581906083986395,
+        0.08798555786302022,
+        0.07511691928044252,
+        0.05881111581008629,
+        0.029376893859909388,
+        0.019208384132952804,
+        0.015716625611001126,
+        0.013500106503482689,
+        0.01202292696848105,
+        0.010130217740773268,
+        0.007569314707292488,
+        0.005901506758284525,
+        0.005148910971107951,
+        0.003845725770579861,
+        0.0035127486039473956
+      ],
+      "leading_residual_direction": [
+        -0.9180195624408735,
+        -0.14929890010988028,
+        0.23831804930048894,
+        -0.15018171154088586,
+        -0.10858621490099704,
+        -0.1972598543414104,
+        0.006104922393251246,
+        -0.005194439979978739,
+        -0.046805552642704445,
+        -0.0018083671225018146,
+        0.037360953011833356,
+        0.01912727115330014,
+        -0.00048164277834499263,
+        0.0035744714306460154,
+        0.02794604055374504,
+        0.009137863135577623
+      ],
+      "top_error_contexts": [
+        {
+          "flat_index": 1659,
+          "prefix": 25,
+          "position": 59,
+          "context": "'s brand of budget austerity makes the media swoon–hence we saw coverage (FAIR Media Advisory, 4/",
+          "current_token": "/",
+          "relative_error": 0.29310584401735024,
+          "error_over_common_target_rms": 0.293976795447845,
+          "squared_error_share": 0.009724139128488619,
+          "largest_error_feature": 6
+        },
+        {
+          "flat_index": 766,
+          "prefix": 11,
+          "position": 62,
+          "context": " a gift.\nDuring a presentation at the National Conference on Philanthropic Planning in San Antonio, Texas, Marcia",
+          "current_token": "ia",
+          "relative_error": 0.10505602290618347,
+          "error_over_common_target_rms": 0.27626963916959457,
+          "squared_error_share": 0.008587987069656149,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 841,
+          "prefix": 13,
+          "position": 9,
+          "context": "FilterMAG Oil Filter Magnet (SS365) $",
+          "current_token": " $",
+          "relative_error": 0.24266118603347983,
+          "error_over_common_target_rms": 0.2735676487163674,
+          "squared_error_share": 0.008420822952170092,
+          "largest_error_feature": 4
+        },
+        {
+          "flat_index": 1390,
+          "prefix": 21,
+          "position": 46,
+          "context": "mar Gaddafi's sons, Mo'tassim, has also been killed by fighters from Libya's NTC while another,",
+          "current_token": ",",
+          "relative_error": 0.15763658410306264,
+          "error_over_common_target_rms": 0.2599770847428411,
+          "squared_error_share": 0.007604929631909701,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1310,
+          "prefix": 20,
+          "position": 30,
+          "context": " both legs as he tried to flee in a convoy which NATO warplanes attacked, National Transitional Council official Abdel Majid",
+          "current_token": "id",
+          "relative_error": 0.2445764089188007,
+          "error_over_common_target_rms": 0.24720616810041116,
+          "squared_error_share": 0.0068761234699455205,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 918,
+          "prefix": 14,
+          "position": 22,
+          "context": " immediately begin cleaning your engine's oil without restricting or otherwise affecting oil flow.\nModern oil filters remove particulates by",
+          "current_token": " by",
+          "relative_error": 0.3457708284474639,
+          "error_over_common_target_rms": 0.2451619659616251,
+          "squared_error_share": 0.006762873306615302,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1371,
+          "prefix": 21,
+          "position": 27,
+          "context": " body of the Libyan dictator has now been taken to Misrata.\nOne of Muammar Gaddafi's sons,",
+          "current_token": ",",
+          "relative_error": 0.14268539216898005,
+          "error_over_common_target_rms": 0.23076322487179596,
+          "squared_error_share": 0.005991813125118434,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 915,
+          "prefix": 14,
+          "position": 19,
+          "context": " immediately begin cleaning your engine's oil without restricting or otherwise affecting oil flow.\nModern oil filters remove",
+          "current_token": " remove",
+          "relative_error": 0.32220448975292787,
+          "error_over_common_target_rms": 0.22944138376254603,
+          "squared_error_share": 0.005923365989452169,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1139,
+          "prefix": 17,
+          "position": 51,
+          "context": " eight Neodymium magnets are.\nThe K&N HP-3001 has a diameter of roughly 3.",
+          "current_token": ".",
+          "relative_error": 0.1838418348982348,
+          "error_over_common_target_rms": 0.21027171879985038,
+          "squared_error_share": 0.004974927892519378,
+          "largest_error_feature": 4
+        },
+        {
+          "flat_index": 375,
+          "prefix": 5,
+          "position": 55,
+          "context": " DeWine said. \"I think that's something the legislature needs to look at.\"\nThe trial of Ma'",
+          "current_token": "'",
+          "relative_error": 0.4439624147907328,
+          "error_over_common_target_rms": 0.20754809766592408,
+          "squared_error_share": 0.004846883433284806,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 919,
+          "prefix": 14,
+          "position": 23,
+          "context": " immediately begin cleaning your engine's oil without restricting or otherwise affecting oil flow.\nModern oil filters remove particulates by forcing",
+          "current_token": " forcing",
+          "relative_error": 0.2858535124184782,
+          "error_over_common_target_rms": 0.19258158639851541,
+          "squared_error_share": 0.004173059536221232,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1015,
+          "prefix": 15,
+          "position": 55,
+          "context": " for illustration purposes is the RA365 Heavy-Duty FilterMAG attached to the K&N HP-3001 Oil",
+          "current_token": " Oil",
+          "relative_error": 0.2998212770440742,
+          "error_over_common_target_rms": 0.18936547635103437,
+          "squared_error_share": 0.0040348432764935275,
+          "largest_error_feature": 0
+        }
+      ]
+    },
+    {
+      "name": "shared_support_1101",
+      "artifact": "GAUSSIAN_SUPPORT_EXCHANGE_SEED1101_V1.pt",
+      "artifact_sha256": "5076ea62e511f2e26632acf6ac48c4127907d480e96b162b3c8aee82488012db",
+      "prediction_seconds": 0.05439920863136649,
+      "pooled_relative_error": 0.20374914172584224,
+      "row_error_over_common_target_rms": {
+        "0.5": 0.15200842802861242,
+        "0.9": 0.2929598840563555,
+        "0.95": 0.3657696332238586,
+        "0.99": 0.5685796995971351,
+        "1.0": 1.0233579547886806
+      },
+      "row_relative_error": {
+        "0.5": 0.22058716479287463,
+        "0.9": 0.38341625051860134,
+        "0.95": 0.44510675953608325,
+        "0.99": 0.559006539128512,
+        "1.0": 0.9426912588187746
+      },
+      "row_target_norm_over_common_rms": {
+        "0.5": 0.696135371223229,
+        "0.9": 1.4756725290714907,
+        "0.95": 2.1564796029168862,
+        "0.99": 2.9437712579842747,
+        "1.0": 3.708087464504579
+      },
+      "error_concentration": {
+        "0.01": 0.12338806245959853,
+        "0.05": 0.31352252828685256,
+        "0.1": 0.43962175533702796
+      },
+      "target_energy_concentration": {
+        "0.01": 0.10450185572571331,
+        "0.05": 0.3613065300914433,
+        "0.1": 0.5136104140305605
+      },
+      "target_energy_on_worst_error_rows": {
+        "0.01": 0.06649927727708822,
+        "0.05": 0.2540684380391347,
+        "0.1": 0.3854602364680864
+      },
+      "prefix_relative_errors": {
+        "0.5": 0.19432770601866844,
+        "0.9": 0.24986678900127937,
+        "0.95": 0.2624633821838373,
+        "0.99": 0.28561424649306655,
+        "1.0": 0.2915022748010546
+      },
+      "prefixes": [
+        {
+          "prefix": 0,
+          "relative_error": 0.20394415847309183,
+          "residual_energy_share": 0.0333842280968718
+        },
+        {
+          "prefix": 1,
+          "relative_error": 0.16998678562319874,
+          "residual_energy_share": 0.028773113770360563
+        },
+        {
+          "prefix": 2,
+          "relative_error": 0.16635425536896847,
+          "residual_energy_share": 0.018307230592660213
+        },
+        {
+          "prefix": 3,
+          "relative_error": 0.18866573510609394,
+          "residual_energy_share": 0.028373255977433297
+        },
+        {
+          "prefix": 4,
+          "relative_error": 0.2140863531081971,
+          "residual_energy_share": 0.040383330237556844
+        },
+        {
+          "prefix": 5,
+          "relative_error": 0.20365640692171993,
+          "residual_energy_share": 0.040443242248389404
+        },
+        {
+          "prefix": 6,
+          "relative_error": 0.18524230345890563,
+          "residual_energy_share": 0.024085627218091838
+        },
+        {
+          "prefix": 7,
+          "relative_error": 0.1606416637428034,
+          "residual_energy_share": 0.016268475119061574
+        },
+        {
+          "prefix": 8,
+          "relative_error": 0.18540450737526828,
+          "residual_energy_share": 0.0357226370904914
+        },
+        {
+          "prefix": 9,
+          "relative_error": 0.19113557348274057,
+          "residual_energy_share": 0.04042071871142652
+        },
+        {
+          "prefix": 10,
+          "relative_error": 0.1976085537770732,
+          "residual_energy_share": 0.034811009275211545
+        },
+        {
+          "prefix": 11,
+          "relative_error": 0.21277895685116124,
+          "residual_energy_share": 0.03695694191886253
+        },
+        {
+          "prefix": 12,
+          "relative_error": 0.19580691506500542,
+          "residual_energy_share": 0.019824493767733604
+        },
+        {
+          "prefix": 13,
+          "relative_error": 0.2725086350978672,
+          "residual_energy_share": 0.0618331074893528
+        },
+        {
+          "prefix": 14,
+          "relative_error": 0.2915022748010546,
+          "residual_energy_share": 0.04166161455862732
+        },
+        {
+          "prefix": 15,
+          "relative_error": 0.2133304767539081,
+          "residual_energy_share": 0.035206425315968966
+        },
+        {
+          "prefix": 16,
+          "relative_error": 0.250593907857585,
+          "residual_energy_share": 0.039449863479157514
+        },
+        {
+          "prefix": 17,
+          "relative_error": 0.24118724826984864,
+          "residual_energy_share": 0.04562446948624439
+        },
+        {
+          "prefix": 18,
+          "relative_error": 0.19061703405027647,
+          "residual_energy_share": 0.03324058561821734
+        },
+        {
+          "prefix": 19,
+          "relative_error": 0.1928484969723315,
+          "residual_energy_share": 0.019741118252735376
+        },
+        {
+          "prefix": 20,
+          "relative_error": 0.1880363186994372,
+          "residual_energy_share": 0.026065135799274896
+        },
+        {
+          "prefix": 21,
+          "relative_error": 0.20424721359899475,
+          "residual_energy_share": 0.032173544870592395
+        },
+        {
+          "prefix": 22,
+          "relative_error": 0.20028183826926177,
+          "residual_energy_share": 0.0293671885492782
+        },
+        {
+          "prefix": 23,
+          "relative_error": 0.2106230244746395,
+          "residual_energy_share": 0.032058706936080546
+        },
+        {
+          "prefix": 24,
+          "relative_error": 0.2542445388905401,
+          "residual_energy_share": 0.02539472356384857
+        },
+        {
+          "prefix": 25,
+          "relative_error": 0.24332271929452837,
+          "residual_energy_share": 0.034337042263093885
+        },
+        {
+          "prefix": 26,
+          "relative_error": 0.16971980893944325,
+          "residual_energy_share": 0.02778879684441837
+        },
+        {
+          "prefix": 27,
+          "relative_error": 0.19262250590298707,
+          "residual_energy_share": 0.021165521357674365
+        },
+        {
+          "prefix": 28,
+          "relative_error": 0.18714954121544145,
+          "residual_energy_share": 0.024808242853868387
+        },
+        {
+          "prefix": 29,
+          "relative_error": 0.18328852204503443,
+          "residual_energy_share": 0.02493365650519826
+        },
+        {
+          "prefix": 30,
+          "relative_error": 0.18119576833794362,
+          "residual_energy_share": 0.01914402851135948
+        },
+        {
+          "prefix": 31,
+          "relative_error": 0.1864234350758443,
+          "residual_energy_share": 0.02825192372085786
+        }
+      ],
+      "features": [
+        {
+          "feature": 0,
+          "relative_error": 0.1229461680730925,
+          "residual_energy_share": 0.28841899243837615,
+          "target_energy_share": 0.7921098913801371,
+          "bias": 2.1289180102777463,
+          "target_rms": 84.38570623656949
+        },
+        {
+          "feature": 1,
+          "relative_error": 0.2798310567896497,
+          "residual_energy_share": 0.17382679630618975,
+          "target_energy_share": 0.09215448508039394,
+          "bias": -1.484855313679981,
+          "target_rms": 28.782890770159128
+        },
+        {
+          "feature": 2,
+          "relative_error": 0.35763327674244344,
+          "residual_energy_share": 0.3156902955054855,
+          "target_energy_share": 0.10246533491796336,
+          "bias": -2.3127237863232835,
+          "target_rms": 30.350416348063856
+        },
+        {
+          "feature": 3,
+          "relative_error": 0.6966724882956097,
+          "residual_energy_share": 0.1169502766932519,
+          "target_energy_share": 0.010003120687524942,
+          "bias": -0.37878830920027795,
+          "target_rms": 9.482960148125063
+        },
+        {
+          "feature": 4,
+          "relative_error": 1.2150659739425391,
+          "residual_energy_share": 0.02064122844457952,
+          "target_energy_share": 0.0005803999920148306,
+          "bias": -0.6161162267936172,
+          "target_rms": 2.2842302051067134
+        },
+        {
+          "feature": 5,
+          "relative_error": 1.1285668289874355,
+          "residual_energy_share": 0.02211459903708978,
+          "target_energy_share": 0.0007208021659045506,
+          "bias": -1.0961226450016894,
+          "target_rms": 2.545565126512004
+        },
+        {
+          "feature": 6,
+          "relative_error": 1.3261976474680108,
+          "residual_energy_share": 0.02660686136086773,
+          "target_energy_share": 0.0006280131192428914,
+          "bias": -0.3542390624771212,
+          "target_rms": 2.3760771031575705
+        },
+        {
+          "feature": 7,
+          "relative_error": 1.0572320211059614,
+          "residual_energy_share": 0.00921696486825763,
+          "target_energy_share": 0.00034232521629869536,
+          "bias": 0.6266400093115246,
+          "target_rms": 1.754266688786657
+        },
+        {
+          "feature": 8,
+          "relative_error": 0.9763123825810084,
+          "residual_energy_share": 0.007133357089953091,
+          "target_energy_share": 0.00031067617243122665,
+          "bias": -0.11703341104368478,
+          "target_rms": 1.6712066077832146
+        },
+        {
+          "feature": 9,
+          "relative_error": 1.051225039699136,
+          "residual_energy_share": 0.003552956681569425,
+          "target_energy_share": 0.00013347197733583555,
+          "bias": -0.10678220471843711,
+          "target_rms": 1.095396170656061
+        },
+        {
+          "feature": 10,
+          "relative_error": 0.9994567869871712,
+          "residual_energy_share": 0.002975108394780934,
+          "target_energy_share": 0.0001236420868096243,
+          "bias": -0.06777177416361241,
+          "target_rms": 1.054288172329146
+        },
+        {
+          "feature": 11,
+          "relative_error": 0.9344145391503716,
+          "residual_energy_share": 0.003145799208983898,
+          "target_energy_share": 0.00014956962345326786,
+          "bias": -0.2696142931403662,
+          "target_rms": 1.1595724040749573
+        },
+        {
+          "feature": 12,
+          "relative_error": 1.4223801685574655,
+          "residual_energy_share": 0.004297713888086413,
+          "target_energy_share": 8.818560499091778e-05,
+          "bias": 0.0488482450369093,
+          "target_rms": 0.8903792298128945
+        },
+        {
+          "feature": 13,
+          "relative_error": 1.1142040033534613,
+          "residual_energy_share": 0.002542646628428634,
+          "target_energy_share": 8.502529627516916e-05,
+          "bias": 0.10027860843039561,
+          "target_rms": 0.8742794051769147
+        },
+        {
+          "feature": 14,
+          "relative_error": 1.1195541741225903,
+          "residual_energy_share": 0.0018077888281730452,
+          "target_energy_share": 5.98754853979784e-05,
+          "bias": 0.27983090080007966,
+          "target_rms": 0.7336698880693621
+        },
+        {
+          "feature": 15,
+          "relative_error": 0.9955202292111204,
+          "residual_energy_share": 0.0010786146259266268,
+          "target_energy_share": 4.518119382576976e-05,
+          "bias": 0.017002549498397395,
+          "target_rms": 0.637316294252545
+        }
+      ],
+      "groups": [
+        {
+          "group": "newline",
+          "count": 30,
+          "relative_error": 0.18579964256844653,
+          "residual_energy_share": 0.08674868016263129,
+          "target_energy_share": 0.10431930945060085
+        },
+        {
+          "group": "other",
+          "count": 2018,
+          "relative_error": 0.20573791603105007,
+          "residual_energy_share": 0.9132513198373688,
+          "target_energy_share": 0.8956806905493991
+        },
+        {
+          "group": "positions_0_15",
+          "count": 512,
+          "relative_error": 0.20582368886063782,
+          "residual_energy_share": 0.26628397593650904,
+          "target_energy_share": 0.2609431458192673
+        },
+        {
+          "group": "positions_16_31",
+          "count": 512,
+          "relative_error": 0.20551941734841267,
+          "residual_energy_share": 0.233206676536542,
+          "target_energy_share": 0.22920645050973584
+        },
+        {
+          "group": "positions_32_47",
+          "count": 512,
+          "relative_error": 0.1913746286705074,
+          "residual_energy_share": 0.2213590896996154,
+          "target_energy_share": 0.250911296257398
+        },
+        {
+          "group": "positions_48_63",
+          "count": 512,
+          "relative_error": 0.21155143779814117,
+          "residual_energy_share": 0.27915025782733366,
+          "target_energy_share": 0.25893910741359893
+        }
+      ],
+      "bias_energy_share": 0.038911710416893085,
+      "centered_residual_pc_energy_shares": [
+        0.4850925017344187,
+        0.2150159817086656,
+        0.1242132602825376,
+        0.1042392675361588,
+        0.0314127439605662,
+        0.010601965359909813,
+        0.007171351233697159,
+        0.00542195758893626,
+        0.003803705200410383,
+        0.003207049967733389,
+        0.003051501254356276,
+        0.002038933812452652,
+        0.0015857882569609036,
+        0.0012846952132773096,
+        0.001143556105836991,
+        0.0007157407840820551
+      ],
+      "leading_residual_direction": [
+        -0.5380934503740814,
+        0.4266930433100581,
+        0.6969512356156012,
+        0.18538195598089477,
+        -0.047060967675981585,
+        -0.012489206331791382,
+        -0.03841072684278175,
+        0.04887847000258045,
+        -0.027545250340422968,
+        0.0067950430257924955,
+        0.007706511494428334,
+        -0.0009270515534758189,
+        0.031363228214377384,
+        0.007550237978730697,
+        0.01119658311413682,
+        -0.0038213198096665943
+      ],
+      "top_error_contexts": [
+        {
+          "flat_index": 766,
+          "prefix": 11,
+          "position": 62,
+          "context": " a gift.\nDuring a presentation at the National Conference on Philanthropic Planning in San Antonio, Texas, Marcia",
+          "current_token": "ia",
+          "relative_error": 0.3891485038408699,
+          "error_over_common_target_rms": 1.0233579547886806,
+          "squared_error_share": 0.0123178131307828,
+          "largest_error_feature": 2
+        },
+        {
+          "flat_index": 841,
+          "prefix": 13,
+          "position": 9,
+          "context": "FilterMAG Oil Filter Magnet (SS365) $",
+          "current_token": " $",
+          "relative_error": 0.7864217617283839,
+          "error_over_common_target_rms": 0.886584112490634,
+          "squared_error_share": 0.009245243642753512,
+          "largest_error_feature": 1
+        },
+        {
+          "flat_index": 1139,
+          "prefix": 17,
+          "position": 51,
+          "context": " eight Neodymium magnets are.\nThe K&N HP-3001 has a diameter of roughly 3.",
+          "current_token": ".",
+          "relative_error": 0.7568714465708111,
+          "error_over_common_target_rms": 0.8656825040343507,
+          "squared_error_share": 0.008814460830892934,
+          "largest_error_feature": 1
+        },
+        {
+          "flat_index": 528,
+          "prefix": 8,
+          "position": 16,
+          "context": "February is Women in Horror Recognition Month, thanks to a cool chick and my friend",
+          "current_token": " friend",
+          "relative_error": 0.32520507910848806,
+          "error_over_common_target_rms": 0.845794802958034,
+          "squared_error_share": 0.00841411602304295,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 613,
+          "prefix": 9,
+          "position": 37,
+          "context": " to Recognize A Demon has Become Your Friend (CreateSpace 2011). Elizabeth Massie’s short story “",
+          "current_token": "�",
+          "relative_error": 0.2382295561538453,
+          "error_over_common_target_rms": 0.8275575999511815,
+          "squared_error_share": 0.00805517415732706,
+          "largest_error_feature": 2
+        },
+        {
+          "flat_index": 1621,
+          "prefix": 25,
+          "position": 21,
+          "context": "Last year Republican Rep. Paul Ryan presented a budget plan that was, according to one analysis, full of \"",
+          "current_token": " \"",
+          "relative_error": 0.4046507243075525,
+          "error_over_common_target_rms": 0.8094008759697805,
+          "squared_error_share": 0.007705588483968792,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 884,
+          "prefix": 13,
+          "position": 52,
+          "context": " of standard-duty automotive and truck applications. The SS365 Oil Filter Magnet fits oil filters with a diameter from 3.",
+          "current_token": ".",
+          "relative_error": 0.6925951418166316,
+          "error_over_common_target_rms": 0.7320657481905422,
+          "squared_error_share": 0.006303454857058378,
+          "largest_error_feature": 3
+        },
+        {
+          "flat_index": 568,
+          "prefix": 8,
+          "position": 56,
+          "context": " industry (after all it is a boys’ club) I’m pushing female horror authors. I recently saw",
+          "current_token": " saw",
+          "relative_error": 0.2225063444541483,
+          "error_over_common_target_rms": 0.6971133839157158,
+          "squared_error_share": 0.00571590909782651,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 351,
+          "prefix": 5,
+          "position": 31,
+          "context": " to report a felony \"is unfortunately under Ohio law only a 4th degree misdemeanor, which is quite shocking to me,\"",
+          "current_token": ",\"",
+          "relative_error": 0.2368967595522837,
+          "error_over_common_target_rms": 0.6617684335058326,
+          "squared_error_share": 0.005150988336189697,
+          "largest_error_feature": 2
+        },
+        {
+          "flat_index": 1346,
+          "prefix": 21,
+          "position": 2,
+          "context": " sooner.\"\n",
+          "current_token": "\n",
+          "relative_error": 0.20403770782244016,
+          "error_over_common_target_rms": 0.6529234004248405,
+          "squared_error_share": 0.005014214855694284,
+          "largest_error_feature": 1
+        },
+        {
+          "flat_index": 313,
+          "prefix": 4,
+          "position": 57,
+          "context": " Monday afternoon.\nThe rally was organized to urge Ohio Attorney General Mike DeWine to investigate and file criminal charges against",
+          "current_token": " against",
+          "relative_error": 0.3097295084712812,
+          "error_over_common_target_rms": 0.6426884018145279,
+          "squared_error_share": 0.004858244825847447,
+          "largest_error_feature": 0
+        },
+        {
+          "flat_index": 1659,
+          "prefix": 25,
+          "position": 59,
+          "context": "'s brand of budget austerity makes the media swoon–hence we saw coverage (FAIR Media Advisory, 4/",
+          "current_token": "/",
+          "relative_error": 0.6377557349863345,
+          "error_over_common_target_rms": 0.6396507987697088,
+          "squared_error_share": 0.004812429328029265,
+          "largest_error_feature": 1
+        }
+      ]
+    },
+    {
+      "name": "shared_support_1102",
+      "artifact": "GAUSSIAN_SUPPORT_EXCHANGE_SEED1102_V1.pt",
+      "artifact_sha256": "46cd1f32c685b582ec680b8e4602710cd16627d50c6110dcaddcc57c7a5199d8",
+      "prediction_seconds": 0.05698295636102557,
+      "pooled_relative_error": 0.19842358122798046,
+      "row_error_over_common_target_rms": {
+        "0.5": 0.14854646318099854,
+        "0.9": 0.289707486325792,
+        "0.95": 0.3621564409128181,
+        "0.99": 0.5540803731916578,
+        "1.0": 1.1544885902318447
+      },
+      "row_relative_error": {
+        "0.5": 0.21305070923946484,
+        "0.9": 0.37931391870943665,
+        "0.95": 0.43936539630016636,
+        "0.99": 0.5564854649220534,
+        "1.0": 0.7357028265421429
+      },
+      "row_target_norm_over_common_rms": {
+        "0.5": 0.696135371223229,
+        "0.9": 1.4756725290714907,
+        "0.95": 2.1564796029168862,
+        "0.99": 2.9437712579842747,
+        "1.0": 3.708087464504579
+      },
+      "error_concentration": {
+        "0.01": 0.11925925462387679,
+        "0.05": 0.3196122412440039,
+        "0.1": 0.45129507684268816
+      },
+      "target_energy_concentration": {
+        "0.01": 0.10450185572571331,
+        "0.05": 0.3613065300914433,
+        "0.1": 0.5136104140305605
+      },
+      "target_energy_on_worst_error_rows": {
+        "0.01": 0.06869233966230905,
+        "0.05": 0.26574080156418745,
+        "0.1": 0.40779721396422036
+      },
+      "prefix_relative_errors": {
+        "0.5": 0.18429155434745076,
+        "0.9": 0.27483497966868436,
+        "0.95": 0.2873559580989002,
+        "0.99": 0.2970293903649971,
+        "1.0": 0.3004241168200873
+      },
+      "prefixes": [
+        {
+          "prefix": 0,
+          "relative_error": 0.17178348052186962,
+          "residual_energy_share": 0.024973913451765212
+        },
+        {
+          "prefix": 1,
+          "relative_error": 0.1569312373460065,
+          "residual_energy_share": 0.025857131629458574
+        },
+        {
+          "prefix": 2,
+          "relative_error": 0.1697422026800971,
+          "residual_energy_share": 0.020097382498412586
+        },
+        {
+          "prefix": 3,
+          "relative_error": 0.18517036594395161,
+          "residual_energy_share": 0.028818481302090058
+        },
+        {
+          "prefix": 4,
+          "relative_error": 0.17705392003240916,
+          "residual_energy_share": 0.029123278546180686
+        },
+        {
+          "prefix": 5,
+          "relative_error": 0.1834127427509499,
+          "residual_energy_share": 0.03458707450728219
+        },
+        {
+          "prefix": 6,
+          "relative_error": 0.18123495497011652,
+          "residual_energy_share": 0.024308969679957226
+        },
+        {
+          "prefix": 7,
+          "relative_error": 0.18039004856959856,
+          "residual_energy_share": 0.021630204239734555
+        },
+        {
+          "prefix": 8,
+          "relative_error": 0.1642121649873937,
+          "residual_energy_share": 0.029547354166080446
+        },
+        {
+          "prefix": 9,
+          "relative_error": 0.183063212697806,
+          "residual_energy_share": 0.03909562422038983
+        },
+        {
+          "prefix": 10,
+          "relative_error": 0.17690377721799466,
+          "residual_energy_share": 0.02941605006903234
+        },
+        {
+          "prefix": 11,
+          "relative_error": 0.18906222241646212,
+          "residual_energy_share": 0.030764736701149032
+        },
+        {
+          "prefix": 12,
+          "relative_error": 0.20951690650974766,
+          "residual_energy_share": 0.02393256299415427
+        },
+        {
+          "prefix": 13,
+          "relative_error": 0.28562351682725795,
+          "residual_energy_share": 0.07162315850925839
+        },
+        {
+          "prefix": 14,
+          "relative_error": 0.2894733863197963,
+          "residual_energy_share": 0.043318607947822586
+        },
+        {
+          "prefix": 15,
+          "relative_error": 0.20634061668060166,
+          "residual_energy_share": 0.03472886422101417
+        },
+        {
+          "prefix": 16,
+          "relative_error": 0.2251326202095733,
+          "residual_energy_share": 0.0335727060229237
+        },
+        {
+          "prefix": 17,
+          "relative_error": 0.23332628217612872,
+          "residual_energy_share": 0.04502165679857634
+        },
+        {
+          "prefix": 18,
+          "relative_error": 0.2103474065972469,
+          "residual_energy_share": 0.04268001695672916
+        },
+        {
+          "prefix": 19,
+          "relative_error": 0.22287850943655135,
+          "residual_energy_share": 0.027802293969400857
+        },
+        {
+          "prefix": 20,
+          "relative_error": 0.18110149471780054,
+          "residual_energy_share": 0.02549327259190103
+        },
+        {
+          "prefix": 21,
+          "relative_error": 0.19148169122470418,
+          "residual_energy_share": 0.029815778329538977
+        },
+        {
+          "prefix": 22,
+          "relative_error": 0.18572543539326689,
+          "residual_energy_share": 0.02662729272534388
+        },
+        {
+          "prefix": 23,
+          "relative_error": 0.19444272406773747,
+          "residual_energy_share": 0.028808637171761475
+        },
+        {
+          "prefix": 24,
+          "relative_error": 0.3004241168200873,
+          "residual_energy_share": 0.03738650071632915
+        },
+        {
+          "prefix": 25,
+          "relative_error": 0.2794470571678571,
+          "residual_energy_share": 0.04775310877467489
+        },
+        {
+          "prefix": 26,
+          "relative_error": 0.16351634686231642,
+          "residual_energy_share": 0.027197691034354602
+        },
+        {
+          "prefix": 27,
+          "relative_error": 0.17547761324916292,
+          "residual_energy_share": 0.01852095428575661
+        },
+        {
+          "prefix": 28,
+          "relative_error": 0.1797627659401482,
+          "residual_energy_share": 0.024133647397398535
+        },
+        {
+          "prefix": 29,
+          "relative_error": 0.1996442917916745,
+          "residual_energy_share": 0.031191354674439998
+        },
+        {
+          "prefix": 30,
+          "relative_error": 0.15957620401090697,
+          "residual_energy_share": 0.015655916593865747
+        },
+        {
+          "prefix": 31,
+          "relative_error": 0.1758839338242686,
+          "residual_energy_share": 0.026515777273222987
+        }
+      ],
+      "features": [
+        {
+          "feature": 0,
+          "relative_error": 0.10208305511118453,
+          "residual_energy_share": 0.20965546485823275,
+          "target_energy_share": 0.7921098913801371,
+          "bias": 1.7954309520433454,
+          "target_rms": 84.38570623656949
+        },
+        {
+          "feature": 1,
+          "relative_error": 0.29272796818631897,
+          "residual_energy_share": 0.20056647700730174,
+          "target_energy_share": 0.09215448508039394,
+          "bias": -1.214380247688413,
+          "target_rms": 28.782890770159128
+        },
+        {
+          "feature": 2,
+          "relative_error": 0.35848051720130514,
+          "residual_energy_share": 0.33444253877154906,
+          "target_energy_share": 0.10246533491796336,
+          "bias": -2.918902752928011,
+          "target_rms": 30.350416348063856
+        },
+        {
+          "feature": 3,
+          "relative_error": 0.7308394687092274,
+          "residual_energy_share": 0.13570408705015705,
+          "target_energy_share": 0.010003120687524942,
+          "bias": -0.9188312673334953,
+          "target_rms": 9.482960148125063
+        },
+        {
+          "feature": 4,
+          "relative_error": 1.355772841698184,
+          "residual_energy_share": 0.02709659314817916,
+          "target_energy_share": 0.0005803999920148306,
+          "bias": -0.4717101545237081,
+          "target_rms": 2.2842302051067134
+        },
+        {
+          "feature": 5,
+          "relative_error": 1.4051791391276969,
+          "residual_energy_share": 0.036148718273676654,
+          "target_energy_share": 0.0007208021659045506,
+          "bias": -1.230778485812263,
+          "target_rms": 2.545565126512004
+        },
+        {
+          "feature": 6,
+          "relative_error": 1.125993555512492,
+          "residual_energy_share": 0.020223390072061097,
+          "target_energy_share": 0.0006280131192428914,
+          "bias": -0.2648216086672367,
+          "target_rms": 2.3760771031575705
+        },
+        {
+          "feature": 7,
+          "relative_error": 1.094521616133536,
+          "residual_energy_share": 0.010416000928573596,
+          "target_energy_share": 0.00034232521629869536,
+          "bias": 0.7376087821640842,
+          "target_rms": 1.754266688786657
+        },
+        {
+          "feature": 8,
+          "relative_error": 0.8875281717453483,
+          "residual_energy_share": 0.006215637426346413,
+          "target_energy_share": 0.00031067617243122665,
+          "bias": -0.13153218484228538,
+          "target_rms": 1.6712066077832146
+        },
+        {
+          "feature": 9,
+          "relative_error": 1.1080487567153505,
+          "residual_energy_share": 0.004162183934824552,
+          "target_energy_share": 0.00013347197733583555,
+          "bias": -0.08197190089695487,
+          "target_rms": 1.095396170656061
+        },
+        {
+          "feature": 10,
+          "relative_error": 0.9460217522404328,
+          "residual_energy_share": 0.0028104897378184645,
+          "target_energy_share": 0.0001236420868096243,
+          "bias": -0.03829249914347523,
+          "target_rms": 1.054288172329146
+        },
+        {
+          "feature": 11,
+          "relative_error": 0.9162151175337814,
+          "residual_energy_share": 0.0031889795895261087,
+          "target_energy_share": 0.00014956962345326786,
+          "bias": -0.332826429930598,
+          "target_rms": 1.1595724040749573
+        },
+        {
+          "feature": 12,
+          "relative_error": 1.2110371416694752,
+          "residual_energy_share": 0.0032849295281338195,
+          "target_energy_share": 8.818560499091778e-05,
+          "bias": 0.0693338396479842,
+          "target_rms": 0.8903792298128945
+        },
+        {
+          "feature": 13,
+          "relative_error": 1.1397379042274585,
+          "residual_energy_share": 0.0028052499946878843,
+          "target_energy_share": 8.502529627516916e-05,
+          "bias": 0.1423551989230878,
+          "target_rms": 0.8742794051769147
+        },
+        {
+          "feature": 14,
+          "relative_error": 1.1607718808672767,
+          "residual_energy_share": 0.0020490673710998565,
+          "target_energy_share": 5.98754853979784e-05,
+          "bias": 0.3076222251691669,
+          "target_rms": 0.7336698880693621
+        },
+        {
+          "feature": 15,
+          "relative_error": 1.035382776342319,
+          "residual_energy_share": 0.0012301923078318774,
+          "target_energy_share": 4.518119382576976e-05,
+          "bias": 0.020518758845122602,
+          "target_rms": 0.637316294252545
+        }
+      ],
+      "groups": [
+        {
+          "group": "newline",
+          "count": 30,
+          "relative_error": 0.19750767679126527,
+          "residual_energy_share": 0.10335847605634053,
+          "target_energy_share": 0.10431930945060085
+        },
+        {
+          "group": "other",
+          "count": 2018,
+          "relative_error": 0.19852998125558804,
+          "residual_energy_share": 0.8966415239436595,
+          "target_energy_share": 0.8956806905493991
+        },
+        {
+          "group": "positions_0_15",
+          "count": 512,
+          "relative_error": 0.20087702804567514,
+          "residual_energy_share": 0.26743600445863663,
+          "target_energy_share": 0.2609431458192673
+        },
+        {
+          "group": "positions_16_31",
+          "count": 512,
+          "relative_error": 0.19491241863502645,
+          "residual_energy_share": 0.22116647166252829,
+          "target_energy_share": 0.22920645050973584
+        },
+        {
+          "group": "positions_32_47",
+          "count": 512,
+          "relative_error": 0.18911020706959084,
+          "residual_energy_share": 0.2279101080682011,
+          "target_energy_share": 0.250911296257398
+        },
+        {
+          "group": "positions_48_63",
+          "count": 512,
+          "relative_error": 0.2076162549840439,
+          "residual_energy_share": 0.28348741581063397,
+          "target_energy_share": 0.25893910741359893
+        }
+      ],
+      "bias_energy_share": 0.04709862730879463,
+      "centered_residual_pc_energy_shares": [
+        0.45213387661283294,
+        0.20800206208373026,
+        0.15195498457463982,
+        0.1103772611749227,
+        0.034000694629117735,
+        0.011986294519945574,
+        0.00785519638396535,
+        0.006113845822068146,
+        0.004219869299736583,
+        0.003384390842294886,
+        0.0029467348490277256,
+        0.002116310426671273,
+        0.001587062952243196,
+        0.001268659684898872,
+        0.0012378915428936674,
+        0.0008148646010112736
+      ],
+      "leading_residual_direction": [
+        -0.2317900702305058,
+        0.5199448503287695,
+        0.7907799511288315,
+        0.20173842226034916,
+        -0.010089435932572832,
+        -0.048466336561935885,
+        -0.0694520622477543,
+        0.024999482157269187,
+        -0.02100986041143802,
+        0.025265601595291603,
+        0.004446297549481115,
+        -0.00274573134579853,
+        0.026336519998694408,
+        -0.008436967053744998,
+        0.011277631004366864,
+        0.0009975766481175301
+      ],
+      "top_error_contexts": [
+        {
+          "flat_index": 1621,
+          "prefix": 25,
+          "position": 21,
+          "context": "Last year Republican Rep. Paul Ryan presented a budget plan that was, according to one analysis, full of \"",
+          "current_token": " \"",
+          "relative_error": 0.5771733860337,
+          "error_over_common_target_rms": 1.1544885902318447,
+          "squared_error_share": 0.01652961623046878,
+          "largest_error_feature": 2
+        },
+        {
+          "flat_index": 1590,
+          "prefix": 24,
+          "position": 54,
+          "context": " mark dates ranging from the past to the future. The numbers from +100% (maximum) to -100% (",
+          "current_token": " (",
+          "relative_error": 0.6819909864162444,
+          "error_over_common_target_rms": 0.7798905059793734,
+          "squared_error_share": 0.007543115319355679,
+          "largest_error_feature": 2
+        },
+        {
+          "flat_index": 613,
+          "prefix": 9,
+          "position": 37,
+          "context": " to Recognize A Demon has Become Your Friend (CreateSpace 2011). Elizabeth Massie’s short story “",
+          "current_token": "�",
+          "relative_error": 0.21781293277273595,
+          "error_over_common_target_rms": 0.7566346963570243,
+          "squared_error_share": 0.007099961362021626,
+          "largest_error_feature": 1
+        },
+        {
+          "flat_index": 841,
+          "prefix": 13,
+          "position": 9,
+          "context": "FilterMAG Oil Filter Magnet (SS365) $",
+          "current_token": " $",
+          "relative_error": 0.6682598356313821,
+          "error_over_common_target_rms": 0.7533725312792323,
+          "squared_error_share": 0.007038871598982044,
+          "largest_error_feature": 3
+        },
+        {
+          "flat_index": 1139,
+          "prefix": 17,
+          "position": 51,
+          "context": " eight Neodymium magnets are.\nThe K&N HP-3001 has a diameter of roughly 3.",
+          "current_token": ".",
+          "relative_error": 0.6398633914783108,
+          "error_over_common_target_rms": 0.7318528734100327,
+          "squared_error_share": 0.0066424920748657445,
+          "largest_error_feature": 3
+        },
+        {
+          "flat_index": 1346,
+          "prefix": 21,
+          "position": 2,
+          "context": " sooner.\"\n",
+          "current_token": "\n",
+          "relative_error": 0.22600942483548625,
+          "error_over_common_target_rms": 0.7232331894262666,
+          "squared_error_share": 0.006486944406596684,
+          "largest_error_feature": 1
+        },
+        {
+          "flat_index": 884,
+          "prefix": 13,
+          "position": 52,
+          "context": " of standard-duty automotive and truck applications. The SS365 Oil Filter Magnet fits oil filters with a diameter from 3.",
+          "current_token": ".",
+          "relative_error": 0.6584465926367616,
+          "error_over_common_target_rms": 0.6959710924593276,
+          "squared_error_share": 0.006007114126187436,
+          "largest_error_feature": 3
+        },
+        {
+          "flat_index": 961,
+          "prefix": 15,
+          "position": 1,
+          "context": ".\n",
+          "current_token": "\n",
+          "relative_error": 0.21040153520551144,
+          "error_over_common_target_rms": 0.6952059597527016,
+          "squared_error_share": 0.005993913253201611,
+          "largest_error_feature": 1
+        },
+        {
+          "flat_index": 326,
+          "prefix": 5,
+          "position": 6,
+          "context": " find out what else happened.\n",
+          "current_token": "\n",
+          "relative_error": 0.2095008297440683,
+          "error_over_common_target_rms": 0.6329135976838133,
+          "squared_error_share": 0.004967894138907034,
+          "largest_error_feature": 1
+        },
+        {
+          "flat_index": 683,
+          "prefix": 10,
+          "position": 43,
+          "context": " was beheaded with Albert Dahlman‘s axe at Sweden’s Västerås County Jail.",
+          "current_token": ".",
+          "relative_error": 0.21481675444865575,
+          "error_over_common_target_rms": 0.6119840652837082,
+          "squared_error_share": 0.004644764602474305,
+          "largest_error_feature": 2
+        },
+        {
+          "flat_index": 1652,
+          "prefix": 25,
+          "position": 52,
+          "context": " and fishy figures.\" But Ryan's brand of budget austerity makes the media swoon–hence we saw coverage (",
+          "current_token": " (",
+          "relative_error": 0.3498345864454995,
+          "error_over_common_target_rms": 0.6090591164450931,
+          "squared_error_share": 0.004600471838996898,
+          "largest_error_feature": 2
+        },
+        {
+          "flat_index": 568,
+          "prefix": 8,
+          "position": 56,
+          "context": " industry (after all it is a boys’ club) I’m pushing female horror authors. I recently saw",
+          "current_token": " saw",
+          "relative_error": 0.1942626905070457,
+          "error_over_common_target_rms": 0.6086258883096457,
+          "squared_error_share": 0.004593929469146685,
+          "largest_error_feature": 0
+        }
+      ]
+    }
+  ],
+  "analysis_seconds": 0.5224244310520589
+}

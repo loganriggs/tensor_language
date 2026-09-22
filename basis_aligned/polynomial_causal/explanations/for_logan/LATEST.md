@@ -1,3 +1,5 @@
+**Latest residual audit — [How many examples, and where is the error?](research_update_2026-09-22_0058_sample_counts_and_residual_errors.md).** 2,048 states versus 16 output coordinates; measured scoring cost, example tails, all feature errors, residual directions and heatmap.
+
 **Start here — [What we are decomposing and what the 16 features mean](research_update_2026-09-22_0000_model_context_and_research_trajectory.md).** New contextual review, 22 September 2026, 00:00 UTC: exact model branch, origin of the 16 writers, two-stage progress, current results and remaining failures. The [shared-feature conditions report](research_update_2026-09-21_2112_shared_feature_conditions.md) is also rewritten with model context and completed intervention follow-ups.
 
 **Latest requested update — [What the new fits taught us](research_update_2026-09-21_2309_what_the_new_fits_taught_us.md).** Larger CP and shared-hierarchy results, exact weight matching, the mean/covariance improvement, and remaining component failures.
