@@ -22,7 +22,7 @@ $$
 K\geq\max\left(r_o,\left\lceil r_i/2\right\rceil\right).
 $$
 
-Linear recombinations or caching shared products do not evade this bound: count each distinct computed product once. A quadratic feature assembled from many products counts all of its constituent products. This argument applies to the stated quadratic program class; it does not bound a general program with division, normalization or higher-degree intermediate terms and cancellation.
+Linear recombinations or caching shared products do not evade this bound: count each distinct computed product once. A quadratic feature assembled from many products counts all of its constituent products. This argument directly applies to the stated quadratic program class. A later [degree-two propagation derivation](FULL_QUADRATIC_DAG_BOUND_EXTENSION_V1.md) extends the same product bound to division-free polynomial DAGs, including higher-degree intermediate terms and cancellation. Variable division and normalization remain outside this bound; functional approximation on data is also a different metric.
 
 | Input coefficient geometry | Necessary products at 20% error | At 10% | At 5% |
 | --- | ---: | ---: | ---: |
