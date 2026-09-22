@@ -1,6 +1,6 @@
 # The quadratic product bound also applies to deeper polynomial DAGs
 
-22 September 2026, 06:30 UTC. Correction to the scope caveat in FULL_QUADRATIC_PRODUCT_BOUNDS_V1.md. No new native spectrum or fit was computed.
+22 September 2026, 06:28 UTC. Correction to the scope caveat in FULL_QUADRATIC_PRODUCT_BOUNDS_V1.md. No new native spectrum or fit was computed.
 
 **Higher-degree intermediates and cancellation do not evade the existing full-quadratic product-count bound for division-free polynomial arithmetic DAGs.** The earlier note excluded that case too broadly. The extension concerns the quadratic coefficient component, not arbitrary finite-sample functional approximation.
 
