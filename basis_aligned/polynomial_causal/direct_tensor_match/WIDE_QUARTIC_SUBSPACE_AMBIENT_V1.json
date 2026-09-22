@@ -1,0 +1,184 @@
+{
+  "rows": [
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 0,
+      "seed": 0,
+      "selected_step": 250,
+      "value_error": 0.12360886452465292,
+      "response_error": 0.13488674604950793
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 0,
+      "seed": 1,
+      "selected_step": 250,
+      "value_error": 0.051191163715280874,
+      "response_error": 0.05585192368027881
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 1,
+      "seed": 0,
+      "selected_step": 250,
+      "value_error": 0.11002441902432011,
+      "response_error": 0.1169265707229255
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 1,
+      "seed": 1,
+      "selected_step": 250,
+      "value_error": 0.10751798345513378,
+      "response_error": 0.1138586438590119
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 3,
+      "seed": 0,
+      "selected_step": 250,
+      "value_error": 0.04676884614302514,
+      "response_error": 0.05019290896713378
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 3,
+      "seed": 1,
+      "selected_step": 250,
+      "value_error": 0.0983468375866789,
+      "response_error": 0.10617113467514652
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 4,
+      "seed": 0,
+      "selected_step": 250,
+      "value_error": 0.009223435561200977,
+      "response_error": 0.010125798549378909
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 4,
+      "seed": 1,
+      "selected_step": 250,
+      "value_error": 0.01009722824978664,
+      "response_error": 0.011105954456776094
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 5,
+      "seed": 0,
+      "selected_step": 250,
+      "value_error": 0.04362404717142754,
+      "response_error": 0.04479211563795613
+    },
+    {
+      "ambient_control": true,
+      "fit_dimension": 1152,
+      "family": 5,
+      "seed": 1,
+      "selected_step": 250,
+      "value_error": 0.039794865552917245,
+      "response_error": 0.04090769841381234
+    }
+  ],
+  "geometry": [
+    {
+      "family": 0,
+      "rank": 4,
+      "span_error": 2.0067656219897372e-15,
+      "function_replay": 7.011142619183133e-15,
+      "eigenvalues_top": [
+        4.250218109102199e-14,
+        4.721834965433406e-14,
+        2.178997559534207,
+        5.447641807866301,
+        7.267496902850733,
+        71.19214156825073
+      ],
+      "shared_projection_floats": 4608,
+      "student_floats": 4680,
+      "variable_products": 12
+    },
+    {
+      "family": 1,
+      "rank": 4,
+      "span_error": 2.9886702234322435e-15,
+      "function_replay": 4.504055069753104e-15,
+      "eigenvalues_top": [
+        7.242382989094735e-14,
+        1.1516683809023484e-13,
+        1.5673276001276124,
+        11.008384258773487,
+        57.18957779405637,
+        156.97933842544518
+      ],
+      "shared_projection_floats": 4608,
+      "student_floats": 4680,
+      "variable_products": 12
+    },
+    {
+      "family": 3,
+      "rank": 4,
+      "span_error": 1.0669967312466943e-15,
+      "function_replay": 4.172869019704213e-15,
+      "eigenvalues_top": [
+        1.789705494568111e-14,
+        2.1382342906543103e-14,
+        1.173415329907247,
+        6.2055994025722585,
+        17.291577110213385,
+        37.12055366304921
+      ],
+      "shared_projection_floats": 4608,
+      "student_floats": 4680,
+      "variable_products": 12
+    },
+    {
+      "family": 4,
+      "rank": 4,
+      "span_error": 1.4842994955417368e-14,
+      "function_replay": 4.366525363215248e-15,
+      "eigenvalues_top": [
+        1.3813581519768643e-13,
+        1.9428994608602925e-13,
+        0.6080951307527749,
+        46.2669516884333,
+        302.0555547257918,
+        339.96004010664444
+      ],
+      "shared_projection_floats": 4608,
+      "student_floats": 4680,
+      "variable_products": 12
+    },
+    {
+      "family": 5,
+      "rank": 4,
+      "span_error": 1.6917323098805652e-15,
+      "function_replay": 4.382609099355228e-15,
+      "eigenvalues_top": [
+        3.767714286534606e-15,
+        4.718011132192824e-15,
+        1.3964685035832034,
+        3.0049152534985764,
+        5.830548457035872,
+        8.432417382522889
+      ],
+      "shared_projection_floats": 4608,
+      "student_floats": 4680,
+      "variable_products": 12
+    }
+  ],
+  "prediction": null,
+  "seconds": 14.20874105207622,
+  "scope": "Ten direct1152-dimensional Adam controls on same densely rotated targets. Different random-start dimensions; not identical initial functions. Geometry fields describe recovered subspace and are not ambient student costs."
+}

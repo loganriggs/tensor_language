@@ -1,0 +1,7 @@
+# Discover the relevant input subspace before quartic fitting
+
+22 September 2026, 04:40 UTC. Known-structure control, not native adoption. Five target families from the wide-optimizer test are embedded through a seeded dense orthonormal1152-by4 matrix, hiding the four relevant coordinates. Compute the exact shifted-Gaussian expected Jacobian Gram from teacher weights with the existing derivative-moment helper. Select eigenvectors whose eigenvalues exceed1e-10 of the maximum; do not directly use the embedding as the student input basis.
+
+Predict rank4 and native-to-reduced teacher replay<1e-10 for allfivefamilies. Fit the reduced polynomial with Adam lr0.1, two starts,250updates and existing profiled coefficients. Predict at least8/10 exact-Gaussian value errors below5%. Record failures, population response error and actual learned input rank. Rank is selected from the teacher spectrum, not reconstruction labels; no text data.
+
+This exploits a planted low-dimensional structure that need not exist in the native residual. An accurate recovered subspace is not a recovered semantic basis; internal orthogonal rotations remain. The exact native derivative Gram may be substantially more expensive than this explicit four-atom control. Preserve that limitation and existing native broad-rank evidence. Price the shared projection and factorized polynomial rather than pretending preprocessing is free.

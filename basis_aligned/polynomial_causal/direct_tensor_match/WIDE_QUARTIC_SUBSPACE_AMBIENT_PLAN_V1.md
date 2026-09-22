@@ -1,0 +1,3 @@
+# Matched-target ambient control
+
+22 September 2026, 04:41 UTC. The reduced-subspace test has completed with10/10 fits below5% value error. Before interpreting this as improvement over direct fitting, repeat10Adamfits in the full1152-dimensional parameter space on these same densely rotated target functions. Same learning rate,250updates and exact Gaussian objective. Random-start dimensions differ; not the same initial student function. Prior axis-aligned ambient results are not a matched control because Adam is coordinate-dependent. This added comparison is descriptive, not a retroactive primary prediction. The native queued protocol is untouched.
