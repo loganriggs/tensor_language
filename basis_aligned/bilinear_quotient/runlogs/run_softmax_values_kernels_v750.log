@@ -1,0 +1,18 @@
+native CE on skip7000: stock sdpa 3.11402 | explicit softmax 3.11402
+mean-ablation values: top 4.7:0.092 3.1:0.027 6.2:0.020 11.6:0.017 2.0:0.015 5.7:0.014 7.2:0.014 5.4:0.013 10.5:0.013 11.3:0.012 7.4:0.012 11.0:0.011 | median 0.0042 | sum 0.903 | joint (all 162) 3.388
+k=1: energy 0.7918 | kernels-only-with-k-shapes cost +3.6822 (over kernels-only +1.8913)
+k=2: energy 0.9072 | kernels-only-with-k-shapes cost +2.3551 (over kernels-only +0.5642)
+k=4: energy 0.9737 | kernels-only-with-k-shapes cost +1.8474 (over kernels-only +0.0565)
+k=8: energy 0.9896 | kernels-only-with-k-shapes cost +1.7840 (over kernels-only -0.0069)
+k=16: energy 0.9953 | kernels-only-with-k-shapes cost +1.7892 (over kernels-only -0.0017)
+native 3.11402 | kernels-only (closed form) +1.7909 | named-4 basis: energy 0.5383, cost +2.0023 | SVD energy cum (1..8) [0.792, 0.907, 0.954, 0.974, 0.981, 0.986, 0.988, 0.99]
+{
+  "predictions": {
+    "pred_a_instrument_replays": true,
+    "pred_b_joint_value_comparable": true,
+    "pred_c_kernels_only_cost": false,
+    "pred_d_kernel_energy_top4": true,
+    "pred_e_four_shapes_cheap": false
+  },
+  "forwards": 1049
+}
