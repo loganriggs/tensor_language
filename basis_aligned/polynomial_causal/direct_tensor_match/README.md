@@ -330,3 +330,5 @@ Original-weight continuation grounding (Sept21 03:56): [report](../explanations/
 [All-output cross-domain protocol](CROSS_DOMAIN_OUTPUTS_PLAN_V1.md): CPU evaluator prepared and native reference preflight passed; awaiting removal-stage cache, no cross-domain result yet.
 
 [Current CP dictionary oracle capacity](CURRENT_CP_ORACLE_CAPACITY_INTERPRETATION_V1.md): both full-rank512 banks leave 26–49% individual small-output value error even with evaluation-label least squares; no exported candidate.
+
+[Local quartic larger-panel follow-up](LOCAL_QUARTIC_FOLLOWUP_PLAN_V1.md): all-four-arm evaluator prepared and assembly checked; awaiting native learner artifacts, no scores yet.
