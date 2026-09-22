@@ -1,0 +1,25 @@
+ACTIVE_TRACK: WEIGHT_FOLDING
+
+22 September 2026, 02:17 UTC. Previous review01:15. User's two-day weights-first focus through15:10 overrides hourly alternation. Last full mathematical/literature review01:59; next due04:59. Previous goal turn made concrete progress through native output-specific correction construction and falsification, not a status-only wait.
+
+The full goal remains a simpler executable computation with explicit reads/operations/writes, cross-boundary grouping and within-module splitting, held-out/OOD prediction, extraction, selective manipulation, composition/reuse and stable identification. None is replaced by low error in a fixed16output basis. Current selected purequarticMLP16→17 excludes residual/attention/bias/cross terms; the broader midpoint path remains a separate baseline. Semantic identity and full-model composition are unresolved.
+
+This hour: conditional Gaussian CP programs and lean graph pruning reduced stored coefficients with similar opened-panel values; direct CPU benchmarks showed actual speed savings. Algebraic parity stress exposed a global identity mismatch. The native harmonic truncation failed badly despite correct algebra. All-output matched responses exposed42–73% smaller-feature errors. Exact shifted-pair rewriting removed1024coefficientmult/state but only modestly changed runtime. Balanced producer continuation completed2407s: integrityPASS, registered improvement/retentionFAIL. Separate output-specific Hermite corrections preserve dominant coordinates but primaryrank16fails; fullquadratic corrections remain inaccurate and expensive. These nulls prevent promotion and constrain the next object.
+
+Highest-information next actions:
+1. Interpret already-queued full/lean conditional native-removal tests, with actual normalization/background/softcap. This directly addresses extraction and intervention substitution. Failures must be localized by domain/amount/output, not hidden behind Gaussian parent fidelity.
+2. Investigate output-specific higher-degree residual computations with fixed writes into coordinates4–15. The quadratic correction screen supplies the distinct reason: low-degree terms help but leave substantial missing response. Before another GPU fit, inspect existing native CP residual-gradient machinery and require planted controls and a literal added-cost budget. Reject if extra products only improve fitting-law value while held response remains poor.
+3. If native effects pass, prepare a frozen-program composition and shifted-domain test. Passing the existing opened value panel cannot substitute for either. No semantic label should be attached before selective task controls.
+
+Lower priority: repeat output reweighting without topology change; enlarge a quadratic residual by arbitrary rank sweeps; force parity by averaging when it worsens the inspected law; claim Gaussian conditioning makes a globally homogeneous native polynomial equivalent. Candidate discovery and exact/approximate graph edits remain distinct.
+
+Confounds checked: covariance law differs from actual normalized text; small outputs are hidden by energy pooling; conditional edits compensate parent residuals; matched pairs do not isolate semantic changes; opened panels are not fresh; floatingpoint replays are not accuracy proofs. A rank16 correction leaves coordinates0–3 unchanged only at the numerator interface, not after nonlinear downstream coupling. CP/shared comparisons have different operation/storage prices and cannot certify architecture superiority.
+
+Throughput from receipts: conditional and lean commits01:35/01:42, CPU benchmark01:47, review01:59, residual decomposition02:02, matched changes02:05, exact rewrite02:08, balanced result02:11, correction screen02:16. The output-specific screen took24seconds, follow-up scoring3.46seconds, balancefit40.1minutes managedGPU. No exact allocation of reasoning versus documentation time was instrumented. Several brief audits reused opened caches while GPU ran; avoid turning those into independent-discovery counts. No new infrastructure framework or competing GPU job was launched. Next work should move higher-degree structure or causal evidence rather than accumulate more similar descriptive plots.
+
+TRACK_ALTERNATION: OVERRIDDEN by explicit two-day user direction.
+TRACK_PROGRESS: PASS, concrete native programs and falsifying weight-derived corrections.
+CEREMONY_BUDGET: PASS for focused controls; no extended approval flow, controls reused cached traces and existing executors. Documentation is user-requested; avoid adding another broad audit framework.
+NOVELTY_LESSON_GATE: PASS, prior residual/Hermite/conditional records searched; primary hypothesis changed from output reweighting to output-local corrections.
+
+Continuation receipt: native full/lean removal hashesd881407e/9512d6d0 verified in managed queue at02:17. CPU correction screen completed and pushed17ed0dbce. No queued helper changed. Board claim records next higher-degree structural investigation. The goal remains active; no circuit adoption.
