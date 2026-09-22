@@ -1,3 +1,5 @@
+[22 September 05:18 — Separating optimizer failure, missing computations and native structure](research_update_2026-09-22_0518_optimization_and_structure.md).
+
 [22 September 04:17 — Even oracle readouts leave large small-output errors](research_update_2026-09-22_0417_dictionary_capacity.md).
 
 [22 September 03:59 — Whole-quadratic sharing saves more products but fails the primary fidelity criterion](research_update_2026-09-22_0238_reader_reuse.md#0359-follow-up-approximate-sharing-of-whole-quadratic-products).
