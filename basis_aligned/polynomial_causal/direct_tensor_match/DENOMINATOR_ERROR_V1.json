@@ -1,0 +1,107 @@
+{
+  "rows": [
+    {
+      "seed": 1001,
+      "domain": "fineweb",
+      "alpha": 0.25,
+      "condition": "other",
+      "states": 3718,
+      "raw_error": 0.08163354546055422,
+      "weighted_error": 0.1225559790376498,
+      "lowest_denominator_decile_error_share": 0.4559470232091724,
+      "lowest_denominator_decile_reference_share": 0.2765608739583161,
+      "worst_weighted_error_decile_share": 0.759465540990249,
+      "reference_share_on_worst_error_decile": 0.31425993733447805,
+      "denominator_quantiles": [
+        374055.65625,
+        1256493.95,
+        3149428.25,
+        4523277.7,
+        8535845.0
+      ]
+    },
+    {
+      "seed": 1001,
+      "domain": "fineweb",
+      "alpha": 1.0,
+      "condition": "other",
+      "states": 3718,
+      "raw_error": 0.08163354546055422,
+      "weighted_error": 0.1225559790376498,
+      "lowest_denominator_decile_error_share": 0.4559470232091724,
+      "lowest_denominator_decile_reference_share": 0.2765608739583161,
+      "worst_weighted_error_decile_share": 0.759465540990249,
+      "reference_share_on_worst_error_decile": 0.31425993733447805,
+      "denominator_quantiles": [
+        374055.65625,
+        1256493.95,
+        3149428.25,
+        4523277.7,
+        8535845.0
+      ]
+    },
+    {
+      "seed": 1002,
+      "domain": "fineweb",
+      "alpha": 0.25,
+      "condition": "other",
+      "states": 3718,
+      "raw_error": 0.07915266898029613,
+      "weighted_error": 0.12500980310431686,
+      "lowest_denominator_decile_error_share": 0.5015198927236809,
+      "lowest_denominator_decile_reference_share": 0.2765608739583161,
+      "worst_weighted_error_decile_share": 0.7710571542279326,
+      "reference_share_on_worst_error_decile": 0.31256442337618145,
+      "denominator_quantiles": [
+        374055.65625,
+        1256493.95,
+        3149428.25,
+        4523277.7,
+        8535845.0
+      ]
+    },
+    {
+      "seed": 1002,
+      "domain": "fineweb",
+      "alpha": 1.0,
+      "condition": "other",
+      "states": 3718,
+      "raw_error": 0.07915266898029613,
+      "weighted_error": 0.12500980310431686,
+      "lowest_denominator_decile_error_share": 0.5015198927236809,
+      "lowest_denominator_decile_reference_share": 0.2765608739583161,
+      "worst_weighted_error_decile_share": 0.7710571542279326,
+      "reference_share_on_worst_error_decile": 0.31256442337618145,
+      "denominator_quantiles": [
+        374055.65625,
+        1256493.95,
+        3149428.25,
+        4523277.7,
+        8535845.0
+      ]
+    },
+    {
+      "seed": 1002,
+      "domain": "stdlib",
+      "alpha": 0.25,
+      "condition": "other",
+      "states": 3614,
+      "raw_error": 0.09413335393546121,
+      "weighted_error": 0.10516214621609223,
+      "lowest_denominator_decile_error_share": 0.2633587993849139,
+      "lowest_denominator_decile_reference_share": 0.14932874657722603,
+      "worst_weighted_error_decile_share": 0.5111111545536908,
+      "reference_share_on_worst_error_decile": 0.37110357256569154,
+      "denominator_quantiles": [
+        583100.0,
+        1509495.4375,
+        2377441.5,
+        3101914.7500000005,
+        4499496.0
+      ]
+    }
+  ],
+  "prediction": false,
+  "cache_sha256": "b89a39fe0eb736d062836fa7ccaed1e75a7e99d95d393ae8fc1530c6e1fa5b8a",
+  "scope": "Opened native states; exact scalar metric reweighting, alpha repetitions not independent. No fitting or semantic/causal identification."
+}

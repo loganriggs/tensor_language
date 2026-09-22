@@ -1,3 +1,5 @@
+[22 September 05:59 — Normalization reweights states and exposes removal failures](research_update_2026-09-22_0559_normalization_error.md).
+
 [22 September 05:55 — Native new-feature learning gives modest gains, fails component criterion](research_update_2026-09-22_0555_native_residual_learning.md).
 
 [22 September 05:18 — Separating optimizer failure, missing computations and native structure](research_update_2026-09-22_0518_optimization_and_structure.md).
