@@ -6,7 +6,7 @@ from functools import lru_cache
 import torch
 
 
-def gram(factors,biases,other=None,other_biases=None):
+def gram(factors,biases,other=None,other_biases=None,input_coefficients=None):
     if other is None:other=factors;other_biases=biases
     vectors=list(factors)+list(other);means=[b[:,None] for b in biases]+[b[None,:] for b in other_biases];dots={}
     for i in range(8):
@@ -23,7 +23,11 @@ def gram(factors,biases,other=None,other_biases=None):
             if rest&(1<<j):result=result+dots[i,j]*moment(rest^(1<<j))
         return result
     result=0.
+    output=None if input_coefficients is None else input_coefficients.T@input_coefficients
     for i in range(4):
-        for j in range(4,8):result=result+dots[i,j]*moment(255^(1<<i)^(1<<j))
+        for j in range(4,8):
+            m=moment(255^(1<<i)^(1<<j))
+            if output is None:result=result+dots[i,j]*m
+            else:result=result+factors[i].T@(output*m)@other[j-4]
     moment.cache_clear();dots.clear();means.clear()
     return result

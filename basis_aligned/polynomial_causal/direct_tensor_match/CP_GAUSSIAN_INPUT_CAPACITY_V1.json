@@ -1,0 +1,274 @@
+{
+  "rows": [
+    {
+      "seed": 1001,
+      "trace_replay": 1.4688719171838435e-15,
+      "bounds": [
+        {
+          "cp_terms": 4,
+          "input_rank": 16,
+          "relative_gaussian_error_lower_bound": 0.029377958452472108,
+          "active_subspace_conditional_mean_error_upper_bound": 0.058755916904944215
+        },
+        {
+          "cp_terms": 8,
+          "input_rank": 32,
+          "relative_gaussian_error_lower_bound": 0.022576641483903575,
+          "active_subspace_conditional_mean_error_upper_bound": 0.04515328296780715
+        },
+        {
+          "cp_terms": 16,
+          "input_rank": 64,
+          "relative_gaussian_error_lower_bound": 0.016317245291062748,
+          "active_subspace_conditional_mean_error_upper_bound": 0.032634490582125496
+        },
+        {
+          "cp_terms": 32,
+          "input_rank": 128,
+          "relative_gaussian_error_lower_bound": 0.010379335627852256,
+          "active_subspace_conditional_mean_error_upper_bound": 0.020758671255704512
+        },
+        {
+          "cp_terms": 64,
+          "input_rank": 256,
+          "relative_gaussian_error_lower_bound": 0.004624824172212164,
+          "active_subspace_conditional_mean_error_upper_bound": 0.009249648344424329
+        },
+        {
+          "cp_terms": 128,
+          "input_rank": 512,
+          "relative_gaussian_error_lower_bound": 0.00107078785211378,
+          "active_subspace_conditional_mean_error_upper_bound": 0.00214157570422756
+        },
+        {
+          "cp_terms": 192,
+          "input_rank": 768,
+          "relative_gaussian_error_lower_bound": 0.0002618971750833102,
+          "active_subspace_conditional_mean_error_upper_bound": 0.0005237943501666204
+        },
+        {
+          "cp_terms": 256,
+          "input_rank": 1024,
+          "relative_gaussian_error_lower_bound": 4.5188667019079464e-05,
+          "active_subspace_conditional_mean_error_upper_bound": 9.037733403815893e-05
+        }
+      ],
+      "necessary": {
+        "0.1": {
+          "necessary_input_rank": 2,
+          "necessary_cp_terms": 1
+        },
+        "0.05": {
+          "necessary_input_rank": 5,
+          "necessary_cp_terms": 2
+        },
+        "0.01": {
+          "necessary_input_rank": 134,
+          "necessary_cp_terms": 34
+        }
+      }
+    },
+    {
+      "seed": 1002,
+      "trace_replay": 9.041567131823372e-16,
+      "bounds": [
+        {
+          "cp_terms": 4,
+          "input_rank": 16,
+          "relative_gaussian_error_lower_bound": 0.02898905644711196,
+          "active_subspace_conditional_mean_error_upper_bound": 0.05797811289422392
+        },
+        {
+          "cp_terms": 8,
+          "input_rank": 32,
+          "relative_gaussian_error_lower_bound": 0.022128745615706616,
+          "active_subspace_conditional_mean_error_upper_bound": 0.04425749123141323
+        },
+        {
+          "cp_terms": 16,
+          "input_rank": 64,
+          "relative_gaussian_error_lower_bound": 0.015825005023184006,
+          "active_subspace_conditional_mean_error_upper_bound": 0.03165001004636801
+        },
+        {
+          "cp_terms": 32,
+          "input_rank": 128,
+          "relative_gaussian_error_lower_bound": 0.0098472806967373,
+          "active_subspace_conditional_mean_error_upper_bound": 0.0196945613934746
+        },
+        {
+          "cp_terms": 64,
+          "input_rank": 256,
+          "relative_gaussian_error_lower_bound": 0.00416532404609052,
+          "active_subspace_conditional_mean_error_upper_bound": 0.00833064809218104
+        },
+        {
+          "cp_terms": 128,
+          "input_rank": 512,
+          "relative_gaussian_error_lower_bound": 0.0008945858520098139,
+          "active_subspace_conditional_mean_error_upper_bound": 0.0017891717040196277
+        },
+        {
+          "cp_terms": 192,
+          "input_rank": 768,
+          "relative_gaussian_error_lower_bound": 0.00021382158680061314,
+          "active_subspace_conditional_mean_error_upper_bound": 0.0004276431736012263
+        },
+        {
+          "cp_terms": 256,
+          "input_rank": 1024,
+          "relative_gaussian_error_lower_bound": 3.6629188594169766e-05,
+          "active_subspace_conditional_mean_error_upper_bound": 7.325837718833953e-05
+        }
+      ],
+      "necessary": {
+        "0.1": {
+          "necessary_input_rank": 2,
+          "necessary_cp_terms": 1
+        },
+        "0.05": {
+          "necessary_input_rank": 5,
+          "necessary_cp_terms": 2
+        },
+        "0.01": {
+          "necessary_input_rank": 126,
+          "necessary_cp_terms": 32
+        }
+      }
+    }
+  ],
+  "controls": [
+    {
+      "seed": 0,
+      "gradient_matrix_quadrature_error": 5.447448550831044e-16,
+      "conditional_bounds": [
+        {
+          "rank": 0,
+          "conditional_error_squared": 21146.036309896794,
+          "discarded_gradient_energy": 59239.29645514289
+        },
+        {
+          "rank": 1,
+          "conditional_error_squared": 18332.251735058166,
+          "discarded_gradient_energy": 32456.38797657017
+        },
+        {
+          "rank": 2,
+          "conditional_error_squared": 8082.497304820725,
+          "discarded_gradient_energy": 10763.309433121945
+        },
+        {
+          "rank": 3,
+          "conditional_error_squared": 0.0,
+          "discarded_gradient_energy": 0.0
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "gradient_matrix_quadrature_error": 3.017122088209702e-16,
+      "conditional_bounds": [
+        {
+          "rank": 0,
+          "conditional_error_squared": 45175.74889952172,
+          "discarded_gradient_energy": 110434.6113939422
+        },
+        {
+          "rank": 1,
+          "conditional_error_squared": 44281.74818847507,
+          "discarded_gradient_energy": 100646.16676956437
+        },
+        {
+          "rank": 2,
+          "conditional_error_squared": 43437.16025244478,
+          "discarded_gradient_energy": 91401.24040027162
+        },
+        {
+          "rank": 3,
+          "conditional_error_squared": 0.0,
+          "discarded_gradient_energy": 0.0
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "gradient_matrix_quadrature_error": 4.022048267042394e-16,
+      "conditional_bounds": [
+        {
+          "rank": 0,
+          "conditional_error_squared": 2633.207252251713,
+          "discarded_gradient_energy": 6917.506786515773
+        },
+        {
+          "rank": 1,
+          "conditional_error_squared": 2221.060150736055,
+          "discarded_gradient_energy": 5028.861232963791
+        },
+        {
+          "rank": 2,
+          "conditional_error_squared": 992.7885728767038,
+          "discarded_gradient_energy": 1929.6094495420243
+        },
+        {
+          "rank": 3,
+          "conditional_error_squared": 0.0,
+          "discarded_gradient_energy": 0.0
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "gradient_matrix_quadrature_error": 7.169699175589706e-16,
+      "conditional_bounds": [
+        {
+          "rank": 0,
+          "conditional_error_squared": 40920.26684813292,
+          "discarded_gradient_energy": 90396.11071762657
+        },
+        {
+          "rank": 1,
+          "conditional_error_squared": 26734.532462018316,
+          "discarded_gradient_energy": 54493.61165479329
+        },
+        {
+          "rank": 2,
+          "conditional_error_squared": 24933.28171335123,
+          "discarded_gradient_energy": 50643.38942721885
+        },
+        {
+          "rank": 3,
+          "conditional_error_squared": 0.0,
+          "discarded_gradient_energy": 0.0
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "gradient_matrix_quadrature_error": 2.129554005867708e-16,
+      "conditional_bounds": [
+        {
+          "rank": 0,
+          "conditional_error_squared": 5530.822412335954,
+          "discarded_gradient_energy": 11678.720571474036
+        },
+        {
+          "rank": 1,
+          "conditional_error_squared": 3475.0150534608124,
+          "discarded_gradient_energy": 6002.548403250037
+        },
+        {
+          "rank": 2,
+          "conditional_error_squared": 1166.8014996623385,
+          "discarded_gradient_energy": 1898.8544576708402
+        },
+        {
+          "rank": 3,
+          "conditional_error_squared": 0.0,
+          "discarded_gradient_energy": 0.0
+        }
+      ]
+    }
+  ],
+  "seconds": 1.703332353848964,
+  "scope": "FittedCP512parent underfixedcalibrationmean/covarianceGaussian; polynomialdegree<=4. Exactimplicit E[J_z^T J_z], spectraltaillowerbound/4 forANYrank-rinput-subspace approximation; CPtermsk implyr<=4k. Upperbound appliesconditionalmean onactiveeigensubspace, NOT a k-termCP representation/algorithm. No nativeeffect/OODbound ororiginalnative-tensorcertificate. Floating-point numericalaudit."
+}
