@@ -340,3 +340,5 @@ Original-weight continuation grounding (Sept21 03:56): [report](../explanations/
 [Wide quartic controls](WIDE_QUARTIC_OPTIMIZER_INTERPRETATION_V1.md): Adam2/10 and default/RMSMuon0/10 recoveries below5% at1152 dimensions; unit raw initialization improves Muon median99.99%→29.69% but still0/10. Known capacity does not establish optimization adequacy at native width.
 
 [Weight-derived subspace control](WIDE_QUARTIC_SUBSPACE_INTERPRETATION_V1.md): recovered planted rank4 input span,10/10 reduced fits versus5/10 matched ambient fits; native low-rank assumption unproved.
+
+[Native residual subspace screen](NATIVE_RESIDUAL_SUBSPACE_INTERPRETATION_V1.md): rank64 captures only43–45% independent Gaussian derivative energy; rank4 toy discovery does not transfer as a native assumption.

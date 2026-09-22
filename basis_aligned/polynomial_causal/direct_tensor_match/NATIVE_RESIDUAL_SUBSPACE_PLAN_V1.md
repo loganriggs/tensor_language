@@ -1,0 +1,9 @@
+# Native residual subspace screen under the fitting Gaussian
+
+22 September 2026, 04:44 UTC. Target: the exact native pure MLP16→MLP17 quartic minus each mixed-CP512 parent, restricted to output coordinates4–15. Use the same calibration mean, covariance and capped inverse-output-energy weights as the queued local residual learner. Derivatives are with respect to whitened Gaussian coordinates z where x=mu+Sz. No tangent/radius projection: this is the learner's Gaussian geometry, not normalized-text geometry.
+
+Draw128training and128independent checking Gaussian probes with fixed seeds42001/42002. Compute analytic native and parent Jacobians from existing checked helpers. Estimate H=mean(J_residual^T W J_residual), obtain its eigenbasis, and report rank4/16/32/64/128/256/512 gradient-energy capture on both probe sets. Use both parents; reuse the native computation. Check native quartic Euler identity and finite differences on two directions. The previous analytic derivative controls remain authoritative; no new derivative implementation.
+
+Prediction: a64-dimensional subspace captures at least90% of checking residual derivative energy for both parents. Report all ranks and per-output capture, and raw numerical spectra. A positive result would support a restricted-subspace learning candidate, not prove small functional error. A negative result rejects this particular compact-gradient hypothesis in this measure, not a compact nonlinear circuit or a differently weighted metric. Training spectra are Monte Carlo estimates and can overfit; checking capture is independent artificial-probe evidence, not text/OOD/circuit validation.
+
+Do not save an adopted model or change queued jobs. No native text outputs are fit. The data contribution remains the preexisting mean/covariance/output weights defining the measure. Do not confuse this with the earlier local text-tangent sensitivity audit or with the exact rank4 planted control.
