@@ -26,3 +26,7 @@ The graph stage has made a different kind of progress: linear-reader sharing and
 The queued native experiment therefore remains the relevant next step: learn new quartic features for output coordinates 4–15, compare Adam and Muon with two starts, and test value and response gains together. A separate queued removal audit will locate how errors change through normalization and readout. Its cache will also enable the prepared all-output FineWeb/code comparison. Neither queued result is available yet. Semantic selectivity, fresh OOD behavior and composition remain unproven.
 
 [Exact definitions, limitations and results](../../direct_tensor_match/CURRENT_CP_ORACLE_CAPACITY_INTERPRETATION_V1.md).
+
+## Separate reminder: the full third-order tensor needs broad output span
+
+The current 16-output quartic result should not replace the original full-output objective. Existing exact spectra for the full last-MLP quadratic tensor imply at least 1,088 quadratic products for 10% folded-Euclidean coefficient error, or 818 in the tested covariance-weighted coefficient geometry, within programs made from products of linear forms and linear output mixing. The native layer uses 4,608 products. These are necessary counts, not constructed solutions or text-error guarantees. They explain why very narrow output Tucker models were insufficient while leaving sparse, broad-output circuits open. [Derivation and assumptions](../../direct_tensor_match/FULL_QUADRATIC_PRODUCT_BOUNDS_V1.md).

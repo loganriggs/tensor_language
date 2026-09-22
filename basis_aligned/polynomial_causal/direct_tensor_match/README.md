@@ -332,3 +332,5 @@ Original-weight continuation grounding (Sept21 03:56): [report](../explanations/
 [Current CP dictionary oracle capacity](CURRENT_CP_ORACLE_CAPACITY_INTERPRETATION_V1.md): both full-rank512 banks leave 26–49% individual small-output value error even with evaluation-label least squares; no exported candidate.
 
 [Local quartic larger-panel follow-up](LOCAL_QUARTIC_FOLLOWUP_PLAN_V1.md): all-four-arm evaluator prepared and assembly checked; awaiting native learner artifacts, no scores yet.
+
+[Full quadratic product-count bounds](FULL_QUADRATIC_PRODUCT_BOUNDS_V1.md): output-mode spectra impose limits even outside dense Tucker; distinct from selected 16-output quartic work.
