@@ -324,3 +324,5 @@ Continuation behavioral candidate (Sept21 03:46): [report](../explanations/for_l
 Original-weight continuation grounding (Sept21 03:56): [report](../explanations/for_logan/research_update_2026-09-21_0356_original_weight_grounding.md). Frozen productcos.999953 withoptimalnative rank1 of fixedoutputobserver;31.47%error vsoptimal31.45%,90.1%energy firstmode. Exactnativeprojection hascontinuationCE+.1329/space+.00017. Rank3effecterror5.72%continuation/33.44%space: allcohortgateFAIL. Exactupstreamscalarfoldreplays<4e-15butisotropic90%energyneeds480/485directions. No standalone extraction/adoption.
 
 [Quadratic edit interference diagnostic](QUADRATIC_EDIT_INTERFERENCE_INTERPRETATION_V1.md): joint versus local edit energy and Gaussian-to-text transfer.
+
+[Gaussian radial-normalization diagnostic](GAUSSIAN_RADIAL_EDIT_INTERPRETATION_V1.md): matching input norm does not close the graph-edit transfer gap.

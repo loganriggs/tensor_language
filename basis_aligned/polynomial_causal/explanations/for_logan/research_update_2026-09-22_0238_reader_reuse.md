@@ -116,3 +116,7 @@ At 64 edits, the program retains 1,920 linear readers—the same number as the e
 ## 04:09 follow-up: why the sharing score understated the damage
 
 A new diagnostic separates interactions between edits from the choice of input distribution. The Gaussian used to score edits predicts relative value changes 2.7–3.8 times smaller than those measured on text. Interactions between edits increase total squared error by factors of 1.04–1.20 under that Gaussian, compared with 1.56–2.81 on text. An exact joint Gaussian score would therefore address only part of the discrepancy. Raw input covariance does not determine the eighth moments needed to score a quartic program on non-Gaussian text states. This is a diagnosis of existing candidates, not a newly successful replacement. [Definitions, all four settings, and limitations](../../direct_tensor_match/QUADRATIC_EDIT_INTERFERENCE_INTERPRETATION_V1.md).
+
+## 04:11 follow-up: respecting RMS normalization is not enough
+
+The real input states have almost fixed norm; Gaussian probes do not. Rescaling 32,768 Gaussian probes to the calibration input radius raises graph-edit error by only 4–8%, leaving a roughly 2.5–3.7-fold gap to text. Unnormalized probe estimates agree with the exact Gaussian calculation within 1%. Thus varying radius is not the main explanation for these candidates. [Full comparison and limitations](../../direct_tensor_match/GAUSSIAN_RADIAL_EDIT_INTERPRETATION_V1.md).
