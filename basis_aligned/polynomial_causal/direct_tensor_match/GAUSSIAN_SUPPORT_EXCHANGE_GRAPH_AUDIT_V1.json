@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "seed": 1101,
+      "changed_pairs": 16,
+      "unchanged_pairs": 496,
+      "quadratic_producers": 144,
+      "root_products": 512,
+      "shared_products": 1088,
+      "without_cross_root_reuse_products": 4032,
+      "stored_float_coefficients": 1353728,
+      "integer_indices": 1024,
+      "producer_consumer_min": 1,
+      "producer_consumer_max": 15,
+      "shared_vs_unshared_replay": 2.2820071768703102e-15,
+      "full_output_replay": 1.070068295718832e-15,
+      "linear_additions": 1351840,
+      "coefficient_multiplications": 1353728
+    },
+    {
+      "seed": 1102,
+      "changed_pairs": 16,
+      "unchanged_pairs": 496,
+      "quadratic_producers": 144,
+      "root_products": 512,
+      "shared_products": 1088,
+      "without_cross_root_reuse_products": 4032,
+      "stored_float_coefficients": 1353728,
+      "integer_indices": 1024,
+      "producer_consumer_min": 1,
+      "producer_consumer_max": 18,
+      "shared_vs_unshared_replay": 2.2048272520995905e-15,
+      "full_output_replay": 1.5267906359153936e-15,
+      "linear_additions": 1351840,
+      "coefficient_multiplications": 1353728
+    }
+  ],
+  "scope": "Export graph integrity and arithmetic accounting only. Shared1088 versus per-root4032products is an existing representation advantage, not a new saving caused by these constant-cost edits. Linear additions and coefficient multiplications are not included in variable-product count; coefficient storage is separate. Added literal dense coefficient multiplication and linear addition counts; variable-variable product count is not total FLOPs. No additional saving from GPU fusion is assumed."
+}
