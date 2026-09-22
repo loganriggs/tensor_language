@@ -1,3 +1,5 @@
+**New completed fit — [Learning the shared quadratic features](research_update_2026-09-22_0108_learned_shared_features.md).** Same program cost; pooled error improves from about20%to12–13%, but component fidelity and small-feature errors still fail.
+
 **Latest residual audit — [How many examples, and where is the error?](research_update_2026-09-22_0058_sample_counts_and_residual_errors.md).** 2,048 states versus 16 output coordinates; measured scoring cost, example tails, all feature errors, residual directions and heatmap.
 
 **Start here — [What we are decomposing and what the 16 features mean](research_update_2026-09-22_0000_model_context_and_research_trajectory.md).** New contextual review, 22 September 2026, 00:00 UTC: exact model branch, origin of the 16 writers, two-stage progress, current results and remaining failures. The [shared-feature conditions report](research_update_2026-09-21_2112_shared_feature_conditions.md) is also rewritten with model context and completed intervention follow-ups.
