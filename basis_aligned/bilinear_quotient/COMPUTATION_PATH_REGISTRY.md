@@ -540,3 +540,7 @@ MLP16→17 bias-free self term, fixed 16-output subspace. Lean conditional rank2
 ### 22 September 2026, 03:17 — Selected last-MLP quadratic shared output blocks
 
 Native MLP17, all1152input coordinates, fixed16outputreaders; output-SVD block terms improve over independent fixed-output factors but remain worse than exact native4608products at similar storage. Natural4608centerederror12.92%; equal-outputvariant worst18.51%. Scope is coefficient/Gaussian screen, no OOD/causal adoption. [Path explanation](../polynomial_causal/explanations/for_logan/research_update_2026-09-22_0317_shared_output_blocks.md).
+
+### 22 September 2026, 04:18 — Current quartic dictionaries have a measured finite-panel span limit
+
+The two current mixed-CP512 dictionaries cannot reconstruct the smaller selected outputs accurately even with oracle unregularized readouts on 16,384 opened states: individual value minima 26–49%, response minima 26–46% on 2,494 pairs. Full numerical rank and independent QR/SVD checks passed. This is a restricted finite-panel capacity diagnostic, not a general impossibility claim or a held-out model. [Results and scope](../polynomial_causal/direct_tensor_match/CURRENT_CP_ORACLE_CAPACITY_INTERPRETATION_V1.md). New-feature learning remains queued. Status correction to the older 01:59 entry: conditional finite-removal tests have since completed and failed fidelity; [results](../polynomial_causal/explanations/for_logan/research_update_2026-09-22_0241_conditional_removal_results.md). No circuit adoption.

@@ -1,0 +1,9 @@
+# Can the current fixed quartic dictionaries represent the missing outputs?
+
+22 September 2026, 04:17 UTC. Diagnostic oracle, explicitly using opened evaluation labels. Not a trained candidate or a generalization result.
+
+Earlier Gaussian refits and calibration ridge regressions did not establish a capacity limit for the current 512-term CP dictionaries. The old root-1 oracle used different 400-term dictionaries. Test both current mixed-CP restarts on all 16 outputs and the 16,384-state opened panel. Independently solve unregularized least squares for value predictions and for the 2,494 fixed matched-state differences. Each output readout is unconstrained within the frozen feature span. No intercept or new features; no learned directions. A separate optimum for responses does not establish simultaneous optimality for values and responses.
+
+Use float64 SVD least squares, expose singular values, retained numerical rank and cutoff. If full column rank, independently verify the minimum residual with an orthogonal QR projection. Require agreement in relative residual below 1e-8, finite outputs, and residual orthogonality below 1e-10 relative to design norm times target norm. If rank is deficient or conditioning invalidates the checks, report an unresolved numerical capacity question rather than claiming a hard lower bound. This is floating-point evidence, not an interval-arithmetic certificate.
+
+Prediction to score: even this label-access oracle cannot bring all outputs 4–15 below 10% relative value error or below 10% relative response error, in either dictionary. Report all per-output minima, pooled minima, and numerical diagnostics. Failure of the prediction would instead support further readout/metric work before adding directions. No candidate export, no use of this fit as a held-out score, no semantic or causal adoption.

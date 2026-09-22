@@ -1,3 +1,5 @@
+[22 September 04:17 — Even oracle readouts leave large small-output errors](research_update_2026-09-22_0417_dictionary_capacity.md).
+
 [22 September 03:59 — Whole-quadratic sharing saves more products but fails the primary fidelity criterion](research_update_2026-09-22_0238_reader_reuse.md#0359-follow-up-approximate-sharing-of-whole-quadratic-products).
 
 [22 September 03:50 — Exact product reassociation adds a small saving after reader sharing](research_update_2026-09-22_0238_reader_reuse.md#0350-follow-up-shared-readers-expose-shared-quadratic-products).
