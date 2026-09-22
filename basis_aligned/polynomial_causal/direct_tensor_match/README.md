@@ -2,6 +2,8 @@
 
 [Single-layer quadratic baseline and Gaussian mean-energy correction](ORTHOGONAL_INTERACTION_INTERPRETATION_V1.md), 22 September 03:07 UTC.
 
+[Independent output-local spectral baseline](OUTPUT_LOCAL_BILINEAR_INTERPRETATION_V1.md): exact restricted optimum; adaptive product allocation exposes pooled versus per-output tradeoff.
+
 ## Current direction — 22 September 01:59 UTC
 
 The current pure-quartic MLP16→MLP17 branch compares fixed 16-output programs, not a full-model replacement. [Larger evaluation](../explanations/for_logan/research_update_2026-09-22_0112_larger_panel_results.md) confirms good pooled CP error but poor smaller-output fidelity. [Conditional programs and graph simplification](../explanations/for_logan/research_update_2026-09-22_0134_conditional_program_baseline.md) reduce stored coefficients and measured CPU time; native finite-removal tests failed absolute fidelity and parent retention. [Result](../explanations/for_logan/research_update_2026-09-22_0241_conditional_removal_results.md). Balanced producer fitting completed: integrity passed, small-feature improvement and response-retention criteria failed. [Result](../explanations/for_logan/research_update_2026-09-22_0211_balanced_features_failed.md). No semantic, OOD or composition adoption follows yet.
