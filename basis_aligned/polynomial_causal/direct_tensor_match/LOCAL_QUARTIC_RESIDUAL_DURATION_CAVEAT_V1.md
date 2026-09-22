@@ -5,3 +5,7 @@
 When the native result arrives, inspect per-arm25-step objective histories and selected checkpoint positions. If loss is still falling, record underconvergence as unresolved rather than infer an architecture limit. Any continuation must preserve the original result and explicitly distinguish a repeated500-step fit, a resumed optimizer-state trajectory, and a warm start from normalized exported factors. These are different experiments. No additional native sweep is queued from this note alone.
 
 [Original toy results](PAIRED_RESIDUAL_LEARNING_TOYS_V1.json) · [Earlier500-step cohort](LOCAL_QUARTIC_RESIDUAL_TOY_SWEEP_V2.json).
+
+## Additional configuration caveat: normalized-direction movement
+
+A simple known-target control at the actual 96-by-1152 parameter shape finds only about 3.7 degrees of median direction rotation in 250 default-Muon steps at the selected rate. Defaults include shape adjustment and weight decay that differ from Adam. This is not a native result or a revised protocol; it requires caution when interpreting any native optimizer difference. [Details and primary implementation sources](NORMALIZED_OPTIMIZER_GEOMETRY_INTERPRETATION_V1.md).

@@ -334,3 +334,5 @@ Original-weight continuation grounding (Sept21 03:56): [report](../explanations/
 [Local quartic larger-panel follow-up](LOCAL_QUARTIC_FOLLOWUP_PLAN_V1.md): all-four-arm evaluator prepared and assembly checked; awaiting native learner artifacts, no scores yet.
 
 [Full quadratic product-count bounds](FULL_QUADRATIC_PRODUCT_BOUNDS_V1.md): output-mode spectra impose limits even outside dense Tucker; distinct from selected 16-output quartic work.
+
+[Normalized-factor optimizer geometry](NORMALIZED_OPTIMIZER_GEOMETRY_INTERPRETATION_V1.md): wide-shape known-target control exposes limited direction movement for the queued default-Muon configuration; native protocol unchanged.

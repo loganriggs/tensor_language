@@ -1,0 +1,596 @@
+{
+  "rows": [
+    {
+      "shape": [
+        4,
+        4
+      ],
+      "seed": 25001,
+      "optimizer": "adam",
+      "lr": 0.1,
+      "defaults": {
+        "lr": 0.1,
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": false
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9364293925484974,
+          "median_target_angle_degrees": 54.79931999238533,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 2.265936866178684
+        },
+        {
+          "step": 1,
+          "loss": 0.8683351341494404,
+          "median_target_angle_degrees": 50.293960026113346,
+          "median_rotation_degrees": 4.897651903748881,
+          "median_parameter_norm": 2.206924652310314
+        },
+        {
+          "step": 25,
+          "loss": 0.19786917110026947,
+          "median_target_angle_degrees": 4.47542159002317,
+          "median_rotation_degrees": 53.61212491210614,
+          "median_parameter_norm": 3.221654082989478
+        },
+        {
+          "step": 250,
+          "loss": 5.603604901989876e-11,
+          "median_target_angle_degrees": 6.485870637519818e-05,
+          "median_rotation_degrees": 54.79935999265175,
+          "median_parameter_norm": 3.8160015417858006
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        4
+      ],
+      "seed": 25001,
+      "optimizer": "muon_original",
+      "lr": 0.01,
+      "defaults": {
+        "lr": 0.01,
+        "weight_decay": 0.1,
+        "momentum": 0.95,
+        "nesterov": true,
+        "eps": 1e-07,
+        "ns_steps": 5,
+        "adjust_lr_fn": null
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9364293925484974,
+          "median_target_angle_degrees": 54.79931999238533,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 2.265936866178684
+        },
+        {
+          "step": 1,
+          "loss": 0.9334597279214353,
+          "median_target_angle_degrees": 54.61810245358662,
+          "median_rotation_degrees": 0.2100407842333923,
+          "median_parameter_norm": 2.266092945098636
+        },
+        {
+          "step": 25,
+          "loss": 0.8625192682799829,
+          "median_target_angle_degrees": 50.30829008573362,
+          "median_rotation_degrees": 5.29014396388268,
+          "median_parameter_norm": 2.2704845791361454
+        },
+        {
+          "step": 250,
+          "loss": 0.3359452071751169,
+          "median_target_angle_degrees": 15.927194708870552,
+          "median_rotation_degrees": 45.12068394150511,
+          "median_parameter_norm": 1.8086511042607862
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        4
+      ],
+      "seed": 25001,
+      "optimizer": "muon_match_rms",
+      "lr": 0.01,
+      "defaults": {
+        "lr": 0.01,
+        "weight_decay": 0.1,
+        "momentum": 0.95,
+        "nesterov": true,
+        "eps": 1e-07,
+        "ns_steps": 5,
+        "adjust_lr_fn": "match_rms_adamw"
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9364293925484974,
+          "median_target_angle_degrees": 54.79931999238533,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 2.265936866178684
+        },
+        {
+          "step": 1,
+          "loss": 0.9352404915108254,
+          "median_target_angle_degrees": 54.726775633335805,
+          "median_rotation_degrees": 0.08404175623826689,
+          "median_parameter_norm": 2.264770937103254
+        },
+        {
+          "step": 25,
+          "loss": 0.9063344909644447,
+          "median_target_angle_degrees": 52.98079452790958,
+          "median_rotation_degrees": 2.1258670857802366,
+          "median_parameter_norm": 2.2301777652394734
+        },
+        {
+          "step": 250,
+          "loss": 0.6392473199858405,
+          "median_target_angle_degrees": 37.106960207721684,
+          "median_rotation_degrees": 18.90859610523562,
+          "median_parameter_norm": 1.8735310874533484
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        4
+      ],
+      "seed": 25002,
+      "optimizer": "adam",
+      "lr": 0.1,
+      "defaults": {
+        "lr": 0.1,
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": false
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.1093889004043374,
+          "median_target_angle_degrees": 82.44837829138666,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 0.8724226719479043
+        },
+        {
+          "step": 1,
+          "loss": 0.9703932834149646,
+          "median_target_angle_degrees": 72.40082874856623,
+          "median_rotation_degrees": 10.09142358263504,
+          "median_parameter_norm": 0.7514484144666882
+        },
+        {
+          "step": 25,
+          "loss": 0.034412059616463646,
+          "median_target_angle_degrees": 4.876332698977063,
+          "median_rotation_degrees": 81.27513269350813,
+          "median_parameter_norm": 2.3459607177194806
+        },
+        {
+          "step": 250,
+          "loss": 6.562302977713043e-13,
+          "median_target_angle_degrees": 5.222694669291371e-05,
+          "median_rotation_degrees": 82.44841165899795,
+          "median_parameter_norm": 2.765370557552435
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        4
+      ],
+      "seed": 25002,
+      "optimizer": "muon_original",
+      "lr": 0.01,
+      "defaults": {
+        "lr": 0.01,
+        "weight_decay": 0.1,
+        "momentum": 0.95,
+        "nesterov": true,
+        "eps": 1e-07,
+        "ns_steps": 5,
+        "adjust_lr_fn": null
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.1093889004043374,
+          "median_target_angle_degrees": 82.44837829138666,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 0.8724226719479043
+        },
+        {
+          "step": 1,
+          "loss": 1.1037561804485547,
+          "median_target_angle_degrees": 82.10818453088613,
+          "median_rotation_degrees": 0.44143809200130507,
+          "median_parameter_norm": 0.8728852338112383
+        },
+        {
+          "step": 25,
+          "loss": 0.9656529935246256,
+          "median_target_angle_degrees": 73.83692124089444,
+          "median_rotation_degrees": 10.81463815922068,
+          "median_parameter_norm": 0.8867589282623187
+        },
+        {
+          "step": 250,
+          "loss": 0.26835996987650484,
+          "median_target_angle_degrees": 25.9879991708,
+          "median_rotation_degrees": 57.52239849760651,
+          "median_parameter_norm": 0.9846171845684831
+        }
+      ]
+    },
+    {
+      "shape": [
+        4,
+        4
+      ],
+      "seed": 25002,
+      "optimizer": "muon_match_rms",
+      "lr": 0.01,
+      "defaults": {
+        "lr": 0.01,
+        "weight_decay": 0.1,
+        "momentum": 0.95,
+        "nesterov": true,
+        "eps": 1e-07,
+        "ns_steps": 5,
+        "adjust_lr_fn": "match_rms_adamw"
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.1093889004043374,
+          "median_target_angle_degrees": 82.44837829138666,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 0.8724226719479043
+        },
+        {
+          "step": 1,
+          "loss": 1.1071335215038052,
+          "median_target_angle_degrees": 82.31221090620862,
+          "median_rotation_degrees": 0.1766627456113485,
+          "median_parameter_norm": 0.8720763695785525
+        },
+        {
+          "step": 25,
+          "loss": 1.0508778714016391,
+          "median_target_angle_degrees": 78.96331463906333,
+          "median_rotation_degrees": 4.408816857047525,
+          "median_parameter_norm": 0.8642420121742245
+        },
+        {
+          "step": 250,
+          "loss": 0.6277540888468229,
+          "median_target_angle_degrees": 43.9854314412042,
+          "median_rotation_degrees": 41.96520344606322,
+          "median_parameter_norm": 1.0087115871452261
+        }
+      ]
+    },
+    {
+      "shape": [
+        96,
+        1152
+      ],
+      "seed": 25001,
+      "optimizer": "adam",
+      "lr": 0.1,
+      "defaults": {
+        "lr": 0.1,
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": false
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9909541007507512,
+          "median_target_angle_degrees": 89.41724477131996,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 34.05948603047366
+        },
+        {
+          "step": 1,
+          "loss": 0.9119371536240974,
+          "median_target_angle_degrees": 84.9331673618619,
+          "median_rotation_degrees": 5.657178313655787,
+          "median_parameter_norm": 34.23493557339424
+        },
+        {
+          "step": 25,
+          "loss": 0.0735747536881692,
+          "median_target_angle_degrees": 22.348966594583644,
+          "median_rotation_degrees": 79.95791338873529,
+          "median_parameter_norm": 48.25881916818716
+        },
+        {
+          "step": 250,
+          "loss": 3.945748629454661e-11,
+          "median_target_angle_degrees": 0.0001994781420292788,
+          "median_rotation_degrees": 89.41725008359272,
+          "median_parameter_norm": 50.9426171759508
+        }
+      ]
+    },
+    {
+      "shape": [
+        96,
+        1152
+      ],
+      "seed": 25001,
+      "optimizer": "muon_original",
+      "lr": 0.01,
+      "defaults": {
+        "lr": 0.01,
+        "weight_decay": 0.1,
+        "momentum": 0.95,
+        "nesterov": true,
+        "eps": 1e-07,
+        "ns_steps": 5,
+        "adjust_lr_fn": null
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9909541007507512,
+          "median_target_angle_degrees": 89.41724477131996,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 34.05948603047366
+        },
+        {
+          "step": 1,
+          "loss": 0.9907355093459658,
+          "median_target_angle_degrees": 89.4048592670522,
+          "median_rotation_degrees": 0.012938282318250604,
+          "median_parameter_norm": 34.02544871364831
+        },
+        {
+          "step": 25,
+          "loss": 0.9854202674506487,
+          "median_target_angle_degrees": 89.10164690583822,
+          "median_rotation_degrees": 0.3274350196319106,
+          "median_parameter_norm": 33.219837082942504
+        },
+        {
+          "step": 250,
+          "loss": 0.9289287484166494,
+          "median_target_angle_degrees": 85.90107630073733,
+          "median_rotation_degrees": 3.6752437444364534,
+          "median_parameter_norm": 26.53771332434858
+        }
+      ]
+    },
+    {
+      "shape": [
+        96,
+        1152
+      ],
+      "seed": 25001,
+      "optimizer": "muon_match_rms",
+      "lr": 0.01,
+      "defaults": {
+        "lr": 0.01,
+        "weight_decay": 0.1,
+        "momentum": 0.95,
+        "nesterov": true,
+        "eps": 1e-07,
+        "ns_steps": 5,
+        "adjust_lr_fn": "match_rms_adamw"
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.9909541007507512,
+          "median_target_angle_degrees": 89.41724477131996,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 34.05948603047366
+        },
+        {
+          "step": 1,
+          "loss": 0.9894702630506514,
+          "median_target_angle_degrees": 89.33316843079606,
+          "median_rotation_degrees": 0.08782815934857872,
+          "median_parameter_norm": 34.02561055604131
+        },
+        {
+          "step": 25,
+          "loss": 0.953419607336114,
+          "median_target_angle_degrees": 87.28934129950422,
+          "median_rotation_degrees": 2.2216333038689102,
+          "median_parameter_norm": 33.23314659523676
+        },
+        {
+          "step": 250,
+          "loss": 0.5834027430261904,
+          "median_target_angle_degrees": 65.49393846336183,
+          "median_rotation_degrees": 25.05490351884958,
+          "median_parameter_norm": 26.993911921211044
+        }
+      ]
+    },
+    {
+      "shape": [
+        96,
+        1152
+      ],
+      "seed": 25002,
+      "optimizer": "adam",
+      "lr": 0.1,
+      "defaults": {
+        "lr": 0.1,
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": false
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0014375692826885,
+          "median_target_angle_degrees": 90.09644672866781,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 34.00255924190387
+        },
+        {
+          "step": 1,
+          "loss": 0.922458032301388,
+          "median_target_angle_degrees": 85.59623497008819,
+          "median_rotation_degrees": 5.670471307521707,
+          "median_parameter_norm": 34.15407370770333
+        },
+        {
+          "step": 25,
+          "loss": 0.07577929300084578,
+          "median_target_angle_degrees": 22.297155305164633,
+          "median_rotation_degrees": 80.10809450526263,
+          "median_parameter_norm": 48.27909482565443
+        },
+        {
+          "step": 250,
+          "loss": 9.568309290134335e-12,
+          "median_target_angle_degrees": 0.00020735277676465572,
+          "median_rotation_degrees": 90.0964536584269,
+          "median_parameter_norm": 50.987685132482156
+        }
+      ]
+    },
+    {
+      "shape": [
+        96,
+        1152
+      ],
+      "seed": 25002,
+      "optimizer": "muon_original",
+      "lr": 0.01,
+      "defaults": {
+        "lr": 0.01,
+        "weight_decay": 0.1,
+        "momentum": 0.95,
+        "nesterov": true,
+        "eps": 1e-07,
+        "ns_steps": 5,
+        "adjust_lr_fn": null
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0014375692826885,
+          "median_target_angle_degrees": 90.09644672866781,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 34.00255924190387
+        },
+        {
+          "step": 1,
+          "loss": 1.0012193753051892,
+          "median_target_angle_degrees": 90.08362340215315,
+          "median_rotation_degrees": 0.012863144442541023,
+          "median_parameter_norm": 33.96856142403417
+        },
+        {
+          "step": 25,
+          "loss": 0.9959112295363733,
+          "median_target_angle_degrees": 89.77661756722367,
+          "median_rotation_degrees": 0.326895841344768,
+          "median_parameter_norm": 33.16292656845524
+        },
+        {
+          "step": 250,
+          "loss": 0.9394906693419651,
+          "median_target_angle_degrees": 86.57654344243205,
+          "median_rotation_degrees": 3.6637181935108667,
+          "median_parameter_norm": 26.476419675810952
+        }
+      ]
+    },
+    {
+      "shape": [
+        96,
+        1152
+      ],
+      "seed": 25002,
+      "optimizer": "muon_match_rms",
+      "lr": 0.01,
+      "defaults": {
+        "lr": 0.01,
+        "weight_decay": 0.1,
+        "momentum": 0.95,
+        "nesterov": true,
+        "eps": 1e-07,
+        "ns_steps": 5,
+        "adjust_lr_fn": "match_rms_adamw"
+      },
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0014375692826885,
+          "median_target_angle_degrees": 90.09644672866781,
+          "median_rotation_degrees": 0.0,
+          "median_parameter_norm": 34.00255924190387
+        },
+        {
+          "step": 1,
+          "loss": 0.9999564191482054,
+          "median_target_angle_degrees": 90.00939876448852,
+          "median_rotation_degrees": 0.0873182057997767,
+          "median_parameter_norm": 33.96862144377665
+        },
+        {
+          "step": 25,
+          "loss": 0.9639390948206646,
+          "median_target_angle_degrees": 87.96619268158942,
+          "median_rotation_degrees": 2.2169497439917834,
+          "median_parameter_norm": 33.16659517196732
+        },
+        {
+          "step": 250,
+          "loss": 0.5935265014649039,
+          "median_target_angle_degrees": 65.98756799863949,
+          "median_rotation_degrees": 25.03615893190056,
+          "median_parameter_norm": 26.90393656100805
+        }
+      ]
+    }
+  ],
+  "torch_version": "2.11.0+cu128",
+  "muon_source_sha256": "38e95918424bd26604f786195a4aa72afb60674b4ac9ccbde777974013cb1f52",
+  "seconds": 3.146902712993324,
+  "scope": "Synthetic normalized-row direction recovery, not quartic fitting or native performance. Same initial/target per shape/seed, native/toy shapes and frozen existing rates; match_rms is a diagnostic alternative, no queued protocol edits."
+}
