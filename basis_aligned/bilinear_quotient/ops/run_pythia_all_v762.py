@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # BQGATE: EXPERIMENT pred_a_instrument_replays pred_b_kernel_energy_top4 pred_c_rank32_cost pred_d_rank16_cost pred_e_rank32_values_preserved_scale
-"""Pythia replication, all-in-one (Logan, 22 Sep: 'try a few sets of pythia models, then other models, to test the specific hypothesis of why
-we're seeing what we're seeing'). MODEL = EleutherAI/pythia-410m (softmax, ROTARY on a quarter of each head, GPT-NeoX tokenizer;
+"""Pythia replication, all-in-one, ROW-CENTRED logits (v755's instrument failure: Pythia's raw logits carry per-query-row constants of 1e4-1e5 — massive activations — to which softmax is invariant but which contaminated the per-offset kernels; kernels, kappa_r and the program now act on row-centred logits and add the native row mean back) (Logan, 22 Sep: 'try a few sets of pythia models, then other models, to test the specific hypothesis of why
+we're seeing what we're seeing'). MODEL = EleutherAI/pythia-160m (12 x 12 x 768, softmax, ROTARY on 16 of 64 head dims, GPT-NeoX tokenizer;
 rows: the same FineWeb text as the GPT-2 caches re-tokenized, 481 fit / 193 skip11000 / 193 held-out skip7000 rows of 513 tokens).
 
 Hypothesis under test: GPT-2 small's poor read-side compressibility (rank 32: +0.160, recovery 0.952; rank 16: +0.322) comes from its
@@ -19,7 +19,7 @@ PREDICTIONS (scored as written; failures preserved)
     pred_d_rank16_cost          rank-16 snapshot recovery >= 0.92 (GPT-2: 0.904). Prior: unsure
     pred_e_rank32_values_preserved_scale rank-32: median value ratio in [0.5, 2] over the 24 most valuable heads. Prior: likely
 PRICE (registered maximum): stock 7 + explicit 7; means 16; kernels 2; 144 x 7 = 1008; all-ablated 7; kernels-only 7 + col0 7; ladder 35; 2 arms x (kappa_r 26 +
-step-0 10 + 300 + validation 39 + held-out 91 + snapshot 9) = 950; manipulability 168; per-head ablations scale with the head count; bar set per model. Bars: forwards <= 4100, backwards <= 600.
+step-0 10 + 300 + validation 39 + held-out 91 + snapshot 9) = 950; manipulability 168; total ~2214 forwards, 600 backwards. Bars: forwards <= 2300, backwards <= 600.
 """
 from __future__ import annotations
 from datetime import datetime, timezone
@@ -30,7 +30,7 @@ import disk_guard
 import pythia_backend as PB
 
 REPO = "EleutherAI/pythia-410m"
-TAG = "pythia410m_v757"
+TAG = "pythia410m_v762"
 ROOT = dod_battery.ROOT
 OUT = ROOT / f"circuits/followups/{TAG}_result.json"
 OUT_PT = ROOT / f"circuits/followups/{TAG}_programs.pt"
@@ -81,11 +81,18 @@ def main() -> None:
                 n_tok[0] += z.shape[0] * z.shape[2]
         return z
 
+    def row_centre(X):
+        """X: [B, T, T] logits. Subtract each query row's mean over the keys 1 <= j < i (the entries a program replaces); softmax is invariant
+        to per-row constants, and in models with massive activations (Pythia) the raw logits carry row constants of 1e4-1e5."""
+        T = X.shape[-1]; pos = torch.arange(T, device=X.device); rep = ((pos[:, None] > pos[None, :]) & (pos[None, :] > 0)).float()
+        m = (X * rep[None]).sum(-1) / rep.sum(-1).clamp_min(1)[None]
+        return X - m[:, :, None], m
+
     def logit_capture(l, logits):
         if cap["mode"] == "kernels":
-            B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0); dflat = dmat[qm]
+            B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0) & (pos[None, :] > 0); dflat = dmat[qm]
             for h in range(Hn):
-                ksum[(l, h)].index_add_(0, dflat, logits[:, h][:, qm].double().sum(0))
+                Xc, _ = row_centre(logits[:, h]); ksum[(l, h)].index_add_(0, dflat, Xc[:, qm].double().sum(0))
             if l == 0:
                 kcnt.index_add_(0, dflat, torch.full_like(dflat, B, dtype=torch.float64))
         return logits
@@ -120,7 +127,8 @@ def main() -> None:
             off = off & (pos[None, :] > 0)
         out = logits.clone()
         for h in range(Hn):
-            out[:, h] = torch.where(off[None], kap_box["kap"][(l, h)][dmat][None].expand(B, T, T), logits[:, h])
+            _, m = row_centre(logits[:, h])
+            out[:, h] = torch.where(off[None], m[:, :, None] + kap_box["kap"][(l, h)][dmat][None].expand(B, T, T), logits[:, h])
         return out
 
     state["logit_edit"] = logit_kernel
@@ -155,7 +163,8 @@ def main() -> None:
             return torch.einsum("bqd,bkd->bqk", q, k) * scaling
 
         def offset_mean(P, T):
-            pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0); dflat = dmat[qm]
+            P, _ = row_centre(P)
+            pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0) & (pos[None, :] > 0); dflat = dmat[qm]
             X = P[:, qm]; counts = torch.bincount(dflat, minlength=513).double() * X.shape[0]
             sums_ = torch.zeros(513, dtype=torch.float64, device=dev).index_add_(0, dflat, X.double().sum(0))
             return torch.where(counts > 0, sums_ / counts.clamp_min(1), torch.zeros_like(sums_)).float()
@@ -176,8 +185,8 @@ def main() -> None:
             B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = (pos[:, None] - pos[None, :]).clamp_min(0); off = (dmat > 0) & (pos[None, :] > 0)
             cols = []
             for h in range(Hn):
-                kap = kappa0[(l, h)] * (1 + cmul[(l, h)]); pr = lowrank_logits(l, h, state["n"][l])
-                cols.append(torch.where(off[None], kap[dmat][None] + (pr - kr[(l, h)][dmat][None]), logits[:, h]))
+                kap = kappa0[(l, h)] * (1 + cmul[(l, h)]); pr, _ = row_centre(lowrank_logits(l, h, state["n"][l])); _, m = row_centre(logits[:, h])
+                cols.append(torch.where(off[None], m[:, :, None] + kap[dmat][None] + (pr - kr[(l, h)][dmat][None]), logits[:, h]))
             return torch.stack(cols, 1)
 
         def ce_prog(rows):

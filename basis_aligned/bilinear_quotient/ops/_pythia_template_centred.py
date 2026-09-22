@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
 # BQGATE: EXPERIMENT pred_a_instrument_replays pred_b_kernel_energy_top4 pred_c_rank32_cost pred_d_rank16_cost pred_e_rank32_values_preserved_scale
-"""Replication, all-in-one, HF families (OPT / Llama-style). MODEL = HuggingFaceTB/SmolLM-135M (30 x 9 x 576, softmax, full-dim ROTARY, GQA with 3 kv heads — the
-program factors a k map per QUERY head, so its numbers over-count k slightly; modern data; rows re-tokenized with its tokenizer).
+"""Pythia replication, all-in-one (Logan, 22 Sep: 'try a few sets of pythia models, then other models, to test the specific hypothesis of why
+we're seeing what we're seeing'). MODEL = EleutherAI/pythia-160m (12 x 12 x 768, softmax, ROTARY on 16 of 64 head dims, GPT-NeoX tokenizer;
+rows: the same FineWeb text as the GPT-2 caches re-tokenized, 481 fit / 193 skip11000 / 193 held-out skip7000 rows of 513 tokens).
 
-OPT-125m is GPT-2 small's twin on the position-encoding axis (same size, same absolute-position family, different data and training) and
-Pythia-160m its twin on the rotary axis; together they decide whether GPT-2's poor read-side compressibility follows the position encoding
-(H1) or the data / regime (H2). Same stages and protocol as v755: native (stock vs explicit); mean-ablation values and joint value;
-closed-form per-offset logit kernels with and without the position-0 column native; the SVD shape ladder; fitted kernel + exact-rank content
-programs at uniform rank 16 and 32 (sink column native, snapshot at the validation minimum); manipulability at rank 32. CE ADDED on this
-tokenizer's held-out rows (recoveries and compression ratios comparable across models; nats are not).
+Hypothesis under test: GPT-2 small's poor read-side compressibility (rank 32: +0.160, recovery 0.952; rank 16: +0.322) comes from its
+learned ABSOLUTE positions (+ first-token sink), not from softmax or from its size; Pythia-160m has GPT-2's size and softmax but rotary
+positions. Stages, same protocol as v751 / v754: native (stock vs explicit instrument); mean-ablation value of every head (means over the fit
+rows) and the joint value; closed-form per-offset logit kernels (queries >= 8, 64 rows) as the kernels-only program, with and without the
+position-0 column native; the SVD shape ladder (1, 2, 4, 8, 16) inside kernels-only; then the FITTED kernel + exact-rank content program at
+uniform rank 16 and rank 32 (column 0 native, diagonal native; Adam 300 steps, snapshot at the validation minimum) and the 24-head
+manipulability check on the rank-32 snapshot. CE ADDED on the Pythia-tokenized held-out rows (not directly comparable in nats to the GPT-2
+numbers; recoveries and compression ratios are).
 PREDICTIONS (scored as written; failures preserved)
     pred_a_instrument_replays   explicit native CE within 0.002 of the stock native CE (instrument)
     pred_b_kernel_energy_top4   top-4 SVD shapes carry >= 0.90 of the kernels' energy. Prior: likely
-    pred_c_rank32_cost          rank-32 snapshot recovery >= 0.96. Prior: unsure
-    pred_d_rank16_cost          rank-16 snapshot recovery >= 0.92. Prior: unsure
-    pred_e_rank32_values_preserved_scale rank-32: median value ratio in [0.5, 2]. Prior: likely
-PRICE (registered maximum): as v755 (per-head ablations scale with the head count). Bars: forwards <= 3000, backwards <= 600.
+    pred_c_rank32_cost          rank-32 snapshot recovery >= 0.96 (GPT-2: 0.952; bilinear twin at half rank: 0.974). Prior: unsure
+    pred_d_rank16_cost          rank-16 snapshot recovery >= 0.92 (GPT-2: 0.904). Prior: unsure
+    pred_e_rank32_values_preserved_scale rank-32: median value ratio in [0.5, 2] over the 24 most valuable heads. Prior: likely
+PRICE (registered maximum): stock 7 + explicit 7; means 16; kernels 2; 144 x 7 = 1008; all-ablated 7; kernels-only 7 + col0 7; ladder 35; 2 arms x (kappa_r 26 +
+step-0 10 + 300 + validation 39 + held-out 91 + snapshot 9) = 950; manipulability 168; total ~2214 forwards, 600 backwards. Bars: forwards <= 2300, backwards <= 600.
 """
 from __future__ import annotations
 from datetime import datetime, timezone
@@ -23,18 +27,17 @@ import json, math, os, time
 import torch
 import dod_battery
 import disk_guard
-import hf_backend as HB
+import pythia_backend as PB
 
-REPO = "HuggingFaceTB/SmolLM-135M"
-TAG = "smollm135m_v759"
-PREFIX = "smollm"
+REPO = "EleutherAI/pythia-160m"
+TAG = "pythia160m_v755"
 ROOT = dod_battery.ROOT
 OUT = ROOT / f"circuits/followups/{TAG}_result.json"
 OUT_PT = ROOT / f"circuits/followups/{TAG}_programs.pt"
-FIT_ROWS = (ROOT / f".rowcache/{PREFIX}_fineweb_n480_skip80.pt", ROOT / f".rowcache/{PREFIX}_fineweb_n192_skip11000.pt")
-EVAL_ROWS = ROOT / f".rowcache/{PREFIX}_fineweb_n192_skip7000.pt"
-CANDIDATE_ID = f"hf.all_{TAG}"
-FORWARDS_MAX, BACKWARDS_MAX = 3000, 600
+FIT_ROWS = (ROOT / ".rowcache/pythia_fineweb_n480_skip80.pt", ROOT / ".rowcache/pythia_fineweb_n192_skip11000.pt")
+EVAL_ROWS = ROOT / ".rowcache/pythia_fineweb_n192_skip7000.pt"
+CANDIDATE_ID = f"pythia.all_{TAG}"
+FORWARDS_MAX, BACKWARDS_MAX = 2300, 600
 EBATCH, TBATCH, STEPS, EVAL_EVERY, N_VAL, N_MANIP = 32, 8, 300, 25, 96, 24
 LR_MAP, LR_MAP_MIN, LR_K, LR_K_MIN = 3e-4, 3e-5, 0.01, 0.001
 KS, ARMS = (1, 2, 4, 8, 16), (16, 32)
@@ -49,15 +52,15 @@ def main() -> None:
     if os.environ.get("BQLIB_DRYRUN") or os.environ.get("BQLIB_NO_MODEL"):
         print(json.dumps(plan, indent=2, sort_keys=True)); return
     t0 = time.perf_counter()
-    model = HB.load(REPO, "cuda"); dev = "cuda"; L, H, D, hd, kv = HB.geometry(model); rot = None; forwards = 0; backwards = 0; ROTARY = HB.family(model) != "opt"
+    model = PB.load(REPO, "cuda"); dev = "cuda"; L, H, D, hd, rot = PB.geometry(model); forwards = 0; backwards = 0
     LAYERS = tuple(range(L)); ALL = [(l, h) for l in LAYERS for h in range(H)]
     allfit = torch.cat([torch.load(p, map_location="cpu").long() for p in FIT_ROWS]); ev = torch.load(EVAL_ROWS, map_location="cpu").long()
     gen = torch.Generator().manual_seed(703); perm = torch.randperm(allfit.shape[0], generator=gen); val = allfit[perm[:N_VAL]]; fit = allfit[perm[N_VAL:]]
     fit_all = torch.load(FIT_ROWS[0], map_location="cpu").long(); fit64 = fit_all[:64]
-    native_stock, fw = HB.ce(model, ev, dev, EBATCH); forwards += fw
-    state = HB.instrument(model)
-    native, fw = HB.ce(model, ev, dev, EBATCH); forwards += fw
-    print(f"[{TAG}] native: stock {native_stock:.5f} | explicit {native:.5f} | geometry L={L} H={H} D={D} hd={hd} kv={kv} rotary={ROTARY}")
+    native_stock, fw = PB.ce(model, ev, dev, EBATCH); forwards += fw
+    state = PB.instrument(model)
+    native, fw = PB.ce(model, ev, dev, EBATCH); forwards += fw
+    print(f"[{TAG}] native: stock {native_stock:.5f} | explicit {native:.5f} | geometry L={L} H={H} D={D} hd={hd} rot={rot}")
 
     def run_rows(rows):
         fw = 0
@@ -78,11 +81,18 @@ def main() -> None:
                 n_tok[0] += z.shape[0] * z.shape[2]
         return z
 
+    def row_centre(X):
+        """X: [B, T, T] logits. Subtract each query row's mean over the keys 1 <= j < i (the entries a program replaces); softmax is invariant
+        to per-row constants, and in models with massive activations (Pythia) the raw logits carry row constants of 1e4-1e5."""
+        T = X.shape[-1]; pos = torch.arange(T, device=X.device); rep = ((pos[:, None] > pos[None, :]) & (pos[None, :] > 0)).float()
+        m = (X * rep[None]).sum(-1) / rep.sum(-1).clamp_min(1)[None]
+        return X - m[:, :, None], m
+
     def logit_capture(l, logits):
         if cap["mode"] == "kernels":
-            B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0); dflat = dmat[qm]
+            B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0) & (pos[None, :] > 0); dflat = dmat[qm]
             for h in range(Hn):
-                ksum[(l, h)].index_add_(0, dflat, logits[:, h][:, qm].double().sum(0))
+                Xc, _ = row_centre(logits[:, h]); ksum[(l, h)].index_add_(0, dflat, Xc[:, qm].double().sum(0))
             if l == 0:
                 kcnt.index_add_(0, dflat, torch.full_like(dflat, B, dtype=torch.float64))
         return logits
@@ -104,8 +114,8 @@ def main() -> None:
     state["z_edit"] = z_ablate; state["logit_edit"] = None
     value = {}
     for k in ALL:
-        abl["set"] = {k}; c_, fw = HB.ce(model, ev, dev, EBATCH); forwards += fw; value[f"{k[0]}.{k[1]}"] = c_ - native
-    abl["set"] = set(ALL); c_all, fw = HB.ce(model, ev, dev, EBATCH); forwards += fw; abl["set"] = set(); joint = c_all - native
+        abl["set"] = {k}; c_, fw = PB.ce(model, ev, dev, EBATCH); forwards += fw; value[f"{k[0]}.{k[1]}"] = c_ - native
+    abl["set"] = set(ALL); c_all, fw = PB.ce(model, ev, dev, EBATCH); forwards += fw; abl["set"] = set(); joint = c_all - native
     top = sorted(value, key=value.get, reverse=True)[:12]; vals = sorted(value.values()); median = vals[len(vals) // 2]
     print(f"[{TAG}] values: top " + " ".join(f"{k}:{value[k]:.3f}" for k in top) + f" | median {median:.4f} | sum {sum(vals):.3f} | joint {joint:.3f}")
     # ---- kernels-only program, with and without column 0 native; shape ladder --------------------------------------------------------
@@ -117,27 +127,29 @@ def main() -> None:
             off = off & (pos[None, :] > 0)
         out = logits.clone()
         for h in range(Hn):
-            out[:, h] = torch.where(off[None], kap_box["kap"][(l, h)][dmat][None].expand(B, T, T), logits[:, h])
+            _, m = row_centre(logits[:, h])
+            out[:, h] = torch.where(off[None], m[:, :, None] + kap_box["kap"][(l, h)][dmat][None].expand(B, T, T), logits[:, h])
         return out
 
     state["logit_edit"] = logit_kernel
-    c_ko, fw = HB.ce(model, ev, dev, EBATCH); forwards += fw
-    kap_box["col0"] = True; c_ko0, fw = HB.ce(model, ev, dev, EBATCH); forwards += fw; kap_box["col0"] = False
+    c_ko, fw = PB.ce(model, ev, dev, EBATCH); forwards += fw
+    kap_box["col0"] = True; c_ko0, fw = PB.ce(model, ev, dev, EBATCH); forwards += fw; kap_box["col0"] = False
     Kmat = torch.stack([kappa0[k][1:512] for k in ALL]).double(); U, S, Vh = torch.linalg.svd(Kmat, full_matrices=False); energy = (S ** 2).cumsum(0) / (S ** 2).sum()
     ladder = {}
     for kk in KS:
         P = (Kmat @ Vh[:kk].T) @ Vh[:kk]; kap_k = {}
         for i_, k in enumerate(ALL):
             v = kappa0[k].clone(); v[1:512] = P[i_].float(); kap_k[k] = v
-        kap_box["kap"] = kap_k; c_, fw = HB.ce(model, ev, dev, EBATCH); forwards += fw; ladder[str(kk)] = {"energy": float(energy[kk - 1]), "cost": c_ - native, "over_kernels_only": c_ - c_ko}
+        kap_box["kap"] = kap_k; c_, fw = PB.ce(model, ev, dev, EBATCH); forwards += fw; ladder[str(kk)] = {"energy": float(energy[kk - 1]), "cost": c_ - native, "over_kernels_only": c_ - c_ko}
     kap_box["kap"] = kappa0
     print(f"[{TAG}] kernels-only {c_ko - native:+.4f} | with column 0 native {c_ko0 - native:+.4f} | SVD energy cum {[round(float(energy[i]), 3) for i in range(8)]} | ladder " + " ".join(f"k={kk}:{ladder[str(kk)]['cost']:+.3f}" for kk in KS))
     # ---- fitted programs at uniform rank (column 0 native) ------------------------------------------------------------------------------
+    scaling = model.gpt_neox.layers[0].attention.scaling
     results, saved = {}, {}
     for R in ARMS:
         fac, bias = {}, {}
         for (l, h) in ALL:
-            Wq, bq, Wk, bk, scaling = HB.head_qk(model, l, h); fac[(l, h)] = {}; bias[(l, h, "q")] = bq if bq is not None else 0.0; bias[(l, h, "k")] = bk if bk is not None else 0.0
+            Wq, bq, Wk, bk = PB.head_qk(model, l, h); fac[(l, h)] = {}; bias[(l, h, "q")] = bq; bias[(l, h, "k")] = bk
             for n_, W in (("q", Wq), ("k", Wk)):
                 U_, S_, Vh_ = torch.linalg.svd(W, full_matrices=False); r = min(R, hd)
                 fac[(l, h)][n_] = ((U_[:, :r] * S_[:r].sqrt()).contiguous().requires_grad_(True), (S_[:r].sqrt()[:, None] * Vh_[:r]).contiguous().requires_grad_(True))
@@ -147,12 +159,12 @@ def main() -> None:
         def lowrank_logits(l, h, n):
             Uq, Vq = fac[(l, h)]["q"]; Uk, Vk = fac[(l, h)]["k"]
             q = (n @ Vq.T) @ Uq.T + bias[(l, h, "q")]; k = (n @ Vk.T) @ Uk.T + bias[(l, h, "k")]
-            if ROTARY:
-                q, k = HB.rotary_qk(q, k, state["cos"], state["sin"])
+            q, k = PB.rotary_qk(q, k, state["cos"], state["sin"], rot)
             return torch.einsum("bqd,bkd->bqk", q, k) * scaling
 
         def offset_mean(P, T):
-            pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0); dflat = dmat[qm]
+            P, _ = row_centre(P)
+            pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0) & (pos[None, :] > 0); dflat = dmat[qm]
             X = P[:, qm]; counts = torch.bincount(dflat, minlength=513).double() * X.shape[0]
             sums_ = torch.zeros(513, dtype=torch.float64, device=dev).index_add_(0, dflat, X.double().sum(0))
             return torch.where(counts > 0, sums_ / counts.clamp_min(1), torch.zeros_like(sums_)).float()
@@ -173,12 +185,12 @@ def main() -> None:
             B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = (pos[:, None] - pos[None, :]).clamp_min(0); off = (dmat > 0) & (pos[None, :] > 0)
             cols = []
             for h in range(Hn):
-                kap = kappa0[(l, h)] * (1 + cmul[(l, h)]); pr = lowrank_logits(l, h, state["n"][l])
-                cols.append(torch.where(off[None], kap[dmat][None] + (pr - kr[(l, h)][dmat][None]), logits[:, h]))
+                kap = kappa0[(l, h)] * (1 + cmul[(l, h)]); pr, _ = row_centre(lowrank_logits(l, h, state["n"][l])); _, m = row_centre(logits[:, h])
+                cols.append(torch.where(off[None], m[:, :, None] + kap[dmat][None] + (pr - kr[(l, h)][dmat][None]), logits[:, h]))
             return torch.stack(cols, 1)
 
         def ce_prog(rows):
-            state["logit_edit"] = logit_program; state["z_edit"] = z_ablate; out = HB.ce(model, rows, dev, EBATCH); state["logit_edit"] = None; return out
+            state["logit_edit"] = logit_program; state["z_edit"] = z_ablate; out = PB.ce(model, rows, dev, EBATCH); state["logit_edit"] = None; return out
 
         forwards += kappa_r_now()
         params = [f for k in ALL for pair in fac[k].values() for f in pair]
@@ -223,8 +235,8 @@ def main() -> None:
                    "pred_d_rank16_cost": r16["recovery"] >= REC16, "pred_e_rank32_values_preserved_scale": RATIO[0] <= r32["median_ratio"] <= RATIO[1]}
     if forwards > FORWARDS_MAX or backwards > BACKWARDS_MAX:
         raise SystemExit(f"price exceeded: {forwards} fwd / {backwards} bwd")
-    OUT.write_text(json.dumps({"schema": f"hf_all_result_{TAG}", "candidate_id": CANDIDATE_ID, "plan": plan,
-                               "report": {"model": REPO, "geometry": {"L": L, "H": H, "D": D, "hd": hd, "kv": kv, "rotary": ROTARY}, "native_stock": native_stock, "native": native, "mean_ablation_cost": value, "median_head": median, "joint_value": joint,
+    OUT.write_text(json.dumps({"schema": f"pythia_all_result_{TAG}", "candidate_id": CANDIDATE_ID, "plan": plan,
+                               "report": {"model": REPO, "geometry": {"L": L, "H": H, "D": D, "hd": hd, "rot": rot}, "native_stock": native_stock, "native": native, "mean_ablation_cost": value, "median_head": median, "joint_value": joint,
                                           "kernels_only_cost": c_ko - native, "kernels_only_col0_native_cost": c_ko0 - native, "svd_energy_cum": [float(energy[i]) for i in range(16)], "ladder": ladder, "arms": {str(R): results[R] for R in ARMS}},
                                "predictions": predictions, "forwards": forwards, "backwards": backwards, "serial_seconds": time.perf_counter() - t0,
                                "finished_utc": datetime.now(timezone.utc).isoformat()}, indent=2, sort_keys=True) + "\n")

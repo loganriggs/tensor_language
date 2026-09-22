@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # BQGATE: EXPERIMENT pred_a_instrument_replays pred_b_kernel_energy_top4 pred_c_rank32_cost pred_d_rank16_cost pred_e_rank32_values_preserved_scale
-"""Replication, all-in-one, HF families (OPT / Llama-style). MODEL = facebook/opt-125m (12 x 12 x 768, softmax, LEARNED ABSOLUTE positions,
-biases, q pre-scaled; rows: the same FineWeb text re-tokenized with OPT's tokenizer, BOS + 512 tokens per row).
+"""Replication, all-in-one, HF families (OPT / Llama-style), ROW-CENTRED logits (see v760: per-query-row constants are removed before kernels are estimated and added back in the program). MODEL = HuggingFaceTB/SmolLM-135M (30 x 9 x 576, softmax, full-dim ROTARY, GQA with 3 kv heads — the
+program factors a k map per QUERY head, so its numbers over-count k slightly; modern data; rows re-tokenized with its tokenizer).
 
 OPT-125m is GPT-2 small's twin on the position-encoding axis (same size, same absolute-position family, different data and training) and
 Pythia-160m its twin on the rotary axis; together they decide whether GPT-2's poor read-side compressibility follows the position encoding
@@ -15,7 +15,7 @@ PREDICTIONS (scored as written; failures preserved)
     pred_c_rank32_cost          rank-32 snapshot recovery >= 0.96. Prior: unsure
     pred_d_rank16_cost          rank-16 snapshot recovery >= 0.92. Prior: unsure
     pred_e_rank32_values_preserved_scale rank-32: median value ratio in [0.5, 2]. Prior: likely
-PRICE (registered maximum): as v755 (per-head ablations scale with the head count). Bars: forwards <= 2300, backwards <= 600.
+PRICE (registered maximum): as v755 (per-head ablations scale with the head count). Bars: forwards <= 3000, backwards <= 600.
 """
 from __future__ import annotations
 from datetime import datetime, timezone
@@ -25,16 +25,16 @@ import dod_battery
 import disk_guard
 import hf_backend as HB
 
-REPO = "facebook/opt-125m"
-TAG = "opt125m_v758"
-PREFIX = "opt"
+REPO = "HuggingFaceTB/SmolLM-135M"
+TAG = "smollm135m_v764"
+PREFIX = "smollm"
 ROOT = dod_battery.ROOT
 OUT = ROOT / f"circuits/followups/{TAG}_result.json"
 OUT_PT = ROOT / f"circuits/followups/{TAG}_programs.pt"
 FIT_ROWS = (ROOT / f".rowcache/{PREFIX}_fineweb_n480_skip80.pt", ROOT / f".rowcache/{PREFIX}_fineweb_n192_skip11000.pt")
 EVAL_ROWS = ROOT / f".rowcache/{PREFIX}_fineweb_n192_skip7000.pt"
 CANDIDATE_ID = f"hf.all_{TAG}"
-FORWARDS_MAX, BACKWARDS_MAX = 2300, 600
+FORWARDS_MAX, BACKWARDS_MAX = 3000, 600
 EBATCH, TBATCH, STEPS, EVAL_EVERY, N_VAL, N_MANIP = 32, 8, 300, 25, 96, 24
 LR_MAP, LR_MAP_MIN, LR_K, LR_K_MIN = 3e-4, 3e-5, 0.01, 0.001
 KS, ARMS = (1, 2, 4, 8, 16), (16, 32)
@@ -78,11 +78,18 @@ def main() -> None:
                 n_tok[0] += z.shape[0] * z.shape[2]
         return z
 
+    def row_centre(X):
+        """X: [B, T, T] logits. Subtract each query row's mean over the keys 1 <= j < i (the entries a program replaces); softmax is invariant
+        to per-row constants, and in models with massive activations (Pythia) the raw logits carry row constants of 1e4-1e5."""
+        T = X.shape[-1]; pos = torch.arange(T, device=X.device); rep = ((pos[:, None] > pos[None, :]) & (pos[None, :] > 0)).float()
+        m = (X * rep[None]).sum(-1) / rep.sum(-1).clamp_min(1)[None]
+        return X - m[:, :, None], m
+
     def logit_capture(l, logits):
         if cap["mode"] == "kernels":
-            B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0); dflat = dmat[qm]
+            B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0) & (pos[None, :] > 0); dflat = dmat[qm]
             for h in range(Hn):
-                ksum[(l, h)].index_add_(0, dflat, logits[:, h][:, qm].double().sum(0))
+                Xc, _ = row_centre(logits[:, h]); ksum[(l, h)].index_add_(0, dflat, Xc[:, qm].double().sum(0))
             if l == 0:
                 kcnt.index_add_(0, dflat, torch.full_like(dflat, B, dtype=torch.float64))
         return logits
@@ -117,7 +124,8 @@ def main() -> None:
             off = off & (pos[None, :] > 0)
         out = logits.clone()
         for h in range(Hn):
-            out[:, h] = torch.where(off[None], kap_box["kap"][(l, h)][dmat][None].expand(B, T, T), logits[:, h])
+            _, m = row_centre(logits[:, h])
+            out[:, h] = torch.where(off[None], m[:, :, None] + kap_box["kap"][(l, h)][dmat][None].expand(B, T, T), logits[:, h])
         return out
 
     state["logit_edit"] = logit_kernel
@@ -152,7 +160,8 @@ def main() -> None:
             return torch.einsum("bqd,bkd->bqk", q, k) * scaling
 
         def offset_mean(P, T):
-            pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0); dflat = dmat[qm]
+            P, _ = row_centre(P)
+            pos = torch.arange(T, device=dev); dmat = pos[:, None] - pos[None, :]; qm = (pos >= 8)[:, None] & (dmat > 0) & (pos[None, :] > 0); dflat = dmat[qm]
             X = P[:, qm]; counts = torch.bincount(dflat, minlength=513).double() * X.shape[0]
             sums_ = torch.zeros(513, dtype=torch.float64, device=dev).index_add_(0, dflat, X.double().sum(0))
             return torch.where(counts > 0, sums_ / counts.clamp_min(1), torch.zeros_like(sums_)).float()
@@ -173,8 +182,8 @@ def main() -> None:
             B, Hn, T, _ = logits.shape; pos = torch.arange(T, device=dev); dmat = (pos[:, None] - pos[None, :]).clamp_min(0); off = (dmat > 0) & (pos[None, :] > 0)
             cols = []
             for h in range(Hn):
-                kap = kappa0[(l, h)] * (1 + cmul[(l, h)]); pr = lowrank_logits(l, h, state["n"][l])
-                cols.append(torch.where(off[None], kap[dmat][None] + (pr - kr[(l, h)][dmat][None]), logits[:, h]))
+                kap = kappa0[(l, h)] * (1 + cmul[(l, h)]); pr, _ = row_centre(lowrank_logits(l, h, state["n"][l])); _, m = row_centre(logits[:, h])
+                cols.append(torch.where(off[None], m[:, :, None] + kap[dmat][None] + (pr - kr[(l, h)][dmat][None]), logits[:, h]))
             return torch.stack(cols, 1)
 
         def ce_prog(rows):
