@@ -75,6 +75,26 @@ Per-factor counts: PR ≤ 5 — 2 / 6 / 7; top-1 completeness in [0.5, 1.5] — 
 Exactly one factor recurs in every seed (three pairwise matches at 1.00, at both weights: the top-energy factor), and the other seven are init-dependent even after convergence. The penalty's effect is itself seed-dependent: with the same weight and scale, seed 1's dictionary stays at median PR 98 while seeds 0 and 2 reach 2–3, and its normalised-PR trace rises through the fit (0.004 → 0.011) as the energy term wins. Per-factor claims about "the" PR-regularised dictionary are therefore claims about one factor plus seven that depend on the random start.
 7. **cos(l, r) = 1.00 for every factor at every weight** (median), including unpenalised ones at this scale: the asymmetric parametrisation is redundant (§1).
 
-## 4. Verdict
+## 4. Other architectures (AdvBench prompts, same settings as §3)
+
+### 4a. SwiGLU MLPs (`Elriggs/gpt2-swiglu-18l-9h-1152embd-v2`; E2 not defined for gated units)
+
+| w | median held-out PR | held-out energy / baseline | E1 top-1 | E1 top-5 | E1 all-AJ-MLPs | E1 source MLP | E1 attention | E3 top-1 @0.05 | E3 top-5 @0.05 | E3 random-5 | E4 seeds (pair / span) | E4 split (pair / span) | top-5 Jaccard |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | 72 | 1.00 | 0.01 | 0.08 | 0.29 | 0.95 | 0.69 | 0.00 | 0.11 | 0.00 | 0.51 / 0.38 | 0.37 / 0.27 | 0.43 |
+| 0.1 | 1.1 | 0.97 | 0.84 | 0.91 | 0.97 | 0.09 | 0.57 | −0.00 | 0.42 | 0.00 | 0.46 / 0.41 | 0.48 / 0.39 | 0.50 |
+| 1 | 1.1 | 0.98 | 0.73 | 0.83 | 0.97 | 0.13 | 0.61 | −0.00 | 0.19 | 0.00 | 0.46 / 0.41 | 0.48 / 0.49 | 0.56 |
+
+Per-factor counts: PR ≤ 5 — 6 / 16 / 15 of 24; top-1 completeness in [0.5, 1.5] — 8 / 16 / 15; cross-seed span match > 0.8 — 5 / 8 / 6 of 24; split-stable — 1 / 2 / 3 of 8.
+
+- **The penalty works better on SwiGLU than on the bilinear model, on the derivative measures.** Two thirds of the penalised factors reach PR ≈ 1.1 with top-1 completeness 0.8–1.0 and the source-block MLP nearly out of the picture (0.02–0.1); the remaining third stay diffuse (PR 70–95, source MLP 0.4–1.0), as on the bilinear model. Two factors recur exactly in all three seeds (energy 2.2 and 1.5 × 10⁻⁴, PR 1.1, top-1 completeness 1.00 / 0.99) — genuine single-unit interactions at the derivative level.
+- **Attention still carries 0.5–0.8 of every factor**, including the two single-unit ones (0.53 and 0.82). "One unit" and "mostly attention" are both true because the pathways overlap.
+- **The finite ablations do not confirm the derivative picture on this architecture.** For the two recurring single-unit factors, patching their unit to clean at 5% of the residual norm changes the finite interaction by **+211%** and **−950%** (the patch *increases* the interaction nine-fold for the second), and at 20% by −21% / −4%; other concentrated factors give 0.3–1.1. With gates in the path, a 5% perturbation of the residual (norm 7,200, so a perturbation of ~360) is already outside the regime where the mixed second derivative describes the response, and the sign of the finite effect is not the sign of the derivative effect. E3 medians (~0) are dominated by the diffuse factors and are not meaningful here; a smaller scale (≤ 1%) would be needed, and was not run.
+
+### 4b. Squared attention, bilinear MLPs (`Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd`)
+
+_(run in progress; first fits: median held-out PR 777 and 487 at w = 0.1 and 1, i.e. the penalty does not concentrate, and E1 attention completeness 0.99–1.00 for every factor: in this model the interactions the DCT finds are carried by the squared-attention pattern, which is itself a bilinear interaction, and the MLP units are bystanders.)_
+
+## 5. Verdict
 
 _(pending the full runs)_
