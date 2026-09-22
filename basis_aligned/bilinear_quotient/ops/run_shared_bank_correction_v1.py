@@ -91,7 +91,7 @@ def main():
     print(f'[split] calibration {replay_cal:.2e} | fresh {replay_fresh:.2e} | prev {replay_prev:.2e} | corpus {replay_corpus:.2e} | teacher {teacher_replay:.2e} | forwards {forwards}', flush=True)
     doc = torch.arange(672, device=dev).repeat_interleave(64); val_m = doc >= 672 - VAL_DOCS; fit_prev = pxn[~val_m]; val_x = pxn[val_m]
     X = torch.cat([fit_prev, cxn[:(SIZE - 608) * 64]]); R = teacher(X) - parent(X); ones = torch.ones_like(R); r_val = teacher(val_x) - parent(val_x); ones_v = torch.ones_like(r_val)
-    assert X.shape[0] == (SIZE - VAL_DOCS) * 64, X.shape
+    assert X.shape[0] == SIZE * 64, X.shape   # SIZE counts fitting documents; the 64 held-out documents are outside it
     prev = json.loads((P / 'BIDEGREE_DATA_SCALING_V1.json').read_text()); local = {int(r['seed']): r['fresh'] for r in prev['rows'] if r['size'] == SIZE}
     src = torch.full((1, BANK, 4), 2, dtype=torch.long, device=dev); zeros = lambda x: torch.zeros_like(x)
     baseline = errors(fresh_parent, fy, don, rec); rows = []; exports = {}; corrections = {}; spans = {}
