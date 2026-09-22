@@ -336,3 +336,5 @@ Original-weight continuation grounding (Sept21 03:56): [report](../explanations/
 [Full quadratic product-count bounds](FULL_QUADRATIC_PRODUCT_BOUNDS_V1.md): output-mode spectra impose limits even outside dense Tucker; distinct from selected 16-output quartic work.
 
 [Normalized-factor optimizer geometry](NORMALIZED_OPTIMIZER_GEOMETRY_INTERPRETATION_V1.md): wide-shape known-target control exposes limited direction movement for the queued default-Muon configuration; native protocol unchanged.
+
+[Wide quartic controls](WIDE_QUARTIC_OPTIMIZER_INTERPRETATION_V1.md): Adam2/10 and default/RMSMuon0/10 recoveries below5% at1152 dimensions; unit raw initialization improves Muon median99.99%→29.69% but still0/10. Known capacity does not establish optimization adequacy at native width.
