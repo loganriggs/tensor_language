@@ -33128,3 +33128,21 @@ Files: ops/run_pythia_all_v767.py; circuits/followups/pythia160m_step1000_v767_r
 ### 2026-09-22T03:31Z — Claude: v769 LANDED (pythia-160m at STEP 64000 ≈ 134B tokens, row-centred; 3/5): rank 32 +0.172 (recovery 0.947), rank 16 +0.336 (0.896); Spearman 0.77, median 1.10; joint value 3.25; kernels-only +2.30 (col-0 native +1.90); top-4 kernel energy 0.947.
 Curve so far (rank 32 / rank 16 recovery): step 1000 1.009 / 0.990 -> 4000 0.982 / 0.947 -> 64000 0.947 / 0.896 -> 143000 0.932 / 0.876. Monotone in training; step 16000 (v768) running.
 Files: circuits/followups/pythia160m_step64000_v769_result.json.
+
+[2026-09-22 03:31 UTC] Codex empiricalcalibration-moment diagnostic complete: same512banks/all16readouts/1e-6ridge, exactmean/cov match (0/2.7e-16), 5augmentedLS controls/tokenhashes/normalPASS. Largerpanel pooledvalues5.80/5.85% vsGaussian7.33/7.52%; smallresponses49.74/50.91% vs57.57/59.98%. Primaryoldpanel response ratios.868/.958 FAIL<=.85, valueretentionPASS. Explicitlycalibrationregression, no weights-only/OOD/causal claim. Corrected obsolete pending sentence in restartidentity note; existingmixedresult alreadycommitted23:30, no duplicate. Both queuednative jobs unchanged.
+
+[2026-09-22 03:36 UTC] Codex claim learned-response residual toys:5plantednativequarticfamilies×2optimizers×2starts×2objectives,250steps, priorvalue-tuned ratesfrozen; fixedparent/two missingatomsperoutput. Knownwitness/exactpopulation value+response+coefficient scores, no nativepromotion. Rectangular correlatedmoment recurrence independentlychecked beforelearning. ExistingGPU locallearner andgeometryrunner immutable. Previous turn progress: empiricalmoment diagnostic andcapacityqualification committed8f6acee9b.
+
+[2026-09-22 03:42 UTC] Codex learnedresponse toy cohort complete:40fits68s, Adam8/10<5%PASS, Muon1/10FAIL, response/valloss mean-response ratios1.003/.980 fail10%gain. Redteamcaught two squarelabels same polynomialclass; originalpredictionsretained, added8fit cross-output-sharing supplement14s tocover fifthdistinctclass. Prior500valuefits medianAdam.69%/Muon.83% vs250here1.41/14.07%; documented duration caveat for queuednative250steps (differentnormalizer/dims, not guaranteedfix).15independentrectangularquad/gradchecksPASS. NoextraGPU sweep; existingjobsunchanged.
+
+[2026-09-22 03:46 UTC] Codex claim exact quartic product reassociation using existing arithmetic_dag.DAG. Enumerate15binarytrees per distinct4reader monomial, cache quadratic/cubic subproducts, merge exactrational duplicate/cancelling roots, fourgreedyorders. Five exactpolynomial controls pluscurrentCPparents/readerreuseexports; no approximate reader edit, no new framework/queuedhelper changes. Tests whether second-stage graph search exposes reusable higher-degree computations already present.
+
+### 2026-09-22T03:50Z — Claude: v768 LANDED (pythia-160m at STEP 16000 ≈ 34B tokens, row-centred; 4/5): rank 32 +0.118 (recovery 0.963), rank 16 +0.281 (0.911); Spearman 0.85, median 1.03; joint 3.16. THE TRAINING CURVE IS COMPLETE AND MONOTONE:
+| pythia-160m step | tokens | native CE | joint value | rank 32 recovery | rank 16 recovery | Spearman / median |
+| 1000 | 2B | 4.646 | 2.04 | 1.009 | 0.990 | 0.97 / 0.96 |
+| 4000 | 8B | 3.794 | 2.90 | 0.982 | 0.947 | 0.86 / 0.98 |
+| 16000 | 34B | (see json) | 3.16 | 0.963 | 0.911 | 0.85 / 1.03 |
+| 64000 | 134B | (see json) | 3.25 | 0.947 | 0.896 | 0.77 / 1.10 |
+| 143000 (final) | 300B | 3.473 | 3.12 | 0.932 | 0.876 | 0.70 / 0.96 |
+Reference: bilin18 (9.7k steps) 0.982 at rank 16/64 of 128; its softmax twin 0.974 at 16/64 of 128; GPT-2 small (full training) 0.952 / 0.904 (uncentred). The rank of attention content grows steadily with training tokens (log-linear in this range: about -0.02 recovery per doubling of tokens at rank 32); the joint value of attention saturates by ~30B tokens while its compressibility keeps falling. Remaining ladder (410m, OPT-125m, SmolLM-135M, GPT-2 centred) running as the well-trained comparison; a write-up follows once they land.
+Files: circuits/followups/pythia160m_step16000_v768_result.json.
