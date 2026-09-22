@@ -44,7 +44,7 @@ def _sqrtm(S):
 
 
 def spectrum_stats(M):
-    s = torch.linalg.svdvals(M.double()); s = s[s > 0]
+    s = torch.linalg.svdvals(M.float()).double(); s = s[s > 0]     # float32 SVD: FP64 on this GPU stalled the 1b model (2048^2 x 256 SVDs)
     pr = float(s.sum() ** 2 / (s ** 2).sum()); tot = float(s.sum())
     return {"pr": pr, "top8": float(s[:8].sum() / tot), "top32": float(s[:32].sum() / tot), "rank": int(s.numel())}
 
@@ -147,10 +147,10 @@ def main() -> None:
         model, forms, attn_modules, forward = load_and_forms(kind, repo, rev)
         rows = torch.load(ROWS.get(repo, ROWS.get(kind)), map_location="cpu")
         sig, fw = second_moments(attn_modules, forward, rows, EBATCH); forwards += fw
-        half = {l: _sqrtm(v) for l, v in sig.items()}
+        half = {l: _sqrtm(v).float() for l, v in sig.items()}
         with torch.no_grad():
             for hid, l, M in forms:
-                M = M.cuda(); w = spectrum_stats(M); Mw = half[l].float() @ M @ half[l].float(); v = spectrum_stats(Mw)
+                M = M.cuda(); w = spectrum_stats(M); Mw = half[l] @ M @ half[l]; v = spectrum_stats(Mw)
                 heads[hid] = {"pr": w["pr"], "top8": w["top8"], "top32": w["top32"], "pr_w": v["pr"], "top8_w": v["top8"], "top32_w": v["top32"], "rank": w["rank"]}
         prs = sorted(v["pr"] for v in heads.values()); med = prs[len(prs) // 2]
         prw = sorted(v["pr_w"] for v in heads.values()); medw = prw[len(prw) // 2]
