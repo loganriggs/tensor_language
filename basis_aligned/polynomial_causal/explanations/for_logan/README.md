@@ -1,3 +1,5 @@
+[22 September — Final Codex compression report: selected MLP16→MLP17 branch, arithmetic savings, native failures, hybrid result, and stable conclusions](research_update_2026-09-22_final_codex_compression.md).
+
 [22 September 06:02 — Completed optimizer comparison and new-feature sharing oracle](research_update_2026-09-22_0602_optimizer_comparison.md).
 
 [22 September 05:59 — Normalization reweights states and exposes removal failures](research_update_2026-09-22_0559_normalization_error.md).
