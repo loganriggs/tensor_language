@@ -93,7 +93,17 @@ Per-factor counts: PR ≤ 5 — 6 / 16 / 15 of 24; top-1 completeness in [0.5, 1
 
 ### 4b. Squared attention, bilinear MLPs (`Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd`)
 
-_(run in progress; first fits: median held-out PR 777 and 487 at w = 0.1 and 1, i.e. the penalty does not concentrate, and E1 attention completeness 0.99–1.00 for every factor: in this model the interactions the DCT finds are carried by the squared-attention pattern, which is itself a bilinear interaction, and the MLP units are bystanders.)_
+| w | median held-out PR | held-out energy / baseline | E1 top-1 | E1 top-5 | E1 all-AJ-MLPs | E1 source MLP | E1 attention | E2 span align | E2 read-off ratio | E3 top-1 @0.05 | E3 random-5 | E4 seeds (pair / span) | E4 split (pair / span) | top-5 Jaccard |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | 1576 | 1.00 | 0.01 | 0.03 | 0.65 | 0.42 | **1.00** | 0.28 | 0.38 | 0.00 | 0.00 | 0.48 / 0.36 | 0.54 / 0.34 | 0.56 |
+| 0.1 | 834 | 0.96 | 0.09 | 0.13 | 0.76 | 0.48 | **0.99** | 0.35 | 0.48 | 0.02 | 0.00 | 0.52 / 0.36 | 0.51 / 0.47 | 0.53 |
+| 1 | 173 | 0.73 | 0.19 | 0.23 | 0.79 | 0.52 | **0.98** | 0.43 | 1.10 | 0.14 | 0.00 | 0.36 / 0.31 | 0.20 / 0.18 | 0.20 |
+
+Per-factor counts: PR ≤ 5 — **0 / 0 / 0 of 24**; top-1 completeness in [0.5, 1.5] — 1 / 3 / 3; cross-seed span match > 0.8 — 3 / 4 / 3 of 24.
+
+- **The penalty does not find sparse circuits here.** Median PR goes 1576 → 834 → 173 and no factor reaches PR ≤ 5 at any weight; at w = 1 it costs 27% of the energy. The interaction energies are three orders of magnitude larger than in the softmax models (held-out 0.05–0.09 vs 1–2 × 10⁻⁴).
+- **Every factor is an attention interaction.** Freezing all attention removes 98–100% of every factor's interaction at every weight. The squared-attention pattern (q·k)(q₂·k₂) is itself a bilinear form in the residual, so the mixed Hessian is dominated by pairs of query/key reads, and the MLP units the PR range measures are bystanders (all-AJ-MLPs 0.65–0.79 is overlap, not an alternative route: the parts sum to ~2.5).
+- This is the E1 attention group doing what the handoff designed it for: AJ reports his method "does best" on the attention variants; on this one the PR numbers are irrelevant because the measured units do not carry the interaction.
 
 ## 5. Verdict
 
