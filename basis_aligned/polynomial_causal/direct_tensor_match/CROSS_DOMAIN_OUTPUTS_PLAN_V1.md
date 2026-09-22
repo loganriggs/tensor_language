@@ -1,0 +1,13 @@
+# Cross-domain fidelity of all 16 selected outputs
+
+22 September 2026, 04:14 UTC. Implementation ready; native state-cache dependency is still queued. No cross-domain results yet.
+
+The parent CP, full conditional, and lean conditional programs have native removal results for output coordinate 1. The goal concerns reusable computations, so a single-coordinate test is insufficient. Use all 16 fixed output coordinates of the pure MLP16→MLP17 quartic path on the exact FineWeb and Python standard-library documents used by that removal experiment. Do not conflate the selected polynomial with the full model, semantic units, or an untouched OOD holdout.
+
+Consume REMOVAL_STAGE_STATES_V1.pt from the already queued immutable removal-geometry runner. It stores 16 documents per domain and 239 states per document (positions 16–254). Recompute native all-output labels directly from the checkpoint on CPU. The existing coordinate-1 labels must replay within 1e-4, and a separate existing 64-state all-output panel must replay within 1e-5. The latter preflight is complete at 1.05e-6. Verify the producing result's cache hash and frozen input hashes before evaluating.
+
+Evaluate all six frozen programs: two CP parents and both compressed variants at both seeds. Report pooled errors, each output separately, raw numerator/denominator energies, and document-level errors. Also form disjoint pairs between documents sharing the same current token and absolute position; no labels select pairs. Report pair counts and per-output finite-difference error, without treating these observational pairs as causal interventions. Zero-reference outputs are explicitly undefined rather than stabilized into misleading small scores.
+
+Before seeing these all-output results, record two questions: (1) do both parents retain pooled code error within 1.25 times their same-context-length FineWeb error? (2) do all outputs 4–15 stay below 30% relative error in each domain? Prior short-FineWeb failures make the second optimistic; preserve failure rather than relying on the pooled score. The conditional variants are secondary comparisons at their stated implementation prices. This is a diagnostic screen, not a gate sufficient for adoption or a new model-selection procedure.
+
+The 256-token capture differs from the earlier 65-token panel in domain and context length. Compare domains within this matched-length cache; do not attribute changes from the earlier panel solely to domain. Token states are correlated within documents. Do not call this fresh validation: these documents were already inspected for removal behavior. Main dependency is the pending managed job; do not recapture or modify that runner.

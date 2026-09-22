@@ -326,3 +326,5 @@ Original-weight continuation grounding (Sept21 03:56): [report](../explanations/
 [Quadratic edit interference diagnostic](QUADRATIC_EDIT_INTERFERENCE_INTERPRETATION_V1.md): joint versus local edit energy and Gaussian-to-text transfer.
 
 [Gaussian radial-normalization diagnostic](GAUSSIAN_RADIAL_EDIT_INTERPRETATION_V1.md): matching input norm does not close the graph-edit transfer gap.
+
+[All-output cross-domain protocol](CROSS_DOMAIN_OUTPUTS_PLAN_V1.md): CPU evaluator prepared and native reference preflight passed; awaiting removal-stage cache, no cross-domain result yet.
