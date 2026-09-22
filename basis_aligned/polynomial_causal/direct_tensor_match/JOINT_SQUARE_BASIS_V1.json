@@ -1,0 +1,150 @@
+{
+  "controls": [
+    {
+      "kind": "commuting",
+      "commutator_norm": 2.3366828248558393e-16,
+      "relative_error_lower_bound": 7.880296097035501e-17,
+      "eigenbasis_upper_bounds": [
+        2.1226583034842492e-14,
+        5.788692496357254e-16
+      ]
+    },
+    {
+      "kind": "near",
+      "commutator_norm": 8.308148360507184e-05,
+      "relative_error_lower_bound": 2.8017924677715866e-05,
+      "eigenbasis_upper_bounds": [
+        0.00011890726174456353,
+        0.00017561913050269167
+      ]
+    },
+    {
+      "kind": "generic",
+      "commutator_norm": 0.3773758162446649,
+      "relative_error_lower_bound": 0.1288727855848098,
+      "eigenbasis_upper_bounds": [
+        0.5401050031008813,
+        0.6458165510455482
+      ]
+    },
+    {
+      "kind": "nonorthogonal_shared_squares",
+      "commutator_norm": 0.27628205930914956,
+      "relative_error_lower_bound": 0.07750678351934207,
+      "eigenbasis_upper_bounds": [
+        0.41945787668670853,
+        0.31055859816451964
+      ]
+    },
+    {
+      "kind": "blocks",
+      "commutator_norm": 0.6259826170229688,
+      "relative_error_lower_bound": 0.2062026880460606,
+      "eigenbasis_upper_bounds": [
+        0.5489533993798635,
+        0.5657994633617625
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "outputs": [
+        0,
+        1
+      ],
+      "commutator_norm": 0.07412442104842691,
+      "relative_error_lower_bound": 0.05443650190518956,
+      "eigenbasis_upper_bounds": [
+        0.428324787325499,
+        0.4184076125083476
+      ]
+    },
+    {
+      "outputs": [
+        2,
+        3
+      ],
+      "commutator_norm": 0.09282194316115451,
+      "relative_error_lower_bound": 0.06950722689894122,
+      "eigenbasis_upper_bounds": [
+        0.4543572023920336,
+        0.4646251196646952
+      ]
+    },
+    {
+      "outputs": [
+        4,
+        5
+      ],
+      "commutator_norm": 0.07456041476968188,
+      "relative_error_lower_bound": 0.06599417384112057,
+      "eigenbasis_upper_bounds": [
+        0.6916489622000785,
+        0.6860529222130728
+      ]
+    },
+    {
+      "outputs": [
+        6,
+        7
+      ],
+      "commutator_norm": 0.07308878744707982,
+      "relative_error_lower_bound": 0.06529138690696583,
+      "eigenbasis_upper_bounds": [
+        0.687433186968143,
+        0.6784791035998063
+      ]
+    },
+    {
+      "outputs": [
+        8,
+        9
+      ],
+      "commutator_norm": 0.05849796234610128,
+      "relative_error_lower_bound": 0.059800308399610334,
+      "eigenbasis_upper_bounds": [
+        0.6835327667553154,
+        0.682835267007951
+      ]
+    },
+    {
+      "outputs": [
+        10,
+        11
+      ],
+      "commutator_norm": 0.05616653455771832,
+      "relative_error_lower_bound": 0.05698317799576742,
+      "eigenbasis_upper_bounds": [
+        0.695089209770994,
+        0.6981282031618578
+      ]
+    },
+    {
+      "outputs": [
+        12,
+        13
+      ],
+      "commutator_norm": 0.06111471835697042,
+      "relative_error_lower_bound": 0.05729684860127529,
+      "eigenbasis_upper_bounds": [
+        0.6827252037499806,
+        0.6893570196226982
+      ]
+    },
+    {
+      "outputs": [
+        14,
+        15
+      ],
+      "commutator_norm": 0.050638844581563425,
+      "relative_error_lower_bound": 0.06304616492919725,
+      "eigenbasis_upper_bounds": [
+        0.6989102874258576,
+        0.6979922415550043
+      ]
+    }
+  ],
+  "quadratic_replay": 2.0680685833681516e-15,
+  "seconds": 5.941161010880023,
+  "scope": "True singleMLP17quadratic coefficients, selected16linearoutputreaders, all1152inputs. Eightfixedpairs eachsliceunitFrobenius. Obstruction onlysharedORTHOGONALsquarebasis; notnonorthogonal/overcomplete/Tucker/DAGgeneral. Boundfloatingpoint not intervalcertificate; no functionaltext/nativeintervention inference."
+}
