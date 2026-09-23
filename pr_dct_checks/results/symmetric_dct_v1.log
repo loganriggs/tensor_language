@@ -1,0 +1,56 @@
+/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:335.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[controls] hessian vs jvp-of-jvp rel err median 1.47e-06 max 1.30e-04 | symmetry 1.93e-06 | freeze-all residual (no final norm) 0.00e+00 | final-norm-only share -0.002
+[hessians] fit 1/32 (17s)
+[hessians] fit 8/32 (133s)
+[hessians] fit 16/32 (266s)
+[hessians] fit 24/32 (397s)
+[hessians] fit 32/32 (530s)
+[hessians] heldout 1/16 (17s)
+[hessians] heldout 8/16 (147s)
+[hessians] heldout 16/16 (250s)
+[hessians] advbench 1/16 (13s)
+[hessians] advbench 8/16 (103s)
+[hessians] advbench 16/16 (206s)
+[rank] PR of eigenvalues per reader [318.1, 140.3, 179.8, 255.1, 190.5, 168.3, 287.3, 92.2, 304.9, 305.0, 223.1, 326.4, 283.1, 150.2, 286.3, 408.4] | top-r Frobenius fraction: fit 0.033 heldout 0.039 advbench 0.001 | score fraction heldout 0.271
+[completeness] reader 0: attention 0.94 source-attn 0.31 mlps 0.74 source-mlp 0.06 top1 0.09 top20 0.49 everything 1.00
+[completeness] reader 1: attention 0.68 source-attn 0.10 mlps 1.01 source-mlp 0.07 top1 0.04 top20 0.55 everything 1.00
+[completeness] reader 2: attention 0.68 source-attn 0.07 mlps 0.97 source-mlp 0.07 top1 0.11 top20 0.37 everything 1.00
+[completeness] reader 3: attention 0.70 source-attn 0.11 mlps 1.06 source-mlp 0.08 top1 0.02 top20 0.61 everything 1.00
+[completeness] reader 4: attention 0.96 source-attn 0.67 mlps 0.75 source-mlp 0.09 top1 -0.01 top20 0.30 everything 1.00
+[completeness] reader 5: attention 0.95 source-attn 0.63 mlps 0.83 source-mlp 0.08 top1 0.03 top20 0.43 everything 1.00
+[completeness] reader 6: attention 0.94 source-attn 0.21 mlps 0.68 source-mlp 0.11 top1 -0.00 top20 0.00 everything 1.00
+[completeness] reader 7: attention 0.94 source-attn 0.69 mlps 0.77 source-mlp 0.09 top1 -0.03 top20 0.34 everything 1.00
+[completeness] reader 8: attention 0.90 source-attn 0.38 mlps 0.60 source-mlp 0.03 top1 0.02 top20 0.13 everything 1.00
+[completeness] reader 9: attention 0.91 source-attn 0.34 mlps 0.40 source-mlp 0.10 top1 -0.03 top20 -0.11 everything 1.00
+[completeness] reader 10: attention 0.90 source-attn 0.59 mlps 0.79 source-mlp 0.05 top1 0.00 top20 0.25 everything 1.00
+[completeness] reader 11: attention 0.61 source-attn 0.01 mlps 0.98 source-mlp 0.25 top1 0.13 top20 0.60 everything 1.00
+[completeness] reader 12: attention 0.92 source-attn 0.20 mlps 0.59 source-mlp 0.16 top1 -0.03 top20 0.07 everything 1.00
+[completeness] reader 13: attention 0.67 source-attn 0.08 mlps 0.97 source-mlp 0.07 top1 0.01 top20 0.32 everything 1.00
+[completeness] reader 14: attention 0.94 source-attn 0.65 mlps 0.72 source-mlp 0.03 top1 -0.00 top20 0.24 everything 1.00
+[completeness] reader 15: attention 0.90 source-attn 0.35 mlps 0.69 source-mlp 0.10 top1 0.03 top20 0.23 everything 1.00
+{
+ "predictions": {
+  "pred_a_instrument": true,
+  "pred_b_low_rank": false,
+  "pred_c_generalises": false,
+  "pred_d_off_distribution": false,
+  "pred_e_attention_carried": true
+ },
+ "controls": {
+  "hessian_vs_jvp_median": 1.472418146418388e-06,
+  "hessian_vs_jvp_max": 0.00013023817958282108,
+  "symmetry": 1.930669213834335e-06,
+  "freeze_all": 0.0,
+  "final_norm_only": -0.0017006346213656568
+ },
+ "medians": {
+  "frob_fit": 0.03345613367855549,
+  "frob_heldout": 0.03864692710340023,
+  "frob_advbench": 0.001039377471897751,
+  "score_heldout": 0.2711389485821498,
+  "score_advbench": 0.002614056720025176
+ },
+ "median_pr": 269.11400604248047
+}
+wrote results/symmetric_dct_v1.json
