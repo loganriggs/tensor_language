@@ -1,0 +1,47 @@
+[controls] per-head replica parity 0.00e+00 | all-heads vs layer freeze 0.00e+00
+/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:335.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[hessians] 1/16 (13s)
+[hessians] 8/16 (102s)
+[hessians] 16/16 (204s)
+[rank] per-context eigen-PR median 113.2 (min 6.8 max 264.0) | own top-8 Frobenius fraction median 0.196 | consistency ratio per reader [0.283, 0.252, 0.254, 0.332, 0.254, 0.305, 0.31, 0.266, 0.27, 0.306, 0.283, 0.312, 0.303, 0.269, 0.306, 0.271] | mean pairwise context cosine [0.22, 0.27, 0.233, 0.242, 0.243, 0.28, 0.238, 0.279, 0.252, 0.211, 0.261, 0.247, 0.279, 0.269, 0.27, 0.245]
+[heads] context 1/16 (827s): ctx-v1 top-3 removed median so far 0.70
+[heads] context 2/16 (1650s): ctx-v1 top-3 removed median so far 0.56
+[heads] context 3/16 (2485s): ctx-v1 top-3 removed median so far 0.54
+[heads] context 4/16 (3331s): ctx-v1 top-3 removed median so far 0.53
+[heads] context 5/16 (4190s): ctx-v1 top-3 removed median so far 0.54
+[heads] context 6/16 (5028s): ctx-v1 top-3 removed median so far 0.58
+[heads] context 7/16 (5865s): ctx-v1 top-3 removed median so far 0.61
+[heads] context 8/16 (6699s): ctx-v1 top-3 removed median so far 0.61
+[heads] context 9/16 (7524s): ctx-v1 top-3 removed median so far 0.60
+[heads] context 10/16 (8348s): ctx-v1 top-3 removed median so far 0.59
+[heads] context 11/16 (9174s): ctx-v1 top-3 removed median so far 0.63
+[heads] context 12/16 (9997s): ctx-v1 top-3 removed median so far 0.67
+[heads] context 13/16 (10821s): ctx-v1 top-3 removed median so far 0.69
+[heads] context 14/16 (11644s): ctx-v1 top-3 removed median so far 0.69
+[heads] context 15/16 (12467s): ctx-v1 top-3 removed median so far 0.69
+[heads] context 16/16 (13289s): ctx-v1 top-3 removed median so far 0.70
+{
+ "predictions": {
+  "pred_a_instrument": true,
+  "pred_b_low_rank_per_context": false,
+  "pred_c_shared_energy": true,
+  "pred_d_few_heads": true,
+  "pred_e_same_head": true
+ },
+ "controls": {
+  "parity": 0.0,
+  "heads_vs_layer": 0.0,
+  "symmetry": 1.7137797385657905e-06
+ },
+ "summary": {
+  "median_eigen_pr": 113.16243743896484,
+  "median_own_frac": 0.195668525993824,
+  "median_consistency": 0.28306932747364044,
+  "median_top3_removed_ctx": 0.6964804322087306,
+  "median_top3_removed_bar": 0.7741579318021206,
+  "median_best_head_removed_ctx": 0.4611153135254456,
+  "median_same_head": 0.53125
+ }
+}
+wrote results/symmetric_dct_v2.json

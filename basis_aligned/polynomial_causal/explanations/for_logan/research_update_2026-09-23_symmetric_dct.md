@@ -96,6 +96,21 @@ So a circuit description of this interaction that is faithful to the model reads
 - **Low rank** per context: eigenvalue PR median 113 (7–264); the top eigen-direction carries 5% of a context's form.
 - **Seed-stable fitted factors** (previous note): the DCT and PR-DCT fits find init-dependent single neurons; AJ's branch variant finds single source-MLP neurons by Jacobian ranking, which is the block-8-MLP half of the picture above with the transport half removed by construction.
 
-**What is still owed.** Everything here is second-order at θ = 0 with perturbation energies of 10⁻⁶ against a residual of norm 10⁴. The finite-intervention check at ≤ 1% of the residual norm (planned rung 4 of the original ladder) was not run; the SwiGLU sign reversals in the PR-DCT checks show that derivative-level shares can fail to predict finite effects, so the transport × curvature description should be treated as a derivative-level attribution until patched at finite scale. Rung 2's per-head shares (running; 14 minutes per context) will add which of block 9's heads carry the transport.
+**What is still owed.** Everything here is second-order at θ = 0 with perturbation energies of 10⁻⁶ against a residual of norm 10⁴. The finite-intervention check at ≤ 1% of the residual norm (planned rung 4 of the original ladder) was not run; the SwiGLU sign reversals in the PR-DCT checks show that derivative-level shares can fail to predict finite effects, so the transport × curvature description should be treated as a derivative-level attribution until patched at finite scale. Rung 2's per-head shares (below) name the transporting heads: 9.8, 9.7 and 8.2.
 
 **Receipts.** `results/symmetric_dct_v5.json`, plan `plans/SYMMETRIC_DCT_PLAN_V5.md`, runner `scripts/run_symmetric_dct_v5.py`; 50 min. All five rungs: `pr_dct_checks/plans/SYMMETRIC_DCT_PLAN_V1–5.md`, `scripts/run_symmetric_dct_v1–5.py`, `results/symmetric_dct_v1–5.json`.
+
+## Rung 2 (complete, 06:20 UTC) — which heads carry the transport (4 of 5)
+
+Per-head freezing (an exact replica of the squared-attention forward with detach-freezing of single heads; parity 0.00e+00, and freezing all nine heads of a block equals freezing the block, 0.00e+00), for each context's own top direction v₁ᶜ and for the mean form's v̄₁, over the 90 heads of blocks 8–17.
+
+| quantity (16 contexts × 16 readers) | median |
+|---|---|
+| single best head, fraction of u·H[v₁ᶜ, v₁ᶜ] removed | 0.46 |
+| top-3 heads together | **0.70** (mean-form direction: 0.77) |
+| same best head across contexts, per reader | 0.53 (0.31–0.69) |
+| block-level, single attention block: 8 / 9 / 10 / 11 / 12 / 15 / 17 | 0.21 / **0.47** / 0.11 / 0.13 / 0.05 / 0.05 / 0.07 |
+
+The best head is **9.8** for 87 of the 256 (context, reader) pairs, **9.7** for 72 and **8.2** for 50 (11.6: 22, 9.6: 11); in the top-3 sets, 9.8 appears 158 times, 8.2 141, 9.7 127, 11.6 53. These are the same heads whose fixed pattern forms the rung-3 fit reached for first (8.2 and 9.8), so the lanes agree on *who*, and rung 4 says on *what*: their values, not their patterns. Predictions: a ✓, b ✗ (per-context eigenvalue PR 113 ≥ 32), c ✓ (shared energy 0.28 ≥ 0.25), d ✓ (top-3 heads ≥ 0.5), e ✓ (same head in ≥ 50% of contexts). Receipt `results/symmetric_dct_v2.json` (3.75 h; the per-head loop is latency-bound).
+
+**The description, completed.** Reader k's second-order response to a block-8 perturbation = *heads 9.8, 9.7 and 8.2 (and to a lesser degree 11.6) transporting the perturbation through their values into the inputs of the bilinear MLPs of blocks 8 and 17 (and, less, 9–12 and 16), whose fixed weight forms create the curvature.* Three heads carry 70% of the transport for a typical (context, reader); the same head leads in about half the contexts per reader; a hundred MLP units carry half the curvature. That is the circuit this model has for these readers at this order, and it is neither localised to a neuron nor expressible in a fixed basis of the block-8 residual — it is a small set of value paths feeding a large but weight-fixed bilinear map. The ladder is exhausted; the finite-scale intervention check remains the one thing owed.
