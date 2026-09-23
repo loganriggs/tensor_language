@@ -1,4 +1,4 @@
-[23 September 02:50 — Symmetric, deterministic DCT on bilin18: exact interaction forms for the 16 readers are attention-carried (blocks 8–9), high-rank and context-specific; rung 2 (per-context rank, per-head) running](research_update_2026-09-23_symmetric_dct.md)
+[23 September 04:30 — Symmetric, deterministic DCT on bilin18, five rungs: the block-8 → reader interaction is attention-value transport (block 9 above all) into bilinear-MLP curvature (blocks 8 and 17); no fixed basis, no low rank, no seed-stable fitted factors; finite-scale check still owed](research_update_2026-09-23_symmetric_dct.md)
 
 [23 September 01:00 — PR-regularized DCT circuit checks: the penalty finds where one MLP unit sits on an attention-carried interaction; factors mostly do not survive a change of seed; squared-attention models do not concentrate at all](research_update_2026-09-23_pr_dct_circuit_checks.md)
 

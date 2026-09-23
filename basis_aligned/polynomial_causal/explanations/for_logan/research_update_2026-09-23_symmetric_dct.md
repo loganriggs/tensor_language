@@ -68,3 +68,34 @@ Per reader the three large shares are stable (pure(v) 0.28–0.37, cross(pattern
 **What it means.** The attention patterns are not where the second-order interaction is made. Values are linear in a block's input, so a piece that involves only values has its curvature *after* the attention: the perturbation is transported linearly across positions by the clean attention (the value path), and the bilinear MLPs downstream (and the final norm) turn the transported first-order change into a second-order one; the same holds for the 35% that never touches an attention piece. That is the structure this architecture makes natural — attention moves, bilinear MLPs multiply — and it explains every earlier negative: the interaction form in the block-8 basis is a fixed MLP form pulled back through a context-dependent linear transport, so it is high-rank, context-specific, and not in any fixed dictionary of pattern forms. Rung 5 (running) locates the two ends: which blocks' MLPs carry the curvature and which blocks' values carry the transport, for each context's top interaction direction.
 
 **Receipts.** `results/symmetric_dct_v4.json`, plan `plans/SYMMETRIC_DCT_PLAN_V4.md`, runner `scripts/run_symmetric_dct_v4.py`; 25 min.
+
+## Rung 5 — where the curvature is made and where the transport happens (5 of 5)
+
+For each context's own top interaction direction v₁ᶜ (top eigenvector of B_{c,k}; 16 contexts × 16 readers), the fraction of u·H[v, v] removed by block-level freezes. Control: with the final norm removed, freezing everything gives exactly 1 (0.00e+00).
+
+| freeze | median fraction removed |
+|---|---|
+| all MLPs (blocks 8–17) | **0.98** (per reader 0.90–1.01) |
+| MLP of block 8 alone / 9 / 10 / 11 / 12 / 13 / 14 / 15 / 16 / 17 | 0.39 / 0.28 / 0.24 / 0.23 / 0.18 / 0.15 / 0.12 / 0.15 / 0.25 / **0.42** |
+| two largest single MLP blocks, summed | 0.92 |
+| top-20 / top-100 MLP units across blocks 8–17 (by hidden mixed derivative) / 20 random units | 0.27 / 0.53 / 0.00 |
+| values of all attention blocks | **0.81** |
+| values of block 9 alone / block 8 / 10 / 11 / 12 / 15 / 17 (13, 14, 16 ≤ 0.01) | **0.43** / 0.15 / 0.09 / 0.12 / 0.05 / 0.05 / 0.06 |
+| values of blocks 8–9 together (share of all-values) | 0.58 (0.79) |
+
+The most-removing single MLP block is block 17 for 127 of 256 (context, reader) pairs and block 8 for 87 (block 10: 16, block 16: 13, block 9: 12). All five preregistered predictions pass (all-MLPs ≥ 0.6; two blocks ≥ 0.5; blocks 8–9 values ≥ 0.6 of all values; top-100 units ≥ 0.5).
+
+## Closing: what the block-8 → reader interaction is, and what it is not
+
+**What survives.** The second-order interaction between a perturbation of the block-8 residual and the 16 reader directions is, per context: the perturbation is carried **linearly** across positions by attention values — block 9's values above all (0.43), then block 8's (0.15), blocks 10–11 (0.1 each); and the **curvature is made by the bilinear MLPs**: essentially all of it (freezing all MLPs removes 98%), split between the source block's own MLP (block 8, 0.39, the direct path) and the last MLP (block 17, 0.42, the one that writes the readers' directions), with the intermediate MLPs contributing 0.12–0.28 each in an overlapping way. About a hundred MLP units carry half of a given direction's interaction; twenty carry a quarter; twenty random units carry nothing. Rung 4's budget says the same in mechanism terms: the pattern factors' own curvature is ~10% of the total; the value path plus its cross term 53%; paths that never touch an attention piece 35%.
+
+So a circuit description of this interaction that is faithful to the model reads: *reader k ← MLP17 units and MLP8 units (bilinear, weight-fixed forms in their own input space) ← the block-9 and block-8 attention values transporting the block-8 perturbation into those units' inputs (context-dependent linear maps).* It is not localised (a hundred units, several blocks), and it does generalise in the sense that matters — the shares above are medians over 16 held-out FineWeb contexts with tight per-reader spreads, and the same two blocks lead in every reader.
+
+**What fails, plainly.**
+- A **fixed basis** for the interaction in the block-8 residual: the mean form is high-rank (PR 92–408), its top-8 directions capture 4% of a held-out context's energy (0.1% on AdvBench), 25–33% of the energy is shared across contexts at all, and a 5,760-form dictionary of the heads' pattern curvatures captures 2.6% (noise 0.4%) although it captures a single factor's curvature at 70–95%. This is now understood: the form is an MLP bilinear form pulled back through a context-dependent transport, so no basis fixed in the block-8 coordinates can hold it.
+- **Low rank** per context: eigenvalue PR median 113 (7–264); the top eigen-direction carries 5% of a context's form.
+- **Seed-stable fitted factors** (previous note): the DCT and PR-DCT fits find init-dependent single neurons; AJ's branch variant finds single source-MLP neurons by Jacobian ranking, which is the block-8-MLP half of the picture above with the transport half removed by construction.
+
+**What is still owed.** Everything here is second-order at θ = 0 with perturbation energies of 10⁻⁶ against a residual of norm 10⁴. The finite-intervention check at ≤ 1% of the residual norm (planned rung 4 of the original ladder) was not run; the SwiGLU sign reversals in the PR-DCT checks show that derivative-level shares can fail to predict finite effects, so the transport × curvature description should be treated as a derivative-level attribution until patched at finite scale. Rung 2's per-head shares (running; 14 minutes per context) will add which of block 9's heads carry the transport.
+
+**Receipts.** `results/symmetric_dct_v5.json`, plan `plans/SYMMETRIC_DCT_PLAN_V5.md`, runner `scripts/run_symmetric_dct_v5.py`; 50 min. All five rungs: `pr_dct_checks/plans/SYMMETRIC_DCT_PLAN_V1–5.md`, `scripts/run_symmetric_dct_v1–5.py`, `results/symmetric_dct_v1–5.json`.

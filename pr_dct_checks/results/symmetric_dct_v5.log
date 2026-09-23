@@ -1,0 +1,67 @@
+/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:335.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[locate] context 1/16 (205s): all-MLPs 0.94 top100 units 0.57 values-all 0.86 values-8-9 0.68 everything 1.000 (no final norm 1.000000)
+[locate] context 2/16 (409s): all-MLPs 0.98 top100 units 0.51 values-all 0.77 values-8-9 0.53 everything 1.000 (no final norm 1.000000)
+[locate] context 3/16 (613s): all-MLPs 0.98 top100 units 0.56 values-all 0.70 values-8-9 0.48 everything 1.000 (no final norm 1.000000)
+[locate] context 4/16 (814s): all-MLPs 0.98 top100 units 0.60 values-all 0.68 values-8-9 0.46 everything 1.000 (no final norm 1.000000)
+[locate] context 5/16 (997s): all-MLPs 0.99 top100 units 0.61 values-all 0.69 values-8-9 0.46 everything 1.000 (no final norm 1.000000)
+[locate] context 6/16 (1180s): all-MLPs 0.98 top100 units 0.60 values-all 0.75 values-8-9 0.49 everything 1.000 (no final norm 1.000000)
+[locate] context 7/16 (1362s): all-MLPs 0.98 top100 units 0.57 values-all 0.78 values-8-9 0.53 everything 1.000 (no final norm 1.000000)
+[locate] context 8/16 (1543s): all-MLPs 0.98 top100 units 0.57 values-all 0.77 values-8-9 0.51 everything 1.000 (no final norm 1.000000)
+[locate] context 9/16 (1725s): all-MLPs 0.98 top100 units 0.55 values-all 0.76 values-8-9 0.49 everything 1.000 (no final norm 1.000000)
+[locate] context 10/16 (1906s): all-MLPs 0.98 top100 units 0.54 values-all 0.76 values-8-9 0.48 everything 1.000 (no final norm 1.000000)
+[locate] context 11/16 (2087s): all-MLPs 0.98 top100 units 0.55 values-all 0.78 values-8-9 0.50 everything 1.000 (no final norm 1.000000)
+[locate] context 12/16 (2269s): all-MLPs 0.98 top100 units 0.53 values-all 0.80 values-8-9 0.54 everything 1.000 (no final norm 1.000000)
+[locate] context 13/16 (2450s): all-MLPs 0.98 top100 units 0.53 values-all 0.81 values-8-9 0.58 everything 1.000 (no final norm 1.000000)
+[locate] context 14/16 (2631s): all-MLPs 0.98 top100 units 0.53 values-all 0.81 values-8-9 0.58 everything 1.000 (no final norm 1.000000)
+[locate] context 15/16 (2812s): all-MLPs 0.98 top100 units 0.53 values-all 0.81 values-8-9 0.59 everything 1.000 (no final norm 1.000000)
+[locate] context 16/16 (2993s): all-MLPs 0.98 top100 units 0.53 values-all 0.81 values-8-9 0.58 everything 1.000 (no final norm 1.000000)
+{
+ "predictions": {
+  "pred_a_instrument": true,
+  "pred_b_mlp_curvature": true,
+  "pred_c_few_mlp_blocks": true,
+  "pred_d_transport_8_9": true,
+  "pred_e_units": true
+ },
+ "controls": {
+  "everything_max_dev": 0.0
+ },
+ "summary": {
+  "all_mlps": 0.9791403514165927,
+  "mlp_blocks": {
+   "8": 0.385310230130761,
+   "9": 0.2793524892444359,
+   "10": 0.2395873609535018,
+   "11": 0.22866029981964947,
+   "12": 0.1820538337442944,
+   "13": 0.1457087679253407,
+   "14": 0.11741372292629654,
+   "15": 0.15142696804933098,
+   "16": 0.24708594151704838,
+   "17": 0.41560424120550543
+  },
+  "two_largest_mlp_blocks": 0.9230804147735695,
+  "top20_units": 0.2734587018544783,
+  "top100_units": 0.5283693625340329,
+  "random20_units": 0.0005260200362715572,
+  "values_all": 0.8139484035515655,
+  "values_8_9": 0.5842562833709011,
+  "transport_ratio_8_9": 0.786334162241908,
+  "values_blocks": {
+   "8": 0.1525660476566359,
+   "9": 0.4253887034285627,
+   "10": 0.09387051410101527,
+   "11": 0.11546645475319373,
+   "12": 0.047748072719674794,
+   "13": 0.004029423992888137,
+   "14": 0.0024389772494919915,
+   "15": 0.05194694428239954,
+   "16": 0.0004546760282815865,
+   "17": 0.05679715303161342
+  },
+  "eigen_pr": 113.16244506835938,
+  "top_eig_share": 0.053718551993370056
+ }
+}
+wrote results/symmetric_dct_v5.json
