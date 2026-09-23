@@ -105,6 +105,16 @@ Per-factor counts: PR ≤ 5 — **0 / 0 / 0 of 24**; top-1 completeness in [0.5,
 - **Every factor is an attention interaction.** Freezing all attention removes 98–100% of every factor's interaction at every weight. The squared-attention pattern (q·k)(q₂·k₂) is itself a bilinear form in the residual, so the mixed Hessian is dominated by pairs of query/key reads, and the MLP units the PR range measures are bystanders (all-AJ-MLPs 0.65–0.79 is overlap, not an alternative route: the parts sum to ~2.5).
 - This is the E1 attention group doing what the handoff designed it for: AJ reports his method "does best" on the attention variants; on this one the PR numbers are irrelevant because the measured units do not carry the interaction.
 
+### 4c. Squared attention, SwiGLU MLPs (`Elriggs/gpt2-swiglu-sqrd-attn-18l-9h-1152embd`)
+
+| w | median held-out PR | held-out energy / baseline | E1 top-1 | E1 top-5 | E1 all-AJ-MLPs | E1 source MLP | E1 attention | E3 top-1 @0.05 | E3 random-5 |
+|---|---|---|---|---|---|---|---|---|---|
+| 0 | 192 | 1.00 | 0.08 | 0.16 | 0.95 | 0.71 | 0.91 | 0.02 | 0.00 |
+| 0.1 | 141 | 1.04 | 0.11 | 0.25 | 0.97 | 0.64 | 0.94 | 0.10 | 0.00 |
+| 1 | 123 | 0.76 | 0.19 | 0.36 | 0.97 | 0.66 | 0.93 | 0.04 | 0.00 |
+
+No factor reaches PR ≤ 5 at any weight; attention carries 0.9+ of every factor; energies ~1 (10⁴× the softmax models). Same verdict as 4b. (E4 for this run was still fitting when the write-up was made; see `results/full_swiglu-attn_advbench.json` for the final stability block.)
+
 ## 5. Verdict
 
-_(pending the full runs)_
+In the README's table: the concentrated factors are **"the factor is a neuron"**, with two qualifications — the neuron is one stage of an interaction that attention carries 50–75% of (98–100% on the squared-attention models, where the penalty fails), and, except for one or two factors per dictionary, which neuron is found depends on the random start. About half of every penalised dictionary is not concentrated at all and lives in the source-block MLP outside the PR range. The 400× PR drop is specific to AJ's prompts (15× on real text). No factor on AJ's data recurred across seeds at his iteration count; converged, exactly one does. Finite ablations agree with the derivative picture on the bilinear model at 5% of the residual norm and contradict it (sign reversals, +211% / −950%) for the cleanest SwiGLU factors. E5 and a ≤1% E3 scale were not run. Full narrative with context: `basis_aligned/polynomial_causal/explanations/for_logan/research_update_2026-09-23_pr_dct_circuit_checks.md`.

@@ -1,0 +1,9 @@
+adapter parity vs repository blocks: 7.69e-08
+seed=0 w=0.0: train energy 1.105 heldout 1.166 | median heldout PR 192.4 | median top1 completeness 0.094 | source-MLP 0.691 attention 0.910 | trace energy ['4.97e-01', '6.86e-01', '7.21e-01'] | 933s
+seed=0 w=0.1: train energy 1.111 heldout 1.244 | median heldout PR 141.4 | median top1 completeness 0.130 | source-MLP 0.678 attention 0.953 | trace energy ['6.88e-01', '7.52e-01', '7.97e-01'] | 1942s
+seed=0 w=1.0: train energy 0.8593 heldout 0.9379 | median heldout PR 101.7 | median top1 completeness 0.188 | source-MLP 0.626 attention 0.945 | trace energy ['5.76e-01', '4.96e-01', '5.20e-01'] | 2956s
+seed=1 w=0.0: train energy 1.085 heldout 1.204 | median heldout PR 219.9 | median top1 completeness 0.052 | source-MLP 0.787 attention 0.949 | trace energy ['7.92e-01', '8.97e-01', '9.33e-01'] | 930s
+seed=1 w=0.1: train energy 1.232 heldout 1.235 | median heldout PR 151.3 | median top1 completeness 0.074 | source-MLP 0.632 attention 0.927 | trace energy ['9.27e-01', '9.80e-01', '1.00e+00'] | 1924s
+seed=1 w=1.0: train energy 0.7539 heldout 0.8569 | median heldout PR 144.1 | median top1 completeness 0.178 | source-MLP 0.701 attention 0.931 | trace energy ['5.15e-01', '5.44e-01', '5.86e-01'] | 2918s
+seed=2 w=0.0: train energy 1.197 heldout 1.286 | median heldout PR 174.7 | median top1 completeness 0.096 | source-MLP 0.679 attention 0.909 | trace energy ['6.04e-01', '6.97e-01', '8.39e-01'] | 920s
+seed=2 w=0.1: train energy 1.251 heldout 1.327 | median heldout PR 131.2 | median top1 completeness 0.163 | source-MLP 0.641 attention 0.893 | trace energy ['1.04e+00', '1.05e+00', '1.05e+00'] | 1915s

@@ -1,3 +1,5 @@
+[23 September 01:00 — PR-regularized DCT circuit checks: the penalty finds where one MLP unit sits on an attention-carried interaction; factors mostly do not survive a change of seed; squared-attention models do not concentrate at all](research_update_2026-09-23_pr_dct_circuit_checks.md)
+
 [22 September 17:55 — Source/context geometry: the exact S + C census, and a bidegree-typed correction that does not beat untyped atoms (data-starved; 7× data ablation queued)](research_update_2026-09-22_source_context_geometry.md)
 
 [22 September — Final Codex compression report: what was compressed, what survived, and what remains open](research_update_2026-09-22_final_codex_compression.md).
