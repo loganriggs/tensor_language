@@ -43,9 +43,10 @@ def read_weights(mlp):
 
 
 class TensorGPTSpans:
-    def __init__(self, model, source_layer, target_layer, target_positions=slice(-3, None)):
+    def __init__(self, model, source_layer, target_layer, target_positions=slice(-3, None), final_norm=False):
         assert 0 < source_layer < target_layer <= model.config.n_layer
         self.model = model
+        self.final_norm = final_norm            # apply the model's final rms_norm to the output (target = what the unembedding reads)
         self.source, self.target = source_layer, target_layer
         self.blocks = model.transformer.h[source_layer:target_layer]
         self.tp = target_positions
@@ -86,6 +87,8 @@ class TensorGPTSpans:
             hidden_full[L] = h
             hidden[L] = h[:, self.tp].mean(1)[0]
             values = values + down_project(block.mlp, h)
+        if self.final_norm:
+            values = F.rms_norm(values, (self.d,))
         out = values[:, self.tp].mean(1)[0]
         if full:
             return out, hidden_full, attn_full
