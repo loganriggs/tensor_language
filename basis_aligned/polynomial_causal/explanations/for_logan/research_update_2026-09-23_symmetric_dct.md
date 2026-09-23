@@ -28,3 +28,24 @@ What the numbers say:
 So the "sparse in an alternative basis" hope fails at the level of the averaged form: the interaction geometry at block 8 is set per context by the attention patterns. Rung 2 (running) asks the two questions that remain: are the forms low-rank *per context*, and which heads carry them.
 
 **Receipts.** `results/symmetric_dct_v1.json` (+ `_forms.pt`: B̄_k, eigenvalues, top-64 eigenvectors), plan `plans/SYMMETRIC_DCT_PLAN_V1.md`, runner `scripts/run_symmetric_dct_v1.py`; 74 min on the GPU.
+
+## Rung 2 (partial, 03:10 UTC) — per-context rank and cross-context consistency
+
+The per-head block is still running (14 minutes per context); the rank block is in. Per context the forms are still high-rank (eigenvalue PR median 113, range 7–264; a context's own top-8 eigen-directions capture 20% of its energy), and **25–33% of each context's interaction energy is shared across contexts** (consistency ratio ‖B̄‖²/mean‖B_c‖², all 16 readers in that band; mean pairwise cosine between contexts' forms 0.21–0.28). So there is a shared component, but it is spread over many directions — which is why rung 1's top-8 truncation of the mean form saw only 4% of it. First two contexts of the per-head block: freezing the top-3 heads removes 56–70% of the per-context top direction.
+
+## Rung 3 — a fixed weight-space head-form dictionary does not describe the forms (1 of 5)
+
+**The test.** For a squared-attention head the pattern is (q_i·k_j)(q₂ᵢ·k₂ⱼ), and the second derivative of one factor with respect to a perturbation added at every position is, up to the QK-norm Jacobians, a *fixed* matrix: sym(W_qᵀ R(−δ) W_k) for relative offset δ (rotary convention verified numerically). Dictionary: all 90 heads × 2 pattern factors × 32 offsets = 5,760 fixed forms; each context's exact B_{c,k} is least-squares fitted to it (inner products and the Gram computed exactly in head space, never materialising the forms). The "sparse in an alternative basis" hypothesis in its cleanest form: context enters only through coefficients.
+
+**Controls.** Inner-product and Gram shortcuts exact to 1e-15 against materialised forms; a planted combination of three forms is recovered with R² = 1.000000 (its coefficients are not identifiable because adjacent offsets at low rotary frequencies are near-collinear — reported, not gated, amended before the run); random symmetric matrices of the same norm get R² = 0.004. Post-hoc physics control on the real model: a single head's own pattern factor with random pair weights, whose Hessian should lie in that head's 32 forms by construction, is captured at **95–99.9% without QK-norm and 69–95% with it** (heads 8.0 and 8.3, both factors) — so the dictionary is the right object and the QK-norm Jacobian costs at most ~30%.
+
+| prediction | bar | result |
+|---|---|---|
+| b: captured fraction R², full dictionary | ≥ 0.5 | **✗ 0.026** median (0.013–0.124; noise 0.004) |
+| c: blocks 8–9 forms alone, share of the full R² | ≥ 0.8 | ✗ 0.68 |
+| d: offset-resolved vs offset-free (δ = 0 only) | ≥ 1.5× | ✗ 1.49× (0.026 vs 0.018) |
+| e: top-50 forms re-solved, share of full R² | ≥ 0.8 | ✗ 0.25 |
+
+**What it means.** The interaction forms are *not* combinations of the heads' pattern-factor curvatures, even with free context-dependent coefficients: those pieces account for ~2–3% of the energy, barely above noise, although the same pieces capture a single factor's curvature almost perfectly. So the interaction created by attention lives in the terms the fixed dictionary cannot contain: the **pattern × pattern cross term** (the product of the two factors' *gradients*, 2·sym(∇a_ij ∇b_ijᵀ), a context-dependent rank-1 piece per position pair), the **pattern × value** cross term, the value path, and downstream curvature. The next rung measures that budget exactly by freezing mechanisms inside each head (one factor, both factors, the pattern, the values) and computing the Hessian under each, which needs no derivation.
+
+**Receipts.** `results/symmetric_dct_v3.json`, plan `plans/SYMMETRIC_DCT_PLAN_V3.md`, runner `scripts/run_symmetric_dct_v3.py` (5.5 min on the GPU after a memory fix).

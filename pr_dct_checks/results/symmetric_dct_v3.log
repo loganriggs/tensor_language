@@ -1,0 +1,78 @@
+[dictionary] 5760 forms (180 head-types x 32 offsets); Gram in 16s; diag range 8.39e+03..5.19e+05
+[controls] shortcut max rel err 4.00e-15 | gram max rel err 4.15e-15 | planted R2 1.000000 coef err 1.31e+00
+/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:335.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[fit] context 1/16 (20s): R2 median so far 0.029 blocks8-9 0.021 delta0 0.019
+[controls] noise baseline R2 median 0.0042
+[fit] context 2/16 (40s): R2 median so far 0.028 blocks8-9 0.018 delta0 0.019
+[fit] context 3/16 (59s): R2 median so far 0.023 blocks8-9 0.015 delta0 0.015
+[fit] context 4/16 (79s): R2 median so far 0.021 blocks8-9 0.014 delta0 0.014
+[fit] context 5/16 (98s): R2 median so far 0.023 blocks8-9 0.015 delta0 0.015
+[fit] context 6/16 (117s): R2 median so far 0.023 blocks8-9 0.015 delta0 0.015
+[fit] context 7/16 (136s): R2 median so far 0.023 blocks8-9 0.015 delta0 0.015
+[fit] context 8/16 (155s): R2 median so far 0.023 blocks8-9 0.015 delta0 0.015
+[fit] context 9/16 (174s): R2 median so far 0.025 blocks8-9 0.016 delta0 0.016
+[fit] context 10/16 (193s): R2 median so far 0.025 blocks8-9 0.016 delta0 0.017
+[fit] context 11/16 (212s): R2 median so far 0.026 blocks8-9 0.018 delta0 0.018
+[fit] context 12/16 (231s): R2 median so far 0.026 blocks8-9 0.018 delta0 0.018
+[fit] context 13/16 (251s): R2 median so far 0.027 blocks8-9 0.019 delta0 0.018
+[fit] context 14/16 (270s): R2 median so far 0.026 blocks8-9 0.018 delta0 0.018
+[fit] context 15/16 (289s): R2 median so far 0.026 blocks8-9 0.018 delta0 0.018
+[fit] context 16/16 (308s): R2 median so far 0.026 blocks8-9 0.019 delta0 0.018
+{
+ "predictions": {
+  "pred_a_instrument": true,
+  "pred_b_captured": false,
+  "pred_c_blocks_8_9": false,
+  "pred_d_offsets_matter": false,
+  "pred_e_sparse": false
+ },
+ "controls": {
+  "shortcut_max": 4.002538458798382e-15,
+  "gram_max": 4.14648421682325e-15,
+  "planted_r2": 0.9999995857659479,
+  "planted_coef_err": 1.3096401043255055,
+  "noise_r2": [
+   0.004201960672818246,
+   0.004189514048118349,
+   0.004385707396228202,
+   0.00416986208206298,
+   0.004222872297514651,
+   0.0039849861850222035,
+   0.0038921536780213576,
+   0.004163984091862325
+  ]
+ },
+ "summary": {
+  "median_r2": 0.026399652994601865,
+  "median_r2_blocks89": 0.01850366940364207,
+  "median_r2_delta0": 0.017808719029622992,
+  "median_ratio_blocks89": 0.6800241537013256,
+  "median_ratio_offsets": 1.4910304151598641,
+  "median_ratio_top50": 0.25438289540244474,
+  "median_r2_top": {
+   "10": 0.0021621708448118114,
+   "50": 0.006696362974422958,
+   "200": 0.012728894736447487
+  },
+  "alpha_correlation_per_reader": [
+   0.2356226043495508,
+   0.28788550589251366,
+   0.2693522074113007,
+   0.24536867609229637,
+   0.29186977672501,
+   0.3132733798644868,
+   0.25765564233192345,
+   0.3280545429886521,
+   0.2000179715988966,
+   0.1930868365614579,
+   0.27241661508003406,
+   0.26728056924015925,
+   0.2776292581022543,
+   0.27205791404366664,
+   0.28568198560318997,
+   0.19194898765422982
+  ]
+ }
+}
+wrote results/symmetric_dct_v3.json
