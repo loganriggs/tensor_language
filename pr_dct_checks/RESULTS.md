@@ -113,7 +113,7 @@ Per-factor counts: PR ≤ 5 — **0 / 0 / 0 of 24**; top-1 completeness in [0.5,
 | 0.1 | 141 | 1.04 | 0.11 | 0.25 | 0.97 | 0.64 | 0.94 | 0.10 | 0.00 |
 | 1 | 123 | 0.76 | 0.19 | 0.36 | 0.97 | 0.66 | 0.93 | 0.04 | 0.00 |
 
-No factor reaches PR ≤ 5 at any weight; attention carries 0.9+ of every factor; energies ~1 (10⁴× the softmax models). Same verdict as 4b. (E4 for this run was still fitting when the write-up was made; see `results/full_swiglu-attn_advbench.json` for the final stability block.)
+No factor reaches PR ≤ 5 at any weight; attention carries 0.9+ of every factor; energies ~1 (10⁴× the softmax models). E4: cross-seed span matches 0.27 / 0.26 / 0.17 (w = 0 / 0.1 / 1; 1 / 1 / 0 of 24 pairs above 0.8), split 0.23 / 0.16 / 0.16 — the least stable of the four models. Same verdict as 4b.
 
 ## 5. Verdict
 

@@ -7,3 +7,4 @@ seed=1 w=0.1: train energy 1.232 heldout 1.235 | median heldout PR 151.3 | media
 seed=1 w=1.0: train energy 0.7539 heldout 0.8569 | median heldout PR 144.1 | median top1 completeness 0.178 | source-MLP 0.701 attention 0.931 | trace energy ['5.15e-01', '5.44e-01', '5.86e-01'] | 2918s
 seed=2 w=0.0: train energy 1.197 heldout 1.286 | median heldout PR 174.7 | median top1 completeness 0.096 | source-MLP 0.679 attention 0.909 | trace energy ['6.04e-01', '6.97e-01', '8.39e-01'] | 920s
 seed=2 w=0.1: train energy 1.251 heldout 1.327 | median heldout PR 131.2 | median top1 completeness 0.163 | source-MLP 0.641 attention 0.893 | trace energy ['1.04e+00', '1.05e+00', '1.05e+00'] | 1915s
+seed=2 w=1.0: train energy 1.059 heldout 1.16 | median heldout PR 83.4 | median top1 completeness 0.326 | source-MLP 0.632 attention 0.928 | trace energy ['5.28e-01', '6.40e-01', '7.51e-01'] | 2912s

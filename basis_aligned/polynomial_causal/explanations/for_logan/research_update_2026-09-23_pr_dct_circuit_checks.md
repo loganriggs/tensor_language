@@ -37,7 +37,7 @@ u·H[l, r] is a mixed second derivative, so it is **symmetric in l ↔ r**. The 
 | bilinear, FineWeb (off-distribution) | 190 → 12.5 / 10.2 | 0.98 / 0.97 |
 | SwiGLU, AdvBench | 72 → 1.1 / 1.1 | 0.97 / 0.98 |
 | bilinear + squared attention, AdvBench | 1576 → 834 / 173 | 0.96 / 0.73 |
-| SwiGLU + squared attention, AdvBench | 192 → 141 / 123 | 1.04 / 0.76 |
+| SwiGLU + squared attention, AdvBench | 192 → 141 / 102 | 1.04 / 0.81 |
 
 The "~400 to ~1 with 70–100% retained" numbers are real for the softmax-attention models on AdvBench prompts. Off-distribution the drop is 15×, not 400×. On the squared-attention models the penalty does not concentrate anything (no factor reaches PR ≤ 5 at any weight) and at w = 1 costs a quarter of the energy.
 
@@ -60,6 +60,7 @@ For the concentrated half the picture is consistent across bilinear and SwiGLU:
 | bilinear, FineWeb, w = 1 | 10 (a few factors at 0.89–1.00) | 1.00 | 2 |
 | SwiGLU, AdvBench, w = 1 | 6 | 1.00 | 3 |
 | bilinear + sqrd attention, w = 1 | 3 | — | 0 |
+| SwiGLU + sqrd attention, w = 1 | 0 | 0.7 | 0 |
 
 Random-dictionary null: 0.0001. At AJ's iteration count the fits have not converged (energies still rising) and no factor recurs across seeds on his data. Converged, exactly one factor recurs in every seed and the other seven are init-dependent; the penalty's effect is itself seed-dependent (same weight and scale: median PR 2.8 / 97.7 / 1.6 across seeds 0 / 1 / 2). The handoff's split test fits both halves from seed 0 and is confounded with shared initialisation (split matches exceed cross-seed matches). By the README's own reading table, "E4 matches near the null" means the per-factor retention numbers are not meaningful, and that is the state of most of each dictionary.
 
@@ -77,6 +78,6 @@ Negative results, stated plainly: the 400× figure is specific to AJ's prompts; 
 - E3 was run only at 5% and 20% of the residual norm; the SwiGLU sign reversals call for a ≤1% scale, which was not run.
 - E5 (the weight-space, moment-only fit) applies only to norm-free models and was not run on the real ones.
 - 10 iterations is AJ's default and is not converged; the 30-iteration run was fits-only (no E1–E3) and on AdvBench only.
-- The squared-attention SwiGLU run's E4 (split fits) was still finishing when this note was written; its E0–E3 numbers are in the table.
+- The squared-attention SwiGLU run finished after this note was first written: E4 cross-seed span matches 0.17–0.27 (at most 1 of 24 pairs above 0.8), the least stable of the four models; the table above is unchanged.
 
 **Files.** `pr_dct_checks/RESULTS.md` (all tables), `results/e0_ajscale_bilinear.json`, `results/full_{bilinear,swiglu,bilinear-attn,swiglu-attn}_advbench.json`, `results/full_bilinear_fineweb.json`, `results/conv30_bilinear_advbench.json`; code in `circuit_checks/` (handoff + `inrepo_model.py`, `dct_fit.py`, span measures in `checks.py`), runner `scripts/run_checks.py`, tables `scripts/summarize.py`, tests `tests/test_toy.py` (7) and `tests/test_fit.py` (3).
