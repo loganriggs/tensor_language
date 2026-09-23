@@ -41,6 +41,7 @@ class FreezeSpec:
     clean_attn: Optional[Dict[int, torch.Tensor]] = None
     head_masks: Dict[int, torch.Tensor] = field(default_factory=dict)     # {layer: [H]}, 1 = freeze that head (squared attention only)
     clean_heads: Optional[Dict[int, torch.Tensor]] = None                 # {layer: per-head outputs [B, H, T, D]} for finite patching
+    attn_modes: Dict[int, dict] = field(default_factory=dict)             # {layer: {'a','b','pattern','values': bool}} detach-freeze of mechanisms inside squared attention (derivatives at theta = 0 only)
 
 
 def apply_freeze(h: torch.Tensor, mask: Optional[torch.Tensor],
