@@ -68,7 +68,7 @@ class TensorGPTSpans:
     def _run(self, ctx, theta, freeze: FreezeSpec | None, stop_at_mlp_input=None, full=False):
         values, init, first = ctx
         values = values + theta
-        hidden, hidden_full, attn_full, heads_full = {}, {}, {}, {}
+        hidden, hidden_full, attn_full, heads_full, values_full = {}, {}, {}, {}, {}
         for rel, block in enumerate(self.blocks):
             L = self.source + rel
             values = block.lambdas[0] * values + block.lambdas[1] * init
@@ -77,11 +77,18 @@ class TensorGPTSpans:
             vm = None if freeze is None else freeze.head_value_masks.get(L)
             if vm is not None:
                 md = dict(md or {}); md["value_mask"] = vm.to(values.device)
+                if freeze.clean_values is not None and L in freeze.clean_values:
+                    md["clean_v"] = freeze.clean_values[L]
             if hm is not None or md is not None or self.per_head:
                 from .heads import bilinear_attn_forward
                 cz = None if (freeze is None or freeze.clean_heads is None) else freeze.clean_heads.get(L)
+                recd = {} if full else None
+                if recd is not None:
+                    md = dict(md or {}); md["record"] = recd
                 attn, first, z = bilinear_attn_forward(block.attn, F.rms_norm(values, (self.d,)), first, None if hm is None else hm.to(values.device), cz, md)
                 heads_full[L] = z
+                if recd is not None:
+                    values_full[L] = recd["v"]
             else:
                 attn, first = block.attn(F.rms_norm(values, (self.d,)), first)
             if freeze is not None and L in freeze.attn_layers:
@@ -103,7 +110,7 @@ class TensorGPTSpans:
             values = F.rms_norm(values, (self.d,))
         out = values[:, self.tp].mean(1)[0]
         if full:
-            return out, hidden_full, attn_full, heads_full
+            return out, hidden_full, attn_full, heads_full, values_full
         return out, hidden
 
     def make_span(self, ctx):
@@ -113,9 +120,9 @@ class TensorGPTSpans:
 
         def clean_cache():
             with torch.no_grad():
-                _, h, a, hz = self._run(ctx, torch.zeros(self.d, device=ctx[0].device), None, full=True)
+                _, h, a, hz, vv = self._run(ctx, torch.zeros(self.d, device=ctx[0].device), None, full=True)
             return {"hidden": {k: v.detach() for k, v in h.items()},
-                    "attn": {k: v.detach() for k, v in a.items()}, "heads": {k: v.detach() for k, v in hz.items()}}
+                    "attn": {k: v.detach() for k, v in a.items()}, "heads": {k: v.detach() for k, v in hz.items()}, "values": {k: v.detach() for k, v in vv.items()}}
 
         span.clean_cache = clean_cache
         return span

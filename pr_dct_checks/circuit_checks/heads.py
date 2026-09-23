@@ -30,7 +30,10 @@ def bilinear_attn_forward(attn, x, v1=None, head_mask=None, clean_z=None, modes=
         v = v.detach()
     if modes.get("value_mask") is not None:      # per-head value freeze: mask [H], 1 = that head's values held at clean
         vm = modes["value_mask"].to(v.dtype).view(1, 1, H, 1)
-        v = vm * v.detach() + (1 - vm) * v
+        frozen_v = v.detach() if modes.get("clean_v") is None else modes["clean_v"].to(v.dtype)   # detach for derivatives at 0; clean tensor for finite patches
+        v = vm * frozen_v + (1 - vm) * v
+    if modes.get("record") is not None:
+        modes["record"]["v"] = v
     cos, sin = attn.rotary(q)
     q, k = F.rms_norm(q, (D,)), F.rms_norm(k, (D,)); q, k = _rot(q, cos, sin), _rot(k, cos, sin)
     q2, k2 = F.rms_norm(q2, (D,)), F.rms_norm(k2, (D,)); q2, k2 = _rot(q2, cos, sin), _rot(k2, cos, sin)
