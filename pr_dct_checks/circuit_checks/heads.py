@@ -28,6 +28,9 @@ def bilinear_attn_forward(attn, x, v1=None, head_mask=None, clean_z=None, modes=
     modes = modes or {}
     if modes.get("values"):                      # hold the values at their clean value (zero tangent): only the pattern path is live
         v = v.detach()
+    if modes.get("value_mask") is not None:      # per-head value freeze: mask [H], 1 = that head's values held at clean
+        vm = modes["value_mask"].to(v.dtype).view(1, 1, H, 1)
+        v = vm * v.detach() + (1 - vm) * v
     cos, sin = attn.rotary(q)
     q, k = F.rms_norm(q, (D,)), F.rms_norm(k, (D,)); q, k = _rot(q, cos, sin), _rot(k, cos, sin)
     q2, k2 = F.rms_norm(q2, (D,)), F.rms_norm(k2, (D,)); q2, k2 = _rot(q2, cos, sin), _rot(k2, cos, sin)

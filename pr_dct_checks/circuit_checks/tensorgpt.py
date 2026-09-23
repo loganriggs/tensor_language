@@ -74,6 +74,9 @@ class TensorGPTSpans:
             values = block.lambdas[0] * values + block.lambdas[1] * init
             hm = None if freeze is None else freeze.head_masks.get(L)
             md = None if freeze is None else freeze.attn_modes.get(L)
+            vm = None if freeze is None else freeze.head_value_masks.get(L)
+            if vm is not None:
+                md = dict(md or {}); md["value_mask"] = vm.to(values.device)
             if hm is not None or md is not None or self.per_head:
                 from .heads import bilinear_attn_forward
                 cz = None if (freeze is None or freeze.clean_heads is None) else freeze.clean_heads.get(L)
