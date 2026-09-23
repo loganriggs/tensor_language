@@ -1,0 +1,81 @@
+[controls] branch-span parity 0.00e+00 | linear-downstream identity max rel err 4.80e-07 | random-direction swap asymmetry median 1.384
+seed 0: train 1.515e+07 heldout 1.572e+07 wikitext ret 0.279 fineweb ret 0.176 | swapped/direct 0.128 | top1 energy frac [0.995, 0.991, 0.993, 0.998, 0.992, 0.812, 0.518, 0.977] | closed-form rank of fitted unit [0, 0, 0, 0, 0, 0, 0, 1] | curvature share [0.022, 0.019, 0.006, 0.008, 0.047, 0.035, 0.014, 0.003] | 464s
+seed 1: train 1.493e+07 heldout 1.551e+07 wikitext ret 0.278 fineweb ret 0.173 | swapped/direct 0.126 | top1 energy frac [0.993, 0.991, 0.977, 0.998, 0.756, 0.72, 0.998, 0.995] | closed-form rank of fitted unit [0, 0, 1, 0, 0, 0, 0, 0] | curvature share [0.006, 0.019, 0.006, 0.008, 0.076, 0.013, 0.006, 0.157] | 465s
+seed 2: train 1.42e+07 heldout 1.47e+07 wikitext ret 0.282 fineweb ret 0.173 | swapped/direct 0.135 | top1 energy frac [0.988, 0.991, 0.993, 0.998, 0.989, 0.919, 0.995, 0.994] | closed-form rank of fitted unit [0, 0, 0, 0, 0, 1, 0, 0] | curvature share [0.001, 0.019, 0.006, 0.008, 0.024, 0.042, 0.158, 0.037] | 459s
+{
+ "predictions": {
+  "pred_a_instrument": true,
+  "pred_b_replicates": false,
+  "pred_c_closed_form_units": true,
+  "pred_d_first_order": true,
+  "pred_e_seed_instability": false
+ },
+ "controls": {
+  "parity": 0.0,
+  "linear": 4.802555508831574e-07,
+  "swap_asymmetry": [
+   1.293952465057373,
+   1.4536309242248535,
+   1.3602699041366577,
+   1.407787799835205
+  ]
+ },
+ "closed_form_ranks": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  0,
+  0,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  0,
+  0
+ ],
+ "curvature": [
+  0.02171568059757148,
+  0.018969217710460236,
+  0.00559455671527637,
+  0.008018405725484155,
+  0.04701018486028963,
+  0.03475003043000118,
+  0.013838932427641209,
+  0.0027097892759199303,
+  0.005587458174317561,
+  0.018778878748611887,
+  0.005679458244661498,
+  0.00802924850309558,
+  0.07569049906373812,
+  0.013401032832118551,
+  0.0058812621691404325,
+  0.15660156827796512,
+  0.0007684460713415077,
+  0.018969185876298825,
+  0.005593315663418413,
+  0.008035580326913438,
+  0.02374389695501685,
+  0.04215593225026929,
+  0.15772502806223673,
+  0.03673428398441221
+ ],
+ "matches": [
+  4,
+  4,
+  4
+ ]
+}
+wrote results/branch_dct_bilinear-attn.json
