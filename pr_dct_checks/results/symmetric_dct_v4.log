@@ -1,0 +1,63 @@
+/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:335.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[controls] all-modes vs all-layers freeze 0.00e+00 | a+b frozen vs pattern frozen 0.00e+00
+[budget] context 1/16 (79s): signed shares {'pure_a': 0.038, 'pure_b': 0.037, 'cross_ab': 0.005, 'pure_v': 0.416, 'cross_pv': 0.216, 'rest': 0.268} | cross PR 60.0 | R2 pure 0.136 cross 0.108
+[budget] context 2/16 (158s): signed shares {'pure_a': 0.044, 'pure_b': 0.041, 'cross_ab': 0.006, 'pure_v': 0.336, 'cross_pv': 0.186, 'rest': 0.396} | cross PR 48.8 | R2 pure 0.114 cross 0.107
+[budget] context 3/16 (237s): signed shares {'pure_a': 0.044, 'pure_b': 0.038, 'cross_ab': 0.006, 'pure_v': 0.336, 'cross_pv': 0.17, 'rest': 0.418} | cross PR 44.4 | R2 pure 0.099 cross 0.087
+[budget] context 4/16 (315s): signed shares {'pure_a': 0.043, 'pure_b': 0.038, 'cross_ab': 0.006, 'pure_v': 0.335, 'cross_pv': 0.154, 'rest': 0.425} | cross PR 44.4 | R2 pure 0.095 cross 0.086
+[budget] context 5/16 (394s): signed shares {'pure_a': 0.042, 'pure_b': 0.04, 'cross_ab': 0.007, 'pure_v': 0.332, 'cross_pv': 0.163, 'rest': 0.419} | cross PR 40.4 | R2 pure 0.106 cross 0.089
+[budget] context 6/16 (473s): signed shares {'pure_a': 0.04, 'pure_b': 0.038, 'cross_ab': 0.006, 'pure_v': 0.346, 'cross_pv': 0.172, 'rest': 0.401} | cross PR 42.4 | R2 pure 0.113 cross 0.095
+[budget] context 7/16 (552s): signed shares {'pure_a': 0.038, 'pure_b': 0.037, 'cross_ab': 0.006, 'pure_v': 0.355, 'cross_pv': 0.177, 'rest': 0.39} | cross PR 42.4 | R2 pure 0.113 cross 0.095
+[budget] context 8/16 (644s): signed shares {'pure_a': 0.038, 'pure_b': 0.038, 'cross_ab': 0.006, 'pure_v': 0.35, 'cross_pv': 0.172, 'rest': 0.397} | cross PR 42.0 | R2 pure 0.110 cross 0.097
+[budget] context 9/16 (723s): signed shares {'pure_a': 0.04, 'pure_b': 0.041, 'cross_ab': 0.006, 'pure_v': 0.342, 'cross_pv': 0.173, 'rest': 0.389} | cross PR 40.4 | R2 pure 0.114 cross 0.097
+[budget] context 10/16 (826s): signed shares {'pure_a': 0.041, 'pure_b': 0.042, 'cross_ab': 0.006, 'pure_v': 0.339, 'cross_pv': 0.175, 'rest': 0.384} | cross PR 41.5 | R2 pure 0.111 cross 0.095
+[budget] context 11/16 (924s): signed shares {'pure_a': 0.041, 'pure_b': 0.043, 'cross_ab': 0.006, 'pure_v': 0.341, 'cross_pv': 0.18, 'rest': 0.368} | cross PR 39.3 | R2 pure 0.116 cross 0.098
+[budget] context 12/16 (1033s): signed shares {'pure_a': 0.041, 'pure_b': 0.042, 'cross_ab': 0.006, 'pure_v': 0.347, 'cross_pv': 0.184, 'rest': 0.35} | cross PR 38.9 | R2 pure 0.124 cross 0.097
+[budget] context 13/16 (1130s): signed shares {'pure_a': 0.042, 'pure_b': 0.044, 'cross_ab': 0.007, 'pure_v': 0.341, 'cross_pv': 0.188, 'rest': 0.349} | cross PR 38.5 | R2 pure 0.124 cross 0.098
+[budget] context 14/16 (1239s): signed shares {'pure_a': 0.042, 'pure_b': 0.044, 'cross_ab': 0.006, 'pure_v': 0.339, 'cross_pv': 0.183, 'rest': 0.36} | cross PR 37.4 | R2 pure 0.124 cross 0.099
+[budget] context 15/16 (1337s): signed shares {'pure_a': 0.042, 'pure_b': 0.045, 'cross_ab': 0.007, 'pure_v': 0.34, 'cross_pv': 0.182, 'rest': 0.359} | cross PR 38.6 | R2 pure 0.124 cross 0.098
+[budget] context 16/16 (1446s): signed shares {'pure_a': 0.044, 'pure_b': 0.044, 'cross_ab': 0.007, 'pure_v': 0.342, 'cross_pv': 0.186, 'rest': 0.35} | cross PR 38.6 | R2 pure 0.126 cross 0.100
+{
+ "predictions": {
+  "pred_a_instrument": true,
+  "pred_b_pattern_path": false,
+  "pred_c_cross_dominates": false,
+  "pred_d_pure_is_fixed_form": false,
+  "pred_e_cross_low_rank": false
+ },
+ "controls": {
+  "all_modes_vs_layers": 0.0,
+  "ab_vs_pattern": 0.0,
+  "symmetry_max": 2.0198303313171708e-06
+ },
+ "summary": {
+  "median_signed_share": {
+   "pure_a": 0.04369108552271209,
+   "pure_b": 0.04363772161295966,
+   "cross_ab": 0.006568416386903888,
+   "pure_v": 0.34161497795517387,
+   "cross_pv": 0.185702892019304,
+   "rest": 0.3502478764681566
+  },
+  "median_energy_share": {
+   "pure_a": 0.04043601222847101,
+   "pure_b": 0.03090167356128979,
+   "cross_ab": 0.014662250560344186,
+   "pure_v": 0.28143756776299983,
+   "cross_pv": 0.18576918613731813,
+   "rest": 0.2962105317172212
+  },
+  "median_eigen_pr": {
+   "pure_a": 95.51221466064453,
+   "pure_b": 84.88679122924805,
+   "cross_ab": 38.57659339904785,
+   "pure_v": 78.29343032836914,
+   "cross_pv": 21.141576766967773,
+   "rest": 298.5904998779297
+  },
+  "median_pattern_path": 0.09888475168605712,
+  "median_r2_pure": 0.12606399032791732,
+  "median_r2_cross": 0.09971486180334446
+ }
+}
+wrote results/symmetric_dct_v4.json

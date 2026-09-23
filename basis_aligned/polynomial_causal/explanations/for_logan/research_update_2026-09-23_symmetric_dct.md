@@ -49,3 +49,22 @@ The per-head block is still running (14 minutes per context); the rank block is 
 **What it means.** The interaction forms are *not* combinations of the heads' pattern-factor curvatures, even with free context-dependent coefficients: those pieces account for ~2–3% of the energy, barely above noise, although the same pieces capture a single factor's curvature almost perfectly. So the interaction created by attention lives in the terms the fixed dictionary cannot contain: the **pattern × pattern cross term** (the product of the two factors' *gradients*, 2·sym(∇a_ij ∇b_ijᵀ), a context-dependent rank-1 piece per position pair), the **pattern × value** cross term, the value path, and downstream curvature. The next rung measures that budget exactly by freezing mechanisms inside each head (one factor, both factors, the pattern, the values) and computing the Hessian under each, which needs no derivation.
 
 **Receipts.** `results/symmetric_dct_v3.json`, plan `plans/SYMMETRIC_DCT_PLAN_V3.md`, runner `scripts/run_symmetric_dct_v3.py` (5.5 min on the GPU after a memory fix).
+
+## Rung 4 — the exact mechanism budget: attention transports, the curvature is downstream (1 of 5 as written, but decisive)
+
+**Method.** Inside every squared-attention head the perturbation reaches the output through the first pattern factor a = q·k, the second b = q₂·k₂, the values v, and, outside attention, the source MLP and all downstream blocks. Holding a piece at its clean value for derivatives at θ = 0 is a `.detach()`; second-order terms each involve one or two pieces, so inclusion–exclusion over six Hessians per (context, reader) splits H exactly into pure(a), pure(b), cross(a, b), pure(v), cross(pattern, v) and rest. Controls: freezing pattern + values by this mechanism equals freezing the blocks' attention outputs (0.00e+00), freezing a + b equals freezing the pattern (0.00e+00), symmetry 2e-6.
+
+| piece (median over 16 contexts × 16 readers) | signed share ⟨piece, H⟩/‖H‖² | energy ‖piece‖²/‖H‖² | eigenvalue PR |
+|---|---|---|---|
+| pure(a) — first pattern factor | 0.044 | 0.040 | 96 |
+| pure(b) — second pattern factor | 0.044 | 0.031 | 85 |
+| cross(a, b) — product of the factors' gradients | 0.007 | 0.015 | 39 |
+| **pure(v) — values** | **0.342** | 0.281 | 78 |
+| **cross(pattern, v)** | **0.186** | 0.186 | 21 |
+| **rest — no attention piece live (source MLP, MLP paths, downstream curvature)** | **0.350** | 0.296 | 299 |
+
+Per reader the three large shares are stable (pure(v) 0.28–0.37, cross(pattern, v) 0.16–0.21, rest 0.31–0.40). Predictions b (pattern path ≥ 0.5: 0.10), c (cross(a, b) dominant), d (fixed dictionary R² on the pure-factor pieces ≥ 0.6: 0.13, because a pure-factor piece summed over all heads still includes downstream curvature acting on the first-order pattern change) and e (cross(a, b) low-rank: PR 39) all fail as written.
+
+**What it means.** The attention patterns are not where the second-order interaction is made. Values are linear in a block's input, so a piece that involves only values has its curvature *after* the attention: the perturbation is transported linearly across positions by the clean attention (the value path), and the bilinear MLPs downstream (and the final norm) turn the transported first-order change into a second-order one; the same holds for the 35% that never touches an attention piece. That is the structure this architecture makes natural — attention moves, bilinear MLPs multiply — and it explains every earlier negative: the interaction form in the block-8 basis is a fixed MLP form pulled back through a context-dependent linear transport, so it is high-rank, context-specific, and not in any fixed dictionary of pattern forms. Rung 5 (running) locates the two ends: which blocks' MLPs carry the curvature and which blocks' values carry the transport, for each context's top interaction direction.
+
+**Receipts.** `results/symmetric_dct_v4.json`, plan `plans/SYMMETRIC_DCT_PLAN_V4.md`, runner `scripts/run_symmetric_dct_v4.py`; 25 min.
