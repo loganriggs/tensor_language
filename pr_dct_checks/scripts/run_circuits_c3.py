@@ -25,11 +25,12 @@ BARS = dict(zero=1e-6, all=0.99, removal=0.3, removal_heads=0.5, selective=2.0, 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke", action="store_true"); ap.add_argument("--device", default="cuda"); ap.add_argument("--source-layer", type=int, default=8)
-    ap.add_argument("--sequence-length", type=int, default=32); ap.add_argument("--contexts", type=int, default=8); ap.add_argument("--n-tokens", type=int, default=16)
+    ap.add_argument("--sequence-length", type=int, default=32); ap.add_argument("--contexts", type=int, default=8); ap.add_argument("--n-tokens", type=int, default=16); ap.add_argument("--row-offset", type=int, default=96)
     ap.add_argument("--c1a", default="results/circuits_c1a.json"); ap.add_argument("--blocks", default="results/circuits_c1c_blocks.json"); ap.add_argument("--n-creators", type=int, default=30)
     ap.add_argument("--scale", type=float, default=0.01); ap.add_argument("--out", default="results/circuits_c3.json")
     a = ap.parse_args(); t_start = time.time(); os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
     if a.smoke:
+        a.out = "results/smoke_circuits_c3.json"
         sys.path.insert(0, ROOT); import jacclust.tt_model as TT
         a.device = "cpu"; a.source_layer = 1; a.contexts = 2; a.sequence_length = 8; a.n_tokens = 1; a.n_creators = 4
         cfg = TT.GPTConfig(vocab_size=64, n_layer=4, n_head=2, n_embd=16, bilinear=True, bilinear_attn=True, squared_attn=True)
@@ -42,7 +43,7 @@ def main():
         heads = {k: [(1, 0), (2, 1), (3, 0)] for k in range(3)}
     else:
         model, cfg, meta = load("bilinear-attn", a.device); readers = readers_for(model, a.device)
-        rows = torch.load(os.path.join(ROOT, "basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip7000.pt"), map_location="cpu"); rows_fw = rows[96:96 + a.contexts, :a.sequence_length].long()
+        rows = torch.load(os.path.join(ROOT, "basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip7000.pt"), map_location="cpu"); rows_fw = rows[a.row_offset:a.row_offset + a.contexts, :a.sequence_length].long()
         from transformers import GPT2Tokenizer; tok = GPT2Tokenizer.from_pretrained("gpt2"); tok.pad_token = tok.eos_token
         _, adv = advbench_texts(32, a.contexts); rows_adv = torch.cat([tok(t, return_tensors="pt", truncation=True, padding="max_length", max_length=a.sequence_length).input_ids for t in adv])
         c1a = json.load(open(a.c1a)); toks = c1a["tokens"][:a.n_tokens]; per_dir = {p["name"]: p for p in c1a["per_direction"]}
