@@ -1,4 +1,4 @@
-[24 September 01:30 — Circuits at the transport × multiplication level: 100 output directions (readers + token unembeddings) share three transport heads (9.8, 9.7, 8.2) and a core of ~40 block-17 units; weight-space dictionary fit and finite-scale check running](research_update_2026-09-24_circuits.md)
+[24 September 03:20 — Circuits on bilin18, closed: creation in blocks 8–12 units (a zero-parameter weight-space decomposition reproduces 70% of every form), transport by heads 9.8/9.7/8.2, read-out by a universal block-17 funnel; causal to ~1% of the residual norm, selective and additive across 100 directions, but FineWeb-specific at the unit level](research_update_2026-09-24_circuits.md)
 
 [23 September 04:30 — Symmetric, deterministic DCT on bilin18, five rungs: the block-8 → reader interaction is value transport by heads 9.8, 9.7 and 8.2 into bilinear-MLP curvature (blocks 8 and 17); no fixed basis, no low rank, no seed-stable fitted factors; finite-scale check still owed](research_update_2026-09-23_symmetric_dct.md)
 

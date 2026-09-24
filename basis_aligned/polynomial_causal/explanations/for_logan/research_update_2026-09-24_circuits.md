@@ -78,3 +78,42 @@ The heads' and units' finite effects match their derivative shares at 0.3% and 1
 So the description is causal at the scale the derivatives describe, and that scale is about 1% of the residual norm: patching the three transport heads and a hundred reader units removes three quarters of the finite interaction, random controls remove nothing.
 
 **Receipts.** `results/circuits_c2.json`, plan `plans/CIRCUITS_PLAN_V3.md`, runner `scripts/run_circuits_c2.py`; 38 min.
+
+## Rung C3 — the four properties on creator circuits (3 of 5)
+
+**Circuit(u)** = the 30 units of blocks 8–12 that carry the most closed-form energy for u across contexts (C1c) plus u's top-3 value-transport heads (C1a). Finite patches at 1% of the residual norm on 8 FineWeb and 8 AdvBench contexts, 32 directions; controls: zero-mask patching exact (0.0), patching all heads' values and all units removes 1.003 of the finite interaction.
+
+| fraction of the finite interaction removed (median) | FineWeb | AdvBench |
+|---|---|---|
+| creators(u), 30 units | 0.18 (readers 0.18, tokens 0.17) | 0.05 |
+| creators(u) + heads(u) | **0.60** | 0.08 |
+| heads(u) alone | 0.38 | 0.03 |
+| readers (C1a's per-context top-100 units) | 0.47 | 0.33 |
+| 30 random early-block units | 0.001 | 0.002 |
+
+- **Removal**: creators alone fail the 0.3 bar (0.18); creators + heads pass (0.60). Thirty units are a small part of the ~60% of curvature that the closed form attributes to blocks 8–12 in aggregate — the creation is spread over hundreds of units.
+- **Selectivity ✓**: a direction's own specific creators remove 0.14 of its interaction and 0.02 (mean; 0.009 in absolute median) of any other direction's — ratio **4.4**. The shared core across the 32 directions is three units (8.4507, 10.2698, 11.1989); the creator sets are direction-specific, where C1a's reader sets were universal.
+- **Composition ✓**: patching the union of two directions' creator sets removes what the sum of the separate patches predicts, to 0.005.
+- **Generalisation ✗**: FineWeb-derived creators and heads barely act on AdvBench prompts (0.05 and 0.03); the per-context readers do (0.33). The heads that transport on real text are not the ones that transport on "Sure, here is…" prompts — the same off-distribution failure the branch-DCT replication showed for this model.
+
+**Costs.** Per direction: 30 creator units × 2 reads × 1,152 = 69k multiply-adds for the creator forms; 3 heads' value maps (2 × 128 × 1,152 each) = 885k; the reader set is a further ~100 units.
+
+**Receipts.** `results/circuits_c3.json`, plan `plans/CIRCUITS_PLAN_V5.md`, runner `scripts/run_circuits_c3.py`; 68 min.
+
+## Closing: what a circuit is here, and how good it is
+
+**What survives.** For any of the 100 output directions tested (16 reader directions, 84 token unembeddings), the second-order response to a block-8 perturbation has one structure:
+
+1. **Creation**: bilinear units in blocks 8–12 multiply the perturbation with the residual they read — block 8's own MLP first (25% of the form by itself), then 9, 10, 11, 12 (cumulatively 60%). This part is a weight-space object: each unit's fixed read pair sym(a bᵀ) pulled back through the context's linearised transport and weighted by its exact downstream read. With **no fitted parameters** that decomposition reproduces 70% of every context's exact interaction form (C1c). Creator sets are direction-specific and selective (C3).
+2. **Transport**: three heads' values (9.8, 9.7, 8.2) carry the perturbation between positions for 63–81% of directions; patching their values removes 38% of the finite interaction on real text (C1a, C2, C3).
+3. **Read-out**: a universal set of ~40 block-17 units (plus some in 16) reads the transported second-order signal nearly linearly into every output direction (C1a's hub; 3–29% own curvature in C1c's control). Patching a hundred of them removes half the finite interaction; they are the model's shared output funnel, not a per-direction circuit.
+
+The description is causal at finite scale up to ~1% of the residual norm (C2), additive across directions (C3), and holds equally for reader and token directions.
+
+**What does not hold.**
+- A fixed matrix per head as the transport (C1b, R² 0.07): the transport is a fixed tensor contracted with the context (the intermediate bilinear MLPs gate it), so the weight-space description is "fixed forms × context-contracted transport", not "fixed forms × fixed transport". That is exactly the tensor-network reading Logan asked for, and it is where the context enters.
+- Small circuits: 30 creators carry 18%; the creation is spread across hundreds of units per direction, and the reader funnel across ~100.
+- Off-distribution transfer: the FineWeb-derived creators and heads do not act on AdvBench prompts. What generalises across text distributions is the *structure* (early creation, value transport, block-17 read-out) and the per-context reader set, not a fixed unit list.
+- The remaining 30% of each form is transport curvature (attention pattern second order and the units' (a·n)H_b terms), which the linearised-transport decomposition excludes by design.
+
+**Still owed.** Third-order and beyond (the 3% scale already breaks the quadratic picture); a per-distribution creator census (AdvBench) to see whether the same units create with different transports; and the attention-pattern part of the transport in weight terms (the kernel + low-rank program from the attention lane would make the transport tensor explicit). The ladder as registered is exhausted.
