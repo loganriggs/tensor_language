@@ -113,7 +113,7 @@ The description is causal at finite scale up to ~1% of the residual norm (C2), a
 **What does not hold.**
 - A fixed matrix per head as the transport (C1b, R² 0.07): the transport is a fixed tensor contracted with the context (the intermediate bilinear MLPs gate it), so the weight-space description is "fixed forms × context-contracted transport", not "fixed forms × fixed transport". That is exactly the tensor-network reading Logan asked for, and it is where the context enters.
 - Small circuits: 30 creators carry 18%; the creation is spread across hundreds of units per direction, and the reader funnel across ~100.
-- Off-distribution transfer: the FineWeb-derived creators and heads do not act on AdvBench prompts. What generalises across text distributions is the *structure* (early creation, value transport, block-17 read-out) and the per-context reader set, not a fixed unit list.
+- Transfer (amended after C3h): on fresh FineWeb contexts the transport heads and the read-out funnel transfer (heads alone 0.52, with creators 0.67), but the 30-unit creator lists do not (0.18 → 0.06): the creation is spread over hundreds of units and which ones are active is decided by the context through the transport. On AdvBench neither the heads nor the units act (0.03 / 0.05); the per-context readers still do (0.32).
 - The remaining 30% of each form is transport curvature (attention pattern second order and the units' (a·n)H_b terms), which the linearised-transport decomposition excludes by design.
 
 **Still owed.** Third-order and beyond (the 3% scale already breaks the quadratic picture); a per-distribution creator census (AdvBench) to see whether the same units create with different transports; and the attention-pattern part of the transport in weight terms (the kernel + low-rank program from the attention lane would make the transport tensor explicit). The ladder as registered is exhausted.
@@ -134,3 +134,25 @@ So it is one shared transport, with a second tier of heads that some directions 
 **Do all 100 use the same ~40 block-17 units?** Mostly, with the same caveat. C1a's "stable units" of a direction are those in its top-100 mixed-derivative units on at least half the contexts; a direction has about 40 of them (56 for readers, 38 for tokens), 91% in block 17. Across directions: 39 units are stable for at least 50 directions, but only 3 are stable for all 100; those 39 cover a median 83% of any direction's stable set. So the funnel is one shared set of a few dozen block-17 units with direction-specific additions, not an identical list. The note's "~40" conflated the per-direction count with the shared count; the numbers above are the precise statement.
 
 **FineWeb → FineWeb transfer is the right test and C3 did not run it.** C3's FineWeb contexts (rows 96–103) are the same 8 that the creator sets were counted on (C1c) and the heads chosen on (C1a). The removal numbers (creators 0.18, creators + heads 0.60) are therefore in-sample; the AdvBench numbers are the only out-of-sample ones, and Logan is right that they test the wrong thing. Rung C3h (`plans/CIRCUITS_PLAN_V6.md`) reruns C3 with the identical creator sets and heads on 8 fresh FineWeb contexts (rows 104–111), predictions registered before the run: creators ≥ 0.7 × 0.18, creators + heads ≥ 0.42, heads alone ≥ 0.27, selectivity ≥ 2 held-out, AdvBench reproduces. Running now; results go under this section.
+
+### Rung C3h — held-out FineWeb transfer (4 of 5; the creator unit lists do not transfer, the heads do)
+
+Same creator sets, shared core, heads and random control as C3; 8 fresh FineWeb contexts (rows 104–111) never used in any circuits rung; AdvBench block repeated. Controls: zero-mask exact (0.0), all-patched 0.998. 67 min. Receipt `results/circuits_c3_heldout.json`, plan `plans/CIRCUITS_PLAN_V6.md`.
+
+| fraction of the finite interaction removed (median) | FineWeb in-sample (C3) | **FineWeb held-out (C3h)** | AdvBench (C3 → C3h) |
+|---|---|---|---|
+| creators(u), 30 units | 0.18 | **0.06** | 0.048 → 0.048 |
+| creators(u) + heads(u) | 0.60 | **0.67** | 0.078 → 0.079 |
+| heads(u) alone | 0.38 | **0.52** | 0.033 → 0.033 |
+| readers (per-context top-100) | 0.47 | 0.39 | 0.32 → 0.32 |
+| specific(u) | 0.14 | 0.04 | 0.040 → 0.039 |
+| 30 random early units | 0.001 | 0.001 | 0.002 |
+| selectivity ratio | 4.4 | 3.9 | — |
+| composition deviation | 0.005 | 0.006 | — |
+
+- **pred_b_transfer_creators ✗**: 0.06 against the bar 0.12. The 30-unit creator lists, chosen by counting top-5-per-block energies over 8 contexts, lose two thirds of their effect on new FineWeb contexts. This is the X→Y test Logan asked for, and the unit lists fail it.
+- **pred_c_transfer_heads ✓**: the three value-transport heads remove *more* on the new contexts (0.52; with the creators 0.67). The transport is context-general.
+- **pred_d ✓** selectivity 3.9, but on a small base (specific sets remove 0.04 of their own direction, 0.004 of others).
+- **pred_e ✓**: AdvBench reproduces to three decimals (deterministic instrument).
+
+**Reading.** The circuit's context-general part is the transport (heads 9.8, 9.7, 8.2 on the OV side) plus the block-17 read-out funnel; its creation part is spread over hundreds of blocks-8–12 units and *which* of them matter is context-dependent, so any fixed 30-unit list is fitted to its derivation contexts. That is consistent with C1c: the unit forms are fixed weights, but they are contracted with the context's linearised transport, and the contraction decides which units are active. A weight-space description of creation therefore has to be the whole block-wise form Σ Jᵀ(Lᵀdiag(w)R + Rᵀdiag(w)L)J, not a short unit list. The CLOSING's generalisation line is amended accordingly.

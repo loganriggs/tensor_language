@@ -1,0 +1,61 @@
+[props] fineweb context 1/8 (270s): creators 0.02 +heads 0.25 heads 0.20 readers100 0.27 core 0.00 specific 0.02 random 0.00
+[props] fineweb context 2/8 (540s): creators 0.04 +heads 0.45 heads 0.25 readers100 0.31 core 0.00 specific 0.03 random 0.00
+[props] fineweb context 3/8 (809s): creators 0.04 +heads 0.57 heads 0.41 readers100 0.37 core 0.00 specific 0.03 random 0.00
+[props] fineweb context 4/8 (1079s): creators 0.05 +heads 0.65 heads 0.51 readers100 0.34 core 0.00 specific 0.04 random 0.00
+[props] fineweb context 5/8 (1349s): creators 0.06 +heads 0.66 heads 0.56 readers100 0.38 core 0.00 specific 0.04 random 0.00
+[props] fineweb context 6/8 (1619s): creators 0.04 +heads 0.65 heads 0.53 readers100 0.37 core 0.00 specific 0.03 random 0.00
+[props] fineweb context 7/8 (1890s): creators 0.07 +heads 0.66 heads 0.52 readers100 0.38 core 0.00 specific 0.04 random 0.00
+[props] fineweb context 8/8 (2160s): creators 0.06 +heads 0.67 heads 0.52 readers100 0.39 core 0.00 specific 0.04 random 0.00
+[props] advbench context 1/8 (2394s): creators 0.11 +heads 0.12 heads 0.02 readers100 0.21 core 0.02 specific 0.10 random 0.00
+[props] advbench context 2/8 (2628s): creators 0.06 +heads 0.10 heads 0.03 readers100 0.26 core 0.01 specific 0.05 random 0.00
+[props] advbench context 3/8 (2863s): creators 0.06 +heads 0.09 heads 0.02 readers100 0.21 core 0.01 specific 0.05 random 0.00
+[props] advbench context 4/8 (3098s): creators 0.05 +heads 0.09 heads 0.02 readers100 0.30 core 0.01 specific 0.05 random 0.00
+[props] advbench context 5/8 (3332s): creators 0.05 +heads 0.08 heads 0.03 readers100 0.33 core 0.01 specific 0.04 random 0.00
+[props] advbench context 6/8 (3566s): creators 0.05 +heads 0.08 heads 0.03 readers100 0.31 core 0.01 specific 0.04 random 0.00
+[props] advbench context 7/8 (3801s): creators 0.05 +heads 0.08 heads 0.03 readers100 0.33 core 0.01 specific 0.04 random 0.00
+[props] advbench context 8/8 (4036s): creators 0.05 +heads 0.08 heads 0.03 readers100 0.32 core 0.01 specific 0.04 random 0.00
+{
+ "predictions": {
+  "pred_a_instrument": true,
+  "pred_b_removal": false,
+  "pred_c_selective": true,
+  "pred_d_composable": true,
+  "pred_e_generalises": true
+ },
+ "controls": {
+  "zero_mask_max": 0.0,
+  "all_patched_min": 0.998498523972719
+ },
+ "summary": {
+  "fineweb": {
+   "creators": 0.06392558136106219,
+   "creators_heads": 0.6693135440718483,
+   "heads": 0.5220715875635163,
+   "readers100": 0.38622148600093725,
+   "core": 0.0008945880438652187,
+   "specific": 0.042008154827188116,
+   "random": 0.0008824315064264732
+  },
+  "advbench": {
+   "creators": 0.04814167774790673,
+   "creators_heads": 0.07858159534160225,
+   "heads": 0.032708483249420106,
+   "readers100": 0.32416180036367703,
+   "core": 0.007081957686778939,
+   "specific": 0.03946628196488711,
+   "random": 0.002429263575225993
+  },
+  "selectivity_ratio_median": 3.858448924280271,
+  "cross_specific_median": 0.003626985876237665,
+  "cross_creators_median": 0.005363465754306296,
+  "composition_deviation_median": 0.006313525261000208,
+  "costs": {
+   "creators_per_direction": 30,
+   "shared_core": 3,
+   "heads": 3,
+   "creator_read_multiply_adds": 69120,
+   "head_value_map_multiply_adds": 884736
+  }
+ }
+}
+wrote results/circuits_c3_heldout.json
