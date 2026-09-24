@@ -43,3 +43,38 @@ Dictionary: 7 transports (identity + the six most-used heads' value maps M_h = C
 Readers and tokens alike put the most coefficient mass on the same block-17 units (17.2902, 17.1811, 17.3533, 17.3343 in every fit). So the *units* are right and the head value maps are the right *kind* of transport (they beat the identity 4×), but a fixed matrix per head is not the transport that reaches those units: the perturbation passes through the bilinear MLPs of blocks 8–16, whose Jacobians are proportional to the clean activations, and through the norms. The transport is a fixed weight tensor contracted with the context — which is what "tensor network with weights" buys us and what a fixed-matrix dictionary cannot express. The next rung fits nothing: it pulls each unit's read pair back through the exact linearised transport of the context and multiplies by the unit's exact downstream weight, so the only freedom is which units are in the set.
 
 **Receipts.** `results/circuits_c1b.json`, plan `plans/CIRCUITS_PLAN_V2.md`, runner `scripts/run_circuits_c1b.py`; 17 min.
+
+## Rung C1c — the zero-free-parameter decomposition works: 70% of each form from unit read pairs through the exact linearised transport (2 of 5 as written, but the positive result of the lane)
+
+**Construction.** For block L and position i (the last three), the normalised MLP input n_{L,i}(θ) depends on the block-8 perturbation θ through everything upstream. A unit (a, b) at block L contributes to the form 2·sym(g_a g_bᵀ) with g = ∇_θ(a·n_{L,i}) — its read pair pulled back through the *exact* linearised transport of that context — weighted by the exact downstream weight w = ∂(u·out)/∂h_{L,i}. Summing over all 46,080 units of blocks 8–17 at the three positions gives a predicted form with **no fitted coefficients**. (Identity check: a unit's exact Hessian equals 2·sym(g_a g_bᵀ) + (a·n)H_b + (b·n)H_a to 9e-7.)
+
+| prediction against the exact Hessian (8 contexts × 32 directions, medians) | R² |
+|---|---|
+| all 46,080 units, closed form | **0.70** (0.35–0.88; readers 0.68, token directions 0.74) |
+| C1a's 314 "stable" units (mostly block 17), closed form | 0.02 |
+| the same 314 units, coefficients refitted by least squares | 0.07 |
+| 314 random units, closed form | 0.005 |
+
+So the interaction form *is* mostly "bilinear units multiplying a linearly transported perturbation" — the weight-space structure is real — but the units doing the multiplying are not the ones C1a flagged. The remaining 30% is the transport's own curvature (attention-pattern second order and the units' curvature terms (a·n)H_b that involve second-order transport), plus the final norm.
+
+**Creators vs readers.** The control exposed why C1a's units fail here: for a block-16 and a block-17 unit, the unit's own cross term is 3% and 29% of its Hessian; the rest is (a·n)·H_b — the unit reading, almost linearly, a signal whose second-order dependence on θ was created upstream. C1a's hidden-mixed-derivative ranking and removal-based attribution both flag such **readers** (freezing them removes the read-out path), while the closed form credits the **creators**. The per-block breakdown of the closed form (first context; full run in progress after an out-of-memory restart) puts the signed energy at block 8: 0.20, 9: 0.10, 10: 0.07, 11: 0.06, 12: 0.04, then ≤ 0.03 per block down to 0.01 at block 17. The multiplication happens early, in the source block's own MLP and the next few; block 17's units read it out into the output direction. The top creator units by attributed energy in the stable set are 8.4507, 9.4178, 12.2808, 11.420, 10.2698, 8.2491 — none in block 17.
+
+pred_a fails as written only because its second clause tested the cross-term share on the first two stable units, which turned out to be block-16/17 readers rather than source-block units (the share for a block-8 unit is the quantity the clause meant; it is reported in the breakdown). pred_c and pred_e fail because the stable set is the wrong set. pred_b (all units ≥ 0.6) and pred_d (refit adds ≤ 0.15) pass.
+
+**Receipts.** `results/circuits_c1c.json`, `results/circuits_c1c_blocks.json` (breakdown), plan `plans/CIRCUITS_PLAN_V4.md`, runners `scripts/run_circuits_c1c.py`, `scripts/run_circuits_c1c_blocks.py`.
+
+## Rung C2 — the finite-scale check (3 of 5): the derivative-level attribution holds up to about 1% of the residual norm
+
+For 8 contexts × 32 directions, along the probe direction v, the finite symmetric interaction D(α) = f(2αv) − 2f(αv) + f(0) at α = 0.3%, 1% and 3% of the mean block-8 residual norm (ρ = 9,840), with C1a's top-3 heads' values and top-100 units patched to their true clean values.
+
+| scale α/ρ | D/(α²)/(u·H[v,v]) (quadratic regime = 1) | removed by top-3 heads' values (derivative: 0.42) | by top-100 units (0.50) | both | random 3 heads / 100 units |
+|---|---|---|---|---|---|
+| 0.3% | 1.01 (64% of pairs within 10%) | 0.42 | 0.50 | 0.76 | 0.005 / 0.003 |
+| 1% | 0.91 | 0.38 | 0.47 | 0.75 | 0.004 / 0.003 |
+| 3% | 0.36 | 0.16 | 0.29 | 0.57 | 0.002 / 0.002 |
+
+The heads' and units' finite effects match their derivative shares at 0.3% and 1% (pred_b, pred_c, pred_d pass); at 3% the response is no longer second-order (the finite/derivative ratio falls to 0.36) and the shares fall with it (pred_e fails). pred_a fails as written because my quadratic-regime control divided by 2α² instead of α² (D = α²f″ for this stencil) and, corrected, 64% rather than 80% of pairs sit within 10% — the probes are high-curvature directions of near-degenerate spectra, and third-order terms are visible already at 0.3% for a third of them. Zero-mask patching reproduces the unpatched forward exactly (0.0).
+
+So the description is causal at the scale the derivatives describe, and that scale is about 1% of the residual norm: patching the three transport heads and a hundred reader units removes three quarters of the finite interaction, random controls remove nothing.
+
+**Receipts.** `results/circuits_c2.json`, plan `plans/CIRCUITS_PLAN_V3.md`, runner `scripts/run_circuits_c2.py`; 38 min.

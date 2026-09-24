@@ -1,0 +1,48 @@
+[controls] runner parity 0.00e+00 | closed-form unit Hessian identity 9.01e-07 | cross-term share of unit Hessian (units [(16, 538), (17, 4344)]) [0.025, 0.288]
+[closed] context 1/8 (52s): R2 all-units 0.606 stable-set 0.021 refit 0.066 random-set 0.005 core share -0.01
+[closed] context 2/8 (105s): R2 all-units 0.684 stable-set 0.021 refit 0.068 random-set 0.005 core share -0.00
+[closed] context 3/8 (197s): R2 all-units 0.693 stable-set 0.021 refit 0.066 random-set 0.005 core share -0.01
+[closed] context 4/8 (250s): R2 all-units 0.717 stable-set 0.020 refit 0.064 random-set 0.005 core share -0.01
+[closed] context 5/8 (303s): R2 all-units 0.713 stable-set 0.022 refit 0.068 random-set 0.005 core share 0.00
+[closed] context 6/8 (355s): R2 all-units 0.697 stable-set 0.022 refit 0.071 random-set 0.005 core share 0.00
+[closed] context 7/8 (420s): R2 all-units 0.693 stable-set 0.022 refit 0.072 random-set 0.005 core share 0.00
+[closed] context 8/8 (473s): R2 all-units 0.703 stable-set 0.022 refit 0.071 random-set 0.005 core share 0.00
+{
+ "predictions": {
+  "pred_a_instrument": false,
+  "pred_b_all_units": true,
+  "pred_c_stable_set": false,
+  "pred_d_refit_bound": true,
+  "pred_e_core_units": false
+ },
+ "controls": {
+  "parity": 0.0,
+  "closed_form_identity": 9.01323915059038e-07,
+  "cross_share": [
+   0.024633288383483887,
+   0.2875291109085083
+  ],
+  "test_units": [
+   [
+    16,
+    538
+   ],
+   [
+    17,
+    4344
+   ]
+  ]
+ },
+ "summary": {
+  "r2_all_units": 0.7030848354093397,
+  "r2_stable": 0.022378567091543067,
+  "r2_refit": 0.07133178002949458,
+  "r2_random_set": 0.005306812398541916,
+  "core_share": 0.0009110239123580562,
+  "r2_all_readers": 0.678803573947017,
+  "r2_all_tokens": 0.7371853759945404,
+  "n_stable": 314,
+  "n_core": 39
+ }
+}
+wrote results/circuits_c1c.json

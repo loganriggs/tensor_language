@@ -1,0 +1,55 @@
+[finite] context 1/8 (296s): quad-ratio@0.003 0.497 | @1%: heads 0.47 (deriv 0.50) units 0.55 (deriv 0.52) both 0.79 rnd-heads 0.01 rnd-units 0.00
+[finite] context 2/8 (592s): quad-ratio@0.003 0.493 | @1%: heads 0.38 (deriv 0.38) units 0.49 (deriv 0.51) both 0.75 rnd-heads 0.00 rnd-units 0.00
+[finite] context 3/8 (887s): quad-ratio@0.003 0.493 | @1%: heads 0.27 (deriv 0.30) units 0.49 (deriv 0.51) both 0.73 rnd-heads 0.01 rnd-units 0.00
+[finite] context 4/8 (1170s): quad-ratio@0.003 0.491 | @1%: heads 0.27 (deriv 0.31) units 0.50 (deriv 0.53) both 0.71 rnd-heads 0.01 rnd-units 0.00
+[finite] context 5/8 (1466s): quad-ratio@0.003 0.498 | @1%: heads 0.29 (deriv 0.32) units 0.51 (deriv 0.54) both 0.72 rnd-heads 0.01 rnd-units 0.00
+[finite] context 6/8 (1759s): quad-ratio@0.003 0.507 | @1%: heads 0.35 (deriv 0.38) units 0.49 (deriv 0.54) both 0.75 rnd-heads 0.01 rnd-units 0.00
+[finite] context 7/8 (2028s): quad-ratio@0.003 0.508 | @1%: heads 0.38 (deriv 0.42) units 0.46 (deriv 0.50) both 0.75 rnd-heads 0.01 rnd-units 0.00
+[finite] context 8/8 (2297s): quad-ratio@0.003 0.506 | @1%: heads 0.38 (deriv 0.42) units 0.46 (deriv 0.50) both 0.75 rnd-heads 0.00 rnd-units 0.00
+{
+ "predictions": {
+  "pred_a_instrument": false,
+  "pred_b_heads_finite": true,
+  "pred_c_units_finite": true,
+  "pred_d_random_null": true,
+  "pred_e_scale_stability": false
+ },
+ "controls": {
+  "quadratic_regime_fraction": 0.0,
+  "zero_mask_max": 0.0
+ },
+ "derivative": {
+  "heads": 0.41694685095949147,
+  "units": 0.5042933250165144
+ },
+ "summary": {
+  "0.003": {
+   "finite_over_derivative": 0.5055532992173863,
+   "top3_heads": 0.4163528282243885,
+   "top100_units": 0.499363316262123,
+   "both": 0.7602527508565768,
+   "random3_heads": 0.005357851990558882,
+   "random_units": 0.003061935964707052,
+   "all_heads_and_units": 1.0004750116205186
+  },
+  "0.01": {
+   "finite_over_derivative": 0.4560932023138943,
+   "top3_heads": 0.3791255630387707,
+   "top100_units": 0.46454188503756905,
+   "both": 0.7514391965830558,
+   "random3_heads": 0.00443563916856432,
+   "random_units": 0.0029753661079433558,
+   "all_heads_and_units": 1.0005169826433558
+  },
+  "0.03": {
+   "finite_over_derivative": 0.1812653198003567,
+   "top3_heads": 0.15865776736815235,
+   "top100_units": 0.28642158191542855,
+   "both": 0.5712702558403611,
+   "random3_heads": 0.0019609850093908476,
+   "random_units": 0.002134601978177386,
+   "all_heads_and_units": 0.9998899271727726
+  }
+ }
+}
+wrote results/circuits_c2.json
