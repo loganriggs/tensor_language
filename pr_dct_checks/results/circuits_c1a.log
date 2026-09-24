@@ -1,0 +1,110 @@
+[controls] everything 0.00e+00 | batched vs sequential 1.82e-07 | rayleigh vs exact top 0.108
+[attr] context 1/16 (1019s, 100 pairs): median all-MLPs 0.94 all-values 0.85 top100 0.45
+[attr] context 2/16 (2038s, 200 pairs): median all-MLPs 0.95 all-values 0.79 top100 0.38
+[attr] context 3/16 (3054s, 300 pairs): median all-MLPs 0.96 all-values 0.73 top100 0.41
+[attr] context 4/16 (4071s, 400 pairs): median all-MLPs 0.97 all-values 0.68 top100 0.43
+[attr] context 5/16 (5088s, 500 pairs): median all-MLPs 0.97 all-values 0.71 top100 0.43
+[attr] context 6/16 (6104s, 600 pairs): median all-MLPs 0.96 all-values 0.74 top100 0.44
+[attr] context 7/16 (7121s, 700 pairs): median all-MLPs 0.96 all-values 0.77 top100 0.40
+[attr] context 8/16 (8137s, 800 pairs): median all-MLPs 0.96 all-values 0.76 top100 0.40
+[attr] context 9/16 (9154s, 900 pairs): median all-MLPs 0.96 all-values 0.74 top100 0.37
+[attr] context 10/16 (10171s, 1000 pairs): median all-MLPs 0.96 all-values 0.74 top100 0.37
+[attr] context 11/16 (11188s, 1100 pairs): median all-MLPs 0.95 all-values 0.77 top100 0.40
+[attr] context 12/16 (12203s, 1200 pairs): median all-MLPs 0.95 all-values 0.79 top100 0.40
+[attr] context 13/16 (13221s, 1300 pairs): median all-MLPs 0.95 all-values 0.79 top100 0.40
+[attr] context 14/16 (14238s, 1400 pairs): median all-MLPs 0.95 all-values 0.79 top100 0.40
+[attr] context 15/16 (15255s, 1500 pairs): median all-MLPs 0.95 all-values 0.79 top100 0.41
+[attr] context 16/16 (16272s, 1600 pairs): median all-MLPs 0.95 all-values 0.79 top100 0.40
+{
+ "predictions": {
+  "pred_a_instrument": true,
+  "pred_b_transport_reuse": true,
+  "pred_c_curvature_blocks": false,
+  "pred_d_unit_reuse": false,
+  "pred_e_tokens_like_readers": true
+ },
+ "controls": {
+  "everything": 0.0,
+  "batched": 1.8180179495175253e-07,
+  "rayleigh": 0.1082558425860333
+ },
+ "summary": {
+  "key_head_top3_fraction": {
+   "9.8": 0.81,
+   "9.7": 0.73,
+   "8.2": 0.63
+  },
+  "blocks_8_17_fraction": 0.17,
+  "units_reused_25": 48,
+  "units_reused_50": 39,
+  "most_reused_heads": [
+   [
+    "9.8",
+    83
+   ],
+   [
+    "9.7",
+    73
+   ],
+   [
+    "8.2",
+    70
+   ],
+   [
+    "10.5",
+    27
+   ],
+   [
+    "11.6",
+    16
+   ],
+   [
+    "9.6",
+    14
+   ],
+   [
+    "11.3",
+    11
+   ],
+   [
+    "15.1",
+    6
+   ],
+   [
+    "17.2",
+    5
+   ],
+   [
+    "12.4",
+    4
+   ],
+   [
+    "9.3",
+    3
+   ],
+   [
+    "12.6",
+    3
+   ],
+   [
+    "9.1",
+    2
+   ],
+   [
+    "11.0",
+    2
+   ],
+   [
+    "11.7",
+    1
+   ]
+  ],
+  "token_median_all_mlps": 0.9587203370607581,
+  "reader_median_all_mlps": 0.9741265758783522,
+  "median_all_values": 0.7881983957500405,
+  "median_top100": 0.3779387946738811,
+  "mean_jaccard": 0.5089079859961521,
+  "mean_head_cosine": 0.6541998622590937
+ }
+}
+wrote results/circuits_c1a.json

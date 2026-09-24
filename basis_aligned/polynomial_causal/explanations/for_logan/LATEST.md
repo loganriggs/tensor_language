@@ -1,3 +1,5 @@
+[24 September 01:30 — Circuits at the transport × multiplication level: 100 output directions (readers + token unembeddings) share three transport heads (9.8, 9.7, 8.2) and a core of ~40 block-17 units; weight-space dictionary fit and finite-scale check running](research_update_2026-09-24_circuits.md)
+
 [23 September 04:30 — Symmetric, deterministic DCT on bilin18, five rungs: the block-8 → reader interaction is value transport by heads 9.8, 9.7 and 8.2 into bilinear-MLP curvature (blocks 8 and 17); no fixed basis, no low rank, no seed-stable fitted factors; finite-scale check still owed](research_update_2026-09-23_symmetric_dct.md)
 
 [23 September 01:00 — PR-regularized DCT circuit checks: the penalty finds where one MLP unit sits on an attention-carried interaction; factors mostly do not survive a change of seed; squared-attention models do not concentrate at all](research_update_2026-09-23_pr_dct_circuit_checks.md)
