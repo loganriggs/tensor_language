@@ -28,3 +28,18 @@ From the symmetric-DCT lane: the second-order response of an output direction u 
 So at this order the model has, for essentially any output direction, one transport (three heads) and one curvature hub (a few dozen block-17 units plus block-8 units), and a smaller direction-specific part. Whether the hub is a circuit or a generic amplifier is what selectivity (C3) decides; whether the description is weight-space is what C1b decides; whether it holds at finite scale is C2.
 
 **Receipts.** `results/circuits_c1a.json`, plan `plans/CIRCUITS_PLAN_V1.md`, runner `scripts/run_circuits_c1a.py`.
+
+## Rung C1b — fixed head-transport × unit-form dictionary (3 of 5): the transport is not a fixed matrix
+
+Dictionary: 7 transports (identity + the six most-used heads' value maps M_h = C_h W_v^h) × the 314 stable units from C1a → 15,386 rank-one symmetric forms sym((Tᵀa)(T′ᵀb)ᵀ); exact per-context Hessians for 32 directions (16 readers, 16 token directions) × 8 contexts; ridge least squares. Controls pass: inner products and Gram exact to 1e-15, planted combination R² 0.99995, noise baseline 0.023, and the physics control — one unit's own curvature through the identity transport captured by its own form at **0.92**.
+
+| prediction | bar | result |
+|---|---|---|
+| b: captured R² | ≥ 0.5 | **✗ 0.074** (0.04–0.21; noise 0.023) |
+| c: head transports beat the identity transport | ≥ 1.5× | ✓ 4.3× |
+| d: coefficient mass on a head tracks its attention mass across contexts | corr ≥ 0.5 | ✗ 0.39 |
+| e: token directions ≈ readers | ≥ 0.8× | ✓ (0.068 vs 0.078) |
+
+Readers and tokens alike put the most coefficient mass on the same block-17 units (17.2902, 17.1811, 17.3533, 17.3343 in every fit). So the *units* are right and the head value maps are the right *kind* of transport (they beat the identity 4×), but a fixed matrix per head is not the transport that reaches those units: the perturbation passes through the bilinear MLPs of blocks 8–16, whose Jacobians are proportional to the clean activations, and through the norms. The transport is a fixed weight tensor contracted with the context — which is what "tensor network with weights" buys us and what a fixed-matrix dictionary cannot express. The next rung fits nothing: it pulls each unit's read pair back through the exact linearised transport of the context and multiplies by the unit's exact downstream weight, so the only freedom is which units are in the set.
+
+**Receipts.** `results/circuits_c1b.json`, plan `plans/CIRCUITS_PLAN_V2.md`, runner `scripts/run_circuits_c1b.py`; 17 min.
