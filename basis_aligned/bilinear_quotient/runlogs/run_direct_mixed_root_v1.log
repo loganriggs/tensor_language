@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_direct_mixed_root_v1.py", line 26, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_direct_mixed_root_v1.py", line 21, in main
+    U=s['U'].cuda();V=s['V'].cuda();S=s['mixing'].cuda();support=s['support'].cuda();T=symmetric_square(S)[support];G=bank_gram(U,V);G=(G+G.T)/2;cross=native_bank_cross(teacher,U.float(),V.float()).double()@T.T;H=T@G@T.T;writer=torch.linalg.solve(H,cross.T).T;normal=float((writer@H-cross).norm()/cross.norm());features=torch.cat([bank_entries(U,V,z)@T.T for z in idx.split(512)]);q=((x.double()@U.flatten(0,1).T)*(x.double()@V.flatten(0,1).T)).reshape(len(x),4,4).sum(2);mixed=q@S.T;direct=mixed[:,i[support]]*mixed[:,j[support]];transport=(q[:,i]*q[:,j])@T.T;replay=float((direct-transport).norm()/direct.norm())
+                                                                                       ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match/root_basis_search.py", line 10, in symmetric_square
+    i,j=torch.triu_indices(len(S),len(S));a,b=i[:,None],j[:,None];T=S[a,i]*S[b,j];return T+S[a,j]*S[b,i]*(i!=j)
+                                                                                           ~~~~~~~~~~~~~^^~~~~~
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

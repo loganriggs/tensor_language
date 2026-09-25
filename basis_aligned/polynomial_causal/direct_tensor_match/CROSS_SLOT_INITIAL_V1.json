@@ -1,0 +1,35 @@
+{
+  "records": [
+    {
+      "key": "calibration_shaped_128_160",
+      "parent": "calibration_shaped_0",
+      "cross_counts": [
+        158,
+        160,
+        131
+      ],
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 984956
+    },
+    {
+      "key": "native_isotropic_128_160",
+      "parent": "native_isotropic_26301",
+      "cross_counts": [
+        160,
+        159,
+        130
+      ],
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 984960
+    }
+  ],
+  "scope": "Wiring and initialization only, no fitted result. Native source targets and all later component parameters unchanged. Shared-slot reprojection changes the approximate source function; readout and affine corrections are refitted by the existing optimizer."
+}

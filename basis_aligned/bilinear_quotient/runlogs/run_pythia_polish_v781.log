@@ -1,0 +1,16 @@
+[pythia160m_polish_v781] arm refined: start +0.2659 (recovery 0.915)
+[pythia160m_polish_v781] arm refined: snapshot (step 75) +0.2129, recovery 0.932; curve [0.266, 0.218, 0.215, 0.213, 0.213]
+[pythia160m_polish_v781] arm joint: start +0.2131 (recovery 0.932)
+[pythia160m_polish_v781] arm joint: snapshot (step 75) +0.2140, recovery 0.931; curve [0.213, 0.219, 0.218, 0.214, 0.215]
+[pythia160m_polish_v781] best arm refined: manipulability Spearman 0.684, median ratio 0.95
+{
+  "predictions": {
+    "pred_a_joint_replays": true,
+    "pred_b_refined_start_beats_v760": true,
+    "pred_c_joint_recovery": false,
+    "pred_d_refined_beats_control": true,
+    "pred_e_values_preserved": true
+  },
+  "forwards": 552,
+  "backwards": 200
+}

@@ -1,0 +1,528 @@
+fineweb done
+code done
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_direct": false,
+    "pred_c_norm": false
+  },
+  "summary": {
+    "fineweb": {
+      "removal": {
+        "0": {
+          "components": {
+            "direct": {
+              "energy_over_full": 3.22437811232552,
+              "signed_energy_fraction": 1.1967805748024887,
+              "cosine": 0.6664867950261357,
+              "relative_error_to_full": 1.3530768502640724
+            },
+            "normalizer": {
+              "energy_over_full": 0.4109241567514197,
+              "signed_energy_fraction": 0.42262855509984393,
+              "cosine": 0.65929229566636,
+              "relative_error_to_full": 0.7521084007985365
+            },
+            "interaction": {
+              "energy_over_full": 1.474181501781867,
+              "signed_energy_fraction": -0.6194091299023324,
+              "cosine": -0.5101549721300939,
+              "relative_error_to_full": 1.9269145703913633
+            }
+          },
+          "full_ce_added": 0.25175360043067485,
+          "direct_ce_added": 0.22934154490940273,
+          "normalizer_ce_added": 0.13031986251007766
+        },
+        "1": {
+          "components": {
+            "direct": {
+              "energy_over_full": 0.9878155357555852,
+              "signed_energy_fraction": 0.6660735246869761,
+              "cosine": 0.6701688620618793,
+              "relative_error_to_full": 0.8097335897575405
+            },
+            "normalizer": {
+              "energy_over_full": 0.55162685405109,
+              "signed_energy_fraction": 0.45670776192800083,
+              "cosine": 0.6149158572041178,
+              "relative_error_to_full": 0.7988812991897408
+            },
+            "interaction": {
+              "energy_over_full": 0.07240709579625504,
+              "signed_energy_fraction": -0.12278128661497703,
+              "cosine": -0.45629069847275067,
+              "relative_error_to_full": 1.1480286011359686
+            }
+          },
+          "full_ce_added": 0.012337891152128577,
+          "direct_ce_added": 0.005322298433384276,
+          "normalizer_ce_added": 0.00676255840153317
+        },
+        "2": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.273416496184398,
+              "signed_energy_fraction": 0.7835239047113945,
+              "cosine": 0.6943317345774543,
+              "relative_error_to_full": 0.8404574270964645
+            },
+            "normalizer": {
+              "energy_over_full": 0.49019923804464804,
+              "signed_energy_fraction": 0.3917155160674573,
+              "cosine": 0.5594798613772027,
+              "relative_error_to_full": 0.8406950730852022
+            },
+            "interaction": {
+              "energy_over_full": 0.15916546999978637,
+              "signed_energy_fraction": -0.1752394207788518,
+              "cosine": -0.439245560791819,
+              "relative_error_to_full": 1.228675836645895
+            }
+          },
+          "full_ce_added": 0.01901487667055335,
+          "direct_ce_added": 0.0052156416913931025,
+          "normalizer_ce_added": 0.011433105337346205
+        },
+        "3": {
+          "components": {
+            "direct": {
+              "energy_over_full": 0.8364504487903422,
+              "signed_energy_fraction": 0.7767295604337434,
+              "cosine": 0.8492777072359197,
+              "relative_error_to_full": 0.5319692922743336
+            },
+            "normalizer": {
+              "energy_over_full": 0.26290776280513095,
+              "signed_energy_fraction": 0.2210244662357435,
+              "cosine": 0.4310609142061363,
+              "relative_error_to_full": 0.9060125994342705
+            },
+            "interaction": {
+              "energy_over_full": 0.022564251049336778,
+              "signed_energy_fraction": 0.002245973330513045,
+              "cosine": 0.014951822526947323,
+              "relative_error_to_full": 1.008995690966176
+            }
+          },
+          "full_ce_added": 0.00449836104780843,
+          "direct_ce_added": 0.002124319078575354,
+          "normalizer_ce_added": 0.0016982756696961587
+        },
+        "joint": {
+          "components": {
+            "direct": {
+              "energy_over_full": 3.3575595066017487,
+              "signed_energy_fraction": 1.1519497233658798,
+              "cosine": 0.6286684498789736,
+              "relative_error_to_full": 1.4330596846851809
+            },
+            "normalizer": {
+              "energy_over_full": 0.5124761881461859,
+              "signed_energy_fraction": 0.4870793629327838,
+              "cosine": 0.680397773589403,
+              "relative_error_to_full": 0.7337012077682701
+            },
+            "interaction": {
+              "energy_over_full": 1.5671803636599533,
+              "signed_energy_fraction": -0.6390290862986636,
+              "cosine": -0.5104593174260418,
+              "relative_error_to_full": 1.9609279783452733
+            }
+          },
+          "full_ce_added": 0.3234052180778235,
+          "direct_ce_added": 0.3106400783872232,
+          "normalizer_ce_added": 0.17236378620145842
+        }
+      },
+      "same_token": {
+        "0": {
+          "components": {
+            "direct": {
+              "energy_over_full": 2.5018526415248945,
+              "signed_energy_fraction": 1.1074848496796896,
+              "cosine": 0.7001755330161449,
+              "relative_error_to_full": 1.1344086310344768
+            },
+            "normalizer": {
+              "energy_over_full": 0.3194396463384078,
+              "signed_energy_fraction": 0.33838734914115093,
+              "cosine": 0.598714408754698,
+              "relative_error_to_full": 0.8016638622615505
+            },
+            "interaction": {
+              "energy_over_full": 1.0703022582504291,
+              "signed_energy_fraction": -0.4458721988208404,
+              "cosine": -0.430980055789767,
+              "relative_error_to_full": 1.7210597479146708
+            }
+          },
+          "full_ce_added": 0.07354123367871136,
+          "direct_ce_added": 0.0648722742550129,
+          "normalizer_ce_added": 0.03212888678972196
+        },
+        "1": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.349064971683355,
+              "signed_energy_fraction": 0.8752636416789549,
+              "cosine": 0.7535680126429053,
+              "relative_error_to_full": 0.773652175286443
+            },
+            "normalizer": {
+              "energy_over_full": 0.36017293187739396,
+              "signed_energy_fraction": 0.3399797338837898,
+              "cosine": 0.566496843138773,
+              "relative_error_to_full": 0.8247505465956445
+            },
+            "interaction": {
+              "energy_over_full": 0.28376989606108544,
+              "signed_energy_fraction": -0.21524337556274473,
+              "cosine": -0.40406072031120815,
+              "relative_error_to_full": 1.3092962411870641
+            }
+          },
+          "full_ce_added": 0.011805189651185143,
+          "direct_ce_added": 0.006459771949774871,
+          "normalizer_ce_added": 0.0048282478521531275
+        },
+        "2": {
+          "components": {
+            "direct": {
+              "energy_over_full": 2.0749621776588256,
+              "signed_energy_fraction": 0.9278674719144412,
+              "cosine": 0.6441408730853659,
+              "relative_error_to_full": 1.1041862314980853
+            },
+            "normalizer": {
+              "energy_over_full": 0.4619553091592427,
+              "signed_energy_fraction": 0.40398503176799544,
+              "cosine": 0.5943815125409585,
+              "relative_error_to_full": 0.8086935424641721
+            },
+            "interaction": {
+              "energy_over_full": 0.7891643313220057,
+              "signed_energy_fraction": -0.33185250368243674,
+              "cosine": -0.37356086698410296,
+              "relative_error_to_full": 1.5661638926647745
+            }
+          },
+          "full_ce_added": 0.022914469888527748,
+          "direct_ce_added": 0.022135711723499384,
+          "normalizer_ce_added": 0.012390660187410682
+        },
+        "3": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.194104444750086,
+              "signed_energy_fraction": 0.7699608896063576,
+              "cosine": 0.7046079000382921,
+              "relative_error_to_full": 0.8088155942718777
+            },
+            "normalizer": {
+              "energy_over_full": 0.410708156130454,
+              "signed_energy_fraction": 0.3325336510028684,
+              "cosine": 0.5188823961935392,
+              "relative_error_to_full": 0.8635049821076408
+            },
+            "interaction": {
+              "energy_over_full": 0.2512414756647261,
+              "signed_energy_fraction": -0.10249454060922608,
+              "cosine": -0.20448199114704405,
+              "relative_error_to_full": 1.206743782616334
+            }
+          },
+          "full_ce_added": 0.005072697910603793,
+          "direct_ce_added": 0.0011541496490753411,
+          "normalizer_ce_added": 0.002927759003101941
+        },
+        "joint": {
+          "components": {
+            "direct": {
+              "energy_over_full": 2.2882030338340407,
+              "signed_energy_fraction": 1.0309736839412473,
+              "cosine": 0.6815540476092808,
+              "relative_error_to_full": 1.1073642878256216
+            },
+            "normalizer": {
+              "energy_over_full": 0.37352409613349435,
+              "signed_energy_fraction": 0.37111852123037303,
+              "cosine": 0.6072301365570286,
+              "relative_error_to_full": 0.7945357472592082
+            },
+            "interaction": {
+              "energy_over_full": 0.9489630743142285,
+              "signed_energy_fraction": -0.40209220517162036,
+              "cosine": -0.4127632252303965,
+              "relative_error_to_full": 1.6592611261213435
+            }
+          },
+          "full_ce_added": 0.09707968584960038,
+          "direct_ce_added": 0.091538838863337,
+          "normalizer_ce_added": 0.04520313844563017
+        }
+      }
+    },
+    "code": {
+      "removal": {
+        "0": {
+          "components": {
+            "direct": {
+              "energy_over_full": 2.8658671462421035,
+              "signed_energy_fraction": 1.2826410204617038,
+              "cosine": 0.7576647775651246,
+              "relative_error_to_full": 1.1404319818905009
+            },
+            "normalizer": {
+              "energy_over_full": 0.3085512728657702,
+              "signed_energy_fraction": 0.2869552694864881,
+              "cosine": 0.5165953981259724,
+              "relative_error_to_full": 0.8571118561149379
+            },
+            "interaction": {
+              "energy_over_full": 0.9350049508828754,
+              "signed_energy_fraction": -0.5695962899481918,
+              "cosine": -0.5890609000431878,
+              "relative_error_to_full": 1.7533389663094978
+            }
+          },
+          "full_ce_added": 0.4288041964173317,
+          "direct_ce_added": 0.4508501999080181,
+          "normalizer_ce_added": 0.20219304412603378
+        },
+        "1": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.0979285099512381,
+              "signed_energy_fraction": 0.8665157740445526,
+              "cosine": 0.8269694036094646,
+              "relative_error_to_full": 0.6040670176910282
+            },
+            "normalizer": {
+              "energy_over_full": 0.315563586065551,
+              "signed_energy_fraction": 0.21163634139906878,
+              "cosine": 0.3767443984537116,
+              "relative_error_to_full": 0.9446115091758164
+            },
+            "interaction": {
+              "energy_over_full": 0.0220817576493573,
+              "signed_energy_fraction": -0.07815211544362134,
+              "cosine": -0.5259251246577534,
+              "relative_error_to_full": 1.0855348859141285
+            }
+          },
+          "full_ce_added": 0.0038938666984904557,
+          "direct_ce_added": 0.025129173242021352,
+          "normalizer_ce_added": -0.01956315292045474
+        },
+        "2": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.5152160604480787,
+              "signed_energy_fraction": 0.8305826779427085,
+              "cosine": 0.6747541853072857,
+              "relative_error_to_full": 0.9241486376999438
+            },
+            "normalizer": {
+              "energy_over_full": 0.5426069496137864,
+              "signed_energy_fraction": 0.34260709268463824,
+              "cosine": 0.4651078543939925,
+              "relative_error_to_full": 0.9259550551968007
+            },
+            "interaction": {
+              "energy_over_full": 0.14930678479212256,
+              "signed_energy_fraction": -0.17318977062734667,
+              "cosine": -0.4482109531106537,
+              "relative_error_to_full": 1.2229825534515264
+            }
+          },
+          "full_ce_added": 0.04316168057266623,
+          "direct_ce_added": 0.020941214606864378,
+          "normalizer_ce_added": 0.0409705723868683
+        },
+        "3": {
+          "components": {
+            "direct": {
+              "energy_over_full": 0.7293836852400731,
+              "signed_energy_fraction": 0.6471984862612946,
+              "cosine": 0.7578084967793587,
+              "relative_error_to_full": 0.6595352247738434
+            },
+            "normalizer": {
+              "energy_over_full": 0.4118752742124079,
+              "signed_energy_fraction": 0.3388315406665128,
+              "cosine": 0.5279599389685893,
+              "relative_error_to_full": 0.8568618283477112
+            },
+            "interaction": {
+              "energy_over_full": 0.022225226590879263,
+              "signed_energy_fraction": 0.013969973072192717,
+              "cosine": 0.09370709407410914,
+              "relative_error_to_full": 0.9971385462645067
+            }
+          },
+          "full_ce_added": 0.050737067009322345,
+          "direct_ce_added": 0.0077044919453328475,
+          "normalizer_ce_added": 0.03669971477938816
+        },
+        "joint": {
+          "components": {
+            "direct": {
+              "energy_over_full": 2.705289410513853,
+              "signed_energy_fraction": 1.172886895497136,
+              "cosine": 0.7130980810023657,
+              "relative_error_to_full": 1.165982684056492
+            },
+            "normalizer": {
+              "energy_over_full": 0.4417060656122686,
+              "signed_energy_fraction": 0.34327764368997,
+              "cosine": 0.5165101245421132,
+              "relative_error_to_full": 0.868994118640816
+            },
+            "interaction": {
+              "energy_over_full": 0.8041910623533024,
+              "signed_energy_fraction": -0.5161645391871061,
+              "cosine": -0.5755837758941332,
+              "relative_error_to_full": 1.684197179883494
+            }
+          },
+          "full_ce_added": 0.5411949660629034,
+          "direct_ce_added": 0.5439306758344173,
+          "normalizer_ce_added": 0.3016382874920964
+        }
+      },
+      "same_token": {
+        "0": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.36393162801016,
+              "signed_energy_fraction": 1.0334734478642975,
+              "cosine": 0.8849179875546267,
+              "relative_error_to_full": 0.5449630558868783
+            },
+            "normalizer": {
+              "energy_over_full": 0.1568834703997098,
+              "signed_energy_fraction": 0.1614994420911092,
+              "cosine": 0.407739168101361,
+              "relative_error_to_full": 0.9131728128987916
+            },
+            "interaction": {
+              "energy_over_full": 0.14924809985870302,
+              "signed_energy_fraction": -0.19497288995540688,
+              "cosine": -0.5046843337043667,
+              "relative_error_to_full": 1.2406425269873336
+            }
+          },
+          "full_ce_added": 0.07313555600939982,
+          "direct_ce_added": 0.06772778637241572,
+          "normalizer_ce_added": 0.019070013692357005
+        },
+        "1": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.06072269014936,
+              "signed_energy_fraction": 0.8733220501536352,
+              "cosine": 0.8479563486721864,
+              "relative_error_to_full": 0.5604271494512822
+            },
+            "normalizer": {
+              "energy_over_full": 0.26007539475532526,
+              "signed_energy_fraction": 0.19737839931119852,
+              "cosine": 0.38703477625532395,
+              "relative_error_to_full": 0.9302250244607099
+            },
+            "interaction": {
+              "energy_over_full": 0.04405594759031777,
+              "signed_energy_fraction": -0.07070044946483364,
+              "cosine": -0.33683708580499144,
+              "relative_error_to_full": 1.0887868691897349
+            }
+          },
+          "full_ce_added": 0.015236373944885194,
+          "direct_ce_added": 0.016079864540485444,
+          "normalizer_ce_added": 0.0015468470684378316
+        },
+        "2": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.074342548990796,
+              "signed_energy_fraction": 0.8386072435417972,
+              "cosine": 0.8090720925747509,
+              "relative_error_to_full": 0.630180975519891
+            },
+            "normalizer": {
+              "energy_over_full": 0.32376184837532346,
+              "signed_energy_fraction": 0.17897694997476815,
+              "cosine": 0.3145460729030591,
+              "relative_error_to_full": 0.9827552840996517
+            },
+            "interaction": {
+              "energy_over_full": 0.0782570124821196,
+              "signed_energy_fraction": -0.017584193516565358,
+              "cosine": -0.0628580381757724,
+              "relative_error_to_full": 1.0551897457401918
+            }
+          },
+          "full_ce_added": 0.03582936684464999,
+          "direct_ce_added": 0.020994585904533083,
+          "normalizer_ce_added": 0.019024489384800388
+        },
+        "3": {
+          "components": {
+            "direct": {
+              "energy_over_full": 0.6426901384602103,
+              "signed_energy_fraction": 0.5916765550169708,
+              "cosine": 0.7380461903039779,
+              "relative_error_to_full": 0.6777440729554695
+            },
+            "normalizer": {
+              "energy_over_full": 0.4448766544587117,
+              "signed_energy_fraction": 0.3397400675959006,
+              "cosine": 0.5093624910620639,
+              "relative_error_to_full": 0.8748694298390536
+            },
+            "interaction": {
+              "energy_over_full": 0.028053621591933194,
+              "signed_energy_fraction": 0.06858337738712864,
+              "cosine": 0.40947218017157905,
+              "relative_error_to_full": 0.9438680346413242
+            }
+          },
+          "full_ce_added": 0.023709317371606514,
+          "direct_ce_added": 0.004847216289520718,
+          "normalizer_ce_added": 0.016628928956262178
+        },
+        "joint": {
+          "components": {
+            "direct": {
+              "energy_over_full": 1.3545805044759234,
+              "signed_energy_fraction": 1.0076237851166339,
+              "cosine": 0.8657569769581028,
+              "relative_error_to_full": 0.5825229044790046
+            },
+            "normalizer": {
+              "energy_over_full": 0.19091291416753123,
+              "signed_energy_fraction": 0.1695609043104256,
+              "cosine": 0.388068212888939,
+              "relative_error_to_full": 0.9229252979232284
+            },
+            "interaction": {
+              "energy_over_full": 0.16313338800014215,
+              "signed_energy_fraction": -0.1771846894270595,
+              "cosine": -0.4386869989901635,
+              "relative_error_to_full": 1.2318696225064814
+            }
+          },
+          "full_ce_added": 0.126899416176925,
+          "direct_ce_added": 0.12765746187686108,
+          "normalizer_ce_added": 0.0373657373550099
+        }
+      }
+    }
+  },
+  "native_formula_replay": 4.0266926130259746e-05,
+  "archived_energy_replay": 0.0,
+  "sum_identity": 0.0,
+  "seconds": 6.435018243035302,
+  "scope": "Diagnostic direct/normalizer controls with explicit interaction, not independent causal effects. Native amplitude only; no new candidate or fitting. Reused panels."
+}

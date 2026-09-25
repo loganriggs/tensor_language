@@ -1,0 +1,33 @@
+{
+  "source_sha256": "e95017ee6d44b6ccaedddbb896121f98cf3c46d071205b1d2067e768cc75b120",
+  "independent_scipy_pivoted_qr": [
+    {
+      "role": "subject",
+      "qr_rank": 540,
+      "rank_by_rtol": {
+        "1e-08": 540,
+        "1e-10": 540,
+        "1e-12": 540,
+        "1e-14": 540
+      },
+      "qr_error": 0.2067517977181056,
+      "normal_equation_relative": 2.8394687791303666e-15,
+      "smallest_retained": 0.00031374938481016414,
+      "largest_discarded": 8.314855068912507e-14
+    },
+    {
+      "role": "attractor",
+      "qr_rank": 540,
+      "rank_by_rtol": {
+        "1e-08": 540,
+        "1e-10": 540,
+        "1e-12": 540,
+        "1e-14": 540
+      },
+      "qr_error": 0.3076690000713445,
+      "normal_equation_relative": 2.4825058152145857e-15,
+      "smallest_retained": 0.0002452843054478812,
+      "largest_discarded": 2.621461264385752e-13
+    }
+  ]
+}

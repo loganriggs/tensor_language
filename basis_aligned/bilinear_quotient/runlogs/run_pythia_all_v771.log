@@ -1,0 +1,17 @@
+[pythia160m_deduped_v771] native: stock 3.42913 | explicit 3.42913 | geometry L=12 H=12 D=768 hd=64 rot=16
+[pythia160m_deduped_v771] values: top 3.0:0.137 0.3:0.130 0.11:0.077 0.0:0.055 5.5:0.054 1.1:0.049 6.0:0.038 0.2:0.036 7.8:0.035 5.8:0.033 4.5:0.032 0.5:0.030 | median 0.0072 | sum 1.710 | joint 3.169
+[pythia160m_deduped_v771] kernels-only +2.5888 | with column 0 native +2.0820 | SVD energy cum [0.683, 0.864, 0.969, 0.983, 0.991, 0.996, 0.997, 0.999] | ladder k=1:+3.650 k=2:+3.576 k=4:+3.267 k=8:+2.538 k=16:+2.592
+[pythia160m_deduped_v771] rank 16: closed-form +1.3147 -> snapshot (step 300) +0.4242, recovery 0.866; curve [1.315, 0.643, 0.571, 0.524, 0.491, 0.47, 0.455, 0.446, 0.436, 0.433, 0.43, 0.425, 0.424]
+[pythia160m_deduped_v771] rank 32: closed-form +0.8459 -> snapshot (step 300) +0.2207, recovery 0.930; curve [0.846, 0.383, 0.324, 0.286, 0.266, 0.253, 0.242, 0.236, 0.23, 0.228, 0.223, 0.222, 0.221]
+[pythia160m_deduped_v771] rank 32 manipulability: Spearman 0.881, median ratio 1.06: 3.0:0.137->0.153 0.3:0.130->0.108 0.11:0.077->0.094 0.0:0.055->0.133 5.5:0.054->0.054 1.1:0.049->0.061 6.0:0.038->0.040 0.2:0.036->0.045
+{
+  "predictions": {
+    "pred_a_instrument_replays": true,
+    "pred_b_kernel_energy_top4": true,
+    "pred_c_rank32_cost": true,
+    "pred_d_rank16_cost": true,
+    "pred_e_rank32_values_preserved_scale": true
+  },
+  "forwards": 2194,
+  "backwards": 600
+}

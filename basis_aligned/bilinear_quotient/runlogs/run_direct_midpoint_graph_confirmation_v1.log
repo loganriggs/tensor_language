@@ -1,0 +1,149 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_effect": true,
+    "pred_c_replace": true
+  },
+  "summary": {
+    "fineweb": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.19776122979819774
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.017252207190419238
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.27126985855753843
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.33501801132251885
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.007739115281340977
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.19976996946877976
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2503522723300644
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.017037297412753106
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.28524606258334523
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.34789675059698333
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.010145758938354751
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2298354105191142
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.28399025110936477
+        }
+      },
+      "product_rank8": {
+        "replacement": {
+          "ce_added": 0.010073336687249442
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.22292092881934447
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2816770014093946
+        }
+      }
+    },
+    "code": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.8329838315645853
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.055715713649988174
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.1885201584722629
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3071952352225583
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.02312237142274777
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.1353984216486611
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.22698339060123388
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.06398037195516129
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.20186237827876521
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3228126890281593
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.037397241685539484
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.16105618067599148
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.26186598629350905
+        }
+      },
+      "product_rank8": {
+        "replacement": {
+          "ce_added": 0.025258048127094906
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.15526512900857645
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2610241656621084
+        }
+      }
+    }
+  },
+  "instrument": 2.4538446090018034e-15,
+  "seconds": 5.351297728018835,
+  "scope": "Full source-dependent midpoint contribution centered on calibration mean. Replacement retains that mean but approximates all varying output coordinates. Residual background and true source states fixed; no upstream ablation or whole-model speed claim. Reused panels, no fitting."
+}
+{"pred_a_frozen": true, "pred_b_absolute": true, "pred_c_gain": true}

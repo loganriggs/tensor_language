@@ -1,0 +1,192 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_localized_writer": false,
+    "pred_c_predictive": true
+  },
+  "summary": {
+    "group1": {
+      "ce_added": -1.4456940028632441e-05,
+      "median_effect_to_linear_cosine": 0.866229236125946,
+      "token_classes": {
+        "input_class": {
+          "digits": {
+            "sites": 77,
+            "mean_effect_energy": 50.80728501938604,
+            "ce_added": -5.490363986751476e-05
+          },
+          "letters": {
+            "sites": 3059,
+            "mean_effect_energy": 108.70826309605181,
+            "ce_added": 0.000157549625934927
+          },
+          "mixed": {
+            "sites": 33,
+            "mean_effect_energy": 11.608483997901686,
+            "ce_added": 0.0009159283204512162
+          },
+          "newline": {
+            "sites": 92,
+            "mean_effect_energy": 750.4855165368297,
+            "ce_added": 0.0037402773842863416
+          },
+          "punctuation": {
+            "sites": 579,
+            "mean_effect_energy": 412.9886529687107,
+            "ce_added": -0.0015674655079522025
+          }
+        },
+        "next_class": {
+          "digits": {
+            "sites": 77,
+            "mean_effect_energy": 364.68247887336014,
+            "ce_added": -0.0035023417614110106
+          },
+          "letters": {
+            "sites": 3060,
+            "mean_effect_energy": 152.4489580778624,
+            "ce_added": -0.0003288361263234858
+          },
+          "mixed": {
+            "sites": 33,
+            "mean_effect_energy": 20.2401849293393,
+            "ce_added": 0.003128135451609551
+          },
+          "newline": {
+            "sites": 92,
+            "mean_effect_energy": 9.277153633789792,
+            "ce_added": 0.0054069409025428086
+          },
+          "punctuation": {
+            "sites": 578,
+            "mean_effect_energy": 257.61786936164935,
+            "ce_added": 0.001072209653168706
+          }
+        }
+      }
+    },
+    "group2": {
+      "ce_added": 0.016441644936491664,
+      "median_effect_to_linear_cosine": 0.9772810935974121,
+      "token_classes": {
+        "input_class": {
+          "digits": {
+            "sites": 77,
+            "mean_effect_energy": 171.99782387556235,
+            "ce_added": -0.0006264755759364018
+          },
+          "letters": {
+            "sites": 3059,
+            "mean_effect_energy": 2237.381577108843,
+            "ce_added": 0.011198344544768861
+          },
+          "mixed": {
+            "sites": 33,
+            "mean_effect_energy": 237.75792669770019,
+            "ce_added": -0.0007523749813889012
+          },
+          "newline": {
+            "sites": 92,
+            "mean_effect_energy": 20770.505141010803,
+            "ce_added": 0.07943933092705581
+          },
+          "punctuation": {
+            "sites": 579,
+            "mean_effect_energy": 12669.556435296296,
+            "ce_added": 0.03738312459779595
+          }
+        },
+        "next_class": {
+          "digits": {
+            "sites": 77,
+            "mean_effect_energy": 4175.3316673713425,
+            "ce_added": 0.04495839890721556
+          },
+          "letters": {
+            "sites": 3060,
+            "mean_effect_energy": 3560.4901940695545,
+            "ce_added": 0.015035296321190376
+          },
+          "mixed": {
+            "sites": 33,
+            "mean_effect_energy": 119.59166984508211,
+            "ce_added": 0.006655339056371965
+          },
+          "newline": {
+            "sites": 92,
+            "mean_effect_energy": 76.51696723532714,
+            "ce_added": 0.004565733980954341
+          },
+          "punctuation": {
+            "sites": 578,
+            "mean_effect_energy": 8450.195707740439,
+            "ce_added": 0.022537092356958076
+          }
+        }
+      }
+    },
+    "group3": {
+      "ce_added": 0.0003678353606848835,
+      "median_effect_to_linear_cosine": 0.8587586283683777,
+      "token_classes": {
+        "input_class": {
+          "digits": {
+            "sites": 77,
+            "mean_effect_energy": 29.34681953045461,
+            "ce_added": 0.0014850548695313273
+          },
+          "letters": {
+            "sites": 3059,
+            "mean_effect_energy": 80.77664838552087,
+            "ce_added": 0.0003145437447031705
+          },
+          "mixed": {
+            "sites": 33,
+            "mean_effect_energy": 35.30487777809631,
+            "ce_added": 0.0001780691020416491
+          },
+          "newline": {
+            "sites": 92,
+            "mean_effect_energy": 145.12664887784305,
+            "ce_added": -0.0003045069296722827
+          },
+          "punctuation": {
+            "sites": 579,
+            "mean_effect_energy": 305.2009394484741,
+            "ce_added": 0.0006184587257193737
+          }
+        },
+        "next_class": {
+          "digits": {
+            "sites": 77,
+            "mean_effect_energy": 396.04098125151074,
+            "ce_added": 0.00015314319473388907
+          },
+          "letters": {
+            "sites": 3060,
+            "mean_effect_energy": 119.76795918082875,
+            "ce_added": -0.0001647114746827629
+          },
+          "mixed": {
+            "sites": 33,
+            "mean_effect_energy": 35.636138812942555,
+            "ce_added": 0.00594384324645172
+          },
+          "newline": {
+            "sites": 92,
+            "mean_effect_energy": 42.3000236058886,
+            "ce_added": 0.006435243514083002
+          },
+          "punctuation": {
+            "sites": 578,
+            "mean_effect_energy": 66.66232476987453,
+            "ce_added": 0.0019317018012736241
+          }
+        }
+      }
+    }
+  },
+  "readout_replay": 3.4613520442628242e-15,
+  "seconds": 4.148340502055362,
+  "scope": "Descriptive hypothesis generation on reused16document removal panel. Frozen half0 groups; no fitting. Static writer signs refer to positive product coordinates, not guaranteed final-logit effects. No held-out semantic test or selectivity claim."
+}

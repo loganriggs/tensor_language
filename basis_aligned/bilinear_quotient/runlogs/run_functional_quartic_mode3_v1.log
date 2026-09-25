@@ -1,0 +1,74 @@
+coefficient 0.0 0.01 0 0.7508694373085698
+coefficient 0.0 0.01 100 0.027952189734815207
+coefficient 0.0 0.01 200 0.026009434599081654
+coefficient 0.0 0.01 300 0.025420301511805608
+coefficient 0.0 0.01 400 0.025263502556475373
+coefficient 0.0 0.05 0 0.7508694373085698
+coefficient 0.0 0.05 100 0.02293440693605668
+coefficient 0.0 0.05 200 0.021941459111008355
+coefficient 0.0 0.05 300 0.021654869075145876
+coefficient 0.0 0.05 400 0.021579420775045002
+numerator 0.0 0.01 0 0.06939086836184513
+numerator 0.0 0.01 100 0.0001554192278504533
+numerator 0.0 0.01 200 3.3300883772634864e-05
+numerator 0.0 0.01 300 2.032796728539157e-05
+numerator 0.0 0.01 400 1.7652705048250088e-05
+numerator 0.0 0.05 0 0.06939086836184513
+numerator 0.0 0.05 100 1.0561210475470683e-05
+numerator 0.0 0.05 200 2.3784393497729924e-06
+numerator 0.0 0.05 300 1.3824781283039474e-06
+numerator 0.0 0.05 400 1.1719382454942195e-06
+numerator 0.01 0.01 0 0.07689956273493083
+numerator 0.01 0.01 100 0.005221297200419977
+numerator 0.01 0.01 200 0.003116613753834566
+numerator 0.01 0.01 300 0.0022493661099023585
+numerator 0.01 0.01 400 0.002019615957711528
+numerator 0.01 0.05 0 0.07689956273493083
+numerator 0.01 0.05 100 0.0015652127267348469
+numerator 0.01 0.05 200 0.00035375340913244006
+numerator 0.01 0.05 300 0.0002994822539236494
+numerator 0.01 0.05 400 0.00029481057834508824
+normalized 0.0 0.01 0 0.10758045538968893
+normalized 0.0 0.01 100 0.0001918425333436781
+normalized 0.0 0.01 200 4.230075869601603e-05
+normalized 0.0 0.01 300 2.4321268169366304e-05
+normalized 0.0 0.01 400 2.0634071438385063e-05
+normalized 0.0 0.05 0 0.10758045538968893
+normalized 0.0 0.05 100 9.995188494397857e-06
+normalized 0.0 0.05 200 2.216248810609382e-06
+normalized 0.0 0.05 300 1.2921622292593543e-06
+normalized 0.0 0.05 400 1.080835277924132e-06
+normalized 0.01 0.01 0 0.11508914976277462
+normalized 0.01 0.01 100 0.005524523994548558
+normalized 0.01 0.01 200 0.003576615578919962
+normalized 0.01 0.01 300 0.0027100071584628357
+normalized 0.01 0.01 400 0.002468516660272952
+normalized 0.01 0.05 0 0.11508914976277462
+normalized 0.01 0.05 100 0.0015655939186170432
+normalized 0.01 0.05 200 0.00034410261498696683
+normalized 0.01 0.05 300 0.0003028642714560485
+normalized 0.01 0.05 400 0.0002994938816809651
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_training": true,
+    "pred_c_validation": false
+  },
+  "initial": {
+    "coefficient_relative_error": 0.8665272282557368,
+    "train_normalized_error": 0.3279945965861159,
+    "validation_normalized_error": 0.39976430752506115,
+    "train_numerator_error": 0.2634214652640235,
+    "validation_numerator_error": 0.3714351157723883
+  },
+  "selected_by_training_objective": {
+    "coefficient_0.0": "coefficient_0.0_lr0.05",
+    "numerator_0.0": "numerator_0.0_lr0.05",
+    "numerator_0.01": "numerator_0.01_lr0.05",
+    "normalized_0.0": "normalized_0.0_lr0.05",
+    "normalized_0.01": "normalized_0.01_lr0.05"
+  },
+  "seconds": 15.40051401592791,
+  "input_sha256": "f12b528a80a4f9e2ee945f2311ffc42a39d14c7dd66da2774d5e0b42fad1617f",
+  "scope": "24 training/8 adaptation-heldout documents from existing calibration. Native mode identity used all32 before split. Fixed rank16 source signs/affine branches. Primary normalized loss +.01 coefficient penalty; rate selection uses training only. No fresh/native intervention confirmation."
+}

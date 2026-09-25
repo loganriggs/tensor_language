@@ -1,0 +1,150 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_fidelity": false,
+    "pred_c_behavior": true
+  },
+  "summary": {
+    "native": {
+      "all": {
+        "sites": 7680,
+        "ce_added": 0.015173019526991993,
+        "effect_relative_error": 0.0
+      },
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.13289785527185707,
+        "effect_relative_error": 0.0
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": 0.00017482016476056807,
+        "effect_relative_error": 0.0
+      }
+    },
+    "frozen": {
+      "all": {
+        "sites": 7680,
+        "ce_added": 0.013842909682231645,
+        "effect_relative_error": 0.2369959113807109
+      },
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.12555493378163776,
+        "effect_relative_error": 0.128513609920785
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": -0.00020754547583078176,
+        "effect_relative_error": 0.6193338107304356
+      }
+    },
+    "rank1": {
+      "all": {
+        "sites": 7680,
+        "ce_added": 0.013782970422956472,
+        "effect_relative_error": 0.23896034890524806
+      },
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.1261540469840343,
+        "effect_relative_error": 0.1295873751597822
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": -0.00020691110410694293,
+        "effect_relative_error": 0.618757465733404
+      }
+    },
+    "rank2": {
+      "all": {
+        "sites": 7680,
+        "ce_added": 0.01641788282043611,
+        "effect_relative_error": 0.18180490538023295
+      },
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.14610240441757882,
+        "effect_relative_error": 0.11405081205465889
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": -0.00024623106149534405,
+        "effect_relative_error": 0.4938282858051659
+      }
+    },
+    "rank3": {
+      "all": {
+        "sites": 7680,
+        "ce_added": 0.015939633645272504,
+        "effect_relative_error": 0.12041112055662408
+      },
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.14021708772804023,
+        "effect_relative_error": 0.057203795584576576
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": -0.00024895247671981183,
+        "effect_relative_error": 0.334396417119677
+      }
+    },
+    "rank8": {
+      "all": {
+        "sites": 7680,
+        "ce_added": 0.016673660239515206,
+        "effect_relative_error": 0.08183833654081842
+      },
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.14711999442384865,
+        "effect_relative_error": 0.05318906173839058
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": -3.168410527225524e-05,
+        "effect_relative_error": 0.2974176285707453
+      }
+    },
+    "mode2": {
+      "all": {
+        "sites": 7680,
+        "ce_added": 0.0009750091587193311,
+        "effect_relative_error": 0.9239382734520619
+      },
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.005216452673599414,
+        "effect_relative_error": 0.9267594885658286
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": -0.0004337631245358692,
+        "effect_relative_error": 0.6240820252098381
+      }
+    },
+    "mode3": {
+      "all": {
+        "sites": 7680,
+        "ce_added": -8.287953338973845e-05,
+        "effect_relative_error": 1.020927170767355
+      },
+      "continuation": {
+        "sites": 514,
+        "ce_added": -0.0013960648017719384,
+        "effect_relative_error": 1.029228192125285
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": 0.00014526059713696347,
+        "effect_relative_error": 1.072227260599583
+      }
+    }
+  },
+  "scalar_weight_replay": 1.302642737049763e-15,
+  "frozen_ce_replay": 2.5919962010068076e-09,
+  "artifact_sha256": "0bff02e99e8ce7f19b72e1f2b276efcc8eb2039d712e566cf122fa59c758fc19",
+  "seconds": 2.5436984300613403,
+  "scope": "Original-weight centered bilinear output projection onto fixed learned writer. Mode factors fit original weights using calibration covariance only. Reused32FW validation panel, no new data claim. Removal of an explicitly defined projection, not whole native module or upstream ablation; final nonlinearities native."
+}

@@ -1,0 +1,27 @@
+pythia160m_step1000      forms  144 | median PR weights  57.03 input-weighted   8.09 (mean  10.45) | median top-8 0.606 top-32 0.870 | rank-32 recovery 1.0091130989619006
+pythia160m_step4000      forms  144 | median PR weights  49.40 input-weighted   8.50 (mean   8.36) | median top-8 0.578 top-32 0.860 | rank-32 recovery 0.981765899340574
+pythia160m_step16000     forms  144 | median PR weights  54.26 input-weighted   9.12 (mean  10.73) | median top-8 0.540 top-32 0.827 | rank-32 recovery 0.9627659818376827
+pythia160m_step64000     forms  144 | median PR weights  55.27 input-weighted  11.65 (mean  12.84) | median top-8 0.507 top-32 0.813 | rank-32 recovery 0.9471310152054634
+pythia160m               forms  144 | median PR weights  53.86 input-weighted   9.18 (mean  10.62) | median top-8 0.549 top-32 0.835 | rank-32 recovery 0.9316522972739466
+pythia70m                forms   48 | median PR weights  52.15 input-weighted   7.61 (mean   9.88) | median top-8 0.574 top-32 0.845 | rank-32 recovery 0.8805824574272622
+pythia410m               forms  384 | median PR weights  55.50 input-weighted   9.54 (mean   9.90) | median top-8 0.546 top-32 0.826 | rank-32 recovery 0.9354902970089497
+pythia1b                 forms  128 | median PR weights 211.30 input-weighted  26.79 (mean  27.72) | median top-8 0.326 top-32 0.514 | rank-32 recovery 0.927963258210056
+pythia160m_deduped       forms  144 | median PR weights  53.69 input-weighted   9.75 (mean  10.94) | median top-8 0.543 top-32 0.832 | rank-32 recovery 0.9303391224386118
+pythia410m_step4000      forms  384 | median PR weights  51.68 input-weighted  11.70 (mean  12.33) | median top-8 0.539 top-32 0.843 | rank-32 recovery 0.9935284863923164
+pythia70m_step4000       forms   48 | median PR weights  51.26 input-weighted  10.04 (mean   9.67) | median top-8 0.541 top-32 0.843 | rank-32 recovery 0.9786213799609113
+pythia1b_step4000        forms  128 | median PR weights 191.64 input-weighted  24.82 (mean  27.72) | median top-8 0.352 top-32 0.563 | rank-32 recovery 0.9688191360090461
+opt125m                  forms  144 | median PR weights  53.89 input-weighted   8.79 (mean  10.28) | median top-8 0.676 top-32 0.893 | rank-32 recovery 0.9640680587011823
+smollm135m               forms  270 | median PR weights  50.05 input-weighted   6.21 (mean   6.89) | median top-8 0.639 top-32 0.890 | rank-32 recovery 0.9554372486019825
+gpt2                     forms  144 | median PR weights  58.69 input-weighted   8.68 (mean   9.84) | median top-8 0.657 top-32 0.861 | rank-32 recovery 0.9445025280452524
+bilin18                  forms  324 | median PR weights  92.51 input-weighted   7.65 (mean  10.64) | median top-8 0.579 top-32 0.776 | rank-32 recovery 0.982
+softmax_twin             forms  162 | median PR weights  98.63 input-weighted   8.91 (mean  11.43) | median top-8 0.528 top-32 0.743 | rank-32 recovery 0.974
+160m curve median input-weighted PR: 8.09 -> 8.50 -> 9.12 -> 11.65 -> 9.18 | spearman(median PR, rank-32 recovery) over 17 models: -0.130
+{
+  "predictions": {
+    "pred_a_pr_monotone_160m": false,
+    "pred_b_final_vs_step1000": false,
+    "pred_c_bilin_at_most_step4000": true,
+    "pred_d_pr_tracks_recovery": false,
+    "pred_e_gpt2_at_least_pythia": false
+  }
+}

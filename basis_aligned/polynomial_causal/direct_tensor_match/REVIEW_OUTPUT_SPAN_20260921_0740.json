@@ -1,0 +1,86 @@
+{
+  "reference": "0.02_pruned",
+  "prospective_cosine_gate": 0.99,
+  "records": {
+    "0.005_pruned": {
+      "principal_cosines": [
+        0.9993924517419118,
+        0.9990482824795895,
+        0.9969082310697905,
+        0.9524242753037957
+      ],
+      "max_sine": 0.30477532677702035,
+      "perturbation_spectral": 0.0379706829285556,
+      "sigma_min_reference": 0.0524054004062207,
+      "sigma_min_candidate": 0.052198067716015026,
+      "elementary_bound": 0.72743464633856,
+      "relative_frobenius_difference": 0.04431115169593688
+    },
+    "0.005_pruned_1pct_perturbed": {
+      "principal_cosines": [
+        0.9993928594680594,
+        0.9990494328816862,
+        0.9969047876268899,
+        0.9527505216790614
+      ],
+      "max_sine": 0.30375391921796885,
+      "perturbation_spectral": 0.0379643201325619,
+      "sigma_min_reference": 0.0524054004062207,
+      "sigma_min_candidate": 0.05220993199498259,
+      "elementary_bound": 0.7271474733238553,
+      "relative_frobenius_difference": 0.04430119188539703
+    },
+    "0.02_pruned_1pct_perturbed": {
+      "principal_cosines": [
+        0.9994660113387775,
+        0.9991461642396946,
+        0.997218077470537,
+        0.9549458656853507
+      ],
+      "max_sine": 0.29678004247330414,
+      "perturbation_spectral": 0.03574591569861934,
+      "sigma_min_reference": 0.0524054004062207,
+      "sigma_min_candidate": 0.0521920979483801,
+      "elementary_bound": 0.6848913361170758,
+      "relative_frobenius_difference": 0.04184762939385812
+    }
+  },
+  "positive_output_mixing": {
+    "principal_cosines": [
+      1.0,
+      1.0,
+      0.9999999999999993,
+      0.9999999999998467
+    ],
+    "max_sine": 5.537540965098752e-07,
+    "perturbation_spectral": 0.3358667746292072,
+    "sigma_min_reference": 0.0524054004062207,
+    "sigma_min_candidate": 0.06339908770299238,
+    "elementary_bound": 1.0,
+    "relative_frobenius_difference": 0.2651131991213768
+  },
+  "coordinate_null": {
+    "principal_cosines": [
+      0.0033105927182417584,
+      0.0021239482908935094,
+      0.001142711398817839,
+      0.0004800190152594401
+    ],
+    "max_sine": 0.9999998847908659,
+    "perturbation_spectral": 1.5201644081273833,
+    "sigma_min_reference": 0.0524054004062207,
+    "sigma_min_candidate": 0.05240540040621648,
+    "elementary_bound": 1.0,
+    "relative_frobenius_difference": 1.413591101286555
+  },
+  "dense_gram_relative_error": 1.007946349099843e-14,
+  "source_sha256": {
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "PROFILED_PARTIAL_GRAPH_PROGRAMS_V1.pt": "4b91b40a4946f3394912a537755bed9240427dcc7e39f88c3581afa831f6c62a",
+    "PROFILED_PARTIAL_GRAPH_FIT_V1.json": "695d1d90c43380b7d2fd01afa5c7390b0ebbe7170e2856b377356fed5bce9a0b"
+  },
+  "sources_unchanged": true,
+  "passes": false,
+  "seconds": 0.6866446621716022,
+  "scope": "Four covariance-weighted quadratic output forms; opened fitted weights, no native forwards or causal claim. Affine branches and private mode3 unchanged and outside this comparison."
+}

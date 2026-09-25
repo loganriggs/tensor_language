@@ -1,0 +1,59 @@
+isotropic 0.01 spectral 0 1.27504979264683
+isotropic 0.01 spectral 100 0.20441126302859156
+isotropic 0.01 spectral 200 0.18712721276038585
+isotropic 0.01 spectral 300 0.184937356185215
+isotropic 0.01 spectral 400 0.18442892198722483
+isotropic 0.01 random 0 87499.26386624524
+isotropic 0.01 random 100 1597.969913579355
+isotropic 0.01 random 200 557.7579700329537
+isotropic 0.01 random 300 382.6780708061364
+isotropic 0.01 random 400 345.2566069489433
+isotropic 0.05 spectral 0 1.27504979264683
+isotropic 0.05 spectral 100 0.18052264343353805
+isotropic 0.05 spectral 200 0.1780675249795577
+isotropic 0.05 spectral 300 0.17745311911736097
+isotropic 0.05 spectral 400 0.17730368949241956
+isotropic 0.05 random 0 87499.26386624524
+isotropic 0.05 random 100 62.15875385215186
+isotropic 0.05 random 200 30.435323243409876
+isotropic 0.05 random 300 22.801718900056645
+isotropic 0.05 random 400 21.02290084513862
+covariance 0.01 spectral 0 0.6538999160582606
+covariance 0.01 spectral 100 0.02443170973294673
+covariance 0.01 spectral 200 0.02297208752699698
+covariance 0.01 spectral 300 0.02249986179373274
+covariance 0.01 spectral 400 0.022372764789037568
+covariance 0.01 random 0 1.0994749658788499
+covariance 0.01 random 100 0.3521339501799829
+covariance 0.01 random 200 0.2934841956386754
+covariance 0.01 random 300 0.26948068356533433
+covariance 0.01 random 400 0.26248402092317746
+covariance 0.05 spectral 0 0.6538999160582606
+covariance 0.05 spectral 100 0.020550367477425457
+covariance 0.05 spectral 200 0.019780737397144806
+covariance 0.05 spectral 300 0.019560567388010965
+covariance 0.05 spectral 400 0.019502180270649646
+covariance 0.05 random 0 1.0994749658788499
+covariance 0.05 random 100 0.16342829508345327
+covariance 0.05 random 200 0.0990667242304159
+covariance 0.05 random 300 0.08557152788364174
+covariance 0.05 random 400 0.08179229866643206
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_coefficient": true,
+    "pred_c_native_probe": false
+  },
+  "selected_by_coefficient_loss": {
+    "isotropic": "isotropic_0.05_spectral",
+    "covariance": "covariance_0.05_spectral"
+  },
+  "initial_coefficient_errors": {
+    "isotropic": 1.1291810274029714,
+    "covariance": 0.8086407830787788
+  },
+  "initial_native_calibration_variation_error": 0.3771067718710568,
+  "seconds": 13.985218985937536,
+  "input_sha256": "806263f05c962e5eb8bae1a4bc55be54700c1b7e4999c32c37199adf7eb32002",
+  "scope": "Joint full1155-coordinate quartic numerator fit to originalmode3. Nativecalibration probes do not selectwinners. No fresh/nativeintervention evaluation; normalized execution and semanticreuse stillrequired."
+}

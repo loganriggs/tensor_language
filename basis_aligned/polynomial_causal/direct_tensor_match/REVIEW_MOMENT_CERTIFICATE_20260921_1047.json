@@ -1,0 +1,170 @@
+{
+  "created_utc": "2026-09-21T10:48:33.594092+00:00",
+  "source_sha256": "3ebe2ceedb7235564865c3a6cb2585da37a1c62636840fcc4c646372454e8b1f",
+  "source": "DUAL_FRESH_NATIVE_V1.json",
+  "script_sha256": "f6cb1a9f1588e006efc20cd47a681c8f896e9c21f6b54c269931fbfb795ab30f",
+  "control": {
+    "d": 8,
+    "coefficient_dimension": 36,
+    "same_covariance_and_radius": true,
+    "sign_metric_rank": 29,
+    "axis_metric_rank": 8,
+    "unregularized_shift_bound": "infinite: q=x0^2-x1^2 has training zero and shift MSE16",
+    "floor": 0.01,
+    "point_leverage": 5600.998751560544,
+    "extremizer_training_regularized_energy": 0.00017853958630527838,
+    "extremizer_point_value": 1.0,
+    "distribution_transfer_factor": 800.0000000000008,
+    "five_gauges": [
+      {
+        "seed": 0,
+        "congruent_relative_error": 4.04121180963557e-14,
+        "reset_identity_floor_relative_change": -0.7183724320064473
+      },
+      {
+        "seed": 1,
+        "congruent_relative_error": 2.4424906541753444e-15,
+        "reset_identity_floor_relative_change": -0.7183724320064485
+      },
+      {
+        "seed": 2,
+        "congruent_relative_error": 4.1300296516055823e-14,
+        "reset_identity_floor_relative_change": -0.7183724320064382
+      },
+      {
+        "seed": 3,
+        "congruent_relative_error": 6.039613253960852e-14,
+        "reset_identity_floor_relative_change": -0.718372432006447
+      },
+      {
+        "seed": 4,
+        "congruent_relative_error": 7.993605777301127e-15,
+        "reset_identity_floor_relative_change": -0.7183724320064402
+      }
+    ],
+    "checks_pass": true
+  },
+  "native_document_diagnostics": [
+    {
+      "candidate": "graph",
+      "domain": "fineweb",
+      "evaluated_document_cells": 972,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 16,
+      "documents_with_any_exceedance": 10,
+      "worst_error": 0.42563140689484696,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "graph",
+      "domain": "stdlib",
+      "evaluated_document_cells": 576,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 3,
+      "documents_with_any_exceedance": 2,
+      "worst_error": 0.21506393724870645,
+      "worst_family": "hybrid",
+      "worst_selection": "mode1",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "isotropic_graph",
+      "domain": "fineweb",
+      "evaluated_document_cells": 972,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 9,
+      "documents_with_any_exceedance": 6,
+      "worst_error": 0.472049471770362,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "isotropic_graph",
+      "domain": "stdlib",
+      "evaluated_document_cells": 576,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 2,
+      "documents_with_any_exceedance": 1,
+      "worst_error": 0.40230157596885757,
+      "worst_family": "natural",
+      "worst_selection": "mode1",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "covariance_graph",
+      "domain": "fineweb",
+      "evaluated_document_cells": 972,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 40,
+      "documents_with_any_exceedance": 20,
+      "worst_error": 0.5912144196411959,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "covariance_graph",
+      "domain": "stdlib",
+      "evaluated_document_cells": 576,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 1,
+      "documents_with_any_exceedance": 1,
+      "worst_error": 0.23011166036787847,
+      "worst_family": "hybrid",
+      "worst_selection": "mode1",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "separate",
+      "domain": "fineweb",
+      "evaluated_document_cells": 972,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 15,
+      "documents_with_any_exceedance": 10,
+      "worst_error": 0.6804090703697256,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "separate",
+      "domain": "stdlib",
+      "evaluated_document_cells": 576,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 3,
+      "documents_with_any_exceedance": 2,
+      "worst_error": 0.18782283911405667,
+      "worst_family": "hybrid",
+      "worst_selection": "mode2",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "isotropic_baseline",
+      "domain": "fineweb",
+      "evaluated_document_cells": 972,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 25,
+      "documents_with_any_exceedance": 17,
+      "worst_error": 0.7855930722760163,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "isotropic_baseline",
+      "domain": "stdlib",
+      "evaluated_document_cells": 576,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 34,
+      "documents_with_any_exceedance": 15,
+      "worst_error": 0.3656325643052594,
+      "worst_family": "hybrid",
+      "worst_selection": "mode1",
+      "skipped_zero_reference": 0
+    }
+  ],
+  "scope": "One CPU review consequence. Planted coefficient-space control, not native calibration certificate. Native receipt now opened for document-tail analysis. Aggregate preregistered verdicts unchanged. Repeated selections/families are dependent cells, not independent samples. No model or primary receipt changed."
+}

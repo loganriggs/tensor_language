@@ -1,0 +1,62 @@
+{
+  "prediction_pass": true,
+  "controls": [
+    {
+      "case": "random",
+      "error_energy": 75.87276306571223,
+      "discarded_derivative_energy": 176.25494953866232,
+      "quadrature_relative_discrepancy": 1.935040769394308e-15
+    },
+    {
+      "case": "linear_endpoint",
+      "error_energy": 8.3,
+      "discarded_derivative_energy": 8.3,
+      "quadrature_relative_discrepancy": 2.1401889631328317e-15
+    },
+    {
+      "case": "quartic_endpoint",
+      "error_energy": 8.3,
+      "discarded_derivative_energy": 33.2,
+      "quadrature_relative_discrepancy": 4.2803779262656633e-16
+    },
+    {
+      "case": "closed_port",
+      "error_energy": 0.0,
+      "discarded_derivative_energy": 0.0,
+      "quadrature_relative_discrepancy": 0.0
+    }
+  ],
+  "native_plug_in_estimates": [
+    {
+      "seed": 1001,
+      "rank": 64,
+      "checking_capture": 0.4817902949198723,
+      "plug_in_centered_relative_RMS_floor": 0.3599339193102422,
+      "status": "Population formula evaluated at sampled capture; not a certified native bound"
+    },
+    {
+      "seed": 1001,
+      "rank": 512,
+      "checking_capture": 0.9095152755929,
+      "plug_in_centered_relative_RMS_floor": 0.15040339458195415,
+      "status": "Population formula evaluated at sampled capture; not a certified native bound"
+    },
+    {
+      "seed": 1002,
+      "rank": 64,
+      "checking_capture": 0.4969772914289828,
+      "plug_in_centered_relative_RMS_floor": 0.35462046915364925,
+      "status": "Population formula evaluated at sampled capture; not a certified native bound"
+    },
+    {
+      "seed": 1002,
+      "rank": 512,
+      "checking_capture": 0.9137620680043812,
+      "plug_in_centered_relative_RMS_floor": 0.14683147822897072,
+      "status": "Population formula evaluated at sampled capture; not a certified native bound"
+    }
+  ],
+  "source_sha256": "d02f2ad75cb117973c43bc34339791dee7e3354b49f64f1eee70ac030158c42c",
+  "script_sha256": "35696c39105de8988eceadfab0da42729d0a6356b4dee16e1c6a2abee5a0b2c5",
+  "scope": "Gaussian polynomial conditional-mean error only; no text, causal or arbitrary-DAG bound"
+}

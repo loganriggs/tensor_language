@@ -4,8 +4,8 @@ import json,torch
 from local_shared_reader_graph import component_scalars
 from pack_reader_graph_artifacts import counts
 P=Path(__file__).parent;torch.set_num_threads(2)
-def main():
- meta=json.loads((P/'JOINT_OVERLAP_V1.json').read_text());programs=torch.load(P/'JOINT_OVERLAP_PROGRAMS_V1.pt',weights_only=True);d=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True);Q=torch.stack([q for pair in d['pairs'] for q in pair['Qs']]);S=torch.linalg.inv(d['inverse_root']);energies=[t.square().sum((-1,-2)).reshape(3,2).sum(1) for t in (Q,S@Q@S)];ids=d['indices'];z=d['z'][ids];h=d['h'][ids];scale=(h.square().mean(-1)+torch.finfo(torch.float32).eps).sqrt();truth=torch.stack([p['truth'][ids] for p in d['pairs']],1);rows=[]
+def main(prefix='JOINT_OVERLAP'):
+ meta=json.loads((P/f'{prefix}_V1.json').read_text());programs=torch.load(P/f'{prefix}_PROGRAMS_V1.pt',weights_only=True);d=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True);Q=torch.stack([q for pair in d['pairs'] for q in pair['Qs']]);S=torch.linalg.inv(d['inverse_root']);energies=[t.square().sum((-1,-2)).reshape(3,2).sum(1) for t in (Q,S@Q@S)];ids=d['indices'];z=d['z'][ids];h=d['h'][ids];scale=(h.square().mean(-1)+torch.finfo(torch.float32).eps).sqrt();truth=torch.stack([p['truth'][ids] for p in d['pairs']],1);rows=[]
  for rec in meta['records']:
   program=programs[rec['key']];basis=program['input_basis'];hats=[];linear=[];bias=[]
   for j in range(3):
@@ -27,5 +27,5 @@ def main():
   assert replay<1e-8 and gradient_replay<1e-8
   rows.append(dict(key=rec['key'],maximum_metric_and_component_replay=replay,autodiff_derivative_replay=gradient_replay,packed_float_storage=storage['backing_storage_floats'],per_mode_errors=values,native_error=errors[0],covariance_error=errors[1]))
  primary=next(r for r in meta['records'] if r['key']==meta['winners']['calibration_shaped']);base=meta['plan']['baseline'];pred=dict(pred_a_instrument=all(max(r['execution_replay'],r['dense_loss_replay'])<1e-8 for r in meta['records']),pred_b_components=all(a<=.15 and a<=1.1*b for a,b in zip(primary['per_mode_errors'],base['per_mode_errors'])) and all(a<=1.1*b for a,b in zip(primary['euclidean_jacobian_errors'],base['euclidean_jacobian_errors'])),pred_c_metrics=all(primary[k]<=1.1*base[k] for k in ('native_error','covariance_error')),pred_d_arithmetic=primary['source_total_multiplications']<=.8*base['source_total_multiplications'] and primary['stored_floats']<base['stored_floats']);assert pred==meta['predictions']
- (P/'JOINT_OVERLAP_AUDIT_V1.json').write_text(json.dumps(dict(rows=rows,predictions=pred,scope='Independent product-index quadratic decode, native component and analytic/autodiff response checks, both coefficient norms and packed storage. No new data; opened448notfresh; not a circuit-adoption audit.'),indent=2)+'\n');print(json.dumps(pred))
+ (P/f'{prefix}_AUDIT_V1.json').write_text(json.dumps(dict(rows=rows,predictions=pred,scope='Independent product-index quadratic decode, native component and analytic/autodiff response checks, both coefficient norms and packed storage. No new data; opened448notfresh; not a circuit-adoption audit.'),indent=2)+'\n');print(json.dumps(pred))
 if __name__=='__main__':main()

@@ -1,0 +1,78 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_selectivity": true,
+    "pred_c_writer": true
+  },
+  "summary": {
+    "real": {
+      "continuation": {
+        "sites": 287,
+        "ce_added": 0.07847300679982681,
+        "mean_logodds_decrease": 1.3798236149113352
+      },
+      "spaced_word": {
+        "sites": 164,
+        "ce_added": -0.01878667781810935,
+        "mean_logodds_decrease": 0.04393489767865437
+      },
+      "utf8_pending": {
+        "sites": 0,
+        "ce_added": null,
+        "mean_logodds_decrease": null
+      }
+    },
+    "sham": {
+      "continuation": {
+        "sites": 287,
+        "ce_added": 0.017197625169843658,
+        "mean_logodds_decrease": 0.9901429618277201
+      },
+      "spaced_word": {
+        "sites": 164,
+        "ce_added": -0.008539581239768645,
+        "mean_logodds_decrease": 0.008873456861914658
+      },
+      "utf8_pending": {
+        "sites": 0,
+        "ce_added": null,
+        "mean_logodds_decrease": null
+      }
+    }
+  },
+  "same_token_secondary": {
+    "matched_token_types": 3,
+    "matched_continuation_sites": 13,
+    "matched_spaced_sites": 9,
+    "min_count_weighted_logodds_contrast": 0.39951043420908405,
+    "strata": [
+      {
+        "input_token": 79,
+        "continuation_count": 5,
+        "spaced_count": 1,
+        "difference": 1.563117790222168,
+        "weight": 1
+      },
+      {
+        "input_token": 318,
+        "continuation_count": 5,
+        "spaced_count": 7,
+        "difference": 0.29316302708217074,
+        "weight": 5
+      },
+      {
+        "input_token": 11241,
+        "continuation_count": 3,
+        "spaced_count": 1,
+        "difference": -0.2323598861694336,
+        "weight": 1
+      }
+    ],
+    "coverage_sufficient": false,
+    "beyond_token_gate": null
+  },
+  "program_sha256": "3b961ed6d1f3f3fbaf501eb27e255648d1de151310dd1750f6b4ebd476f3b763",
+  "token_sha256": "184e0e064b9bcd88c6fabdf5dce32f719da9215e1f1209702cfac6494bc3bfda",
+  "seconds": 2.5894051438663155,
+  "scope": "Frozen FineWeb-discovered group tested on docstring-stripped Python standard-library function snippets; code shift, pretraining overlap unknown. Continuation/space classes use realized next token and prefix eligibility; selective average effects, not randomized manipulation of an independent continuation variable. Same-token contrast controls current identity, not all context/difficulty confounds. No fit or semantic monosemanticity claim."
+}

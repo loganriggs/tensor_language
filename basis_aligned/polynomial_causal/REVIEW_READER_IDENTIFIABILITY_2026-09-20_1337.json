@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-09-20T13:38:20.787340+00:00",
+  "source_sha256": {
+    "basis_aligned/bilinear_quotient/circuits/followups/residual_reader_transfer_v1_tensors.pt": "e95017ee6d44b6ccaedddbb896121f98cf3c46d071205b1d2067e768cc75b120",
+    "basis_aligned/bilinear_quotient/circuits/followups/residual_reader_transfer_v1_result.json": "c535050a7869b154deb994617405fc8147893a4d77e7255e276f1b45e2e16ae3",
+    "basis_aligned/bilinear_quotient/circuits/followups/source_ood_v3_role_bank_v1_result.json": "3542ffcff7e683f222d6bb42b4e1f8d50943146c320c080e8a6479f63cbe521d"
+  },
+  "scope": "Opened v2 CPU algebra/identifiability; v3 receipt scoring only. No new native execution or fit adoption.",
+  "spans": [
+    {
+      "role": "subject",
+      "shape": [
+        552,
+        1152
+      ],
+      "rank_rtol_1e10": 540,
+      "nullity": 612,
+      "held_outside_span_fraction": 0.17780337504280794,
+      "train_null_relative": 1.1682771452398648e-15,
+      "held_unit_null_signal_relative": 0.047046143691600296,
+      "train_ls_relative": 0.2067517977181056,
+      "held_ls_relative": 0.6066154062528542,
+      "planted_training_recovery": 2.8468280580320414e-15,
+      "condition_retained": 15099890.226914754
+    },
+    {
+      "role": "attractor",
+      "shape": [
+        552,
+        1152
+      ],
+      "rank_rtol_1e10": 540,
+      "nullity": 612,
+      "held_outside_span_fraction": 0.18808908849946276,
+      "train_null_relative": 1.1612612555021457e-15,
+      "held_unit_null_signal_relative": 0.05569707938814558,
+      "train_ls_relative": 0.3076690000713445,
+      "held_ls_relative": 0.9380988380688194,
+      "planted_training_recovery": 3.4249454971304835e-15,
+      "condition_retained": 13803399.600387145
+    }
+  ],
+  "finite_error_partition": [
+    {
+      "role": "subject",
+      "family": "unlike_nearby|singular",
+      "number_effect_norm": 1.5322279460252106,
+      "bank_error": 1.426929096103752,
+      "exact_tangent_error": 0.42437551963635384,
+      "reader_transfer_error": 1.7885059259231089,
+      "signed_transfer_share": 1.2412748299209082,
+      "closure": 1.1102230246251565e-16
+    },
+    {
+      "role": "subject",
+      "family": "unlike_nearby|plural",
+      "number_effect_norm": 1.823101166559771,
+      "bank_error": 2.4134194079299927,
+      "exact_tangent_error": 0.27157847349262987,
+      "reader_transfer_error": 2.6800503224028107,
+      "signed_transfer_share": 1.1102498983335258,
+      "closure": 2.220446049250313e-16
+    },
+    {
+      "role": "attractor",
+      "family": "unlike_nearby|singular",
+      "number_effect_norm": 0.22571442518105073,
+      "bank_error": 0.36696361828766044,
+      "exact_tangent_error": 0.19377127402062577,
+      "reader_transfer_error": 0.1861759931587675,
+      "signed_transfer_share": 0.48928502532606555,
+      "closure": 1.734723475976807e-18
+    },
+    {
+      "role": "attractor",
+      "family": "unlike_nearby|plural",
+      "number_effect_norm": 0.1495876815247628,
+      "bank_error": 0.27037971908470315,
+      "exact_tangent_error": 0.1347224610812039,
+      "reader_transfer_error": 0.3518684131427436,
+      "signed_transfer_share": 1.2226657576950626,
+      "closure": 3.469446951953614e-18
+    },
+    {
+      "role": "subject",
+      "family": "beside_subject|singular",
+      "number_effect_norm": 8.91084332758816,
+      "bank_error": 0.5196257696217218,
+      "exact_tangent_error": 0.27479139411280146,
+      "reader_transfer_error": 0.28778854453869607,
+      "signed_transfer_share": 0.5135400737409446,
+      "closure": 2.7755575615628914e-17
+    },
+    {
+      "role": "subject",
+      "family": "beside_subject|plural",
+      "number_effect_norm": 8.855103543177556,
+      "bank_error": 0.39282804527462034,
+      "exact_tangent_error": 0.3197170536022484,
+      "reader_transfer_error": 0.08770470081133186,
+      "signed_transfer_share": 0.1937187892199681,
+      "closure": 1.3877787807814457e-17
+    },
+    {
+      "role": "attractor",
+      "family": "beside_subject|singular",
+      "number_effect_norm": 0.06705971081799778,
+      "bank_error": 0.6220151910564556,
+      "exact_tangent_error": 0.14911668881510748,
+      "reader_transfer_error": 0.6536463336897022,
+      "signed_transfer_share": 1.0234100660086771,
+      "closure": 6.938893903907228e-18
+    },
+    {
+      "role": "attractor",
+      "family": "beside_subject|plural",
+      "number_effect_norm": 0.06742720885851708,
+      "bank_error": 0.6690422404583269,
+      "exact_tangent_error": 0.14212067566852468,
+      "reader_transfer_error": 0.6103570301782987,
+      "signed_transfer_share": 0.8935697358488014,
+      "closure": 4.336808689942018e-19
+    }
+  ],
+  "fresh_v3": [
+    {
+      "role": "subject",
+      "cells": 8,
+      "selective_pass": 8,
+      "predictive_pass": 0,
+      "capability_pass": 7,
+      "worst_number_prediction": 2.7157664536755854
+    },
+    {
+      "role": "attractor",
+      "cells": 8,
+      "selective_pass": 2,
+      "predictive_pass": 0,
+      "capability_pass": 7,
+      "worst_number_prediction": 0.7680121131346883
+    }
+  ],
+  "seconds": 0.15871308301575482
+}

@@ -1,0 +1,73 @@
+{
+  "utc": "2026-09-21T22:58:04.705612+00:00",
+  "native": [
+    {
+      "law": "covariance_zero",
+      "seed": 1001,
+      "min_eigenvalue": 0.05487634969947702,
+      "max_eigenvalue": 23848.005263379346,
+      "mean_diagonal": 88.1744693398451,
+      "relative_ridge": 1.1341151327441112e-08,
+      "uniform_function_shrinkage_bound": 1.822245435459741e-05
+    },
+    {
+      "law": "covariance_zero",
+      "seed": 1002,
+      "min_eigenvalue": 0.059052271691433816,
+      "max_eigenvalue": 28725.124543549944,
+      "mean_diagonal": 120.815459879732,
+      "relative_ridge": 8.27708640099097e-09,
+      "uniform_function_shrinkage_bound": 1.693386278791152e-05
+    },
+    {
+      "law": "covariance_shifted",
+      "seed": 1001,
+      "min_eigenvalue": 0.11254349528647471,
+      "max_eigenvalue": 4129115.728890323,
+      "mean_diagonal": 10531.489424537182,
+      "relative_ridge": 9.495333088120593e-11,
+      "uniform_function_shrinkage_bound": 8.88537460188137e-06
+    },
+    {
+      "law": "covariance_shifted",
+      "seed": 1002,
+      "min_eigenvalue": 0.11385653837273195,
+      "max_eigenvalue": 4286485.296400456,
+      "mean_diagonal": 11377.693442215923,
+      "relative_ridge": 8.789127647696928e-11,
+      "uniform_function_shrinkage_bound": 8.782905500084944e-06
+    },
+    {
+      "law": "second_zero",
+      "seed": 1001,
+      "min_eigenvalue": 0.1488081652104863,
+      "max_eigenvalue": 123706913.52004823,
+      "mean_diagonal": 259591.38320013584,
+      "relative_ridge": 3.852207988078846e-12,
+      "uniform_function_shrinkage_bound": 6.720016193797799e-06
+    },
+    {
+      "law": "second_zero",
+      "seed": 1002,
+      "min_eigenvalue": 0.16697072324237272,
+      "max_eigenvalue": 135343930.33371946,
+      "mean_diagonal": 287564.3857001626,
+      "relative_ridge": 3.4774820865427996e-12,
+      "uniform_function_shrinkage_bound": 5.989038027405518e-06
+    }
+  ],
+  "planted": {
+    "quadrature_error": 2.4006960436311213e-15,
+    "reset_identity_function_change": 0.6881689554485502,
+    "transported_penalty_function_change": 2.1814221618110819e-16,
+    "full_capacity_coefficient_recovery": 8.95090418262362e-16
+  },
+  "source_sha256": {
+    "EXPANDED_INPUT_GEOMETRY_V1.pt": "cac305961709cc5a4795dcb5f1d0e77dba7144af2c64f21bb395f54a1f4b140d",
+    "noncentral_gaussian_cp.py": "dc8c823a40ec77dd52f435ec674a3ae79eca190ba7d0e10e6922c859ad1c561e",
+    "QUARTIC_CP512_SEED1001_V2.pt": "065945c57478ae14520f202da01e1178b0bac930ae625c3d39f0f84f04e88c5a",
+    "QUARTIC_CP512_SEED1002_V2.pt": "f0da8af725cb8cafc178cbe985c7236f6315e8e19810d298ce2f5563da5b76d0"
+  },
+  "seconds": 1.4214532198384404,
+  "scope": "Native fixed CP Gram conditioning only, no native refit or causal test. Bound is relative to the unregularized projection function, not teacher error. Gauge toy uses unnormalized factors; native original-coordinate normalization fixes that gauge."
+}

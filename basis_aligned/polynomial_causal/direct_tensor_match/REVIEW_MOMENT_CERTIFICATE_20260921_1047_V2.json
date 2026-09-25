@@ -1,0 +1,181 @@
+{
+  "created_utc": "2026-09-21T10:48:57.711487+00:00",
+  "source_sha256": "3ebe2ceedb7235564865c3a6cb2585da37a1c62636840fcc4c646372454e8b1f",
+  "source": "DUAL_FRESH_NATIVE_V1.json",
+  "script_sha256": "caa38a70f35ec7fa08f427262a09a1c6e81c610762b25786c668ed38c274ee23",
+  "control": {
+    "d": 8,
+    "coefficient_dimension": 36,
+    "same_covariance_and_radius": true,
+    "sign_metric_rank": 29,
+    "axis_metric_rank": 8,
+    "unregularized_shift_bound": "infinite: q=x0^2-x1^2 has training zero and shift MSE16",
+    "floor": 0.01,
+    "point_leverage": 5600.998751560544,
+    "extremizer_training_regularized_energy": 0.00017853958630527838,
+    "extremizer_point_value": 1.0,
+    "distribution_transfer_factor": 800.0000000000008,
+    "five_gauges": [
+      {
+        "seed": 0,
+        "congruent_relative_error": 4.04121180963557e-14,
+        "reset_identity_floor_relative_change": -0.7183724320064473
+      },
+      {
+        "seed": 1,
+        "congruent_relative_error": 2.4424906541753444e-15,
+        "reset_identity_floor_relative_change": -0.7183724320064485
+      },
+      {
+        "seed": 2,
+        "congruent_relative_error": 4.1300296516055823e-14,
+        "reset_identity_floor_relative_change": -0.7183724320064382
+      },
+      {
+        "seed": 3,
+        "congruent_relative_error": 6.039613253960852e-14,
+        "reset_identity_floor_relative_change": -0.718372432006447
+      },
+      {
+        "seed": 4,
+        "congruent_relative_error": 7.993605777301127e-15,
+        "reset_identity_floor_relative_change": -0.7183724320064402
+      }
+    ],
+    "checks_pass": true
+  },
+  "native_document_diagnostics": [
+    {
+      "candidate": "graph",
+      "domain": "fineweb",
+      "raw_records": 972,
+      "evaluated_document_cells": 384,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 0,
+      "documents_with_any_exceedance": 0,
+      "worst_error": 0.14855247322310527,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "graph",
+      "domain": "stdlib",
+      "raw_records": 576,
+      "evaluated_document_cells": 192,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 0,
+      "documents_with_any_exceedance": 0,
+      "worst_error": 0.06112782351848334,
+      "worst_family": "natural",
+      "worst_selection": "mode2",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "isotropic_graph",
+      "domain": "fineweb",
+      "raw_records": 972,
+      "evaluated_document_cells": 384,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 0,
+      "documents_with_any_exceedance": 0,
+      "worst_error": 0.14161739017160468,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "isotropic_graph",
+      "domain": "stdlib",
+      "raw_records": 576,
+      "evaluated_document_cells": 192,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 0,
+      "documents_with_any_exceedance": 0,
+      "worst_error": 0.06610577873681689,
+      "worst_family": "natural",
+      "worst_selection": "mode2",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "covariance_graph",
+      "domain": "fineweb",
+      "raw_records": 972,
+      "evaluated_document_cells": 384,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 15,
+      "documents_with_any_exceedance": 13,
+      "worst_error": 0.2141724440628859,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "covariance_graph",
+      "domain": "stdlib",
+      "raw_records": 576,
+      "evaluated_document_cells": 192,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 0,
+      "documents_with_any_exceedance": 0,
+      "worst_error": 0.07233162754060761,
+      "worst_family": "hybrid",
+      "worst_selection": "mode2",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "separate",
+      "domain": "fineweb",
+      "raw_records": 972,
+      "evaluated_document_cells": 384,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 2,
+      "documents_with_any_exceedance": 2,
+      "worst_error": 0.23548565605861305,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "separate",
+      "domain": "stdlib",
+      "raw_records": 576,
+      "evaluated_document_cells": 192,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 0,
+      "documents_with_any_exceedance": 0,
+      "worst_error": 0.11442463422165959,
+      "worst_family": "hybrid",
+      "worst_selection": "mode2",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "isotropic_baseline",
+      "domain": "fineweb",
+      "raw_records": 972,
+      "evaluated_document_cells": 384,
+      "distinct_documents": 32,
+      "cells_above_descriptive_cap": 7,
+      "documents_with_any_exceedance": 7,
+      "worst_error": 0.2640227484335804,
+      "worst_family": "natural",
+      "worst_selection": "mode3",
+      "skipped_zero_reference": 0
+    },
+    {
+      "candidate": "isotropic_baseline",
+      "domain": "stdlib",
+      "raw_records": 576,
+      "evaluated_document_cells": 192,
+      "distinct_documents": 16,
+      "cells_above_descriptive_cap": 7,
+      "documents_with_any_exceedance": 5,
+      "worst_error": 0.19356757412080988,
+      "worst_family": "natural",
+      "worst_selection": "mode2",
+      "skipped_zero_reference": 0
+    }
+  ],
+  "correction": "V2 aggregates repeated records by document/selection/family/cohort before computing diagnostic ratios. V1 mislabeled raw records as document cells; its tail statistics are superseded. Mathematical controls unchanged.",
+  "scope": "One CPU review consequence. Planted coefficient-space control, not native calibration certificate. Native receipt now opened for document-tail analysis. Aggregate preregistered verdicts unchanged. Repeated selections/families are dependent cells, not independent samples. No model or primary receipt changed."
+}

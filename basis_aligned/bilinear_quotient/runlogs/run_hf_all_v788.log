@@ -1,0 +1,17 @@
+[qwen3_06b_v788] native: stock 3.46229 | explicit 3.46229 | geometry L=28 H=16 D=1024 hd=128 kv=8 rotary=True qk_norm=True
+[qwen3_06b_v788] values: top 2.6:3.319 1.5:3.031 0.3:1.934 0.2:0.458 0.11:0.172 0.15:0.101 0.7:0.085 0.12:0.074 0.14:0.073 11.9:0.072 17.12:0.068 16.9:0.056 | median 0.0019 | sum 11.013 | joint 4.801
+[qwen3_06b_v788] kernels-only +7.4718 | with column 0 native +2.4121 | SVD energy cum [0.599, 0.672, 0.729, 0.778, 0.818, 0.839, 0.856, 0.871] | ladder k=1:+7.993 k=2:+5.820 k=4:+6.129 k=8:+7.400 k=16:+7.424
+[qwen3_06b_v788] rank 16: closed-form +2.0098 -> snapshot (step 150) +0.3196, recovery 0.933; curve [2.01, 0.585, 0.451, 0.383, 0.35, 0.331, 0.32, 0.322, 0.329, 0.332, 0.343, 0.354, 0.357]
+[qwen3_06b_v788] rank 32: closed-form +1.6358 -> snapshot (step 150) +0.1634, recovery 0.966; curve [1.636, 0.357, 0.234, 0.176, 0.161, 0.163, 0.163, 0.187, 0.22, 0.234, 0.26, 0.293, 0.316]
+[qwen3_06b_v788] rank 32 manipulability: Spearman 0.863, median ratio 0.90: 2.6:3.319->3.905 1.5:3.031->3.513 0.3:1.934->1.808 0.2:0.458->0.496 0.11:0.172->0.188 0.15:0.101->0.088 0.7:0.085->0.085 0.12:0.074->0.079
+{
+  "predictions": {
+    "pred_a_instrument_replays": true,
+    "pred_b_kernel_energy_top4": false,
+    "pred_c_rank32_cost": false,
+    "pred_d_rank16_cost": false,
+    "pred_e_rank32_values_preserved_scale": true
+  },
+  "forwards": 13443,
+  "backwards": 600
+}

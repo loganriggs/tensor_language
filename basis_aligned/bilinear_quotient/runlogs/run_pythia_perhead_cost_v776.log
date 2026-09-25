@@ -1,0 +1,14 @@
+[pythia160m_perhead_v776] step1000: native 4.64634 | full rank-32 program cost -0.0186 (saved snapshot -0.0186) | joint value 2.041
+[pythia160m_perhead_v776] step1000: sum of isolated costs -0.0589 | half the total in 1 heads | top: 4.10:+0.002(v 0.054) 3.1:+0.001(v 0.030) 3.2:+0.001(v 0.157) 4.5:+0.001(v 0.043) 2.11:+0.001(v 0.037) 9.2:+0.000(v 0.001) 11.7:+0.000(v 0.018) 10.7:+0.000(v 0.001) | Spearman(cost, value) 0.376 | median relative recovery over 10 heads >= 0.02: 0.996
+[pythia160m_perhead_v776] final: native 3.47311 | full rank-32 program cost +0.2131 (saved snapshot +0.2131) | joint value 3.118
+[pythia160m_perhead_v776] final: sum of isolated costs +0.2526 | half the total in 23 heads | top: 1.10:+0.024(v 0.006) 0.2:+0.014(v 0.090) 0.0:+0.007(v 0.051) 9.3:+0.006(v 0.012) 4.1:+0.005(v 0.014) 7.11:+0.005(v 0.017) 6.7:+0.005(v 0.014) 1.6:+0.005(v 0.008) | Spearman(cost, value) 0.447 | median relative recovery over 24 heads >= 0.02: 0.941
+{
+  "predictions": {
+    "pred_a_full_program_replays": true,
+    "pred_b_sum_grows": true,
+    "pred_c_half_in_few_heads": false,
+    "pred_d_cost_tracks_value": false,
+    "pred_e_relative_recovery_falls": true
+  },
+  "forwards": 2052
+}

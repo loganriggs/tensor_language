@@ -1,0 +1,107 @@
+{"step": 0, "objective": -0.0003041906579853114, "relative_explained": 1.0, "normal_residual": 1.1507676466463225e-15, "elapsed": 3.144558183848858, "peak_memory_bytes": 13760604672}
+{"step": 5, "objective": -0.0011255508358349838, "relative_explained": 3.7001492527404767, "normal_residual": 1.189697788041377e-15, "elapsed": 25.324911520816386, "peak_memory_bytes": 13783656960}
+{"step": 10, "objective": -0.0020403508994244917, "relative_explained": 6.707473901197239, "normal_residual": 1.1382824326008034e-15, "elapsed": 47.376757946796715, "peak_memory_bytes": 13784056320}
+{"step": 15, "objective": -0.0027897313028654213, "relative_explained": 9.170995984367575, "normal_residual": 1.1344274254264255e-15, "elapsed": 69.42615495668724, "peak_memory_bytes": 13784056320}
+{"step": 20, "objective": -0.0032135177757782914, "relative_explained": 10.56415669390302, "normal_residual": 1.3269692191540203e-15, "elapsed": 91.48217901401222, "peak_memory_bytes": 13784056320}
+{"step": 25, "objective": -0.0033155954630967027, "relative_explained": 10.899728101632906, "normal_residual": 1.3401308648146303e-15, "elapsed": 113.60388951562345, "peak_memory_bytes": 13784056320}
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_coefficients": true,
+    "pred_c_function": false
+  },
+  "results": {
+    "initial": {
+      "sampled_coefficient_error": 0.9989844431398923,
+      "gaussian_error": 0.9989197883634866,
+      "text_value_error": 0.5048012582689608
+    },
+    "learned": {
+      "sampled_coefficient_error": 0.9847470736054005,
+      "gaussian_error": 0.9635467339683248,
+      "text_value_error": 0.5769981049678885
+    },
+    "inherited": {
+      "text_value_error": 0.08131342059255874,
+      "gaussian_error": 1.4709084475944134
+    }
+  },
+  "history": [
+    {
+      "step": 0,
+      "objective": -0.0003041906579853114,
+      "relative_explained": 1.0,
+      "normal_residual": 1.1507676466463225e-15,
+      "elapsed": 3.144558183848858,
+      "peak_memory_bytes": 13760604672
+    },
+    {
+      "step": 5,
+      "objective": -0.0011255508358349838,
+      "relative_explained": 3.7001492527404767,
+      "normal_residual": 1.189697788041377e-15,
+      "elapsed": 25.324911520816386,
+      "peak_memory_bytes": 13783656960
+    },
+    {
+      "step": 10,
+      "objective": -0.0020403508994244917,
+      "relative_explained": 6.707473901197239,
+      "normal_residual": 1.1382824326008034e-15,
+      "elapsed": 47.376757946796715,
+      "peak_memory_bytes": 13784056320
+    },
+    {
+      "step": 15,
+      "objective": -0.0027897313028654213,
+      "relative_explained": 9.170995984367575,
+      "normal_residual": 1.1344274254264255e-15,
+      "elapsed": 69.42615495668724,
+      "peak_memory_bytes": 13784056320
+    },
+    {
+      "step": 20,
+      "objective": -0.0032135177757782914,
+      "relative_explained": 10.56415669390302,
+      "normal_residual": 1.3269692191540203e-15,
+      "elapsed": 91.48217901401222,
+      "peak_memory_bytes": 13784056320
+    },
+    {
+      "step": 25,
+      "objective": -0.0033155954630967027,
+      "relative_explained": 10.899728101632906,
+      "normal_residual": 1.3401308648146303e-15,
+      "elapsed": 113.60388951562345,
+      "peak_memory_bytes": 13784056320
+    }
+  ],
+  "selected_step": 25,
+  "initial_objective": -0.0003041906579853114,
+  "selected_objective": -0.0033155954630967027,
+  "maximum_normal_residual": 1.7385728001185647e-15,
+  "maximum_export_replay": 9.392232832120595e-07,
+  "prices": {
+    "initial": {
+      "products": 384,
+      "stored_coefficients": 322048,
+      "stored_integer_indices": 768,
+      "additions": 320648,
+      "fp32_parameter_and_index_bytes": 1294336
+    },
+    "learned": {
+      "products": 384,
+      "stored_coefficients": 322048,
+      "stored_integer_indices": 768,
+      "additions": 320662,
+      "fp32_parameter_and_index_bytes": 1294336
+    }
+  },
+  "program_sha256": {
+    "initial": "d9ad289b77b03a8bd7fa91adc1f37260738fac6729d0642c904cc1e709f2aaa9",
+    "learned": "3b15a48ce2e5a41577cb72e416bc63f87e3d6aa37017d98cf4f5cbb1079f62a4"
+  },
+  "seconds": 115.5402104537934,
+  "peak_memory_bytes": 13784056320,
+  "scope": "Exactcoefficientoptimizationwithoutteacherconstant;16fixedreaderspurequartic, sampledcoefficient/Gaussian/textonlyevaluation; no semantic/nativeadoption."
+}

@@ -1,0 +1,32 @@
+[pythia160m_sequential_v780] native 3.47311 | joint replay of the v760 snapshot +0.2131 (v760 +0.2131) | joint value 3.118
+[pythia160m_sequential_v780] head 0.0 (1/144) value 0.0505: isolated +0.0074 -> +0.0073 (step 50)
+[pythia160m_sequential_v780] head 0.2 (3/144) value 0.0899: isolated +0.0139 -> +0.0072 (step 50)
+[pythia160m_sequential_v780] head 0.7 (8/144) value 0.0138: isolated +0.0045 -> +0.0031 (step 50)
+[pythia160m_sequential_v780] head 0.8 (9/144) value 0.0328: isolated +0.0041 -> +0.0038 (step 50)
+[pythia160m_sequential_v780] head 1.6 (19/144) value 0.0078: isolated +0.0049 -> +0.0014 (step 50)
+[pythia160m_sequential_v780] head 1.10 (23/144) value 0.0056: isolated +0.0237 -> +0.0029 (step 25)
+[pythia160m_sequential_v780] head 2.0 (25/144) value 0.0105: isolated +0.0028 -> +0.0024 (step 50)
+[pythia160m_sequential_v780] head 3.7 (44/144) value 0.0067: isolated +0.0040 -> +0.0005 (step 50)
+[pythia160m_sequential_v780] head 4.0 (49/144) value 0.0283: isolated +0.0020 -> +0.0019 (step 50)
+[pythia160m_sequential_v780] head 4.1 (50/144) value 0.0139: isolated +0.0052 -> +0.0037 (step 50)
+[pythia160m_sequential_v780] head 4.11 (60/144) value 0.0166: isolated +0.0048 -> +0.0042 (step 50)
+[pythia160m_sequential_v780] head 6.0 (73/144) value 0.0139: isolated +0.0005 -> +0.0003 (step 50)
+[pythia160m_sequential_v780] head 6.7 (80/144) value 0.0137: isolated +0.0050 -> +0.0031 (step 50)
+[pythia160m_sequential_v780] head 7.8 (93/144) value 0.0858: isolated +0.0041 -> +0.0028 (step 50)
+[pythia160m_sequential_v780] head 7.11 (96/144) value 0.0167: isolated +0.0050 -> +0.0038 (step 50)
+[pythia160m_sequential_v780] head 8.0 (97/144) value 0.0019: isolated +0.0008 -> +0.0006 (step 50)
+[pythia160m_sequential_v780] head 9.3 (112/144) value 0.0125: isolated +0.0063 -> +0.0064 (step 50)
+[pythia160m_sequential_v780] head 10.0 (121/144) value 0.0012: isolated +0.0004 -> +0.0003 (step 25)
+[pythia160m_sequential_v780] refined: sum of isolated costs +0.2526 -> +0.1676 | JOINT +0.2131 -> +0.2659 | recovery 0.932 -> 0.915
+[pythia160m_sequential_v780] refined manipulability: Spearman 0.625, median ratio 0.93
+{
+  "predictions": {
+    "pred_a_joint_replays": true,
+    "pred_b_sum_isolated_halves": false,
+    "pred_c_joint_recovery": false,
+    "pred_d_beats_joint_fit": false,
+    "pred_e_values_preserved": true
+  },
+  "forwards": 12009,
+  "backwards": 7200
+}

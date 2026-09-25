@@ -1,0 +1,20 @@
+{
+  "predictions": {
+    "pred_a_joint_replay": false,
+    "pred_b_conditional_fidelity": false,
+    "pred_c_native_fidelity": false
+  },
+  "fixed_values": 513030,
+  "max_local_relative_error": 1.4223671643947934e-06,
+  "max_local_absolute_error": 0.004124957758904202,
+  "wall_seconds": 1.7379406329710037
+}
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_subject_joint_chain_v647.py", line 160, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_subject_joint_chain_v647.py", line 157, in main
+    OUT.write_text(payload);print(json.dumps({k:result[k] for k in ['predictions','fixed_values','max_local_relative_error','max_local_absolute_error','wall_seconds']},indent=2));assert a
+                                                                                                                                                                                          ^
+AssertionError

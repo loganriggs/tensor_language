@@ -1,0 +1,31 @@
+{
+  "timestamp_utc": "2026-09-22T01:57:37.615188+00:00",
+  "status": "PASS",
+  "scope": "planted quartic x1^3*x2; no native or text causal evidence",
+  "precision": "float64 CPU",
+  "seed": 220922,
+  "actual_text_context_cells": 0,
+  "errors": {
+    "full_rank": 8.881784197001252e-16,
+    "reciprocal_gauge": 1.4210854715202004e-14,
+    "conditional_quadrature": 1.4210854715202004e-14,
+    "centered_parity": 0.0,
+    "mixture_posterior": 2.842170943040401e-14,
+    "risk_quadrature_drift": 2.3732127374387346e-12
+  },
+  "risks_absolute_squared": {
+    "shifted": {
+      "shifted_conditional": 75.99999999999997,
+      "naive_even_projection": 379.9999999999999,
+      "mixture_conditional": 82.90522591774685
+    },
+    "symmetric_mixture": {
+      "shifted_conditional": 683.9999999999998,
+      "naive_even_projection": 379.9999999999999,
+      "mixture_conditional": 82.90522591774685
+    }
+  },
+  "consequence": "Parity restoration is law-dependent. Symmetric-mixture conditional expectation uses posterior weights, not uniform even projection; it is generally non-polynomial.",
+  "source_sha256": "231227f2426613bcc4f4ba2ae6328398408603ba4f080ae18d6f8f40f751b35c",
+  "helper_sha256": "054c77a43a43fc2aa7c0e7a24866406fdb24abff71956363061d93e2be0fffd9"
+}

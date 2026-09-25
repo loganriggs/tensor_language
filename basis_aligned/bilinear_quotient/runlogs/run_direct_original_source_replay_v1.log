@@ -1,0 +1,280 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_hybrid": true,
+    "pred_c_change": true
+  },
+  "summary": {
+    "fineweb": {
+      "native": {
+        "hybrid": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.2745318404149412,
+            "ce_added": 0.011267250224788842,
+            "ce_disagreement": 0.0
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.827302220196776,
+            "ce_added": 0.13432887365669013,
+            "ce_disagreement": 0.0
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.06650475107834945,
+            "ce_added": -0.000952270987724501,
+            "ce_disagreement": 0.0
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.12571314331289196,
+            "ce_added": 0.003316244202529361,
+            "ce_disagreement": 0.0
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.4169958288246907,
+            "ce_added": 0.0207320547811687,
+            "ce_disagreement": 0.0
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.04053127086112185,
+            "ce_added": 6.71295342700822e-05,
+            "ce_disagreement": 0.0
+          }
+        }
+      },
+      "original": {
+        "hybrid": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 1.1760918210686255e-06,
+            "reference_logit_rms": 0.2745318404149412,
+            "ce_added": 0.011267252449062607,
+            "ce_disagreement": 2.2065744007255965e-09
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 6.038627012330467e-07,
+            "reference_logit_rms": 0.827302220196776,
+            "ce_added": 0.13432879956811666,
+            "ce_disagreement": -7.517635822296142e-08
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 4.664449214299876e-06,
+            "reference_logit_rms": 0.06650475107834945,
+            "ce_added": -0.0009522725961038044,
+            "ce_disagreement": -1.6426756268455868e-09
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 3.59698532788647e-06,
+            "reference_logit_rms": 0.12571314331289196,
+            "ce_added": 0.00331626174777758,
+            "ce_disagreement": 1.755369511923096e-08
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 1.66264597200202e-06,
+            "reference_logit_rms": 0.4169958288246907,
+            "ce_added": 0.02073199697956443,
+            "ce_disagreement": -5.760788917541504e-08
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 1.0823821602385343e-05,
+            "reference_logit_rms": 0.04053127086112185,
+            "ce_added": 6.71523448730272e-05,
+            "ce_disagreement": 2.278813294001988e-08
+          }
+        }
+      }
+    },
+    "stdlib": {
+      "native": {
+        "hybrid": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.31178803131479715,
+            "ce_added": 0.02488628318701666,
+            "ce_disagreement": 0.0
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.7138005902093838,
+            "ce_added": 0.10296979671990385,
+            "ce_disagreement": 0.0
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.06859422185894015,
+            "ce_added": -0.007030623197993811,
+            "ce_disagreement": 0.0
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.13334982949286672,
+            "ce_added": 0.004788851668503486,
+            "ce_disagreement": 0.0
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.4623403024518119,
+            "ce_added": 0.010028494455452477,
+            "ce_disagreement": 0.0
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.06869362546831798,
+            "ce_added": -0.003107904429164003,
+            "ce_disagreement": 0.0
+          }
+        }
+      },
+      "original": {
+        "hybrid": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 8.570686238371795e-07,
+            "reference_logit_rms": 0.31178803131479715,
+            "ce_added": 0.02488628239540724,
+            "ce_disagreement": -7.499613120674596e-10
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 6.770228689520712e-07,
+            "reference_logit_rms": 0.7138005902093838,
+            "ce_added": 0.10296989722671557,
+            "ce_disagreement": 9.96515154838562e-08
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 3.8060610067439635e-06,
+            "reference_logit_rms": 0.06859422185894015,
+            "ce_added": -0.007030651904642582,
+            "ce_disagreement": -2.8706648770500632e-08
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 2.815765102804683e-06,
+            "reference_logit_rms": 0.13334982949286672,
+            "ce_added": 0.0047888447047036075,
+            "ce_disagreement": -6.84151394647755e-09
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 1.4599210051432706e-06,
+            "reference_logit_rms": 0.4623403024518119,
+            "ce_added": 0.010028537638409406,
+            "ce_disagreement": 4.297388451439994e-08
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 5.24334630929247e-06,
+            "reference_logit_rms": 0.06869362546831798,
+            "ce_added": -0.003107949242214946,
+            "ce_disagreement": -4.4813050943262436e-08
+          }
+        }
+      }
+    }
+  },
+  "final_state_replay": 0.0,
+  "source_replay": 2.731134599549765e-07,
+  "plan": {
+    "program_sha256": "0292c82d21b794a9f50eda6a88fcfdddeb75e24e12317c5684d269a8617d4997",
+    "donor_sha256": "51e6a9401852a82886af373c6d25e650f2a895e80aa25f1e3f78b38996dbf3f0",
+    "tokens_sha256": {
+      "fineweb": "1df044b8b419949d66b3b32b793fc399ecb5ba064c8d5d4e9869f63f655cf532",
+      "stdlib": "184e0e064b9bcd88c6fabdf5dce32f719da9215e1f1209702cfac6494bc3bfda"
+    },
+    "recipient_documents": {
+      "fineweb": [
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191
+      ],
+      "stdlib": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "valid_pairs": {
+      "fineweb": 2529,
+      "stdlib": 3153
+    },
+    "full_dictionary_synthetic_replay": 1.4631531985220168e-13,
+    "scope": "Exact original-weight two-source block program. Reused balanced-donor panels; native leading-feature removal reference. Allcohort hybrid/change logit effect relative error<1e-4 and CE disagreement<1e-6. No approximation fitting, no fresh semantic claim, native z/h producers retained.",
+    "donor_rule": "Within each current-token stratum, greedily choose least-used donor in another document, ties nearest sequence position then flat index; recipient order fixed. No outcomes used.",
+    "donor_concentration": {
+      "fineweb": {
+        "pairs": 2529,
+        "distinct_donors": 2392,
+        "max_site_fraction": 0.001977066043764353,
+        "max_document_fraction": 0.0771055743098259
+      },
+      "stdlib": {
+        "pairs": 3153,
+        "distinct_donors": 2975,
+        "max_site_fraction": 0.0028544242959469557,
+        "max_document_fraction": 0.06850618124008179
+      }
+    },
+    "cpu_replay": {
+      "torch.float64": 2.0263497054514203e-11,
+      "torch.float32": 1.3356088771892815e-05
+    }
+  },
+  "seconds": 2.1401150689926
+}
+FINAL original-source checks {'pred_a_instrument': True, 'pred_b_exact': True, 'pred_c_price': True}

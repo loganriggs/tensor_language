@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_response_feature_interchange_v1.py", line 70, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_response_feature_interchange_v1.py", line 57, in main
+    value=evaluate(arm,x);state=replace_branch(final,h,original,value);base[arm]=logits(state);basece[arm]=F.cross_entropy(base[arm],labels)
+          ^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_response_feature_interchange_v1.py", line 45, in evaluate
+    def evaluate(arm,x):return teacher(x) if arm=='exact' else paired(programs[arm],x) if arm=='response656' else bank(programs[arm],x)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match/paired_root_compiler.py", line 41, in evaluate
+    for pair in program['pairs']:
+                ~~~~~~~^^^^^^^^^
+KeyError: 'pairs'

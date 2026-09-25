@@ -1,0 +1,205 @@
+fineweb aligned done
+fineweb same_token done
+code aligned done
+code same_token done
+{
+  "summary": {
+    "fineweb": {
+      "aligned": {
+        "0": {
+          "sites": 7680,
+          "effect_cosine": 0.9856573523628919,
+          "effect_relative_error": 0.17008807169123935,
+          "native_effect_rms": 0.984529528454069,
+          "ce_effect_relative_error": 0.16499029912400887,
+          "native_ce_added": 0.287662045193188,
+          "predicted_ce_added": 0.294058621706373
+        },
+        "1": {
+          "sites": 7680,
+          "effect_cosine": 0.9794725956373369,
+          "effect_relative_error": 0.21494868211432927,
+          "native_effect_rms": 0.7042032824504114,
+          "ce_effect_relative_error": 0.25577498459528614,
+          "native_ce_added": 0.08916689754886135,
+          "predicted_ce_added": 0.07196429885405399
+        },
+        "2": {
+          "sites": 7680,
+          "effect_cosine": 0.9384825557668942,
+          "effect_relative_error": 0.3470516274652672,
+          "native_effect_rms": 0.5376009255217228,
+          "ce_effect_relative_error": 0.30472832410623507,
+          "native_ce_added": 0.07326618839987944,
+          "predicted_ce_added": 0.06289031411345694
+        },
+        "3": {
+          "sites": 7680,
+          "effect_cosine": 0.8798813461913015,
+          "effect_relative_error": 0.47755907631524785,
+          "native_effect_rms": 0.3347135178380164,
+          "ce_effect_relative_error": 0.5255725345923633,
+          "native_ce_added": 0.012757134209813377,
+          "predicted_ce_added": 0.007648807647274462
+        },
+        "joint": {
+          "sites": 7680,
+          "effect_cosine": 0.9791839816893342,
+          "effect_relative_error": 0.20297482715774573,
+          "native_effect_rms": 1.1546205745842106,
+          "ce_effect_relative_error": 0.14856546754947814,
+          "native_ce_added": 0.41949674462653896,
+          "predicted_ce_added": 0.4102172449811344
+        }
+      },
+      "same_token": {
+        "0": {
+          "sites": 5516,
+          "effect_cosine": 0.9647667232263059,
+          "effect_relative_error": 0.2632400005524984,
+          "native_effect_rms": 0.4986828340658288,
+          "ce_effect_relative_error": 0.18623724965947197,
+          "native_ce_added": 0.05209486107005722,
+          "predicted_ce_added": 0.05019863388894574
+        },
+        "1": {
+          "sites": 5516,
+          "effect_cosine": 0.9508101831662907,
+          "effect_relative_error": 0.3198639267739828,
+          "native_effect_rms": 0.3418887844401049,
+          "ce_effect_relative_error": 0.2506079042980518,
+          "native_ce_added": 0.011922520603886707,
+          "predicted_ce_added": 0.010494924343709234
+        },
+        "2": {
+          "sites": 5516,
+          "effect_cosine": 0.8688671832566784,
+          "effect_relative_error": 0.5002801242834878,
+          "native_effect_rms": 0.2625817164942623,
+          "ce_effect_relative_error": 0.5362166009969194,
+          "native_ce_added": 0.009065131954043333,
+          "predicted_ce_added": 0.008501750171030767
+        },
+        "3": {
+          "sites": 5516,
+          "effect_cosine": 0.8724950174233581,
+          "effect_relative_error": 0.4996260293054074,
+          "native_effect_rms": 0.17600216016171172,
+          "ce_effect_relative_error": 0.5307970077314951,
+          "native_ce_added": 0.004544208017054428,
+          "predicted_ce_added": 0.002678301245975541
+        },
+        "joint": {
+          "sites": 5516,
+          "effect_cosine": 0.9431686015563753,
+          "effect_relative_error": 0.33237150259021314,
+          "native_effect_rms": 0.620656551276843,
+          "ce_effect_relative_error": 0.197727932899908,
+          "native_ce_added": 0.06932856454621464,
+          "predicted_ce_added": 0.06740680829907802
+        }
+      }
+    },
+    "code": {
+      "aligned": {
+        "0": {
+          "sites": 3840,
+          "effect_cosine": 0.988142827688139,
+          "effect_relative_error": 0.16122454741629624,
+          "native_effect_rms": 1.0912568962733946,
+          "ce_effect_relative_error": 0.1572800280668452,
+          "native_ce_added": 0.5822377541084279,
+          "predicted_ce_added": 0.5186680201342218
+        },
+        "1": {
+          "sites": 3840,
+          "effect_cosine": 0.9477967370553,
+          "effect_relative_error": 0.3209149551449191,
+          "native_effect_rms": 0.7212847496133992,
+          "ce_effect_relative_error": 0.40353336020775804,
+          "native_ce_added": 0.1552828620858539,
+          "predicted_ce_added": 0.10577631096937996
+        },
+        "2": {
+          "sites": 3840,
+          "effect_cosine": 0.9602655417720745,
+          "effect_relative_error": 0.28509936022292487,
+          "native_effect_rms": 0.9253696583090063,
+          "ce_effect_relative_error": 0.31973456628333374,
+          "native_ce_added": 0.3693205073674638,
+          "predicted_ce_added": 0.2780067525815639
+        },
+        "3": {
+          "sites": 3840,
+          "effect_cosine": 0.9280361954292092,
+          "effect_relative_error": 0.4078592878403774,
+          "native_effect_rms": 0.7067917281901194,
+          "ce_effect_relative_error": 0.4699194545930045,
+          "native_ce_added": 0.11534911821846285,
+          "predicted_ce_added": 0.060125458558400166
+        },
+        "joint": {
+          "sites": 3840,
+          "effect_cosine": 0.9785545959740728,
+          "effect_relative_error": 0.21306743466768624,
+          "native_effect_rms": 1.3896238959357414,
+          "ce_effect_relative_error": 0.18598697324132116,
+          "native_ce_added": 0.9304207764349485,
+          "predicted_ce_added": 0.7833793430881997
+        }
+      },
+      "same_token": {
+        "0": {
+          "sites": 3149,
+          "effect_cosine": 0.9705586233030027,
+          "effect_relative_error": 0.2519813703196581,
+          "native_effect_rms": 0.5059229955881699,
+          "ce_effect_relative_error": 0.26121503692823816,
+          "native_ce_added": 0.08307696375466479,
+          "predicted_ce_added": 0.06664474701337936
+        },
+        "1": {
+          "sites": 3149,
+          "effect_cosine": 0.911075559110073,
+          "effect_relative_error": 0.43703380724004876,
+          "native_effect_rms": 0.26535120352762026,
+          "ce_effect_relative_error": 0.4511424799424783,
+          "native_ce_added": 0.021648446450062586,
+          "predicted_ce_added": 0.011812091799421552
+        },
+        "2": {
+          "sites": 3149,
+          "effect_cosine": 0.9404501599614238,
+          "effect_relative_error": 0.3570551518474308,
+          "native_effect_rms": 0.428198392673422,
+          "ce_effect_relative_error": 0.45044831152553505,
+          "native_ce_added": 0.05600323089273932,
+          "predicted_ce_added": 0.03519309811829686
+        },
+        "3": {
+          "sites": 3149,
+          "effect_cosine": 0.9303803705202022,
+          "effect_relative_error": 0.4542236710867338,
+          "native_effect_rms": 0.35543072906128215,
+          "ce_effect_relative_error": 0.46660126051615697,
+          "native_ce_added": 0.036896012510948185,
+          "predicted_ce_added": 0.01699225135530866
+        },
+        "joint": {
+          "sites": 3149,
+          "effect_cosine": 0.9406097983788123,
+          "effect_relative_error": 0.354488647411973,
+          "native_effect_rms": 0.6862265832142616,
+          "ce_effect_relative_error": 0.3433132959845725,
+          "native_ce_added": 0.16116148549794237,
+          "predicted_ce_added": 0.11218042489571249
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_major": false,
+    "pred_c_all": true
+  }
+}

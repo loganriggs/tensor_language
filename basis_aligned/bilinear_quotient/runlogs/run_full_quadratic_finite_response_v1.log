@@ -1,0 +1,9 @@
+{"arm": "finite_fixed", "step": 0, "loss": 0.02930286033445509}
+{"arm": "finite_fixed", "initial_loss": 0.02930286033445509, "selected_loss": 0.02930286033445509, "selected_step": 0, "covariance_error": 0.11206593218203949, "isotropic_error": 0.3831165089465361, "response_error": 0.04545614629384554, "fp32_export_drift": 6.082205240413309e-07, "stored_floats": 14067072, "program_sha256": "60279579583704ec709843098b15db960bdfc4b7ea8292d09ad19fdb115c7021", "history": [{"step": 0, "loss": 0.02930286033445509}], "seconds": 1.942956699989736}
+{"arm": "finite_learned", "step": 0, "loss": 0.02930286033445509}
+{"arm": "finite_learned", "step": 25, "loss": 0.029680718169514096}
+{"arm": "finite_learned", "step": 50, "loss": 0.027056789510612078}
+{"arm": "finite_learned", "step": 75, "loss": 0.026731104839287676}
+{"arm": "finite_learned", "step": 100, "loss": 0.02669455135531542}
+{"arm": "finite_learned", "initial_loss": 0.02930286033445509, "selected_loss": 0.02669455135531542, "selected_step": 100, "covariance_error": 0.10561755383582873, "isotropic_error": 0.38044854322998917, "response_error": 0.032640071575735626, "fp32_export_drift": 6.440282647665967e-07, "stored_floats": 14067072, "program_sha256": "1c2ac21968b5dc96e9f7d6fdebb24cfe859f9ccff5148a85a587b771ee72f4f5", "history": [{"step": 0, "loss": 0.02930286033445509}, {"step": 25, "loss": 0.029680718169514096}, {"step": 50, "loss": 0.027056789510612078}, {"step": 75, "loss": 0.026731104839287676}, {"step": 100, "loss": 0.02669455135531542}], "seconds": 164.47196332924068}
+{"predictions": {"pred_a_finite": true, "pred_b_guard": true, "pred_c_learning": true}, "seconds": 167.75664190389216}

@@ -1,0 +1,74 @@
+{
+  "records": [
+    {
+      "metric": "calibration_shaped",
+      "dense_loss_replay": 1.6653345369377348e-16,
+      "nonzero_gradient_norms": [
+        0.1732765240596711,
+        0.0016908421903284654,
+        0.0013352647545184372,
+        0.0012442176806717394,
+        0.0009823274813026248,
+        0.0011141509988526225,
+        0.0007583044959447168
+      ],
+      "initial_coefficient_replay": null,
+      "export": {
+        "native_error": 1.0722021596151017,
+        "covariance_error": 0.42275400684491904,
+        "execution_replay": 1.4808919371034958e-15,
+        "per_mode_errors": [
+          0.10304551192223531,
+          0.11148688889782372,
+          0.45172961867982864
+        ],
+        "euclidean_jacobian_errors": [
+          0.5673726501555996,
+          0.44362889343719314,
+          0.5021674163170977
+        ],
+        "stored_floats": 996876,
+        "index_integers": 4608,
+        "activation_products": 1152,
+        "projection_multiplications": 983040,
+        "source_total_multiplications": 986496,
+        "source_additions": 984956
+      }
+    },
+    {
+      "metric": "native_isotropic",
+      "dense_loss_replay": 0.0,
+      "nonzero_gradient_norms": [
+        0.03903176357004175,
+        0.0005329573727194777,
+        0.0010006908460446916,
+        0.000459790350633196,
+        0.0008394078415225996,
+        0.0006533407722125373,
+        0.0008794704105812357
+      ],
+      "initial_coefficient_replay": null,
+      "export": {
+        "native_error": 0.9040536929818612,
+        "covariance_error": 0.5371443984997892,
+        "execution_replay": 1.3828981809308436e-15,
+        "per_mode_errors": [
+          0.12107165864229448,
+          0.14599031322438016,
+          0.9866748494552577
+        ],
+        "euclidean_jacobian_errors": [
+          0.4927015347947272,
+          0.35964787081158983,
+          0.5015718361396662
+        ],
+        "stored_floats": 996876,
+        "index_integers": 4608,
+        "activation_products": 1152,
+        "projection_multiplications": 983040,
+        "source_total_multiplications": 986496,
+        "source_additions": 984960
+      }
+    }
+  ]
+}

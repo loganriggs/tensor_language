@@ -1,0 +1,117 @@
+{
+  "predictions": {
+    "pred_a_export": true,
+    "pred_b_features": true,
+    "pred_c_joint": true
+  },
+  "summary": {
+    "fineweb": {
+      "0": {
+        "true_energy": 125892226.86427397,
+        "pred_energy": 128914398.21581636,
+        "dot": 127319089.81727135,
+        "error_energy": 168445.44554763907,
+        "relative_error": 0.036578861036138444,
+        "cosine": 0.9994092267015302,
+        "true_ce_added": 0.06358181685209274,
+        "pred_ce_added": 0.06411483883857727
+      },
+      "1": {
+        "true_energy": 57729043.07837463,
+        "pred_energy": 56626917.295377694,
+        "dot": 57076978.314733975,
+        "error_energy": 202003.74428438715,
+        "relative_error": 0.059153783896265154,
+        "cosine": 0.998279916588551,
+        "true_ce_added": 0.020528972148895264,
+        "pred_ce_added": 0.02068427950143814
+      },
+      "2": {
+        "true_energy": 34311289.263166346,
+        "pred_energy": 31983983.818949517,
+        "dot": 32862177.431018535,
+        "error_energy": 570918.2200787885,
+        "relative_error": 0.12899368007860287,
+        "cosine": 0.9919996959886267,
+        "true_ce_added": 0.0050199031829833984,
+        "pred_ce_added": 0.004453010857105255
+      },
+      "3": {
+        "true_energy": 19159425.177557535,
+        "pred_energy": 19421174.81505661,
+        "dot": 19254074.35404663,
+        "error_energy": 72451.2845208824,
+        "relative_error": 0.06149386742744749,
+        "cosine": 0.9981450521071694,
+        "true_ce_added": 0.002768702805042267,
+        "pred_ce_added": 0.0027604326605796814
+      },
+      "joint": {
+        "true_energy": 189401198.28847963,
+        "pred_energy": 188511835.39471567,
+        "dot": 188648075.523459,
+        "error_energy": 616882.6362773606,
+        "relative_error": 0.05707026798633245,
+        "cosine": 0.9983704244291165,
+        "true_ce_added": 0.10822688043117523,
+        "pred_ce_added": 0.1081991121172905
+      }
+    },
+    "code": {
+      "0": {
+        "true_energy": 77710811.04761377,
+        "pred_energy": 73215077.02298407,
+        "dot": 75358069.15267493,
+        "error_energy": 209749.76524800708,
+        "relative_error": 0.0519529270499455,
+        "cosine": 0.9990535784152856,
+        "true_ce_added": 0.3418104946613312,
+        "pred_ce_added": 0.318805992603302
+      },
+      "1": {
+        "true_energy": 68063676.37357895,
+        "pred_energy": 65396276.45991982,
+        "dot": 66675433.28943994,
+        "error_energy": 109086.25461887998,
+        "relative_error": 0.04003384596246568,
+        "cosine": 0.9993822563343856,
+        "true_ce_added": 0.09303921461105347,
+        "pred_ce_added": 0.08842360973358154
+      },
+      "2": {
+        "true_energy": 74791328.16573253,
+        "pred_energy": 69772421.34118813,
+        "dot": 72172879.49451883,
+        "error_energy": 217990.5178830006,
+        "relative_error": 0.05398749523980526,
+        "cosine": 0.9990943720843409,
+        "true_ce_added": 0.05417734384536743,
+        "pred_ce_added": 0.04792976379394531
+      },
+      "3": {
+        "true_energy": 22882293.965513863,
+        "pred_energy": 22863513.562758725,
+        "dot": 22857985.54001464,
+        "error_energy": 29836.448243305225,
+        "relative_error": 0.036109691761652456,
+        "cosine": 0.9993478616438874,
+        "true_ce_added": 0.04877850413322449,
+        "pred_ce_added": 0.048394545912742615
+      },
+      "joint": {
+        "true_energy": 192090137.04305953,
+        "pred_energy": 183666617.27488422,
+        "dot": 187696366.04308018,
+        "error_energy": 364022.23178341537,
+        "relative_error": 0.043532280690542706,
+        "cosine": 0.9992823519881889,
+        "true_ce_added": 0.6915613412857056,
+        "pred_ce_added": 0.6539539098739624
+      }
+    }
+  },
+  "duality": 3.1922469097390293e-15,
+  "export_replay": 3.1427989192920527e-16,
+  "seconds": 4.070294084958732,
+  "scope": "Removal of four calibration-centered feature amplitudes via explicit native residual writers. Exact native final normalization and softcap. Reused diagnostic panels, no semantic selectivity or source-ablation claim."
+}

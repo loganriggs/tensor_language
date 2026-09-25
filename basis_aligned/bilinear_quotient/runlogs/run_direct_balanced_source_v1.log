@@ -1,0 +1,660 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_hybrid": true,
+    "pred_c_change": true
+  },
+  "summary": {
+    "fineweb": {
+      "native": {
+        "hybrid": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.2745318404149412,
+            "ce_added": 0.011267250224788842,
+            "ce_disagreement": 0.0
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.827302220196776,
+            "ce_added": 0.13432887365669013,
+            "ce_disagreement": 0.0
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.06650475107834945,
+            "ce_added": -0.000952270987724501,
+            "ce_disagreement": 0.0
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.12571314331289196,
+            "ce_added": 0.003316244202529361,
+            "ce_disagreement": 0.0
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.4169958288246907,
+            "ce_added": 0.0207320547811687,
+            "ce_disagreement": 0.0
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.04053127086112185,
+            "ce_added": 6.71295342700822e-05,
+            "ce_disagreement": 0.0
+          }
+        }
+      },
+      "covariance_16": {
+        "hybrid": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.07341875139351137,
+            "reference_logit_rms": 0.2745318404149412,
+            "ce_added": 0.009652948732454345,
+            "ce_disagreement": -0.001614301493439268
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.08963549211126523,
+            "reference_logit_rms": 0.827302220196776,
+            "ce_added": 0.10888546032086015,
+            "ce_disagreement": -0.025443416118621828
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.08179486837120173,
+            "reference_logit_rms": 0.06650475107834945,
+            "ce_added": -0.0007892018284589525,
+            "ce_disagreement": 0.00016306915483067907
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.11578977167570656,
+            "reference_logit_rms": 0.12571314331289196,
+            "ce_added": 0.003370825056916124,
+            "ce_disagreement": 5.458071629029576e-05
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.10644842421116778,
+            "reference_logit_rms": 0.4169958288246907,
+            "ce_added": 0.02091944056749344,
+            "ce_disagreement": 0.00018738575279712678
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.15654201403419887,
+            "reference_logit_rms": 0.04053127086112185,
+            "ce_added": 0.00024196311358421567,
+            "ce_disagreement": 0.0001748335725140004
+          }
+        }
+      },
+      "shared8": {
+        "hybrid": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.13778489999796875,
+            "reference_logit_rms": 0.2745318404149412,
+            "ce_added": 0.009487437048227998,
+            "ce_disagreement": -0.0017798130763948742
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.08761400219725787,
+            "reference_logit_rms": 0.827302220196776,
+            "ce_added": 0.10576567166671157,
+            "ce_disagreement": -0.028563203655183316
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.09114513036637917,
+            "reference_logit_rms": 0.06650475107834945,
+            "ce_added": -0.0007947844515244166,
+            "ce_disagreement": 0.00015748655719179957
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.15662396228590375,
+            "reference_logit_rms": 0.12571314331289196,
+            "ce_added": 0.003302951900530776,
+            "ce_disagreement": -1.3292465136545173e-05
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.10945584304804525,
+            "reference_logit_rms": 0.4169958288246907,
+            "ce_added": 0.0202063959389925,
+            "ce_disagreement": -0.0005256579741835595
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.16132704166859993,
+            "reference_logit_rms": 0.04053127086112185,
+            "ce_added": 0.00022679963282176428,
+            "ce_disagreement": 0.00015967010002997188
+          }
+        }
+      },
+      "shared16": {
+        "hybrid": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.07015526023239872,
+            "reference_logit_rms": 0.2745318404149412,
+            "ce_added": 0.009726614316799463,
+            "ce_disagreement": -0.0015406358660080537
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.08308930496687837,
+            "reference_logit_rms": 0.827302220196776,
+            "ce_added": 0.10980228487029672,
+            "ce_disagreement": -0.024526590190827847
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.08243434999388088,
+            "reference_logit_rms": 0.06650475107834945,
+            "ce_added": -0.0007996311026906211,
+            "ce_disagreement": 0.00015263989124269712
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.11573449932925012,
+            "reference_logit_rms": 0.12571314331289196,
+            "ce_added": 0.0033596790612580607,
+            "ce_disagreement": 4.3434802017083704e-05
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.10271455403169288,
+            "reference_logit_rms": 0.4169958288246907,
+            "ce_added": 0.020933493111282588,
+            "ce_disagreement": 0.0002014378197491169
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.1567069829105001,
+            "reference_logit_rms": 0.04053127086112185,
+            "ce_added": 0.00024332427671031347,
+            "ce_disagreement": 0.00017619474569246883
+          }
+        }
+      },
+      "shared24": {
+        "hybrid": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.0729247778145896,
+            "reference_logit_rms": 0.2745318404149412,
+            "ce_added": 0.009677393866438505,
+            "ce_disagreement": -0.0015898565708347676
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.0880641762841158,
+            "reference_logit_rms": 0.827302220196776,
+            "ce_added": 0.10966160432621837,
+            "ce_disagreement": -0.024667269751429556
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.08214766364236241,
+            "reference_logit_rms": 0.06650475107834945,
+            "ce_added": -0.0007911050331497949,
+            "ce_disagreement": 0.00016116595960089138
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.11673179328564592,
+            "reference_logit_rms": 0.12571314331289196,
+            "ce_added": 0.003381958920707482,
+            "ce_disagreement": 6.571466570146332e-05
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.10597108029421366,
+            "reference_logit_rms": 0.4169958288246907,
+            "ce_added": 0.021457549408078192,
+            "ce_disagreement": 0.0007254947349429131
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.15689614990033474,
+            "reference_logit_rms": 0.04053127086112185,
+            "ce_added": 0.00024243423744799597,
+            "ce_disagreement": 0.00017530470110830806
+          }
+        }
+      },
+      "shared32": {
+        "hybrid": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.07341875139351137,
+            "reference_logit_rms": 0.2745318404149412,
+            "ce_added": 0.009652948732454345,
+            "ce_disagreement": -0.001614301493439268
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.08963549211126523,
+            "reference_logit_rms": 0.827302220196776,
+            "ce_added": 0.10888546032086015,
+            "ce_disagreement": -0.025443416118621828
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.08179486837120173,
+            "reference_logit_rms": 0.06650475107834945,
+            "ce_added": -0.0007892018284589525,
+            "ce_disagreement": 0.00016306915483067907
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 2529,
+            "effect_relative_error": 0.11578977167570656,
+            "reference_logit_rms": 0.12571314331289196,
+            "ce_added": 0.003370825056916124,
+            "ce_disagreement": 5.458071629029576e-05
+          },
+          "continuation": {
+            "sites": 125,
+            "effect_relative_error": 0.10644842421116778,
+            "reference_logit_rms": 0.4169958288246907,
+            "ce_added": 0.02091944056749344,
+            "ce_disagreement": 0.00018738575279712678
+          },
+          "spaced_word": {
+            "sites": 1575,
+            "effect_relative_error": 0.15654201403419887,
+            "reference_logit_rms": 0.04053127086112185,
+            "ce_added": 0.00024196311358421567,
+            "ce_disagreement": 0.0001748335725140004
+          }
+        }
+      }
+    },
+    "stdlib": {
+      "native": {
+        "hybrid": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.31178803131479715,
+            "ce_added": 0.02488628318701666,
+            "ce_disagreement": 0.0
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.7138005902093838,
+            "ce_added": 0.10296979671990385,
+            "ce_disagreement": 0.0
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.06859422185894015,
+            "ce_added": -0.007030623197993811,
+            "ce_disagreement": 0.0
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.13334982949286672,
+            "ce_added": 0.004788851668503486,
+            "ce_disagreement": 0.0
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.4623403024518119,
+            "ce_added": 0.010028494455452477,
+            "ce_disagreement": 0.0
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.0,
+            "reference_logit_rms": 0.06869362546831798,
+            "ce_added": -0.003107904429164003,
+            "ce_disagreement": 0.0
+          }
+        }
+      },
+      "covariance_16": {
+        "hybrid": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.045336134623748046,
+            "reference_logit_rms": 0.31178803131479715,
+            "ce_added": 0.022799099339754138,
+            "ce_disagreement": -0.0020871836112565816
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.05656682561724205,
+            "reference_logit_rms": 0.7138005902093838,
+            "ce_added": 0.08628271815452572,
+            "ce_disagreement": -0.01668707854637154
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.06421212407322134,
+            "reference_logit_rms": 0.06859422185894015,
+            "ce_added": -0.0070785071207758255,
+            "ce_disagreement": -4.78839227820144e-05
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.08168400788445933,
+            "reference_logit_rms": 0.13334982949286672,
+            "ce_added": 0.004412809244182482,
+            "ce_disagreement": -0.0003760422518579635
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.061707654283462844,
+            "reference_logit_rms": 0.4623403024518119,
+            "ce_added": 0.011165242718190563,
+            "ce_disagreement": 0.001136750486508316
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.06002463404390158,
+            "reference_logit_rms": 0.06869362546831798,
+            "ce_added": -0.0028834447045536604,
+            "ce_disagreement": 0.0002244597246103427
+          }
+        }
+      },
+      "shared8": {
+        "hybrid": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.05523665638984139,
+            "reference_logit_rms": 0.31178803131479715,
+            "ce_added": 0.022535922645558412,
+            "ce_disagreement": -0.002350360070627869
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.06614377663090734,
+            "reference_logit_rms": 0.7138005902093838,
+            "ce_added": 0.08268202592058069,
+            "ce_disagreement": -0.02028776912674384
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.09815882118427825,
+            "reference_logit_rms": 0.06859422185894015,
+            "ce_added": -0.007230785565779489,
+            "ce_disagreement": -0.0002001623677856782
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.09799263031639842,
+            "reference_logit_rms": 0.13334982949286672,
+            "ce_added": 0.004314761968312417,
+            "ce_disagreement": -0.00047408950745780583
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.07490023971816065,
+            "reference_logit_rms": 0.4623403024518119,
+            "ce_added": 0.010862797486823889,
+            "ce_disagreement": 0.0008343059203720518
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.08302677845070341,
+            "reference_logit_rms": 0.06869362546831798,
+            "ce_added": -0.0027834166334394146,
+            "ce_disagreement": 0.00032448790529195
+          }
+        }
+      },
+      "shared16": {
+        "hybrid": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.04157307344183569,
+            "reference_logit_rms": 0.31178803131479715,
+            "ce_added": 0.023200120899768393,
+            "ce_disagreement": -0.0016861624226784597
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.051651695560811256,
+            "reference_logit_rms": 0.7138005902093838,
+            "ce_added": 0.08779134895006309,
+            "ce_disagreement": -0.015178447902886843
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.07158056765565142,
+            "reference_logit_rms": 0.06859422185894015,
+            "ce_added": -0.007152691894375226,
+            "ce_disagreement": -0.00012206869638141463
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.08516317314871973,
+            "reference_logit_rms": 0.13334982949286672,
+            "ce_added": 0.004448854708863919,
+            "ce_disagreement": -0.00033999681088050235
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.059815635542371404,
+            "reference_logit_rms": 0.4623403024518119,
+            "ce_added": 0.010376083626582915,
+            "ce_disagreement": 0.0003475883633506541
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.06892330061110061,
+            "reference_logit_rms": 0.06869362546831798,
+            "ce_added": -0.002779555835706346,
+            "ce_disagreement": 0.00032834848389029503
+          }
+        }
+      },
+      "shared24": {
+        "hybrid": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.044565876914185655,
+            "reference_logit_rms": 0.31178803131479715,
+            "ce_added": 0.022890648183427915,
+            "ce_disagreement": -0.0019956347078797987
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.055916260137383766,
+            "reference_logit_rms": 0.7138005902093838,
+            "ce_added": 0.08692459159825301,
+            "ce_disagreement": -0.01604520586290758
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.0672361084984023,
+            "reference_logit_rms": 0.06859422185894015,
+            "ce_added": -0.007113665972343262,
+            "ce_disagreement": -8.304277434945107e-05
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.08208530986852461,
+            "reference_logit_rms": 0.13334982949286672,
+            "ce_added": 0.004427768318989789,
+            "ce_disagreement": -0.0003610833221175133
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.06113501310534618,
+            "reference_logit_rms": 0.4623403024518119,
+            "ce_added": 0.011381217002944678,
+            "ce_disagreement": 0.0013527228896106993
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.06121333195017157,
+            "reference_logit_rms": 0.06869362546831798,
+            "ce_added": -0.002882242011015906,
+            "ce_disagreement": 0.00022566274685018202
+          }
+        }
+      },
+      "shared32": {
+        "hybrid": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.045336134623748046,
+            "reference_logit_rms": 0.31178803131479715,
+            "ce_added": 0.022799099339754138,
+            "ce_disagreement": -0.0020871836112565816
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.05656682561724205,
+            "reference_logit_rms": 0.7138005902093838,
+            "ce_added": 0.08628271815452572,
+            "ce_disagreement": -0.01668707854637154
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.06421212407322134,
+            "reference_logit_rms": 0.06859422185894015,
+            "ce_added": -0.0070785071207758255,
+            "ce_disagreement": -4.78839227820144e-05
+          }
+        },
+        "change": {
+          "all": {
+            "sites": 3153,
+            "effect_relative_error": 0.08168400788445933,
+            "reference_logit_rms": 0.13334982949286672,
+            "ce_added": 0.004412809244182482,
+            "ce_disagreement": -0.0003760422518579635
+          },
+          "continuation": {
+            "sites": 98,
+            "effect_relative_error": 0.061707654283462844,
+            "reference_logit_rms": 0.4623403024518119,
+            "ce_added": 0.011165242718190563,
+            "ce_disagreement": 0.001136750486508316
+          },
+          "spaced_word": {
+            "sites": 136,
+            "effect_relative_error": 0.06002463404390158,
+            "reference_logit_rms": 0.06869362546831798,
+            "ce_added": -0.0028834447045536604,
+            "ce_disagreement": 0.0002244597246103427
+          }
+        }
+      }
+    }
+  },
+  "final_state_replay": 0.0,
+  "source_replay": 2.731134599549765e-07,
+  "plan": {
+    "program_sha256": "4960262458724cc485844fa7fbbe77021eb57a84060bbbf6b1168d93e4702440",
+    "donor_sha256": "51e6a9401852a82886af373c6d25e650f2a895e80aa25f1e3f78b38996dbf3f0",
+    "tokens_sha256": {
+      "fineweb": "1df044b8b419949d66b3b32b793fc399ecb5ba064c8d5d4e9869f63f655cf532",
+      "stdlib": "184e0e064b9bcd88c6fabdf5dce32f719da9215e1f1209702cfac6494bc3bfda"
+    },
+    "recipient_documents": {
+      "fineweb": [
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191
+      ],
+      "stdlib": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "valid_pairs": {
+      "fineweb": 2529,
+      "stdlib": 3153
+    },
+    "full_dictionary_synthetic_replay": 1.4631531985220168e-13,
+    "scope": "Donor-family sensitivity on reused shared-source panel; programs unchanged. Same absolute and relative gates. No fresh-data claim.",
+    "donor_rule": "Within each current-token stratum, greedily choose least-used donor in another document, ties nearest sequence position then flat index; recipient order fixed. No outcomes used.",
+    "donor_concentration": {
+      "fineweb": {
+        "pairs": 2529,
+        "distinct_donors": 2392,
+        "max_site_fraction": 0.001977066043764353,
+        "max_document_fraction": 0.0771055743098259
+      },
+      "stdlib": {
+        "pairs": 3153,
+        "distinct_donors": 2975,
+        "max_site_fraction": 0.0028544242959469557,
+        "max_document_fraction": 0.06850618124008179
+      }
+    }
+  },
+  "seconds": 2.9109819328878075
+}
+FINAL registered comparison {'pred_a_instrument': True, 'pred_b_hybrid': False, 'pred_c_change': False}

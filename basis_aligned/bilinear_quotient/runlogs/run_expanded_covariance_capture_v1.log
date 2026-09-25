@@ -1,0 +1,21 @@
+captured 32
+captured 64
+captured 96
+captured 128
+captured 160
+captured 192
+captured 224
+{
+  "predictions": {
+    "pred_a_tokens": true,
+    "pred_b_source": true,
+    "pred_c_product": true
+  },
+  "max_source_relative_error": 1.1741892400185606e-07,
+  "product_relative_error": 4.1651954405130247e-07,
+  "forwards": 232,
+  "context": 64,
+  "seconds": 3.4633384151384234,
+  "token_sha256": "62141f95ead42ce97ebe10c5f4067f728954813ff010bc7713b4f8cfe5a335d7",
+  "scope": "Additional covariance training states. Fullnativeinputdependencies remain; exactweightfold checkedagainstnativefloat32. No heldout/semantic/intervention confirmation."
+}

@@ -1,0 +1,18 @@
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+[gpt2_centred_v765] native: stock 3.39828 | explicit 3.39828 | geometry L=12 H=12 D=768 hd=64 kv=12 rotary=False
+[gpt2_centred_v765] values: top 0.1:0.549 0.3:0.191 0.5:0.074 7.11:0.030 4.11:0.023 0.10:0.022 0.9:0.019 5.10:0.018 5.9:0.018 9.5:0.017 8.5:0.014 11.3:0.014 | median 0.0050 | sum 1.684 | joint 3.345
+[gpt2_centred_v765] kernels-only +7.7857 | with column 0 native +2.9519 | SVD energy cum [0.925, 0.993, 0.999, 1.0, 1.0, 1.0, 1.0, 1.0] | ladder k=1:+8.324 k=2:+8.435 k=4:+8.223 k=8:+7.804 k=16:+7.785
+[gpt2_centred_v765] rank 16: closed-form +2.4177 -> snapshot (step 300) +0.3568, recovery 0.893; curve [2.418, 0.686, 0.541, 0.475, 0.437, 0.413, 0.393, 0.379, 0.372, 0.365, 0.361, 0.359, 0.357]
+[gpt2_centred_v765] rank 32: closed-form +2.1476 -> snapshot (step 300) +0.1856, recovery 0.945; curve [2.148, 0.421, 0.32, 0.265, 0.238, 0.22, 0.207, 0.199, 0.195, 0.19, 0.189, 0.187, 0.186]
+[gpt2_centred_v765] rank 32 manipulability: Spearman 0.503, median ratio 0.99: 0.1:0.549->0.587 0.3:0.191->0.319 0.5:0.074->0.111 7.11:0.030->0.007 4.11:0.023->0.024 0.10:0.022->0.022 0.9:0.019->0.024 5.10:0.018->0.024
+{
+  "predictions": {
+    "pred_a_instrument_replays": true,
+    "pred_b_kernel_energy_top4": true,
+    "pred_c_rank32_cost": false,
+    "pred_d_rank16_cost": false,
+    "pred_e_rank32_values_preserved_scale": true
+  },
+  "forwards": 1987,
+  "backwards": 600
+}

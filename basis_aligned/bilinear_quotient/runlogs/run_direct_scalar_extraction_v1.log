@@ -1,0 +1,105 @@
+document 0 done
+document 1 done
+document 2 done
+document 3 done
+document 4 done
+document 5 done
+document 6 done
+document 7 done
+document 8 done
+document 9 done
+document 10 done
+document 11 done
+document 12 done
+document 13 done
+document 14 done
+document 15 done
+{
+  "summary": {
+    "0": {
+      "native_ce_added": 0.37330123130232096,
+      "native_kl": 0.38203414529561996,
+      "native_argmax_agreement": 0.836669921875,
+      "predicted_ce_added": 0.42595813795924187,
+      "predicted_kl": 0.4298610370606184,
+      "predicted_argmax_agreement": 0.830810546875,
+      "effect_cosine": 0.9836079760140736,
+      "effect_relative_error": 0.1874178558160592,
+      "ce_effect_cosine": 0.9899218902614966,
+      "ce_effect_relative_error": 0.16987825206242985,
+      "native_logit_effect_rms": 0.9235159866677608
+    },
+    "1": {
+      "native_ce_added": 0.0077503124048234895,
+      "native_kl": 0.027741140802390873,
+      "native_argmax_agreement": 0.935791015625,
+      "predicted_ce_added": 0.003136645260383375,
+      "predicted_kl": 0.021274523518513888,
+      "predicted_argmax_agreement": 0.94140625,
+      "effect_cosine": 0.925707805638432,
+      "effect_relative_error": 0.4000252931724019,
+      "ce_effect_cosine": 0.9523497218135184,
+      "ce_effect_relative_error": 0.3162488521737902,
+      "native_logit_effect_rms": 0.41447066498770013
+    },
+    "2": {
+      "native_ce_added": 0.1062764769885689,
+      "native_kl": 0.1340417731553316,
+      "native_argmax_agreement": 0.912353515625,
+      "predicted_ce_added": 0.065929040662013,
+      "predicted_kl": 0.0905122309923172,
+      "predicted_argmax_agreement": 0.9306640625,
+      "effect_cosine": 0.9579998822828217,
+      "effect_relative_error": 0.30982969540900107,
+      "ce_effect_cosine": 0.9704105949238443,
+      "ce_effect_relative_error": 0.2893339482458638,
+      "native_logit_effect_rms": 0.5921152502076329
+    },
+    "3": {
+      "native_ce_added": 0.037936492590233684,
+      "native_kl": 0.03490999829955399,
+      "native_argmax_agreement": 0.943115234375,
+      "predicted_ce_added": 0.022470829338999465,
+      "predicted_kl": 0.020719412539619952,
+      "predicted_argmax_agreement": 0.955810546875,
+      "effect_cosine": 0.929190502205125,
+      "effect_relative_error": 0.4202485354109095,
+      "ce_effect_cosine": 0.9050263000114086,
+      "ce_effect_relative_error": 0.448322723585989,
+      "native_logit_effect_rms": 0.3988571653848383
+    },
+    "joint": {
+      "native_ce_added": 0.5143371522426605,
+      "native_kl": 0.5628312937915325,
+      "native_argmax_agreement": 0.777587890625,
+      "predicted_ce_added": 0.5352436266839504,
+      "predicted_kl": 0.5763620957732201,
+      "predicted_argmax_agreement": 0.78662109375,
+      "effect_cosine": 0.9770467066277869,
+      "effect_relative_error": 0.21311417032740435,
+      "ce_effect_cosine": 0.9906919728511855,
+      "ce_effect_relative_error": 0.14686909908573173,
+      "native_logit_effect_rms": 1.113224481945639
+    }
+  },
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_major": false,
+    "pred_c_all": true
+  },
+  "replay_max": 4.513304498022245e-08
+}
+{
+  "predictions": {
+    "pred_a_frame": true,
+    "pred_b_scalar": true,
+    "pred_c_intervention": true
+  },
+  "writer_reprojection": 5.477877347859788e-08,
+  "scalar_and_native_replay": 4.513304498022245e-08,
+  "archived_intervention_replay": 1.799721780213517e-07,
+  "shared_scalar_coefficients": 13916,
+  "residual_writer_coefficients": 4608,
+  "products": 10,
+  "scope": "Executable exact extraction of fixed operational features with native residual background. Prior feature1/KL failures remain unchanged; no semantic or standalone-model claim."
+}

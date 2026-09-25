@@ -1,0 +1,67 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_fidelity": true,
+    "pred_c_storage": true
+  },
+  "records": [
+    {
+      "shared_rank": 8,
+      "product_variation_error": 0.14441921919642914,
+      "relative_to_separate": 1.658232413094861,
+      "source_variation_errors": [
+        0.12287329612618082,
+        0.1039350645964404
+      ],
+      "separate_program_replay": 0.05337690088354148,
+      "stored_scalars": 13972,
+      "source_squares": 16,
+      "shared_input_projections": 8,
+      "additional_inner_coefficients": 128
+    },
+    {
+      "shared_rank": 16,
+      "product_variation_error": 0.08111043979072018,
+      "relative_to_separate": 0.9313162129647973,
+      "source_variation_errors": [
+        0.08970822001292596,
+        0.07431320611462718
+      ],
+      "separate_program_replay": 0.012916885574365877,
+      "stored_scalars": 23588,
+      "source_squares": 32,
+      "shared_input_projections": 16,
+      "additional_inner_coefficients": 512
+    },
+    {
+      "shared_rank": 24,
+      "product_variation_error": 0.0869594685106361,
+      "relative_to_separate": 0.9984752037310841,
+      "source_variation_errors": [
+        0.08181315631285564,
+        0.07538264052177118
+      ],
+      "separate_program_replay": 0.0039568216093259796,
+      "stored_scalars": 33060,
+      "source_squares": 32,
+      "shared_input_projections": 24,
+      "additional_inner_coefficients": 768
+    },
+    {
+      "shared_rank": 32,
+      "product_variation_error": 0.08709226647360716,
+      "relative_to_separate": 1.0000000000000075,
+      "source_variation_errors": [
+        0.08048911202376435,
+        0.07550779698269751
+      ],
+      "separate_program_replay": 3.1423691452798606e-15,
+      "stored_scalars": 42532,
+      "source_squares": 32,
+      "shared_input_projections": 32,
+      "additional_inner_coefficients": 1024
+    }
+  ],
+  "separate16_product_variation_error": 0.08709226647360649,
+  "scope": "CPU calibration screen. Frozen rank16 quadratic approximations projected jointly using calibration covariance. Constants/linear parts retained in centered expansion; compiled into native-z/h executor. Shared dictionary counts both small inner transforms; h,z remain native inputs."
+}

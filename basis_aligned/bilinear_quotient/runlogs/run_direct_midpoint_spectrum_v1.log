@@ -1,0 +1,34 @@
+{
+  "predictions": {
+    "pred_a_exact": true,
+    "pred_b_rank64": false,
+    "pred_c_rank256": false
+  },
+  "toy": {
+    "gram_replay": 3.678603449701673e-16,
+    "singular_energy_replay": 3.513034628360925e-16,
+    "planted_rank2_tail": 8.552614337088076e-17
+  },
+  "trace_relative_error": 1.4580679876491663e-16,
+  "min_eigenvalue_over_energy": 8.400930369606206e-05,
+  "coefficient_error_lower_bounds": {
+    "4": 0.9456714580808744,
+    "16": 0.9235529307577365,
+    "32": 0.9035383542006554,
+    "64": 0.869834327272314,
+    "128": 0.8094402339584744,
+    "256": 0.701335136445225,
+    "512": 0.510140816590646,
+    "1024": 0.15570670926500488,
+    "1152": 0.0
+  },
+  "factor_scales": [
+    7138.623532426537,
+    523.7303407834117,
+    523.4849218951256,
+    262.68253814644044
+  ],
+  "normalized_tensor_squared_norm": 8.86426228449022e-11,
+  "seconds": 2.734228800982237,
+  "scope": "Independent midpoint/channel-product coefficient metric; not native functional floor, circuit identification, or fitted compression."
+}

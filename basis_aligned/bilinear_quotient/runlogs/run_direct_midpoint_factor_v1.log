@@ -1,0 +1,296 @@
+calibration captured
+fineweb captured
+code captured
+{
+  "predictions": {
+    "pred_a_exact": true,
+    "pred_b_weighted16": true,
+    "pred_c_gain": true
+  },
+  "results": {
+    "calibration": {
+      "isotropic_1": {
+        "relative_error": [
+          0.27443412707289483,
+          1.0527565379036026,
+          1.5798552772516103,
+          1.3196092806088913
+        ],
+        "aggregate_relative_error": 0.8951417153449718,
+        "squared_error": 143600771303824.62,
+        "baseline_energy": 179214514247376.66
+      },
+      "isotropic_4": {
+        "relative_error": [
+          0.34978862169194325,
+          0.21141509393978333,
+          0.5580197774342508,
+          0.7996375645511377
+        ],
+        "aggregate_relative_error": 0.39901226169360504,
+        "squared_error": 28532883493465.047,
+        "baseline_energy": 179214514247376.66
+      },
+      "isotropic_16": {
+        "relative_error": [
+          0.26903308093298306,
+          0.12199909261910745,
+          0.44492920716618184,
+          0.45948164963025484
+        ],
+        "aggregate_relative_error": 0.287836664559186,
+        "squared_error": 14847912731852.293,
+        "baseline_energy": 179214514247376.66
+      },
+      "isotropic_64": {
+        "relative_error": [
+          0.10790190006795125,
+          0.0922926386769518,
+          0.3350835421112091,
+          0.2587348520346126
+        ],
+        "aggregate_relative_error": 0.16848638767870638,
+        "squared_error": 5087481205237.869,
+        "baseline_energy": 179214514247376.66
+      },
+      "separable_moment_1": {
+        "relative_error": [
+          0.1928058209280679,
+          0.6314704017463252,
+          1.156453738718902,
+          2.379805713797917
+        ],
+        "aggregate_relative_error": 0.8129302131859533,
+        "squared_error": 118434903067356.83,
+        "baseline_energy": 179214514247376.66
+      },
+      "separable_moment_4": {
+        "relative_error": [
+          0.04196343230440314,
+          0.06165628250999035,
+          0.1442423585406673,
+          0.06390865267097894
+        ],
+        "aggregate_relative_error": 0.07180493308684004,
+        "squared_error": 924020790787.2844,
+        "baseline_energy": 179214514247376.66
+      },
+      "separable_moment_16": {
+        "relative_error": [
+          0.01430492049629479,
+          0.030504607139763378,
+          0.07360362172230923,
+          0.02696260276657741
+        ],
+        "aggregate_relative_error": 0.03424554433700142,
+        "squared_error": 210175131092.87106,
+        "baseline_energy": 179214514247376.66
+      },
+      "separable_moment_64": {
+        "relative_error": [
+          0.006917218570229805,
+          0.014024555845869601,
+          0.03385799855728381,
+          0.016559836304952218
+        ],
+        "aggregate_relative_error": 0.016055475823244566,
+        "squared_error": 46197613518.884995,
+        "baseline_energy": 179214514247376.66
+      }
+    },
+    "fineweb": {
+      "isotropic_1": {
+        "relative_error": [
+          0.22444016356868232,
+          0.9838441954330643,
+          1.5436636152932766,
+          1.204321123515614
+        ],
+        "aggregate_relative_error": 0.8235811372206353,
+        "squared_error": 513594578023240.1,
+        "baseline_energy": 757194843515018.8
+      },
+      "isotropic_4": {
+        "relative_error": [
+          0.27966582246331756,
+          0.19249430421567926,
+          0.5427672848563657,
+          0.6429372907057557
+        ],
+        "aggregate_relative_error": 0.3433218455031758,
+        "squared_error": 89250472610582.31,
+        "baseline_energy": 757194843515018.8
+      },
+      "isotropic_16": {
+        "relative_error": [
+          0.21837496915998333,
+          0.12022993370673797,
+          0.4277408758643222,
+          0.3856801516630638
+        ],
+        "aggregate_relative_error": 0.2509975357668055,
+        "squared_error": 47703095656744.34,
+        "baseline_energy": 757194843515018.8
+      },
+      "isotropic_64": {
+        "relative_error": [
+          0.10100840800414103,
+          0.09741188732627837,
+          0.3252690614753662,
+          0.21317778552846275
+        ],
+        "aggregate_relative_error": 0.15631605106201701,
+        "squared_error": 18501834763814.727,
+        "baseline_energy": 757194843515018.8
+      },
+      "separable_moment_1": {
+        "relative_error": [
+          0.1718057199375002,
+          0.6694098096619817,
+          1.0317468840759512,
+          2.0622053935056974
+        ],
+        "aggregate_relative_error": 0.7490899383668105,
+        "squared_error": 424889085631289.3,
+        "baseline_energy": 757194843515018.8
+      },
+      "separable_moment_4": {
+        "relative_error": [
+          0.04017609979514361,
+          0.07128427421752381,
+          0.15376828820923294,
+          0.06330974265055449
+        ],
+        "aggregate_relative_error": 0.07376227873777409,
+        "squared_error": 4119801558762.9995,
+        "baseline_energy": 757194843515018.8
+      },
+      "separable_moment_16": {
+        "relative_error": [
+          0.01822097849731027,
+          0.0401770619086332,
+          0.10317811474664768,
+          0.03347615553205831
+        ],
+        "aggregate_relative_error": 0.04485270542728609,
+        "squared_error": 1523298223799.0737,
+        "baseline_energy": 757194843515018.8
+      },
+      "separable_moment_64": {
+        "relative_error": [
+          0.011876676545190389,
+          0.027641452226702414,
+          0.06983825553999232,
+          0.023721252936808556
+        ],
+        "aggregate_relative_error": 0.030421415068949197,
+        "squared_error": 700755428927.0522,
+        "baseline_energy": 757194843515018.8
+      }
+    },
+    "code": {
+      "isotropic_1": {
+        "relative_error": [
+          0.2272331626921778,
+          1.2047880503364012,
+          0.5224136958408919,
+          0.7539261871142307
+        ],
+        "aggregate_relative_error": 0.7046622851389613,
+        "squared_error": 670220108961328.2,
+        "baseline_energy": 1349756409164971.0
+      },
+      "isotropic_4": {
+        "relative_error": [
+          0.32058035922383277,
+          0.15373877296609717,
+          0.2617261075030395,
+          0.2920612446986512
+        ],
+        "aggregate_relative_error": 0.27047134575011794,
+        "squared_error": 98741091150673.75,
+        "baseline_energy": 1349756409164971.0
+      },
+      "isotropic_16": {
+        "relative_error": [
+          0.22749687773781022,
+          0.06701009122818342,
+          0.19895248478034827,
+          0.20993723537989906
+        ],
+        "aggregate_relative_error": 0.191090464005795,
+        "squared_error": 49287118478756.92,
+        "baseline_energy": 1349756409164971.0
+      },
+      "isotropic_64": {
+        "relative_error": [
+          0.07858982505244867,
+          0.04261316568190347,
+          0.15068691654008357,
+          0.1353914981234523
+        ],
+        "aggregate_relative_error": 0.10347425804004257,
+        "squared_error": 14451736695776.064,
+        "baseline_energy": 1349756409164971.0
+      },
+      "separable_moment_1": {
+        "relative_error": [
+          0.1260993570538839,
+          0.6366752271338726,
+          0.5817395450294545,
+          1.8278761391597305
+        ],
+        "aggregate_relative_error": 0.7325362643358144,
+        "squared_error": 724291947938935.2,
+        "baseline_energy": 1349756409164971.0
+      },
+      "separable_moment_4": {
+        "relative_error": [
+          0.048749798935381,
+          0.04549659815153288,
+          0.06724635233502493,
+          0.03476826003955452
+        ],
+        "aggregate_relative_error": 0.05237055094001719,
+        "squared_error": 3701942627379.8325,
+        "baseline_energy": 1349756409164971.0
+      },
+      "separable_moment_16": {
+        "relative_error": [
+          0.00848205433745543,
+          0.017437627919894803,
+          0.033445182819005485,
+          0.014198433025123192
+        ],
+        "aggregate_relative_error": 0.02034281741711314,
+        "squared_error": 558569992380.1387,
+        "baseline_energy": 1349756409164971.0
+      },
+      "separable_moment_64": {
+        "relative_error": [
+          0.004988300584640083,
+          0.013237752746176347,
+          0.017088402403983193,
+          0.00986389378362621
+        ],
+        "aggregate_relative_error": 0.011744280251342665,
+        "squared_error": 186169362114.21527,
+        "baseline_energy": 1349756409164971.0
+      }
+    }
+  },
+  "toy": {
+    "full_replay": 1.0208668905221687e-15,
+    "optimal_tail_replay": 0.0,
+    "independent_pair_metric_replay": 1.9369980146086174e-16
+  },
+  "exact_replay": 2.542301507530249e-15,
+  "full_svd_replay": 2.645431634966641e-12,
+  "token_hashes": {
+    "calibration": "4779918d92859011804f998ca7ec53f08dadbf2346e977d82fd66354b4804e5c",
+    "fineweb": "65234b2fd77834ea065566fc2d255c5fad520420c481c77ce6de795cf2521dac",
+    "code": "871bb3dbb640b0b6aed0d1eea7a3538c74d5317f99324bd229ba8934ffb776a0"
+  },
+  "seconds": 11.358860407024622,
+  "scope": "Four independent output-shared bilinear forms. Native paired variation metric, no cross-scalar reuse or behavioral validation yet."
+}

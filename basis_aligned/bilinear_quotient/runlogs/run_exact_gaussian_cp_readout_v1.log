@@ -1,0 +1,70 @@
+{"projection_seconds": 4.326577613130212, "trace_error": 2.436475915748803e-15}
+{"seed": 1001, "results": {"archived": {"gaussian_error": 0.989761252985383, "sampled_coefficient_error": 0.977757097263216, "text_value_error": 0.40874719397453557, "regularized_objective": -0.9307896803357588, "degree0_residual_energy": 9.089336520287972, "degree2_residual_energy": 20.048958559944207, "degree4_explained_energy": 0.12437337664073549}, "gaussian": {"gaussian_error": 0.8478485017716045, "sampled_coefficient_error": 1.2327327802245378, "text_value_error": 3.027444007767064, "regularized_objective": -10.237752553787342, "degree0_residual_energy": 0.4993179662715952, "degree2_residual_energy": 17.44019060197227, "degree4_explained_energy": -1.767449167695918}}, "normal_residual": 9.267382418126522e-16, "export_error": 1.609836720438938e-07, "sha256": "6e3652b68e498d7b0383eb1f6944e4c2257f80d33ecbfb4788d12f47d3d41681"}
+{"seed": 1002, "results": {"archived": {"gaussian_error": 0.9887784442776157, "sampled_coefficient_error": 0.9789923493841051, "text_value_error": 0.3902701562906801, "regularized_objective": -1.0038026229103851, "degree0_residual_energy": 9.024401614392872, "degree2_residual_energy": 20.040931913290507, "degree4_explained_energy": 0.1244247570463701}, "gaussian": {"gaussian_error": 0.8472209100468641, "sampled_coefficient_error": 1.204874415136947, "text_value_error": 2.767139316672243, "regularized_objective": -10.334796292111621, "degree0_residual_energy": 0.46611001341898545, "degree2_residual_energy": 17.44783309260976, "degree4_explained_energy": -1.6959707746737773}}, "normal_residual": 1.7484999190885293e-15, "export_error": 2.8820895657383653e-07, "sha256": "e12c16c41a5fec891862714eae1ec4bc14e4bc7a2b242e551651940a461ef415"}
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_gaussian": true,
+    "pred_c_preservation": false
+  },
+  "rows": [
+    {
+      "seed": 1001,
+      "results": {
+        "archived": {
+          "gaussian_error": 0.989761252985383,
+          "sampled_coefficient_error": 0.977757097263216,
+          "text_value_error": 0.40874719397453557,
+          "regularized_objective": -0.9307896803357588,
+          "degree0_residual_energy": 9.089336520287972,
+          "degree2_residual_energy": 20.048958559944207,
+          "degree4_explained_energy": 0.12437337664073549
+        },
+        "gaussian": {
+          "gaussian_error": 0.8478485017716045,
+          "sampled_coefficient_error": 1.2327327802245378,
+          "text_value_error": 3.027444007767064,
+          "regularized_objective": -10.237752553787342,
+          "degree0_residual_energy": 0.4993179662715952,
+          "degree2_residual_energy": 17.44019060197227,
+          "degree4_explained_energy": -1.767449167695918
+        }
+      },
+      "normal_residual": 9.267382418126522e-16,
+      "export_error": 1.609836720438938e-07,
+      "sha256": "6e3652b68e498d7b0383eb1f6944e4c2257f80d33ecbfb4788d12f47d3d41681"
+    },
+    {
+      "seed": 1002,
+      "results": {
+        "archived": {
+          "gaussian_error": 0.9887784442776157,
+          "sampled_coefficient_error": 0.9789923493841051,
+          "text_value_error": 0.3902701562906801,
+          "regularized_objective": -1.0038026229103851,
+          "degree0_residual_energy": 9.024401614392872,
+          "degree2_residual_energy": 20.040931913290507,
+          "degree4_explained_energy": 0.1244247570463701
+        },
+        "gaussian": {
+          "gaussian_error": 0.8472209100468641,
+          "sampled_coefficient_error": 1.204874415136947,
+          "text_value_error": 2.767139316672243,
+          "regularized_objective": -10.334796292111621,
+          "degree0_residual_energy": 0.46611001341898545,
+          "degree2_residual_energy": 17.44783309260976,
+          "degree4_explained_energy": -1.6959707746737773
+        }
+      },
+      "normal_residual": 1.7484999190885293e-15,
+      "export_error": 2.8820895657383653e-07,
+      "sha256": "e12c16c41a5fec891862714eae1ec4bc14e4bc7a2b242e551651940a461ef415"
+    }
+  ],
+  "trace_error": 2.436475915748803e-15,
+  "teacher_degree0_energy": 9.844395874416236,
+  "teacher_degree2_energy": 20.1003156462099,
+  "seconds": 7.229407660197467,
+  "peak_memory_bytes": 1942368768,
+  "scope": "Exact Gaussian fixed-direction readout and Hermite components; no sampled fitting, no exact globalrelativeerrorcertificate, no native circuitadoption."
+}

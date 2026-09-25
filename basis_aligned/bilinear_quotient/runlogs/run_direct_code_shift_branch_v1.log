@@ -1,0 +1,56 @@
+document 0 done
+document 1 done
+document 2 done
+document 3 done
+document 4 done
+document 5 done
+document 6 done
+document 7 done
+document 8 done
+document 9 done
+document 10 done
+document 11 done
+document 12 done
+document 13 done
+document 14 done
+document 15 done
+{
+  "summary": {
+    "exact": {
+      "native_ce": 5.449256390333176,
+      "ce_added": -2.9802322387695312e-08,
+      "kl": -3.571180032246879e-09,
+      "logit_mse": 1.8485135517681004e-13,
+      "argmax_agreement": 1.0
+    },
+    "ablation": {
+      "native_ce": 5.449256390333176,
+      "ce_added": 0.37196603417396545,
+      "kl": 0.5123949106782675,
+      "logit_mse": 1.6229125335812569,
+      "argmax_agreement": 0.6630859375
+    },
+    "quartic10": {
+      "native_ce": 5.449256390333176,
+      "ce_added": 0.010612547397613525,
+      "kl": 0.059070341289043427,
+      "logit_mse": 0.2167791877873242,
+      "argmax_agreement": 0.89794921875
+    },
+    "quartic26": {
+      "native_ce": 5.449256390333176,
+      "ce_added": 0.010796040296554565,
+      "kl": 0.04779663565568626,
+      "logit_mse": 0.2045912859030068,
+      "argmax_agreement": 0.90576171875
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_preservation": false,
+    "pred_c_effect": true
+  },
+  "checks_max": 1.7266319218833814e-07,
+  "solve_error": 1.7673100123339812e-15,
+  "ten_product_to_ablation_logit_norm": 0.36547799628412964
+}

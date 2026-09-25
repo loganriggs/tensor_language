@@ -1,0 +1,31 @@
+[pythia160m_isolated_v777] native 3.47311 | heads ['1.10', '0.2', '0.0', '9.3', '4.1', '7.11'] | joint-fit isolated costs [0.0237, 0.0139, 0.0074, 0.0063, 0.0052, 0.005]
+[pythia160m_isolated_v777] replay of joint-fit programs: 1.10:+0.0237 (v776 +0.0237) 0.2:+0.0139 (v776 +0.0139) 0.0:+0.0074 (v776 +0.0074) 9.3:+0.0063 (v776 +0.0063) 4.1:+0.0052 (v776 +0.0052) 7.11:+0.0050 (v776 +0.0050)
+[pythia160m_isolated_v777] head 1.10 (value 0.0056, joint-fit isolated +0.0237) rank 8: closed-form +0.1169 -> snapshot (step 150) +0.0061
+[pythia160m_isolated_v777] head 1.10 (value 0.0056, joint-fit isolated +0.0237) rank 32: closed-form +0.1114 -> snapshot (step 150) +0.0033
+[pythia160m_isolated_v777] head 1.10 (value 0.0056, joint-fit isolated +0.0237) rank 64: closed-form -0.0000 -> snapshot (step 150) -0.0010
+[pythia160m_isolated_v777] head 0.2 (value 0.0899, joint-fit isolated +0.0139) rank 8: closed-form +0.0381 -> snapshot (step 150) +0.0123
+[pythia160m_isolated_v777] head 0.2 (value 0.0899, joint-fit isolated +0.0139) rank 32: closed-form +0.0446 -> snapshot (step 150) +0.0063
+[pythia160m_isolated_v777] head 0.2 (value 0.0899, joint-fit isolated +0.0139) rank 64: closed-form -0.0000 -> snapshot (step 100) +0.0000
+[pythia160m_isolated_v777] head 0.0 (value 0.0505, joint-fit isolated +0.0074) rank 8: closed-form +0.0204 -> snapshot (step 150) +0.0145
+[pythia160m_isolated_v777] head 0.0 (value 0.0505, joint-fit isolated +0.0074) rank 32: closed-form +0.0156 -> snapshot (step 150) +0.0077
+[pythia160m_isolated_v777] head 0.0 (value 0.0505, joint-fit isolated +0.0074) rank 64: closed-form -0.0000 -> snapshot (step 100) +0.0001
+[pythia160m_isolated_v777] head 9.3 (value 0.0125, joint-fit isolated +0.0063) rank 8: closed-form +0.0024 -> snapshot (step 150) +0.0014
+[pythia160m_isolated_v777] head 9.3 (value 0.0125, joint-fit isolated +0.0063) rank 32: closed-form +0.0011 -> snapshot (step 0) +0.0011
+[pythia160m_isolated_v777] head 9.3 (value 0.0125, joint-fit isolated +0.0063) rank 64: closed-form -0.0000 -> snapshot (step 0) -0.0000
+[pythia160m_isolated_v777] head 4.1 (value 0.0139, joint-fit isolated +0.0052) rank 8: closed-form +0.0050 -> snapshot (step 150) +0.0032
+[pythia160m_isolated_v777] head 4.1 (value 0.0139, joint-fit isolated +0.0052) rank 32: closed-form +0.0047 -> snapshot (step 150) +0.0020
+[pythia160m_isolated_v777] head 4.1 (value 0.0139, joint-fit isolated +0.0052) rank 64: closed-form -0.0000 -> snapshot (step 150) -0.0013
+[pythia160m_isolated_v777] head 7.11 (value 0.0167, joint-fit isolated +0.0050) rank 8: closed-form +0.0128 -> snapshot (step 150) +0.0079
+[pythia160m_isolated_v777] head 7.11 (value 0.0167, joint-fit isolated +0.0050) rank 32: closed-form +0.0077 -> snapshot (step 100) +0.0040
+[pythia160m_isolated_v777] head 7.11 (value 0.0167, joint-fit isolated +0.0050) rank 64: closed-form -0.0000 -> snapshot (step 0) -0.0000
+{
+  "predictions": {
+    "pred_a_joint_costs_replay": true,
+    "pred_b_isolated_r32_halves": true,
+    "pred_c_full_rank_near_zero": true,
+    "pred_d_r8_worse_than_r32": true,
+    "pred_e_low_value_head_fixed": true
+  },
+  "forwards": 3979,
+  "backwards": 2700
+}

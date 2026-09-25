@@ -1,0 +1,295 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_selectivity": true,
+    "pred_c_writer": true
+  },
+  "summary": {
+    "real": {
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.12555493637363396,
+        "mean_logodds_decrease": 2.3179731628774207
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": -0.00020754545012553941,
+        "mean_logodds_decrease": 0.0855983502436013
+      },
+      "utf8_pending": {
+        "sites": 76,
+        "ce_added": 0.00974865957620128,
+        "mean_logodds_decrease": -0.044806907051487974
+      }
+    },
+    "sham": {
+      "continuation": {
+        "sites": 514,
+        "ce_added": 0.052485784634163896,
+        "mean_logodds_decrease": 1.1697100034483676
+      },
+      "spaced_word": {
+        "sites": 4787,
+        "ce_added": 0.0017941544268316066,
+        "mean_logodds_decrease": 0.06286265403312459
+      },
+      "utf8_pending": {
+        "sites": 76,
+        "ce_added": 0.005207260560023554,
+        "mean_logodds_decrease": -0.32433390617370605
+      }
+    }
+  },
+  "same_token_secondary": {
+    "matched_token_types": 34,
+    "matched_continuation_sites": 51,
+    "matched_spaced_sites": 257,
+    "min_count_weighted_logodds_contrast": 1.5984380021879983,
+    "strata": [
+      {
+        "input_token": 32,
+        "continuation_count": 1,
+        "spaced_count": 2,
+        "difference": 1.0790600776672363,
+        "weight": 1
+      },
+      {
+        "input_token": 57,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": 3.838679313659668,
+        "weight": 1
+      },
+      {
+        "input_token": 82,
+        "continuation_count": 1,
+        "spaced_count": 36,
+        "difference": 1.2806898885303073,
+        "weight": 1
+      },
+      {
+        "input_token": 88,
+        "continuation_count": 3,
+        "spaced_count": 2,
+        "difference": 3.3926148414611816,
+        "weight": 2
+      },
+      {
+        "input_token": 89,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": 4.330745697021484,
+        "weight": 1
+      },
+      {
+        "input_token": 257,
+        "continuation_count": 1,
+        "spaced_count": 128,
+        "difference": -0.10448015853762627,
+        "weight": 1
+      },
+      {
+        "input_token": 259,
+        "continuation_count": 5,
+        "spaced_count": 2,
+        "difference": 3.4099489212036134,
+        "weight": 2
+      },
+      {
+        "input_token": 273,
+        "continuation_count": 2,
+        "spaced_count": 2,
+        "difference": 2.230147361755371,
+        "weight": 2
+      },
+      {
+        "input_token": 274,
+        "continuation_count": 1,
+        "spaced_count": 3,
+        "difference": 3.686204274495443,
+        "weight": 1
+      },
+      {
+        "input_token": 278,
+        "continuation_count": 3,
+        "spaced_count": 6,
+        "difference": 2.6581650575002036,
+        "weight": 3
+      },
+      {
+        "input_token": 292,
+        "continuation_count": 2,
+        "spaced_count": 1,
+        "difference": 2.2463326454162598,
+        "weight": 1
+      },
+      {
+        "input_token": 317,
+        "continuation_count": 2,
+        "spaced_count": 2,
+        "difference": 1.7110962867736816,
+        "weight": 2
+      },
+      {
+        "input_token": 356,
+        "continuation_count": 1,
+        "spaced_count": 7,
+        "difference": 0.7304761069161552,
+        "weight": 1
+      },
+      {
+        "input_token": 430,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": 1.883127212524414,
+        "weight": 1
+      },
+      {
+        "input_token": 468,
+        "continuation_count": 1,
+        "spaced_count": 20,
+        "difference": -0.10369923114776611,
+        "weight": 1
+      },
+      {
+        "input_token": 510,
+        "continuation_count": 1,
+        "spaced_count": 9,
+        "difference": 0.16134389241536456,
+        "weight": 1
+      },
+      {
+        "input_token": 669,
+        "continuation_count": 1,
+        "spaced_count": 4,
+        "difference": 1.150357961654663,
+        "weight": 1
+      },
+      {
+        "input_token": 716,
+        "continuation_count": 1,
+        "spaced_count": 3,
+        "difference": 2.4345269203186035,
+        "weight": 1
+      },
+      {
+        "input_token": 736,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": -0.10020160675048828,
+        "weight": 1
+      },
+      {
+        "input_token": 1081,
+        "continuation_count": 3,
+        "spaced_count": 4,
+        "difference": 3.5479630629221597,
+        "weight": 3
+      },
+      {
+        "input_token": 1406,
+        "continuation_count": 1,
+        "spaced_count": 3,
+        "difference": 0.6706412633260092,
+        "weight": 1
+      },
+      {
+        "input_token": 1597,
+        "continuation_count": 1,
+        "spaced_count": 3,
+        "difference": 0.029166221618652344,
+        "weight": 1
+      },
+      {
+        "input_token": 1790,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": -0.040175437927246094,
+        "weight": 1
+      },
+      {
+        "input_token": 2256,
+        "continuation_count": 1,
+        "spaced_count": 2,
+        "difference": -0.015597105026245117,
+        "weight": 1
+      },
+      {
+        "input_token": 2968,
+        "continuation_count": 1,
+        "spaced_count": 2,
+        "difference": -0.025366783142089844,
+        "weight": 1
+      },
+      {
+        "input_token": 3278,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": -0.006938934326171875,
+        "weight": 1
+      },
+      {
+        "input_token": 3561,
+        "continuation_count": 2,
+        "spaced_count": 1,
+        "difference": 0.12392091751098633,
+        "weight": 1
+      },
+      {
+        "input_token": 4487,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": 0.8294925689697266,
+        "weight": 1
+      },
+      {
+        "input_token": 6933,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": 0.013484954833984375,
+        "weight": 1
+      },
+      {
+        "input_token": 10920,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": -0.02806854248046875,
+        "weight": 1
+      },
+      {
+        "input_token": 24482,
+        "continuation_count": 1,
+        "spaced_count": 3,
+        "difference": 1.0651009877522786,
+        "weight": 1
+      },
+      {
+        "input_token": 25688,
+        "continuation_count": 1,
+        "spaced_count": 1,
+        "difference": 1.996884822845459,
+        "weight": 1
+      },
+      {
+        "input_token": 29670,
+        "continuation_count": 3,
+        "spaced_count": 1,
+        "difference": -0.11690044403076172,
+        "weight": 1
+      },
+      {
+        "input_token": 29832,
+        "continuation_count": 2,
+        "spaced_count": 1,
+        "difference": 0.01958942413330078,
+        "weight": 1
+      }
+    ],
+    "coverage_sufficient": true,
+    "beyond_token_gate": true
+  },
+  "program_sha256": "3b961ed6d1f3f3fbaf501eb27e255648d1de151310dd1750f6b4ebd476f3b763",
+  "token_sha256": "a7304a277a9861b5988fd38bf6223f5f32e398eb117eea40cee05df844682307",
+  "seconds": 2.915003336034715,
+  "scope": "Frozen hypothesis from reused discovery panel, new FineWeb rows for confirmation. Continuation/space classes use realized next token and prefix eligibility; selective average effects, not randomized manipulation of an independent continuation variable. Same-token contrast controls current identity, not all context/difficulty confounds. No fit or semantic monosemanticity claim."
+}

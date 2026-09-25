@@ -1,0 +1,263 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_effect": false,
+    "pred_c_replace": true
+  },
+  "summary": {
+    "fineweb": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.1384945965061585
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.01601054665322105
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2773868706156832
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.36632136092029194
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.008367474683715652
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.20475459938531185
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.27102273016078043
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.015998091311970105
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2929958529681799
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.38272988905159383
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.009580459375865758
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.23881471355587314
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.31152026730621685
+        }
+      },
+      "product_exact_linear": {
+        "replacement": {
+          "ce_added": 0.005506170017179101
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.1790253165916819
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.23293064665786287
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.2567167647082645
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.5536553679266077
+        }
+      },
+      "product_linear64": {
+        "replacement": {
+          "ce_added": 0.014661082338231305
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2852727899006745
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3721522199491047
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.29302137412341756
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.5536553679266077
+        }
+      },
+      "product_linear128": {
+        "replacement": {
+          "ce_added": 0.01178293723302583
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.26086458878732594
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3412344650294444
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.2815885407137983
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.5536553679266077
+        }
+      },
+      "product_linear256": {
+        "replacement": {
+          "ce_added": 0.009214405079061787
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.23035848693587155
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3009841744843311
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.2699971088816798
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.5536553679266077
+        }
+      }
+    },
+    "code": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.8776201009750366
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.07187496423721314
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.18800527523328844
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.308797899642438
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.0331935519973437
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.13537267715746104
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.22907587858819356
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.07612147592008114
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.20071065678477923
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3261322264345788
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.042567304180314146
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.16098522252374228
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2671051749502399
+        }
+      },
+      "product_exact_linear": {
+        "replacement": {
+          "ce_added": 0.02366641021023194
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.11399258591796319
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.20082290398364436
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.2069235411229398
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.3954953384184284
+        }
+      },
+      "product_linear64": {
+        "replacement": {
+          "ce_added": 0.07633075453341007
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.18698636658930523
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.30742355362484247
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.24373780539598916
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.3954953384184284
+        }
+      },
+      "product_linear128": {
+        "replacement": {
+          "ce_added": 0.06197595130652189
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.17065833514668705
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2843388421071555
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.23306712493016513
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.3954953384184284
+        }
+      },
+      "product_linear256": {
+        "replacement": {
+          "ce_added": 0.04020917812983195
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.15005357119126397
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2549818842963601
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.2219815403701197
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.3954953384184284
+        }
+      }
+    }
+  },
+  "instrument": 2.254617593932288e-15,
+  "seconds": 9.246053526876494,
+  "scope": "Full source-dependent midpoint contribution centered on calibration mean. Replacement retains that mean but approximates all varying output coordinates. Residual background and true source states fixed; no upstream ablation or whole-model speed claim. Reused panels, no fitting."
+}
+{"pred_a_instrument": true, "pred_b_source": false, "pred_c_ce": true}

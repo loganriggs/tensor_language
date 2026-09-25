@@ -1,0 +1,315 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_fidelity": true,
+    "pred_c_behavior": false
+  },
+  "summary": {
+    "fineweb": {
+      "native": {
+        "all": {
+          "sites": 7680,
+          "ce_added": 0.006365362581952165,
+          "effect_relative_error": 0.0,
+          "scalar_relative_error": 0.0,
+          "source_relative_error": 0.0
+        },
+        "continuation": {
+          "sites": 398,
+          "ce_added": 0.10038060436914319,
+          "effect_relative_error": 0.0,
+          "scalar_relative_error": 0.0,
+          "source_relative_error": 0.0
+        },
+        "spaced_word": {
+          "sites": 5076,
+          "ce_added": -0.0018781511299458895,
+          "effect_relative_error": 0.0,
+          "scalar_relative_error": 0.0,
+          "source_relative_error": 0.0
+        }
+      },
+      "linear": {
+        "all": {
+          "sites": 7680,
+          "ce_added": 0.0070882899143422645,
+          "effect_relative_error": 0.13932295979305984,
+          "scalar_relative_error": 0.15020003353349204,
+          "source_relative_error": 0.20611322262010584
+        },
+        "continuation": {
+          "sites": 398,
+          "ce_added": 0.11740448662007039,
+          "effect_relative_error": 0.0870382500947726,
+          "scalar_relative_error": 0.10700029449820224,
+          "source_relative_error": 0.17427567899771546
+        },
+        "spaced_word": {
+          "sites": 5076,
+          "ce_added": -0.0018595570391609125,
+          "effect_relative_error": 0.12234701348655867,
+          "scalar_relative_error": 0.12309566095238526,
+          "source_relative_error": 0.15834669605721133
+        }
+      },
+      "isotropic_16": {
+        "all": {
+          "sites": 7680,
+          "ce_added": 0.00495646019699052,
+          "effect_relative_error": 0.1337761286854451,
+          "scalar_relative_error": 0.10803322388010325,
+          "source_relative_error": 0.10194116955927099
+        },
+        "continuation": {
+          "sites": 398,
+          "ce_added": 0.07615450347394065,
+          "effect_relative_error": 0.09758846307621581,
+          "scalar_relative_error": 0.13051359446641184,
+          "source_relative_error": 0.18937934386825303
+        },
+        "spaced_word": {
+          "sites": 5076,
+          "ce_added": -0.0018385682897928478,
+          "effect_relative_error": 0.0894935676634292,
+          "scalar_relative_error": 0.08896282606234815,
+          "source_relative_error": 0.10222390619196309
+        }
+      },
+      "covariance_16": {
+        "all": {
+          "sites": 7680,
+          "ce_added": 0.00487610674269187,
+          "effect_relative_error": 0.09061663813574722,
+          "scalar_relative_error": 0.08080582624689071,
+          "source_relative_error": 0.08528264844789593
+        },
+        "continuation": {
+          "sites": 398,
+          "ce_added": 0.07486185122928617,
+          "effect_relative_error": 0.10058440762843515,
+          "scalar_relative_error": 0.13457968735928935,
+          "source_relative_error": 0.18966274139337785
+        },
+        "spaced_word": {
+          "sites": 5076,
+          "ce_added": -0.0018739264261731958,
+          "effect_relative_error": 0.07734466221197939,
+          "scalar_relative_error": 0.07265809737244466,
+          "source_relative_error": 0.08443163926176445
+        }
+      },
+      "covariance_64": {
+        "all": {
+          "sites": 7680,
+          "ce_added": 0.005221252977692833,
+          "effect_relative_error": 0.06762695083906999,
+          "scalar_relative_error": 0.05972964211154584,
+          "source_relative_error": 0.058121886036320486
+        },
+        "continuation": {
+          "sites": 398,
+          "ce_added": 0.08021534909450347,
+          "effect_relative_error": 0.0795516699195561,
+          "scalar_relative_error": 0.10689899276571435,
+          "source_relative_error": 0.14261177903763184
+        },
+        "spaced_word": {
+          "sites": 5076,
+          "ce_added": -0.0018869599017738074,
+          "effect_relative_error": 0.055067386442602034,
+          "scalar_relative_error": 0.048565166302867745,
+          "source_relative_error": 0.056547910416154194
+        }
+      }
+    },
+    "stdlib": {
+      "native": {
+        "all": {
+          "sites": 3840,
+          "ce_added": 0.024917718931101264,
+          "effect_relative_error": 0.0,
+          "scalar_relative_error": 0.0,
+          "source_relative_error": 0.0
+        },
+        "continuation": {
+          "sites": 287,
+          "ce_added": 0.07901006210141065,
+          "effect_relative_error": 0.0,
+          "scalar_relative_error": 0.0,
+          "source_relative_error": 0.0
+        },
+        "spaced_word": {
+          "sites": 164,
+          "ce_added": -0.019068134312586086,
+          "effect_relative_error": 0.0,
+          "scalar_relative_error": 0.0,
+          "source_relative_error": 0.0
+        }
+      },
+      "linear": {
+        "all": {
+          "sites": 3840,
+          "ce_added": 0.022272240618864694,
+          "effect_relative_error": 0.09760480320321313,
+          "scalar_relative_error": 0.12567975337001763,
+          "source_relative_error": 0.21803146071682453
+        },
+        "continuation": {
+          "sites": 287,
+          "ce_added": 0.08038389210293932,
+          "effect_relative_error": 0.05946120964029283,
+          "scalar_relative_error": 0.06854200747584532,
+          "source_relative_error": 0.13460676489583598
+        },
+        "spaced_word": {
+          "sites": 164,
+          "ce_added": -0.019065966920518294,
+          "effect_relative_error": 0.07595835132391485,
+          "scalar_relative_error": 0.0890690081815106,
+          "source_relative_error": 0.13388562562324938
+        }
+      },
+      "isotropic_16": {
+        "all": {
+          "sites": 3840,
+          "ce_added": 0.022736278215112784,
+          "effect_relative_error": 0.04647474523488683,
+          "scalar_relative_error": 0.04776511186659658,
+          "source_relative_error": 0.08274132536468111
+        },
+        "continuation": {
+          "sites": 287,
+          "ce_added": 0.0665602504376335,
+          "effect_relative_error": 0.04927083355355187,
+          "scalar_relative_error": 0.05581549308866543,
+          "source_relative_error": 0.0895277277208183
+        },
+        "spaced_word": {
+          "sites": 164,
+          "ce_added": -0.019439605405417885,
+          "effect_relative_error": 0.059915620703916775,
+          "scalar_relative_error": 0.06424890905051037,
+          "source_relative_error": 0.09448113081110432
+        }
+      },
+      "covariance_16": {
+        "all": {
+          "sites": 3840,
+          "ce_added": 0.02273396644741297,
+          "effect_relative_error": 0.047572691520346835,
+          "scalar_relative_error": 0.04798971681300859,
+          "source_relative_error": 0.08248634907620866
+        },
+        "continuation": {
+          "sites": 287,
+          "ce_added": 0.06600401174108325,
+          "effect_relative_error": 0.05276870427750752,
+          "scalar_relative_error": 0.06147854727856304,
+          "source_relative_error": 0.09299820636195427
+        },
+        "spaced_word": {
+          "sites": 164,
+          "ce_added": -0.019594080246439795,
+          "effect_relative_error": 0.058533771871701036,
+          "scalar_relative_error": 0.06267074679915165,
+          "source_relative_error": 0.09767167940547325
+        }
+      },
+      "covariance_64": {
+        "all": {
+          "sites": 3840,
+          "ce_added": 0.023547220587109525,
+          "effect_relative_error": 0.031000155345378397,
+          "scalar_relative_error": 0.02830673121500047,
+          "source_relative_error": 0.04847201579447505
+        },
+        "continuation": {
+          "sites": 287,
+          "ce_added": 0.06857225106775969,
+          "effect_relative_error": 0.04026875613273974,
+          "scalar_relative_error": 0.046516128988514906,
+          "source_relative_error": 0.06693155702375157
+        },
+        "spaced_word": {
+          "sites": 164,
+          "ce_added": -0.01913063100925306,
+          "effect_relative_error": 0.037256533936062354,
+          "scalar_relative_error": 0.04005223414152029,
+          "source_relative_error": 0.06106122930512411
+        }
+      }
+    }
+  },
+  "source_replay": 3.3544742076170196e-07,
+  "plan": {
+    "program_sha256": "a01cd3e13e704c324f3692472fe8f80404a4d99d2964a89e8a66a306b530fa2d",
+    "tokens": {
+      "fineweb": "54c42e65bd71756327437bdf338dbb73ecefac40e2b5200b8cf1ceab2a282af0",
+      "stdlib": "184e0e064b9bcd88c6fabdf5dce32f719da9215e1f1209702cfac6494bc3bfda"
+    },
+    "documents": {
+      "fineweb": [
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175
+      ],
+      "stdlib": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "arms": [
+      "linear",
+      "isotropic_16",
+      "covariance_16",
+      "covariance_64"
+    ],
+    "primary": "covariance_16",
+    "scope": "Fresh FineWeb rows, reused stdlib panel. No target fitting. Exact native rank1 feature is the reference, not exact full observer. Source approximation retains native h-reader and RMS denominator. Frozen before outcomes."
+  },
+  "seconds": 2.8549442591611296,
+  "scope": "Fresh FineWeb rows, reused stdlib panel. No target fitting. Exact native rank1 feature is the reference, not exact full observer. Source approximation retains native h-reader and RMS denominator. Frozen before outcomes."
+}

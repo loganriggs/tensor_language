@@ -1,0 +1,805 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_features": true,
+    "pred_c_joint": true
+  },
+  "summary": {
+    "fineweb": {
+      "removal": {
+        "0": {
+          "centered_effect_relative_error": 0.03650879330353062,
+          "centered_effect_cosine": 0.9994125784650582,
+          "sites": 7680,
+          "native_centered_effect_energy": 120076675.42899603,
+          "centered_effect_error_energy": 160049.23868261278,
+          "native_ce_added": 0.06251816096846596,
+          "predicted_ce_added": 0.06305283548317675
+        },
+        "1": {
+          "centered_effect_relative_error": 0.05969749090435486,
+          "centered_effect_cosine": 0.9982480898059329,
+          "sites": 7680,
+          "native_centered_effect_energy": 53519214.80866836,
+          "centered_effect_error_energy": 190731.26503580066,
+          "native_ce_added": 0.017917945926456014,
+          "predicted_ce_added": 0.018116698151061428
+        },
+        "2": {
+          "centered_effect_relative_error": 0.12604887267829204,
+          "centered_effect_cosine": 0.9924075642574224,
+          "sites": 7680,
+          "native_centered_effect_energy": 32853245.973920908,
+          "centered_effect_error_energy": 521982.8293357931,
+          "native_ce_added": 0.0050828568237193394,
+          "predicted_ce_added": 0.00451412417805841
+        },
+        "3": {
+          "centered_effect_relative_error": 0.06213257420891059,
+          "centered_effect_cosine": 0.9981070158780188,
+          "sites": 7680,
+          "native_centered_effect_energy": 18205742.558798935,
+          "centered_effect_error_energy": 70282.48225646664,
+          "native_ce_added": 0.003213670541299507,
+          "predicted_ce_added": 0.003270436714956304
+        },
+        "joint": {
+          "centered_effect_relative_error": 0.056542081476511866,
+          "centered_effect_cosine": 0.9984004381232184,
+          "sites": 7680,
+          "native_centered_effect_energy": 179064672.0870554,
+          "centered_effect_error_energy": 572471.0061212528,
+          "native_ce_added": 0.10582804412115365,
+          "predicted_ce_added": 0.1058390878024511
+        }
+      },
+      "same_token": {
+        "0": {
+          "centered_effect_relative_error": 0.037889364430071716,
+          "centered_effect_cosine": 0.9992828603824718,
+          "sites": 5629,
+          "native_centered_effect_energy": 61828003.86677137,
+          "centered_effect_error_energy": 88760.52576271947,
+          "native_ce_added": 0.05103020096669424,
+          "predicted_ce_added": 0.05134377123009222
+        },
+        "1": {
+          "centered_effect_relative_error": 0.09747975223258822,
+          "centered_effect_cosine": 0.995299254347688,
+          "sites": 5629,
+          "native_centered_effect_energy": 12251248.697977224,
+          "centered_effect_error_energy": 116415.06617315856,
+          "native_ce_added": 0.008311809729015794,
+          "predicted_ce_added": 0.008529302065058052
+        },
+        "2": {
+          "centered_effect_relative_error": 0.12324715638585294,
+          "centered_effect_cosine": 0.9924125962584156,
+          "sites": 5629,
+          "native_centered_effect_energy": 13246425.093234539,
+          "centered_effect_error_energy": 201211.36329403808,
+          "native_ce_added": 0.0033202264784292766,
+          "predicted_ce_added": 0.003150289238264778
+        },
+        "3": {
+          "centered_effect_relative_error": 0.08486511434833426,
+          "centered_effect_cosine": 0.9965231660053555,
+          "sites": 5629,
+          "native_centered_effect_energy": 6758543.309052331,
+          "centered_effect_error_energy": 48675.621185625714,
+          "native_ce_added": 0.0023615787960380983,
+          "predicted_ce_added": 0.002485082058006564
+        },
+        "joint": {
+          "centered_effect_relative_error": 0.06481909950165834,
+          "centered_effect_cosine": 0.9979021831400585,
+          "sites": 5629,
+          "native_centered_effect_energy": 88941988.73932132,
+          "centered_effect_error_energy": 373691.1585381141,
+          "native_ce_added": 0.0700251207699204,
+          "predicted_ce_added": 0.07056253750756089
+        }
+      }
+    },
+    "code": {
+      "removal": {
+        "0": {
+          "centered_effect_relative_error": 0.05220006830447253,
+          "centered_effect_cosine": 0.9990563238848447,
+          "sites": 3840,
+          "native_centered_effect_energy": 74488206.87613334,
+          "centered_effect_error_energy": 202968.97679914057,
+          "native_ce_added": 0.3498832741752267,
+          "predicted_ce_added": 0.3259653318673372
+        },
+        "1": {
+          "centered_effect_relative_error": 0.03989595424679084,
+          "centered_effect_cosine": 0.9993842607992964,
+          "sites": 3840,
+          "native_centered_effect_energy": 65932264.78482054,
+          "centered_effect_error_energy": 104943.53963465647,
+          "native_ce_added": 0.09876600932329893,
+          "predicted_ce_added": 0.09413020312786102
+        },
+        "2": {
+          "centered_effect_relative_error": 0.05345198637462095,
+          "centered_effect_cosine": 0.9990961525060127,
+          "sites": 3840,
+          "native_centered_effect_energy": 73143014.39288096,
+          "centered_effect_error_energy": 208977.9924049555,
+          "native_ce_added": 0.05682287266245112,
+          "predicted_ce_added": 0.05046270031743916
+        },
+        "3": {
+          "centered_effect_relative_error": 0.036764846049936205,
+          "centered_effect_cosine": 0.9993239459128908,
+          "sites": 3840,
+          "native_centered_effect_energy": 22412015.10444336,
+          "centered_effect_error_energy": 30293.287736532176,
+          "native_ce_added": 0.054670974088367075,
+          "predicted_ce_added": 0.054239556076936424
+        },
+        "joint": {
+          "centered_effect_relative_error": 0.043420843106009986,
+          "centered_effect_cosine": 0.9992845935125478,
+          "sites": 3840,
+          "native_centered_effect_energy": 185398602.8931304,
+          "centered_effect_error_energy": 349544.8927503683,
+          "native_ce_added": 0.7189200017601252,
+          "predicted_ce_added": 0.6802079696208239
+        }
+      },
+      "same_token": {
+        "0": {
+          "centered_effect_relative_error": 0.04447155377912972,
+          "centered_effect_cosine": 0.9991885018654268,
+          "sites": 3232,
+          "native_centered_effect_energy": 31598846.20546225,
+          "centered_effect_error_energy": 62493.64153725924,
+          "native_ce_added": 0.08407634593300593,
+          "predicted_ce_added": 0.07994754275136759
+        },
+        "1": {
+          "centered_effect_relative_error": 0.1017898464823909,
+          "centered_effect_cosine": 0.9950403202931113,
+          "sites": 3232,
+          "native_centered_effect_energy": 6335470.147988702,
+          "centered_effect_error_energy": 65642.90126974121,
+          "native_ce_added": 0.00630360505853994,
+          "predicted_ce_added": 0.0060788805497908795
+        },
+        "2": {
+          "centered_effect_relative_error": 0.08163399933233707,
+          "centered_effect_cosine": 0.9975104080988245,
+          "sites": 3232,
+          "native_centered_effect_energy": 15742295.031634923,
+          "centered_effect_error_energy": 104908.38333457168,
+          "native_ce_added": 0.01745887530338259,
+          "predicted_ce_added": 0.015380628882964386
+        },
+        "3": {
+          "centered_effect_relative_error": 0.055373105981897944,
+          "centered_effect_cosine": 0.9985790619298883,
+          "sites": 3232,
+          "native_centered_effect_energy": 6677096.259183276,
+          "centered_effect_error_energy": 20473.18479089881,
+          "native_ce_added": 0.022834211406511217,
+          "predicted_ce_added": 0.022174418329734973
+        },
+        "joint": {
+          "centered_effect_relative_error": 0.062420576884159605,
+          "centered_effect_cosine": 0.9983610763965657,
+          "sites": 3232,
+          "native_centered_effect_energy": 56838511.323549144,
+          "centered_effect_error_energy": 221461.50693809328,
+          "native_ce_added": 0.15914135322776982,
+          "predicted_ce_added": 0.15031881595841876
+        }
+      }
+    }
+  },
+  "seconds": 4.772814738098532,
+  "scope": "Already-normalized operational feature-amplitude interchange. Explicit fixed writer and recipient native background. Reused panels/donor maps; no semantic/task-selectivity claim."
+}
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_features": true,
+    "pred_c_joint": true
+  },
+  "summary": {
+    "fineweb": {
+      "removal": {
+        "0": {
+          "centered_effect_relative_error": 0.02196796897073813,
+          "centered_effect_cosine": 0.999758675885438,
+          "sites": 7680,
+          "native_centered_effect_energy": 142664581.67692125,
+          "centered_effect_error_energy": 68848.73739443824,
+          "native_ce_added": 0.06947401715825663,
+          "predicted_ce_added": 0.0697948148517753
+        },
+        "1": {
+          "centered_effect_relative_error": 0.04990435534585797,
+          "centered_effect_cosine": 0.9988706887729851,
+          "sites": 7680,
+          "native_centered_effect_energy": 69332774.92295605,
+          "centered_effect_error_energy": 172669.4406288512,
+          "native_ce_added": 0.02480087360891048,
+          "predicted_ce_added": 0.024141816244082293
+        },
+        "2": {
+          "centered_effect_relative_error": 0.11025421497225486,
+          "centered_effect_cosine": 0.994037528586695,
+          "sites": 7680,
+          "native_centered_effect_energy": 27752511.276759278,
+          "centered_effect_error_energy": 337359.3028163547,
+          "native_ce_added": 0.002959162345632649,
+          "predicted_ce_added": 0.002759884547231195
+        },
+        "3": {
+          "centered_effect_relative_error": 0.06199180545935976,
+          "centered_effect_cosine": 0.9981003284882726,
+          "sites": 7680,
+          "native_centered_effect_energy": 17736516.48402038,
+          "centered_effect_error_energy": 68161.1480725523,
+          "native_ce_added": 0.0017257798790524248,
+          "predicted_ce_added": 0.0017380659297714374
+        },
+        "joint": {
+          "centered_effect_relative_error": 0.05231064948200697,
+          "centered_effect_cosine": 0.9986334384294059,
+          "sites": 7680,
+          "native_centered_effect_energy": 179064672.0870554,
+          "centered_effect_error_energy": 489993.29377295234,
+          "native_ce_added": 0.10582804412115365,
+          "predicted_ce_added": 0.10588112025288865
+        }
+      },
+      "same_token": {
+        "0": {
+          "centered_effect_relative_error": 0.030368005014991064,
+          "centered_effect_cosine": 0.9995421098131201,
+          "sites": 5629,
+          "native_centered_effect_energy": 68075791.10022679,
+          "centered_effect_error_energy": 62780.56528887185,
+          "native_ce_added": 0.05452049396054413,
+          "predicted_ce_added": 0.05483787153295903
+        },
+        "1": {
+          "centered_effect_relative_error": 0.0849096640820582,
+          "centered_effect_cosine": 0.9963927567334482,
+          "sites": 5629,
+          "native_centered_effect_energy": 13538525.426452635,
+          "centered_effect_error_energy": 97608.0441175779,
+          "native_ce_added": 0.012538693077983621,
+          "predicted_ce_added": 0.012527994732418375
+        },
+        "2": {
+          "centered_effect_relative_error": 0.1170057226016247,
+          "centered_effect_cosine": 0.9931922514143893,
+          "sites": 5629,
+          "native_centered_effect_energy": 12448657.455487618,
+          "centered_effect_error_energy": 170426.3421733677,
+          "native_ce_added": 0.0024137751258536447,
+          "predicted_ce_added": 0.002252854463509597
+        },
+        "3": {
+          "centered_effect_relative_error": 0.08629598023718052,
+          "centered_effect_cosine": 0.9964206781377812,
+          "sites": 5629,
+          "native_centered_effect_energy": 6078443.605462921,
+          "centered_effect_error_energy": 45266.14646277151,
+          "native_ce_added": 0.0013007552481642877,
+          "predicted_ce_added": 0.0013829361232411692
+        },
+        "joint": {
+          "centered_effect_relative_error": 0.06209178423673316,
+          "centered_effect_cosine": 0.9980818916541706,
+          "sites": 5629,
+          "native_centered_effect_energy": 88941988.73932132,
+          "centered_effect_error_energy": 342906.02458824427,
+          "native_ce_added": 0.0700251207699204,
+          "predicted_ce_added": 0.07065391016610828
+        }
+      }
+    },
+    "code": {
+      "removal": {
+        "0": {
+          "centered_effect_relative_error": 0.025417234312443145,
+          "centered_effect_cosine": 0.9996808850146762,
+          "sites": 3840,
+          "native_centered_effect_energy": 57675119.55879758,
+          "centered_effect_error_energy": 37260.19200966397,
+          "native_ce_added": 0.2013022555038333,
+          "predicted_ce_added": 0.20045498036779463
+        },
+        "1": {
+          "centered_effect_relative_error": 0.025025234685709812,
+          "centered_effect_cosine": 0.9997194633125052,
+          "sites": 3840,
+          "native_centered_effect_energy": 114862879.04592657,
+          "centered_effect_error_energy": 71934.29897978608,
+          "native_ce_added": 0.23111971374601126,
+          "predicted_ce_added": 0.22893803985789418
+        },
+        "2": {
+          "centered_effect_relative_error": 0.055277615262767026,
+          "centered_effect_cosine": 0.9985330560384316,
+          "sites": 3840,
+          "native_centered_effect_energy": 33867065.10167101,
+          "centered_effect_error_energy": 103484.70363469952,
+          "native_ce_added": 0.02243812292272196,
+          "predicted_ce_added": 0.022365376746165566
+        },
+        "3": {
+          "centered_effect_relative_error": 0.039729170978898914,
+          "centered_effect_cosine": 0.9992113618949995,
+          "sites": 3840,
+          "native_centered_effect_energy": 20301232.870693166,
+          "centered_effect_error_energy": 32043.608613177916,
+          "native_ce_added": 0.04013733833562583,
+          "predicted_ce_added": 0.039423082722350955
+        },
+        "joint": {
+          "centered_effect_relative_error": 0.02775588887598689,
+          "centered_effect_cosine": 0.9996370014820128,
+          "sites": 3840,
+          "native_centered_effect_energy": 185398602.8931398,
+          "centered_effect_error_energy": 142829.11238043295,
+          "native_ce_added": 0.7189200017601252,
+          "predicted_ce_added": 0.7093419842422009
+        }
+      },
+      "same_token": {
+        "0": {
+          "centered_effect_relative_error": 0.029564177173020664,
+          "centered_effect_cosine": 0.9995631128338993,
+          "sites": 3232,
+          "native_centered_effect_energy": 27205499.21365427,
+          "centered_effect_error_energy": 23778.710092010442,
+          "native_ce_added": 0.07039509163968262,
+          "predicted_ce_added": 0.0701614905868308
+        },
+        "1": {
+          "centered_effect_relative_error": 0.07331352496581141,
+          "centered_effect_cosine": 0.9973201434564118,
+          "sites": 3232,
+          "native_centered_effect_energy": 10409941.792398566,
+          "centered_effect_error_energy": 55952.1144772587,
+          "native_ce_added": 0.023265677643565248,
+          "predicted_ce_added": 0.02304553154897461
+        },
+        "2": {
+          "centered_effect_relative_error": 0.0872217700675291,
+          "centered_effect_cosine": 0.9965195091661172,
+          "sites": 3232,
+          "native_centered_effect_energy": 11758170.63259784,
+          "centered_effect_error_energy": 89451.89599941083,
+          "native_ce_added": 0.011271882700933893,
+          "predicted_ce_added": 0.010433887610860898
+        },
+        "3": {
+          "centered_effect_relative_error": 0.057920040886473866,
+          "centered_effect_cosine": 0.9984335084868192,
+          "sites": 3232,
+          "native_centered_effect_energy": 5991413.470419638,
+          "centered_effect_error_energy": 20099.581319608904,
+          "native_ce_added": 0.01730058255396774,
+          "predicted_ce_added": 0.01675275181923557
+        },
+        "joint": {
+          "centered_effect_relative_error": 0.05133390856866374,
+          "centered_effect_cosine": 0.9987330837264059,
+          "sites": 3232,
+          "native_centered_effect_energy": 56838511.323549144,
+          "centered_effect_error_energy": 149779.14948654367,
+          "native_ce_added": 0.15914135322776982,
+          "predicted_ce_added": 0.15544545048119335
+        }
+      }
+    }
+  },
+  "seconds": 4.1286158468574286,
+  "scope": "Already-normalized operational feature-amplitude interchange. Explicit fixed writer and recipient native background. Reused panels/donor maps; no semantic/task-selectivity claim."
+}
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_improve": true,
+    "pred_c_features": true
+  },
+  "native_joint_energy_replay": 5.084821452783217e-14,
+  "summary": {
+    "fixed": {
+      "fineweb": {
+        "removal": {
+          "0": {
+            "centered_effect_relative_error": 0.03650879330353062,
+            "centered_effect_cosine": 0.9994125784650582,
+            "sites": 7680,
+            "native_centered_effect_energy": 120076675.42899603,
+            "centered_effect_error_energy": 160049.23868261278,
+            "native_ce_added": 0.06251816096846596,
+            "predicted_ce_added": 0.06305283548317675
+          },
+          "1": {
+            "centered_effect_relative_error": 0.05969749090435486,
+            "centered_effect_cosine": 0.9982480898059329,
+            "sites": 7680,
+            "native_centered_effect_energy": 53519214.80866836,
+            "centered_effect_error_energy": 190731.26503580066,
+            "native_ce_added": 0.017917945926456014,
+            "predicted_ce_added": 0.018116698151061428
+          },
+          "2": {
+            "centered_effect_relative_error": 0.12604887267829204,
+            "centered_effect_cosine": 0.9924075642574224,
+            "sites": 7680,
+            "native_centered_effect_energy": 32853245.973920908,
+            "centered_effect_error_energy": 521982.8293357931,
+            "native_ce_added": 0.0050828568237193394,
+            "predicted_ce_added": 0.00451412417805841
+          },
+          "3": {
+            "centered_effect_relative_error": 0.06213257420891059,
+            "centered_effect_cosine": 0.9981070158780188,
+            "sites": 7680,
+            "native_centered_effect_energy": 18205742.558798935,
+            "centered_effect_error_energy": 70282.48225646664,
+            "native_ce_added": 0.003213670541299507,
+            "predicted_ce_added": 0.003270436714956304
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.056542081476511866,
+            "centered_effect_cosine": 0.9984004381232184,
+            "sites": 7680,
+            "native_centered_effect_energy": 179064672.0870554,
+            "centered_effect_error_energy": 572471.0061212528,
+            "native_ce_added": 0.10582804412115365,
+            "predicted_ce_added": 0.1058390878024511
+          }
+        },
+        "same_token": {
+          "0": {
+            "centered_effect_relative_error": 0.037889364430071716,
+            "centered_effect_cosine": 0.9992828603824718,
+            "sites": 5629,
+            "native_centered_effect_energy": 61828003.86677137,
+            "centered_effect_error_energy": 88760.52576271947,
+            "native_ce_added": 0.05103020096669424,
+            "predicted_ce_added": 0.05134377123009222
+          },
+          "1": {
+            "centered_effect_relative_error": 0.09747975223258822,
+            "centered_effect_cosine": 0.995299254347688,
+            "sites": 5629,
+            "native_centered_effect_energy": 12251248.697977224,
+            "centered_effect_error_energy": 116415.06617315856,
+            "native_ce_added": 0.008311809729015794,
+            "predicted_ce_added": 0.008529302065058052
+          },
+          "2": {
+            "centered_effect_relative_error": 0.12324715638585294,
+            "centered_effect_cosine": 0.9924125962584156,
+            "sites": 5629,
+            "native_centered_effect_energy": 13246425.093234539,
+            "centered_effect_error_energy": 201211.36329403808,
+            "native_ce_added": 0.0033202264784292766,
+            "predicted_ce_added": 0.003150289238264778
+          },
+          "3": {
+            "centered_effect_relative_error": 0.08486511434833426,
+            "centered_effect_cosine": 0.9965231660053555,
+            "sites": 5629,
+            "native_centered_effect_energy": 6758543.309052331,
+            "centered_effect_error_energy": 48675.621185625714,
+            "native_ce_added": 0.0023615787960380983,
+            "predicted_ce_added": 0.002485082058006564
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.06481909950165834,
+            "centered_effect_cosine": 0.9979021831400585,
+            "sites": 5629,
+            "native_centered_effect_energy": 88941988.73932132,
+            "centered_effect_error_energy": 373691.1585381141,
+            "native_ce_added": 0.0700251207699204,
+            "predicted_ce_added": 0.07056253750756089
+          }
+        }
+      },
+      "code": {
+        "removal": {
+          "0": {
+            "centered_effect_relative_error": 0.05220006830447253,
+            "centered_effect_cosine": 0.9990563238848447,
+            "sites": 3840,
+            "native_centered_effect_energy": 74488206.87613334,
+            "centered_effect_error_energy": 202968.97679914057,
+            "native_ce_added": 0.3498832741752267,
+            "predicted_ce_added": 0.3259653318673372
+          },
+          "1": {
+            "centered_effect_relative_error": 0.03989595424679084,
+            "centered_effect_cosine": 0.9993842607992964,
+            "sites": 3840,
+            "native_centered_effect_energy": 65932264.78482054,
+            "centered_effect_error_energy": 104943.53963465647,
+            "native_ce_added": 0.09876600932329893,
+            "predicted_ce_added": 0.09413020312786102
+          },
+          "2": {
+            "centered_effect_relative_error": 0.05345198637462095,
+            "centered_effect_cosine": 0.9990961525060127,
+            "sites": 3840,
+            "native_centered_effect_energy": 73143014.39288096,
+            "centered_effect_error_energy": 208977.9924049555,
+            "native_ce_added": 0.05682287266245112,
+            "predicted_ce_added": 0.05046270031743916
+          },
+          "3": {
+            "centered_effect_relative_error": 0.036764846049936205,
+            "centered_effect_cosine": 0.9993239459128908,
+            "sites": 3840,
+            "native_centered_effect_energy": 22412015.10444336,
+            "centered_effect_error_energy": 30293.287736532176,
+            "native_ce_added": 0.054670974088367075,
+            "predicted_ce_added": 0.054239556076936424
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.043420843106009986,
+            "centered_effect_cosine": 0.9992845935125478,
+            "sites": 3840,
+            "native_centered_effect_energy": 185398602.8931304,
+            "centered_effect_error_energy": 349544.8927503683,
+            "native_ce_added": 0.7189200017601252,
+            "predicted_ce_added": 0.6802079696208239
+          }
+        },
+        "same_token": {
+          "0": {
+            "centered_effect_relative_error": 0.04447155377912972,
+            "centered_effect_cosine": 0.9991885018654268,
+            "sites": 3232,
+            "native_centered_effect_energy": 31598846.20546225,
+            "centered_effect_error_energy": 62493.64153725924,
+            "native_ce_added": 0.08407634593300593,
+            "predicted_ce_added": 0.07994754275136759
+          },
+          "1": {
+            "centered_effect_relative_error": 0.1017898464823909,
+            "centered_effect_cosine": 0.9950403202931113,
+            "sites": 3232,
+            "native_centered_effect_energy": 6335470.147988702,
+            "centered_effect_error_energy": 65642.90126974121,
+            "native_ce_added": 0.00630360505853994,
+            "predicted_ce_added": 0.0060788805497908795
+          },
+          "2": {
+            "centered_effect_relative_error": 0.08163399933233707,
+            "centered_effect_cosine": 0.9975104080988245,
+            "sites": 3232,
+            "native_centered_effect_energy": 15742295.031634923,
+            "centered_effect_error_energy": 104908.38333457168,
+            "native_ce_added": 0.01745887530338259,
+            "predicted_ce_added": 0.015380628882964386
+          },
+          "3": {
+            "centered_effect_relative_error": 0.055373105981897944,
+            "centered_effect_cosine": 0.9985790619298883,
+            "sites": 3232,
+            "native_centered_effect_energy": 6677096.259183276,
+            "centered_effect_error_energy": 20473.18479089881,
+            "native_ce_added": 0.022834211406511217,
+            "predicted_ce_added": 0.022174418329734973
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.062420576884159605,
+            "centered_effect_cosine": 0.9983610763965657,
+            "sites": 3232,
+            "native_centered_effect_energy": 56838511.323549144,
+            "centered_effect_error_energy": 221461.50693809328,
+            "native_ce_added": 0.15914135322776982,
+            "predicted_ce_added": 0.15031881595841876
+          }
+        }
+      }
+    },
+    "learned": {
+      "fineweb": {
+        "removal": {
+          "0": {
+            "centered_effect_relative_error": 0.02196796897073813,
+            "centered_effect_cosine": 0.999758675885438,
+            "sites": 7680,
+            "native_centered_effect_energy": 142664581.67692125,
+            "centered_effect_error_energy": 68848.73739443824,
+            "native_ce_added": 0.06947401715825663,
+            "predicted_ce_added": 0.0697948148517753
+          },
+          "1": {
+            "centered_effect_relative_error": 0.04990435534585797,
+            "centered_effect_cosine": 0.9988706887729851,
+            "sites": 7680,
+            "native_centered_effect_energy": 69332774.92295605,
+            "centered_effect_error_energy": 172669.4406288512,
+            "native_ce_added": 0.02480087360891048,
+            "predicted_ce_added": 0.024141816244082293
+          },
+          "2": {
+            "centered_effect_relative_error": 0.11025421497225486,
+            "centered_effect_cosine": 0.994037528586695,
+            "sites": 7680,
+            "native_centered_effect_energy": 27752511.276759278,
+            "centered_effect_error_energy": 337359.3028163547,
+            "native_ce_added": 0.002959162345632649,
+            "predicted_ce_added": 0.002759884547231195
+          },
+          "3": {
+            "centered_effect_relative_error": 0.06199180545935976,
+            "centered_effect_cosine": 0.9981003284882726,
+            "sites": 7680,
+            "native_centered_effect_energy": 17736516.48402038,
+            "centered_effect_error_energy": 68161.1480725523,
+            "native_ce_added": 0.0017257798790524248,
+            "predicted_ce_added": 0.0017380659297714374
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.05231064948200697,
+            "centered_effect_cosine": 0.9986334384294059,
+            "sites": 7680,
+            "native_centered_effect_energy": 179064672.0870554,
+            "centered_effect_error_energy": 489993.29377295234,
+            "native_ce_added": 0.10582804412115365,
+            "predicted_ce_added": 0.10588112025288865
+          }
+        },
+        "same_token": {
+          "0": {
+            "centered_effect_relative_error": 0.030368005014991064,
+            "centered_effect_cosine": 0.9995421098131201,
+            "sites": 5629,
+            "native_centered_effect_energy": 68075791.10022679,
+            "centered_effect_error_energy": 62780.56528887185,
+            "native_ce_added": 0.05452049396054413,
+            "predicted_ce_added": 0.05483787153295903
+          },
+          "1": {
+            "centered_effect_relative_error": 0.0849096640820582,
+            "centered_effect_cosine": 0.9963927567334482,
+            "sites": 5629,
+            "native_centered_effect_energy": 13538525.426452635,
+            "centered_effect_error_energy": 97608.0441175779,
+            "native_ce_added": 0.012538693077983621,
+            "predicted_ce_added": 0.012527994732418375
+          },
+          "2": {
+            "centered_effect_relative_error": 0.1170057226016247,
+            "centered_effect_cosine": 0.9931922514143893,
+            "sites": 5629,
+            "native_centered_effect_energy": 12448657.455487618,
+            "centered_effect_error_energy": 170426.3421733677,
+            "native_ce_added": 0.0024137751258536447,
+            "predicted_ce_added": 0.002252854463509597
+          },
+          "3": {
+            "centered_effect_relative_error": 0.08629598023718052,
+            "centered_effect_cosine": 0.9964206781377812,
+            "sites": 5629,
+            "native_centered_effect_energy": 6078443.605462921,
+            "centered_effect_error_energy": 45266.14646277151,
+            "native_ce_added": 0.0013007552481642877,
+            "predicted_ce_added": 0.0013829361232411692
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.06209178423673316,
+            "centered_effect_cosine": 0.9980818916541706,
+            "sites": 5629,
+            "native_centered_effect_energy": 88941988.73932132,
+            "centered_effect_error_energy": 342906.02458824427,
+            "native_ce_added": 0.0700251207699204,
+            "predicted_ce_added": 0.07065391016610828
+          }
+        }
+      },
+      "code": {
+        "removal": {
+          "0": {
+            "centered_effect_relative_error": 0.025417234312443145,
+            "centered_effect_cosine": 0.9996808850146762,
+            "sites": 3840,
+            "native_centered_effect_energy": 57675119.55879758,
+            "centered_effect_error_energy": 37260.19200966397,
+            "native_ce_added": 0.2013022555038333,
+            "predicted_ce_added": 0.20045498036779463
+          },
+          "1": {
+            "centered_effect_relative_error": 0.025025234685709812,
+            "centered_effect_cosine": 0.9997194633125052,
+            "sites": 3840,
+            "native_centered_effect_energy": 114862879.04592657,
+            "centered_effect_error_energy": 71934.29897978608,
+            "native_ce_added": 0.23111971374601126,
+            "predicted_ce_added": 0.22893803985789418
+          },
+          "2": {
+            "centered_effect_relative_error": 0.055277615262767026,
+            "centered_effect_cosine": 0.9985330560384316,
+            "sites": 3840,
+            "native_centered_effect_energy": 33867065.10167101,
+            "centered_effect_error_energy": 103484.70363469952,
+            "native_ce_added": 0.02243812292272196,
+            "predicted_ce_added": 0.022365376746165566
+          },
+          "3": {
+            "centered_effect_relative_error": 0.039729170978898914,
+            "centered_effect_cosine": 0.9992113618949995,
+            "sites": 3840,
+            "native_centered_effect_energy": 20301232.870693166,
+            "centered_effect_error_energy": 32043.608613177916,
+            "native_ce_added": 0.04013733833562583,
+            "predicted_ce_added": 0.039423082722350955
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.02775588887598689,
+            "centered_effect_cosine": 0.9996370014820128,
+            "sites": 3840,
+            "native_centered_effect_energy": 185398602.8931398,
+            "centered_effect_error_energy": 142829.11238043295,
+            "native_ce_added": 0.7189200017601252,
+            "predicted_ce_added": 0.7093419842422009
+          }
+        },
+        "same_token": {
+          "0": {
+            "centered_effect_relative_error": 0.029564177173020664,
+            "centered_effect_cosine": 0.9995631128338993,
+            "sites": 3232,
+            "native_centered_effect_energy": 27205499.21365427,
+            "centered_effect_error_energy": 23778.710092010442,
+            "native_ce_added": 0.07039509163968262,
+            "predicted_ce_added": 0.0701614905868308
+          },
+          "1": {
+            "centered_effect_relative_error": 0.07331352496581141,
+            "centered_effect_cosine": 0.9973201434564118,
+            "sites": 3232,
+            "native_centered_effect_energy": 10409941.792398566,
+            "centered_effect_error_energy": 55952.1144772587,
+            "native_ce_added": 0.023265677643565248,
+            "predicted_ce_added": 0.02304553154897461
+          },
+          "2": {
+            "centered_effect_relative_error": 0.0872217700675291,
+            "centered_effect_cosine": 0.9965195091661172,
+            "sites": 3232,
+            "native_centered_effect_energy": 11758170.63259784,
+            "centered_effect_error_energy": 89451.89599941083,
+            "native_ce_added": 0.011271882700933893,
+            "predicted_ce_added": 0.010433887610860898
+          },
+          "3": {
+            "centered_effect_relative_error": 0.057920040886473866,
+            "centered_effect_cosine": 0.9984335084868192,
+            "sites": 3232,
+            "native_centered_effect_energy": 5991413.470419638,
+            "centered_effect_error_energy": 20099.581319608904,
+            "native_ce_added": 0.01730058255396774,
+            "predicted_ce_added": 0.01675275181923557
+          },
+          "joint": {
+            "centered_effect_relative_error": 0.05133390856866374,
+            "centered_effect_cosine": 0.9987330837264059,
+            "sites": 3232,
+            "native_centered_effect_energy": 56838511.323549144,
+            "centered_effect_error_energy": 149779.14948654367,
+            "native_ce_added": 0.15914135322776982,
+            "predicted_ce_added": 0.15544545048119335
+          }
+        }
+      }
+    }
+  },
+  "scope": "Matched original-weight fixed/learned output block candidates. Reused panels. Individual operational features differ; joint teacher must be invariant."
+}

@@ -1,0 +1,234 @@
+{"seed": 1001, "step": 0, "objective": -10.672554368577112, "elapsed": 1.1713639539666474}
+{"seed": 1001, "step": 10, "objective": -10.675649470149143, "elapsed": 1.941750270780176}
+{"seed": 1001, "step": 20, "objective": -10.676220776630306, "elapsed": 2.558868959080428}
+{"seed": 1001, "step": 30, "objective": -10.67675414704124, "elapsed": 3.1758285257965326}
+{"seed": 1001, "step": 40, "objective": -10.677131398773664, "elapsed": 3.7929056957364082}
+{"seed": 1001, "step": 50, "objective": -10.67743999605243, "elapsed": 4.409823734778911}
+{"seed": 1001, "step": 60, "objective": -10.67767848490502, "elapsed": 5.027192777954042}
+{"seed": 1001, "step": 70, "objective": -10.677794206467832, "elapsed": 5.644670607056469}
+{"seed": 1001, "step": 80, "objective": -10.67786082861179, "elapsed": 6.262383081018925}
+{"seed": 1001, "step": 90, "objective": -10.677886584548178, "elapsed": 6.879790757782757}
+{"seed": 1001, "step": 100, "objective": -10.677893456202805, "elapsed": 7.497448518872261}
+{"seed": 1002, "step": 0, "objective": -8.16979018112475, "elapsed": 7.7171327928081155}
+{"seed": 1002, "step": 10, "objective": -8.171774728159518, "elapsed": 8.334574866108596}
+{"seed": 1002, "step": 20, "objective": -8.171956494885483, "elapsed": 8.951537840999663}
+{"seed": 1002, "step": 30, "objective": -8.17223344640255, "elapsed": 9.568777018692344}
+{"seed": 1002, "step": 40, "objective": -8.172483254326535, "elapsed": 10.185986982658505}
+{"seed": 1002, "step": 50, "objective": -8.172649832572276, "elapsed": 10.803227975033224}
+{"seed": 1002, "step": 60, "objective": -8.172783950691777, "elapsed": 11.419911510776728}
+{"seed": 1002, "step": 70, "objective": -8.172865733031438, "elapsed": 12.036643920931965}
+{"seed": 1002, "step": 80, "objective": -8.172917938309263, "elapsed": 12.653975285124034}
+{"seed": 1002, "step": 90, "objective": -8.172936188685211, "elapsed": 13.271011910866946}
+{"seed": 1002, "step": 100, "objective": -8.172940930506076, "elapsed": 13.887935031671077}
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_parent": true,
+    "pred_c_retention": false
+  },
+  "absolute_component_gate": false,
+  "rows": [
+    {
+      "seed": 1001,
+      "unpruned_native": {
+        "text_error": 0.06322183414224304,
+        "root1_sensitivity_error": 0.10004954828822284,
+        "root1_same_token_error": 0.09722685829866587
+      },
+      "initial": {
+        "text_error": 0.08149537841321186,
+        "root1_sensitivity_error": 0.2215993003996443,
+        "root1_same_token_error": 0.27328404569389
+      },
+      "final": {
+        "text_error": 0.06885523103231048,
+        "root1_sensitivity_error": 0.14362803703942084,
+        "root1_same_token_error": 0.1494982133458743
+      },
+      "initial_parent": {
+        "coefficient_error": 0.697784414449482,
+        "gaussian_error": 0.023904987604249157
+      },
+      "final_parent": {
+        "coefficient_error": 0.6801787649325024,
+        "gaussian_error": 0.008964239686799397
+      },
+      "selected_step": 100,
+      "history": [
+        {
+          "seed": 1001,
+          "step": 0,
+          "objective": -10.672554368577112,
+          "elapsed": 1.1713639539666474
+        },
+        {
+          "seed": 1001,
+          "step": 10,
+          "objective": -10.675649470149143,
+          "elapsed": 1.941750270780176
+        },
+        {
+          "seed": 1001,
+          "step": 20,
+          "objective": -10.676220776630306,
+          "elapsed": 2.558868959080428
+        },
+        {
+          "seed": 1001,
+          "step": 30,
+          "objective": -10.67675414704124,
+          "elapsed": 3.1758285257965326
+        },
+        {
+          "seed": 1001,
+          "step": 40,
+          "objective": -10.677131398773664,
+          "elapsed": 3.7929056957364082
+        },
+        {
+          "seed": 1001,
+          "step": 50,
+          "objective": -10.67743999605243,
+          "elapsed": 4.409823734778911
+        },
+        {
+          "seed": 1001,
+          "step": 60,
+          "objective": -10.67767848490502,
+          "elapsed": 5.027192777954042
+        },
+        {
+          "seed": 1001,
+          "step": 70,
+          "objective": -10.677794206467832,
+          "elapsed": 5.644670607056469
+        },
+        {
+          "seed": 1001,
+          "step": 80,
+          "objective": -10.67786082861179,
+          "elapsed": 6.262383081018925
+        },
+        {
+          "seed": 1001,
+          "step": 90,
+          "objective": -10.677886584548178,
+          "elapsed": 6.879790757782757
+        },
+        {
+          "seed": 1001,
+          "step": 100,
+          "objective": -10.677893456202805,
+          "elapsed": 7.497448518872261
+        }
+      ],
+      "baseline_replay": 6.339212043788057e-09,
+      "export_error": 9.52206038909446e-08,
+      "sha256": "92daf9d6af7b2ec5ed6629f2dd0d81c5b938bf4c85d1e8ba61ce4481e011175e"
+    },
+    {
+      "seed": 1002,
+      "unpruned_native": {
+        "text_error": 0.06587528291254946,
+        "root1_sensitivity_error": 0.10783296372864504,
+        "root1_same_token_error": 0.11781472215844391
+      },
+      "initial": {
+        "text_error": 0.07652689311954311,
+        "root1_sensitivity_error": 0.17983966616224506,
+        "root1_same_token_error": 0.18965397307982448
+      },
+      "final": {
+        "text_error": 0.06969043849203717,
+        "root1_sensitivity_error": 0.13650115337081642,
+        "root1_same_token_error": 0.1497643756379922
+      },
+      "initial_parent": {
+        "coefficient_error": 0.6955475679682593,
+        "gaussian_error": 0.02063854394729536
+      },
+      "final_parent": {
+        "coefficient_error": 0.6682547109213173,
+        "gaussian_error": 0.007685823037718821
+      },
+      "selected_step": 100,
+      "history": [
+        {
+          "seed": 1002,
+          "step": 0,
+          "objective": -8.16979018112475,
+          "elapsed": 7.7171327928081155
+        },
+        {
+          "seed": 1002,
+          "step": 10,
+          "objective": -8.171774728159518,
+          "elapsed": 8.334574866108596
+        },
+        {
+          "seed": 1002,
+          "step": 20,
+          "objective": -8.171956494885483,
+          "elapsed": 8.951537840999663
+        },
+        {
+          "seed": 1002,
+          "step": 30,
+          "objective": -8.17223344640255,
+          "elapsed": 9.568777018692344
+        },
+        {
+          "seed": 1002,
+          "step": 40,
+          "objective": -8.172483254326535,
+          "elapsed": 10.185986982658505
+        },
+        {
+          "seed": 1002,
+          "step": 50,
+          "objective": -8.172649832572276,
+          "elapsed": 10.803227975033224
+        },
+        {
+          "seed": 1002,
+          "step": 60,
+          "objective": -8.172783950691777,
+          "elapsed": 11.419911510776728
+        },
+        {
+          "seed": 1002,
+          "step": 70,
+          "objective": -8.172865733031438,
+          "elapsed": 12.036643920931965
+        },
+        {
+          "seed": 1002,
+          "step": 80,
+          "objective": -8.172917938309263,
+          "elapsed": 12.653975285124034
+        },
+        {
+          "seed": 1002,
+          "step": 90,
+          "objective": -8.172936188685211,
+          "elapsed": 13.271011910866946
+        },
+        {
+          "seed": 1002,
+          "step": 100,
+          "objective": -8.172940930506076,
+          "elapsed": 13.887935031671077
+        }
+      ],
+      "baseline_replay": 6.230234388027397e-09,
+      "export_error": 9.146392960721517e-08,
+      "sha256": "413bb455fc543c500d0e3882062e07dc050549b7a9ce1d4bda3b7bc938efed79"
+    }
+  ],
+  "steps": 100,
+  "products": 768,
+  "coefficients": 1202176,
+  "seconds": 13.9374859938398,
+  "peak_memory_bytes": 453103104,
+  "scope": "Exact compression of frozen learnedCP512parent, not exactnativequartic target. CP256 directionsmove afterpruning; unit-featuremixedmetricridge1e-10 unchanged. Nativeopenedlabels evaluationonly, bestfittingobjectivecheckpoint. No finite-removal/OOD/semanticadoption fromscreen."
+}
