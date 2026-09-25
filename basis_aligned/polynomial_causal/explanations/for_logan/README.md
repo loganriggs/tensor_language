@@ -1,3 +1,5 @@
+[25 September — Status after the disconnect: DCT and circuits lanes closed and pushed (PR-DCT → branch DCT closed form → symmetric DCT → circuits C1a–C3h: fixed MLP forms reached through a context-contracted value transport by heads 9.8/9.7/8.2; heads transfer, creator lists do not); what is on GitHub, 6.9 GB of fitted tensors that are not, and four open items](research_update_2026-09-25_status_after_disconnect.md)
+
 [22 September — Final Codex compression report: selected MLP16→MLP17 branch, arithmetic savings, native failures, hybrid result, and stable conclusions](research_update_2026-09-22_final_codex_compression.md).
 
 [22 September 06:02 — Completed optimizer comparison and new-feature sharing oracle](research_update_2026-09-22_0602_optimizer_comparison.md).
